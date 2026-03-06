@@ -6,6 +6,8 @@ interface RouterConfig<T> {
   getDocBySlug: (slug: string) => T | undefined
   getDocsByCategory: (category: string) => T[]
   getDocsByTag: (tag: string) => T[]
+  getAllCategories: () => Array<{ slug: string; count: number }>
+  getAllTags: () => Array<{ slug: string; count: number }>
   toMetadata: (doc: T) => DocMetadata
 }
 
@@ -102,6 +104,18 @@ export function createContentRouter<T extends DocWithContent>(
   config: RouterConfig<T>,
 ): Router {
   const router = Router()
+
+  // GET /categories - Get all categories with counts
+  router.get('/categories', (req: Request, res: Response) => {
+    const categories = config.getAllCategories()
+    res.json({ data: categories })
+  })
+
+  // GET /tags - Get all tags with counts
+  router.get('/tags', (req: Request, res: Response) => {
+    const tags = config.getAllTags()
+    res.json({ data: tags })
+  })
 
   // GET / or /:full - Get all docs metadata (or with content if full)
   router.get('/:full?', (req: Request, res: Response, next) => {

@@ -82,3 +82,16 @@ export interface CacheData {
   blogPosts: ParsedBlogPost[]
   timestamp: number
 }
+
+export interface CategoryInfo {
+  slug: string
+  name?: string
+  description?: string
+  count: number
+}
+
+export interface TagInfo {
+  slug: string
+  name?: string
+  count: number
+}

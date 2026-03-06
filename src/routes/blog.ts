@@ -20,6 +20,8 @@ const router = createContentRouter<ParsedBlogPost>({
   getDocsByCategory: (category) =>
     contentLoader.getBlogPostsByCategory(category),
   getDocsByTag: (tag) => contentLoader.getBlogPostsByTag(tag),
+  getAllCategories: () => contentLoader.getAllBlogCategories(),
+  getAllTags: () => contentLoader.getAllBlogTags(),
   toMetadata,
 })
 

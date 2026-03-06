@@ -307,6 +307,38 @@ export class ContentLoader {
       .map((slug) => this.blogPosts.get(slug))
       .filter((post): post is ParsedBlogPost => post !== undefined)
   }
+
+  // Get all help categories with count
+  getAllHelpCategories(): Array<{ slug: string; count: number }> {
+    return Array.from(this.helpByCategory.entries()).map(([slug, docs]) => ({
+      slug,
+      count: docs.length,
+    }))
+  }
+
+  // Get all help tags with count
+  getAllHelpTags(): Array<{ slug: string; count: number }> {
+    return Array.from(this.helpByTag.entries()).map(([slug, docs]) => ({
+      slug,
+      count: docs.length,
+    }))
+  }
+
+  // Get all blog categories with count
+  getAllBlogCategories(): Array<{ slug: string; count: number }> {
+    return Array.from(this.blogByCategory.entries()).map(([slug, posts]) => ({
+      slug,
+      count: posts.length,
+    }))
+  }
+
+  // Get all blog tags with count
+  getAllBlogTags(): Array<{ slug: string; count: number }> {
+    return Array.from(this.blogByTag.entries()).map(([slug, posts]) => ({
+      slug,
+      count: posts.length,
+    }))
+  }
 }
 
 export const contentLoader = new ContentLoader()

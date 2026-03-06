@@ -20,6 +20,8 @@ const router = createContentRouter<ParsedHelpDoc>({
   getDocsByCategory: (category) =>
     contentLoader.getHelpDocsByCategory(category),
   getDocsByTag: (tag) => contentLoader.getHelpDocsByTag(tag),
+  getAllCategories: () => contentLoader.getAllHelpCategories(),
+  getAllTags: () => contentLoader.getAllHelpTags(),
   toMetadata,
 })
 
