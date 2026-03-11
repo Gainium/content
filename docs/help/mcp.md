@@ -3,41 +3,41 @@ id: 138
 name: Connect Gainium MCP to AI agents
 slug: mcp
 description: >-
-	Learn how to connect Gainium MCP to AI agents such as VS Code, Claude Code,
-	OpenClaw, and other MCP-compatible clients.
+  Learn how to connect Gainium MCP to AI agents such as VS Code, Claude Code,
+  OpenClaw, and other MCP-compatible clients.
 createdAt: '2026-03-11T00:00:00.000Z'
 updatedAt: '2026-03-11T00:00:00.000Z'
 publishedAt: '2026-03-11T00:00:00.000Z'
 locale: en
 categories:
-	- platform
+  - platform
 difficulty: intermediate
 tags:
-	- api
+  - api
 faq:
-	- title: Which Gainium API key permission should I use?
-		details: >-
-			Use a Read key if your agent only needs to inspect bots, deals, balances,
-			exchanges, or backtests. Use a Write key only if you want the agent to
-			create, edit, start, stop, archive, restore, or clone bots and deals.
-	- title: Can I force paper trading or restrict the MCP to one bot from the client config?
-		details: >-
-			No. GAINIUM_PAPER_ONLY and GAINIUM_ALLOWED_BOT_ID are server-side
-			environment variables. To enforce them, you must run your own Gainium MCP
-			instance with those values set.
-	- title: Which transport should I use?
-		details: >-
-			Use local stdio when your client supports it because it is the simplest
-			and keeps credentials local. Use remote HTTP when you do not want to run
-			the server yourself. Use local HTTP or SSE only when your client requires
-			them.
+  - title: Which Gainium API key permission should I use?
+    details: >-
+      Use a Read key if your agent only needs to inspect bots, deals, balances,
+      exchanges, or backtests. Use a Write key only if you want the agent to
+      create, edit, start, stop, archive, restore, or clone bots and deals.
+  - title: Can I force paper trading or restrict the MCP to one bot from the client config?
+    details: >-
+      No. GAINIUM_PAPER_ONLY and GAINIUM_ALLOWED_BOT_ID are server-side
+      environment variables. To enforce them, you must run your own Gainium MCP
+      instance with those values set.
+  - title: Which transport should I use?
+    details: >-
+      Use local stdio when your client supports it because it is the simplest
+      and keeps credentials local. Use remote HTTP when you do not want to run
+      the server yourself. Use local HTTP or SSE only when your client requires
+      them.
 ingested: true
 ingestedAt: '2026-03-11T00:00:00.000Z'
 tldr: >-
-	Gainium MCP lets AI agents read and manage your Gainium account through MCP
-	tools. Most users should connect with local stdio or hosted HTTP, use a Read
-	key unless write access is required, and pass paperContext: true in tool calls
-	for paper trading unless their own server is already paper-locked.
+  Gainium MCP lets AI agents read and manage your Gainium account through MCP
+  tools. Most users should connect with local stdio or hosted HTTP, use a Read
+  key unless write access is required, and pass paperContext: true in tool calls
+  for paper trading unless their own server is already paper-locked.
 ---
 
 Gainium MCP lets MCP-compatible agents connect to your Gainium account so they can read bots, deals, balances, exchanges, backtests, and other account data. With the correct API key permission, agents can also create and manage bots and deals.

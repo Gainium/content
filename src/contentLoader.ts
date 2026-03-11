@@ -17,6 +17,26 @@ const HELP_DIR = path.join(DOCS_DIR, 'help')
 const BLOG_DIR = path.join(DOCS_DIR, 'blog')
 const TEMP_DIR = path.join(process.cwd(), 'temp')
 const CACHE_FILE = path.join(TEMP_DIR, 'content-cache.json')
+const REQUIRED_HELP_FIELDS = [
+  'id',
+  'name',
+  'slug',
+  'description',
+  'createdAt',
+  'updatedAt',
+  'publishedAt',
+  'locale',
+  'categories',
+] as const
+const REQUIRED_BLOG_FIELDS = [
+  'title',
+  'slug',
+  'excerpt',
+  'createdAt',
+  'updatedAt',
+  'publishedAt',
+  'locale',
+] as const
 
 export class ContentLoader {
   private helpDocs: Map<string, ParsedHelpDoc> = new Map()
@@ -118,6 +138,119 @@ export class ContentLoader {
     )
   }
 
+  private normalizeFrontmatter(rawContent: string, filePath: string): string {
+    const frontmatterMatch = rawContent.match(/^(---\n)([\s\S]*?)(\n---\n?)/)
+
+    if (!frontmatterMatch || !/^\t+/m.test(frontmatterMatch[2])) {
+      return rawContent
+    }
+
+    const normalizedFrontmatter = frontmatterMatch[2].replace(
+      /^\t+/gm,
+      (tabs) => '  '.repeat(tabs.length),
+    )
+
+    logger.warn(
+      `Normalized tab-indented frontmatter in ${path.relative(process.cwd(), filePath)}`,
+    )
+
+    return rawContent.replace(
+      frontmatterMatch[0],
+      `${frontmatterMatch[1]}${normalizedFrontmatter}${frontmatterMatch[3]}`,
+    )
+  }
+
+  private validateRequiredFields(
+    metadata: Record<string, unknown>,
+    requiredFields: readonly string[],
+    filePath: string,
+  ): boolean {
+    const missingFields = requiredFields.filter((field) => {
+      const value = metadata[field]
+
+      if (Array.isArray(value)) {
+        return value.length === 0
+      }
+
+      return value === undefined || value === null || value === ''
+    })
+
+    if (missingFields.length > 0) {
+      logger.error(
+        `Skipping ${path.relative(process.cwd(), filePath)} due to missing frontmatter fields: ${missingFields.join(', ')}`,
+      )
+      return false
+    }
+
+    return true
+  }
+
+  private parseHelpDoc(
+    rawContent: string,
+    filePath: string,
+  ): ParsedHelpDoc | undefined {
+    const normalizedContent = this.normalizeFrontmatter(rawContent, filePath)
+    const { data, content } = matter(normalizedContent)
+
+    if (
+      !this.validateRequiredFields(
+        data as Record<string, unknown>,
+        REQUIRED_HELP_FIELDS,
+        filePath,
+      )
+    ) {
+      return undefined
+    }
+
+    const metadata = data as HelpDocFrontmatter
+
+    if (this.helpDocs.has(metadata.slug)) {
+      logger.error(
+        `Skipping duplicate help doc slug "${metadata.slug}" from ${path.relative(process.cwd(), filePath)}`,
+      )
+      return undefined
+    }
+
+    return {
+      metadata,
+      content: content.trim(),
+      rawContent: normalizedContent,
+    }
+  }
+
+  private parseBlogPost(
+    rawContent: string,
+    filePath: string,
+  ): ParsedBlogPost | undefined {
+    const normalizedContent = this.normalizeFrontmatter(rawContent, filePath)
+    const { data, content } = matter(normalizedContent)
+
+    if (
+      !this.validateRequiredFields(
+        data as Record<string, unknown>,
+        REQUIRED_BLOG_FIELDS,
+        filePath,
+      )
+    ) {
+      return undefined
+    }
+
+    const metadata = data as BlogPostFrontmatter
+
+    if (this.blogPosts.has(metadata.slug)) {
+      logger.error(
+        `Skipping duplicate blog slug "${metadata.slug}" from ${path.relative(process.cwd(), filePath)}`,
+      )
+      return undefined
+    }
+
+    return {
+      metadata,
+      content: content.trim(),
+      rawContent: normalizedContent,
+    }
+  }
+
   private async loadHelpDocs(): Promise<void> {
     try {
       const dirExists = await fs
@@ -136,15 +269,11 @@ export class ContentLoader {
         try {
           const filePath = path.join(HELP_DIR, file)
           const rawContent = await fs.readFile(filePath, 'utf-8')
-          const { data, content } = matter(rawContent)
+          const parsedDoc = this.parseHelpDoc(rawContent, filePath)
 
-          const parsedDoc: ParsedHelpDoc = {
-            metadata: data as HelpDocFrontmatter,
-            content: content.trim(),
-            rawContent,
+          if (parsedDoc) {
+            this.helpDocs.set(parsedDoc.metadata.slug, parsedDoc)
           }
-
-          this.helpDocs.set(parsedDoc.metadata.slug, parsedDoc)
         } catch (error) {
           logger.error(`Error parsing help doc ${file}:`, error)
         }
@@ -172,15 +301,11 @@ export class ContentLoader {
         try {
           const filePath = path.join(BLOG_DIR, file)
           const rawContent = await fs.readFile(filePath, 'utf-8')
-          const { data, content } = matter(rawContent)
+          const parsedPost = this.parseBlogPost(rawContent, filePath)
 
-          const parsedPost: ParsedBlogPost = {
-            metadata: data as BlogPostFrontmatter,
-            content: content.trim(),
-            rawContent,
+          if (parsedPost) {
+            this.blogPosts.set(parsedPost.metadata.slug, parsedPost)
           }
-
-          this.blogPosts.set(parsedPost.metadata.slug, parsedPost)
         } catch (error) {
           logger.error(`Error parsing blog post ${file}:`, error)
         }
