@@ -80,6 +80,8 @@ Once you have switched to paper mode, you can go to your exchanges and add a new
 
 Think of the paper trading mode as another account. You can add and remove exchanges; all other functionality remains the same.
 
+If you use AI agents through Gainium MCP, paper mode is usually passed per tool call with `paperContext: true`, or enforced server-side with `GAINIUM_PAPER_ONLY=true`. See [Connect Gainium MCP to AI agents](https://gainium.io/help/mcp) for the MCP-specific setup.
+
 ### Managing your paper trading account in Gainium
 
 You can easily manage your paper trading account from the “Exchanges” menu. There, you can add new accounts, add more funds to existing accounts, delete accounts, and reset all paper trading data.

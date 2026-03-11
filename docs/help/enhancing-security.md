@@ -32,6 +32,8 @@ Many trading platforms claim API keys are safe because they do not have withdraw
 
 By following the steps below, you can dramatically lower the chances of your account potentially being controlled by a malicious actor.
 
+These same precautions matter if you use your Gainium API keys with external tools, scripts, or AI agents. If you are connecting an MCP-compatible client, also review [Connect Gainium MCP to AI agents](https://gainium.io/help/mcp).
+
 ## Steps to protect yourself from hackers
 
 ### 2-Factor Authentication

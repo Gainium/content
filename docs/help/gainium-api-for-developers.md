@@ -55,6 +55,8 @@ An OpenAPI YAML specification is available for use with AI coding assistants and
 
 [https://api.gainium.io/api/v2/openapi.yaml?view=true](https://api.gainium.io/api/v2/openapi.yaml?view=true)
 
+If you want to connect Gainium to MCP-compatible clients such as VS Code or Claude Code instead of calling the REST API directly, see [Connect Gainium MCP to AI agents](https://gainium.io/help/mcp).
+
 ## V2 API Highlights
 
 **Field Selection** — All V2 GET endpoints accept a `fields` query parameter to limit response data. Use presets (`minimal`, `standard`, `extended`, `full`) or specify custom dot-notation fields (e.g. `fields=_id,uuid,settings.name,profit.total`). The `minimal` and `standard` presets reduce payload size by 70–90%.
