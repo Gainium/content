@@ -6,7 +6,7 @@ description: >-
   Learn how to connect Gainium MCP to AI agents such as VS Code, Claude Code,
   OpenClaw, and other MCP-compatible clients.
 createdAt: '2026-03-11T00:00:00.000Z'
-updatedAt: '2026-03-11T00:00:00.000Z'
+updatedAt: '2026-03-14T00:00:00.000Z'
 publishedAt: '2026-03-11T00:00:00.000Z'
 locale: en
 categories:
@@ -22,9 +22,12 @@ faq:
       create, edit, start, stop, archive, restore, or clone bots and deals.
   - title: Can I force paper trading or restrict the MCP to one bot from the client config?
     details: >-
-      No. GAINIUM_PAPER_ONLY and GAINIUM_ALLOWED_BOT_ID are server-side
-      environment variables. To enforce them, you must run your own Gainium MCP
-      instance with those values set.
+			Not from the client config alone. You can enforce trading mode and an
+			optional bot ID by creating the API key with those restrictions, which
+			also works over hosted HTTP. If you run your own Gainium MCP instance,
+			you can also enforce them locally with GAINIUM_PAPER_ONLY and
+			GAINIUM_ALLOWED_BOT_ID, even if the API key itself was created without
+			those restrictions.
   - title: Which transport should I use?
     details: >-
       Use local stdio when your client supports it because it is the simplest
@@ -36,8 +39,8 @@ ingestedAt: '2026-03-11T00:00:00.000Z'
 tldr: >-
   Gainium MCP lets AI agents read and manage your Gainium account through MCP
   tools. Most users should connect with local stdio or hosted HTTP, use a Read
-  key unless write access is required, and pass paperContext: true in tool calls
-  for paper trading unless their own server is already paper-locked.
+	key unless write access is required, and use API key restrictions or
+	paperContext: true when you need paper-only or single-bot safety controls.
 ---
 
 Gainium MCP lets MCP-compatible agents connect to your Gainium account so they can read bots, deals, balances, exchanges, backtests, and other account data. With the correct API key permission, agents can also create and manage bots and deals.
@@ -55,6 +58,8 @@ Before connecting an agent, make sure you have:
 - A Gainium account with [2FA enabled](https://gainium.io/help/2fa)
 - A Gainium API key and secret
 - An MCP-compatible client such as VS Code, Claude Code, OpenClaw, or another MCP client
+
+When you create the API key, choose the permission scope you need and, if relevant, set the trading mode and bot ID restriction there as well. Those restrictions are enforced server-side, including when you connect through hosted HTTP.
 
 If you have not created an API key yet, follow [Gainium API for developers](https://gainium.io/help/gainium-api-for-developers).
 
@@ -159,19 +164,25 @@ Example configuration:
 
 In this mode, the MCP client must send your Gainium credentials as request headers on each MCP request.
 
-### Important limitation in hosted mode
+If the API key itself was created with a restricted trading mode or a specific bot ID, the server will enforce those limits even in hosted HTTP mode. If you run your own local MCP instance, you can also enforce stricter limits there with environment variables, even when the API key itself is more permissive.
 
-From the client config alone, you can set:
+### What comes from client config vs server restrictions
+
+From the MCP client config alone, you can set:
 
 - The MCP URL
 - Request headers such as `X-API-Key` and `X-API-Secret`
 
-From the client config alone, you cannot force:
+From the MCP client config alone, you cannot make the server behave as if these self-hosted MCP environment variables were set:
 
 - `GAINIUM_ALLOWED_BOT_ID`
 - `GAINIUM_PAPER_ONLY`
 
-Those are server environment variables. If you need those controls, run your own local or self-hosted Gainium MCP instance.
+Those two names are local MCP server environment variables, not hosted HTTP client settings.
+
+If you use hosted HTTP and want server-enforced restrictions, create the API key with the desired trading mode and optional bot ID restriction.
+
+If you run your own local or self-hosted Gainium MCP instance, you can enforce the same limits there with environment variables regardless of whether the API key itself is restricted.
 
 ## VS Code setup
 
@@ -303,11 +314,16 @@ Example:
 }
 ```
 
-If you want paper mode to be enforced automatically for every request, run your own MCP server with:
+If you want paper mode to be enforced automatically for every request, you have two server-side options:
+
+- Create the API key with the appropriate trading mode restriction. This works for hosted HTTP as well as local setups.
+- Run your own MCP server with:
 
 ```bash
 export GAINIUM_PAPER_ONLY=true
 ```
+
+These are independent enforcement layers. For example, a local `stdio` server started with `GAINIUM_PAPER_ONLY=true` will still reject real-trading calls even if the API key itself was created without a paper-only restriction.
 
 ### Bot ID restriction
 
@@ -329,11 +345,16 @@ Example input:
 }
 ```
 
-If you want the MCP server itself to reject all other bot IDs, run your own instance with:
+If you want access to be restricted to one bot regardless of client behavior, you have two server-side options:
+
+- Create the API key with that bot ID restriction. This works for hosted HTTP as well as local setups.
+- Run your own MCP instance with:
 
 ```bash
 export GAINIUM_ALLOWED_BOT_ID=507f1f77bcf86cd799439011
 ```
+
+These are also independent enforcement layers. A local MCP instance with `GAINIUM_ALLOWED_BOT_ID` set will reject other bot IDs even if the API key itself allows broader access.
 
 ## Advanced: local HTTP and SSE
 
@@ -383,13 +404,15 @@ Fix:
 Cause:
 
 - Your client may not be sending headers correctly
-- You may be relying on a local server restriction that does not exist on the hosted endpoint
+- The API key may be restricted to paper trading or to a different bot ID
+- You may be relying on a local MCP restriction such as `GAINIUM_PAPER_ONLY` or `GAINIUM_ALLOWED_BOT_ID` that is not configured on the current MCP server
 - You may need to pass `paperContext: true` explicitly
 
 Fix:
 
 - Verify the URL is `https://mcp.gainium.io/mcp`
 - Verify `X-API-Key` and `X-API-Secret`
+- Verify the API key's trading mode and bot ID restriction match what you are trying to do
 - Pass `paperContext: true` for paper workflows unless your own server is already paper-locked
 
 ### Your client does not support HTTP MCP
@@ -406,6 +429,7 @@ For most users:
 - Use local `stdio` if your client supports it
 - Use the hosted HTTP endpoint if you do not want to run the server locally
 - Use a Read API key unless your agent must perform write operations
+- If you need hosted HTTP with enforced limits, create a dedicated API key with the right trading mode and optional bot ID restriction
 - Pass `paperContext: true` explicitly for paper workflows unless your own server already forces paper mode
 
-If you need server-side safety controls such as one-bot restriction or forced paper trading, run your own Gainium MCP instance instead of relying on client config alone.
+If you need server-side safety controls such as one-bot restriction or forced paper trading, either create a restricted API key or run your own Gainium MCP instance instead of relying on client config alone.

@@ -6,7 +6,7 @@ description: >-
   In this article we explain how to access your Gainium account programmatically
   through API keys.
 createdAt: '2022-11-29T04:35:21.577Z'
-updatedAt: '2026-02-27T12:33:55.461Z'
+updatedAt: '2026-03-14T00:00:00.000Z'
 publishedAt: '2022-11-29T08:17:14.177Z'
 locale: en
 categories:
@@ -39,8 +39,12 @@ To generate a new API key:
 3. Choose the permission scope:
   - **Read**: View bots, deals, balances, and other account data.
   - **Write**: Create/update/stop bots and deals (includes write operations).
-4. Click "Create".
-5. Copy the API key and secret immediately and store them securely.
+4. Choose the trading mode you want the key to allow.
+5. Optionally restrict the key to a specific bot ID when you want server-side enforcement for MCP or HTTP integrations.
+6. Click "Create".
+7. Copy the API key and secret immediately and store them securely.
+
+Trading mode and bot ID restrictions are enforced server-side, so they continue to apply even when you use hosted HTTP integrations such as Gainium MCP.
 
 ## API Documentation
 
@@ -87,6 +91,10 @@ Signature example:
 **Can I use API keys for paper trading?**
 
 Yes. In V2, send `paper-context: true` header. In V1, use `paperContext=true` in query/body.
+
+**Can I restrict an API key to a trading mode or a specific bot?**
+
+Yes. You can set trading mode when creating the key and optionally lock the key to a specific bot ID. Those restrictions are enforced server-side, including for hosted HTTP integrations.
 
 **How can I reduce response size and speed up requests?**
 
