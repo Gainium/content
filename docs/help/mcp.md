@@ -45,6 +45,7 @@ Gainium MCP lets MCP-compatible agents connect to your Gainium account so they c
 This guide focuses on the part most users care about: how to connect Gainium MCP to your agent or MCP client.
 
 You can also follow along with this video walkthrough:
+
 https://www.youtube.com/watch?v=aDLmeQ5AHgo
 
 ## Before you start
