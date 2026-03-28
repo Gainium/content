@@ -43,7 +43,7 @@ Here’s how to configure the **Volume Oscillator** in Gainium using the setting
 
 ### Step 2: Configure the Indicator Settings
 - **Short Length (5)**: This setting controls the short-term moving average for volume. In this example, it's set to **5**, meaning the bot will calculate the short-period volume based on the last 5 periods.- **Long Length (10)**: This defines the long-term moving average for volume, set to **10** here. It calculates the average volume over a longer period to smooth out short-term fluctuations.- **Interval**: The timeframe used for each candlestick in the calculation. In this example, the interval is set to **1 day**, meaning the Volume Oscillator is calculated based on daily volume data. You can adjust this to shorter timeframes (e.g., 1 hour) for more frequent signals or longer timeframes for bigger market trends.- **Condition**: The condition that triggers an action. In this case, it is set to **Crossing Down**, meaning the bot will trigger when the Volume Oscillator crosses below a specific value.- **Value (0)**: This value represents the trigger level for the oscillator. When the oscillator crosses **below 0**, it signals a potential decrease in momentum.- **Keep True (0)**: This setting determines how long the condition remains true after it triggers. A value of **0** means the condition resets immediately after it is triggered.
-![image.png](https://gainium.io/images/content/help/image_fc0fc55c55-6b36ae.png)
+![image.png](https://content.gainium.io/images/content/help/image_fc0fc55c55-6b36ae.png)
 *Ultimate Oscillator Settings*
 
 ## Using the Volume Oscillator in Bot Trading

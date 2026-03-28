@@ -23,7 +23,7 @@ tldr: >-
 ---
 
 For users of Gainium's automated cryptocurrency trading platform, understanding the nuances of grid bot trading is essential for effective strategy implementation. A key aspect is interpreting 'Initial Funds' and 'Current Funds' within your grid bot's performance metrics. This article aims to clarify these concepts, helping you make more informed trading decisions.
-![initial_current_funds.webp](https://gainium.io/images/content/help/initial_current_funds_acbe2d7fd7-c9a7e6.webp)
+![initial_current_funds.webp](https://content.gainium.io/images/content/help/initial_current_funds_acbe2d7fd7-c9a7e6.webp)
 ## **Understanding Initial Funds**
 
 ### **Definition**
@@ -46,7 +46,7 @@ Current Funds indicate the present value of your funds managed by the grid bot. 
 
 When analyzing stats in the base currency, the PnL can appear counterintuitive:
 - **Negative PnL**: Indicates an increase in the value of the base currency against the quote currency. This scenario suggests that a simple buy-and-hold strategy might have been more beneficial.- **Positive PnL**: Implies a decrease in the value of the base currency against the quote currency. In this case, your grid bot has effectively capitalized on market movements to generate profit.
-![initial_negative_base.webp](https://gainium.io/images/content/help/initial_negative_base_95ae5704f0-2621cb.webp)
+![initial_negative_base.webp](https://content.gainium.io/images/content/help/initial_negative_base_95ae5704f0-2621cb.webp)
 ### **Why This Matters**
 - **Strategy Adjustment**: Understanding how PnL behaves in relation to currency value changes can guide you in adjusting your grid bot settings for optimal performance.- **Market Insight**: This analysis helps in comprehending market trends and their impact on your trading strategy.
 

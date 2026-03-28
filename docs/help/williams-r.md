@@ -44,7 +44,7 @@ Here’s how to configure the&nbsp;**Williams %R**&nbsp;indicator in Gainium.
 
 ### Step 2: Configure the Indicator Settings
 - **Length**: Set the length to **14**, the standard period for calculating Williams %R. This defines how far back the price data is used to calculate the overbought or oversold levels.- **Interval**: Choose the time interval for each calculation. The image below is set to **1 day**, meaning the Williams %R will be calculated based on daily price movements. Shorter intervals (e.g., 1 hour) can provide more frequent signals, while longer intervals (e.g., daily) capture larger trends.- **Condition**: Select the condition to trigger trades. **Crossing Down**&nbsp;is chosen in this case, which means the bot will trigger an action when the Williams %R crosses below a certain value (in this example, -40).- **Value**: Set the value at which the bot should trigger trades. Here, it's set to **-40**, signaling the price is moving downward, but not yet in an oversold region.- **Keep True**: This setting determines how long the condition remains active after being triggered. A value of **0** means it resets immediately after the condition is met.
-![image.png](https://gainium.io/images/content/help/image_e18959360b-ffe68e.png)
+![image.png](https://content.gainium.io/images/content/help/image_e18959360b-ffe68e.png)
 *Williams %R Indicator Settings*
 
 ### Step 3: Positive and Negative Percent Changes

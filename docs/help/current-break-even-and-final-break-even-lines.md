@@ -25,4 +25,4 @@ tldr: >-
 
 The current break-even and final break-even lines are visual aids to help your trading strategy when using DCA bots. The current break-even line represents the break-even price of the current deal and it includes all DCA orders filled so far. The final break-even line represents the break-even price the current deal will achieve once all DCA orders are filled.
 
-![breakeven.png](https://gainium.io/images/content/help/breakeven_494a590545-0d7702.png)
+![breakeven.png](https://content.gainium.io/images/content/help/breakeven_494a590545-0d7702.png)

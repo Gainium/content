@@ -35,7 +35,7 @@ The Volume Filter operates based on token trading volume data across all exchang
 You can use the Volume Filter when setting up your multi-coin trading bots on Gainium. When activated, it limits your bot to trading only the top tokens by trading volume. And how does it define 'top'? Well, that's up to you.
 
 You could choose to have your bot trade only the top 25, or maybe you feel more adventurous and go for the top 100. You could even punch in a custom number, like 500, and have your bot trade only the top 500 tokens by trading volume. The choice is entirely in your hands.
-![volume-filter.png](https://gainium.io/images/content/help/volume_filter_9c6a84d374-d2c78a.png)
+![volume-filter.png](https://content.gainium.io/images/content/help/volume_filter_9c6a84d374-d2c78a.png)
 *Volume filter in Gainium*
 
 ## Why is this Feature Important?
@@ -45,7 +45,7 @@ In this rapid, ever-changing world of crypto trading, sifting through and focusi
 ## How can I check a token's trading volume?
 
 We have developed a nifty [screener](https://gainium.io/crypto-screener) that contains trading data. This is the same data the bots use to check the top coins. To access the screener, look for the menu item in the left-hand menu. You can sort the volume column to check the position of a certain token.
-![screener-volume.png](https://gainium.io/images/content/help/screener_volume_aa6335aa2c-e7ffb2.png)
+![screener-volume.png](https://content.gainium.io/images/content/help/screener_volume_aa6335aa2c-e7ffb2.png)
 *Gainium crypto screener*
 
 ## Wrapping it up

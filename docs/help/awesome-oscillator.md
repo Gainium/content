@@ -44,7 +44,7 @@ Here’s how to configure the **Awesome Oscillator** in Gainium using the settin
 
 ### Step 2: Configure the Indicator Settings
 - **Use Percentile**: It allows using percentile rankings instead of raw values. For this setup, leave it disabled for typical AO readings.- **Interval**: This setting determines the time interval for each candlestick used in the calculation. In this example, the interval is set to **1 day**, meaning the Awesome Oscillator is calculated based on daily data. You can adjust this to shorter timeframes like 1 hour for more frequent signals or use daily for more significant trends.- **Condition**: The condition defines when a signal will be triggered. In this case, it is set to **Crossing Down**, meaning the bot will trigger an action when the AO crosses down through a specific value.- **Value**: The value is set to **0**, which means the bot will trigger when the AO crosses down from above the zero line, signaling weakening bullish momentum and potential bearish movement.- **Keep True**: This setting controls how long the condition remains true after being triggered. A value of **0** means the condition resets immediately after the signal is triggered.
-![image.png](https://gainium.io/images/content/help/image_a74835783b-4ecf16.png)
+![image.png](https://content.gainium.io/images/content/help/image_a74835783b-4ecf16.png)
 *Awesome Oscillator Settings*
 
 ## Using the Awesome Oscillator in Bot Trading

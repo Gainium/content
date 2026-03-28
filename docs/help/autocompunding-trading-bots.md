@@ -45,7 +45,7 @@ The exciting part is the effects of wins and losses on order sizes over time. Wi
 Setting up auto-compounding in Gainium is easy; here are the steps:&nbsp;
 - Create a subaccount on your exchange. This step is optional but encouraged. A subaccount ensures a clear delimitation of your funds per bot.- Transfer funds from your main account to your subaccount (make sure it's the trading section of your subaccount).- Next, create the bot and set the bot to use a percentage of the free or total quote (for long positions) or base (for short positions).
 
-![autocompunding bot.png](https://gainium.io/images/content/help/autocompunding_bot_3161810607-11c9f2.png)
+![autocompunding bot.png](https://content.gainium.io/images/content/help/autocompunding_bot_3161810607-11c9f2.png)
 
 Now, let's unpack both options, with examples to guide you.
 
@@ -57,7 +57,7 @@ This method tells the bot to use a specific percentage of your total holdings fo
 
 **Mistake Example:** If you set 30% for the base order and 20% for each of four DCA orders, that's 80% for DCA orders plus 30% for the base order, totaling 110%. That's a no-go; it exceeds 100% of your total tokens. The last DCA order will inevitably fail to be placed, and perhaps the bot won't be able to start. You will see the following error message in your bot in such cases.
 
-![compound-error.png](https://gainium.io/images/content/help/compound_error_1b98e09a4b-435cb4.png)
+![compound-error.png](https://content.gainium.io/images/content/help/compound_error_1b98e09a4b-435cb4.png)
 
 ### Using % of Free Tokens
 

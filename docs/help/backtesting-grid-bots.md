@@ -41,11 +41,11 @@ Backtesting provides several benefits, including:
 
 To backtest a grid bot, navigate to the new bot page by clicking the grid bot icon in the menu and then “+ NEW.”
 
-![new-grid-bot.png](https://gainium.io/images/content/help/new_grid_bot_ddc75c3380-ee0a24.png)
+![new-grid-bot.png](https://content.gainium.io/images/content/help/new_grid_bot_ddc75c3380-ee0a24.png)
 
 Adjust the grid bot settings to your liking and perform a new backtest.
 
-![grid backtest.png](https://gainium.io/images/content/help/grid_backtest_811b194779-cb4221.png)
+![grid backtest.png](https://content.gainium.io/images/content/help/grid_backtest_811b194779-cb4221.png)
 
 ## Evaluating Backtesting Results
 

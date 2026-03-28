@@ -31,7 +31,7 @@ Bollinger Bands %B measures the relative position of the current price within th
 - **%B = 1**: Price is at the upper Bollinger Band.- **%B = 0**: Price is at the lower Bollinger Band.- **%B &gt; 1**: Price is above the upper Bollinger Band (overbought).- **%B &lt; 0**: Price is below the lower Bollinger Band (oversold).
 
 It helps traders quickly assess where the price is relative to the bands, signaling potential buying or selling opportunities.
-![image.png](https://gainium.io/images/content/help/image_7160aed7da-0f05a8.png)
+![image.png](https://content.gainium.io/images/content/help/image_7160aed7da-0f05a8.png)
 ## How to Use Bollinger Bands %B in Gainium
 
 ### Step 1: Add the Indicator
@@ -39,7 +39,7 @@ It helps traders quickly assess where the price is relative to the bands, signal
 - **Navigate to the Indicators Section**:Add the **Bollinger Bands %B** indicator from the list of available options.
 - **Configure Settings** (Refer to the attached settings image):**MA Type**: Set the type of Moving Average (default is SMA).- **MA Length**: Set the length of the selected Moving Average (default is 20).- **Standard Deviations**: Set the number of standard deviations for the Bollinger Bands (default is 2).- **Interval**: Choose the time interval for the indicator, such as 1 hour.- **Condition**: You can set conditions like "Crossing down" or "Crossing up" for specific %B values.- **Value**: This defines the trigger point for your trade, for example, 0.05 for a potential long entry.- **Keep True**: Specify how long the condition remains true after it triggers.
 
-![image.png](https://gainium.io/images/content/help/image_001f9207f0-07f7d9.png)
+![image.png](https://content.gainium.io/images/content/help/image_001f9207f0-07f7d9.png)
 *Bollinger Bands %B Settings*
 
 ### Step 2: Use Percentile (Optional)

@@ -36,7 +36,7 @@ The MFI indicator ranges from 0 to 100. When the MFI exceeds 80, it indicates an
 ## Using The Money Flow Index in Gainium
 
 You can select this indicator by selecting “Technical Indicators” from the drop-down menu first, then “Money Flow Index” in the “Indicator” Section.
-![Screenshot 2023-04-14 at 18.12.51.png](https://gainium.io/images/content/help/Screenshot_2023_04_14_at_18_12_51_f570e2cb18-af93dc.png)
+![Screenshot 2023-04-14 at 18.12.51.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_14_at_18_12_51_f570e2cb18-af93dc.png)
 *MFI&nbsp;*
 
 The MFI indicator in Gainium allows you to determine the strength of buying or selling pressure in the market.&nbsp;
@@ -48,13 +48,13 @@ Because the MFI closely resembles the [RSI](https://gainium.io/help/rsi) indicat
 ### Identify Overbought and Oversold conditions
 
 The MFI ranges from 0 to 100. A reading above 80 is considered overbought, which means that the asset is potentially due for a price correction. A reading below 20 is considered oversold, which means that the asset may be undervalued and potentially due for a price increase. In Gainium, the default value for the oversold conditions is 70. Every asset behaves differently, so you might want to adjust the values accordingly. As you can see in the image below, a short DCA bot can be started when MFI is “crossing up” the value of 70. Or, if you prefer a more conservative entry or have fewer funds for the DCA strategy, you can start a short bot when the MFI is “crossing down” the value of 70.
-![Screenshot 2023-04-15 at 02.03.23.png](https://gainium.io/images/content/help/Screenshot_2023_04_15_at_02_03_23_203f092ed5-ebf06c.png)
+![Screenshot 2023-04-15 at 02.03.23.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_15_at_02_03_23_203f092ed5-ebf06c.png)
 *Overbought example*
 
 ### Identify Divergencies
 
 A divergence occurs when the MFI indicator moves in the opposite direction of the price trend. For example, if the price is making higher highs while the MFI is making lower highs, it could indicate a potential trend reversal. In the image below the price of BTC is rising; however, the MFI indicator is creating a lower high. Soon after, the price decreases.&nbsp;
-![Screenshot 2023-04-15 at 02.10.30.png](https://gainium.io/images/content/help/Screenshot_2023_04_15_at_02_10_30_8e1140caad-cd64cc.png)
+![Screenshot 2023-04-15 at 02.10.30.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_15_at_02_10_30_8e1140caad-cd64cc.png)
 *MFI DIvergence*
 
 ## Conclusion

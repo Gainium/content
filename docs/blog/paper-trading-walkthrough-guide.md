@@ -53,13 +53,13 @@ Setup takes about 30 seconds:
 
 Go to your account menu in the top bar. You'll see a toggle to switch between **Live** and **Paper** mode. Click it to switch to Paper.
 
-![Switch-paper.png](https://gainium.io/images/content/help/Switch_paper_641078664c-ac6949.png)
+![Switch-paper.png](https://content.gainium.io/images/content/help/Switch_paper_641078664c-ac6949.png)
 
 ### Step 2: Add a Paper Exchange
 
 Go to **Exchanges**, click **Add Exchange**, and select **Paper Trading**. Choose which exchange you want to simulate — Binance, Bybit, KuCoin, OKX, or Coinbase. You can create as many paper exchanges as you need.
 
-![add-exchange.png](https://gainium.io/images/content/help/add_exchange_a287032f64-a990eb.png)
+![add-exchange.png](https://content.gainium.io/images/content/help/add_exchange_a287032f64-a990eb.png)
 
 ### Step 3: Set Your Virtual Balance
 

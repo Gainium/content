@@ -35,9 +35,9 @@ Conversely, Risk Reduction automatically adjusts the size of your next trade by 
 ## How These Features Differ from % of Asset-Based Trading
 
 It is important to understand how Auto-Compounding and Risk Reduction differ from trading with a percentage of your asset. When you use a percentage of your asset, the bot checks your account balances before starting a new deal. This method is ideal if you plan to manually add or withdraw funds, as the bot adjusts based on your actual account balance.
-![image.png](https://gainium.io/images/content/help/image_6cf31e3562-d8e564.png)
+![image.png](https://content.gainium.io/images/content/help/image_6cf31e3562-d8e564.png)
 In contrast, Auto-Compounding and Risk Reduction operate internally within the bot’s calculations. They don’t verify whether the funds are actually available in your account before applying changes. The bot assumes the balance remains consistent, making these features more seamless and requiring careful monitoring to avoid discrepancies.
-![image.png](https://gainium.io/images/content/help/image_07fdb5ace9-15c294.png)
+![image.png](https://content.gainium.io/images/content/help/image_07fdb5ace9-15c294.png)
 ## Which Method Should You Use?
 
 The choice between using Auto-Compounding/Risk Reduction or % of asset depends on your trading style and needs:

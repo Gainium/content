@@ -53,11 +53,11 @@ With Ganium you can backtest your bot configuration right from the bot creation 
 
 To backtest a trading strategy, click “Trading bots” on the sidebar and “+ New” to launch the new bot page. Here you can set the desired configuration for your bot, including deal start condition, Take Profit, Stop loss, DCA, etc. Then click the “Backtest” button at the bottom. The backtesting results will show in the panel underneath.&nbsp;
 
-![backtesting1.png](https://gainium.io/images/content/help/backtesting1_d6e7a37fd8-95a7f6.png)
+![backtesting1.png](https://content.gainium.io/images/content/help/backtesting1_d6e7a37fd8-95a7f6.png)
 
-![backtesting2.png](https://gainium.io/images/content/help/backtesting2_07cb1cc61c-f47c4e.png)
+![backtesting2.png](https://content.gainium.io/images/content/help/backtesting2_07cb1cc61c-f47c4e.png)
 
-![backtesting3.png](https://gainium.io/images/content/help/backtesting3_87b77191fa-b17fe3.png)
+![backtesting3.png](https://content.gainium.io/images/content/help/backtesting3_87b77191fa-b17fe3.png)
 
 ## Upcoming backtesting features
 

@@ -42,7 +42,7 @@ The formula for calculating the Parabolic SAR dots is as follows:
 ## Using The Parabolic SAR Indicator in Gainium
 
 You can select this indicator by selecting “Technical Indicators” from the drop-down menu first, then “Parabolic SAR” in the “Indicator” Section.
-![](https://gainium.io/images/content/help/Screenshot_2023_08_09_at_21_31_21_ac55c4e9c5-132b97.png)
+![](https://content.gainium.io/images/content/help/Screenshot_2023_08_09_at_21_31_21_ac55c4e9c5-132b97.png)
 *PSAR indicator*
 
 Gainium uses the default settings of 0.02 for both AF and EP.
@@ -57,26 +57,26 @@ By increasing the Acceleration Factor, the indicator will track the price more c
 
 The Parabolic SAR can be used for trading strategies like trend following and reversal. Traders frequently use it with other technical indicators and chart patterns to confirm signals. As you can see from the image below, when PSAR crosses from above not always indicates a reversal of price and vice versa.
 
-![](https://gainium.io/images/content/help/Screenshot_2023_08_09_at_21_50_56_b1e89ffbad-bc8e38.png)
+![](https://content.gainium.io/images/content/help/Screenshot_2023_08_09_at_21_50_56_b1e89ffbad-bc8e38.png)
 
 A double parabolic SAR technique employs two periods. A higher timeframe first indicates the trend direction based on the direction of the parabolic SAR. After determining the long-term trend direction, trades are entered in a shorter timeframe but only in the direction of the longer-term trend. The hourly chart of BTC (image below), with a parabolic SAR connected, reveals that the price is currently in an uptrend. As of August 1, the price is above the indication in the image below.
-![](https://gainium.io/images/content/help/Screenshot_2023_08_09_at_22_23_01_fa33ea545c-370d2a.png)
+![](https://content.gainium.io/images/content/help/Screenshot_2023_08_09_at_22_23_01_fa33ea545c-370d2a.png)
 *1 hour TF*
 
 By adding a second PSAR on a different TF as a deal start condition, you can find a lot of different and more frequent entries for scalping as long as the higher timeframe indicates the continuation of the trend. A 5 min TF helps identify several entries and exits in the image below.&nbsp;&nbsp;
-![](https://gainium.io/images/content/help/Screenshot_2023_08_09_at_22_27_55_f02f7633c3-657205.png)
+![](https://content.gainium.io/images/content/help/Screenshot_2023_08_09_at_22_27_55_f02f7633c3-657205.png)
 *5 min TF*
 
 ### The Parabolic Sar Breakout as a Stop Loss
 
 To use parabolic SAR to set stop-loss levels, place your stop-loss order at the level of the most recent dot on the opposite side of the trend. If you are long, for example, you can set your stop-loss order at the level of the most recent dot below the price. This can be easily done using the SL feature in Gainium. See the image below.
-![](https://gainium.io/images/content/help/Screenshot_2023_08_10_at_21_57_21_3a8090f7da-dd21ff.png)
+![](https://content.gainium.io/images/content/help/Screenshot_2023_08_10_at_21_57_21_3a8090f7da-dd21ff.png)
 *PSAR SL*
 
 ### PSAR and MACD crossover
 
 A stronger reversal can be identified using MACD indicator crossover as an additional deal start condition. In the example below, the price crossing above PSAR indicates a possible buy-long entry. By adding to the same chart the MACD crossing up, we have an additional confirmation for a long entry.
-![](https://gainium.io/images/content/help/Screenshot_2023_08_10_at_22_11_04_7c06dfc9fe-3e1522.png)
+![](https://content.gainium.io/images/content/help/Screenshot_2023_08_10_at_22_11_04_7c06dfc9fe-3e1522.png)
 *PSAR and MACD*
 
 ## Conclusion

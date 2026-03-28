@@ -64,7 +64,7 @@ Combo bots combine the passive profit accumulation of grid strategies with the f
 
 These bots are configured to automatically expand or create new grids in response to market movements, thus ensuring that the trader can always capitalize on the most profitable opportunities. The possibility of starting the grid trading with webhooks and technical indicators, along with the ability to place DCA orders, makes combo bots a powerhouse for both novice and experienced traders.
 
-![new-combo.jpeg](https://gainium.io/images/content/help/new_combo_bc52bdd5c7-14d24c.jpeg)
+![new-combo.jpeg](https://content.gainium.io/images/content/help/new_combo_bc52bdd5c7-14d24c.jpeg)
 
 ## How Combo Bots Replace the Need for Trailing Up and Down in Grids
 
@@ -82,7 +82,7 @@ The introduction of combo bots has brought several key advantages over tradition
 
 In summary, combo bots provide a more intelligent and dynamic approach to crypto trading by merging the benefits of different trading strategies into a cohesive, automated system. Gainium's focus on cutting-edge technology ensures that traders have access to the best tools, empowering them to make confident and informed decisions in the fast-paced world of cryptocurrency trading.
 
-![combo-deal-start.jpeg](https://gainium.io/images/content/help/combo_deal_start_56c2f61267-00a3c2.jpeg)
+![combo-deal-start.jpeg](https://content.gainium.io/images/content/help/combo_deal_start_56c2f61267-00a3c2.jpeg)
 
 ## FAQ
 
@@ -114,7 +114,7 @@ A: While no trading bot can eliminate risk, combo bots are designed to mitigate 
 
 A: Absolutely. Gainium provides [backtesting](https://gainium.io/crypto-backtesting) and [paper trading](https://gainium.io/crypto-paper-trading) capabilities that allow you to test combo bot strategies without risking real money. This feature is invaluable for building confidence and refining strategies before live trading.
 
-![combo-backtest.jpeg](https://gainium.io/images/content/help/combo_backtest_d5d988298a-dfec98.jpeg)
+![combo-backtest.jpeg](https://content.gainium.io/images/content/help/combo_backtest_d5d988298a-dfec98.jpeg)
 
 ### How do combo bots handle sudden market downturns?&nbsp;
 

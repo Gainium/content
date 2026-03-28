@@ -42,7 +42,7 @@ Here’s how to configure the **ATR** indicator in Gainium based on the attached
 
 ### Step 2: Configure the Indicator Settings
 - **Length (14)**: This setting determines how many periods (candlesticks) the ATR will use to calculate the average range. The example below is set to&nbsp;**14**, the standard for many trading platforms. It calculates the ATR using the high-low range over the past 14 periods.- **Interval (4 hours)**: This determines the timeframe of each candlestick used in the calculation. Here, it’s set to **4 hours**, meaning the ATR will calculate volatility based on the high-low range of 4-hour price movements. You can adjust this depending on whether your trading in based on shorter or longer timeframes.- **Condition (Crossing Down)**: The condition determines when the bot will take action. In this case, it’s set to **Crossing Down**, meaning the bot will trigger an action when the ATR crosses **down** through a specified value.- **Value (70)**: This is the value at which the bot will be triggered. Since the ATR is an absolute number, this value must be adjusted according to the asset you’re trading. For example, in this case, the bot will take action when the ATR falls below **70**.- **Keep True (0)**: This setting controls how long the condition remains true after it is met. A value of **0** means the condition resets immediately after the trigger.
-![image.png](https://gainium.io/images/content/help/image_b46c2d8795-ce79ce.png)
+![image.png](https://content.gainium.io/images/content/help/image_b46c2d8795-ce79ce.png)
 *Average True Range (ATR) Settings*
 
 ## Using ATR in Bot Trading

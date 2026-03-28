@@ -33,9 +33,9 @@ The **Reduce Funds** feature allows you to reduce your position size in an activ
 - **Order Type**:**Market**: Executes the reduction immediately at the current market price.- **Limit**: The reduction is only executed if the price reaches your target.
 - **Confirm**:Click **Confirm** to execute the reduction. The bot will handle the order based on the settings.
 
-![image.png](https://gainium.io/images/content/help/image_eb3da46abf-2f2d7e.png)
+![image.png](https://content.gainium.io/images/content/help/image_eb3da46abf-2f2d7e.png)
 *Reduce Funds in Deal Menu*
-![image.png](https://gainium.io/images/content/help/image_d64f1bffe5-2be2f6.png)
+![image.png](https://content.gainium.io/images/content/help/image_d64f1bffe5-2be2f6.png)
 *Reduce Funds Options*
 
 ### Reduce Funds via Webhook

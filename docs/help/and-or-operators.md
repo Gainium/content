@@ -30,7 +30,7 @@ In trading, combining multiple indicators can refine your strategy and improve d
 When setting up your trading bot with multiple indicators, you can use the AND/OR operators to define how these indicators should interact. Here’s what each operator does:
 
 &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;**AND**: All selected indicators must meet the defined conditions for the bot to trigger a trade.&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;**OR**: The bot will trigger a trade if any one of the selected indicators meets its condition.
-![image.png](https://gainium.io/images/content/help/image_6adcc3e7eb-c5acdc.png)
+![image.png](https://content.gainium.io/images/content/help/image_6adcc3e7eb-c5acdc.png)
 ## Applying AND/OR to Multiple Indicators
 
 When you apply AND or OR, it affects all the indicators you’ve chosen. This means that the logic is applied uniformly across the board. For example:

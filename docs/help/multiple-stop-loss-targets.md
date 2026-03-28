@@ -28,6 +28,6 @@ One such scenario is, for example, when you create a Smart Sell terminal deal th
 ## Enabling multiple stop loss targets in Gainium
 
 You can find this option under Stop Loss settings.
-![multiple-sl.png](https://gainium.io/images/content/help/multiple_sl_7486e936a4-1635c7.png)
+![multiple-sl.png](https://content.gainium.io/images/content/help/multiple_sl_7486e936a4-1635c7.png)
 Please keep in mind the following:&nbsp;
 - Multiple stop loss targets are incompatible with [move stop loss](https://gainium.io/help/move-stop-loss) and [trailing stop loss](https://gainium.io/help/trailing-stop-loss).- If DCA Mode is enabled, stop loss targets are calculated from the average position size.

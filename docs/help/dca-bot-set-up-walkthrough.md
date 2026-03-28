@@ -32,7 +32,7 @@ For this tutorial, I am using the pair BTC/USDT. This bot setup is quite conserv
 First, head to the [new trading bot](https://app.gainium.io/bot/new) page. On the right-hand side, you can find the bot configuration; let's explore all configuration options.
 
 ## BASIC SETTINGS
-![1.png](https://gainium.io/images/content/help/1_3358d1cf7a-b641f2.png)
+![1.png](https://content.gainium.io/images/content/help/1_3358d1cf7a-b641f2.png)
 *Picture 1*
 
 ### Name
@@ -52,7 +52,7 @@ Choose any coin pair supported by the exchange.
 You can choose one or multiple pairs as long as they have the same quote currency. The first pair sets the quote currency. For example, if you add BTC/USDT, you can only add other /USDT pairs to the bot.
 
 ## STRATEGY
-![2.png](https://gainium.io/images/content/help/2_f8a9f850d3-e50bcb.png)
+![2.png](https://content.gainium.io/images/content/help/2_f8a9f850d3-e50bcb.png)
 *Picture 2*
 
 ### Direction
@@ -104,7 +104,7 @@ This option is available for limit order types. You can choose this option if yo
 **Tip**: I tend to use limit most of the time. It's cheaper and safer for most of the basic bots setups. Exchanges usually have lowers fees for limit orders as they try to reward traders for providing liquidity to the exchange. You can see the difference by checking your exchange fees for makers and takers. Makers = Limit orders fees that provide liquidity, Takers = Market orders fees that takes liquidity from the exchange.&nbsp;
 
 ## DEAL START
-![3.png](https://gainium.io/images/content/help/3_0aa38b383e-b15899.png)
+![3.png](https://content.gainium.io/images/content/help/3_0aa38b383e-b15899.png)
 *Picture 3*
 
 This section allows you to select how you want your bot to start new deals, is one of the most critical parts of the bot, and it deserves an article of its own, but for now, let's go through an overview of each option.
@@ -115,17 +115,17 @@ Even though ASAP is the most simple strategy, this deal start condition can be v
 RSI, or Relative Strength Index, is a momentum indicator that measures the speed and magnitude of an asset’s price change.
 
 I am using standard settings for this example (as shown in picture 4).
-![4.png](https://gainium.io/images/content/help/4_9173a6079f-6830fd.png)
+![4.png](https://content.gainium.io/images/content/help/4_9173a6079f-6830fd.png)
 *Picture 4*
 
 Generally, in Technical Analysis, an asset is considered oversold when the RSI is below the value of 30 and overbought when is over 70. I want my bot to start a deal only when the RSI is below 30 in the 1-hour time frame. The higher the timeframe used, the more conservative the bot will be, so it’s crucial to find the right balance between how often you want to enter the market and how much risk you want to take. The same RSI indicator could be risky if used on a 5 min TF as the value can go below 30 very quickly and often. On the contrary, on a daily timeframe, the rsi will stay relatively high and rarely below 30. So your bot will open very few deals.
 
 The picture below (Picture 5) shows how the RSI decides when the bot starts. I drew a line on the level of 30 so you can see that the bot opens a deal only when the indicator is below that value. In Gainium, you can see the chart of the pair you are trading, and you can bring in the chart in the indicator you want to use to start your deals. It is very useful to visualize it as sometimes you can improve a bot's performance by changing the indicators parameters slightly, and you won’t see it unless you have the chart in front of you. For example, you might make your bot much safer by using RSI 28 because the token is highly volatile or more profitable by changing it to 32. After all, maybe this asset rarely hits 30, and so on.
-![8.png](https://gainium.io/images/content/help/8_d817f684fc-f570a6.png)
+![8.png](https://content.gainium.io/images/content/help/8_d817f684fc-f570a6.png)
 *Picture 5*
 
 &nbsp;
-![Screenshot 2023-03-30 at 16.31.00.png](https://gainium.io/images/content/help/Screenshot_2023_03_30_at_16_31_00_da18f61c34-c3178a.png)
+![Screenshot 2023-03-30 at 16.31.00.png](https://content.gainium.io/images/content/help/Screenshot_2023_03_30_at_16_31_00_da18f61c34-c3178a.png)
 *Picture 6*
 
 ## Max open deals
@@ -135,7 +135,7 @@ With this option (Picture 6), you can limit the number of open deals the bot can
 When a multipair bot receives more deal start signals than the allowed max open deals, it randomly assign the available deal quota. For example, suppose we start a multipair bot with 100 pairs and five max open deals, and the deal start condition is RSI 15 min &gt; 70. On the next candle, 10 out of the 100 pairs meet this condition, but as the bot is only allowed to trade five at once, it will open five deals randomly from the set of 10 possible pairs.&nbsp;
 
 ## TAKE PROFIT
-![9.png](https://gainium.io/images/content/help/9_fca8e4caab-f13fb5.png)
+![9.png](https://content.gainium.io/images/content/help/9_fca8e4caab-f13fb5.png)
 *Picture 7*
 
 This section is pretty self-explanatory however it's very important to find the right amount!
@@ -147,11 +147,11 @@ This is the profit percentage that the bot will make on each trade. Note that ex
 ### Trailing Take Profit
 
 It is used by traders to increase their gains when the price move in a favorable direction.The trailing is activated when the price reaches your Take Profit target. This is great when the price continues moving past your original Take Profit target as the Trailing feature will follow the price by a percentage that you configure (acting like a buffer); when the price reverses by the Trailing deviation percentage you configure, the trade is closed. Usually, the larger your take profit is, the larger your trailing should be. It takes practice to find the right amount, and it depends on the token you are trading. There are pros (the larger gains) and cons to using this feature, as you can also lose a part of the profit if the price reverses immediately after the trailing feature has been activated. In tokens that are very volatile and have low liquidity, the Trailing Take Profit might also close a deal at a loss as the price will move too fast for the trailing to trigger.
-![5.png](https://gainium.io/images/content/help/5_303a9824e9-a1ca12.png)
+![5.png](https://content.gainium.io/images/content/help/5_303a9824e9-a1ca12.png)
 *Picture 8*
 
 ## Stop Loss
-![Screenshot 2023-03-30 at 16.58.52.png](https://gainium.io/images/content/help/Screenshot_2023_03_30_at_16_58_52_9a3136b48a-00f3bd.png)
+![Screenshot 2023-03-30 at 16.58.52.png](https://content.gainium.io/images/content/help/Screenshot_2023_03_30_at_16_58_52_9a3136b48a-00f3bd.png)
 *Picture 9*
 
 ### Stop loss %
@@ -176,7 +176,7 @@ I am not using any Stop Loss for this example as I don't consider this bot setup
 ## DCA MODE
 
 This is the section where the DCA comes into play (picture 10).
-![Screenshot 2023-03-30 at 17.37.53.png](https://gainium.io/images/content/help/Screenshot_2023_03_30_at_17_37_53_388e2b75ad-8ddb6e.png)
+![Screenshot 2023-03-30 at 17.37.53.png](https://content.gainium.io/images/content/help/Screenshot_2023_03_30_at_17_37_53_388e2b75ad-8ddb6e.png)
 *Picture 10*
 
 ### Number of DCA orders
@@ -186,7 +186,7 @@ This is the number of orders generated each time you run a DCA cycle.In this exa
 ### Smart Orders
 
 Activating this will allow you to only send a portion of all DCA orders to the exchange as a limit order. You can learn more about smart orders in this [article](https://gainium.io/help/smart-orders). Smart Orders is not activated by default, and the bot will send all the DCA orders to the exchange.**Tip**: having all Smart Orders off allows you to catch falling knives or fat fingers if they happen. They are easy to spot in the charts as the candles have no body but leave a huge wick (Picture 11).
-![12.png](https://gainium.io/images/content/help/12_d14ebefb7e-5e78ad.png)
+![12.png](https://content.gainium.io/images/content/help/12_d14ebefb7e-5e78ad.png)
 *Picture 11*
 
 Sometimes there are errors in the exchanges or mistakes made by traders (fat fingers), so the price suddenly drops (also, the opposite is possible, so the price pumps unexpectedly). If your order is already placed in the exchange, It will fill immediately as it front-runs the others, and the deal closes faster and with more profits.
@@ -214,11 +214,11 @@ In my example, I have left the step and volume scale equal to 1 as per default s
 ## BACKTEST
 
 Before starting any bot I always want to ensure I run several backtests and Gainium has a Backtester built in so you can test your strategy with historical data. Backtesting is a very long topic so for this guide I just want to show you how to start it. You can run the backtest at the end of the bot settings by clicking on the three dots (Picture 11).
-![6.png](https://gainium.io/images/content/help/6_a270afba75-0d4b39.png)
+![6.png](https://content.gainium.io/images/content/help/6_a270afba75-0d4b39.png)
 *Picture 12*
 
 As you can see from the results (Picture 13), for a quick and simple setup, the results are not too bad but can certainly be improved. This strategy returned an average daily profit of 0.07% and a total profit of 10.52% over a period of 7 months.
-![7.png](https://gainium.io/images/content/help/7_a693ce499b-6463e7.png)
+![7.png](https://content.gainium.io/images/content/help/7_a693ce499b-6463e7.png)
 *Picture 13*
 
 The idea behind this article is that you can use this setup as a starting point for creating your strategies just by changing the values in the previous steps. In general, tiny changes go a long way as once you find a profitable strategy, you need to make small adjustments to perfect it.
@@ -232,12 +232,12 @@ Each indicator selected as a deal start condition will greatly impact a bot's pe
 ## BOT CONTROLLER
 
 At the end of the bot setup, the Bot Controller (Picture 13) allows you to have even more control of your bot. This is an advanced way to filter out deals by opening or closing a bot using an external indicator (webhook).
-![13.png](https://gainium.io/images/content/help/13_b3f9b851fd-8e4815.png)
+![13.png](https://content.gainium.io/images/content/help/13_b3f9b851fd-8e4815.png)
 *Picture 14*
 
 In the bot controller (picture 14), you can decide to do the following:
 - **Stop Only: **will stop the bot so the current deals will stay open, it will keep the open unfilled orders, but the bot won’t open any new deals,&nbsp;- **Stop and cancel deals:** so the bot will delete all the unfilled orders in the exchange and won’t open any new deals. Note that this means you will keep all the coins the bot has purchased so far. In our BTC/USDT bot, it means that if the bot purchased some Bitcoin, the Bot controller would cancel the unfilled orders, but it won't sell the BTC that managed to buy so far.- **Stop the bot and close deals by market.** This is an example where there is a use case for Market Orders as you want to close all the deals asap in case of a sudden change in the market trend. All your purchased coins will revert to your quote in the trading pair. In the case of our BTC/USDT, it means that if the bot purchased some BTC, it will cancel all unfilled orders and sell back to USDT the already purchased BTC.
-![14.png](https://gainium.io/images/content/help/14_81281099d1-c5152e.png)
+![14.png](https://content.gainium.io/images/content/help/14_81281099d1-c5152e.png)
 *Picture 15*
 
 Now some practical examples of how to use this.
@@ -245,7 +245,7 @@ Now some practical examples of how to use this.
 ### EMA RIBBONS
 
 The Ema Ribbon indicator is often used to determine the trend of Bitcoin. A Moving Average is an indicator that captures the change in the price of an asset over time. Ema Ribbon is an indicator that consists of 4 Moving Averages: 20, 50, 100, and 200 MA. As you can see from the picture below (Picture 15) when the 20 MA crosses down the 50 MA, the trend changes significantly, and bitcoin is not considered bullish anymore. So you might want to create an alert to stop all or some risky bots during this time, as Altcoins tend to follow the BTC trend. This is true for Alts unless we enter Altcoin season.
-![15.png](https://gainium.io/images/content/help/15_25bedcd0a1-f56d7a.png)
+![15.png](https://content.gainium.io/images/content/help/15_25bedcd0a1-f56d7a.png)
 *Picture 15*
 
 ### FEAR AND GREED INDEX
@@ -253,7 +253,7 @@ The Ema Ribbon indicator is often used to determine the trend of Bitcoin. A Movi
 The Fear and Greed index is another popular indicator that can be used to stop your bots. This index gauges when traders are too bullish or too bearish. And in general, when they are too extreme, the price tends to revert the trend.
 
 As you can see from the picture below (Picture 16), when the Greed Index is very high, the price retraces. So you might want to set up an alert to stop the bots when the value is above 50.
-![16.png](https://gainium.io/images/content/help/16_e6855eda33-e0fb6b.png)
+![16.png](https://content.gainium.io/images/content/help/16_e6855eda33-e0fb6b.png)
 *Picture 16*
 
 ### DXY and TOTAL2

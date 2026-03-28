@@ -76,7 +76,7 @@ Now, it's time to put theory into practice. Here are the results of 3 backtests 
 Results:
 - 1% spacing: 1.8% net result- 0.5% spacing: 1.76% net result- 0.25% spacing: 1.33% net result
 
-![1-spacing.webp](https://gainium.io/images/content/help/1_spacing_37b54a31ef-5cb8d0.webp)![0.5-spacing.webp](https://gainium.io/images/content/help/0_5_spacing_de5962d99e-4fa14f.webp)![0.25-spacing.webp](https://gainium.io/images/content/help/0_25_spacing_5d903d6028-3ad28f.webp)
+![1-spacing.webp](https://content.gainium.io/images/content/help/1_spacing_37b54a31ef-5cb8d0.webp)![0.5-spacing.webp](https://content.gainium.io/images/content/help/0_5_spacing_de5962d99e-4fa14f.webp)![0.25-spacing.webp](https://content.gainium.io/images/content/help/0_25_spacing_5d903d6028-3ad28f.webp)
 
 ## The Takeaway
 

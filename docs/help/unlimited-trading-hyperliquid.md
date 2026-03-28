@@ -27,7 +27,7 @@ Gainium offers unlimited trading on Hyperliquid through a flexible fee structure
 
 > **Note**: If you haven't connected Hyperliquid to Gainium yet, check out our guide on [how to connect to Hyperliquid](https://gainium.io/help/connect-to-hyperliquid) first.
 
-![Connect to hyperliquid](https://gainium.io/images/content/help/connect-hyperliquid.png)
+![Connect to hyperliquid](https://content.gainium.io/images/content/help/connect-hyperliquid.png)
 
 ## Understanding Builder Fees
 

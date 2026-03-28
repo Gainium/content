@@ -107,10 +107,10 @@ You also get full access to advanced metrics and reporting, so you can properly 
 ## Using Paper Trading in Gainium
 
 To start paper trading in Gainium, switch to Paper mode. You can do so under your account menu in the top bar.
-![Switch-paper.png](https://gainium.io/images/content/help/Switch_paper_641078664c-ac6949.png)
+![Switch-paper.png](https://content.gainium.io/images/content/help/Switch_paper_641078664c-ac6949.png)
 Once you have switched to paper mode, go to your exchanges and add a new paper trading exchange. Choose the exchange you want to simulate (Binance, Bybit, KuCoin, OKX, or Coinbase), input the desired amount of USDT, and that's it! You can now trade as if it was real money.
 
-![add-exchange.png](https://gainium.io/images/content/help/add_exchange_a287032f64-a990eb.png)
+![add-exchange.png](https://content.gainium.io/images/content/help/add_exchange_a287032f64-a990eb.png)
 
 Think of paper trading mode as another account. You can add and remove exchanges; all other functionality remains the same. There's no limit on how many paper exchanges you can create.
 
@@ -120,7 +120,7 @@ If you use AI agents through Gainium MCP, paper mode is usually passed per tool 
 
 You can manage your paper trading accounts from the "Exchanges" menu. There you can add new accounts, add more funds to existing accounts, delete accounts, and reset all paper trading data.
 
-![manage paper trading.png](https://gainium.io/images/content/help/manage_paper_trading_cdb824114f-1dc8a8.png)
+![manage paper trading.png](https://content.gainium.io/images/content/help/manage_paper_trading_cdb824114f-1dc8a8.png)
 
 ## From Paper Trading to Live: The Recommended Path
 

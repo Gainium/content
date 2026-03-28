@@ -44,7 +44,7 @@ Here’s how to set up and configure the **Divergence Indicator** in Gainium bas
 
 ### Step 2: Configure the Indicator Settings
 - **Min Number of Divergences (2)**: This setting specifies how many divergences must be detected before the indicator triggers an action. In this example, the minimum number is set to **2**, meaning the bot will wait for confirmation from two divergences before acting.- **Type of Divergence**: Choose **Any Bearish**, **Bearish**, **Hidden Bearish**, **Any Bullish**, **Bullish**, and **Hidden Bullish**. This determines whether the bot looks for bearish or bullish divergences. In this case, **Any Bearish** is selected, meaning the bot will trigger on any bearish divergence.- **Oscillators**: You can select the oscillators you want to compare with the price action. **Awesome Oscillator (AO)**,&nbsp;**CCI**,&nbsp;**MACD**, and&nbsp;**MFI**&nbsp;are used in this example. Gainium supports multiple oscillators, including **RSI**, **Momentum**, **Stochastic Oscillator**, and more. The bot will look for divergences across all selected oscillators.- **Interval (1 day)**: This determines the timeframe for each candlestick used to calculate the divergence. In this example, the interval is set to **1 day**, meaning the bot will analyze daily price movements for divergences.- **Keep True (0)**: This setting defines how long the condition remains valid after being triggered. Setting this to **0** means the condition resets immediately after it is met.
-![image.png](https://gainium.io/images/content/help/image_915ac03347-293c56.png)
+![image.png](https://content.gainium.io/images/content/help/image_915ac03347-293c56.png)
 *Divergence Indicator Settings*
 
 ## Using Divergence Indicator in Bot Trading

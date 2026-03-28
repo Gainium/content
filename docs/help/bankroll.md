@@ -25,7 +25,7 @@ Your bankroll is the total sum of money you have allocated for trading.&nbsp;One
 
 The bankroll graph in your dashboard represents the allocation of your bankroll currencies. A bankroll currency is any quote currency your bots are trading. For example, if you have two bots, one grid bot on BTC/**USDT,** one DCA bot on BNB/**BUSD**, and one signal bot on ETH/**BTC;** then USDT, BUSD, and BTC are your bankroll currencies.
 
-![bankroll.webp](https://gainium.io/images/content/help/bankroll_268053b8a8-6ccae6.webp)
+![bankroll.webp](https://content.gainium.io/images/content/help/bankroll_268053b8a8-6ccae6.webp)
 
 Having a bird's eye view of your bankroll is important to [avoid overextending](https://gainium.io/academy/manage-overextended-account) your account. The bankroll graph will help you to do just that, let's go over each section:
 - Used (=purchased): The dollar value of the base that all bots for this currency hold, including the value for the base of the whole bot (not just active smart orders).- Limit: Value of quote currently in limit orders to purchase base.- Planned: Value of quote maximum that the bots could use to purchase base. For a DCA bot, this is maximum remainder DCA orders; for a grid bot, this is all the planned buy orders.- Free &amp; Over. If the planned amount is less than the available balance, then you would have 'Free' quote that is not part of any bot. If the planned amount is higher than the available balance, then all the available balance could potentially be used plus more; this is the 'Over'.

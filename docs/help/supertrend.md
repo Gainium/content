@@ -51,7 +51,7 @@ Gainium provides a user-friendly platform to leverage the Supertrend indicator i
 
 ### Step 3: Add the Supertrend Indicator
 - The Supertrend indicator can be used as a start condition, [DCA rule](https://gainium.io/help/dca-bot-set-up-walkthrough), and TP or SL condition. In this example, we will use it as a Start Condition.- In the search bar, type **"Supertrend"**.- Select the Supertrend indicator from the dropdown list, and it will be automatically added to the chart.
-![image.png](https://gainium.io/images/content/help/image_3dfeb8d331-456b39.png)
+![image.png](https://content.gainium.io/images/content/help/image_3dfeb8d331-456b39.png)
 *Supertrend indicator options*
 
 ### Step 4: Customize the Parameters
@@ -59,7 +59,7 @@ Gainium provides a user-friendly platform to leverage the Supertrend indicator i
 
 ### Step 5: Interpret the Signals
 - **Green Line Below Price:** Indicates a bullish trend. Consider looking for buying opportunities.- **Red Line Above Price:** Signals a bearish trend. Consider looking for selling or shorting opportunities.
-![image.png](https://gainium.io/images/content/help/image_c1f50315e6-e91195.png)
+![image.png](https://content.gainium.io/images/content/help/image_c1f50315e6-e91195.png)
 *The Supertrend indicator in action*
 
 ## Incorporating the Supertrend into Bot Trading

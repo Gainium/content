@@ -45,7 +45,7 @@ Here’s how to configure the **ATH Drawdown** indicator using the attached sett
 
 ### Step 2: Configure the Indicator Settings
 - **Lookback (100)**: The lookback period determines how far back the indicator should search for the highest price (ATH). In this example, the lookback is set to **100**, meaning the ATH is calculated using the highest price from the last 100 periods.- **Interval (1 day)**: This setting defines the time interval used for each candlestick in the lookback period. In the provided settings, it's set to **1 day**, meaning the ATH is calculated based on the daily highest prices over the past 100 days.- **Condition (Lower than)**: The condition tells the bot when to trigger an action. **Lower than**&nbsp;is selected in this case, meaning the bot will act when the drawdown percentage is below a certain threshold.- **Value (10)**: This represents the trigger point. The bot will act when the drawdown percentage falls **below 10%**. This means the bot won't open positions within 10% of the ATH, thus preventing entering long positions near the ATH.- **Keep True (0)**: This defines how long the condition remains active after being triggered. Setting this to **0** means the condition resets immediately after the trigger.
-![image.png](https://gainium.io/images/content/help/image_c8c80e3610-c801bb.png)
+![image.png](https://content.gainium.io/images/content/help/image_c8c80e3610-c801bb.png)
 *All Time High (ATH) Drawdown Settings*
 
 &nbsp;

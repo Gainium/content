@@ -30,22 +30,22 @@ If you're looking to unlock the full potential of Gainium, follow this guide to 
 
 Once logged into the Gainium platform, locate the left-hand side navigation panel. Here, you will find a menu labeled "Subscription". Click on it to view our subscription plans.
 
-![Subcription-menu.jpeg](https://gainium.io/images/content/help/Subcription_menu_eee267e5e0-bc5b94.jpeg)
+![Subcription-menu.jpeg](https://content.gainium.io/images/content/help/Subcription_menu_eee267e5e0-bc5b94.jpeg)
 
 ## **Step 2: Choose Your Desired Plan**
 
 Scroll through the available subscription options to find the plan that best aligns with your trading needs and goals. Each plan has its unique set of features, so take a moment to read through the specifics of each.
-![subscription-confirmation.jpeg](https://gainium.io/images/content/help/subscription_confirmation_a0ada391ea-51c3df.jpeg)
+![subscription-confirmation.jpeg](https://content.gainium.io/images/content/help/subscription_confirmation_a0ada391ea-51c3df.jpeg)
 ## **Step 3: Top up your payment wallet**
 
 Upon identifying your preferred subscription plan, click the "Get Plan" button. This will lead you to the payment gateway, where you can pay with cryptocurrency.&nbsp;
-![payment-top-up.jpeg](https://gainium.io/images/content/help/payment_top_up_4e20564448-6f42a9.jpeg)
+![payment-top-up.jpeg](https://content.gainium.io/images/content/help/payment_top_up_4e20564448-6f42a9.jpeg)
 #### *Note on Cryptocurrency Payments:*
 
 The system can only automatically recognize payments sent from your private wallet address (such as Metamask, Trust Wallet, or other similar applications). We prefer that you don't send payments directly from exchanges. There are several reasons for this:
 - **User Verification:** We use the sending address as a unique identifier to credit the payment to the right user.- **Incorrect sent amount**: Exchanges often deduct a fee from the amount sent, which many times results in an insufficient amount sent.- **Refunds:** In the rare instance that a refund is necessary, we utilize the same sending address to process it, ensuring that the funds are returned to the rightful owner.
 
-![crypto-payment.jpeg](https://gainium.io/images/content/help/crypto_payment_39cf8669c2-14e0a2.jpeg)
+![crypto-payment.jpeg](https://content.gainium.io/images/content/help/crypto_payment_39cf8669c2-14e0a2.jpeg)
 
 ## **Step 4.a: Sending from a private wallet**
 

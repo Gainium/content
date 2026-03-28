@@ -30,7 +30,7 @@ When it comes to crypto trading, staying updated with the latest tools is critic
 
 Grid bots automatically execute buy orders at lower prices and sell orders at higher prices within a predefined range. The “grid” refers to a series of price levels within this range. As the market fluctuates, the bot buys low and sells high, aiming to profit from small price movements.
 
-![grid strategy](https://gainium.io/images/content/blog/grid_strategy_8ef44b4ebf-c90e5b.svg)
+![grid strategy](https://content.gainium.io/images/content/blog/grid_strategy_8ef44b4ebf-c90e5b.svg)
 
 ### Grid Trading Strategies Types
 
@@ -67,7 +67,7 @@ DCA has been used in traditional finance for decades. The crypto version is more
 
 This avoids market timing and can be combined with time-based DCA using the [double DCA strategy](https://gainium.io/academy/double-dca-strategy).
 
-![dca strategy](https://gainium.io/images/content/blog/dca_strategy_b5b39a80fe-eded75.svg)
+![dca strategy](https://content.gainium.io/images/content/blog/dca_strategy_b5b39a80fe-eded75.svg)
 
 ### How DCA Bots Operate (Long Strategy Example)
 
@@ -114,11 +114,11 @@ They function like DCA bots but add “minigrids” after each buy. Rather than 
 
 This tactic adds flexibility and increases profit opportunities.
 
-![Combo1](https://gainium.io/images/content/blog/Combo1_9d3b0449e0-790275.png)
+![Combo1](https://content.gainium.io/images/content/blog/Combo1_9d3b0449e0-790275.png)
 
 To learn more, see [Understanding the combo bot](https://gainium.io/help/understanding-combo-bot).
 
-![Combo-bot](https://gainium.io/images/content/blog/Combo_bot_f8c691fd78-5ae5ce.svg)
+![Combo-bot](https://content.gainium.io/images/content/blog/Combo_bot_f8c691fd78-5ae5ce.svg)
 
 ### Key Differences Between Combo, Grid, and DCA Bots
 

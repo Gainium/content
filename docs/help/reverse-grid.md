@@ -58,7 +58,7 @@ Setting up a reverse grid bot on Gainium involves several steps:
 
 Note that you will need to have the base token available in your balance for the bot to start.
 
-![Reverse-grid.jpeg](https://gainium.io/images/content/help/Reverse_grid_798ecb3b3c-c82324.jpeg)
+![Reverse-grid.jpeg](https://content.gainium.io/images/content/help/Reverse_grid_798ecb3b3c-c82324.jpeg)
 
 ## **Example of Reverse Grid Using BTC-USDT**
 

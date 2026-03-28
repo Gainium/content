@@ -24,7 +24,7 @@ faq:
 
 [Grid bots](https://gainium.io/grid-bot) are a great option for beginner and experienced traders to profit from the crypto market. They work by buying a fixed number of coins at predetermined prices and then selling them when the price reaches a higher level. This ensures that the trader always makes a profit, regardless of the market conditions. Grid bots also have the advantage of being able to trade in both directions, which means they can make profits whether the market is going up or down.
 
-![grid strategy.svg](https://gainium.io/images/content/blog/grid_strategy_8ef44b4ebf-c90e5b.svg)
+![grid strategy.svg](https://content.gainium.io/images/content/blog/grid_strategy_8ef44b4ebf-c90e5b.svg)
 
 In this article, I share a grid bot setup I have been using successfully for many months, the super wide-range grid stack. This setup is a [hybrid investing-trading approach](https://gainium.io/academy/trading-vs-investing#The_hybrid_trading-investing_approach) to crypto that has a relatively low risk and enjoys a decent ROI.
 
@@ -44,7 +44,7 @@ The grid-stack setup process is as follows:
 
 Let's dive into each step by going through an example: BTC-USDT
 
-![Grid Stack set up.webp](https://gainium.io/images/content/blog/Grid_Stack_set_up_8e587b5364-a9b5a6.webp)
+![Grid Stack set up.webp](https://content.gainium.io/images/content/blog/Grid_Stack_set_up_8e587b5364-a9b5a6.webp)
 
 ### 1. Choose your coin
 

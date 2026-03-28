@@ -27,5 +27,5 @@ The sell displacement is an extra price % added to grid distance, which increase
 This is used to avoid users losing money on exchange fees. Hence the minimum setting is double the exchange fee.
 
 There are, however other cases in which increasing this gap may be helpful. If you have detected a price range and would like to maximize your profits, increasing the sell displacement will allow you to concentrate the buy orders towards the bottom and the sell orders towards the top of the range.
-![sell-dsplacement.webp](https://gainium.io/images/content/help/sell_dsplacement_028be72d95-dcfe0c.webp)
+![sell-dsplacement.webp](https://content.gainium.io/images/content/help/sell_dsplacement_028be72d95-dcfe0c.webp)
 *Sell displacement in a range.*

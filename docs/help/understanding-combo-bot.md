@@ -75,18 +75,18 @@ Are you curious to find out more about them? It's time to delve into the nitty-g
 ## How Combo Bots Operate
 
 Before diving into the specifics, let's go through the general concept. At a bird's eye, the Combo Bot behaves primarily like a Grid bot but introduces elements of the DCA bot. You can think of it as a grid bot that expands the grid with each DCA order. When a combo bot executes a DCA order, it establishes a 'minigrid' appended to the primary grid, utilizing the assets acquired through the DCA order and expanding the grid range.
-![Combo1.png](https://gainium.io/images/content/help/Combo1_9d3b0449e0-790275.png)
+![Combo1.png](https://content.gainium.io/images/content/help/Combo1_9d3b0449e0-790275.png)
 *Combo bot creation*
 
 ### Minigrids: The basic blocks
 
 In essence, a Combo bot deal is a collection of minigrids joined together. The starting order creates the base minigrid (which can have different settings from the rest, as we will see later). Each DCA order purchases base that will be used to expand the grid with additional minigrids. Each time a DCA order is filled, the total grid range is increased thanks to the additional minigrids.
-![Combo-bot.svg](https://gainium.io/images/content/help/Combo_bot_f8c691fd78-5ae5ce.svg)
+![Combo-bot.svg](https://content.gainium.io/images/content/help/Combo_bot_f8c691fd78-5ae5ce.svg)
 *Combo bot logic*
 
 There are two types of minigrids: The base minigrid and the DCA minigrids. The base minigrid is formed when the deal starts. Subsequent DCA orders create DCA minigrids, which are appended to the main grid.&nbsp;
 
-![minigrid-expansion.png](https://gainium.io/images/content/help/minigrid_expansion_8c392d5df8-c4b6b4.png)
+![minigrid-expansion.png](https://content.gainium.io/images/content/help/minigrid_expansion_8c392d5df8-c4b6b4.png)
 
 Minigrids have three fundamental characteristics: The order step (the price % they cover, also known as their height), the number of grid orders inside, and the asset quantity. Let's review each one in more detail.
 
@@ -133,24 +133,24 @@ Once all minigrids within a deal are closed, the deal is considered closed, and 
 
 Let's look at an example to understand this concept better. Let's say we run a combo bot in SOL/USDT pair. Base and DCA minigrids have 5% order step and 5 grid levels (spaced 1% apart). We set a TP of 5%. We run a backtest on those settings, and we can see the following results inside the "Deal List" tab:
 
-![combo-sol-tp1.png](https://gainium.io/images/content/help/combo_sol_tp1_8513efda6d-d357ec.png)
+![combo-sol-tp1.png](https://content.gainium.io/images/content/help/combo_sol_tp1_8513efda6d-d357ec.png)
 
 As you can observe, two trades closed with a profit of under 5%. Let's click on one of them to see the bot's behavior in the graph. Here is what we can see when we click on Trade #12:
 
-![combo-sol-tp2.png](https://gainium.io/images/content/help/combo_sol_tp2_c382d02001-a32195.png)
+![combo-sol-tp2.png](https://content.gainium.io/images/content/help/combo_sol_tp2_c382d02001-a32195.png)
 
 As discussed earlier, when the price exits the top of the minigrid in a long bot, it will close the minigrid. The price exited the top of the grid indeed. The deal was closed since this was the base minigrid and the only minigrid in the deal. Note that as we sold a little base on each minigrid sell order while the price was increasing, by the time the price reached the top of the minigrid (5% price increase), the bot had already sold part of the base at lower levels. Hence, the total profit is less than 5%.
 
 Interestingly, a deal can also close with 5% profit even when the price doesn't reach the top of the grid. Here is a good example:
 
-![combo-sol-tp3.png](https://gainium.io/images/content/help/combo_sol_tp3_0bdb2588a9-b54772.png)
+![combo-sol-tp3.png](https://content.gainium.io/images/content/help/combo_sol_tp3_0bdb2588a9-b54772.png)
 
 As you can observe, the price stayed within the range of the base minigrid, and thanks to the volatility, the accumulated profit reached 5% before the price exited the top of the grid. In this case, the bot canceled the grid and sold the rest of the base, obtaining a total profit of 5% despite the price never reaching a 5% increase.&nbsp;
 
 ## Combo bot settings walkthrough
 
 Now that we know the basics about the combo bot let's examine its settings in detail. You will recognize most combo bot settings if you are familiar with the grid and DCA bot settings. There are, however, a few exclusive to the combo bot. Let's dive in!
-![Combo_settings.png](https://gainium.io/images/content/help/Combo_settings_79e124e362-d3f17b.png)
+![Combo_settings.png](https://content.gainium.io/images/content/help/Combo_settings_79e124e362-d3f17b.png)
 *Combo bot settings*
 
 #### Basic settings

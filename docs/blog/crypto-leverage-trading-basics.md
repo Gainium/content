@@ -68,7 +68,7 @@ Setting up a crypto bot for trading futures involves a similar process to settin
 
 **Select a cryptocurrency futures exchange:** Choose a reputable cryptocurrency exchange that offers futures trading. Some popular options include Binance Futures, BitMEX, Bybit, and Deribit. Research and compare the features, trading pairs, leverage options, check the echange trading fee, and API capabilities of different crypto exchanges to find one that suits your needs. At the moment Gainium allows you to trade futures on Binance, Kucoin and Bybit. You often will need to enable futures in your account. For example, Binance requires you to take a small test.
 
-![image1.png](https://gainium.io/images/content/blog/image1_a55d33aa62-5e4dd2.png)
+![image1.png](https://content.gainium.io/images/content/blog/image1_a55d33aa62-5e4dd2.png)
 
 Add new exchange
 
@@ -92,13 +92,13 @@ There is a very useful tool available for [free](https://www.3cstats.com/leverag
 
 **TIP** If you are using cross margin trading is best to open several sub accounts into your exchange to limit the exposure of your assets.
 
-![image2.png](https://gainium.io/images/content/blog/image2_2f2ebeb554-7007f8.png)
+![image2.png](https://content.gainium.io/images/content/blog/image2_2f2ebeb554-7007f8.png)
 
 Setup example
 
 In the example above the bot is using 24 USDT with a wallet of 50 USDT ( so 26 USDT are the margin), the bot is using 10X leverage. This bot will survive another 20% deviation from the last SO before being liquidated as you can see from the info below.
 
-![image3.png](https://gainium.io/images/content/blog/image3_e068e1cf2d-a9111d.png)
+![image3.png](https://content.gainium.io/images/content/blog/image3_e068e1cf2d-a9111d.png)
 
 Orders table
 

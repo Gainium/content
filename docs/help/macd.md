@@ -36,11 +36,11 @@ The MACD Line and Signal Line interaction generates trading signals that can hel
 ## Using the MACD in Gainium
 
 The MACD indicator is available in your bot settings' “Deal Start” section. Select “Technical Indicators” from the “Deal start condition” drop-down menu first, then “MACD” in the “Indicator” Section.
-![Screenshot 2023-04-11 at 16.42.02.png](https://gainium.io/images/content/help/Screenshot_2023_04_11_at_16_42_02_bdcff2e4b6-08edae.png)
+![Screenshot 2023-04-11 at 16.42.02.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_16_42_02_bdcff2e4b6-08edae.png)
 *MACD*
 
 In Gainium, you can see the histogram (red and green wave) by default in the chart as soon as you select the indicator. However, to be able to see the EMA line crossing that sometimes helps better visualize your entry, you need to tick “MACD” and “Signal” in the “Style” tab in the indicator settings.
-![Screenshot 2023-04-11 at 16.49.39.png](https://gainium.io/images/content/help/Screenshot_2023_04_11_at_16_49_39_84463f5691-1bdd7d.png)
+![Screenshot 2023-04-11 at 16.49.39.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_16_49_39_84463f5691-1bdd7d.png)
 *Style Settings&nbsp;*
 
 ## Implementing MACD in Your Trading Bot Strategy
@@ -52,7 +52,7 @@ Here are a few examples of how to use the MACD indicator in your trading bots.
 In the crossover strategy, your trading bot will initiate a long position when the MACD Line crosses above the Signal Line, indicating a bullish trend. Conversely, the bot will exit the position or enter a short trade when the MACD Line crosses below the Signal Line, signaling a bearish trend.
 
 For example, your bot will initiate a long position if the BTC/USDT pair demonstrates a bullish crossover with the MACD Line rising above the Signal Line. The bot will then hold onto the position until a bearish crossover occurs, prompting an exit or a short trade.
-![Screenshot 2023-04-11 at 17.03.41.png](https://gainium.io/images/content/help/Screenshot_2023_04_11_at_17_03_41_00a59824d2-f37f22.png)
+![Screenshot 2023-04-11 at 17.03.41.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_17_03_41_00a59824d2-f37f22.png)
 *MACD crossover strategy*
 
 ### B. Trend continuation Strategy
@@ -64,7 +64,7 @@ For instance, if the BTC/USDT MACD histogram shifts from negative to positive te
 &nbsp;positive to negative territory, it signals a possible bearish trend, leading the bot to exit the position or enter a short trade.
 
 In this strategy, it is helpful to bring up the EMA lines, as you can see from the image below. The fast 12 EMA is bouncing on the slower 26 EMA, confirming the continuation of the trend.&nbsp;
-![Screenshot 2023-04-11 at 17.08.36.png](https://gainium.io/images/content/help/Screenshot_2023_04_11_at_17_08_36_0d5b1a4314-312794.png)
+![Screenshot 2023-04-11 at 17.08.36.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_17_08_36_0d5b1a4314-312794.png)
 *MACD trend continuation strategy*
 
 ### C. MACD Divergence Strategy
@@ -72,7 +72,7 @@ In this strategy, it is helpful to bring up the EMA lines, as you can see from t
 Divergence occurs when the price movement of a digital asset and the MACD indicator deviate from one another. Positive divergence happens when the price hits a lower low, but the MACD forms a higher low, suggesting a potential bullish reversal. Negative divergence transpires when the price reaches a higher high, while the MACD forms a lower high, indicating a possible bearish reversal.
 
 Using the BTC/USDT pair as an example, if the price reaches a new low while the MACD forms a higher low, your bot can initiate a long position, anticipating a bullish trend. Conversely, if the price creates a new high and the MACD forms a lower high, the bot can exit the position or enter a short trade.
-![Screenshot 2023-04-11 at 17.15.51.png](https://gainium.io/images/content/help/Screenshot_2023_04_11_at_17_15_51_7eeea484dc-9d4a1d.png)
+![Screenshot 2023-04-11 at 17.15.51.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_17_15_51_7eeea484dc-9d4a1d.png)
 *MACD divergence*
 
 ## Conclusion

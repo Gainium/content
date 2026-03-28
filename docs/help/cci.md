@@ -44,7 +44,7 @@ Here’s how to set up the **CCI** indicator in Gainium.
 
 ### Step 2: Configure the CCI Settings
 - **Length**: This defines the period over which the CCI is calculated (the default is&nbsp;**20**). A lower number makes the CCI more sensitive to recent price changes, while a higher number smooths out the indicator to reflect longer-term trends.- **Interval**: This is the timeframe for which the indicator is applied. In your settings, the interval is set to **4 hours**, meaning the CCI will be calculated based on 4-hour price data.- **Condition**: Choose a condition that triggers a trade. In this example, the CCI is set to **Crossing Down** below a value, indicating a sell signal when the CCI crosses below a threshold.- **Value**: This is the trigger value for the condition (in this case, **100**). When CCI crosses below 100, a signal is generated, indicating that the price is potentially exiting an overbought condition.- **Keep True**: This defines how long the condition remains active after it’s triggered. Setting this to **0** means the condition resets immediately after the trigger.
-![image.png](https://gainium.io/images/content/help/image_4f3abd1064-80512a.png)
+![image.png](https://content.gainium.io/images/content/help/image_4f3abd1064-80512a.png)
 *CCI Oscillator Settings*
 
 ## Using CCI in Bot Trading
