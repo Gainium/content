@@ -71,7 +71,7 @@ That's it. Now you create bots and place trades exactly the same way you would i
 
 Bitcoin is the most liquid crypto asset, which makes it ideal for paper trading practice. Here's how to approach it:
 
-**For manual trading:** Use Gainium's TradingView charts to practice entries and exits on BTC pairs. Track your trades in the [Trade Journal](https://gainium.io/trade-journal) to build a record of what works.
+**For manual trading:** Use Gainium's TradingView charts to practice entries and exits on BTC pairs. Track your trades in the Trade Journal to build a record of what works.
 
 **For bot trading:** Set up a Grid bot or DCA bot on a BTC/USDT pair. Bitcoin's price movements give you clean data to evaluate whether your bot settings actually work across different market conditions.
 
@@ -89,7 +89,7 @@ Here's why: meme coins are volatile, often illiquid, and driven by social sentim
 
 - **Grid bots on meme coins:** Meme coins often trade in wide ranges. A Grid bot can capture those swings, but you need to get the range and grid spacing right. Paper trade it first to see if your settings survive the volatility.
 - **DCA strategies:** Dollar-cost averaging into meme coins during dips sounds simple, but the safety order distances that work for BTC won't work for a coin that can drop 40% in a day. Paper trading reveals this fast.
-- **Entry/exit timing:** Practice spotting momentum shifts. Use the manual backtester to replay historical meme coin charts, then paper trade forward to test your read.
+- **Entry/exit timing:** Practice spotting momentum shifts. Replay historical meme coin charts, then paper trade forward to test your read.
 
 ### The Liquidity Warning
 
@@ -146,16 +146,16 @@ These are complementary tools, not alternatives. Here's the difference:
 
 **For mechanical strategies** (Grid, DCA bots):
 
-1. **Backtest** → Use Gainium's [backtester](https://gainium.io/backtesting) to test settings against historical data
+1. **Backtest** → Use Gainium's [backtester](/help/backtesting-trading-bots) to test settings against historical data
 2. **Paper trade** → Run the bot forward in real time for 2-4 weeks
 3. **Go live small** → Start with minimum position size
 
 **For technical strategies** (indicator-based):
 
-1. **Document rules** → Write your system in a [Rulebook](https://gainium.io/rulebook)
-2. **Manual backtest** → Replay charts bar-by-bar using the [Manual Backtester](https://gainium.io/manual-backtester)
+1. **Document rules** → Write your trading system in a Rulebook
+2. **Manual backtest** → Replay charts bar-by-bar using the Manual Backtester
 3. **Paper trade** → Run it forward with live data
-4. **Journal** → Log trades in the [Trade Journal](https://gainium.io/trade-journal)
+4. **Journal** → Log trades in the Trade Journal
 5. **Go live small** → Only after consistent results
 
 Skipping the backtest and jumping straight to paper trading wastes time. Skipping paper trading and jumping from backtest to live wastes money. Do both.
@@ -202,7 +202,7 @@ If you're evaluating paper trading platforms, here's what sets Gainium apart:
 - **Multi-exchange support** — Simulate trading on Binance, Bybit, KuCoin, OKX, and Coinbase from one platform.
 - **Futures support** — Including leverage and liquidation simulation.
 - **Advanced analytics** — Full reporting and metrics on your paper trades, not just basic PnL.
-- **Integrated testing workflow** — Backtester, manual backtester, trade journal, and rulebooks all work together with paper trading.
+- **Integrated testing workflow** — Backtester, trade journal, and other testing tools all work together with paper trading.
 
 ## Getting Started
 

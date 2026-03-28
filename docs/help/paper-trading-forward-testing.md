@@ -124,7 +124,7 @@ You can manage your paper trading accounts from the "Exchanges" menu. There you 
 
 ## From Paper Trading to Live: The Recommended Path
 
-Paper trading is most effective when combined with [backtesting](https://gainium.io/backtesting). The recommended workflow:
+Paper trading is most effective when combined with [backtesting](/help/backtesting-trading-bots). The recommended workflow:
 
 1. **Backtest** your strategy against historical data to eliminate bad ideas quickly
 2. **Paper trade** forward in real time for at least 2-4 weeks
