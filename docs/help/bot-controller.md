@@ -31,7 +31,10 @@ Let's break down the settings you can tweak.
 ## Setting Up Your Bot Controller
 
 Configuring your bot controller is a walk in the park. Here's a quick guide:
-- **Access the Bot Controller:** Jump into your bot's settings. Look for the "Bot Controller" section at the end of the settings.- **Choose Your Control Method:** You can choose from manual/webhook or technical indicators. Both options support deal-based stops. Each option has a simple setup process that guides you through the necessary steps.- **Fine-Tune Your Settings:** You can set up webhooks, select technical indicators, or specify the number of deals for stopping points.- **Activate and Relax:** Once set, activate your settings. Your bot now has its marching orders, and you can sit back or focus on other strategies.
+- **Access the Bot Controller:** Jump into your bot's settings. Look for the "Bot Controller" section at the end of the settings.
+- **Choose Your Control Method:** You can choose from manual/webhook or technical indicators. Both options support deal-based stops. Each option has a simple setup process that guides you through the necessary steps.
+- **Fine-Tune Your Settings:** You can set up webhooks, select technical indicators, or specify the number of deals for stopping points.
+- **Activate and Relax:** Once set, activate your settings. Your bot now has its marching orders, and you can sit back or focus on other strategies.
 
 ### Manual/Webhook
 

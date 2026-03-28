@@ -38,12 +38,14 @@ Scroll through the available subscription options to find the plan that best ali
 ![subscription-confirmation.jpeg](https://content.gainium.io/images/content/help/subscription_confirmation_a0ada391ea-51c3df.jpeg)
 ## **Step 3: Top up your payment wallet**
 
-Upon identifying your preferred subscription plan, click the "Get Plan" button. This will lead you to the payment gateway, where you can pay with cryptocurrency.&nbsp;
+Upon identifying your preferred subscription plan, click the "Get Plan" button. This will lead you to the payment gateway, where you can pay with cryptocurrency.
 ![payment-top-up.jpeg](https://content.gainium.io/images/content/help/payment_top_up_4e20564448-6f42a9.jpeg)
 #### *Note on Cryptocurrency Payments:*
 
 The system can only automatically recognize payments sent from your private wallet address (such as Metamask, Trust Wallet, or other similar applications). We prefer that you don't send payments directly from exchanges. There are several reasons for this:
-- **User Verification:** We use the sending address as a unique identifier to credit the payment to the right user.- **Incorrect sent amount**: Exchanges often deduct a fee from the amount sent, which many times results in an insufficient amount sent.- **Refunds:** In the rare instance that a refund is necessary, we utilize the same sending address to process it, ensuring that the funds are returned to the rightful owner.
+- **User Verification:** We use the sending address as a unique identifier to credit the payment to the right user.
+- **Incorrect sent amount**: Exchanges often deduct a fee from the amount sent, which many times results in an insufficient amount sent.
+- **Refunds:** In the rare instance that a refund is necessary, we utilize the same sending address to process it, ensuring that the funds are returned to the rightful owner.
 
 ![crypto-payment.jpeg](https://content.gainium.io/images/content/help/crypto_payment_39cf8669c2-14e0a2.jpeg)
 
@@ -63,10 +65,10 @@ Address
 USDT (TRC20)TBaUzjcTkDqojm24zeGMYLNHjcag3iC87eUSDT (MATIC, BSC, ERC20)0xB338a083e4912A567b55b090501f47ba28c6542B
 Once you have completed the payment, please [get in touch](https://gainium.io/contact) with us with the details of your transaction, and we will process it ASAP.
 
-## **Step 5: &nbsp;Enjoy your new plan**
+## **Step 5:  Enjoy your new plan**
 
 After completing the payment process, you will receive an email confirmation, and the funds will be added to your payment wallet. The top-up amount will be added to your wallet, and the funds will be used when your current plan expires and the new plan is implemented.
 
-&nbsp;
+
 
 At Gainium, we're continually evolving based on community feedback, and we're thrilled to have you onboard. Remember, Gainium is not just a trading platform; it's a hub for learning, collaboration, and growth. Happy trading!

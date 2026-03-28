@@ -30,10 +30,12 @@ In this article, we’ll define the **CCI** indicator, explain how to configure 
 ## What Is the Commodity Channel Index (CCI)?
 
 The **CCI** compares the current price to its average price over a set period, calculating how far prices are from their historical average. It is a momentum oscillator, oscillating above and below zero, typically ranging between +100 and -100.
-- **+100**: Indicates potential overbought conditions.- **-100**: Indicates potential oversold conditions.
+- **+100**: Indicates potential overbought conditions.
+- **-100**: Indicates potential oversold conditions.
 
 ### Key Features:
-- **Overbought/Oversold Indicator**: CCI values above +100 suggest overbought conditions, while values below -100 suggest oversold conditions.- **Identifies Trend Strength**: High positive values indicate strong uptrends, and deep negative values indicate strong downtrends.
+- **Overbought/Oversold Indicator**: CCI values above +100 suggest overbought conditions, while values below -100 suggest oversold conditions.
+- **Identifies Trend Strength**: High positive values indicate strong uptrends, and deep negative values indicate strong downtrends.
 
 ## How to Configure CCI in Gainium
 
@@ -43,7 +45,11 @@ Here’s how to set up the **CCI** indicator in Gainium.
 - **Navigate to the Bot Settings**:Log into Gainium, open the bot settings, and select **Commodity Channel Index (CCI)** from the available indicators.
 
 ### Step 2: Configure the CCI Settings
-- **Length**: This defines the period over which the CCI is calculated (the default is&nbsp;**20**). A lower number makes the CCI more sensitive to recent price changes, while a higher number smooths out the indicator to reflect longer-term trends.- **Interval**: This is the timeframe for which the indicator is applied. In your settings, the interval is set to **4 hours**, meaning the CCI will be calculated based on 4-hour price data.- **Condition**: Choose a condition that triggers a trade. In this example, the CCI is set to **Crossing Down** below a value, indicating a sell signal when the CCI crosses below a threshold.- **Value**: This is the trigger value for the condition (in this case, **100**). When CCI crosses below 100, a signal is generated, indicating that the price is potentially exiting an overbought condition.- **Keep True**: This defines how long the condition remains active after it’s triggered. Setting this to **0** means the condition resets immediately after the trigger.
+- **Length**: This defines the period over which the CCI is calculated (the default is **20**). A lower number makes the CCI more sensitive to recent price changes, while a higher number smooths out the indicator to reflect longer-term trends.
+- **Interval**: This is the timeframe for which the indicator is applied. In your settings, the interval is set to **4 hours**, meaning the CCI will be calculated based on 4-hour price data.
+- **Condition**: Choose a condition that triggers a trade. In this example, the CCI is set to **Crossing Down** below a value, indicating a sell signal when the CCI crosses below a threshold.
+- **Value**: This is the trigger value for the condition (in this case, **100**). When CCI crosses below 100, a signal is generated, indicating that the price is potentially exiting an overbought condition.
+- **Keep True**: This defines how long the condition remains active after it’s triggered. Setting this to **0** means the condition resets immediately after the trigger.
 ![image.png](https://content.gainium.io/images/content/help/image_4f3abd1064-80512a.png)
 *CCI Oscillator Settings*
 
@@ -62,7 +68,8 @@ Here are two example strategies demonstrating how to use the CCI indicator in au
 - **Short Exit**:Exit when the CCI crosses back above 0, signaling that the downward momentum may weaken.
 
 #### Implementation in Gainium
-- **Configure CCI**: Add the CCI indicator to the bot and set the thresholds for **-100** (oversold) and **100** (overbought).- **Automate Entries/Exits**: Program the bot to enter trades when the CCI crosses these levels and exit when the CCI crosses back toward zero.
+- **Configure CCI**: Add the CCI indicator to the bot and set the thresholds for **-100** (oversold) and **100** (overbought).
+- **Automate Entries/Exits**: Program the bot to enter trades when the CCI crosses these levels and exit when the CCI crosses back toward zero.
 
 ### Strategy 2: Trend Following with CCI
 
@@ -75,14 +82,16 @@ Here are two example strategies demonstrating how to use the CCI indicator in au
 - **Short Exit**:Exit when the CCI rises above +100, signaling a potential reversal from a downtrend to an uptrend.
 
 #### Implementation in Gainium
-- **Set CCI Thresholds**: Set the CCI to trigger trades when crossing **0** for trend confirmation and **±100** for trend reversals.- **Risk Management**: Incorporate stop-losses to protect against false signals, especially during volatile markets.
+- **Set CCI Thresholds**: Set the CCI to trigger trades when crossing **0** for trend confirmation and **±100** for trend reversals.
+- **Risk Management**: Incorporate stop-losses to protect against false signals, especially during volatile markets.
 
 ## Practical Considerations
 
 When using the CCI indicator in your trading strategy, here are some important considerations:
 
 ### 1. Length and Timeframe Adjustments
-- **Shorter Lengths (e.g., 10)**: More responsive to price changes but may produce more false signals.- **Longer Lengths (e.g., 30)**: Smoother signals but may lag behind actual market movements.
+- **Shorter Lengths (e.g., 10)**: More responsive to price changes but may produce more false signals.
+- **Longer Lengths (e.g., 30)**: Smoother signals but may lag behind actual market movements.
 
 ### 2. Combine with Other Indicators
 - Use the CCI in conjunction with other indicators, such as moving averages or RSI, to confirm overbought/oversold conditions or trend direction.

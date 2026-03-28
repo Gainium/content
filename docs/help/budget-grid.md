@@ -41,7 +41,8 @@ The currency in which you place orders, and your chosen profit currency, can inf
 ## Modifying the Bot’s Budget
 
 Flexibility is key in trading, and Gainium's grid bots are designed with this in mind. To adjust your bot's budget, you can edit your bot and modify the budget directly.
-- **Increasing the Budget**: If you decide to increase the budget, the platform will prompt you with the option to purchase the necessary additional assets.- **Decreasing the Budget**: Conversely, if you choose to reduce the budget, the bot will offer the option to sell off the excess assets.
+- **Increasing the Budget**: If you decide to increase the budget, the platform will prompt you with the option to purchase the necessary additional assets.
+- **Decreasing the Budget**: Conversely, if you choose to reduce the budget, the bot will offer the option to sell off the excess assets.
 
 These features provide you with full control over your trading activities, enabling you to adapt swiftly to changing market conditions or personal trading strategies.
 

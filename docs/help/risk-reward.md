@@ -33,12 +33,16 @@ This article will explain how the Risk:Reward feature works and how to configure
 The Risk:Reward feature automatically calculates position size based on the trader’s desired risk level and the distance between the entry price and stop-loss. This ensures that even if the trade goes against you, the capital at risk is precisely as you’ve defined, preventing larger-than-expected losses.
 
 ### Key Components of Risk:Reward:
-- **Stop-Loss Based on Price Chart Indicators**: The feature uses price chart indicators such as Support/Resistance or trendlines. Oscillators like RSI or MACD are not directly tied to price levels and are, therefore, unsupported.- **Risk Amount**: You can specify a percentage of your available balance or a fixed dollar amount you are willing to risk on any trade.- **Reward Ratio**: The reward ratio defines the expected reward relative to the risk, helping traders maintain a favorable risk/reward balance in their strategy.- **Position Size Calculation**: Once your stop-loss and risk amount are defined, the feature calculates the position size needed to match your risk parameters.
+- **Stop-Loss Based on Price Chart Indicators**: The feature uses price chart indicators such as Support/Resistance or trendlines. Oscillators like RSI or MACD are not directly tied to price levels and are, therefore, unsupported.
+- **Risk Amount**: You can specify a percentage of your available balance or a fixed dollar amount you are willing to risk on any trade.
+- **Reward Ratio**: The reward ratio defines the expected reward relative to the risk, helping traders maintain a favorable risk/reward balance in their strategy.
+- **Position Size Calculation**: Once your stop-loss and risk amount are defined, the feature calculates the position size needed to match your risk parameters.
 
 ## How to Use Risk:Reward in Gainium
 
 ### Step 1: Enable the Risk:Reward Feature
-- **Access the Bot Settings**:Open your bot configuration in Gainium.- Navigate to the **Risk:Reward** section, as shown in the image below.
+- **Access the Bot Settings**:Open your bot configuration in Gainium.
+- Navigate to the **Risk:Reward** section, as shown in the image below.
 - **Turn on the Risk:Reward Feature**:Toggle the switch at the top right to activate this functionality.
 
 ![image.png](https://content.gainium.io/images/content/help/image_af12b583ac-7ac813.png)
@@ -68,13 +72,17 @@ You are trading the **BTC/USDT** pair and want to manage your risk effectively. 
 
 ### Step-by-Step Execution:
 - **Indicator Setup**:You configure the **Support/Resistance** indicator to detect support levels on the 1-hour chart with 15 left bars and 15 right bars.
-- **Risk and Stop-Loss**:You set the risk to **2%** of your free balance.- The bot uses the selected support level as the stop-loss for the position.
+- **Risk and Stop-Loss**:You set the risk to **2%** of your free balance.
+- The bot uses the selected support level as the stop-loss for the position.
 - **Position Size Calculation**:The bot calculates the appropriate position size based on how far the current price is from the stop-loss, ensuring that you only risk 2% of your balance if the stop-loss is hit.
 - **Target Reward**:With a **1.5x** reward ratio, the bot sets the take-profit level to 1.5 times the distance between the entry price and the stop-loss.
 - **Execution**:Based on the pre-configured settings, the bot executes the trade, enters the position, and manages the stop-loss and take-profit levels.
 
 ### Example Outcome
-- **Risk:** $200 (2% of your balance).- **Stop-Loss:** The bot places the stop-loss at the support level, let’s say 5% below the entry price.- **Position Size:** The bot automatically adjusts the position size so that if the stop-loss is triggered, you lose exactly $200.- **Reward:** With a 1.5 reward ratio, the bot sets the take-profit level to aim for a $300 profit, 1.5x the amount risked.
+- **Risk:** $200 (2% of your balance).
+- **Stop-Loss:** The bot places the stop-loss at the support level, let’s say 5% below the entry price.
+- **Position Size:** The bot automatically adjusts the position size so that if the stop-loss is triggered, you lose exactly $200.
+- **Reward:** With a 1.5 reward ratio, the bot sets the take-profit level to aim for a $300 profit, 1.5x the amount risked.
 
 ## Practical Considerations
 

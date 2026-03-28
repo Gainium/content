@@ -41,13 +41,13 @@ This indicator is very similar to [RSI](https://gainium.io/help/rsi). RSI is mor
 
 You can select this indicator by selecting “Technical Indicators” from the drop-down menu first, then “Stoch” in the “Indicator” Section.
 ![Screenshot 2023-04-12 at 15.51.20.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_12_at_15_51_20_cdb5dfb854-1ca109.png)
-*Stochastic&nbsp;*
+*Stochastic*
 
 ## Implementing Stochastic in Your Trading Bot Strategy
 
 ### Identifying overbought and oversold levels
 
-Traders often use the Stochastic indicator to identify potential overbought and oversold conditions in an asset's price. When the indicator is above 80, the asset is overbought; when the value is below 20, it is oversold. Traders may look for potential buying opportunities when the indicator is oversold and potential selling opportunities when it is overbought. In the image below, you can see how the price reacts after the indicator crosses up 20 or crosses down 80.&nbsp;&nbsp;
+Traders often use the Stochastic indicator to identify potential overbought and oversold conditions in an asset's price. When the indicator is above 80, the asset is overbought; when the value is below 20, it is oversold. Traders may look for potential buying opportunities when the indicator is oversold and potential selling opportunities when it is overbought. In the image below, you can see how the price reacts after the indicator crosses up 20 or crosses down 80.
 ![Screenshot 2023-04-12 at 16.24.38.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_12_at_16_24_38_a7bccc68a4-36c12e.png)
 *Buy and Sell Signals*
 

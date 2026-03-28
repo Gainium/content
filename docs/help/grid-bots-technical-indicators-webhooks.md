@@ -55,10 +55,10 @@ Beyond these features, combo bots on Gainium also offer the flexibility to creat
 
 By combining the intelligence of technical indicators with the sophistication of flexible grid configurations, combo bots offer a trading experience that is responsive, strategic, and fine-tuned to the dynamics of the crypto markets.
 
-### Example: Starting a Grid When RSI &lt; 30 on BTC/USDT
+### Example: Starting a Grid When RSI < 30 on BTC/USDT
 
 Let's explore a practical application of combo bots focusing on technical indicators. For instance, using the Relative Strength Index (RSI) to determine market entry:
-- **Currency Pair:** BTC/USDT- **Indicator:** RSI- **Threshold:** RSI &lt; 30
+- **Currency Pair:** BTC/USDT-** Indicator:** RSI-** Threshold:** RSI < 30
 
 Configuring a combo bot to initiate a grid when the BTC/USDT RSI dips below 30 provides a strategic entry based on a widely regarded indicator of oversold conditions. The bot becomes active and begins placing buy orders, utilizing a trusted market signal to potentially secure a favorable position within the market.
 

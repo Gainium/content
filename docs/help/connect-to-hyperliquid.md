@@ -168,4 +168,5 @@ Regardless of which connection method you chose:
 
 ## Learn More
 
-- [Unlimited Trading in Hyperliquid](https://gainium.io/help/unlimited-trading-hyperliquid) - Learn about builder fees and free vs paid user modes
+- [Unlimited Trading in Hyperliquid](https://gainium.io/help/unlimited-trading-hyperliquid)
+- Learn about builder fees and free vs paid user modes

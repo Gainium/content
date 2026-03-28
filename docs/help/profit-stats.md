@@ -22,7 +22,7 @@ tldr: >-
   exchange fees accounted for.
 ---
 
-The profit chart shows the aggregated profit in USD generated over time. The profit chart stats can be found on your account dashboard or any bot page.&nbsp;
+The profit chart shows the aggregated profit in USD generated over time. The profit chart stats can be found on your account dashboard or any bot page.
 
 The profit chart located in the dashboard shows the profit in USD for the full account. The USD value is calculated at the moment of profit. It does not change over time (if you generated the equivalent of $1 and profited in crypto, the profit value of that transaction will be $1 even after the crypto changes in value).
 

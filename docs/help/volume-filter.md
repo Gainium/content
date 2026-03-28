@@ -54,4 +54,4 @@ At Gainium, we're all about harnessing the power of technology to make your trad
 
 Remember, the crypto market is a wild ride, and while it can offer some exciting opportunities, it's essential to be strategic about your trading decisions. That's where our Volume Filter comes in. Set boundaries, let your bots loose, and watch them work their magic.
 
-So give it a whirl, and let us know how you find it. We're always here to help if you've got any questions.&nbsp;
+So give it a whirl, and let us know how you find it. We're always here to help if you've got any questions.

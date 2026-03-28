@@ -40,7 +40,8 @@ The Smart trade terminal type is an excellent choice for traders seeking more ad
 - Open order creation, tracking profit and a host of other performance metrics- Customizable take profit, stop loss, and DCA settings- Enhanced control over trading strategies- Suitable for intermediate to advanced traders
 
 Examples of scenarios where you may want to choose smart trade:
-- Trades that you plan to close (meaning, sell back the token if going long or buy back the token if going short)- Preserving the value of your portfolio by going short on your assets before a downturn and repurchasing them at a lower price- Buying tokens for long-term holding, if you want to keep track of the average buy price
+- Trades that you plan to close (meaning, sell back the token if going long or buy back the token if going short)
+- Preserving the value of your portfolio by going short on your assets before a downturn and repurchasing them at a lower price- Buying tokens for long-term holding, if you want to keep track of the average buy price
 
 ## Import
 
@@ -50,6 +51,6 @@ Lastly, the Import trading terminal type caters to users who have executed trade
 Examples of scenarios where you may want to choose import trade:
 - Trades that you plan to close, but were opened directly on the exchange or another trading platform- Creating partial take profit trades from your long-term holdings
 
-&nbsp;
+
 
 Gainium's three trading terminal types cater to a wide range of trading styles and preferences. By understanding the features and benefits of the Simple, Smart, and Import types, you can make informed decisions and optimize your trading experience. Whether seeking a streamlined and straightforward approach or requiring advanced customization and control, Gainium's trading terminals have got you covered.

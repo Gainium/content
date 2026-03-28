@@ -22,19 +22,19 @@ tldr: >-
 
 ## How to connect Gainium to Bybit
 
-**1. Log in to Bybit and go to the API Keys Page**&nbsp;
+**1. Log in to Bybit and go to the API Keys Page**
 
-Once you have logged into your Bybit account, hover on “My Account” on the top right and select the account you want to use to create API keys (Bybit allows the creation of subaccounts).&nbsp;
+Once you have logged into your Bybit account, hover on “My Account” on the top right and select the account you want to use to create API keys (Bybit allows the creation of subaccounts).
 
 Then click on API.
 ![Screenshot 2023-03-30 at 18.15.42.png](https://content.gainium.io/images/content/help/Screenshot_2023_03_30_at_18_15_42_98735fe6f9-55467b.png)
 *Login*
 
-**2. Click on the “Create New Api” orange button**&nbsp;
+**2. Click on the “Create New Api” orange button**
 ![Screenshot 2023-03-30 at 18.46.34.png](https://content.gainium.io/images/content/help/Screenshot_2023_03_30_at_18_46_34_b5cf2ceb60-e0045f.png)
 *Click New Key*
 
-**3. Select the first option: System-generated API Keys&nbsp;**
+**3. Select the first option: System-generated API Keys**
 ![Screenshot 2023-03-30 at 18.09.14.png](https://content.gainium.io/images/content/help/Screenshot_2023_03_30_at_18_09_14_ea31cb77a3-d8134d.png)
 *System-generated API Keys*
 
@@ -49,23 +49,24 @@ API KEY PERMISSIONS
 
 ![bybit-api-config.jpeg](https://content.gainium.io/images/content/help/bybit_api_config_18d6605d44-f2b1fb.jpeg)
 
-**5. Enter the codes for Security Verification&nbsp;**
+**5. Enter the codes for Security Verification**
 ![Screenshot 2023-03-30 at 18.27.48.png](https://content.gainium.io/images/content/help/Screenshot_2023_03_30_at_18_27_48_d78eafc697-43950f.png)
 *Security Verification*
 
 **6. Copy the Key and Secret Key**
 
-Once you have passed security verification, you will receive your keys.&nbsp;
+Once you have passed security verification, you will receive your keys.
 
-Store the API secret safely, as you will only see them on the screen once at this stage.&nbsp;
+Store the API secret safely, as you will only see them on the screen once at this stage.
 ![Screenshot 2023-03-30 at 18.29.01.png](https://content.gainium.io/images/content/help/Screenshot_2023_03_30_at_18_29_01_b78bfb9090-1bff42.png)
 *API KEYS*
 
 **7. Paste the keys in Gainium**
-- Open the [Exchanges](https://app.gainium.io/exchanges) page in Gainium and click on the “Add New” orange tab at the top of the page.- &nbsp;Fill in the information in the Add New Exchange popup.- Click on the “Add Exchange” orange tab
+- Open the [Exchanges](https://app.gainium.io/exchanges) page in Gainium and click on the “Add New” orange tab at the top of the page.-  Fill in the information in the Add New Exchange popup.
+- Click on the “Add Exchange” orange tab
 ![Screenshot 2023-03-30 at 19.28.37.png](https://content.gainium.io/images/content/help/Screenshot_2023_03_30_at_19_28_37_0bd61e6261-d30e7d.png)![Screenshot 2023-03-30 at 18.30.32.png](https://content.gainium.io/images/content/help/Screenshot_2023_03_30_at_18_30_32_dc7f6dadeb-719e80.png)
 *Add New Exchange*
 
 You are all set! The newly added exchange will now show up.
 
-&nbsp;
+

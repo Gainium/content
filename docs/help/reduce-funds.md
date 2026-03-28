@@ -28,9 +28,12 @@ The **Reduce Funds** feature allows you to reduce your position size in an activ
 
 ### How to Reduce Funds via Web UI
 - **Access the Deal Menu**:Navigate to the active deal you want to modify, and click on the **Reduce Funds** option in the deal menu.
-- **Type (Fixed or Percent)**:Choose whether you want to reduce by a **Fixed** amount or a **Percent** of the current position.- **Fixed**: You enter a specific value (e.g., 100 USDT).- **Percent**: You enter the percentage of the current position to reduce (e.g., 20%).
+- **Type (Fixed or Percent)**:Choose whether you want to reduce by a **Fixed** amount or a **Percent** of the current position.
+- **Fixed**: You enter a specific value (e.g., 100 USDT).
+- **Percent**: You enter the percentage of the current position to reduce (e.g., 20%).
 - **Amount**:Input the value or percentage based on the selected type.
-- **Order Type**:**Market**: Executes the reduction immediately at the current market price.- **Limit**: The reduction is only executed if the price reaches your target.
+- **Order Type**:**Market**: Executes the reduction immediately at the current market price.
+- **Limit**: The reduction is only executed if the price reaches your target.
 - **Confirm**:Click **Confirm** to execute the reduction. The bot will handle the order based on the settings.
 
 ![image.png](https://content.gainium.io/images/content/help/image_eb3da46abf-2f2d7e.png)
@@ -42,14 +45,16 @@ The **Reduce Funds** feature allows you to reduce your position size in an activ
 
 Like the **Add Funds** feature, you can use webhooks to reduce funds in an open deal. Here’s how:
 - **Set Up the Webhook**:Configure the webhook with the necessary parameters, including the deal to modify and the amount or percentage to reduce.
-- **Options for Single and Multi-Coin Bots**:For single-coin bots, the webhook reduces funds in all open deals.- For multi-coin bots, you can choose to reduce funds across all deals or specify which deal to reduce funds from.
+- **Options for Single and Multi-Coin Bots**:For single-coin bots, the webhook reduces funds in all open deals.
+- For multi-coin bots, you can choose to reduce funds across all deals or specify which deal to reduce funds from.
 - **Market Order Only**:Reductions via webhook are executed using **Market Orders** only.
 
 ### Reduce Funds via API
 
 For more advanced users, the **Reduce Funds** feature is also accessible through the Gainium API. You can find detailed documentation on how to implement it in your bots. Here’s a quick summary of the process:
-- **API Call**:Reduce funds in an open deal using the appropriate endpoint. The&nbsp;[API documentation](https://api.gainium.io/api/docs/)&nbsp;provides a reference.
-- **Parameters**:Provide details such as the deal ID, reduction amount, or percentage.- Ensure you specify whether the reduction is by a fixed amount or percentage.
+- **API Call**:Reduce funds in an open deal using the appropriate endpoint. The [API documentation](https://api.gainium.io/api/docs/) provides a reference.
+- **Parameters**:Provide details such as the deal ID, reduction amount, or percentage.
+- Ensure you specify whether the reduction is by a fixed amount or percentage.
 - **Market Order**:API calls to reduce funds will typically execute as **market orders**, ensuring instant reduction at the current price.
 
 ### Example with ETH/USDT
@@ -60,4 +65,4 @@ Alternatively, if using a **Webhook**, the same 20% reduction would apply across
 
 ### Conclusion
 
-In conclusion, Gainium's&nbsp;**Reduce Funds**&nbsp;feature offers a flexible way to manage active deals, whether through the web interface, webhook, or API. This feature is ideal for securing partial profits, reducing exposure to a position, or freeing up capital while keeping the deal active.
+In conclusion, Gainium's **Reduce Funds** feature offers a flexible way to manage active deals, whether through the web interface, webhook, or API. This feature is ideal for securing partial profits, reducing exposure to a position, or freeing up capital while keeping the deal active.

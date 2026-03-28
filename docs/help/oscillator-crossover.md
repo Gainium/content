@@ -38,15 +38,17 @@ Oscillator crossovers occur when one oscillator crosses above or below another o
 ### **Step 1: Add the Oscillator Crossover Indicator**
 - **Access the Bot Settings**:Go to the bot configuration and choose **Oscillator Crossover** from the list of indicators.
 - **Select Oscillators**:Choose two oscillators to compare, such as **RSI** and **MFI**, or **RSI** and **CCI**.
-- **Configure Lengths and Intervals**:Set the length for each oscillator (e.g., 7 for RSI and 14 for MFI) and choose the timeframe (e.g., 1-hour interval) for the crossover signals.- You can also use the same Oscillator at different intervals to detect reversals and breakouts (for example, when the RSI 14 1H crosses up RSI 14 4H).
-- **Set Crossover Condition**:Depending on your trading strategy, choose the condition for when the crossover happens, such as&nbsp;**Crossing Down**&nbsp;or&nbsp;**Crossing Up**.
+- **Configure Lengths and Intervals**:Set the length for each oscillator (e.g., 7 for RSI and 14 for MFI) and choose the timeframe (e.g., 1-hour interval) for the crossover signals.
+- You can also use the same Oscillator at different intervals to detect reversals and breakouts (for example, when the RSI 14 1H crosses up RSI 14 4H).
+- **Set Crossover Condition**:Depending on your trading strategy, choose the condition for when the crossover happens, such as **Crossing Down** or **Crossing Up**.
 - **Keep True Option**:Use the “Keep true” setting to define how long the condition remains valid after the crossover happens (default is 0, meaning the condition is reset immediately after the crossover).
 
 ![image.png](https://content.gainium.io/images/content/help/image_88e9c32848-f54330.png)
 *Oscillator Crossover settings*
 
 ### **Step 2: Interpret the Signals**
-- **Crossing Up**: Indicates the first oscillator (e.g., RSI) crosses above the second (e.g., MFI or CCI), signaling upward momentum.- **Crossing Down**: Indicates the first oscillator crosses below the second, signaling downward momentum.
+- **Crossing Up**: Indicates the first oscillator (e.g., RSI) crosses above the second (e.g., MFI or CCI), signaling upward momentum.
+- **Crossing Down**: Indicates the first oscillator crosses below the second, signaling downward momentum.
 
 ## **Using Oscillator Crossovers in Bot Trading**
 
@@ -57,10 +59,13 @@ Here are two trading strategies that can be implemented using oscillator crossov
 **Entry Rules**
 
 **Long Entry (Buy)**:
-- **RSI (7)** crosses **above** **MFI (14)** on a 1-hour timeframe, signaling increasing buying pressure.- **Short Entry (Sell)**:- **RSI** crosses **below** **MFI**, indicating weakening momentum.
+- **RSI (7)** crosses **above** **MFI (14)** on a 1-hour timeframe, signaling increasing buying pressure.
+- **Short Entry (Sell)**:
+- **RSI** crosses **below** **MFI**, indicating weakening momentum.
 
 **Exit Rules**
-- **Long Exit**: Exit when RSI crosses **below** MFI, signaling a momentum reversal.- **Short Exit**: Exit when RSI crosses **above** MFI, signaling bullish momentum.
+- **Long Exit**: Exit when RSI crosses **below** MFI, signaling a momentum reversal.
+- **Short Exit**: Exit when RSI crosses **above** MFI, signaling bullish momentum.
 
 **Implementation in Gainium**
 - **Configure the Indicator**:Add the **Oscillator Crossover** with **RSI** and **MFI** set to your preferred lengths and timeframes.
@@ -69,10 +74,14 @@ Here are two trading strategies that can be implemented using oscillator crossov
 ### **Strategy 2: Trend Reversal Crossover Strategy**
 
 **Entry Rules**
-- **Long Entry (Buy)**:- **CCI** crosses **above** **RSI** when RSI is below 30 (indicating oversold conditions).- **Short Entry (Sell)**:- **CCI** crosses **below** **RSI** when RSI is above 70 (indicating overbought conditions).
+- **Long Entry (Buy)**:
+- **CCI** crosses **above** **RSI** when RSI is below 30 (indicating oversold conditions).
+- **Short Entry (Sell)**:
+- **CCI** crosses **below** **RSI** when RSI is above 70 (indicating overbought conditions).
 
 **Exit Rules**
-- **Long Exit**: Exit when CCI crosses back below RSI, signaling a weakening bullish trend.- **Short Exit**: Exit when CCI crosses back above RSI, signaling a weakening bearish trend.
+- **Long Exit**: Exit when CCI crosses back below RSI, signaling a weakening bullish trend.
+- **Short Exit**: Exit when CCI crosses back above RSI, signaling a weakening bearish trend.
 
 **Implementation in Gainium**
 - **Set Up the CCI and RSI Crossover**:Configure the bot to use **CCI** as Oscillator 1 and **RSI** as Oscillator 2, adjusting the lengths and intervals according to your strategy.

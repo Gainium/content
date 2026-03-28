@@ -48,6 +48,6 @@ With the scatterplot in place, we calculate the mean return for the strategy tra
 
 It’s essential to understand that the random trade benchmark is not about competition; it's about validation. Outperforming the random trades return is a positive indicator, but it isn't the sole measure of a strategy's validity. For instance, a long-only strategy tested during a market upswing might underperform compared to random trades during that period. Therefore, the purpose of this test is to challenge and reject the hypothesis that your strategy's performance is purely a product of chance.
 
-&nbsp;
+
 
 We hope this guide helps you maximize the backtester’s new capabilities. For further assistance or questions, don't hesitate to contact our supportive community or customer service team. Happy trading!

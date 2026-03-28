@@ -19,9 +19,9 @@ tldr: >-
   to fix deliverability.
 ---
 
-If you are not receiving emails from the platform, there is a big chance that your email provider is mistakenly marking our emails as spam. To address the issue, please log in to your webmail interface and search for “gainium.io”.&nbsp;
+If you are not receiving emails from the platform, there is a big chance that your email provider is mistakenly marking our emails as spam. To address the issue, please log in to your webmail interface and search for “gainium.io”.
 
-**Note for Gmail users**: Google may not display search results from spam, so you must navigate directly to your [spam folder](https://mail.google.com/mail/u/0/#spam) and perform the search there.&nbsp;
+**Note for Gmail users**: Google may not display search results from spam, so you must navigate directly to your [spam folder](https://mail.google.com/mail/u/0/#spam) and perform the search there.
 
 To ensure future email deliverability, please add gainium.io to your whitelist.
 

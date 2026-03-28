@@ -56,4 +56,4 @@ Note that each time the bot will open a separate deal. This has the advantage of
 
 You can backtest a HODL bot the same way you can backtest any trading bot in Gainium. See [this article](https://gainium.io/help/backtesting-trading-bots) for a detailed guide on how to backtest a trading bot.
 
-&nbsp;
+

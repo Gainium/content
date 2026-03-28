@@ -39,7 +39,7 @@ You can select this indicator by selecting “Technical Indicators” from the d
 ![Screenshot 2023-04-11 at 18.51.59.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_18_51_59_09012eb084-69f064.png)
 *Tradingview Analysis*
 
-&nbsp;
+
 
 ## Utilizing Combined Technical Ratings in Crypto Trading
 
@@ -48,7 +48,11 @@ The Technical Ratings Indicator can be an invaluable tool for crypto traders, pr
 ### Following the Technical Ratings
 
 Suppose you're interested in trading ETH and already bullish on the token's fundamentals. You want to confirm the current bullish trend in the asset using technical analysis. You can check the Technical Ratings for ETH on TradingView and see that it's currently rated as "Strong Buy" or “Buy.” This confirms your bullish outlook as the Buy is also on a very high timeframe (daily in the image below) and gives you additional confidence to enter a long position on ETH.Here's how you can find them:
-- Search for the asset or instrument you're interested in trading on TradingView.- Select the Technical Ratings tab on the left-hand side of the chart.- Take a look at the Technical Ratings to get an idea of the overall sentiment for the asset.- Check out the specific indicators that are being used to generate the ratings. These can be found by hovering over the rating itself.- Use the ratings as a starting point to assess the technical strength of the asset. In the example below the overall summary indicates that is an uptrend “Buy” on the 1-day timeframe- Combine the Technical Ratings with other technical analysis tools, such as support and resistance levels and chart patterns, to make informed trading decisions.&nbsp;
+- Search for the asset or instrument you're interested in trading on TradingView.
+- Select the Technical Ratings tab on the left-hand side of the chart.
+- Take a look at the Technical Ratings to get an idea of the overall sentiment for the asset.
+- Check out the specific indicators that are being used to generate the ratings. These can be found by hovering over the rating itself.
+- Use the ratings as a starting point to assess the technical strength of the asset. In the example below the overall summary indicates that is an uptrend “Buy” on the 1-day timeframe- Combine the Technical Ratings with other technical analysis tools, such as support and resistance levels and chart patterns, to make informed trading decisions.
 ![Screenshot 2023-04-11 at 19.26.57.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_19_26_57_ad0ed441cf-5cbf9b.png)
 *Eth Technical Ratings in Treadingview*
 
@@ -74,17 +78,17 @@ Technical Ratings are primarily based on lagging indicators, so by the time you 
 ![Screenshot 2023-04-11 at 19.38.06.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_19_38_06_b5b5e7c835-dbc3ea.png)
 *1-hour timeframe*
 
-### Combining other indicators&nbsp;
+### Combining other indicators
 
 The examples of the previous scenario already highlight how useful it is to use other indicators before entering a trade. As a general rule relying only on TradingView analysis for bot trading is quite risky, and you might want to use other indicators to filter out bad entries. In the example above, you might want to add an RSI filter not to enter any long position when the value is above 70 on a higher timeframe.
 
-The same principle can be applied to short bot entries. You might want not to enter any short position when “Sell” and/or “Strong Sell” occur on a low timeframe if the RSI on a 1-hour timeframe is below 30. In the example below, you would rather ignore entering a short position on the 9th of April when the indicator prints “Strong Sell” on the 5 min chart. If you zoom out and check the RSI in a 1-hour timeframe, the asset is already oversold, and it's unlikely it will continue dropping further.&nbsp;
+The same principle can be applied to short bot entries. You might want not to enter any short position when “Sell” and/or “Strong Sell” occur on a low timeframe if the RSI on a 1-hour timeframe is below 30. In the example below, you would rather ignore entering a short position on the 9th of April when the indicator prints “Strong Sell” on the 5 min chart. If you zoom out and check the RSI in a 1-hour timeframe, the asset is already oversold, and it's unlikely it will continue dropping further.
 ![Screenshot 2023-04-11 at 19.55.54.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_19_55_54_44ff429dcb-88fc97.png)
 *Strong Sell on 5 minute*
 ![Screenshot 2023-04-11 at 19.56.23.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_19_56_23_79430420a3-b0161a.png)
 *1-hour timeframe*
 
-### Asset comparison&nbsp;
+### Asset comparison
 
 If you're trying to decide between two assets to invest in the long term, you can compare their Technical Ratings on TradingView. For example, let's say you're trying to choose between BTC and ETH. You can look at the Technical Ratings for each asset and see that BTC is rated as "Neutral" while ETH is rated as a "Strong Buy". This may influence your decision to invest in ETH instead of BTC.
 
@@ -92,4 +96,4 @@ If you're trying to decide between two assets to invest in the long term, you ca
 
 TradingView's Technical Ratings Indicator is a powerful tool that can provide crypto traders with valuable insights and help them make more informed decisions. Remember, always combine the Technical Ratings Indicator with other technical and fundamental analysis tools to gain a more comprehensive understanding of the market and ensure a well-rounded approach to your trading. As with any strategy, proper risk management and discipline are crucial for maximizing profitability and protecting your portfolio.
 
-&nbsp;
+

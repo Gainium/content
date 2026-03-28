@@ -41,7 +41,7 @@ The MACD indicator is available in your bot settings' “Deal Start” section. 
 
 In Gainium, you can see the histogram (red and green wave) by default in the chart as soon as you select the indicator. However, to be able to see the EMA line crossing that sometimes helps better visualize your entry, you need to tick “MACD” and “Signal” in the “Style” tab in the indicator settings.
 ![Screenshot 2023-04-11 at 16.49.39.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_16_49_39_84463f5691-1bdd7d.png)
-*Style Settings&nbsp;*
+*Style Settings*
 
 ## Implementing MACD in Your Trading Bot Strategy
 
@@ -61,9 +61,9 @@ The MACD histogram displays the difference between the MACD Line and the Signal 
 
 For instance, if the BTC/USDT MACD histogram shifts from negative to positive territory, it suggests a potential bullish trend, prompting your bot to initiate a long position. On the other hand, if the histogram moves from
 
-&nbsp;positive to negative territory, it signals a possible bearish trend, leading the bot to exit the position or enter a short trade.
+ positive to negative territory, it signals a possible bearish trend, leading the bot to exit the position or enter a short trade.
 
-In this strategy, it is helpful to bring up the EMA lines, as you can see from the image below. The fast 12 EMA is bouncing on the slower 26 EMA, confirming the continuation of the trend.&nbsp;
+In this strategy, it is helpful to bring up the EMA lines, as you can see from the image below. The fast 12 EMA is bouncing on the slower 26 EMA, confirming the continuation of the trend.
 ![Screenshot 2023-04-11 at 17.08.36.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_17_08_36_0d5b1a4314-312794.png)
 *MACD trend continuation strategy*
 

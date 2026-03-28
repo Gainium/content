@@ -46,12 +46,13 @@ The "Add Funds" feature works quite straightforwardly. It is supported by any sm
 
 ### Webhook
 
-You can also execute the “Add Funds” feature through a webhook, regardless of the deal start condition used in your trading bot.&nbsp;
+You can also execute the “Add Funds” feature through a webhook, regardless of the deal start condition used in your trading bot.
 ![Add_funds_webhook.png](https://content.gainium.io/images/content/help/Add_funds_webhook_1504158676-1c3347.png)
 *Add Funds Webhook*
 
 Some considerations when using the Add Funds feature through webhooks:
-- For a single coin bot, it will add the specified funds to all open deals. For example, if you have 2 open deals and send a webhook to add 20 USDT, it will add 20 USDT to **each deal**, totaling 40 USDT.- For multi-coin bots, you will see two options:Add funds to all open deals- Add funds to all open deals of a specific symbol
+- For a single coin bot, it will add the specified funds to all open deals. For example, if you have 2 open deals and send a webhook to add 20 USDT, it will add 20 USDT to **each deal**, totaling 40 USDT.
+- For multi-coin bots, you will see two options:Add funds to all open deals- Add funds to all open deals of a specific symbol
 - Adding funds through webhooks only support market orders
 
 ### API
@@ -59,14 +60,18 @@ Some considerations when using the Add Funds feature through webhooks:
 Check the [Add Funds API documentation](https://api.gainium.io/api/docs/#/Deals/post_api_addFunds) and examples.
 
 ## Tips for Using the Add Funds Feature
-- Consider Your Risk Tolerance; adding funds to a deal increases your exposure.- Monitor the Market: Regularly watch the market and use the "Add Funds" feature when you feel the market conditions are favorable.- Diversify: Don't pour all your funds into one deal. Ensure your investments are diversified.- Use Limit Orders for Precision: If you're targeting a specific price, use a limit order. This order type provides a greater degree of control over the price you pay or receive.
+- Consider Your Risk Tolerance; adding funds to a deal increases your exposure.
+- Monitor the Market: Regularly watch the market and use the "Add Funds" feature when you feel the market conditions are favorable.
+- Diversify: Don't pour all your funds into one deal. Ensure your investments are diversified.
+- Use Limit Orders for Precision: If you're targeting a specific price, use a limit order. This order type provides a greater degree of control over the price you pay or receive.
 
 ## An Example Using ETH/USDT
 
 Let's walk through an example using the ETH/USDT pair. Assume you've already initiated a long deal with 1 ETH when the price was at $2000. However, the price has since dropped to $1800. You would like to add 0.5 ETH more to your deal.
 
 Here's how you could use the "Add Funds" feature:
-- Click on "Add Funds" and input an amount of 900 USDT or 0.5 ETH (both options will add an additional 900 USDT).- Choose “Market” if you want the order to execute immediately at the current market price, or choose “Limit” if you want to specify at what price should the order execute.
+- Click on "Add Funds" and input an amount of 900 USDT or 0.5 ETH (both options will add an additional 900 USDT).
+- Choose “Market” if you want the order to execute immediately at the current market price, or choose “Limit” if you want to specify at what price should the order execute.
 
 This move will buy you more ETH at a reduced price, lowering the average acquisition cost. It will also position you to gain more if the price of ETH rises again.
 

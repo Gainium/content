@@ -35,7 +35,9 @@ In this article, we will define the **Market Structure Indicator**, explain its 
 The **Market Structure Indicator** helps traders identify price movements and shifts in market dynamics, such as **breaks of structure** and **changes of character**. It detects the formation of higher highs, lower lows, and other key price patterns that indicate bullish or bearish shifts.
 
 ### Key Features:
-- **Event-Based Triggers**: Detect significant structural changes in price (e.g., break of structure, change of character).- **Market-Based Triggers**: Identify overall market trends (e.g., bullish or bearish market structure).- **Price-Based Triggers**: Identify price movements related to pivots (higher highs, lower lows, etc.) with fine-tuning options using the **multiplier** setting.
+- **Event-Based Triggers**: Detect significant structural changes in price (e.g., break of structure, change of character).
+- **Market-Based Triggers**: Identify overall market trends (e.g., bullish or bearish market structure).
+- **Price-Based Triggers**: Identify price movements related to pivots (higher highs, lower lows, etc.) with fine-tuning options using the **multiplier** setting.
 
 ## How to Configure the Market Structure Indicator in Gainium
 
@@ -45,9 +47,15 @@ Here’s how to configure the **Market Structure Indicator** in Gainium based on
 - **Navigate to the Bot Settings**:Log into Gainium, select your bot, and add the **Market Structure** indicator from the list.
 
 ### Step 2: Configure the Indicator Settings
-- **Interval (1 day)**: This setting determines the timeframe for the indicator’s calculations. The provided example is set to **1 day**, meaning that the indicator will analyze daily price movements to detect structural changes.- **Trigger Type**: There are three trigger types available:**Event-Based**: Detects specific market events like a **Break of Structure** or **Change of Character**. This can be used to signal reversals or new trends.- **Market-Based**: Detects overall market conditions, such as a **Bullish Market Structure** or **Bearish Market Structure**. It’s helpful in identifying the general trend direction.- **Price-Based**: Detects movements around key price levels, such as pivot highs, pivot lows, and their respective changes. The **multiplier** setting allows you to fine-tune the sensitivity of the condition.
-- **Condition**:For **Event-Based Triggers**, you can choose **Swing Bullish Change of Character** or **Swing Bearish Break of Structure**. These conditions help identify significant shifts in market sentiment.- For&nbsp;**Market-Based Triggers**, you can select&nbsp;**a Bullish**&nbsp;or&nbsp;**Bearish Market Structure**&nbsp;to signal the overall market direction.- For **Price-Based Triggers**, conditions like **Price Crossing Down Any Pivot Low** allow you to detect when the price crosses significant support or resistance levels.
-- **Multiplier** (For Price-Based Only): The multiplier allows you to adjust the condition's sensitivity. A larger multiplier means the trigger will require a more substantial price movement before firing.- **Keep True (0)**: This setting defines how long the condition remains true after it’s triggered. Setting it to **0** means the condition resets immediately after it’s met.
+- **Interval (1 day)**: This setting determines the timeframe for the indicator’s calculations. The provided example is set to **1 day**, meaning that the indicator will analyze daily price movements to detect structural changes.
+- **Trigger Type**: There are three trigger types available:**Event-Based**: Detects specific market events like a **Break of Structure** or **Change of Character**. This can be used to signal reversals or new trends.
+- **Market-Based**: Detects overall market conditions, such as a **Bullish Market Structure** or **Bearish Market Structure**. It’s helpful in identifying the general trend direction.
+- **Price-Based**: Detects movements around key price levels, such as pivot highs, pivot lows, and their respective changes. The **multiplier** setting allows you to fine-tune the sensitivity of the condition.
+- **Condition**:For **Event-Based Triggers**, you can choose **Swing Bullish Change of Character** or **Swing Bearish Break of Structure**. These conditions help identify significant shifts in market sentiment.
+- For **Market-Based Triggers**, you can select **a Bullish** or **Bearish Market Structure** to signal the overall market direction.
+- For **Price-Based Triggers**, conditions like **Price Crossing Down Any Pivot Low** allow you to detect when the price crosses significant support or resistance levels.
+- **Multiplier** (For Price-Based Only): The multiplier allows you to adjust the condition's sensitivity. A larger multiplier means the trigger will require a more substantial price movement before firing.
+- **Keep True (0)**: This setting defines how long the condition remains true after it’s triggered. Setting it to **0** means the condition resets immediately after it’s met.
 ![image.png](https://content.gainium.io/images/content/help/image_e16381735e-6943e4.png)
 *Market Structure Indicator Settings*
 
@@ -78,7 +86,8 @@ Here are two trading strategies that use the **Market Structure Indicator** in a
 - **Short Exit**:Exit the short trade when a **Swing Bullish Change of Character** is detected, signaling a possible return to bullish territory.
 
 #### Implementation in Gainium
-- **Set the Event-Based Triggers**: Use the **Swing Bullish Change of Character** for long entries and **Swing Bearish Change of Character** for short entries.- **Automate Entries and Exits**: The bot will enter or exit trades based on key shifts in the market structure, ensuring that trades are executed at significant turning points.
+- **Set the Event-Based Triggers**: Use the **Swing Bullish Change of Character** for long entries and **Swing Bearish Change of Character** for short entries.
+- **Automate Entries and Exits**: The bot will enter or exit trades based on key shifts in the market structure, ensuring that trades are executed at significant turning points.
 
 ### Strategy 2: Breakout Strategy Using Price-Based Triggers
 
@@ -91,14 +100,17 @@ Here are two trading strategies that use the **Market Structure Indicator** in a
 - **Short Exit**:Exit the short trade when the price **crosses up any pivot high**, signaling that the bearish momentum has faded and the price may reverse upward.
 
 #### Implementation in Gainium
-- **Set the Price-Based Triggers**: Configure the bot to enter long trades when the price crosses up any pivot low and enter short trades when the price crosses down any pivot high.- **Use the Multiplier**: Adjust the **multiplier** to control the sensitivity of the price trigger, allowing for fine-tuning based on the asset's volatility.
+- **Set the Price-Based Triggers**: Configure the bot to enter long trades when the price crosses up any pivot low and enter short trades when the price crosses down any pivot high.
+- **Use the Multiplier**: Adjust the **multiplier** to control the sensitivity of the price trigger, allowing for fine-tuning based on the asset's volatility.
 
 ## Practical Considerations
 
 Here are some practical tips when using the **Market Structure Indicator** in your trading strategy:
 
 ### 1. Adjust Trigger Types Based on Market Conditions
-- **Event-Based** triggers work best in markets with strong trends or clear reversals.- **Market-Based** triggers are useful for determining the overall trend direction and staying aligned with it.- **Price-Based** triggers are best for detecting support and resistance breakouts or retests.
+- **Event-Based** triggers work best in markets with strong trends or clear reversals.
+- **Market-Based** triggers are useful for determining the overall trend direction and staying aligned with it.
+- **Price-Based** triggers are best for detecting support and resistance breakouts or retests.
 
 ### 2. Use the Multiplier for Fine-Tuning
 - For **Price-Based** triggers, the multiplier allows you to adjust the amount of price movement required to trigger a condition. This is helpful in volatile markets where small price fluctuations may create false signals.

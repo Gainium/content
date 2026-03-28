@@ -46,4 +46,4 @@ Once the price of BTC-USDT reaches $32,000, the grid bot will activate and start
 
 ## Conclusion
 
-Start price triggers for grid bots offer additional control, allowing traders to optimize their strategies and ensure that the bot activates only when the desired market conditions are met.&nbsp;
+Start price triggers for grid bots offer additional control, allowing traders to optimize their strategies and ensure that the bot activates only when the desired market conditions are met.

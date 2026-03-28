@@ -39,6 +39,7 @@ If we enable the Active Minigrids option, the grid lines under price (buy grid o
 ![active-minigrids-2.png](https://content.gainium.io/images/content/help/active_minigrids_2_b1e4f3b9b4-482cf9.png)
 
 ## Active Minigrids tips
-- As with any bot feature, it pays to backtest different options. Sometimes, this option can increase profitability, and sometimes, it is better to leave it off.- To avoid possible errors, ensure that the number of active minigrids is lower than the number of smart orders.
+- As with any bot feature, it pays to backtest different options. Sometimes, this option can increase profitability, and sometimes, it is better to leave it off.
+- To avoid possible errors, ensure that the number of active minigrids is lower than the number of smart orders.
 
-&nbsp;
+

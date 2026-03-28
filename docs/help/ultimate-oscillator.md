@@ -32,7 +32,9 @@ In this article, we will define the **Ultimate Oscillator**, explain how to conf
 The **Ultimate Oscillator** is designed to track momentum across three different periods. It combines a **short-term**, **medium-term**, and **long-term** average to provide a more balanced view of momentum, reducing the chances of false signals that often occur with single-period oscillators.
 
 ### Key Features:
-- **Overbought Level**: Values above 70 indicate overbought conditions, suggesting a potential downward reversal.- **Oversold Level**: Values below 30 indicate oversold conditions, signaling a potential upward reversal.- **Multiple Timeframes**: Combines short, medium, and long timeframes to reduce noise and capture larger trends.
+- **Overbought Level**: Values above 70 indicate overbought conditions, suggesting a potential downward reversal.
+- **Oversold Level**: Values below 30 indicate oversold conditions, signaling a potential upward reversal.
+- **Multiple Timeframes**: Combines short, medium, and long timeframes to reduce noise and capture larger trends.
 
 ## How to Configure the Ultimate Oscillator in Gainium
 
@@ -40,7 +42,13 @@ The **Ultimate Oscillator** is designed to track momentum across three different
 - **Navigate to the Bot Settings**:Log into Gainium, select your bot, and add the **Ultimate Oscillator** from the list of indicators.
 
 ### Step 2: Configure the Indicator Settings
-- **Fast Period (7)**: This represents the oscillator's short-term period, typically set to **7**. It provides a quick view of the most recent price action.- **Middle Period (14)**: This is the medium-term period, set to **14** by default. It smooths out some of the noise captured by the fast period.- **Slow Period (28)**: This is the long-term period, set to **28**. It provides a broader view of price momentum and helps filter out short-term fluctuations.- **Interval**: Set the indicator's time interval. In the example image, the interval is set to **1 day**, meaning the oscillator will be calculated based on daily price data.- **Condition**: Choose the condition that triggers an action. In this case, **Crossing Down** is selected, meaning the bot will trigger when the Ultimate Oscillator crosses below a certain value.- **Value (70)**: This is the trigger point for the condition. The bot will act when the oscillator crosses **below 70**, signaling a potential exit from overbought territory.- **Keep True (0)**: This setting defines how long the condition remains active after it is triggered. Setting it to **0** means the condition resets immediately after the signal.
+- **Fast Period (7)**: This represents the oscillator's short-term period, typically set to **7**. It provides a quick view of the most recent price action.
+- **Middle Period (14)**: This is the medium-term period, set to **14** by default. It smooths out some of the noise captured by the fast period.
+- **Slow Period (28)**: This is the long-term period, set to **28**. It provides a broader view of price momentum and helps filter out short-term fluctuations.
+- **Interval**: Set the indicator's time interval. In the example image, the interval is set to **1 day**, meaning the oscillator will be calculated based on daily price data.
+- **Condition**: Choose the condition that triggers an action. In this case, **Crossing Down** is selected, meaning the bot will trigger when the Ultimate Oscillator crosses below a certain value.
+- **Value (70)**: This is the trigger point for the condition. The bot will act when the oscillator crosses **below 70**, signaling a potential exit from overbought territory.
+- **Keep True (0)**: This setting defines how long the condition remains active after it is triggered. Setting it to **0** means the condition resets immediately after the signal.
 ![image.png](https://content.gainium.io/images/content/help/image_8656eba5b8-a5c6f5.png)
 *UJltimate Oscillator Settings*
 
@@ -59,7 +67,8 @@ The **Ultimate Oscillator** can be used in various trading strategies, including
 - **Short Exit**:Exit the trade when the Ultimate Oscillator crosses **below 50**, signaling that the downward momentum is weakening.
 
 #### Implementation in Gainium
-- **Configure the Indicator**:Set the fast, middle, and slow periods to **7**, **14**, and **28** respectively, and use a **1-day** interval.- Program the bot to trigger long entries when the oscillator crosses below 30 and short entries when it crosses above 70.
+- **Configure the Indicator**:Set the fast, middle, and slow periods to **7**, **14**, and **28** respectively, and use a **1-day** interval.
+- Program the bot to trigger long entries when the oscillator crosses below 30 and short entries when it crosses above 70.
 - **Automate Entries/Exits**:Set the bot to exit the position when the momentum weakens (e.g., when the oscillator crosses above 50 for long trades and below 50 for short trades).
 
 ### Strategy 2: Divergence Trading Strategy
@@ -73,7 +82,8 @@ The **Ultimate Oscillator** can be used in various trading strategies, including
 - **Short Exit**:Exit the position when the Ultimate Oscillator crosses **below 30**, signaling that the price has reached an oversold condition.
 
 #### Implementation in Gainium
-- **Set Divergence Conditions**: Configure the bot to detect divergence between price action and the Ultimate Oscillator.- **Risk Management**: Use trailing stops or fixed stop-losses to protect against sudden reversals in price.
+- **Set Divergence Conditions**: Configure the bot to detect divergence between price action and the Ultimate Oscillator.
+- **Risk Management**: Use trailing stops or fixed stop-losses to protect against sudden reversals in price.
 
 ## Practical Considerations
 

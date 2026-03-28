@@ -22,23 +22,29 @@ tldr: >-
   Gainium.
 ---
 
-1. [Log into](https://portal.cdp.coinbase.com/) to your Coinbase Developer account2. Go to Settings -&gt; API
+1. [Log in](https://portal.cdp.coinbase.com/) to your Coinbase Developer account
+
+2. Go to Settings -> API
 ![telegram-cloud-photo-size-5-6118359133276192891-y.jpg](https://content.gainium.io/images/content/help/telegram_cloud_photo_size_5_6118359133276192891_y_868a599617-ea7443.jpg)
-&nbsp;
+
 ![telegram-cloud-photo-size-5-6118359133276192892-y.jpg](https://content.gainium.io/images/content/help/telegram_cloud_photo_size_5_6118359133276192892_y_387d46da15-93b5a0.jpg)
 3. Click on **Create API key** button on the right top corner
 ![telegram-cloud-photo-size-5-6118359133276192893-y.jpg](https://content.gainium.io/images/content/help/telegram_cloud_photo_size_5_6118359133276192893_y_3a3358ce60-f0ff9a.jpg)
-4. Choose **Trading key **and click on Next button
+4. Choose **Trading key** and click on Next button
 
 ![step-1.png](https://content.gainium.io/images/content/help/step_1_d70675511f-2ecec9.png)
 
-5. Name your API key and choose a portfolio6. Enable permissions **View **and **Trade**; don't enable Trasnfer permissions.7. Enter our IP addresses in **Enable IP Addresses **section. Here are the addresses you can copy and paste, make sure they are separated by commas and spaces:&nbsp;
+5. Name your API key and choose a portfolio
 
-**78.128.60.89, 78.128.43.82, 78.128.8.36, 78.128.43.168, 217.174.152.25**&nbsp;
+6. Enable permissions **View** and **Trade**; don't enable Transfer permissions.
+
+7. Enter our IP addresses in **Enable IP Addresses** section. Here are the addresses you can copy and paste, make sure they are separated by commas and spaces:
+
+**78.128.60.89, 78.128.43.82, 78.128.8.36, 78.128.43.168, 217.174.152.25**
 
 ![step-2.png](https://content.gainium.io/images/content/help/step_2_385a2fcbe7-9cf6b1.png)
 
-8. Click on **Create &amp; Download**
+8. Click on **Create & Download**
 
 9. Complete 3-factor authentication
 

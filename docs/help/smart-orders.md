@@ -37,7 +37,9 @@ Smart Orders are a nuanced approach to automated trading. Instead of sending all
 *Smart orders in DCA bots*
 
 ## Benefits of Smart Orders
-- **Improved Liquidity**: Avoid locking up all your funds in limit orders. With Smart Orders, a significant portion of your funds remain free and accessible.- **Flexibility**: You can use the free funds for other trading strategies or to adjust to market conditions swiftly.- **Optimized Trading**: Especially useful during high market volatility, Smart Orders ensure you don't miss out on potentially profitable trades because your funds are tied up.
+- **Improved Liquidity**: Avoid locking up all your funds in limit orders. With Smart Orders, a significant portion of your funds remain free and accessible.
+- **Flexibility**: You can use the free funds for other trading strategies or to adjust to market conditions swiftly.
+- **Optimized Trading**: Especially useful during high market volatility, Smart Orders ensure you don't miss out on potentially profitable trades because your funds are tied up.
 
 ## Example: Grid Trading BTC/USDT with Smart Orders
 

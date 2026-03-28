@@ -41,7 +41,8 @@ In contrast, Auto-Compounding and Risk Reduction operate internally within the b
 ## Which Method Should You Use?
 
 The choice between using Auto-Compounding/Risk Reduction or % of asset depends on your trading style and needs:
-- **Auto-Compounding/Risk Reduction**: Best for traders who want a set-and-forget approach with automatic adjustments based on trade outcomes. It is also ideal for traders who run multiple bots on the same pair. However, ensure you know your actual account balance to avoid any issues.- **% of Asset-Based Trading**: This is ideal if you frequently adjust your account balance or want the bot to reflect real-time changes in your funds.
+- **Auto-Compounding/Risk Reduction**: Best for traders who want a set-and-forget approach with automatic adjustments based on trade outcomes. It is also ideal for traders who run multiple bots on the same pair. However, ensure you know your actual account balance to avoid any issues.
+- **% of Asset-Based Trading**: This is ideal if you frequently adjust your account balance or want the bot to reflect real-time changes in your funds.
 
 ## Final Thoughts
 

@@ -27,7 +27,7 @@ Indicators play a crucial role in bot trading as they help bots to identify pote
 
 ## The Money Flow Index Indicator
 
-Gene Quong and Avrum Soudack created the Money Flow Index (MFI) in the late 1990s. Quong and Soudack were technical analysts who worked for the financial services firm Shearson Lehman Brothers at the time. They developed the MFI as a tool to measure buying and selling pressure in the market by using a combination of price and volume data. &nbsp;It is calculated by taking the typical price (average of high, low, and close prices) for each period and multiplying it by the volume. The positive and negative money flows are then calculated based on whether the typical price is higher or lower than the previous period. The MFI is then calculated using a ratio of positive to negative money flows.&nbsp;
+Gene Quong and Avrum Soudack created the Money Flow Index (MFI) in the late 1990s. Quong and Soudack were technical analysts who worked for the financial services firm Shearson Lehman Brothers at the time. They developed the MFI as a tool to measure buying and selling pressure in the market by using a combination of price and volume data.  It is calculated by taking the typical price (average of high, low, and close prices) for each period and multiplying it by the volume. The positive and negative money flows are then calculated based on whether the typical price is higher or lower than the previous period. The MFI is then calculated using a ratio of positive to negative money flows.
 
 The MFI has since become a popular technical analysis indicator traders and investors use to identify trends and potential buy and sell signals. It is widely available on most charting platforms and trading software.
 
@@ -37,9 +37,9 @@ The MFI indicator ranges from 0 to 100. When the MFI exceeds 80, it indicates an
 
 You can select this indicator by selecting “Technical Indicators” from the drop-down menu first, then “Money Flow Index” in the “Indicator” Section.
 ![Screenshot 2023-04-14 at 18.12.51.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_14_at_18_12_51_f570e2cb18-af93dc.png)
-*MFI&nbsp;*
+*MFI*
 
-The MFI indicator in Gainium allows you to determine the strength of buying or selling pressure in the market.&nbsp;
+The MFI indicator in Gainium allows you to determine the strength of buying or selling pressure in the market.
 
 ## Implementing Money Flow Index in Your Trading Bot Strategy
 
@@ -53,7 +53,7 @@ The MFI ranges from 0 to 100. A reading above 80 is considered overbought, which
 
 ### Identify Divergencies
 
-A divergence occurs when the MFI indicator moves in the opposite direction of the price trend. For example, if the price is making higher highs while the MFI is making lower highs, it could indicate a potential trend reversal. In the image below the price of BTC is rising; however, the MFI indicator is creating a lower high. Soon after, the price decreases.&nbsp;
+A divergence occurs when the MFI indicator moves in the opposite direction of the price trend. For example, if the price is making higher highs while the MFI is making lower highs, it could indicate a potential trend reversal. In the image below the price of BTC is rising; however, the MFI indicator is creating a lower high. Soon after, the price decreases.
 ![Screenshot 2023-04-15 at 02.10.30.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_15_at_02_10_30_8e1140caad-cd64cc.png)
 *MFI DIvergence*
 

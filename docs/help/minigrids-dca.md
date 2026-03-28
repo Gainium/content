@@ -44,4 +44,6 @@ tldr: >-
 ### Practical Use and Configuration
 
 The DCA Minigrids feature is particularly useful in volatile markets. Here’s how you might configure it:
-- Set **DCA Orders** to 5 to allow the bot to place 5 orders across different price levels.- Use a **5% Order Step** to ensure orders are spaced far enough apart to capture meaningful price movements.- Configure **5 Minigrid Levels** to have grid orders within each DCA, ensuring profits even with small price fluctuations within the range.
+- Set **DCA Orders** to 5 to allow the bot to place 5 orders across different price levels.
+- Use a **5% Order Step** to ensure orders are spaced far enough apart to capture meaningful price movements.
+- Configure **5 Minigrid Levels** to have grid orders within each DCA, ensuring profits even with small price fluctuations within the range.

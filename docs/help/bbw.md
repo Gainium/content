@@ -30,7 +30,7 @@ As the popularity of cryptocurrency trading continues to grow, so does the inter
 
 The BBW, developed by John Bollinger in the 1980s, is a technical indicator that measures the distance between the upper and lower [Bollinger Bands](https://gainium.io/help/bb). The Bollinger Bands are composed of three lines: a Simple Moving Average (SMA) and two lines plotted at a specified number of standard deviations above and below the SMA. The BBW indicator helps traders identify periods of high volatility and potential price reversals by measuring the relative width of the bands.
 
-BBW = (Upper Bollinger Band - Lower Bollinger Band)&nbsp;/ Middle Bollinger Band
+BBW = (Upper Bollinger Band - Lower Bollinger Band) / Middle Bollinger Band
 
 During periods of high volatility, the distance between the Lower and Upper Bollinger Bands is wider, eventually indicating the end of a move. During periods of low volatility, the distance between the bands will reduce; hence the value of BBV is closer to zero. Extended periods of very low volatility are followed by a sudden surge known as the Squeeze.
 
@@ -48,7 +48,7 @@ You can select this indicator by selecting “Technical Indicators” from the d
 
 In a volatility breakout strategy, your trading bot will capitalize on significant price movements following periods of low volatility. When the BBW value is low, it indicates a potential breakout as the bands are narrow. Your bot can initiate a long position when the price breaks above the upper Bollinger Band or a short position when it breaks below the lower Bollinger Band.
 
-For example, in the image below, when BBW is very low (I have drawn a line to visualize when BBW is below 0.0183) and RSI is oversold (below 30), it could indicate a potential strong downtrend move of the price. Conversely, when the BBW is low and the RSI is above 70 the price is likely to drop.&nbsp;
+For example, in the image below, when BBW is very low (I have drawn a line to visualize when BBW is below 0.0183) and RSI is oversold (below 30), it could indicate a potential strong downtrend move of the price. Conversely, when the BBW is low and the RSI is above 70 the price is likely to drop.
 ![Screenshot 2023-04-03 at 18.03.52.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_03_at_18_03_52_85abb6d0c8-3d61d7.png)
 *BBW and RSI*
 
@@ -68,4 +68,4 @@ Using the BTC/USDT pair as an example, if the BBW value decreases and the bands 
 
 The Bollinger Band Width indicator can provide valuable insights into market volatility and potential trading opportunities for your crypto trading bot. You can optimize your automated trading system and enhance your investment returns by understanding and implementing the BBW volatility breakout, mean reversion, and squeeze strategies. As with any trading strategy, testing and fine-tuning the parameters to suit your risk tolerance and market conditions is essential. Combining the BBW with other [technical indicators](https://gainium.io/help/category/technical-indicators) and fundamental analysis can further improve the effectiveness of your trading bot and contribute to a well-rounded trading strategy.
 
-&nbsp;
+

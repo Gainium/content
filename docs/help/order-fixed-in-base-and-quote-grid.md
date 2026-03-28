@@ -29,4 +29,4 @@ When the orders are fixed in base, each grid will have the same fixed amount of 
 
 When you fix the orders in base, the quote value of the grids at the bottom is less than that of the top. Hence you will be making more significant profits at the top of the range. When you fix the orders in quote, the quote value of the grids is the same across the range; hence the profit between the grids is also the same.
 
-Choosing which one to use comes down to your trading style and preferences.&nbsp;
+Choosing which one to use comes down to your trading style and preferences.

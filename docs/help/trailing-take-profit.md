@@ -45,10 +45,13 @@ This strategy allows you to capitalize on the upward price movement while still 
 Trailing take profit is best used in trending markets, where the price of an asset moves consistently in one direction. It allows traders to capture a significant portion of the trend's gains without prematurely exiting the position.
 
 However, there are also some situations where you may want to avoid it:
-- Volatile Assets: Assets with high volatility can experience rapid price movements. A trailing take profit uses a market order, which can result in high slippage during rapid price movements.- Low liquidity: As with high volatility, a low liquidity market may result in your market order being executed at a substantially different price than anticipated.- Range-bound Markets: In range-bound markets, where the price oscillates between a well-defined support and resistance level, a trailing take profit may lead to premature exits due to relatively small price movements.- Tight Trailing Distance: Setting a too tight trailing distance can result in your position being closed too soon, missing out on potential profits. It's crucial to strike a balance between protecting your profits and allowing for price fluctuations.
+- Volatile Assets: Assets with high volatility can experience rapid price movements. A trailing take profit uses a market order, which can result in high slippage during rapid price movements.
+- Low liquidity: As with high volatility, a low liquidity market may result in your market order being executed at a substantially different price than anticipated.
+- Range-bound Markets: In range-bound markets, where the price oscillates between a well-defined support and resistance level, a trailing take profit may lead to premature exits due to relatively small price movements.
+- Tight Trailing Distance: Setting a too tight trailing distance can result in your position being closed too soon, missing out on potential profits. It's crucial to strike a balance between protecting your profits and allowing for price fluctuations.
 
 ## Enabling Tailing Take Profit in Gainium
 
-You can enable Trailing Take Profit in Trading Bot and Trading Terminal deals under Take Profit section.&nbsp;
+You can enable Trailing Take Profit in Trading Bot and Trading Terminal deals under Take Profit section.
 ![trailing-take-profit.png](https://content.gainium.io/images/content/help/trailing_take_profit_f5ddf3d1c4-0f6ea5.png)
 **Trading tip**: a good rule of thumb is to set your trailing take profit deviation between 10 to 25% of your take profit target.

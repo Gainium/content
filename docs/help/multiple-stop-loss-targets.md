@@ -23,11 +23,12 @@ tldr: >-
 
 Multiple stop loss targets are a feature that allows you to partially exit your deal at different stop loss levels. Although not as popular as [multiple take profit targets](https://gainium.io/help/multiple-take-profit-targets), there are some scenarios for which this feature is worth considering.
 
-One such scenario is, for example, when you create a Smart Sell terminal deal that is already in profit. You would like to hit a take profit target, but at the same time, you would like to gradually exit the position if the market starts moving against you.&nbsp;
+One such scenario is, for example, when you create a Smart Sell terminal deal that is already in profit. You would like to hit a take profit target, but at the same time, you would like to gradually exit the position if the market starts moving against you.
 
 ## Enabling multiple stop loss targets in Gainium
 
 You can find this option under Stop Loss settings.
 ![multiple-sl.png](https://content.gainium.io/images/content/help/multiple_sl_7486e936a4-1635c7.png)
-Please keep in mind the following:&nbsp;
-- Multiple stop loss targets are incompatible with [move stop loss](https://gainium.io/help/move-stop-loss) and [trailing stop loss](https://gainium.io/help/trailing-stop-loss).- If DCA Mode is enabled, stop loss targets are calculated from the average position size.
+Please keep in mind the following:
+- Multiple stop loss targets are incompatible with [move stop loss](https://gainium.io/help/move-stop-loss) and [trailing stop loss](https://gainium.io/help/trailing-stop-loss).
+- If DCA Mode is enabled, stop loss targets are calculated from the average position size.

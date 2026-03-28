@@ -43,7 +43,8 @@ There are two possible triggers for these features:
 - When the price is reached: the stop loss or take profit is triggered at a specific price that you specify- When the bot's value reaches a specific % change that you specify (current funds value % in quote currency). Please note that the % change is always measured in quote currency; other system currencies will be ignored.
 
 These two features work in the same way: when the take profit or stop loss trigger condition is met, the bot stops and performs one of two possible actions:
-- Cancel and sell base: The bot stops, cancels all pending orders, and sells base at market price.- Cancel orders: The bot stops and cancels all pending orders only, leaving the remainder base on the exchange.
+- Cancel and sell base: The bot stops, cancels all pending orders, and sells base at market price.
+- Cancel orders: The bot stops and cancels all pending orders only, leaving the remainder base on the exchange.
 
 Let's see how they work with some practical examples.
 
@@ -56,7 +57,9 @@ Imagine you have an active bot on BNB/BUSD. The current BNB/BUSD price is 300, a
 You have an active grid bot on ETH/BTC pair and set the take profit at a value change of 15% with the action “Cancel and sell base.” In this case, when the value of your current funds reaches 15%, the bot will stop, cancel all pending orders and sell all ETH at market price.
 
 ## Tips for Optimising Stop Loss and Take Profit Features in Grid Bots
-- Define Your Risk Tolerance: Before implementing stop loss and take profit orders, determine your risk tolerance and trading objectives. This will help you set appropriate levels that align with your overall trading strategy.- Regularly Review and Adjust: Periodically review your grid bot's performance and make necessary adjustments to your stop loss and take profit settings. Continuously refining your strategy will ensure it remains effective in changing market conditions.- Combine with Other Strategies: While stop loss and take profit orders are powerful tools, they should not be used in isolation. Implement additional strategies, such as technical analysis or fundamental research, to complement your grid bot's automated trading approach.
+- Define Your Risk Tolerance: Before implementing stop loss and take profit orders, determine your risk tolerance and trading objectives. This will help you set appropriate levels that align with your overall trading strategy.
+- Regularly Review and Adjust: Periodically review your grid bot's performance and make necessary adjustments to your stop loss and take profit settings. Continuously refining your strategy will ensure it remains effective in changing market conditions.
+- Combine with Other Strategies: While stop loss and take profit orders are powerful tools, they should not be used in isolation. Implement additional strategies, such as technical analysis or fundamental research, to complement your grid bot's automated trading approach.
 
 ## Conclusion
 

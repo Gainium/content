@@ -35,7 +35,8 @@ The Momentum Oscillator is a technical indicator that compares the current price
 If the momentum value is high, it signals increasing strength in the upward movement, while low momentum values suggest weakness in a downtrend. This oscillator is especially useful for identifying trend strength and spotting potential reversals before they occur.
 
 ### Key Features:
-- **Measures Rate of Price Change**: Identifies if the trend is accelerating or decelerating.- **Overbought/Oversold Detection**: High values indicate overbought conditions; low values indicate oversold conditions.
+- **Measures Rate of Price Change**: Identifies if the trend is accelerating or decelerating.
+- **Overbought/Oversold Detection**: High values indicate overbought conditions; low values indicate oversold conditions.
 ![image.png](https://content.gainium.io/images/content/help/image_b795b0d57f-461bbf.png)
 *Momentum Oscillator*
 
@@ -43,13 +44,19 @@ If the momentum value is high, it signals increasing strength in the upward move
 
 ### Step 1: Add the Momentum Oscillator
 - **Access the Bot Settings**:Log in to Gainium, go to your bot, and find the **Momentum Oscillator** under the available indicators.
-- **Configure the Settings**:**Use Percentile**: Use percentile values instead of indicator values, which allows for better adaptability to current market conditions.- **Price Source**: Choose which price data (e.g.,&nbsp;**close**,&nbsp;**open**,&nbsp;**high**, or&nbsp;**low**&nbsp;prices) to base the momentum on.- **Length**: This defines the lookback period, typically set to **10**.- **Interval**: Choose the timeframe (e.g., **1 hour**) based on your trading strategy.- **Condition**: Select conditions like **Crossing down** to indicate that the momentum oscillator crosses below a specific value (e.g., 70, as shown in the image).- **Keep True**: Define how long the condition remains active after it is triggered (set to **0** for immediate reset).
+- **Configure the Settings**:**Use Percentile**: Use percentile values instead of indicator values, which allows for better adaptability to current market conditions.
+- **Price Source**: Choose which price data (e.g., **close**, **open**, **high**, or **low** prices) to base the momentum on.
+- **Length**: This defines the lookback period, typically set to **10**.
+- **Interval**: Choose the timeframe (e.g., **1 hour**) based on your trading strategy.
+- **Condition**: Select conditions like **Crossing down** to indicate that the momentum oscillator crosses below a specific value (e.g., 70, as shown in the image).
+- **Keep True**: Define how long the condition remains active after it is triggered (set to **0** for immediate reset).
 
 ![image.png](https://content.gainium.io/images/content/help/image_00e2e4398c-1b8946.png)
 *Momentum Oscillator Settings*
 
 ### Step 2: Interpret the Indicator
-- **High Momentum**: Indicates strong price movement in one direction, potentially signaling an overbought market if it reaches extreme levels.- **Low Momentum**: Indicates weakening price movement, often signaling oversold conditions or potential trend reversal.
+- **High Momentum**: Indicates strong price movement in one direction, potentially signaling an overbought market if it reaches extreme levels.
+- **Low Momentum**: Indicates weakening price movement, often signaling oversold conditions or potential trend reversal.
 
 ## Using the Momentum Oscillator in Bot Trading
 
@@ -88,7 +95,8 @@ Here are a few trading strategies that can be built around the Momentum Oscillat
 Here are a few practical tips when using the Momentum Oscillator in your trading strategy:
 
 ### 1. Adjust Length Based on Asset and Timeframe
-- A **shorter length** (e.g., 10 periods) will react more quickly to price changes but may generate more false signals.- A **longer length** (e.g., 20 periods) will smooth out the momentum but might lag behind actual market movements.
+- A **shorter length** (e.g., 10 periods) will react more quickly to price changes but may generate more false signals.
+- A **longer length** (e.g., 20 periods) will smooth out the momentum but might lag behind actual market movements.
 
 ### 2. Use in Combination with Other Indicators
 - Combine the Momentum Oscillator with other indicators like moving averages or trendlines to confirm signals and reduce the risk of false entries.
@@ -109,4 +117,4 @@ The Momentum Oscillator can be a valuable addition to your trading toolkit becau
 
 Learn how to use Gainium's Momentum Oscillator for automated trading strategies, identifying trend strength, reversals, and overbought/oversold conditions.
 
-&nbsp;
+

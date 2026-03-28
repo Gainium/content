@@ -45,13 +45,13 @@ This indicator is very similar to the stochastic oscillator indicator, and it ca
 
 ### Classic Overbought and Oversold
 
-Traders may use the Stochastic RSI to identify overbought and oversold conditions in an asset's price. For example, if the indicator is above 80 (red arrow in the image below), it may indicate that the asset is overbought. If it's below 20 (green arrow in the chart below), it may mean that the asset is oversold. Traders might use these levels to start a bot or take profit, depending on their strategy.&nbsp;
+Traders may use the Stochastic RSI to identify overbought and oversold conditions in an asset's price. For example, if the indicator is above 80 (red arrow in the image below), it may indicate that the asset is overbought. If it's below 20 (green arrow in the chart below), it may mean that the asset is oversold. Traders might use these levels to start a bot or take profit, depending on their strategy.
 ![Screenshot 2023-04-14 at 16.31.47.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_14_at_16_31_47_1d6e34b903-b188fb.png)
 *Overbought and Oversold levels*
 
 ### Divergencies
 
-Traders might also use the Stochastic RSI to identify divergences between the indicator and the asset's price. For example, if the asset's price is making higher highs while the Stochastic RSI is making lower highs, it may suggest that the asset's price is losing momentum and could be due for a reversal. Traders might use this information to enter or exit positions. As you can see in the image below the price decrease not very long after the divergence occurs.&nbsp;
+Traders might also use the Stochastic RSI to identify divergences between the indicator and the asset's price. For example, if the asset's price is making higher highs while the Stochastic RSI is making lower highs, it may suggest that the asset's price is losing momentum and could be due for a reversal. Traders might use this information to enter or exit positions. As you can see in the image below the price decrease not very long after the divergence occurs.
 ![Screenshot 2023-04-14 at 16.34.55.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_14_at_16_34_55_7c22482a9e-b6f771.png)
 *Divergencies*
 
@@ -63,4 +63,4 @@ Traders may also use crossovers of the Stochastic RSI and its signal line to ide
 
 ## Conclusion
 
-The Stochastic RSI indicator is a powerful and adaptable technical tool that can give crypto traders useful information. Combining these tactics with adequate risk management procedures is critical to preserve your portfolio and maximizing profitability. &nbsp;
+The Stochastic RSI indicator is a powerful and adaptable technical tool that can give crypto traders useful information. Combining these tactics with adequate risk management procedures is critical to preserve your portfolio and maximizing profitability.

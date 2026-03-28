@@ -70,7 +70,9 @@ Percentiles can also be used for risk management. By understanding where the cur
 This feature is handy in volatile markets. Percentiles allow normalizing indicator values, making comparing current market conditions to historical patterns easier.
 
 ## **Best Practices for Using Percentiles**
-- **Understand the Indicator:** Before applying Percentiles, ensure you understand the chosen indicator and how it reflects market conditions.- **Appropriate Lookback Period:** The lookback period should align with your trading strategy. Shorter periods may be more suited for short-term trading, while more extended periods can be better for long-term strategies.- **Continuous Monitoring and Adjustment:** Regularly review and adjust the percentile settings and lookback periods based on ongoing market conditions and the performance of your trading strategy.
+- **Understand the Indicator:** Before applying Percentiles, ensure you understand the chosen indicator and how it reflects market conditions.
+- **Appropriate Lookback Period:** The lookback period should align with your trading strategy. Shorter periods may be more suited for short-term trading, while more extended periods can be better for long-term strategies.
+- **Continuous Monitoring and Adjustment:** Regularly review and adjust the percentile settings and lookback periods based on ongoing market conditions and the performance of your trading strategy.
 
 ## **Conclusion**
 

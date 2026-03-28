@@ -28,7 +28,8 @@ Two-factor authentication (2FA) is an additional layer of security that requires
 Users should set up Two-Factor Authentication and install an authentication app on their mobile devices.
 
 Recommended Authenticator Apps:
-- **Google Authenticator**. Unless you want to store all your codes offline, we recommend using Google Authenticator as your go-to 2FA app. Losing access to authentication would be a nightmare, so it's essential to have a plan B in case something happens to your device.- **Authy. **Authy is our favorite two-factor authentication app because it has online backups linked to your phone number. You can restore everything in one click and install additional 2FA apps if your original device is lost or stolen.
+- **Google Authenticator**. Unless you want to store all your codes offline, we recommend using Google Authenticator as your go-to 2FA app. Losing access to authentication would be a nightmare, so it's essential to have a plan B in case something happens to your device.
+- **Authy.** Authy is our favorite two-factor authentication app because it has online backups linked to your phone number. You can restore everything in one click and install additional 2FA apps if your original device is lost or stolen.
 
 To enable 2FA in your Gainium account, head over to Settings → Security. Find the 2FA switch, and once you turn it on, you will be shown a QR code that can be scanned with your 2FA app.
 

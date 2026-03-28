@@ -49,7 +49,10 @@ Sorting data helps you quickly identify market trends. Click on any column heade
 ## **Creating Custom Filters for Specific Trading Strategies**
 
 The screener’s true power lies in its ability to create custom filters:
-- **High Volatility Tokens**: Set filters for high price fluctuations by adjusting the 'Volatility (7D)’ column.- **Volume Screener**: Find highly traded tokens by setting a minimum threshold for '24h Volume’.- **Breakout Screener**: Spot potential breakout tokens by filtering based on ‘Volume change %’ and 'Price Change %'.- **Scalping Screener**: Focus on short-term gains by setting filters for small price movements and high trading volumes.
+- **High Volatility Tokens**: Set filters for high price fluctuations by adjusting the 'Volatility (7D)’ column.
+- **Volume Screener**: Find highly traded tokens by setting a minimum threshold for '24h Volume’.
+- **Breakout Screener**: Spot potential breakout tokens by filtering based on ‘Volume change %’ and 'Price Change %'.
+- **Scalping Screener**: Focus on short-term gains by setting filters for small price movements and high trading volumes.
 
 Experiment with different combinations to discover what works best for your strategy.
 

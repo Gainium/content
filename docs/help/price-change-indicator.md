@@ -33,7 +33,9 @@ In this article, we’ll define the **Price % Change** indicator, explain how to
 The **Price % Change** indicator calculates the percentage difference between the current and close prices from the previous period. A positive percentage signals an upward price movement, while a negative percentage signals a downward price movement. This simple indicator is commonly used to detect breakouts, strong trends, and price reversals.
 
 ### Key Features:
-- **Positive %**: Detects upward price movements (bullish).- **Negative %**: Detects downward price movements (bearish).- **Configurable Interval**: Set the time interval at which the price change is measured.
+- **Positive %**: Detects upward price movements (bullish).
+- **Negative %**: Detects downward price movements (bearish).
+- **Configurable Interval**: Set the time interval at which the price change is measured.
 
 ## How to Configure Price % Change in Gainium
 
@@ -43,12 +45,15 @@ Here’s how to set up the **Price % Change** indicator in Gainium.
 - **Navigate to Bot Settings**:Log into Gainium, open the bot you want to configure, and select **Price % Change** from the list of indicators.
 
 ### Step 2: Configure the Indicator Settings
-- **% Change**: Define the percentage change threshold that will trigger an action. In the example provided, a **3% change** is set. You can set this to any value depending on the magnitude of price movements you want to capture.- **Interval**: Set the time interval over which the price change is measured. In this case, it is set to **4 hours**. You can choose shorter intervals (e.g., 1 hour) for more frequent signals, or longer intervals for larger price swings.- **Keep True**: This defines how long the condition remains active after triggering the signal. Setting it to **0** means the condition is reset immediately after the signal.
+- **% Change**: Define the percentage change threshold that will trigger an action. In the example provided, a **3% change** is set. You can set this to any value depending on the magnitude of price movements you want to capture.
+- **Interval**: Set the time interval over which the price change is measured. In this case, it is set to **4 hours**. You can choose shorter intervals (e.g., 1 hour) for more frequent signals, or longer intervals for larger price swings.
+- **Keep True**: This defines how long the condition remains active after triggering the signal. Setting it to **0** means the condition is reset immediately after the signal.
 ![image.png](https://content.gainium.io/images/content/help/image_a2831cbde5-7e7936.png)
 *Price Change % Settings*
 
 ### Step 3: Detecting Positive and Negative Price Changes
-- **Positive % Change**: Detects an upward price movement. Set the threshold to a positive value (e.g., 3%) to trigger when the price rises by this percentage within the specified time interval.- **Negative % Change**: Detects a downward price movement. Set the threshold to a negative value (e.g., -3%) to trigger when the price falls by this percentage within the specified time interval.
+- **Positive % Change**: Detects an upward price movement. Set the threshold to a positive value (e.g., 3%) to trigger when the price rises by this percentage within the specified time interval.
+- **Negative % Change**: Detects a downward price movement. Set the threshold to a negative value (e.g., -3%) to trigger when the price falls by this percentage within the specified time interval.
 
 ## Using Price % Change in Bot Trading
 
@@ -58,27 +63,29 @@ Here are two trading strategies that utilize the **Price % Change** indicator in
 
 #### Entry Rules
 - **Long Entry (Buy)**:Trigger a buy order when the price increases by **3%** or more in a 4-hour interval, signaling a bullish breakout.
-- **Short Entry (Sell)**:Trigger a short order when the price decreases by **-3%** or more in a 4-hour interval, signaling a bearish breakdown.
+- **Short Entry (Sell)**:Trigger a short order when the price decreases by**-3%** or more in a 4-hour interval, signaling a bearish breakdown.
 
 #### Exit Rules
 - **Long Exit**:Exit the trade when the price change percentage turns negative (e.g., -2%), indicating a potential reversal.
 - **Short Exit**:Exit the trade when the price change percentage turns positive (e.g., 2%), signaling that the downtrend is losing strength.
 
 #### Implementation in Gainium
-- **Set the Price % Change**: Configure the **% Change** setting to 3% for both long and short entries. Set it to trigger for exits based on a reversal in the opposite direction (e.g., -2% for long exits).- **Automate the Bot**: Set the bot to execute trades automatically when the price change conditions are met.
+- **Set the Price % Change**: Configure the **% Change** setting to 3% for both long and short entries. Set it to trigger for exits based on a reversal in the opposite direction (e.g., -2% for long exits).
+- **Automate the Bot**: Set the bot to execute trades automatically when the price change conditions are met.
 
 ### Strategy 2: Trend-Following Strategy
 
 #### Entry Rules
 - **Long Entry (Buy)**:Enter a long position when the price increases by **5%** over a 6-hour interval, signaling strong bullish momentum.
-- **Short Entry (Sell)**:Enter a short position when the price decreases by **-5%** over a 6-hour interval, signaling strong bearish momentum.
+- **Short Entry (Sell)**:Enter a short position when the price decreases by**-5%** over a 6-hour interval, signaling strong bearish momentum.
 
 #### Exit Rules
 - **Long Exit**:Exit the trade when the price declines by **-2%**, indicating that the upward trend may be reversing.
 - **Short Exit**:Exit the trade when the price rises by **2%**, signaling that the downward trend is weakening.
 
 #### Implementation in Gainium
-- **Set the Price % Change Thresholds**: Set the entry thresholds to **5%** for both long and short positions and the exit thresholds to **-2%** for long and **2%** for short exits.- **Risk Management**: Use stop-losses or trailing stops to limit losses if the trend changes unexpectedly.
+- **Set the Price % Change Thresholds**: Set the entry thresholds to **5%** for both long and short positions and the exit thresholds to**-2%** for long and **2%** for short exits.
+- **Risk Management**: Use stop-losses or trailing stops to limit losses if the trend changes unexpectedly.
 
 ## Practical Considerations
 

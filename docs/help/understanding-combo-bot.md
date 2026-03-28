@@ -51,13 +51,16 @@ Conversely, DCA bot profits can be much more inconsistent, even if you set a rea
 Let's recap what we know so far.
 
 **Grid bots pros:**
-- Passive, set-and-forget approach.- Don't rely on predicting short-term price movement.
+- Passive, set-and-forget approach.
+- Don't rely on predicting short-term price movement.
 
 **Grid bots cons:**
-- Lump-sum investment at the start - needs good timing.- Low customizability of trading strategy.
+- Lump-sum investment at the start - needs good timing.
+- Low customizability of trading strategy.
 
 **DCA bots pros**
-- No lump-sum investment at the start - can profit despite the market going against you.- Great strategy customizability.
+- No lump-sum investment at the start - can profit despite the market going against you.
+- Great strategy customizability.
 
 **DCA bots cons**
 - Less consistency of profits- Often need manual intervention
@@ -65,7 +68,10 @@ Let's recap what we know so far.
 Imagine cross-breeding these bot types to obtain a super bot with all the benefits. Fortunately, you don't need to imagine it; we made this possible. It wasn't as easy as breeding a Pokemon, though. It has taken a significant amount of testing and refining, but we are proud of the result:
 
 **Combo bot pros:**
-- Passive, set-and-forget approach.- Don't rely on predicting short-term price movement.- No lump-sum investment at the start - can profit despite the market going against you.- Great strategy customizability.
+- Passive, set-and-forget approach.
+- Don't rely on predicting short-term price movement.
+- No lump-sum investment at the start - can profit despite the market going against you.
+- Great strategy customizability.
 
 **Combo bot cons:**
 - They might not be as profitable as grid and DCA when the market goes in your favor.
@@ -84,7 +90,7 @@ In essence, a Combo bot deal is a collection of minigrids joined together. The s
 ![Combo-bot.svg](https://content.gainium.io/images/content/help/Combo_bot_f8c691fd78-5ae5ce.svg)
 *Combo bot logic*
 
-There are two types of minigrids: The base minigrid and the DCA minigrids. The base minigrid is formed when the deal starts. Subsequent DCA orders create DCA minigrids, which are appended to the main grid.&nbsp;
+There are two types of minigrids: The base minigrid and the DCA minigrids. The base minigrid is formed when the deal starts. Subsequent DCA orders create DCA minigrids, which are appended to the main grid.
 
 ![minigrid-expansion.png](https://content.gainium.io/images/content/help/minigrid_expansion_8c392d5df8-c4b6b4.png)
 
@@ -92,7 +98,7 @@ Minigrids have three fundamental characteristics: The order step (the price % th
 
 #### Order Step
 
-If you are familiar with the [DCA bot logic](https://gainium.io/help/dca-bot-set-up-walkthrough), you may remember that the order step is the price drop that separates one DCA order from the next. Since minigrids are appended together, the order step will always equal the minigrid height. The order step is crucial because it determines how many grid lines can fit inside each minigrid.&nbsp;
+If you are familiar with the [DCA bot logic](https://gainium.io/help/dca-bot-set-up-walkthrough), you may remember that the order step is the price drop that separates one DCA order from the next. Since minigrids are appended together, the order step will always equal the minigrid height. The order step is crucial because it determines how many grid lines can fit inside each minigrid.
 
 #### Minigrid levels
 
@@ -102,12 +108,13 @@ For example, if you set the order step to 5%, the DCA orders are spaced in 5% pr
 
 #### Minigrid amount
 
-This is the investment on each minigrid, which will be distributed in the grid orders of each minigrid. The minimum minigrid amount equals the exchange minimum order multiplied by the number of minigrid levels.&nbsp;
+This is the investment on each minigrid, which will be distributed in the grid orders of each minigrid. The minimum minigrid amount equals the exchange minimum order multiplied by the number of minigrid levels.
 
 ### Closing Combo deals
 
 A Combo bot deal can close in one of two ways:
-- By price exiting the upper (for longs) or lower (for shorts) side of the grid.&nbsp;- By Take Profit or Stop Loss, which depends on the deal's value change. The concept is the same as the grid bot [value change](https://gainium.io/help/making-sense-of-profit-stats-value-change-and-account-value).
+- By price exiting the upper (for longs) or lower (for shorts) side of the grid.
+- By Take Profit or Stop Loss, which depends on the deal's value change. The concept is the same as the grid bot [value change](https://gainium.io/help/making-sense-of-profit-stats-value-change-and-account-value).
 
 Let's review each one in detail.
 
@@ -145,7 +152,7 @@ Interestingly, a deal can also close with 5% profit even when the price doesn't 
 
 ![combo-sol-tp3.png](https://content.gainium.io/images/content/help/combo_sol_tp3_0bdb2588a9-b54772.png)
 
-As you can observe, the price stayed within the range of the base minigrid, and thanks to the volatility, the accumulated profit reached 5% before the price exited the top of the grid. In this case, the bot canceled the grid and sold the rest of the base, obtaining a total profit of 5% despite the price never reaching a 5% increase.&nbsp;
+As you can observe, the price stayed within the range of the base minigrid, and thanks to the volatility, the accumulated profit reached 5% before the price exited the top of the grid. In this case, the bot canceled the grid and sold the rest of the base, obtaining a total profit of 5% despite the price never reaching a 5% increase.
 
 ## Combo bot settings walkthrough
 
@@ -158,30 +165,51 @@ Now that we know the basics about the combo bot let's examine its settings in de
 This is where you give your bot a **name**, choose your **exchange** and a **coin pair**. Note that como bot do not support multi-pair yet, but that will be coming soon!
 
 #### Strategy
-- **Directions**: You can choose whether to go long or short. Note that in spot, the only difference is the initial action—a long bot makes an initial buy order, while the short bot makes an initial short order. To make a short combo bot in spot, you must have the asset you want to short available in your wallet balance.- **Profit currency (Spot)**: You can keep your profit in quote or base. Generally, if you expect the base to appreciate over time or are accumulating it, you should profit in base. We wrote a more detailed article [here](https://gainium.io/help/profit-in-base-and-quote).- **Margin and Leverage (Futures)**: Here, you can set the margin and leverage of your futures bot. Remember that exchanges only allow one leverage and margin setting per coin pair, so if you already have an existing position in that pair and exchange, the bot must use the same settings, or it won't be able to start. Also, if you use several bots on the same pair, all bots using that position will register the loss if the position gets liquidated. To learn more, check out our article on [Leverage trading basics](https://gainium.io/academy/crypto-leverage-trading-basics).
+- **Directions**: You can choose whether to go long or short. Note that in spot, the only difference is the initial action—a long bot makes an initial buy order, while the short bot makes an initial short order. To make a short combo bot in spot, you must have the asset you want to short available in your wallet balance.
+- **Profit currency (Spot)**: You can keep your profit in quote or base. Generally, if you expect the base to appreciate over time or are accumulating it, you should profit in base. We wrote a more detailed article [here](https://gainium.io/help/profit-in-base-and-quote).
+- **Margin and Leverage (Futures)**: Here, you can set the margin and leverage of your futures bot. Remember that exchanges only allow one leverage and margin setting per coin pair, so if you already have an existing position in that pair and exchange, the bot must use the same settings, or it won't be able to start. Also, if you use several bots on the same pair, all bots using that position will register the loss if the position gets liquidated. To learn more, check out our article on [Leverage trading basics](https://gainium.io/academy/crypto-leverage-trading-basics).
 
 #### Deal Start
 
 In this section, you can choose how the bot starts new deals. This section is exactly as the deal start condition of the DCA bot, as both the DCA and combo share the same customizable deal start conditions. Here are the options:
-- **ASAP**: This mode ensures the bot is always in action, launching a new deal immediately after initiation and following the close of the previous one. It is ideal for traders who want to predict a certain market trend.- **Manual**: In this setting, the bot waits for manual intervention to begin deals, allowing traders to start trades by pressing the "New deal" button.- **Time-based**: This option sets consistent intervals for deal initiation, perfect for strategies aimed at coin accumulation over time.- **Technical indicators**: Employs a mix of technical indicators for initiating deals, offering customizable strategy implementations.- **Webhook**: This function activates deal starts or stops through external signals, helpful in integrating alerts from other platforms.
+- **ASAP**: This mode ensures the bot is always in action, launching a new deal immediately after initiation and following the close of the previous one. It is ideal for traders who want to predict a certain market trend.
+- **Manual**: In this setting, the bot waits for manual intervention to begin deals, allowing traders to start trades by pressing the "New deal" button.
+- **Time-based**: This option sets consistent intervals for deal initiation, perfect for strategies aimed at coin accumulation over time.
+- **Technical indicators**: Employs a mix of technical indicators for initiating deals, offering customizable strategy implementations.
+- **Webhook**: This function activates deal starts or stops through external signals, helpful in integrating alerts from other platforms.
 
 In addition to the entry options, there are a few more settings common to all deal start types:
-- **Max open deals**: The maximum number of concurrent deals the bot can open at any time. Any signals for deal start received after the bot reaches this number will be ignored. To have unlimited open deals, you can enter -1 in this field.- **Minimum and Maximum price filters**: They limit the bot's price range to open a new deal. For example, if you would like to open a BTC/USDT ASAP bot but prevent it from opening new trades if the price is over 70,000 USDT/BTC, you would enter 70000 in the "Maximum price to open deal" field.- **Cooldowns**: This option lets you add a timer after a deal is opened or closed. While the cooldown is active, the bot will ignore any deal start signals, allowing you to add a minimum wait period between deals.
+- **Max open deals**: The maximum number of concurrent deals the bot can open at any time. Any signals for deal start received after the bot reaches this number will be ignored. To have unlimited open deals, you can enter -1 in this field.
+- **Minimum and Maximum price filters**: They limit the bot's price range to open a new deal. For example, if you would like to open a BTC/USDT ASAP bot but prevent it from opening new trades if the price is over 70,000 USDT/BTC, you would enter 70000 in the "Maximum price to open deal" field.
+- **Cooldowns**: This option lets you add a timer after a deal is opened or closed. While the cooldown is active, the bot will ignore any deal start signals, allowing you to add a minimum wait period between deals.
 
 #### Base minigrid
 
 Now, let's examine the settings exclusive to the combo bot. As mentioned earlier, the base minigrid can differ from the DCA minigrids, giving you extra flexibility in starting the deal.
-- **Base Minigrid amount**: This is the total asset amount you want to allocate to the base minigrid. Remember that the minimum amount you can use depends on the number of minigrid levels multiplied by the exchange minimum order. The bot will indicate the minimum amount under this field.- **Currency**: The behavior of the base minigrid in trading bots varies with the selected currency and strategy (long or short). For long positions, the bot purchases the base currency with the quote currency to set the minigrid sell orders, regardless of the reference chosen (quote or base). In short positions, it sells the base currency for the quote currency to set the minigrid buy orders. Using percentages allows traders to allocate a portion of their total or free holdings to open trades and autocompound profit and losses. However, ensure that the total of all orders is less than 100% to avoid balance errors. Please read our article on [Autocompounding trading bots](https://gainium.io/help/autocompunding-trading-bots) to learn more.- **Top price**: This allows you to set the height of the base minigrid. The higher the top price, the more base minigrids you can fit inside.- **Base minigrid levels** are the number of minigrid orders inside the base minigrid. The more you increase this number, the higher the base minigrid** **quantity you will need.
+- **Base Minigrid amount**: This is the total asset amount you want to allocate to the base minigrid. Remember that the minimum amount you can use depends on the number of minigrid levels multiplied by the exchange minimum order. The bot will indicate the minimum amount under this field.
+- **Currency**: The behavior of the base minigrid in trading bots varies with the selected currency and strategy (long or short). For long positions, the bot purchases the base currency with the quote currency to set the minigrid sell orders, regardless of the reference chosen (quote or base). In short positions, it sells the base currency for the quote currency to set the minigrid buy orders. Using percentages allows traders to allocate a portion of their total or free holdings to open trades and autocompound profit and losses. However, ensure that the total of all orders is less than 100% to avoid balance errors. Please read our article on [Autocompounding trading bots](https://gainium.io/help/autocompunding-trading-bots) to learn more.
+- **Top price**: This allows you to set the height of the base minigrid. The higher the top price, the more base minigrids you can fit inside.
+- **Base minigrid levels** are the number of minigrid orders inside the base minigrid. The more you increase this number, the higher the base minigrid quantity you will need.
 
 #### DCA minigrids
 
-This section shares many similarities with the DCA mode of our standard trading bots.&nbsp;
-- **DCA orders**: This is the number of minigrids each deal will have. The more DCA orders your bot has, the higher price deviation each deal will cover, allowing the bot to profit even after deeper price drops. However, the more DCAs the more money "on reserve" and hence diminished returns on total money allocated. You can find the sweet spot for return on money allocated through experimentation and backtesting.&nbsp;- **Smart orders**: This is the number of orders sent to the exchange as limit orders. The bot will lock the funds only for Active orders; thus, the funds for other orders will be available for trades. Please ensure sufficient funds on your balance to place ALL orders (BUY and SELL). Learn more in our article on [Smart orders](https://gainium.io/help/smart-orders).- **DCA order amount**: The quantity of funds allocated to each DCA order. The higher the number of minigrid levels inside, the higher the minimum DCA amount will be.- **Currency**: This setting is linked to the currency in the base minigrid, so changing it will also change the currency in the base minigrid. Make sure you review your settings after you change this.- **Order step**: This is the percentage offset from the current market price you want your bot to use when placing your DCA orders. In other words, it is the space between each DCA order and the height of the minigrid. The bigger the order step, the more price deviation the bot can cover and the more grid levels you can fit inside each minigrid.- **DCA minigrid levels**: The number of minigrid orders inside of each DCA minigrid. The more you increase this number, the higher your DCA order quantity will be needed.- **Active minigrids**: The number of minigrids under the base minigrid that will be opened (with buy orders) when the deal starts. This gives you a grid with buy orders under the current price instead of a DCA order. Learn more in our [Active minigrids](https://gainium.io/help/active-minigrids) article.- **Step scale**: This setting will multiply the order step by the defined number, allowing for geometrically spaced DCA orders and, hence, modifying the height of subsequent minigrids. A value over 1 will increase the space on each subsequent DCA order, and a value under 1 will reduce the space. Remember that a value under 1 might reduce the space to the point of being to small to fit the chosen number of minigrid levels, resulting in a bot error.&nbsp;- **Volume scale**: This setting will multiply the DCA order amount by the defined number, allowing to scale the DCA order volume geometrically. A value over 1 will increase the amount on each subsequent DCA order, and a value under 1 will reduce the amount. Remember that a value under 1 might reduce the amount to being too small to place the chosen number of minigrid levels due to the exchange minimum order, resulting in a bot error.&nbsp;
+This section shares many similarities with the DCA mode of our standard trading bots.
+- **DCA orders**: This is the number of minigrids each deal will have. The more DCA orders your bot has, the higher price deviation each deal will cover, allowing the bot to profit even after deeper price drops. However, the more DCAs the more money "on reserve" and hence diminished returns on total money allocated. You can find the sweet spot for return on money allocated through experimentation and backtesting.
+- **Smart orders**: This is the number of orders sent to the exchange as limit orders. The bot will lock the funds only for Active orders; thus, the funds for other orders will be available for trades. Please ensure sufficient funds on your balance to place ALL orders (BUY and SELL). Learn more in our article on [Smart orders](https://gainium.io/help/smart-orders).
+- **DCA order amount**: The quantity of funds allocated to each DCA order. The higher the number of minigrid levels inside, the higher the minimum DCA amount will be.
+- **Currency**: This setting is linked to the currency in the base minigrid, so changing it will also change the currency in the base minigrid. Make sure you review your settings after you change this.
+- **Order step**: This is the percentage offset from the current market price you want your bot to use when placing your DCA orders. In other words, it is the space between each DCA order and the height of the minigrid. The bigger the order step, the more price deviation the bot can cover and the more grid levels you can fit inside each minigrid.
+- **DCA minigrid levels**: The number of minigrid orders inside of each DCA minigrid. The more you increase this number, the higher your DCA order quantity will be needed.
+- **Active minigrids**: The number of minigrids under the base minigrid that will be opened (with buy orders) when the deal starts. This gives you a grid with buy orders under the current price instead of a DCA order. Learn more in our [Active minigrids](https://gainium.io/help/active-minigrids) article.
+- **Step scale**: This setting will multiply the order step by the defined number, allowing for geometrically spaced DCA orders and, hence, modifying the height of subsequent minigrids. A value over 1 will increase the space on each subsequent DCA order, and a value under 1 will reduce the space. Remember that a value under 1 might reduce the space to the point of being to small to fit the chosen number of minigrid levels, resulting in a bot error.
+- **Volume scale**: This setting will multiply the DCA order amount by the defined number, allowing to scale the DCA order volume geometrically. A value over 1 will increase the amount on each subsequent DCA order, and a value under 1 will reduce the amount. Remember that a value under 1 might reduce the amount to being too small to place the chosen number of minigrid levels due to the exchange minimum order, resulting in a bot error.
 
-#### Take Profit &amp; Stop Loss
+#### Take Profit & Stop Loss
 
 The Take Profit and Stop Loss sections operate similarly using Take Profit and Stop Loss by ROI % in the [grid bot](https://gainium.io/help/take-profit-stop-loss-grid). As explained earlier, a Take Profit in the combo bot is optional, since the deal will be closed anyway when the price crosses the base minigrid's upper bound (for longs) or lower bound (for shorts). If you turn Take Profit or Stop Loss on, here are the settings you can configure:
-- **Deal close type**: Market or Limit. A market order ensures the order closes immediately, though higher fees and slippage may result in a different price. A limit order ensures you get the expected price, though it may not fill immediately. To avoid long waiting times, the bot will reposition your limit order every few seconds to ensure it gets filled. You can learn more about [Exchange order types](https://gainium.io/academy/order-types).- **Take Profit or Stop Loss**: This is the percentage gain or loss that the deal needs to reach for the bot to close it. As mentioned earlier, we include the profit generated through the minigrid orders in computing the ROI; therefore, we do not know in advance at which price the bot will execute the TP or SL.- **Base take profit on**: This setting allows you to change how the bot computes ROI, by basing it on the actual amount of used assets or the total amount of assets the bot could theoretically use. To understand how this works, imagine that we have one bot that uses a $100 base minigrid, and 9 x $100 DCA minigrids, with a 5% TP. If we base the TP on **the used DCA**, when the bot starts a new deal, the target profit will be $5 (100*0.05) since we have used only $100 of the base minigrid. If the bot hits a DCA order, the total funds used would be $200, the needed TP would be $10 (200*0.05), and so on for each new DCA filled. Conversely, if we base the TP on **max DCA**, the TP needed to close the deal will always be the same, $50, which results from the theoretical maximum amount the bot could use, or $1000 in this case.
+- **Deal close type**: Market or Limit. A market order ensures the order closes immediately, though higher fees and slippage may result in a different price. A limit order ensures you get the expected price, though it may not fill immediately. To avoid long waiting times, the bot will reposition your limit order every few seconds to ensure it gets filled. You can learn more about [Exchange order types](https://gainium.io/academy/order-types).
+- **Take Profit or Stop Loss**: This is the percentage gain or loss that the deal needs to reach for the bot to close it. As mentioned earlier, we include the profit generated through the minigrid orders in computing the ROI; therefore, we do not know in advance at which price the bot will execute the TP or SL.
+- **Base take profit on**: This setting allows you to change how the bot computes ROI, by basing it on the actual amount of used assets or the total amount of assets the bot could theoretically use. To understand how this works, imagine that we have one bot that uses a $100 base minigrid, and 9 x $100 DCA minigrids, with a 5% TP. If we base the TP on **the used DCA**, when the bot starts a new deal, the target profit will be $5 (100*0.05) since we have used only $100 of the base minigrid. If the bot hits a DCA order, the total funds used would be $200, the needed TP would be $10 (200*0.05), and so on for each new DCA filled. Conversely, if we base the TP on **max DCA**, the TP needed to close the deal will always be the same, $50, which results from the theoretical maximum amount the bot could use, or $1000 in this case.
 
 #### Bot controller
 

@@ -28,7 +28,10 @@ Bollinger Bands %B is an indicator derived from the classic Bollinger Bands. It 
 ## What is Bollinger Bands %B?
 
 Bollinger Bands %B measures the relative position of the current price within the Bollinger Bands range. It is scaled between 0 and 1, where:
-- **%B = 1**: Price is at the upper Bollinger Band.- **%B = 0**: Price is at the lower Bollinger Band.- **%B &gt; 1**: Price is above the upper Bollinger Band (overbought).- **%B &lt; 0**: Price is below the lower Bollinger Band (oversold).
+- **%B = 1**: Price is at the upper Bollinger Band.
+- **%B = 0**: Price is at the lower Bollinger Band.
+- **%B > 1**: Price is above the upper Bollinger Band (overbought).
+- **%B < 0**: Price is below the lower Bollinger Band (oversold).
 
 It helps traders quickly assess where the price is relative to the bands, signaling potential buying or selling opportunities.
 ![image.png](https://content.gainium.io/images/content/help/image_7160aed7da-0f05a8.png)
@@ -37,7 +40,13 @@ It helps traders quickly assess where the price is relative to the bands, signal
 ### Step 1: Add the Indicator
 - **Access the Bot Settings**:Log into Gainium and go to the bot you want to configure.
 - **Navigate to the Indicators Section**:Add the **Bollinger Bands %B** indicator from the list of available options.
-- **Configure Settings** (Refer to the attached settings image):**MA Type**: Set the type of Moving Average (default is SMA).- **MA Length**: Set the length of the selected Moving Average (default is 20).- **Standard Deviations**: Set the number of standard deviations for the Bollinger Bands (default is 2).- **Interval**: Choose the time interval for the indicator, such as 1 hour.- **Condition**: You can set conditions like "Crossing down" or "Crossing up" for specific %B values.- **Value**: This defines the trigger point for your trade, for example, 0.05 for a potential long entry.- **Keep True**: Specify how long the condition remains true after it triggers.
+- **Configure Settings** (Refer to the attached settings image):**MA Type**: Set the type of Moving Average (default is SMA).
+- **MA Length**: Set the length of the selected Moving Average (default is 20).
+- **Standard Deviations**: Set the number of standard deviations for the Bollinger Bands (default is 2).
+- **Interval**: Choose the time interval for the indicator, such as 1 hour.
+- **Condition**: You can set conditions like "Crossing down" or "Crossing up" for specific %B values.
+- **Value**: This defines the trigger point for your trade, for example, 0.05 for a potential long entry.
+- **Keep True**: Specify how long the condition remains true after it triggers.
 
 ![image.png](https://content.gainium.io/images/content/help/image_001f9207f0-07f7d9.png)
 *Bollinger Bands %B Settings*
@@ -53,15 +62,18 @@ Bollinger Bands %B can be effectively used in bot trading to capture overbought 
 ### Strategy 1: Mean Reversion Using Bollinger Bands %B
 
 #### Entry Rules
-- **Long Entry (Buy)**:%B crosses **below 0** (price moves below the lower Bollinger Band).- This signals an oversold condition, providing an opportunity for a potential reversal.
-- **Short Entry (Sell)**:%B crosses **above 1** (price moves above the upper Bollinger Band).- This signals an overbought condition, indicating potential for a downward reversal.
+- **Long Entry (Buy)**:%B crosses **below 0** (price moves below the lower Bollinger Band).
+- This signals an oversold condition, providing an opportunity for a potential reversal.
+- **Short Entry (Sell)**:%B crosses **above 1** (price moves above the upper Bollinger Band).
+- This signals an overbought condition, indicating potential for a downward reversal.
 
 #### Exit Rules
 - **Long Exit**:%B crosses **above 0.5** (price moves back to the middle of the bands, confirming a partial reversal).
 - **Short Exit**:%B crosses **below 0.5** (price moves back toward the middle of the bands, confirming a partial reversal).
 
 #### Implementation in Gainium
-- **Set the Indicator**:Add Bollinger Bands %B to your bot’s strategy.- Configure the conditions for %B crossing down below 0 for long entries and above 1 for short entries.
+- **Set the Indicator**:Add Bollinger Bands %B to your bot’s strategy.
+- Configure the conditions for %B crossing down below 0 for long entries and above 1 for short entries.
 - **Manage Position Sizes**:Adjust position sizes depending on market volatility and risk tolerance.
 - **Add Stop-Losses**:Set tight stop-losses just outside the bands to prevent large drawdowns if the trade doesn’t go as planned.
 
@@ -85,7 +97,7 @@ Bollinger Bands %B can be effectively used in bot trading to capture overbought 
 When using Bollinger Bands %B in your bot trading, here are some key things to consider:
 
 ### 1. Adjust the MA and Deviations
-- The default settings for Bollinger Bands are **a 20-period SMA**&nbsp;and&nbsp;**2 standard deviations**. Depending on the asset you're trading, it may be beneficial to experiment with these settings to better capture volatility.
+- The default settings for Bollinger Bands are **a 20-period SMA** and **2 standard deviations**. Depending on the asset you're trading, it may be beneficial to experiment with these settings to better capture volatility.
 
 ### 2. Avoid Overfitting
 - Be cautious when setting overly specific conditions, such as highly tight values for %B. Overfitting can lead to poor performance in real market conditions.

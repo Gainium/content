@@ -27,7 +27,7 @@ Today, we will address a topic that often puzzles many of our esteemed clients -
 
 At Gainium, we believe that transparency is essential for trust. As such, it's our pleasure to walk you through how our grid bot profits are computed.
 
-When discussing grid trading in the cryptocurrency world, platforms typically use one of two methods to calculate grid bot profits. The first method counts profits only when there is a match for both buy and sell orders, ignoring those without a match. On the other hand, the second method counts profits when there is a match for buy and sell orders, and those unmatched orders are matched to the initial price of the token. The initial price of the token defaults to the token's purchased price (if the bot purchased it) or the token's price when the bot was started (if you used your token's balance).&nbsp;
+When discussing grid trading in the cryptocurrency world, platforms typically use one of two methods to calculate grid bot profits. The first method counts profits only when there is a match for both buy and sell orders, ignoring those without a match. On the other hand, the second method counts profits when there is a match for buy and sell orders, and those unmatched orders are matched to the initial price of the token. The initial price of the token defaults to the token's purchased price (if the bot purchased it) or the token's price when the bot was started (if you used your token's balance).
 
 Whether counting unmatched orders or not, the exchange fees are considered in both cases, so you don't have to worry about that.
 

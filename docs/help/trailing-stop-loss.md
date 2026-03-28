@@ -41,4 +41,6 @@ However, it is essential to note that trailing stop loss orders are not foolproo
 You can find this option under the Stop Loss section of your trading bot or terminal deal.
 ![trailing-sl.png](https://content.gainium.io/images/content/help/trailing_sl_ed28b6b7eb-0a2d3b.png)
 There are a few things you should keep in mind when using trailing stop loss:
-- Trailing stop loss is incompatible with [multiple stop loss targets](https://gainium.io/help/multiple-stop-loss-targets) and [move stop loss](https://gainium.io/help/move-stop-loss).- If DCA Mode is enabled, the stop loss target is calculated from the average position size.- If the stop loss move over DCA orders, they will be cancelled
+- Trailing stop loss is incompatible with [multiple stop loss targets](https://gainium.io/help/multiple-stop-loss-targets) and [move stop loss](https://gainium.io/help/move-stop-loss).
+- If DCA Mode is enabled, the stop loss target is calculated from the average position size.
+- If the stop loss move over DCA orders, they will be cancelled

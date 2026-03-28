@@ -67,7 +67,7 @@ In the example above (Picture 2), I have chosen USDT, but note that you can take
 
 ### Base order and currency
 
-This is the first order the bot will make. If DCA mode is disabled, this will be the only order the bot will make.&nbsp;
+This is the first order the bot will make. If DCA mode is disabled, this will be the only order the bot will make.
 
 How the base order behaves depends on the currency selected. The options are:
 
@@ -87,11 +87,11 @@ When you set your bot to use % of the token, you input the % value as a number f
 
 The base order and all DCA orders sum should not exceed 100. Also, they should sum less than 100, as summing exactly 100 may cause insufficient balance errors due to rounding or exchange minimum order limits.
 
-In the example, I am using 5 USDT as a Base Order as I am using Bybit. Each exchange has a different minimum order size (Binance, for example, has a minimum of 10 USDT).&nbsp;
+In the example, I am using 5 USDT as a Base Order as I am using Bybit. Each exchange has a different minimum order size (Binance, for example, has a minimum of 10 USDT).
 
 ### Base order type
 
-Here you can choose how the bot will execute the base order, as a limit or market order.&nbsp;
+Here you can choose how the bot will execute the base order, as a limit or market order.
 
 A limit order is sent to the exchange's order book, and it waits to be executed at a certain price. A limit order guarantees the best price and may incur lower fees but may not be filled immediately. Gainium will re-submit limit orders every 20 seconds at the best price until the order is fulfilled.
 
@@ -101,16 +101,20 @@ A market order is executed immediately at the market price, skipping the exchang
 
 This option is available for limit order types. You can choose this option if you prefer to use a limit order but would like to ensure a maximum waiting time. When this option is activated, you can set up a timer, and a limit order will be sent to exchange and repositioned every 20 seconds as per the default behavior. If the order has not been fulfilled within the time specified, the limit order will be canceled, and a market order will be placed instead.
 
-**Tip**: I tend to use limit most of the time. It's cheaper and safer for most of the basic bots setups. Exchanges usually have lowers fees for limit orders as they try to reward traders for providing liquidity to the exchange. You can see the difference by checking your exchange fees for makers and takers. Makers = Limit orders fees that provide liquidity, Takers = Market orders fees that takes liquidity from the exchange.&nbsp;
+**Tip**: I tend to use limit most of the time. It's cheaper and safer for most of the basic bots setups. Exchanges usually have lowers fees for limit orders as they try to reward traders for providing liquidity to the exchange. You can see the difference by checking your exchange fees for makers and takers. Makers = Limit orders fees that provide liquidity, Takers = Market orders fees that takes liquidity from the exchange.
 
 ## DEAL START
 ![3.png](https://content.gainium.io/images/content/help/3_0aa38b383e-b15899.png)
 *Picture 3*
 
 This section allows you to select how you want your bot to start new deals, is one of the most critical parts of the bot, and it deserves an article of its own, but for now, let's go through an overview of each option.
-- **ASAP**: this option is the simplest strategy and will ensure that the bot never stops trading. It will start a deal as soon as the bot starts and open a new deal as soon as the previous one is closed. This may be used by traders that expect the market to go in a specific direction.- **Manual:** in manual mode, the bot will never open a deal by itself. Traders can open new deals by clicking the “New deal” button.- **Time-based**: this option will allow you to open a new deal at regular time intervals. With the time-based deal start, you can set up bots that accumulate coins, aka HODL bots.- **Webhook**: the bot will listen for incoming webhooks to start or stop deals. Webhooks can be sent from platforms such as TradingView. You can learn more about it [here](https://gainium.io/help/webhooks).&nbsp;- **Technical indicators**: with this option, you can create any combination of technical indicators to start a new deal.&nbsp;&nbsp;
+- **ASAP**: this option is the simplest strategy and will ensure that the bot never stops trading. It will start a deal as soon as the bot starts and open a new deal as soon as the previous one is closed. This may be used by traders that expect the market to go in a specific direction.
+- **Manual:** in manual mode, the bot will never open a deal by itself. Traders can open new deals by clicking the “New deal” button.
+- **Time-based**: this option will allow you to open a new deal at regular time intervals. With the time-based deal start, you can set up bots that accumulate coins, aka HODL bots.
+- **Webhook**: the bot will listen for incoming webhooks to start or stop deals. Webhooks can be sent from platforms such as TradingView. You can learn more about it [here](https://gainium.io/help/webhooks).
+- **Technical indicators**: with this option, you can create any combination of technical indicators to start a new deal.
 
-Even though ASAP is the most simple strategy, this deal start condition can be very risky when the market is not on a strong uptrend. The best option would be to use a strategy that filters out possible bad entries, buying only when the price has already retraced and has a higher chance to rise again. We have several options to do it.&nbsp;For the bot example (picture 4), I will select Technical Indicators. And then, I select the RSI Indicator. I am a big fan of this indicator, as you can come up with very strong and profitable bots setups just by using only this to filter out deals.
+Even though ASAP is the most simple strategy, this deal start condition can be very risky when the market is not on a strong uptrend. The best option would be to use a strategy that filters out possible bad entries, buying only when the price has already retraced and has a higher chance to rise again. We have several options to do it. For the bot example (picture 4), I will select Technical Indicators. And then, I select the RSI Indicator. I am a big fan of this indicator, as you can come up with very strong and profitable bots setups just by using only this to filter out deals.
 
 RSI, or Relative Strength Index, is a momentum indicator that measures the speed and magnitude of an asset’s price change.
 
@@ -124,7 +128,7 @@ The picture below (Picture 5) shows how the RSI decides when the bot starts. I d
 ![8.png](https://content.gainium.io/images/content/help/8_d817f684fc-f570a6.png)
 *Picture 5*
 
-&nbsp;
+
 ![Screenshot 2023-03-30 at 16.31.00.png](https://content.gainium.io/images/content/help/Screenshot_2023_03_30_at_16_31_00_da18f61c34-c3178a.png)
 *Picture 6*
 
@@ -132,7 +136,7 @@ The picture below (Picture 5) shows how the RSI decides when the bot starts. I d
 
 With this option (Picture 6), you can limit the number of open deals the bot can have at any time. Once the number of deals has reached the max open deals, the bot will ignore further signals to start a new deal.
 
-When a multipair bot receives more deal start signals than the allowed max open deals, it randomly assign the available deal quota. For example, suppose we start a multipair bot with 100 pairs and five max open deals, and the deal start condition is RSI 15 min &gt; 70. On the next candle, 10 out of the 100 pairs meet this condition, but as the bot is only allowed to trade five at once, it will open five deals randomly from the set of 10 possible pairs.&nbsp;
+When a multipair bot receives more deal start signals than the allowed max open deals, it randomly assign the available deal quota. For example, suppose we start a multipair bot with 100 pairs and five max open deals, and the deal start condition is RSI 15 min > 70. On the next candle, 10 out of the 100 pairs meet this condition, but as the bot is only allowed to trade five at once, it will open five deals randomly from the set of 10 possible pairs.
 
 ## TAKE PROFIT
 ![9.png](https://content.gainium.io/images/content/help/9_fca8e4caab-f13fb5.png)
@@ -156,11 +160,11 @@ It is used by traders to increase their gains when the price move in a favorable
 
 ### Stop loss %
 
-This is the unrealized P&amp;L percentage that will trigger the deal close condition. If DCA mode is activated, the stop loss % is calculated on the average purchased price.
+This is the unrealized P&L percentage that will trigger the deal close condition. If DCA mode is activated, the stop loss % is calculated on the average purchased price.
 
 ### Move stop loss
 
-With this option, you can move the stop loss to a new value when a certain unrealized P&amp;L is reached. This is useful, for example, to lock in a profit by moving the SL to a positive number when a certain unrealized profit has been reached.
+With this option, you can move the stop loss to a new value when a certain unrealized P&L is reached. This is useful, for example, to lock in a profit by moving the SL to a positive number when a certain unrealized profit has been reached.
 
 If the new stop loss moves over DCA orders, all the orders under it will be canceled.
 
@@ -191,7 +195,7 @@ Activating this will allow you to only send a portion of all DCA orders to the e
 
 Sometimes there are errors in the exchanges or mistakes made by traders (fat fingers), so the price suddenly drops (also, the opposite is possible, so the price pumps unexpectedly). If your order is already placed in the exchange, It will fill immediately as it front-runs the others, and the deal closes faster and with more profits.
 
-I like to have Smart Orders off as a safety measure. I want the bot to lock up all funds necessary to run the deal as soon as it starts. If, for whatever reason, I don’t have enough funds, the deal won't start. This is very important as many times at the beginning of my trading bot days I ended up not having enough funds to close a deal. A bot that, during backtest, closed all deals with 14 orders might not close if you suddenly have only funds for 13.&nbsp;
+I like to have Smart Orders off as a safety measure. I want the bot to lock up all funds necessary to run the deal as soon as it starts. If, for whatever reason, I don’t have enough funds, the deal won't start. This is very important as many times at the beginning of my trading bot days I ended up not having enough funds to close a deal. A bot that, during backtest, closed all deals with 14 orders might not close if you suddenly have only funds for 13.
 
 ### DCA order amount and currency
 
@@ -199,7 +203,7 @@ This is the starting DCA order amount. Note that the currency on the base order 
 
 ### DCA Oder Step
 
-This is the percentage offset from the current market price you want your bot to use when placing your orders.&nbsp;
+This is the percentage offset from the current market price you want your bot to use when placing your orders.
 
 ### Step scale
 
@@ -236,7 +240,8 @@ At the end of the bot setup, the Bot Controller (Picture 13) allows you to have 
 *Picture 14*
 
 In the bot controller (picture 14), you can decide to do the following:
-- **Stop Only: **will stop the bot so the current deals will stay open, it will keep the open unfilled orders, but the bot won’t open any new deals,&nbsp;- **Stop and cancel deals:** so the bot will delete all the unfilled orders in the exchange and won’t open any new deals. Note that this means you will keep all the coins the bot has purchased so far. In our BTC/USDT bot, it means that if the bot purchased some Bitcoin, the Bot controller would cancel the unfilled orders, but it won't sell the BTC that managed to buy so far.- **Stop the bot and close deals by market.** This is an example where there is a use case for Market Orders as you want to close all the deals asap in case of a sudden change in the market trend. All your purchased coins will revert to your quote in the trading pair. In the case of our BTC/USDT, it means that if the bot purchased some BTC, it will cancel all unfilled orders and sell back to USDT the already purchased BTC.
+- **Stop Only:** will stop the bot so the current deals will stay open, it will keep the open unfilled orders, but the bot won’t open any new deals, -**Stop and cancel deals:** so the bot will delete all the unfilled orders in the exchange and won’t open any new deals. Note that this means you will keep all the coins the bot has purchased so far. In our BTC/USDT bot, it means that if the bot purchased some Bitcoin, the Bot controller would cancel the unfilled orders, but it won't sell the BTC that managed to buy so far.
+- **Stop the bot and close deals by market.** This is an example where there is a use case for Market Orders as you want to close all the deals asap in case of a sudden change in the market trend. All your purchased coins will revert to your quote in the trading pair. In the case of our BTC/USDT, it means that if the bot purchased some BTC, it will cancel all unfilled orders and sell back to USDT the already purchased BTC.
 ![14.png](https://content.gainium.io/images/content/help/14_81281099d1-c5152e.png)
 *Picture 15*
 
@@ -264,6 +269,6 @@ DXY is the dollar index, and Bitcoin generally trades inversely to the dollar, s
 
 TOTAL2 shows the total market capitalization of the top-125 cryptocurrencies, excluding BTC, so you can use this chart to stop some bots trading lower caps when the chart is running hot, as there is a higher risk of a retrace.
 
-There are limitless numbers of indicators that can be used to control bots, and it depends on the bots you are using and the tokens you are trading.&nbsp;
+There are limitless numbers of indicators that can be used to control bots, and it depends on the bots you are using and the tokens you are trading.
 
-As a general rule, you want to use them in bots that are riskier because they use leverage or leveraged tokens, cover a tiny deviation with DCA, or use a very small timeframe. You might never need to use them in more conservative bots because they are designed to fill as many DCA orders as possible during a downtrend. In this case, a bot controller would halt the profits. So you might never need to use it on a bot that covers a considerable deviation or use an indicator like QFL, a popular indicator used to buy when a support level is broken and available as a deal start condition in Gainium.&nbsp;&nbsp;&nbsp;
+As a general rule, you want to use them in bots that are riskier because they use leverage or leveraged tokens, cover a tiny deviation with DCA, or use a very small timeframe. You might never need to use them in more conservative bots because they are designed to fill as many DCA orders as possible during a downtrend. In this case, a bot controller would halt the profits. So you might never need to use it on a bot that covers a considerable deviation or use an indicator like QFL, a popular indicator used to buy when a support level is broken and available as a deal start condition in Gainium.
