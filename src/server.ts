@@ -1,4 +1,5 @@
 import express, { Application, Request, Response, NextFunction } from 'express'
+import path from 'path'
 import cors from 'cors'
 import { contentLoader } from './contentLoader'
 import metadataRouter from './routes/metadata'
@@ -33,9 +34,17 @@ export function createServer(): Application {
         help: '/help',
         blog: '/blog',
         search: '/search',
+        images: '/images/content/{help,blog}/<filename>',
       },
     })
   })
+
+  // Static image serving
+  const imagesDir = path.join(process.cwd(), 'docs', 'images')
+  app.use('/images/content', express.static(imagesDir, {
+    maxAge: '7d',
+    immutable: true,
+  }))
 
   // Routes
   app.use('/metadata', metadataRouter)
