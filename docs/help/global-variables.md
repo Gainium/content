@@ -47,11 +47,11 @@ Global Variables let you define reusable values (**text**, **integer**, or **flo
 ## Example: Using a Global Variable for Safety Orders
 
 Let’s say you want all your bots to use the same number of safety orders—6, for example. Instead of setting this manually for each bot, create a global variable called `safety_orders` and set its value to `6`.
-![image.png](https://content.gainium.io/images/content/help/image_c74ffd362d-c590e0.png)
+![image.png](https://content.gainium.io/images/content/help/image_c74ffd362d-c590e0.webp)
 Now, when editing any bot, go to the "DCA Orders" field, type `/`, and select `safety_orders` from the list. The field will now use that variable instead of a fixed number.
-![image.png](https://content.gainium.io/images/content/help/image_45a29f7c1f-e95d39.png)
+![image.png](https://content.gainium.io/images/content/help/image_45a29f7c1f-e95d39.webp)
 
-![image.png](https://content.gainium.io/images/content/help/image_8795168e53-b5ca71.png)
+![image.png](https://content.gainium.io/images/content/help/image_8795168e53-b5ca71.webp)
 If later you decide to change the number to 8, just update the `safety_orders` variable. All bots using it will reload and automatically start using 8 safety orders in new deals.
 
 ## Why Use Global Variables?

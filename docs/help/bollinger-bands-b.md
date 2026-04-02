@@ -34,7 +34,7 @@ Bollinger Bands %B measures the relative position of the current price within th
 - **%B < 0**: Price is below the lower Bollinger Band (oversold).
 
 It helps traders quickly assess where the price is relative to the bands, signaling potential buying or selling opportunities.
-![image.png](https://content.gainium.io/images/content/help/image_7160aed7da-0f05a8.png)
+![image.png](https://content.gainium.io/images/content/help/image_7160aed7da-0f05a8.webp)
 ## How to Use Bollinger Bands %B in Gainium
 
 ### Step 1: Add the Indicator
@@ -48,7 +48,7 @@ It helps traders quickly assess where the price is relative to the bands, signal
 - **Value**: This defines the trigger point for your trade, for example, 0.05 for a potential long entry.
 - **Keep True**: Specify how long the condition remains true after it triggers.
 
-![image.png](https://content.gainium.io/images/content/help/image_001f9207f0-07f7d9.png)
+![image.png](https://content.gainium.io/images/content/help/image_001f9207f0-07f7d9.webp)
 *Bollinger Bands %B Settings*
 
 ### Step 2: Use Percentile (Optional)

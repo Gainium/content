@@ -31,7 +31,7 @@ When setting up your trading bot with multiple indicators, you can use the AND/O
 
 - **AND**: All selected indicators must meet the defined conditions for the bot to trigger a trade.
 - **OR**: The bot will trigger a trade if any one of the selected indicators meets its condition.
-![image.png](https://content.gainium.io/images/content/help/image_6adcc3e7eb-c5acdc.png)
+![image.png](https://content.gainium.io/images/content/help/image_6adcc3e7eb-c5acdc.webp)
 ## Applying AND/OR to Multiple Indicators
 
 When you apply AND or OR, it affects all the indicators you’ve chosen. This means that the logic is applied uniformly across the board. For example:

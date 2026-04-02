@@ -50,7 +50,7 @@ Here’s how to set up the **CCI** indicator in Gainium.
 - **Condition**: Choose a condition that triggers a trade. In this example, the CCI is set to **Crossing Down** below a value, indicating a sell signal when the CCI crosses below a threshold.
 - **Value**: This is the trigger value for the condition (in this case, **100**). When CCI crosses below 100, a signal is generated, indicating that the price is potentially exiting an overbought condition.
 - **Keep True**: This defines how long the condition remains active after it’s triggered. Setting this to **0** means the condition resets immediately after the trigger.
-![image.png](https://content.gainium.io/images/content/help/image_4f3abd1064-80512a.png)
+![image.png](https://content.gainium.io/images/content/help/image_4f3abd1064-80512a.webp)
 *CCI Oscillator Settings*
 
 ## Using CCI in Bot Trading

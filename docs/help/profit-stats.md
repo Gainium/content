@@ -29,5 +29,5 @@ The profit chart located in the dashboard shows the profit in USD for the full a
 The profit chart located on the bot pages can display data in base, quote, or USD. You can select which currency you want to see on the graph by changing the currency switch above the chart.
 
 *Exchange fees [are excluded](https://gainium.io/help/are-exchange-fees-excluded-from-profit-calculation) (accounted for) in profit calculation.
-![profit-chart.png](https://content.gainium.io/images/content/help/profit_chart_af732cbf8e-34e1ff.png)
+![profit-chart.png](https://content.gainium.io/images/content/help/profit_chart_af732cbf8e-34e1ff.webp)
 *Profit chart*

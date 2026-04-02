@@ -50,7 +50,7 @@ Here’s how to configure the **Williams %R** indicator in Gainium.
 - **Condition**: Select the condition to trigger trades. **Crossing Down** is chosen in this case, which means the bot will trigger an action when the Williams %R crosses below a certain value (in this example, -40).
 - **Value**: Set the value at which the bot should trigger trades. Here, it's set to **-40**, signaling the price is moving downward, but not yet in an oversold region.
 - **Keep True**: This setting determines how long the condition remains active after being triggered. A value of **0** means it resets immediately after the condition is met.
-![image.png](https://content.gainium.io/images/content/help/image_e18959360b-ffe68e.png)
+![image.png](https://content.gainium.io/images/content/help/image_e18959360b-ffe68e.webp)
 *Williams %R Indicator Settings*
 
 ### Step 3: Positive and Negative Percent Changes

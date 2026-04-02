@@ -54,7 +54,7 @@ Here’s how to configure the **ATH Drawdown** indicator using the attached sett
 **Lower than** is selected in this case, meaning the bot will act when the drawdown percentage is below a certain threshold.
 - **Value (10)**: This represents the trigger point. The bot will act when the drawdown percentage falls **below 10%**. This means the bot won't open positions within 10% of the ATH, thus preventing entering long positions near the ATH.
 - **Keep True (0)**: This defines how long the condition remains active after being triggered. Setting this to **0** means the condition resets immediately after the trigger.
-![image.png](https://content.gainium.io/images/content/help/image_c8c80e3610-c801bb.png)
+![image.png](https://content.gainium.io/images/content/help/image_c8c80e3610-c801bb.webp)
 *All Time High (ATH) Drawdown Settings*
 
 

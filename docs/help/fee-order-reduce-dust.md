@@ -32,4 +32,4 @@ The "Fee Order" feature outsmarts this system. By setting aside assets for fees 
 
 So, next time you set up your bot, give a nod to the "Fee Order" feature. It's your secret weapon against the pesky side effects of trading, ensuring that your focus remains on strategy and performance, not on sweeping up digital dust.
 
-![combo-fee-order.png](https://content.gainium.io/images/content/help/combo_fee_order_ce15a69f7f-cc1242.png)
+![combo-fee-order.png](https://content.gainium.io/images/content/help/combo_fee_order_ce15a69f7f-cc1242.webp)

@@ -50,7 +50,7 @@ Here’s how to set up and configure the **Divergence Indicator** in Gainium bas
 - **Oscillators**: You can select the oscillators you want to compare with the price action. **Awesome Oscillator (AO)**,** CCI**, **MACD**, and **MFI** are used in this example. Gainium supports multiple oscillators, including **RSI**, **Momentum**, **Stochastic Oscillator**, and more. The bot will look for divergences across all selected oscillators.
 - **Interval (1 day)**: This determines the timeframe for each candlestick used to calculate the divergence. In this example, the interval is set to **1 day**, meaning the bot will analyze daily price movements for divergences.
 - **Keep True (0)**: This setting defines how long the condition remains valid after being triggered. Setting this to **0** means the condition resets immediately after it is met.
-![image.png](https://content.gainium.io/images/content/help/image_915ac03347-293c56.png)
+![image.png](https://content.gainium.io/images/content/help/image_915ac03347-293c56.webp)
 *Divergence Indicator Settings*
 
 ## Using Divergence Indicator in Bot Trading

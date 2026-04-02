@@ -49,7 +49,7 @@ Here’s how to configure the **Awesome Oscillator** in Gainium using the settin
 - **Condition**: The condition defines when a signal will be triggered. In this case, it is set to **Crossing Down**, meaning the bot will trigger an action when the AO crosses down through a specific value.
 - **Value**: The value is set to **0**, which means the bot will trigger when the AO crosses down from above the zero line, signaling weakening bullish momentum and potential bearish movement.
 - **Keep True**: This setting controls how long the condition remains true after being triggered. A value of **0** means the condition resets immediately after the signal is triggered.
-![image.png](https://content.gainium.io/images/content/help/image_a74835783b-4ecf16.png)
+![image.png](https://content.gainium.io/images/content/help/image_a74835783b-4ecf16.webp)
 *Awesome Oscillator Settings*
 
 ## Using the Awesome Oscillator in Bot Trading

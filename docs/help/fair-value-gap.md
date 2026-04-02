@@ -43,7 +43,7 @@ A **Fair Value Gap** occurs when there is a three-candle pattern where the middl
 - **Support/Resistance Zones**: Bullish FVGs become support zones, while bearish FVGs become resistance zones.
 - **Institutional Footprints**: FVGs often mark areas where smart money (institutional traders) entered the market aggressively, leaving behind these imbalances.
 
-![image.png](https://content.gainium.io/images/content/help/image_fvg_example.png)
+![image.png](https://content.gainium.io/images/content/help/image_fvg_example.webp)
 *Example of Bullish and Bearish Fair Value Gaps*
 
 ## How FVGs Relate to Market Structure
@@ -63,7 +63,7 @@ Here's how to set up the **Fair Value Gap** indicator in Gainium to detect these
 
 ### Step 1: Add the Fair Value Gap Indicator
 - **Navigate to Bot Settings**: Log into Gainium, select your bot, and add the **Fair Value Gap** indicator from the available indicators list.
-![image.png](https://content.gainium.io/images/content/help/fvg_settings_a.png)
+![image.png](https://content.gainium.io/images/content/help/fvg_settings_a.webp)
 
 ### Step 2: Configure the Indicator Settings
 
@@ -72,7 +72,7 @@ Choose the type of Fair Value Gap you want to detect:
 - **Bullish**: Detects only bullish (upward) Fair Value Gaps that may act as support.
 - **Bearish**: Detects only bearish (downward) Fair Value Gaps that may act as resistance.
 - **Any**: Detects both bullish and bearish FVGs, useful for strategies that trade in both directions.
-![image.png](https://content.gainium.io/images/content/help/fvg_settings_b.png)
+![image.png](https://content.gainium.io/images/content/help/fvg_settings_b.webp)
 *Fair Value Gap Indicator Settings*
 #### Condition
 Select how price should interact with the FVG:

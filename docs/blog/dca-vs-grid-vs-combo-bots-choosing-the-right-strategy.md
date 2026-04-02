@@ -114,7 +114,7 @@ They function like DCA bots but add “minigrids” after each buy. Rather than 
 
 This tactic adds flexibility and increases profit opportunities.
 
-![Combo1](https://content.gainium.io/images/content/blog/Combo1_9d3b0449e0-790275.png)
+![Combo1](https://content.gainium.io/images/content/blog/Combo1_9d3b0449e0-790275.webp)
 
 To learn more, see [Understanding the combo bot](https://gainium.io/help/understanding-combo-bot).
 

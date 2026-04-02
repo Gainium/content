@@ -96,7 +96,7 @@ The Law of Large Numbers concept is highly applicable regarding backtesting. It 
 
 Having more trades reduces the risk of overfitting. A larger sample size provides a more robust and representative dataset, increasing confidence in the strategy's performance and ability to handle various market conditions. In Gainium, we use a concept called [Confidence Grade](https://gainium.io/help/confidence-grade) to evaluate the reliability of a backtest based on the number of deals it produced.
 
-![confidence-grade.jpeg](https://content.gainium.io/images/content/blog/confidence_grade_0633cfc2a4-021a4a.jpeg)
+![confidence-grade.jpeg](https://content.gainium.io/images/content/blog/confidence_grade_0633cfc2a4-021a4a.webp)
 
 ### Unreal Cost of Transactions and Fees
 
@@ -108,7 +108,7 @@ On the other hand, a position trading strategy that focuses on longer-term trend
 
 Additionally, traders should consider using highly liquid futures contracts as an alternative to trading spot markets. Futures contracts often have lower transaction costs and provide greater flexibility for leveraging positions, thus reducing the impact of fees on profits. However, it is pivotal to consider the impact of funding fees in futures trading, especially for long-term positions. While backtesting trading strategies, exchange fees are commonly taken into account. Still, funding fees are often neglected, leading to inaccurate representations of profitability, particularly for strategies that involve holding positions over extended periods.
 
-![setting-correct-fees.jpeg](https://content.gainium.io/images/content/blog/setting_correct_fees_f08092ce0f-ecff9a.jpeg)
+![setting-correct-fees.jpeg](https://content.gainium.io/images/content/blog/setting_correct_fees_f08092ce0f-ecff9a.webp)
 
 ### Illiquid Tokens Pairs
 

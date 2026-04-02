@@ -28,7 +28,7 @@ Trading strategy metrics are crucial for traders to assess their strategies' per
 
 This article will explore the main strategy performance metrics and how to use them to improve your trading success.
 
-![gainium-backtest.jpeg](https://content.gainium.io/images/content/blog/gainium_backtest_92ade51707-3cff4b.jpeg)
+![gainium-backtest.jpeg](https://content.gainium.io/images/content/blog/gainium_backtest_92ade51707-3cff4b.webp)
 
 ## Total deals
 
@@ -88,7 +88,7 @@ To calculate the Maximum Drawdown, compare the previous peak value to the subseq
 
 The importance of Maximum Drawdown lies in its ability to assess the level of risk an investor or trader may face. It clearly explains the worst-case scenario and potential losses during a particular period.
 
-![Drawdown.jpeg](https://content.gainium.io/images/content/blog/Drawdown_21bccea79e-cc32ba.jpeg)
+![Drawdown.jpeg](https://content.gainium.io/images/content/blog/Drawdown_21bccea79e-cc32ba.webp)
 
 ### What is a good Max drawdown?
 

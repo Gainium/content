@@ -51,7 +51,7 @@ The Moving Average Ratio (MAR) is an advanced indicator that measures the ratio 
 - **Separation Threshold:** Set the minimum percentage or point difference between the two moving averages for generating a signal.
 - **Lookback Period:** Define how far back the indicator should look when analyzing trends.
 - **Trend Condition:** To fine-tune trend detection, set a condition like "MAR must be greater than or equal to 2% over the last 10 bars."-** Trend Filter Activation:** Enable this to color the background green when the trend matches your rules.
-![image.png](https://content.gainium.io/images/content/help/image_54a307f207-344a72.png)
+![image.png](https://content.gainium.io/images/content/help/image_54a307f207-344a72.webp)
 *MAR Indicator Options*
 
 ### Step 4: Interpret the Indicator
@@ -59,7 +59,7 @@ The Moving Average Ratio (MAR) is an advanced indicator that measures the ratio 
 - Additionally, when using the trend filter:**Green Background:** Indicates that the trend detection condition matches your rules.
 - **No Background Color:** No trend condition is met, so the market may be in consolidation or ranging.
 
-![image.png](https://content.gainium.io/images/content/help/image_6273c33904-aeea11.png)
+![image.png](https://content.gainium.io/images/content/help/image_6273c33904-aeea11.webp)
 *MAR indicator in action*
 
 ## Using MAR in Bot Trading: Strategies and Rules

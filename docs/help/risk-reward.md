@@ -45,14 +45,14 @@ The Risk:Reward feature automatically calculates position size based on the trad
 - Navigate to the **Risk:Reward** section, as shown in the image below.
 - **Turn on the Risk:Reward Feature**:Toggle the switch at the top right to activate this functionality.
 
-![image.png](https://content.gainium.io/images/content/help/image_af12b583ac-7ac813.png)
+![image.png](https://content.gainium.io/images/content/help/image_af12b583ac-7ac813.webp)
 *Risk:Reward settings*
 
 ### Step 2: Configure the Indicator
 - **Select the Indicator**:You can choose a supported indicator. For example, you can select **Support/Resistance**, as shown in the settings screenshot.
 - **Set the Time Interval**:Select the indicator's appropriate time interval (e.g., 1 hour).
 - **Configure the parameters of the indicator**.
-![image.png](https://content.gainium.io/images/content/help/image_3b5d103c38-7707c4.png)
+![image.png](https://content.gainium.io/images/content/help/image_3b5d103c38-7707c4.webp)
 *The Stop Loss according to the indicator settings is displayed on the chart.*
 
 ### Step 3: Define Risk Parameters

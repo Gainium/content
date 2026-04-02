@@ -75,29 +75,29 @@ Selecting the right moving average for your trading strategy is crucial for opti
 ## Using Moving Average in Gainium
 
 You can select this indicator by selecting “Technical Indicators” from the drop-down menu first, then “MA” in the “Indicator” Section.
-![Screenshot 2023-04-05 at 16.02.52.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_05_at_16_02_52_5492a98299-40e1bb.png)
+![Screenshot 2023-04-05 at 16.02.52.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_05_at_16_02_52_5492a98299-40e1bb.webp)
 *Moving Averages*
 
 
-![Screenshot 2023-04-05 at 16.16.56.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_05_at_16_16_56_c22250fe6b-829798.png)
+![Screenshot 2023-04-05 at 16.16.56.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_05_at_16_16_56_c22250fe6b-829798.webp)
 *MA type*
 
 ## Using Moving Averages in Bot Trading
 
 Examples of how to use Moving Averages in your bot trading strategy.
 - **Identify the direction of the trend**: One of the simplest ways to use moving averages is to identify the direction of the trend. Traders often use two moving averages, a shorter one and a longer one. If the shorter moving average is above the longer moving average, it indicates an uptrend, and if the shorter moving average is below the longer moving average, it indicates a downtrend. The 50 and the 200 MA are very popular to determine a trend. You can see in the image below that when the 50 is crossing up and staying above the 200, there is an uptrend.
-![Screenshot 2023-04-07 at 16.31.29.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_07_at_16_31_29_78d9c6a4d9-201cb3.png)
+![Screenshot 2023-04-07 at 16.31.29.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_07_at_16_31_29_78d9c6a4d9-201cb3.webp)
 *50 SMA and 200 MA*
 
 
 - **Determine support and resistance levels**: Moving averages can also be used to determine support and resistance levels. When the price of an asset is approaching a moving average, it often acts as a support or resistance level. Traders can use this information to make trading decisions, such as entering a long position when the price bounces off a moving average, acting as support. The 200 MA is often used to identify these levels. As you can see in the example below, it created a strong resistance, and the price was rejected very strongly.
-![Screenshot 2023-04-07 at 16.34.54.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_07_at_16_34_54_ec97978c60-294baf.png)
+![Screenshot 2023-04-07 at 16.34.54.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_07_at_16_34_54_ec97978c60-294baf.webp)
 *200 SMA support/resistance*
 - **Generate trading signals**: Moving averages can also be used to generate trading signals. For example, a trader may use a crossover strategy, where they enter a long position when the shorter moving average crosses above the longer moving average, and exit the position when the shorter moving average crosses below the longer moving average. In the example below a trader can enter a long when the 50 EMA crosses up the 200 EMA. EMA is faster than SMA so they are better suited to individuate entries and exits. The trader might want to close some of the whole position the moment the 50 EMA rouches again the 200. As volume is slowly decreasing, there is a higher chance the price might not be supported by the 200 EMA any longer.
-![Screenshot 2023-04-07 at 16.43.38.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_07_at_16_43_38_cc050b4de2-1071db.png)
+![Screenshot 2023-04-07 at 16.43.38.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_07_at_16_43_38_cc050b4de2-1071db.webp)
 *Entering and exiting a position*
 - **Use multiple timeframes**: Traders can also use multiple timeframes to confirm trends and generate trading signals. For example, if the shorter moving average is above the longer moving average on both the 15-minute and hourly charts, it indicates a strong uptrend and may be an excellent time to enter a long position. In the image below, the trader might decide to enter a long on the 16 of March once the 50 EMA bounces off the 200 EMA because in the 1-hour timeframe (image above) the 50 EMA is indicating there is still a strong uptrend.
-![Screenshot 2023-04-07 at 16.54.26.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_07_at_16_54_26_b3ce0a7aee-dbce68.png)
+![Screenshot 2023-04-07 at 16.54.26.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_07_at_16_54_26_b3ce0a7aee-dbce68.webp)
 *Multiple time frames*
 
 ## Conclusion

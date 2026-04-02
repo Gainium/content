@@ -61,7 +61,7 @@ Experiment with different combinations to discover what works best for your stra
 ## **Setting up Notifications**
 
 To enable notifications, install our [Free Crypto Screener](https://chromewebstore.google.com/detail/free-crypto-screener-chec/khkneeocnbijcikdlkbkgcikafeofchg?pli=1) Chrome Extension.
-![image.png](https://content.gainium.io/images/content/help/image_2ca9930ed7-ada807.png)
+![image.png](https://content.gainium.io/images/content/help/image_2ca9930ed7-ada807.webp)
 ## **Advanced Tips and Best Practices**
 
 Integrate screener insights with other Gainium tools for a holistic trading approach. For instance, use screener data to inform your trading bot strategies or to keep your portfolio tracker updated with the most promising tokens.

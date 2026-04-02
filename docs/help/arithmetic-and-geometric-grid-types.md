@@ -35,7 +35,7 @@ The Arithmetic grid type is characterized by its uniform spacing of buy and sell
 - **Consistent Spacing:** Each grid level is spaced evenly in the quote currency (e.g., USDT).
 - **Fixed Interval:** The distance between each buy and sell order is set by a fixed monetary amount, irrespective of the price level.
 
-![Grid Arithmetic.jpg](https://content.gainium.io/images/content/help/Grid_Arithmetic_cc1293ce3a-cca839.jpg)
+![Grid Arithmetic.jpg](https://content.gainium.io/images/content/help/Grid_Arithmetic_cc1293ce3a-cca839.webp)
 
 **Example: BNB/USDT Pair**
 - **Setting the Grid:** If you choose a step value of 20 USDT, and your starting point is at 300 USDT, your orders would be placed at 280, 300, 320 USDT, and so on.
@@ -60,7 +60,7 @@ Regarding BNB/USDT, we could make a grid with buy/sell orders 1% apart.
 - **Percentage-Based Spacing:** The distance between grid levels is defined by a fixed percentage.
 - **Proportional Interval:** The monetary value between orders changes as the price increases or decreases, maintaining a consistent percentage gap.
 
-![Grid Geometric.jpg](https://content.gainium.io/images/content/help/Grid_Arithmetic_291b6b6c4e-7dd65f.jpg)
+![Grid Geometric.jpg](https://content.gainium.io/images/content/help/Grid_Arithmetic_291b6b6c4e-7dd65f.webp)
 
 **Example: BNB/USDT Pair**
 - **Setting the Grid:** If you opt for a 1% grid step, and your base price is 300 USDT, the orders will be placed at prices that are each 1% higher or lower than the last (e.g., 297 USDT, 300 USDT, 303 USDT, etc.).

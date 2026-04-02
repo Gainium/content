@@ -50,6 +50,6 @@ Exchanges usually allow extra security measures to ensure your API keys are safe
 
 If you only trade specific token pairs, activating the token symbol whitelist can enhance the security of your API keys even further. Remember that contra trading usually involves obscure tokens with lower market caps, as they are easier to produce price movements.
 
-![API whitelist.png](https://content.gainium.io/images/content/help/API_whitelist_8aa05079fe-a99142.png)
+![API whitelist.png](https://content.gainium.io/images/content/help/API_whitelist_8aa05079fe-a99142.webp)
 
 By taking the above steps, you will ensure that your account stays protected from hackers.

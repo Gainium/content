@@ -53,7 +53,7 @@ Here’s how to configure the **Keltner Channel** in Gainium based on the attach
 - **Condition (Price Crossing Up)**: This condition is set to trigger when the price crosses **up** through the lower band of the Keltner Channel, which could signal a reversal or an opportunity to buy.
 - **Value (Lower)**: This setting specifies the band to use for the trigger. Here, the lower band is selected, meaning the bot will act when the price crosses up from below the lower Keltner Channel.
 - **Keep True (0)**: This setting defines how long the condition remains true after it’s triggered. Setting this to **0** means the condition resets immediately after being triggered.
-![image.png](https://content.gainium.io/images/content/help/image_f0ea620428-3818cf.png)
+![image.png](https://content.gainium.io/images/content/help/image_f0ea620428-3818cf.webp)
 *Keltner Channel Settings*
 
 ## Using Keltner Channel in Bot Trading

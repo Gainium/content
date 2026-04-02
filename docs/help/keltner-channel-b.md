@@ -55,7 +55,7 @@ Here’s how to set up and configure **Keltner Channel %B** in Gainium using the
 - **Condition (Crossing Up)**: The condition defines when the bot will take action. In this case,** Crossing Up** is chosen, meaning the bot will trigger when the %B value crosses up through a specific value (0 in this case).
 - **Value (0)**: This value represents the threshold for triggering the condition. The bot will act when the price crosses above the lower band (a %B value of 0).
 - **Keep True (0)**: This setting determines how long the condition remains active after it is triggered. A value of **0** means the condition resets immediately after the trigger.
-![image.png](https://content.gainium.io/images/content/help/image_44b761e7d8-873102.png)
+![image.png](https://content.gainium.io/images/content/help/image_44b761e7d8-873102.webp)
 *Keltner Channel %B Settings*
 
 ## Using Keltner Channel %B in Bot Trading

@@ -48,7 +48,7 @@ Here’s how to set up the **Price % Change** indicator in Gainium.
 - **% Change**: Define the percentage change threshold that will trigger an action. In the example provided, a **3% change** is set. You can set this to any value depending on the magnitude of price movements you want to capture.
 - **Interval**: Set the time interval over which the price change is measured. In this case, it is set to **4 hours**. You can choose shorter intervals (e.g., 1 hour) for more frequent signals, or longer intervals for larger price swings.
 - **Keep True**: This defines how long the condition remains active after triggering the signal. Setting it to **0** means the condition is reset immediately after the signal.
-![image.png](https://content.gainium.io/images/content/help/image_a2831cbde5-7e7936.png)
+![image.png](https://content.gainium.io/images/content/help/image_a2831cbde5-7e7936.webp)
 *Price Change % Settings*
 
 ### Step 3: Detecting Positive and Negative Price Changes

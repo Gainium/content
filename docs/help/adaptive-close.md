@@ -45,7 +45,7 @@ In this article, we’ll explain how the Adaptive Close feature works and why it
 ### Step 2: Enable Adaptive Close
 - Under the **Experimental Features**, you’ll find an option to enable **Adaptive Close**.
 - Toggle the feature on. Once activated, Adaptive Close will monitor your available funds whenever the bot attempts to close a position.
-![image.png](https://content.gainium.io/images/content/help/image_b56c80c47e-ae856d.png)
+![image.png](https://content.gainium.io/images/content/help/image_b56c80c47e-ae856d.webp)
 *Adaptive close settings*
 
 ### Step 3: Let the Bot Manage It

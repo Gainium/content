@@ -37,7 +37,7 @@ If the momentum value is high, it signals increasing strength in the upward move
 ### Key Features:
 - **Measures Rate of Price Change**: Identifies if the trend is accelerating or decelerating.
 - **Overbought/Oversold Detection**: High values indicate overbought conditions; low values indicate oversold conditions.
-![image.png](https://content.gainium.io/images/content/help/image_b795b0d57f-461bbf.png)
+![image.png](https://content.gainium.io/images/content/help/image_b795b0d57f-461bbf.webp)
 *Momentum Oscillator*
 
 ## How to Use the Momentum Oscillator in Gainium
@@ -51,7 +51,7 @@ If the momentum value is high, it signals increasing strength in the upward move
 - **Condition**: Select conditions like **Crossing down** to indicate that the momentum oscillator crosses below a specific value (e.g., 70, as shown in the image).
 - **Keep True**: Define how long the condition remains active after it is triggered (set to **0** for immediate reset).
 
-![image.png](https://content.gainium.io/images/content/help/image_00e2e4398c-1b8946.png)
+![image.png](https://content.gainium.io/images/content/help/image_00e2e4398c-1b8946.webp)
 *Momentum Oscillator Settings*
 
 ### Step 2: Interpret the Indicator

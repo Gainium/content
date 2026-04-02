@@ -26,7 +26,7 @@ A common technique traders use to secure their profits and avoid risk is moving 
 ## Using move stop loss option in Gainium
 
 In Gainium, you can use the move stop loss option in trading bots and terminal deals under the Stop Loss section.
-![move-sl.png](https://content.gainium.io/images/content/help/move_sl_b578c49465-8b62e6.png)
+![move-sl.png](https://content.gainium.io/images/content/help/move_sl_b578c49465-8b62e6.webp)
 In the screenshot above, we have set our stop loss to move to 3% profit when the position's unrealized profit reaches 5% profit.
 
 There are some things to keep in mind when using this option:

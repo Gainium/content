@@ -39,7 +39,7 @@ This indicator is non-directional, which means it only registers the strength of
 ## Using BBW in Gainium
 
 You can select this indicator by selecting “Technical Indicators” from the drop-down menu first, then “BBW” in the “Indicator” Section.
-![Screenshot 2023-04-03 at 18.05.15.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_03_at_18_05_15_3b2a466729-c7132f.png)
+![Screenshot 2023-04-03 at 18.05.15.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_03_at_18_05_15_3b2a466729-c7132f.webp)
 *BBW indicator*
 
 ## How to incorporate BBW in your bot trading
@@ -49,7 +49,7 @@ You can select this indicator by selecting “Technical Indicators” from the d
 In a volatility breakout strategy, your trading bot will capitalize on significant price movements following periods of low volatility. When the BBW value is low, it indicates a potential breakout as the bands are narrow. Your bot can initiate a long position when the price breaks above the upper Bollinger Band or a short position when it breaks below the lower Bollinger Band.
 
 For example, in the image below, when BBW is very low (I have drawn a line to visualize when BBW is below 0.0183) and RSI is oversold (below 30), it could indicate a potential strong downtrend move of the price. Conversely, when the BBW is low and the RSI is above 70 the price is likely to drop.
-![Screenshot 2023-04-03 at 18.03.52.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_03_at_18_03_52_85abb6d0c8-3d61d7.png)
+![Screenshot 2023-04-03 at 18.03.52.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_03_at_18_03_52_85abb6d0c8-3d61d7.webp)
 *BBW and RSI*
 
 ### B. BBW Mean Reversion Strategy

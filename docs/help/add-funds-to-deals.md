@@ -33,7 +33,7 @@ Gainium's “Add funds” feature allows users to gain more control of their tra
 ### Web UI
 
 The "Add Funds" feature works quite straightforwardly. It is supported by any smart or import deal created through the terminal and any deal started by a trading bot. Once the deal is created, you can use this feature to add more funds to it. This option is accessible through the deal menu, which opens a pop-up window allowing you to specify the following parameters:
-![Add_funds_webUI.png](https://content.gainium.io/images/content/help/Add_funds_web_UI_02049e1c16-545cce.png)
+![Add_funds_webUI.png](https://content.gainium.io/images/content/help/Add_funds_web_UI_02049e1c16-545cce.webp)
 *Add Funds through UI*
 
 **Amount**: This is the volume of funds that you want to add to the deal. It's essentially the additional sum you're willing to invest.
@@ -47,7 +47,7 @@ The "Add Funds" feature works quite straightforwardly. It is supported by any sm
 ### Webhook
 
 You can also execute the “Add Funds” feature through a webhook, regardless of the deal start condition used in your trading bot.
-![Add_funds_webhook.png](https://content.gainium.io/images/content/help/Add_funds_webhook_1504158676-1c3347.png)
+![Add_funds_webhook.png](https://content.gainium.io/images/content/help/Add_funds_webhook_1504158676-1c3347.webp)
 *Add Funds Webhook*
 
 Some considerations when using the Add Funds feature through webhooks:

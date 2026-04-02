@@ -38,11 +38,11 @@ By using multiple take profits, you can exit the position proportionally to the 
 - Sell 30% at $12- Sell 20% at $14- Sell 10% at $18- Sell 5% at $22- Sell 5% at $25
 
 Multiple TPs is a great risk-management strategy that helps us avoid making greedy decisions.
-![multiple-tp-chart.png](https://content.gainium.io/images/content/help/multiple_tp_chart_ee35d1cba9-571355.png)
+![multiple-tp-chart.png](https://content.gainium.io/images/content/help/multiple_tp_chart_ee35d1cba9-571355.webp)
 ## Enabling Multiple TPs in Gainium
 
 To use multiple TP in your terminal in bot deals, enable the option in the Take Profit section. Then add as many targets as you wish and tweak them to your liking.
 
 Here are a few things to keep in mind:
 - You can add up to 10 TP targets as long as each target meets the minimum order size as dictated by the exchange- When DCA mode is enabled, TP targets are always calculated from the average order price- Once the first TP target is filled, all pending DCA orders will be canceled. This is to help avoid the situation where you sold part of the deal, then the price came back to fill a DCA order. In this case, the initial profit projection would not have been accurate, so in order to avoid confusion and unexpected results, we decided to cancel pending DCAs.
-![multiple-tp.png](https://content.gainium.io/images/content/help/multiple_tp_3fc49eab62-6df13f.png)
+![multiple-tp.png](https://content.gainium.io/images/content/help/multiple_tp_3fc49eab62-6df13f.webp)

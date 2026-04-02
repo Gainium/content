@@ -51,7 +51,7 @@ When you enable the Percentile option for an indicator, the bot will use the ind
 
 **Specify Lookback Period:** Once Percentiles are enabled, specify the lookback period. This is the number of bars over which the percentile calculation will be made.
 
-![indicator-percentile.jpeg](https://content.gainium.io/images/content/help/indicator_percentile_de891f97bd-43b997.jpeg)
+![indicator-percentile.jpeg](https://content.gainium.io/images/content/help/indicator_percentile_de891f97bd-43b997.webp)
 
 As you can see from the screenshot above, setting the rule to trigger when the RSI crosses the 90th percentile will display a dotted line with the value the RSI needs to reach to be in the 90th percentile.
 

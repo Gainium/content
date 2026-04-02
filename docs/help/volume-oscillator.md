@@ -49,7 +49,7 @@ Here’s how to configure the **Volume Oscillator** in Gainium using the setting
 - **Condition**: The condition that triggers an action. In this case, it is set to **Crossing Down**, meaning the bot will trigger when the Volume Oscillator crosses below a specific value.
 - **Value (0)**: This value represents the trigger level for the oscillator. When the oscillator crosses **below 0**, it signals a potential decrease in momentum.
 - **Keep True (0)**: This setting determines how long the condition remains true after it triggers. A value of **0** means the condition resets immediately after it is triggered.
-![image.png](https://content.gainium.io/images/content/help/image_fc0fc55c55-6b36ae.png)
+![image.png](https://content.gainium.io/images/content/help/image_fc0fc55c55-6b36ae.webp)
 *Ultimate Oscillator Settings*
 
 ## Using the Volume Oscillator in Bot Trading

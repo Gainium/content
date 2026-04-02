@@ -49,7 +49,7 @@ The **Ultimate Oscillator** is designed to track momentum across three different
 - **Condition**: Choose the condition that triggers an action. In this case, **Crossing Down** is selected, meaning the bot will trigger when the Ultimate Oscillator crosses below a certain value.
 - **Value (70)**: This is the trigger point for the condition. The bot will act when the oscillator crosses **below 70**, signaling a potential exit from overbought territory.
 - **Keep True (0)**: This setting defines how long the condition remains active after it is triggered. Setting it to **0** means the condition resets immediately after the signal.
-![image.png](https://content.gainium.io/images/content/help/image_8656eba5b8-a5c6f5.png)
+![image.png](https://content.gainium.io/images/content/help/image_8656eba5b8-a5c6f5.webp)
 *UJltimate Oscillator Settings*
 
 ## Using the Ultimate Oscillator in Bot Trading

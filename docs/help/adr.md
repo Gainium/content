@@ -49,7 +49,7 @@ Here’s how to configure the **ADR** indicator in Gainium based on the attached
 - **Condition (Crossing Down)**: The condition determines when the bot will take action. In this example, the condition is set to **Crossing Down**, meaning the bot will act when the ADR crosses below a certain value.
 - **Value (2000)**: This threshold triggers the bot’s action. The bot will execute trades or decisions when the ADR falls **below 2000**. This value must be adapted to the specific asset being traded—higher for assets like BTC, lower for lower-value assets like altcoins or meme coins.
 - **Keep True (0)**: This setting controls how long the condition remains active after being triggered. A value of **0** means the condition resets immediately after it’s met.
-![image.png](https://content.gainium.io/images/content/help/image_fd027d9836-434b77.png)
+![image.png](https://content.gainium.io/images/content/help/image_fd027d9836-434b77.webp)
 *Average Daily Range (ADR) Indicator Settings*
 
 ## Using ADR in Bot Trading

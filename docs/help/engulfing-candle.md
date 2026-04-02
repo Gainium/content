@@ -37,7 +37,7 @@ An **Engulfing Candle** occurs when a larger candle completely engulfs the previ
 ### Types of Engulfing Candles:
 - **Bullish Engulfing**: This pattern forms when a small bearish candle is followed by a large bullish candle that fully engulfs the bearish candle's body. It signals a potential upward reversal in a downtrend.
 - **Bearish Engulfing**: This pattern forms when a small bullish candle is followed by a large bearish candle that fully engulfs the bullish candle's body. It signals a potential downward reversal in an uptrend.
-![image.png](https://content.gainium.io/images/content/help/image_3371e60896-19575f.png)
+![image.png](https://content.gainium.io/images/content/help/image_3371e60896-19575f.webp)
 *Engulfing Candle Indicator in action*
 
 ## How to Configure the Engulfing Candle Indicator in Gainium
@@ -52,7 +52,7 @@ Here’s how to configure the **Engulfing Candle** indicator using the settings 
 - **Trigger Candle**: Choose the type of engulfing pattern to trigger the bot's action. You can select either **Bullish,** **Bearish,** or**Both**.**Bullish Engulfing**: This will trigger when a bullish engulfing pattern is detected, signaling a potential upward reversal.
 - **Bearish Engulfing**: This will trigger when a bearish engulfing pattern is detected, signaling a potential downward reversal.
 - **Keep True**: This setting defines how long the condition remains valid after it is triggered. Setting it to **0** means the condition will reset immediately after identifying the engulfing candle.
-![image.png](https://content.gainium.io/images/content/help/image_b993620050-ea99fc.png)
+![image.png](https://content.gainium.io/images/content/help/image_b993620050-ea99fc.webp)
 *Engulfing candle settings*
 
 ## Using Engulfing Candle in Bot Trading

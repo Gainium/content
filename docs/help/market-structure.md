@@ -56,7 +56,7 @@ Here’s how to configure the **Market Structure Indicator** in Gainium based on
 - For **Price-Based Triggers**, conditions like **Price Crossing Down Any Pivot Low** allow you to detect when the price crosses significant support or resistance levels.
 - **Multiplier** (For Price-Based Only): The multiplier allows you to adjust the condition's sensitivity. A larger multiplier means the trigger will require a more substantial price movement before firing.
 - **Keep True (0)**: This setting defines how long the condition remains true after it’s triggered. Setting it to **0** means the condition resets immediately after it’s met.
-![image.png](https://content.gainium.io/images/content/help/image_e16381735e-6943e4.png)
+![image.png](https://content.gainium.io/images/content/help/image_e16381735e-6943e4.webp)
 *Market Structure Indicator Settings*
 
 ## Combining Market Structure with Fair Value Gaps

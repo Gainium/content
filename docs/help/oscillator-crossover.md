@@ -43,7 +43,7 @@ Oscillator crossovers occur when one oscillator crosses above or below another o
 - **Set Crossover Condition**:Depending on your trading strategy, choose the condition for when the crossover happens, such as **Crossing Down** or **Crossing Up**.
 - **Keep True Option**:Use the “Keep true” setting to define how long the condition remains valid after the crossover happens (default is 0, meaning the condition is reset immediately after the crossover).
 
-![image.png](https://content.gainium.io/images/content/help/image_88e9c32848-f54330.png)
+![image.png](https://content.gainium.io/images/content/help/image_88e9c32848-f54330.webp)
 *Oscillator Crossover settings*
 
 ### **Step 2: Interpret the Signals**
