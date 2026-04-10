@@ -8,7 +8,7 @@ description: >-
   terminal deals, lowering the average acquisition cost of the asset in the
   process. But how does it all work? This article explains how.
 createdAt: '2023-07-22T12:53:02.670Z'
-updatedAt: '2026-02-24T07:44:20.559Z'
+updatedAt: '2026-04-10T08:33:00.000Z'
 publishedAt: '2023-07-23T09:42:14.250Z'
 locale: en
 categories:
@@ -35,6 +35,12 @@ Gainium's “Add funds” feature allows users to gain more control of their tra
 The "Add Funds" feature works quite straightforwardly. It is supported by any smart or import deal created through the terminal and any deal started by a trading bot. Once the deal is created, you can use this feature to add more funds to it. This option is accessible through the deal menu, which opens a pop-up window allowing you to specify the following parameters:
 ![Add_funds_webUI.png](https://content.gainium.io/images/content/help/Add_funds_web_UI_02049e1c16-545cce.webp)
 *Add Funds through UI*
+
+**Amount Type**: You can specify the amount either as a **Fixed** value or as a **Percentage**:
+
+- **Fixed**: This refers to the *volume* of the order (not the cost). Gainium operates using cost internally, but sends all orders to the exchange as volumes — the exchange then determines the actual cost. For example, at 10x leverage, entering a fixed quantity of 5 means your actual cost would be $0.50 (5 ÷ 10).
+
+- **Percentage**: This is calculated based on the *current cost* of the deal, multiplied by your leverage. For example, if your deal has a current cost of $0.50 (volume of 5 at 10x leverage) and you choose to add 100%, the system calculates `0.50 × 1 × 10 = $5` and sends a $5 order to the exchange.
 
 **Amount**: This is the volume of funds that you want to add to the deal. It's essentially the additional sum you're willing to invest.
 
