@@ -61,7 +61,7 @@ For advanced users who prefer API-based connections, you can set up Hyperliquid 
 
 ### 1. Connect your wallet to Hyperliquid
 
-- Go to [https://app.hyperliquid.xyz/](https://app.hyperliquid.xyz/).
+- Go to [https://app.hyperliquid.xyz/join/GAINIUM](https://app.hyperliquid.xyz/join/GAINIUM) (using this link gives you a 4% lifetime fee discount on Hyperliquid).
 - Click **Connect** on the top-right corner.
 - Hyperliquid uses **USDC on the Arbitrum network**. If your wallet is on another network, you’ll be prompted to switch.
 
