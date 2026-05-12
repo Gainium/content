@@ -44,7 +44,7 @@ Activating 2FA on the exchange and Gainium is the first step to safeguard access
 
 Exchanges usually allow extra security measures to ensure your API keys are safe. One of such measure is IP whitelisting. By allowing only certain IPs to use the API key, you can ensure that they will not work even if they were leaked. Remember that the IP to whitelist is not your computer IP, but the IP of Gainium's server, which connects to the exchange. During API creation, enable IP whitelisting and add Gainium's server IP:
 
-78.128.60.89,8.128.43.82,78.128.8.36,78.128.43.168,217.174.152.25
+78.128.60.89,78.128.43.82,78.128.8.36,78.128.43.168,217.174.152.25
 
 ### Exchange API key token symbol whitelist
 
