@@ -84,7 +84,9 @@ function updateMarkdownReferences(): number {
       fs.writeFileSync(mdFile, content, 'utf-8')
       const count = (original.match(/\.(png|jpe?g)\)/gi) || []).length
       totalReplacements += count
-      console.log(`📝 Updated ${path.relative(DOCS_DIR, mdFile)} (${count} references)`)
+      console.log(
+        `📝 Updated ${path.relative(DOCS_DIR, mdFile)} (${count} references)`,
+      )
     }
   }
 
@@ -122,7 +124,9 @@ async function main() {
   if (dryRun) {
     const images = await findFiles(IMAGES_DIR, CONVERTIBLE_EXTS)
     console.log(`Would convert ${images.length} images`)
-    images.forEach((img) => console.log(`  ${path.relative(process.cwd(), img)}`))
+    images.forEach((img) =>
+      console.log(`  ${path.relative(process.cwd(), img)}`),
+    )
     return
   }
 
@@ -142,7 +146,8 @@ async function main() {
   // Summary
   const totalOriginal = results.reduce((sum, r) => sum + r.originalSize, 0)
   const totalWebp = results.reduce((sum, r) => sum + r.webpSize, 0)
-  const savings = totalOriginal > 0 ? ((1 - totalWebp / totalOriginal) * 100).toFixed(1) : '0'
+  const savings =
+    totalOriginal > 0 ? ((1 - totalWebp / totalOriginal) * 100).toFixed(1) : '0'
 
   console.log('\n' + '='.repeat(50))
   console.log(`Images converted: ${results.length}`)
@@ -150,7 +155,8 @@ async function main() {
   console.log(
     `Size: ${(totalOriginal / 1024 / 1024).toFixed(1)}MB → ${(totalWebp / 1024 / 1024).toFixed(1)}MB (${savings}% saved)`,
   )
-  if (!deleteOriginals) console.log('Original files kept (use --delete to remove)')
+  if (!deleteOriginals)
+    console.log('Original files kept (use --delete to remove)')
   console.log('='.repeat(50))
 }
 

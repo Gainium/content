@@ -66,7 +66,7 @@ class GitManager {
   async pullLatest(): Promise<boolean> {
     try {
       logger.info('Pulling latest changes from remote...')
-      await this.git.pull()
+      await this.git.pull('origin', 'main')
       logger.info('Successfully pulled latest changes')
       return true
     } catch (error) {

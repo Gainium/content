@@ -41,10 +41,13 @@ export function createServer(): Application {
 
   // Static image serving
   const imagesDir = path.join(process.cwd(), 'docs', 'images')
-  app.use('/images/content', express.static(imagesDir, {
-    maxAge: '7d',
-    immutable: true,
-  }))
+  app.use(
+    '/images/content',
+    express.static(imagesDir, {
+      maxAge: '7d',
+      immutable: true,
+    }),
+  )
 
   // Routes
   app.use('/metadata', metadataRouter)

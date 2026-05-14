@@ -1,6 +1,6 @@
 {
   "name": "@gainium/content",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Content API service for Gainium documentation and blog",
   "main": "dist/index.js",
   "repository": {
