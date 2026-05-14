@@ -31,13 +31,15 @@ In Gainium's suite of tools, the 'Smart Orders' feature stands out as a strategi
 ## What are Smart Orders?
 
 Smart Orders are a nuanced approach to automated trading. Instead of sending all the orders as limit orders at once — which would tie up and lock all the funds — Smart Orders allow the bots to send only a portion of these orders. The result? More available funds, ensuring that you maintain liquidity and flexibility in your trading activities.
-![Smart-Orders-Grid.jpeg](https://gainium.io/images/content/help/Smart_Orders_Grid_11b13d36f6-088ca5.jpeg)
+![Smart-Orders-Grid.jpeg](https://content.gainium.io/images/content/help/Smart_Orders_Grid_11b13d36f6-088ca5.webp)
 *Smart orders in grid bots*
-![Smart-Orders-DCA.jpeg](https://gainium.io/images/content/help/Smart_Orders_DCA_c59c05b22a-ce16b3.jpeg)
+![Smart-Orders-DCA.jpeg](https://content.gainium.io/images/content/help/Smart_Orders_DCA_c59c05b22a-ce16b3.webp)
 *Smart orders in DCA bots*
 
 ## Benefits of Smart Orders
-- **Improved Liquidity**: Avoid locking up all your funds in limit orders. With Smart Orders, a significant portion of your funds remain free and accessible.- **Flexibility**: You can use the free funds for other trading strategies or to adjust to market conditions swiftly.- **Optimized Trading**: Especially useful during high market volatility, Smart Orders ensure you don't miss out on potentially profitable trades because your funds are tied up.
+- **Improved Liquidity**: Avoid locking up all your funds in limit orders. With Smart Orders, a significant portion of your funds remain free and accessible.
+- **Flexibility**: You can use the free funds for other trading strategies or to adjust to market conditions swiftly.
+- **Optimized Trading**: Especially useful during high market volatility, Smart Orders ensure you don't miss out on potentially profitable trades because your funds are tied up.
 
 ## Example: Grid Trading BTC/USDT with Smart Orders
 

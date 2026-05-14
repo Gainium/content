@@ -68,7 +68,7 @@ Knowing when to exit a trade is as important as knowing when to enter. With the 
 
 ## Applying QFL in Trading with Gainium
 
-![QFL on Gainium.gif](https://gainium.io/images/content/help/QFL_on_Gainium_e764b3e666-9d4711.gif)
+![QFL on Gainium.gif](https://content.gainium.io/images/content/help/QFL_on_Gainium_e764b3e666-9d4711.gif)
 
 1. **Select Trading Pairs Wisely:** Gainium's smart terminal helps you identify cryptocurrencies with high volatility, presenting multiple entry points for QFL trading.
 
@@ -85,7 +85,7 @@ Knowing when to exit a trade is as important as knowing when to enter. With the 
 Gainium's implementation of QFL is based on this [TradingView script by rex_wolfe](https://www.tradingview.com/script/PIFGdVsZ-QFL-base-scanner/).
 
 Buys are marked when the price has bounced x% above the base and then fallen y% below the base.
-![gainium-qfl-settings.png](https://gainium.io/images/content/help/gainium_qfl_settings_9075aa1de1-a58c41.png)
+![gainium-qfl-settings.png](https://content.gainium.io/images/content/help/gainium_qfl_settings_9075aa1de1-a58c41.webp)
 *Gainium QFL settings*
 
 ## Conclusion

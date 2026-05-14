@@ -29,7 +29,7 @@ The breakeven price definition is straightforward: the price you would need to s
 
 The general formula is
 
-**break-even price** = (initial value in quote - current quote quantity - profit*** value in quote) /&nbsp;current quantity of base
+**break-even price** = (initial value in quote - current quote quantity - profit*** value in quote) / current quantity of base
 
 *Exchange fees [are excluded](https://gainium.io/help/are-exchange-fees-excluded-from-profit-calculation) (accounted for) in profit calculation.
 
@@ -45,7 +45,7 @@ Base = 1 BNBQuote = 100 BUSDInitial BNB price = 300 BUSD
 
 In this case our initial value = 1 * 300 + 100 = 400 BUSD
 
-Then the bot went to work, and after some time, we have the following funds:&nbsp;
+Then the bot went to work, and after some time, we have the following funds:
 
 Base = 0.5 BNBQuote = 175 BUSDProfit = 100 BUSD
 
@@ -53,7 +53,7 @@ By definition, the breakeven price is the price at which the initial fund's valu
 
 400 BUSD (initial value) = 0.5 BNB * X BUSD/BNB (breakeven price) +175 BUSD (current quote balance) + 100 BUSD (bot profit)
 
-**Breakeven price** = (400 BUSD - 175 BUSD - 100 BUSD) /&nbsp;0.5 BNB = 250 BUSD/BNB
+**Breakeven price** = (400 BUSD - 175 BUSD - 100 BUSD) / 0.5 BNB = 250 BUSD/BNB
 
 In other words, if you sell the remainder 0.5 BNB at 250 BUSD/BNB, your current funds would equal your initial funds, breaking even. Selling at any price over 250 BUSD/BNB will make you a profit.
 
@@ -65,4 +65,4 @@ To follow the previous example, let's say that when we calculated the breakeven 
 
 The breakeven price can be negative if the current quote balance and profit values are higher than the initial value, so you would make a profit no matter at which price you sell the base. In that case, the breakeven price will show 0 in the price chart.
 
-&nbsp;
+

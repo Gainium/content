@@ -37,7 +37,7 @@ Grid trading has been a popular strategy among cryptocurrency traders due to its
 
 Combo bots are engineered to be more than just a reaction to market conditions; they are a proactive trading solution. With the incorporation of DCA strategies, they spread the investment over time, which can prevent the pitfalls of entering the market with a lump-sum investment at an inopportune moment. This gradual investment strategy averages the entry price and aligns closely with the adage of 'time in the market beats timing the market.'
 
-![Combo_settings.png](https://gainium.io/images/content/help/Combo_settings_79e124e362-d3f17b.png)
+![Combo_settings.png](https://content.gainium.io/images/content/help/Combo_settings_79e124e362-d3f17b.webp)
 
 ## How Combo Bots Overcome the Main Limitation of Grids
 
@@ -55,16 +55,16 @@ Beyond these features, combo bots on Gainium also offer the flexibility to creat
 
 By combining the intelligence of technical indicators with the sophistication of flexible grid configurations, combo bots offer a trading experience that is responsive, strategic, and fine-tuned to the dynamics of the crypto markets.
 
-### Example: Starting a Grid When RSI &lt; 30 on BTC/USDT
+### Example: Starting a Grid When RSI < 30 on BTC/USDT
 
 Let's explore a practical application of combo bots focusing on technical indicators. For instance, using the Relative Strength Index (RSI) to determine market entry:
-- **Currency Pair:** BTC/USDT- **Indicator:** RSI- **Threshold:** RSI &lt; 30
+- **Currency Pair:** BTC/USDT-** Indicator:** RSI-** Threshold:** RSI < 30
 
 Configuring a combo bot to initiate a grid when the BTC/USDT RSI dips below 30 provides a strategic entry based on a widely regarded indicator of oversold conditions. The bot becomes active and begins placing buy orders, utilizing a trusted market signal to potentially secure a favorable position within the market.
 
 Incorporating RSI into the bot's operations isn't just about starting a grid; it's about initiating a grid with intelligence—capitalizing on the analytical strength of market indicators for a better-informed trading decision.
 
-![new-combo.jpeg](https://gainium.io/images/content/help/new_combo_bc52bdd5c7-14d24c.jpeg)
+![new-combo.jpeg](https://content.gainium.io/images/content/help/new_combo_bc52bdd5c7-14d24c.webp)
 
 ## FAQ
 

@@ -33,12 +33,17 @@ In cryptocurrency trading, grid trading has emerged as a strategy embraced by tr
 ### 1.1. What is Spot Trading?
 
 Spot trading, in its essence, refers to the immediate exchange of assets. When you engage in spot trade, you purchase or sell the asset, such as a cryptocurrency, and the transaction is settled "on the spot." This direct transaction means you either hand over the funds and receive the asset or vice versa. The primary characteristics of spot trading are:
-- **Immediate Settlement**: Unlike other trading forms, spot trades are settled instantly. When you buy a cryptocurrency in a spot market, it is deposited into your wallet immediately upon completion of the transaction.- **Direct Ownership**: Upon a successful trade, you directly own the asset. In the case of cryptocurrencies, this means having possession of the actual coins or tokens.- **No Leverage**: Typically, spot trading doesn't involve borrowing and hence doesn't offer leverage. Your trade is limited to the capital you have.
+- **Immediate Settlement**: Unlike other trading forms, spot trades are settled instantly. When you buy a cryptocurrency in a spot market, it is deposited into your wallet immediately upon completion of the transaction.
+- **Direct Ownership**: Upon a successful trade, you directly own the asset. In the case of cryptocurrencies, this means having possession of the actual coins or tokens.
+- **No Leverage**: Typically, spot trading doesn't involve borrowing and hence doesn't offer leverage. Your trade is limited to the capital you have.
 
 ### 1.2. What is Futures Trading?
 
 On the other hand, futures trading doesn't involve the immediate exchange of assets. Instead, it's based on contracts that commit the buyer to purchase and the seller to sell a specified amount of an asset at a predetermined price on a set future date. Key features of futures trading include:
-- **Standardized Contracts**: Futures contracts are standardized in quantity, quality, delivery time, and place for the underlying asset.- **Leverage**: Futures trading often involves leverage, allowing traders to open positions much larger than their capital. This can amplify both profits and potential losses.- **No Direct Ownership**: One does not own the underlying asset when trading futures. Instead, they enter into a contract representing the asset to settle later.- **Settlement**: While some futures contracts might settle in the actual asset, many settle in cash, meaning traders won't receive the underlying asset but the difference between the purchase price and the asset's price at the contract's expiry.
+- **Standardized Contracts**: Futures contracts are standardized in quantity, quality, delivery time, and place for the underlying asset.
+- **Leverage**: Futures trading often involves leverage, allowing traders to open positions much larger than their capital. This can amplify both profits and potential losses.
+- **No Direct Ownership**: One does not own the underlying asset when trading futures. Instead, they enter into a contract representing the asset to settle later.
+- **Settlement**: While some futures contracts might settle in the actual asset, many settle in cash, meaning traders won't receive the underlying asset but the difference between the purchase price and the asset's price at the contract's expiry.
 
 With these foundational concepts clarified, we can dive deeper into how grid trading uniquely functions within these market structures.
 
@@ -77,10 +82,14 @@ With these foundational concepts clarified, we can dive deeper into how grid tra
 ## 3. Advantages of Grid Trading in Each Market
 
 ### 3.1. Spot Market
-- **Simplicity**: Spot trading is generally more straightforward than futures, making it easier for beginners.- **Direct Ownership**: Being the actual holder of the asset provides more control and flexibility, especially regarding long-term holding or utilizing the asset in other ways, like staking.- **No Expiry Worries**: Without contract expiries, traders can set their grid and let it operate without needing continuous monitoring and adjustments related to contract durations.
+- **Simplicity**: Spot trading is generally more straightforward than futures, making it easier for beginners.
+- **Direct Ownership**: Being the actual holder of the asset provides more control and flexibility, especially regarding long-term holding or utilizing the asset in other ways, like staking.
+- **No Expiry Worries**: Without contract expiries, traders can set their grid and let it operate without needing continuous monitoring and adjustments related to contract durations.
 
 ### 3.2. Futures Market
-- **Leverage**: This can be a significant advantage for those with limited capital but a strong market understanding. It allows for larger positions and potentially greater profits.- **Profit in Various Market Conditions**: Futures allow traders to easily take both long and short positions, enabling them to potentially profit in both rising and falling markets.- **Hedging Opportunities**: Experienced traders can use futures to hedge positions, providing a safety net against unfavorable market moves.
+- **Leverage**: This can be a significant advantage for those with limited capital but a strong market understanding. It allows for larger positions and potentially greater profits.
+- **Profit in Various Market Conditions**: Futures allow traders to easily take both long and short positions, enabling them to potentially profit in both rising and falling markets.
+- **Hedging Opportunities**: Experienced traders can use futures to hedge positions, providing a safety net against unfavorable market moves.
 
 Both spot and futures markets offer unique advantages, and the choice between them often boils down to individual trading goals, risk appetite, and market outlook.
 

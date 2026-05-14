@@ -25,7 +25,8 @@ tldr: >-
 ---
 
 The **Engulfing Candle** pattern is a powerful reversal indicator used in technical analysis to identify potential trend reversals in the market. It is a candlestick pattern where one candle completely engulfs the previous one, signaling a possible shift in market sentiment. There are two types of engulfing patterns:
-- **Bullish Engulfing**: Indicates a reversal from a downtrend to an uptrend.- **Bearish Engulfing**: Indicates a reversal from an uptrend to a downtrend.
+- **Bullish Engulfing**: Indicates a reversal from a downtrend to an uptrend.
+- **Bearish Engulfing**: Indicates a reversal from an uptrend to a downtrend.
 
 In this article, we’ll explore the **Engulfing Candle** indicator, configure it in Gainium, and demonstrate how to use it effectively in bot trading. We will also cover examples of trading strategies, practical considerations, and conclude with tips on maximizing its effectiveness.
 
@@ -34,8 +35,9 @@ In this article, we’ll explore the **Engulfing Candle** indicator, configure i
 An **Engulfing Candle** occurs when a larger candle completely engulfs the previous smaller candle’s body. This pattern indicates that the market's momentum has shifted, and it’s commonly used to predict trend reversals.
 
 ### Types of Engulfing Candles:
-- **Bullish Engulfing**: This pattern forms when a small bearish candle is followed by a large bullish candle that fully engulfs the bearish candle's body. It signals a potential upward reversal in a downtrend.- **Bearish Engulfing**: This pattern forms when a small bullish candle is followed by a large bearish candle that fully engulfs the bullish candle's body. It signals a potential downward reversal in an uptrend.
-![image.png](https://gainium.io/images/content/help/image_3371e60896-19575f.png)
+- **Bullish Engulfing**: This pattern forms when a small bearish candle is followed by a large bullish candle that fully engulfs the bearish candle's body. It signals a potential upward reversal in a downtrend.
+- **Bearish Engulfing**: This pattern forms when a small bullish candle is followed by a large bearish candle that fully engulfs the bullish candle's body. It signals a potential downward reversal in an uptrend.
+![image.png](https://content.gainium.io/images/content/help/image_3371e60896-19575f.webp)
 *Engulfing Candle Indicator in action*
 
 ## How to Configure the Engulfing Candle Indicator in Gainium
@@ -46,9 +48,11 @@ Here’s how to configure the **Engulfing Candle** indicator using the settings 
 - **Navigate to the Bot Settings**:Log into Gainium, go to your bot, and select **Engulfing Candle** from the list of available indicators.
 
 ### Step 2: Configure the Indicator Settings
-- **Interval**: Choose the time interval for the candle formation. In the example provided, the interval is set to **4 hours**, meaning the bot will look for engulfing patterns on the 4-hour chart.- **Trigger Candle**: Choose the type of engulfing pattern to trigger the bot's action. You can select either **Bullish,** **Bearish, **or **Both**.**Bullish Engulfing**: This will trigger when a bullish engulfing pattern is detected, signaling a potential upward reversal.- **Bearish Engulfing**: This will trigger when a bearish engulfing pattern is detected, signaling a potential downward reversal.
+- **Interval**: Choose the time interval for the candle formation. In the example provided, the interval is set to **4 hours**, meaning the bot will look for engulfing patterns on the 4-hour chart.
+- **Trigger Candle**: Choose the type of engulfing pattern to trigger the bot's action. You can select either **Bullish,** **Bearish,** or**Both**.**Bullish Engulfing**: This will trigger when a bullish engulfing pattern is detected, signaling a potential upward reversal.
+- **Bearish Engulfing**: This will trigger when a bearish engulfing pattern is detected, signaling a potential downward reversal.
 - **Keep True**: This setting defines how long the condition remains valid after it is triggered. Setting it to **0** means the condition will reset immediately after identifying the engulfing candle.
-![image.png](https://gainium.io/images/content/help/image_b993620050-ea99fc.png)
+![image.png](https://content.gainium.io/images/content/help/image_b993620050-ea99fc.webp)
 *Engulfing candle settings*
 
 ## Using Engulfing Candle in Bot Trading
@@ -88,7 +92,8 @@ The **Engulfing Candle** indicator can be effectively used in automated bot trad
 When using the **Engulfing Candle** indicator in your trading strategy, here are some key factors to consider:
 
 ### 1. Timeframe Selection
-- **Shorter Timeframes**: Using short intervals (e.g., 15 minutes or 1 hour) may produce more frequent signals but can also result in more false positives.- **Longer Timeframes**: Using longer intervals (e.g., 4 hours or daily) can help identify stronger trends but may produce fewer signals.
+- **Shorter Timeframes**: Using short intervals (e.g., 15 minutes or 1 hour) may produce more frequent signals but can also result in more false positives.
+- **Longer Timeframes**: Using longer intervals (e.g., 4 hours or daily) can help identify stronger trends but may produce fewer signals.
 
 ### 2. Combine with Other Indicators
 - The Engulfing Candle pattern can generate more reliable signals when used in combination with other technical indicators, such as moving averages, RSI, or Bollinger Bands. These indicators can help confirm the trend reversal and reduce the risk of false signals.
@@ -103,4 +108,4 @@ When using the **Engulfing Candle** indicator in your trading strategy, here are
 
 The **Engulfing Candle** indicator is a powerful tool for identifying trend reversals and capturing profitable market swings. By configuring the indicator in Gainium and integrating it into your automated bot trading strategy, you can leverage market momentum and take advantage of both bullish and bearish reversals.
 
-Whether used&nbsp;for reversal trading or as a confirmation of trends, the Engulfing Candle's flexibility makes it a valuable addition to any trading strategy. By combining it with other indicators and using sound risk management techniques, you can increase the effectiveness of your strategy and achieve consistent results.
+Whether used for reversal trading or as a confirmation of trends, the Engulfing Candle's flexibility makes it a valuable addition to any trading strategy. By combining it with other indicators and using sound risk management techniques, you can increase the effectiveness of your strategy and achieve consistent results.

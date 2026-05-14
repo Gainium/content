@@ -20,9 +20,12 @@ tldr: >-
   positions closely to avoid liquidation.
 ---
 
-If the price moves out of the grid, the bot status changes to ‘range’ and waits indefinitely for the price to enter back in.&nbsp;
+If the price moves out of the grid, the bot status changes to ‘range’ and waits indefinitely for the price to enter back in.
 
 You have four possible choices:
-- You can wait for the price to enter the grid again and do nothing else.- You can cancel the bot and use the funds for something else.- You can edit the bot configuration and cover a broader range.- You can create another bot that covers an additional price range.
+- You can wait for the price to enter the grid again and do nothing else.
+- You can cancel the bot and use the funds for something else.
+- You can edit the bot configuration and cover a broader range.
+- You can create another bot that covers an additional price range.
 
 **A note for users trading on Futures**: if the price moves above the upper grid level, you will have an active short position on the exchange. Likewise, if the price moves under the lower grid level, you will have an active long position on the exchange. We strongly suggest you monitor these positions closely and close them if necessary to avoid account liquidation.

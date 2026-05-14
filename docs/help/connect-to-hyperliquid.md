@@ -52,7 +52,7 @@ That's it! Your Hyperliquid account is now connected and ready to trade.
 > - Simpler setup process
 > - Easy to switch between accounts
 
-![Connect to hyperliquid](https://gainium.io/images/content/help/connect-hyperliquid.png)
+![Connect to hyperliquid](https://content.gainium.io/images/content/help/connect-hyperliquid.webp)
 ---
 
 ## Option 2: API Wallet Connection (Advanced)
@@ -61,15 +61,15 @@ For advanced users who prefer API-based connections, you can set up Hyperliquid 
 
 ### 1. Connect your wallet to Hyperliquid
 
-- Go to [https://app.hyperliquid.xyz/](https://app.hyperliquid.xyz/).
+- Go to [https://app.hyperliquid.xyz/join/GAINIUM](https://app.hyperliquid.xyz/join/GAINIUM) (using this link gives you a 4% lifetime fee discount on Hyperliquid).
 - Click **Connect** on the top-right corner.
 - Hyperliquid uses **USDC on the Arbitrum network**. If your wallet is on another network, you’ll be prompted to switch.
 
-![](/publichttps://gainium.io/images/content/help/20250926_102427_iShot_2025-09-26_09.07.54.png)
+![](https://content.gainium.io/images/content/help/20250926_102427_iShot_2025-09-26_09.07.54.webp)
 
-![](/publichttps://gainium.io/images/content/help/20250926_102444_iShot_2025-09-26_09.08.02.png)
+![](https://content.gainium.io/images/content/help/20250926_102444_iShot_2025-09-26_09.08.02.webp)
 
-![](/publichttps://gainium.io/images/content/help/20250926_102505_iShot_2025-09-26_09.08.12.png)
+![](https://content.gainium.io/images/content/help/20250926_102505_iShot_2025-09-26_09.08.12.webp)
 
 ---
 
@@ -77,14 +77,14 @@ For advanced users who prefer API-based connections, you can set up Hyperliquid 
 
 - Click **Enable Trading** in the app.
 
-  ![](/publichttps://gainium.io/images/content/help/20250926_102518_iShot_2025-09-26_09.08.33.png)
+  ![](https://content.gainium.io/images/content/help/20250926_102518_iShot_2025-09-26_09.08.33.webp)
 - If you haven’t deposited funds yet, Hyperliquid will ask you to deposit **USDC** (make sure to have USDC in Arbitrum Network).
 - You can also deposit **USDT**, which will be auto-converted to USDC (conversion fees apply).
 
-  ![](/publichttps://gainium.io/images/content/help/20250926_102634_iShot_2025-09-26_08.52.56.png)
+  ![](https://content.gainium.io/images/content/help/20250926_102634_iShot_2025-09-26_08.52.56.webp)
 - Make sure you have some **ETH** in your wallet to cover Arbitrum gas fees.
 
-  ![](/publichttps://gainium.io/images/content/help/20250926_102740_iShot_2025-09-26_08.28.25.png)
+  ![](https://content.gainium.io/images/content/help/20250926_102740_iShot_2025-09-26_08.28.25.webp)
 
 ---
 
@@ -92,13 +92,13 @@ For advanced users who prefer API-based connections, you can set up Hyperliquid 
 
 - Complete the deposit and wait for **block confirmation**.
 
-  ![](/publichttps://gainium.io/images/content/help/20250926_102832_iShot_2025-09-26_08.53.34.png)
+  ![](https://content.gainium.io/images/content/help/20250926_102832_iShot_2025-09-26_08.53.34.webp)
 - If your balance still shows as **0** after a few minutes:
 - Double-check you’re looking at the correct market.
 
-  ![](/publichttps://gainium.io/images/content/help/20250926_102915_iShot_2025-09-26_08.57.42.png)
+  ![](https://content.gainium.io/images/content/help/20250926_102915_iShot_2025-09-26_08.57.42.webp)
 
-  ![](/publichttps://gainium.io/images/content/help/20250926_102902_iShot_2025-09-26_08.58.13.png)
+  ![](https://content.gainium.io/images/content/help/20250926_102902_iShot_2025-09-26_08.58.13.webp)
 - Deposits default to your **Perps account**, but you can transfer between **Spot** and **Perps** inside the app.
 
 ---
@@ -115,11 +115,11 @@ Hyperliquid lets you create API ("agent") wallets that can submit trades on beha
 2. Enter an **API Name**, click **Generate Wallet Address**, then click **Authorize API Wallet**
 3. Copy the **Private Key** shown and confirm / authorize the action.
 
-![](/publichttps://gainium.io/images/content/help/20250926_185419_image.png)
+![](https://content.gainium.io/images/content/help/20250926_185419_image.webp)
 
 4. Verify the new API wallet now appears in your API wallet list.
 
-![](/publichttps://gainium.io/images/content/help/20250926_183310_image.png)
+![](https://content.gainium.io/images/content/help/20250926_183310_image.webp)
 
 Keep the private key safe. You can create/revoke API wallets at any time from this page.
 
@@ -132,13 +132,13 @@ Now that you have funds on Hyperliquid and an API wallet created:
 1. In Gainium, go to the **Exchanges** page and choose **Hyperliquid**.
 2. Select the **API Wallet** connection option.
 
-![](/publichttps://gainium.io/images/content/help/20250926_183854__2025-09-26.png)
+![](https://content.gainium.io/images/content/help/20250926_183854__2025-09-26.webp)
 
 3. Fill the fields as follows:
 
 - **Wallet**: Enter your **main EVM wallet address** (NOT the API wallet address). This is the address that actually holds your funds.
 
-![](/publichttps://gainium.io/images/content/help/20250926_183920__2025-09-26.png)
+![](https://content.gainium.io/images/content/help/20250926_183920__2025-09-26.webp)
 
 - **Private Key**: Paste the **API (agent) wallet private key** you copied in Step 4 (NOT your main wallet's private key).
 
@@ -162,10 +162,11 @@ Regardless of which connection method you chose:
 2. Start a small test order to confirm everything is working.
 3. You're ready to trade!
 
-![](/publichttps://gainium.io/images/content/help/20250926_103235_iShot_2025-09-26_09.02.12.png)
+![](https://content.gainium.io/images/content/help/20250926_103235_iShot_2025-09-26_09.02.12.webp)
 
 ---
 
 ## Learn More
 
-- [Unlimited Trading in Hyperliquid](https://gainium.io/help/unlimited-trading-hyperliquid) - Learn about builder fees and free vs paid user modes
+- [Unlimited Trading in Hyperliquid](https://gainium.io/help/unlimited-trading-hyperliquid)
+- Learn about builder fees and free vs paid user modes

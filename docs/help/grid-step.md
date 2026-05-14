@@ -49,9 +49,10 @@ The grid step, aka grid spacing, is an essential factor to consider when setting
 ## Finding the right grid spacing for your strategy
 
 Before asking yourself what grid step you should be using, you have to consider two critical questions:
-- What is your budget?- How wide do you want the trading range to be?
+- What is your budget?
+- How wide do you want the trading range to be?
 
-The answer to these two questions may limit your grid step. If you have a small budget, you will have no choice but to allow for a bigger grid step to cover a decent trading range.&nbsp;
+The answer to these two questions may limit your grid step. If you have a small budget, you will have no choice but to allow for a bigger grid step to cover a decent trading range.
 
 If budget is not an issue, the next question is how wide the trading range should be. The wider the range, the more you spread your funds. Hence, the less profit per transaction, but the more likely the price will stay within range. So, there is another “sweet spot” to be considered here.
 
@@ -76,10 +77,10 @@ Now, it's time to put theory into practice. Here are the results of 3 backtests 
 Results:
 - 1% spacing: 1.8% net result- 0.5% spacing: 1.76% net result- 0.25% spacing: 1.33% net result
 
-![1-spacing.webp](https://gainium.io/images/content/help/1_spacing_37b54a31ef-5cb8d0.webp)![0.5-spacing.webp](https://gainium.io/images/content/help/0_5_spacing_de5962d99e-4fa14f.webp)![0.25-spacing.webp](https://gainium.io/images/content/help/0_25_spacing_5d903d6028-3ad28f.webp)
+![1-spacing.webp](https://content.gainium.io/images/content/help/1_spacing_37b54a31ef-5cb8d0.webp)![0.5-spacing.webp](https://content.gainium.io/images/content/help/0_5_spacing_de5962d99e-4fa14f.webp)![0.25-spacing.webp](https://content.gainium.io/images/content/help/0_25_spacing_5d903d6028-3ad28f.webp)
 
 ## The Takeaway
 
 Finding the optimal grid spacing is more art than science. It's about knowing your coin pair, backtesting your strategy, and understanding the balance between being too greedy and too cautious. Remember, your grid bot is your fishing net waiting for a movement. With the proper spacing, you're setting yourself up for a good catch. So, dive into the data, keep an eye on fees, and may your grid bot thrive with profit.
 
-&nbsp;
+

@@ -32,33 +32,36 @@ Welcome to Gainium, your gateway to advanced cryptocurrency trading! Among our s
 
 To access the screener, log into your Gainium account and navigate to the screener section on the sidebar menu. Here, you’ll find a user-friendly interface that presents a wealth of market data. Initially, you'll see default columns, but the real power lies in customization.
 
-![Screener-menu.webp](https://gainium.io/images/content/help/Screener_menu_6f29721ad1-36bc90.webp)
+![Screener-menu.webp](https://content.gainium.io/images/content/help/Screener_menu_6f29721ad1-36bc90.webp)
 
 ## **Filtering Columns for Efficient Analysis**
 
 Customizing your screener view is crucial for efficient analysis. You can add or remove columns based on the data most relevant to your trading strategy. To add or remove a column, click on the three dots menu button on any column heading and select “Show Columns.” This will allow you to show or hide the most interesting information.
 
-![Screener-show-column.webp](https://gainium.io/images/content/help/Screener_show_column_f8bd4d8380-d98e48.webp)
+![Screener-show-column.webp](https://content.gainium.io/images/content/help/Screener_show_column_f8bd4d8380-d98e48.webp)
 
 ## **Sorting and Rearranging Columns for Personalized Viewing**
 
 Sorting data helps you quickly identify market trends. Click on any column header to sort data in ascending or descending order. For instance, clicking on ‘Price’ sorts tokens based on their current price. Drag and drop columns to rearrange them according to your preference, ensuring the most critical data is always front and center.
 
-![Screener-drag-and-drop.webp](https://gainium.io/images/content/help/Screener_drag_and_drop_59a122a7c5-8eba92.webp)
+![Screener-drag-and-drop.webp](https://content.gainium.io/images/content/help/Screener_drag_and_drop_59a122a7c5-8eba92.webp)
 
 ## **Creating Custom Filters for Specific Trading Strategies**
 
 The screener’s true power lies in its ability to create custom filters:
-- **High Volatility Tokens**: Set filters for high price fluctuations by adjusting the 'Volatility (7D)’ column.- **Volume Screener**: Find highly traded tokens by setting a minimum threshold for '24h Volume’.- **Breakout Screener**: Spot potential breakout tokens by filtering based on ‘Volume change %’ and 'Price Change %'.- **Scalping Screener**: Focus on short-term gains by setting filters for small price movements and high trading volumes.
+- **High Volatility Tokens**: Set filters for high price fluctuations by adjusting the 'Volatility (7D)’ column.
+- **Volume Screener**: Find highly traded tokens by setting a minimum threshold for '24h Volume’.
+- **Breakout Screener**: Spot potential breakout tokens by filtering based on ‘Volume change %’ and 'Price Change %'.
+- **Scalping Screener**: Focus on short-term gains by setting filters for small price movements and high trading volumes.
 
 Experiment with different combinations to discover what works best for your strategy.
 
-![Screener-filter.webp](https://gainium.io/images/content/help/Screener_filter_e2e9c0dd89-4b6fa8.webp)
+![Screener-filter.webp](https://content.gainium.io/images/content/help/Screener_filter_e2e9c0dd89-4b6fa8.webp)
 
 ## **Setting up Notifications**
 
 To enable notifications, install our [Free Crypto Screener](https://chromewebstore.google.com/detail/free-crypto-screener-chec/khkneeocnbijcikdlkbkgcikafeofchg?pli=1) Chrome Extension.
-![image.png](https://gainium.io/images/content/help/image_2ca9930ed7-ada807.png)
+![image.png](https://content.gainium.io/images/content/help/image_2ca9930ed7-ada807.webp)
 ## **Advanced Tips and Best Practices**
 
 Integrate screener insights with other Gainium tools for a holistic trading approach. For instance, use screener data to inform your trading bot strategies or to keep your portfolio tracker updated with the most promising tokens.

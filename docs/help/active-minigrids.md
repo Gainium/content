@@ -32,13 +32,14 @@ Let's learn more about how this feature works and how you can use it.
 
 Let's examine an example of the BTC/USDT pair. As we load the bot default parameters, we can see the minigrid's sell orders in red. The buy orders are greyed out underneath, as these grid lines won't become active until the next DCA order is filled (in green).
 
-![active-minigrids-1.png](https://gainium.io/images/content/help/active_minigrids_1_0d3340a5b1-23850d.png)
+![active-minigrids-1.png](https://content.gainium.io/images/content/help/active_minigrids_1_0d3340a5b1-23850d.webp)
 
 If we enable the Active Minigrids option, the grid lines under price (buy grid orders) become green. This means these orders will be sent to exchange as limit orders as soon as the deal starts without waiting for the price to hit the DCA order.
 
-![active-minigrids-2.png](https://gainium.io/images/content/help/active_minigrids_2_b1e4f3b9b4-482cf9.png)
+![active-minigrids-2.png](https://content.gainium.io/images/content/help/active_minigrids_2_b1e4f3b9b4-482cf9.webp)
 
 ## Active Minigrids tips
-- As with any bot feature, it pays to backtest different options. Sometimes, this option can increase profitability, and sometimes, it is better to leave it off.- To avoid possible errors, ensure that the number of active minigrids is lower than the number of smart orders.
+- As with any bot feature, it pays to backtest different options. Sometimes, this option can increase profitability, and sometimes, it is better to leave it off.
+- To avoid possible errors, ensure that the number of active minigrids is lower than the number of smart orders.
 
-&nbsp;
+

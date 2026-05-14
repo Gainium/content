@@ -29,7 +29,8 @@ When several deals are merged, their base amount are added and their break-even 
 **Example:**
 
 Suppose we have have two deals
-- Deal A: 0.5 BNB that we purchased for 100 BUSD. Break-even price is 200 BUSD/BNB. It has a TP set at 250 BUSD/BNB and SL set at 100 BUSD/BNB.- Deal B: a DCA deal currently for 1 BNB. 0.5 BNB was purchased for 200 BUSD/BNB and another 0.5 BNB was purchased for 150 BUSD/BNB. It has a pending DCA order for another 0.5BNB at 100 BUSD/BNB. Break-even price is currently 350 BUSD/BNB
+- Deal A: 0.5 BNB that we purchased for 100 BUSD. Break-even price is 200 BUSD/BNB. It has a TP set at 250 BUSD/BNB and SL set at 100 BUSD/BNB.
+- Deal B: a DCA deal currently for 1 BNB. 0.5 BNB was purchased for 200 BUSD/BNB and another 0.5 BNB was purchased for 150 BUSD/BNB. It has a pending DCA order for another 0.5BNB at 100 BUSD/BNB. Break-even price is currently 350 BUSD/BNB
 
 If we decide to merge these two deals, the result would be:
 - Deal C: 1.5 BNB purchased for 450 BUSD, current break-even price is 300 BUSD/BNB. The pending TP and SL of deal A as well as the pending DCA order of deal B has been cancelled. We can manually set DCA, TP or SL on this deal if we wish.
@@ -38,6 +39,6 @@ If we decide to merge these two deals, the result would be:
 
 To merge deals simply check the checkbox from the deals list and click on the “Merge Deals” button.
 
-![Merge.webp](https://gainium.io/images/content/help/Merge_cdbb634507-8d8f09.webp)
+![Merge.webp](https://content.gainium.io/images/content/help/Merge_cdbb634507-8d8f09.webp)
 
 **NOTE**: If your bot's entry signal is ASAP, merging deals may result in your bot opening new deals right after the merge. To avoid this, either change the entry trigger to something else, or adjust the maximum active deals so that there are no free slots for new deals after the merge.

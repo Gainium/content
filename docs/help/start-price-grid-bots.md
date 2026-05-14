@@ -39,11 +39,11 @@ The start price option can be found under the Strategy section of the grid bot.
 
 Let's dive into an example of how a price trigger can work using the BTC-USDT trading pair. For this example, assume the following:
 - Current BTC-USDT price: $30,000- Desired price range for grid bot: $30,000 - $40,000- Grid levels: 20- Price trigger: $32,000
-![grid-start-price.png](https://gainium.io/images/content/help/grid_start_price_80215bbeb2-311a8b.png)
+![grid-start-price.png](https://content.gainium.io/images/content/help/grid_start_price_80215bbeb2-311a8b.webp)
 Here, the trader has set the price trigger to activate the grid bot when the BTC-USDT price reaches $32,000. The bot will not begin trading until the specified price is achieved. The grid bot's trading range is set between $30,000 and $40,000, with 20 grid levels evenly distributed within that range.
 
 Once the price of BTC-USDT reaches $32,000, the grid bot will activate and start placing buy and sell orders within the defined range. If the price moves up, the bot will sell BTC for USDT; if the price drops, it will buy BTC using USDT. By utilizing the price trigger feature, the trader ensures that the grid bot only starts trading when the market conditions meet their predefined expectations.
 
 ## Conclusion
 
-Start price triggers for grid bots offer additional control, allowing traders to optimize their strategies and ensure that the bot activates only when the desired market conditions are met.&nbsp;
+Start price triggers for grid bots offer additional control, allowing traders to optimize their strategies and ensure that the bot activates only when the desired market conditions are met.

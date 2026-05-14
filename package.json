@@ -17,6 +17,9 @@
     "pm2:delete": "pm2 delete ecosystem.config.js",
     "pull": "git pull origin main",
     "push": "git push origin main",
+    "images:webp": "tsx scripts/convert-to-webp.ts",
+    "images:webp:dry": "tsx scripts/convert-to-webp.ts --dry-run",
+    "images:webp:delete": "tsx scripts/convert-to-webp.ts --delete",
     "lint": "tsc --noEmit && eslint .",
     "lint:fix": "eslint . --fix",
     "prepare": "husky"
@@ -45,6 +48,7 @@
     "@types/express": "^4.17.21",
     "@types/node": "^20.11.19",
     "@types/node-cron": "^3.0.11",
+    "@types/sharp": "^0.31.1",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
     "eslint": "^9.0.0",
@@ -54,6 +58,7 @@
     "globals": "^15.0.0",
     "husky": "^9.0.11",
     "prettier": "^3.2.5",
+    "sharp": "^0.34.5",
     "tsx": "^4.7.1",
     "typescript": "^5.3.3"
   }

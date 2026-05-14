@@ -35,19 +35,23 @@ Backtesting grid bots is a crucial step in determining their performance and rel
 Backtesting is the process of testing a trading strategy on past market data to check how it would have performed. This way, you can fine-tune the settings and improve their performance.
 
 Backtesting provides several benefits, including:
-- **Identifying potential flaws**: Backtesting can reveal weaknesses in a grid bot's strategy, enabling traders to make necessary adjustments before using the bot in live trading.- **Quantifying performance**: By measuring a bot's historical performance, traders can assess whether the strategy will likely be profitable.- **Risk management**: Backtesting helps identify the risk associated with a grid bot, enabling traders to make informed decisions on capital allocation and risk tolerance.
+- **Identifying potential flaws**: Backtesting can reveal weaknesses in a grid bot's strategy, enabling traders to make necessary adjustments before using the bot in live trading.
+- **Quantifying performance**: By measuring a bot's historical performance, traders can assess whether the strategy will likely be profitable.
+- **Risk management**: Backtesting helps identify the risk associated with a grid bot, enabling traders to make informed decisions on capital allocation and risk tolerance.
 
 ## Backtesting grid bots with Gainium
 
 To backtest a grid bot, navigate to the new bot page by clicking the grid bot icon in the menu and then “+ NEW.”
 
-![new-grid-bot.png](https://gainium.io/images/content/help/new_grid_bot_ddc75c3380-ee0a24.png)
+![new-grid-bot.png](https://content.gainium.io/images/content/help/new_grid_bot_ddc75c3380-ee0a24.webp)
 
 Adjust the grid bot settings to your liking and perform a new backtest.
 
-![grid backtest.png](https://gainium.io/images/content/help/grid_backtest_811b194779-cb4221.png)
+![grid backtest.png](https://content.gainium.io/images/content/help/grid_backtest_811b194779-cb4221.webp)
 
 ## Evaluating Backtesting Results
 
 When analyzing the results of a backtest, it is essential to consider the following factors:
-- **Market conditions**: Assess the grid bot's performance across various market conditions, such as bull markets, bear markets, and periods of high volatility.- **Risk-adjusted returns**: Evaluate the bot's performance relative to the risk involved. Metrics like the Sharpe ratio, which measures the risk-adjusted return, can help with this assessment.- **Robustness**: A grid bot should perform consistently across different parameter settings and time frames. This indicates that the strategy is robust and not over-optimized to specific conditions.
+- **Market conditions**: Assess the grid bot's performance across various market conditions, such as bull markets, bear markets, and periods of high volatility.
+- **Risk-adjusted returns**: Evaluate the bot's performance relative to the risk involved. Metrics like the Sharpe ratio, which measures the risk-adjusted return, can help with this assessment.
+- **Robustness**: A grid bot should perform consistently across different parameter settings and time frames. This indicates that the strategy is robust and not over-optimized to specific conditions.

@@ -38,10 +38,12 @@ tldr: >-
 - **Step Scale**:This setting multiplies the percentage step between each DCA order. A **Step Scale** of 1 means the steps between each order remain constant, while increasing the value progressively widens the gap between each order.
 - **Volume Scale**:This multiplier adjusts the amount for each DCA order progressively. A **Volume Scale** of 1 means the order sizes remain the same, but increasing the value will scale up the amount for each subsequent DCA order.
 
-![image.png](https://gainium.io/images/content/help/image_1630be8a41-6654a4.png)
+![image.png](https://content.gainium.io/images/content/help/image_1630be8a41-6654a4.webp)
 *DCA Minigrids Combo*
 
 ### Practical Use and Configuration
 
 The DCA Minigrids feature is particularly useful in volatile markets. Here’s how you might configure it:
-- Set **DCA Orders** to 5 to allow the bot to place 5 orders across different price levels.- Use a **5% Order Step** to ensure orders are spaced far enough apart to capture meaningful price movements.- Configure **5 Minigrid Levels** to have grid orders within each DCA, ensuring profits even with small price fluctuations within the range.
+- Set **DCA Orders** to 5 to allow the bot to place 5 orders across different price levels.
+- Use a **5% Order Step** to ensure orders are spaced far enough apart to capture meaningful price movements.
+- Configure **5 Minigrid Levels** to have grid orders within each DCA, ensuring profits even with small price fluctuations within the range.

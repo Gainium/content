@@ -38,7 +38,7 @@ Some people prefer to close their trades using indicators because they are more 
 ## Using Indicators Deal Close Conditions in Gainium
 
 When creating a trading bot or terminal deal, you have the option to close the deal with indicators by setting “Indicators” in the Take Profit section, the Stop Loss section, or both.
-![close-with-indicators-tp.png](https://gainium.io/images/content/help/close_with_indicators_tp_72b6080ced-18589f.png)![close-with-indicators-sl.png](https://gainium.io/images/content/help/close_with_indicators_sl_b91f3ee627-e50e09.png)
+![close-with-indicators-tp.png](https://content.gainium.io/images/content/help/close_with_indicators_tp_72b6080ced-18589f.webp)![close-with-indicators-sl.png](https://content.gainium.io/images/content/help/close_with_indicators_sl_b91f3ee627-e50e09.webp)
 Multiple Deal close conditions use "AND" logic, meaning all conditions must be true to close the deal, just like with Deal start conditions.
 
 You can edit your bot and change the deal close conditions, but new bot settings apply only to new trades; old trades keep their original settings. You can also change current open deals from closing with indicators to percentage, but switching from one closing with indicator condition to another for an open deal is not possible.
@@ -49,4 +49,4 @@ If you are setting the indicators conditions deal close under Take Profit, you w
 
 For example, let's say that your close condition is RSI 1H crossing up 80, and the Minimum take profit is 1%. On a particular candle, the RSI 1H goes from 76 to 84 (crossing up 80 is true), but the unrealized profit at that time is 0.5% (Minimum take profit is false); therefore, the deal will not be closed. On the next candle, the RSI goes from 84 to 87 (crossing up 80 is false), and the unrealized profit is 1.3% (Minimum take profit is true); the deal will also remain open.
 
-Choosing the right combination of indicators and Minimum take profit is essential. In the previous example, the deal would have remained open until the RSI crosses up 80 again, at which point it will also need to evaluate the unrealized profit. If the trader intended to close the deal when the RSI was high and a Minimum profit achieved, it would have been better to choose RSI 1H &gt;80, which would have been evaluated as true on the second candle.
+Choosing the right combination of indicators and Minimum take profit is essential. In the previous example, the deal would have remained open until the RSI crosses up 80 again, at which point it will also need to evaluate the unrealized profit. If the trader intended to close the deal when the RSI was high and a Minimum profit achieved, it would have been better to choose RSI 1H >80, which would have been evaluated as true on the second candle.

@@ -31,14 +31,14 @@ We're excited to announce a new feature on Gainium that offers our users even mo
 When activated, the **Ignore Exchange Fees** switch ensures that exchange fees are not considered when closing a position. Instead of selling slightly less to cover the fee, the entire position can be sold. This feature is handy for those who pay exchange fees using exchange-specific tokens like BNB on Binance or KCS on Kucoin. In these cases, users may accumulate small leftover amounts of the base token of the trading pair, often called 'dust'. This happens because, unless the **Ignore Exchange Fees** feature is activated, the system deducts the exchange fee from the position being closed. Since users paying with exchange-specific tokens don't use the base token for fees, they accumulate approximately 0.1% dust on each opening and closing trade.
 
 In simpler terms, when you pay fees using the exchange's native token, the fee is deducted from that token's balance rather than the asset you're trading. If you aren't using an exchange token to pay fees, the fee is taken from the trading pair's base token. As a result, to fully exit a position, you must leave enough in reserve to cover the fees, meaning you sell slightly less than initially used to open the position.
-![image.png](https://gainium.io/images/content/help/image_307209df4c-bd5f88.png)
+![image.png](https://content.gainium.io/images/content/help/image_307209df4c-bd5f88.webp)
 *Ignore fees setting*
 
 ## Example: Binance BTC/USDT Trade
 
 Let's look at a practical example of this feature in action:
 
-Suppose you're trading **100 USDT** to buy BTC on the **BTC/USDT** pair on **Binance**. The typical spot trading fee is **0.1%** per transaction. A 0.1% fee means **0.10 USDT worth of BTC**&nbsp;is taken as a fee, leaving you with **99.90 USDT** worth of BTC. When you decide to sell, the system will sell **99.9%** of your BTC holding, leaving **0.1%** of BTC to cover the fee.
+Suppose you're trading **100 USDT** to buy BTC on the **BTC/USDT** pair on **Binance**. The typical spot trading fee is **0.1%** per transaction. A 0.1% fee means **0.10 USDT worth of BTC** is taken as a fee, leaving you with **99.90 USDT** worth of BTC. When you decide to sell, the system will sell **99.9%** of your BTC holding, leaving **0.1%** of BTC to cover the fee.
 
 When paying trading fees using **BNB**, Binance deducts the fee from your BNB balance, not your BTC balance. With the **Ignore Exchange Fees** feature activated, Gainium will disregard this fee during the selling process, allowing you to close the full BTC position instead of adjusting for the fee.
 

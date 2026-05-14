@@ -27,7 +27,7 @@ Today, we will address a topic that often puzzles many of our esteemed clients -
 
 At Gainium, we believe that transparency is essential for trust. As such, it's our pleasure to walk you through how our grid bot profits are computed.
 
-When discussing grid trading in the cryptocurrency world, platforms typically use one of two methods to calculate grid bot profits. The first method counts profits only when there is a match for both buy and sell orders, ignoring those without a match. On the other hand, the second method counts profits when there is a match for buy and sell orders, and those unmatched orders are matched to the initial price of the token. The initial price of the token defaults to the token's purchased price (if the bot purchased it) or the token's price when the bot was started (if you used your token's balance).&nbsp;
+When discussing grid trading in the cryptocurrency world, platforms typically use one of two methods to calculate grid bot profits. The first method counts profits only when there is a match for both buy and sell orders, ignoring those without a match. On the other hand, the second method counts profits when there is a match for buy and sell orders, and those unmatched orders are matched to the initial price of the token. The initial price of the token defaults to the token's purchased price (if the bot purchased it) or the token's price when the bot was started (if you used your token's balance).
 
 Whether counting unmatched orders or not, the exchange fees are considered in both cases, so you don't have to worry about that.
 
@@ -37,7 +37,7 @@ At Gainium, we utilize the latter method - not only counting matched buy and sel
 
 Assume we set up an ETH/USD grid bot with a budget of $500 and a range of $1,000 to $1,500, with 5 grids each spaced $100 apart. The current price of ETH is $1,000, hence we buy 0.5 ETH (0.1 ETH each grid order). The bot will place 5 sell orders within this range. Each grid, therefore, represents a $100 price change in ETH/USD. Let's ignore exchange fees for the sake of simplicity.
 
-![eth-usd-grid.png](https://gainium.io/images/content/help/eth_usd_grid_fe800f2288-b3f489.png)
+![eth-usd-grid.png](https://content.gainium.io/images/content/help/eth_usd_grid_fe800f2288-b3f489.webp)
 
 As you can see from the image above, orange triangles are unmatched sell orders, which we match to the initial price of $1,000. This way, the total profit for this grid is $180.
 

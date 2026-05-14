@@ -38,8 +38,8 @@ In addition, stabilization orders also come into play when the grid bot misses a
 
 It's essential to understand that stabilization orders are not anomalies or something to be worried about. Rather, they are a standard part of the grid bot’s function, a testament to the sophisticated design of these bots. They are part and parcel of the bot's effort to stay in step with the dynamic nature of cryptocurrency markets.
 
-Moreover, it's worth noting that stabilization orders are accounted for in the bot's Profit and Loss (P&amp;L) calculations. This means they're not hidden or unexpected charges but a transparent part of the overall trading performance.
-![stabilization-order.png](https://gainium.io/images/content/help/stabilization_order_0378a44874-64b673.png)
+Moreover, it's worth noting that stabilization orders are accounted for in the bot's Profit and Loss (P&L) calculations. This means they're not hidden or unexpected charges but a transparent part of the overall trading performance.
+![stabilization-order.png](https://content.gainium.io/images/content/help/stabilization_order_0378a44874-64b673.webp)
 *Stabilization order*
 
 ## Example: BTC/USDT grid bot

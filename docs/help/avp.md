@@ -40,22 +40,27 @@ The AVP indicator plays an important role in bot trading, especially for those l
 ### 1. **Take Profit Strategy Using RSI and AVP**
 
 Set the bot to take profit once one of the conditions is met: either the RSI on the 4-hour timeframe is greater than 70 or the unrealized profit exceeds 2% based on the AVP. This approach allows the bot to exit positions under favorable market conditions, either by capturing overbought conditions (as indicated by RSI) or by realizing sufficient profit.
-- **Entry Rule:** Open a position based on other technical indicators like MACD.- **Exit Rule:** Close the position if RSI (4H) &gt; 70 OR the unrealized profit percentage (relative to AVP) is greater than 2%.
+- **Entry Rule:** Open a position based on other technical indicators like MACD.
+- **Exit Rule:** Close the position if RSI (4H) > 70 OR the unrealized profit percentage (relative to AVP) is greater than 2%.
 
 ### 2. **Stop Loss Using AVP and Indicator for Dynamic Loss Management**
 
 Another use case for AVP is to set dynamic stop loss levels combined with another indicator for enhanced exit conditions. Instead of using a fixed price stop loss, the AVP can be used in conjunction with an indicator to determine when to exit a position if the market moves against you. For instance, if the price falls below a certain percentage relative to the AVP or if another indicator such as RSI crosses below a certain level, the bot can trigger a stop loss to prevent further losses.
-- **Entry Rule:** Initiate the deal based on market trends.- **Exit Rule:** Trigger a stop loss if the price drops by 5% below the AVP.
+- **Entry Rule:** Initiate the deal based on market trends.
+- **Exit Rule:** Trigger a stop loss if the price drops by 5% below the AVP.
 
 ### 3. **Combining AVP with OR Rules for Flexibility**
 
 Gainium allows for complex conditions using AND/OR rules. You can configure the bot to close a position when a profit target is reached based on AVP and/or when a particular indicator rule is true. This flexibility allows you to maximize profit without being tied to only one type of condition.
 
 For example:
-- **Entry Rule:** Open based on MACD crossover.- **Exit Rule:** Close the deal if the unrealized profit exceeds 3% OR the price reaches a pre-set target, ensuring you capitalize on favorable conditions while avoiding prolonged exposure.
+- **Entry Rule:** Open based on MACD crossover.
+- **Exit Rule:** Close the deal if the unrealized profit exceeds 3% OR the price reaches a pre-set target, ensuring you capitalize on favorable conditions while avoiding prolonged exposure.
 
 ## Practical Considerations
-- **It Only Works on Running Deals:**&nbsp;AVP can only be applied to running deals and is unavailable as a deal start condition. Once a deal is active, it helps set profit and stop-loss targets.- **Combining with Other Indicators:**&nbsp;AVP works well alongside other indicators, such as the Relative Strength Index (RSI) or Moving Averages.&nbsp;This combination gives a more comprehensive market view, allowing for better decision-making.- **Risk Management:** Using AVP helps you better understand your break-even point, which is crucial for dynamic risk management. This ensures that every decision taken considers the cost basis, minimizing unexpected losses.
+- **It Only Works on Running Deals:** AVP can only be applied to running deals and is unavailable as a deal start condition. Once a deal is active, it helps set profit and stop-loss targets.
+- **Combining with Other Indicators:** AVP works well alongside other indicators, such as the Relative Strength Index (RSI) or Moving Averages. This combination gives a more comprehensive market view, allowing for better decision-making.
+- **Risk Management:** Using AVP helps you better understand your break-even point, which is crucial for dynamic risk management. This ensures that every decision taken considers the cost basis, minimizing unexpected losses.
 
 ## Conclusion
 

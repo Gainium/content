@@ -21,6 +21,6 @@ tldr: >-
 
 Dear users,
 
-You can now share your feedback or report bugs through [our community](https://community.gainium.io/c/bug-reports/5).&nbsp;
+You can now share your feedback or report bugs through [our community](https://community.gainium.io/c/bug-reports/5).
 
 The report is immediately forwarded to our technical support team, so you can rest assured that we will be working on it right away.

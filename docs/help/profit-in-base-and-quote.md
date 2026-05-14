@@ -26,7 +26,7 @@ tldr: >-
 
 Profit currency is an essential aspect of your trading setup, but it is often misunderstood. In this article, we explain how a bot can profit in quote or base and in which cases you could use them for maximum profit.
 
-First, let's quickly clarify that trading pairs are usually displayed as **BASE/QUOTE **(for example, BTC/USDT). So when you profit in quote, you accumulate the currency on the right side of the pair (USDT in this example), and when you profit in base, you earn the currency on the left side of the pair (BTC in this case).
+First, let's quickly clarify that trading pairs are usually displayed as **BASE/QUOTE**(for example, BTC/USDT). So when you profit in quote, you accumulate the currency on the right side of the pair (USDT in this example), and when you profit in base, you earn the currency on the left side of the pair (BTC in this case).
 
 Also, it's important to mention that exchange fees [are excluded](https://gainium.io/help/are-exchange-fees-excluded-from-profit-calculation) (accounted for) in profit calculation, so you don't have to worry about that.
 

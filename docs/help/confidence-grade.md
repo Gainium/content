@@ -36,7 +36,7 @@ Using statistical principles and the widely recognized [Cochran's Sample Size fo
 ## **How Does It Work?**
 
 Our system assigns a letter grade ranging from A+ to F based on the number of trades:
-- **A+**: More than 385 trades, Confidence level above 95%- **A**: More than 273 trades, Confidence level above 90%- **B**: More than 208 trades, Confidence level above 85%- **C**: More than 164 trades, Confidence level above 80%- **D**: More than 133 trades, Confidence level above 75%- **E**: More than 107 trades, Confidence level above 70%- **F**: Less than 107 trades, Confidence level below 70%
+- **A+**: More than 385 trades, Confidence level above 95%-** A**: More than 273 trades, Confidence level above 90%- **B**: More than 208 trades, Confidence level above 85%- **C**: More than 164 trades, Confidence level above 80%- **D**: More than 133 trades, Confidence level above 75%- **E**: More than 107 trades, Confidence level above 70%- **F**: Less than 107 trades, Confidence level below 70%
 
 ## **Why is the Confidence Grade Essential?**
 

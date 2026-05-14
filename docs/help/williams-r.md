@@ -30,25 +30,32 @@ In this article, we will define the **Williams %R** indicator, explain how to co
 ## What is Williams %R?
 
 The **Williams %R** (Williams Percent Range) oscillator measures the current price relative to the high and low of a specific lookback period, typically 14. It is essentially a reversal of the [Stochastic Oscillator](https://gainium.io/help/stoch) and helps traders identify overbought or oversold conditions.
-- **Overbought Conditions**: When Williams %R is above **-20**.- **Oversold Conditions**: When Williams %R is below **-80**.
+- **Overbought Conditions**: When Williams %R is above **-20**.
+- **Oversold Conditions**: When Williams %R is below **-80**.
 
 ### Key Features:
-- **Range**: 0 to -100, with overbought and oversold levels at -20 and -80, respectively.- **Momentum Indicator**: Helps identify market momentum shifts and potential trend reversals.
+- **Range**: 0 to -100, with overbought and oversold levels at -20 and -80, respectively.
+- **Momentum Indicator**: Helps identify market momentum shifts and potential trend reversals.
 
 ## How to Configure Williams %R in Gainium
 
-Here’s how to configure the&nbsp;**Williams %R**&nbsp;indicator in Gainium.
+Here’s how to configure the **Williams %R** indicator in Gainium.
 
 ### Step 1: Add the Williams %R Indicator
 - **Navigate to the Bot Settings**:Log in to Gainium, select your bot, and find **Williams %R** in the list of available indicators.
 
 ### Step 2: Configure the Indicator Settings
-- **Length**: Set the length to **14**, the standard period for calculating Williams %R. This defines how far back the price data is used to calculate the overbought or oversold levels.- **Interval**: Choose the time interval for each calculation. The image below is set to **1 day**, meaning the Williams %R will be calculated based on daily price movements. Shorter intervals (e.g., 1 hour) can provide more frequent signals, while longer intervals (e.g., daily) capture larger trends.- **Condition**: Select the condition to trigger trades. **Crossing Down**&nbsp;is chosen in this case, which means the bot will trigger an action when the Williams %R crosses below a certain value (in this example, -40).- **Value**: Set the value at which the bot should trigger trades. Here, it's set to **-40**, signaling the price is moving downward, but not yet in an oversold region.- **Keep True**: This setting determines how long the condition remains active after being triggered. A value of **0** means it resets immediately after the condition is met.
-![image.png](https://gainium.io/images/content/help/image_e18959360b-ffe68e.png)
+- **Length**: Set the length to **14**, the standard period for calculating Williams %R. This defines how far back the price data is used to calculate the overbought or oversold levels.
+- **Interval**: Choose the time interval for each calculation. The image below is set to **1 day**, meaning the Williams %R will be calculated based on daily price movements. Shorter intervals (e.g., 1 hour) can provide more frequent signals, while longer intervals (e.g., daily) capture larger trends.
+- **Condition**: Select the condition to trigger trades. **Crossing Down** is chosen in this case, which means the bot will trigger an action when the Williams %R crosses below a certain value (in this example, -40).
+- **Value**: Set the value at which the bot should trigger trades. Here, it's set to **-40**, signaling the price is moving downward, but not yet in an oversold region.
+- **Keep True**: This setting determines how long the condition remains active after being triggered. A value of **0** means it resets immediately after the condition is met.
+![image.png](https://content.gainium.io/images/content/help/image_e18959360b-ffe68e.webp)
 *Williams %R Indicator Settings*
 
 ### Step 3: Positive and Negative Percent Changes
-- **Positive % Change**: Detects price increases. If the Williams %R rises above a specific level (e.g., -40 to -20), it indicates increasing bullish momentum.- **Negative % Change**: Detects price decreases. If the Williams %R falls below a certain level (e.g., -40 to -80), it signals bearish momentum.
+- **Positive % Change**: Detects price increases. If the Williams %R rises above a specific level (e.g., -40 to -20), it indicates increasing bullish momentum.
+- **Negative % Change**: Detects price decreases. If the Williams %R falls below a certain level (e.g., -40 to -80), it signals bearish momentum.
 
 ## Using Williams %R in Bot Trading
 
@@ -104,4 +111,4 @@ The **Williams %R** indicator is a powerful tool for identifying overbought and 
 
 With proper configuration, backtesting, and risk management, Williams %R can become a valuable part of your automated trading strategy in Gainium.
 
-&nbsp;
+

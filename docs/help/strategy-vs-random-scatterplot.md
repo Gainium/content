@@ -39,15 +39,15 @@ A scatterplot is generated to illustrate the performance clearly. This plot plac
 ## Interpreting the T-test and Mean Returns
 
 With the scatterplot in place, we calculate the mean return for the strategy trades and the random trades. These figures are then compared using a [T-test](https://www.investopedia.com/terms/t/t-test.asp) to obtain the T-value. The closer this value is to 0, the stronger the indication that the strategy’s returns are statistically indistinguishable from random trades, suggesting no inherent trading edge.
-![low_t-value.jpeg](https://gainium.io/images/content/help/low_t_value_04b3b3594e-6ecef2.jpeg)
+![low_t-value.jpeg](https://content.gainium.io/images/content/help/low_t_value_04b3b3594e-6ecef2.webp)
 *Low T-value*
-![high_t-value.jpeg](https://gainium.io/images/content/help/high_t_value_7ccdb90c3a-eeb54c.jpeg)
+![high_t-value.jpeg](https://content.gainium.io/images/content/help/high_t_value_7ccdb90c3a-eeb54c.webp)
 *High T-value*
 
 ### The Role of Random as a Benchmark
 
 It’s essential to understand that the random trade benchmark is not about competition; it's about validation. Outperforming the random trades return is a positive indicator, but it isn't the sole measure of a strategy's validity. For instance, a long-only strategy tested during a market upswing might underperform compared to random trades during that period. Therefore, the purpose of this test is to challenge and reject the hypothesis that your strategy's performance is purely a product of chance.
 
-&nbsp;
+
 
 We hope this guide helps you maximize the backtester’s new capabilities. For further assistance or questions, don't hesitate to contact our supportive community or customer service team. Happy trading!

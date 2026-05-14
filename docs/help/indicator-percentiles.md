@@ -51,7 +51,7 @@ When you enable the Percentile option for an indicator, the bot will use the ind
 
 **Specify Lookback Period:** Once Percentiles are enabled, specify the lookback period. This is the number of bars over which the percentile calculation will be made.
 
-![indicator-percentile.jpeg](https://gainium.io/images/content/help/indicator_percentile_de891f97bd-43b997.jpeg)
+![indicator-percentile.jpeg](https://content.gainium.io/images/content/help/indicator_percentile_de891f97bd-43b997.webp)
 
 As you can see from the screenshot above, setting the rule to trigger when the RSI crosses the 90th percentile will display a dotted line with the value the RSI needs to reach to be in the 90th percentile.
 
@@ -70,7 +70,9 @@ Percentiles can also be used for risk management. By understanding where the cur
 This feature is handy in volatile markets. Percentiles allow normalizing indicator values, making comparing current market conditions to historical patterns easier.
 
 ## **Best Practices for Using Percentiles**
-- **Understand the Indicator:** Before applying Percentiles, ensure you understand the chosen indicator and how it reflects market conditions.- **Appropriate Lookback Period:** The lookback period should align with your trading strategy. Shorter periods may be more suited for short-term trading, while more extended periods can be better for long-term strategies.- **Continuous Monitoring and Adjustment:** Regularly review and adjust the percentile settings and lookback periods based on ongoing market conditions and the performance of your trading strategy.
+- **Understand the Indicator:** Before applying Percentiles, ensure you understand the chosen indicator and how it reflects market conditions.
+- **Appropriate Lookback Period:** The lookback period should align with your trading strategy. Shorter periods may be more suited for short-term trading, while more extended periods can be better for long-term strategies.
+- **Continuous Monitoring and Adjustment:** Regularly review and adjust the percentile settings and lookback periods based on ongoing market conditions and the performance of your trading strategy.
 
 ## **Conclusion**
 

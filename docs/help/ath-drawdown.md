@@ -26,15 +26,18 @@ tldr: >-
 
 The **All-Time High (ATH) Drawdown** indicator measures the percentage decline of the current price from the highest price (ATH) within a defined period. It is a valuable tool for traders looking to avoid entering long positions near an all-time high or going short when the price is too low relative to its peak. This indicator helps ensure that trades are entered when the market is more likely to offer favorable conditions rather than at extremes.
 
-In this article, we will explain the&nbsp;**ATH Drawdown**&nbsp;indicator, how to configure and use it in Gainium, and provide examples of how to use it effectively in bot trading. We’ll also cover practical considerations and conclude with tips on integrating the indicator into your trading strategies.
+In this article, we will explain the **ATH Drawdown** indicator, how to configure and use it in Gainium, and provide examples of how to use it effectively in bot trading. We’ll also cover practical considerations and conclude with tips on integrating the indicator into your trading strategies.
 
 ## What Is ATH Drawdown?
 
 The **ATH Drawdown** measures how much the current price has declined from the **All-Time High (ATH)** over a specified lookback period. It is calculated as a percentage and can signal whether the price is close to its ATH or has dropped from it.
-- **Drawdown %**: The percentage by which the price has dropped from the ATH.- **Lookback Period**: The number of periods (candlesticks) used to calculate the highest price (ATH) within that window.
+- **Drawdown %**: The percentage by which the price has dropped from the ATH.
+- **Lookback Period**: The number of periods (candlesticks) used to calculate the highest price (ATH) within that window.
 
 ### Key Features:
-- **Helps Avoid Long Entries Near ATH**: Prevents buying into potential market tops.- **Avoids Short Entries When Price is Too Low**: Stops shorting when the price is already heavily discounted, preventing potential reversals.- **Risk Management**: Supports safer entry points by identifying whether the market is overextended.
+- **Helps Avoid Long Entries Near ATH**: Prevents buying into potential market tops.
+- **Avoids Short Entries When Price is Too Low**: Stops shorting when the price is already heavily discounted, preventing potential reversals.
+- **Risk Management**: Supports safer entry points by identifying whether the market is overextended.
 
 ## How to Configure ATH Drawdown in Gainium
 
@@ -44,11 +47,17 @@ Here’s how to configure the **ATH Drawdown** indicator using the attached sett
 - **Navigate to the Bot Settings**:Log into Gainium, go to your bot, and select **ATH Drawdown** from the list of indicators.
 
 ### Step 2: Configure the Indicator Settings
-- **Lookback (100)**: The lookback period determines how far back the indicator should search for the highest price (ATH). In this example, the lookback is set to **100**, meaning the ATH is calculated using the highest price from the last 100 periods.- **Interval (1 day)**: This setting defines the time interval used for each candlestick in the lookback period. In the provided settings, it's set to **1 day**, meaning the ATH is calculated based on the daily highest prices over the past 100 days.- **Condition (Lower than)**: The condition tells the bot when to trigger an action. **Lower than**&nbsp;is selected in this case, meaning the bot will act when the drawdown percentage is below a certain threshold.- **Value (10)**: This represents the trigger point. The bot will act when the drawdown percentage falls **below 10%**. This means the bot won't open positions within 10% of the ATH, thus preventing entering long positions near the ATH.- **Keep True (0)**: This defines how long the condition remains active after being triggered. Setting this to **0** means the condition resets immediately after the trigger.
-![image.png](https://gainium.io/images/content/help/image_c8c80e3610-c801bb.png)
+- **Lookback (100)**: The lookback period determines how far back the indicator should search for the highest price (ATH). In this example, the lookback is set to **100**, meaning the ATH is calculated using the highest price from the last 100 periods.
+- **Interval (1 day)**: This setting defines the time interval used for each candlestick in the lookback period. In the provided settings, it's set to **1 day**, meaning the ATH is calculated based on the daily highest prices over the past 100 days.
+- **Condition (Lower than)**: The condition tells the bot when to trigger an action.
+
+**Lower than** is selected in this case, meaning the bot will act when the drawdown percentage is below a certain threshold.
+- **Value (10)**: This represents the trigger point. The bot will act when the drawdown percentage falls **below 10%**. This means the bot won't open positions within 10% of the ATH, thus preventing entering long positions near the ATH.
+- **Keep True (0)**: This defines how long the condition remains active after being triggered. Setting this to **0** means the condition resets immediately after the trigger.
+![image.png](https://content.gainium.io/images/content/help/image_c8c80e3610-c801bb.webp)
 *All Time High (ATH) Drawdown Settings*
 
-&nbsp;
+
 
 ## Using ATH Drawdown in Bot Trading
 
@@ -60,10 +69,11 @@ Here are two examples of how to use the **ATH Drawdown** in automated bot tradin
 - **Long Entry (Buy)**:Enter a long position when the drawdown is lower than **10%**, meaning the price has dropped from the ATH and is more reasonably positioned for a potential rebound.
 
 #### Exit Rules
-- **Long Exit**:Exit the long trade when the drawdown percentage crosses above&nbsp;**5%**. This indicates that the price is getting close to the ATH again, which may signal a potential top.
+- **Long Exit**:Exit the long trade when the drawdown percentage crosses above **5%**. This indicates that the price is getting close to the ATH again, which may signal a potential top.
 
 #### Implementation in Gainium
-- **Configure the Drawdown Threshold**: Set the bot to enter long trades only when the drawdown percentage is lower than 10%, signaling that the price has dropped from its ATH and is less risky.- **Automate Entries/Exits**: The bot will automatically enter trades when the price is sufficiently discounted from its ATH and exit when it’s too close to the ATH.
+- **Configure the Drawdown Threshold**: Set the bot to enter long trades only when the drawdown percentage is lower than 10%, signaling that the price has dropped from its ATH and is less risky.
+- **Automate Entries/Exits**: The bot will automatically enter trades when the price is sufficiently discounted from its ATH and exit when it’s too close to the ATH.
 
 ### Strategy 2: Avoid Short Positions When Price is Too Low
 
@@ -74,7 +84,8 @@ Here are two examples of how to use the **ATH Drawdown** in automated bot tradin
 - **Short Exit**:Exit the short trade when the drawdown is under **20%**, signaling that the price has dropped significantly from the ATH and could be oversold.
 
 #### Implementation in Gainium
-- **Set Short Thresholds**: Configure the bot to enter short trades only when the drawdown percentage crosses up 10%, indicating the price is near the ATH and may reverse downward.- **Manage Exits**: Set the bot to exit the short trade when the drawdown exceeds 15%, signaling that the price has dropped too far and may soon reverse upward.
+- **Set Short Thresholds**: Configure the bot to enter short trades only when the drawdown percentage crosses up 10%, indicating the price is near the ATH and may reverse downward.
+- **Manage Exits**: Set the bot to exit the short trade when the drawdown exceeds 15%, signaling that the price has dropped too far and may soon reverse upward.
 
 ## Practical Considerations
 
@@ -84,7 +95,7 @@ Here are a few practical tips when using the **ATH Drawdown** indicator:
 - More volatile assets may require a shorter lookback period (e.g., 50 periods) to capture more recent ATHs, while less volatile assets may benefit from a longer lookback (e.g., 200 periods).
 
 ### 2. Combine with Other Indicators
-- Combine the ATH Drawdown with trend-following indicators such as&nbsp;**moving averages**&nbsp;or&nbsp;**Bollinger Bands**&nbsp;to confirm entry and exit signals for better results.
+- Combine the ATH Drawdown with trend-following indicators such as **moving averages** or **Bollinger Bands** to confirm entry and exit signals for better results.
 
 ### 3. Avoid Extreme Conditions
 - Use the ATH Drawdown to avoid extreme conditions (e.g., entering long near the ATH or shorting when the price has dropped significantly). This helps protect against potential reversals and unfavorable entry points.

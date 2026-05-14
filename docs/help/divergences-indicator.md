@@ -30,10 +30,12 @@ In this article, we’ll explain the **Divergence Indicator**, how to configure 
 
 ## What Is the Divergence Indicator?
 
-The **Divergence Indicator** identifies discrepancies between an asset's price movement and oscillators like the&nbsp;**Awesome Oscillator (AO)**,&nbsp;**MACD**,&nbsp;**RSI**, and others. Divergences can be either&nbsp;**bullish**&nbsp;(indicating potential upward movement) or&nbsp;**bearish**&nbsp;(indicating potential downward movement). Hidden divergences can also occur, signaling the continuation of the current trend.
+The **Divergence Indicator** identifies discrepancies between an asset's price movement and oscillators like the **Awesome Oscillator (AO)**,** MACD**, **RSI**, and others. Divergences can be either **bullish** (indicating potential upward movement) or **bearish** (indicating potential downward movement). Hidden divergences can also occur, signaling the continuation of the current trend.
 
 ### Key Features:
-- **Bullish Divergence**: Price makes a lower low, but the oscillator makes a higher low. This indicates weakening downward momentum and potential for a reversal upward.- **Bearish Divergence**: Price makes a higher high, but the oscillator makes a lower high. This indicates weakening upward momentum and potential for a reversal downward.- **Hidden Divergence**: Indicates potential trend continuation, with the opposite behavior of regular divergence.
+- **Bullish Divergence**: Price makes a lower low, but the oscillator makes a higher low. This indicates weakening downward momentum and potential for a reversal upward.
+- **Bearish Divergence**: Price makes a higher high, but the oscillator makes a lower high. This indicates weakening upward momentum and potential for a reversal downward.
+- **Hidden Divergence**: Indicates potential trend continuation, with the opposite behavior of regular divergence.
 
 ## How to Configure the Divergence Indicator in Gainium
 
@@ -43,8 +45,12 @@ Here’s how to set up and configure the **Divergence Indicator** in Gainium bas
 - **Navigate to the Bot Settings**:Log into Gainium, select your bot, and add the **Divergence** indicator from the list.
 
 ### Step 2: Configure the Indicator Settings
-- **Min Number of Divergences (2)**: This setting specifies how many divergences must be detected before the indicator triggers an action. In this example, the minimum number is set to **2**, meaning the bot will wait for confirmation from two divergences before acting.- **Type of Divergence**: Choose **Any Bearish**, **Bearish**, **Hidden Bearish**, **Any Bullish**, **Bullish**, and **Hidden Bullish**. This determines whether the bot looks for bearish or bullish divergences. In this case, **Any Bearish** is selected, meaning the bot will trigger on any bearish divergence.- **Oscillators**: You can select the oscillators you want to compare with the price action. **Awesome Oscillator (AO)**,&nbsp;**CCI**,&nbsp;**MACD**, and&nbsp;**MFI**&nbsp;are used in this example. Gainium supports multiple oscillators, including **RSI**, **Momentum**, **Stochastic Oscillator**, and more. The bot will look for divergences across all selected oscillators.- **Interval (1 day)**: This determines the timeframe for each candlestick used to calculate the divergence. In this example, the interval is set to **1 day**, meaning the bot will analyze daily price movements for divergences.- **Keep True (0)**: This setting defines how long the condition remains valid after being triggered. Setting this to **0** means the condition resets immediately after it is met.
-![image.png](https://gainium.io/images/content/help/image_915ac03347-293c56.png)
+- **Min Number of Divergences (2)**: This setting specifies how many divergences must be detected before the indicator triggers an action. In this example, the minimum number is set to **2**, meaning the bot will wait for confirmation from two divergences before acting.
+- **Type of Divergence**: Choose **Any Bearish**, **Bearish**, **Hidden Bearish**, **Any Bullish**, **Bullish**, and **Hidden Bullish**. This determines whether the bot looks for bearish or bullish divergences. In this case, **Any Bearish** is selected, meaning the bot will trigger on any bearish divergence.
+- **Oscillators**: You can select the oscillators you want to compare with the price action. **Awesome Oscillator (AO)**,** CCI**, **MACD**, and **MFI** are used in this example. Gainium supports multiple oscillators, including **RSI**, **Momentum**, **Stochastic Oscillator**, and more. The bot will look for divergences across all selected oscillators.
+- **Interval (1 day)**: This determines the timeframe for each candlestick used to calculate the divergence. In this example, the interval is set to **1 day**, meaning the bot will analyze daily price movements for divergences.
+- **Keep True (0)**: This setting defines how long the condition remains valid after being triggered. Setting this to **0** means the condition resets immediately after it is met.
+![image.png](https://content.gainium.io/images/content/help/image_915ac03347-293c56.webp)
 *Divergence Indicator Settings*
 
 ## Using Divergence Indicator in Bot Trading
@@ -60,18 +66,20 @@ Here are two example strategies using the **Divergence Indicator** in automated 
 - **Short Exit**:Exit the short position when a **Bullish Divergence** is detected. This signals that the downward momentum may be weakening and that an upward reversal is possible.
 
 #### Implementation in Gainium
-- **Set the Divergence Type**: Configure the bot to detect **Any Bearish Divergence**. Ensure the minimum number of divergences is set to **2** for additional confirmation from multiple oscillators.- **Automate Entries and Exits**: The bot will automatically enter short trades when bearish divergences are detected and exit when bullish divergences are detected.
+- **Set the Divergence Type**: Configure the bot to detect **Any Bearish Divergence**. Ensure the minimum number of divergences is set to **2** for additional confirmation from multiple oscillators.
+- **Automate Entries and Exits**: The bot will automatically enter short trades when bearish divergences are detected and exit when bullish divergences are detected.
 
 ### Strategy 2: Bullish Continuation Using Hidden Divergence
 
 #### Entry Rules
-- **Long Entry (Buy)**:Enter a long position when a **hidden bullish divergence**&nbsp;is detected. This signals that the current uptrend may continue despite a short-term pullback.
+- **Long Entry (Buy)**:Enter a long position when a **hidden bullish divergence** is detected. This signals that the current uptrend may continue despite a short-term pullback.
 
 #### Exit Rules
 - **Long Exit**:Exit the long trade when a **Bearish Divergence** is detected, signaling a potential end to the bullish momentum.
 
 #### Implementation in Gainium
-- **Set the Divergence Type**: Configure the bot to detect **Hidden Bullish Divergence** to signal trend continuation.- **Automate Entries and Exits**: The bot will enter long trades when hidden bullish divergences are detected and exit when regular bearish divergences are spotted.
+- **Set the Divergence Type**: Configure the bot to detect **Hidden Bullish Divergence** to signal trend continuation.
+- **Automate Entries and Exits**: The bot will enter long trades when hidden bullish divergences are detected and exit when regular bearish divergences are spotted.
 
 ## Practical Considerations
 

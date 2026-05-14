@@ -29,20 +29,24 @@ In trading, combining multiple indicators can refine your strategy and improve d
 
 When setting up your trading bot with multiple indicators, you can use the AND/OR operators to define how these indicators should interact. Here’s what each operator does:
 
-&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;**AND**: All selected indicators must meet the defined conditions for the bot to trigger a trade.&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;**OR**: The bot will trigger a trade if any one of the selected indicators meets its condition.
-![image.png](https://gainium.io/images/content/help/image_6adcc3e7eb-c5acdc.png)
+- **AND**: All selected indicators must meet the defined conditions for the bot to trigger a trade.
+- **OR**: The bot will trigger a trade if any one of the selected indicators meets its condition.
+![image.png](https://content.gainium.io/images/content/help/image_6adcc3e7eb-c5acdc.webp)
 ## Applying AND/OR to Multiple Indicators
 
 When you apply AND or OR, it affects all the indicators you’ve chosen. This means that the logic is applied uniformly across the board. For example:
 
-&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;AND Example: If you set up three indicators (A, B, C) with the AND operator, the bot will only trade if A AND B AND C are all true.&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;OR Example: If you use the OR operator, the bot will trade if A OR B OR C is true.
+- AND Example: If you set up three indicators (A, B, C) with the AND operator, the bot will only trade if A AND B AND C are all true.
+- OR Example: If you use the OR operator, the bot will trade if A OR B OR C is true.
 
 ## Limitations: No Mixing of AND/OR
 
 It’s important to note that you can’t mix these operators in a single setup. The logic is applied uniformly, meaning you can’t do something like A OR (B AND C). This constraint ensures simplicity but requires carefully planning how you combine your indicators.
 
 ## Practical Tips
-- Clear Strategy Definition: Before setting up your indicators, clearly define your strategy. Decide whether you want all conditions to be met (AND) or if meeting any one condition is enough (OR).- Consider the Trade-offs: Remember, using AND may reduce the number of trades but potentially increase the accuracy, while OR may increase the number of trades but with a wider range of conditions being acceptable.- Test and Adjust: As with any strategy, backtest your settings. See how different combinations affect performance and adjust accordingly.
+- Clear Strategy Definition: Before setting up your indicators, clearly define your strategy. Decide whether you want all conditions to be met (AND) or if meeting any one condition is enough (OR).
+- Consider the Trade-offs: Remember, using AND may reduce the number of trades but potentially increase the accuracy, while OR may increase the number of trades but with a wider range of conditions being acceptable.
+- Test and Adjust: As with any strategy, backtest your settings. See how different combinations affect performance and adjust accordingly.
 
 ## Conclusion
 
