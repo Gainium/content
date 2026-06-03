@@ -72,6 +72,11 @@ Enable **Restrict access to trusted IPs only** and add the following Gainium ser
 78.128.8.36
 78.128.43.168
 217.174.152.25
+62.84.191.108
+62.84.191.109
+62.84.191.110
+62.84.191.111
+62.84.191.112
 ```
 
 Save your changes.

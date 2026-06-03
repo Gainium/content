@@ -87,7 +87,7 @@ Your API has now been created. **Copy your API Key now as you'll need it for Gai
 Click on "Edit restrictions". Then, click on "Restrict access to trusted IPs only (Recommended)" and input the following IPs:
 
 ```
-78.128.60.89 78.128.43.82 78.128.8.36 78.128.43.168 217.174.152.25
+78.128.60.89 78.128.43.82 78.128.8.36 78.128.43.168 217.174.152.25 62.84.191.108 62.84.191.109 62.84.191.110 62.84.191.111 62.84.191.112
 ```
 
 Enable the necessary permissions for trading and click "Confirm".

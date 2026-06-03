@@ -578,6 +578,10 @@ Compose   →  docker-sh           https://github.com/Gainium/docker-sh
   — trigger bot actions on your own stack from external platforms.
 - [Enhancing security of your exchange API keys](https://gainium.io/help/enhancing-security)
   — IP whitelisting and key restrictions worth applying before going live.
+  **Self-hosted note:** the IP whitelisting article references Gainium's
+  cloud server IPs — on a self-hosted install you must whitelist **your
+  own server's outbound IP** (the host running `exchange-connector-sh`),
+  not Gainium's.
 
 ## Where to put bug reports / questions
 

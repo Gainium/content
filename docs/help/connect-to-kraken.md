@@ -68,6 +68,11 @@ Under **IP whitelisting**, add the following Gainium server IPs to restrict API 
 78.128.8.36
 78.128.43.168
 217.174.152.25
+62.84.191.108
+62.84.191.109
+62.84.191.110
+62.84.191.111
+62.84.191.112
 ```
 
 ## Step 6 – Generate the Key

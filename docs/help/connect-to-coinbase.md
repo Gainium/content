@@ -40,7 +40,7 @@ tldr: >-
 
 7. Enter our IP addresses in **Enable IP Addresses** section. Here are the addresses you can copy and paste, make sure they are separated by commas and spaces:
 
-**78.128.60.89, 78.128.43.82, 78.128.8.36, 78.128.43.168, 217.174.152.25**
+**78.128.60.89, 78.128.43.82, 78.128.8.36, 78.128.43.168, 217.174.152.25, 62.84.191.108, 62.84.191.109, 62.84.191.110, 62.84.191.111, 62.84.191.112**
 
 ![step-2.png](https://content.gainium.io/images/content/help/step_2_385a2fcbe7-9cf6b1.webp)
 
