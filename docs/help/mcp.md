@@ -126,26 +126,38 @@ Use **local HTTP** or **SSE** only when your client specifically requires them.
 
 If you use Claude on claude.ai or Claude Desktop, the easiest way to connect is the **Gainium connector**, which uses a secure one-click sign-in (OAuth). You do not copy or paste any API keys. You sign in to Gainium and approve access, and Claude gets its own dedicated, scoped, revocable connection.
 
-### Add the connector
+There are two ways to add it, depending on whether you want Claude to **only read** your account or to also **manage bots and deals**:
+
+| | Directory connector (read-only) | Custom connector (read + write) |
+|---|---|---|
+| **How to add** | Pick **Gainium** from Claude's connector directory | **Add custom connector** → `https://mcp.gainium.io/mcp` |
+| **What Claude can do** | View bots, deals, balances, exchanges, backtests, screener, and curated presets | Everything read-only, **plus** create/start/stop/modify bots and deals |
+| **Best for** | Monitoring and analysis | Hands-off trading and bot management |
+
+### Add the read-only connector (directory)
 
 1. In Claude, open **Settings → Connectors**.
-2. Choose **Gainium** from the connector directory, or select **Add custom connector** and enter the URL:
+2. Choose **Gainium** from the connector directory.
+3. Click **Connect**. Claude opens a Gainium sign-in page in your browser.
+4. Sign in (with 2FA) and click **Authorize**. The directory connector is **read-only** — it cannot place or modify trades, so there is nothing extra to configure.
+
+### Add the read + write connector (custom)
+
+If you want Claude to also create and manage bots and deals:
+
+1. In Claude, open **Settings → Connectors → Add custom connector** and enter:
 
    ```text
    https://mcp.gainium.io/mcp
    ```
 
-3. Click **Connect**. Claude opens a Gainium sign-in page in your browser.
-
-### Authorize access
-
-1. Sign in to your Gainium account (with 2FA) if you are not already signed in.
-2. On the consent screen, choose what Claude can do:
+2. Click **Connect** and sign in to Gainium (with 2FA).
+3. On the consent screen, choose what Claude can do:
    - **Read access** (default): view bots, deals, balances, exchanges, and backtests
    - **Trading (write) access** (optional): create, start, stop, and modify bots and deals
    - **Paper trading only** (optional): restrict the connection to paper trading
    - **Restrict to a single bot** (optional): limit access to one bot ID
-3. Click **Authorize**. Claude is connected — there is no API key to copy.
+4. Click **Authorize**. Claude is connected — there is no API key to copy.
 
 Each connection is backed by a dedicated, scoped API key that Gainium creates automatically. It is separate from the API keys you create manually, so it will not appear in your API Keys list.
 
@@ -153,7 +165,7 @@ Each connection is backed by a dedicated, scoped API key that Gainium creates au
 
 Open **Gainium → Settings → Connected apps** to see the apps you have authorized and when each was last used. Click **Revoke** to immediately cut an app's access; this deletes the connection's access key. You can also tighten an active connection later, for example by lowering it from write to read.
 
-Default to **Read access** unless you specifically want Claude to place or modify trades, and enable **Paper trading only** while you are testing.
+Default to the **read-only directory connector** unless you specifically want Claude to place or modify trades. When using the read + write connector, enable **Paper trading only** while you are testing.
 
 ## Option 1: Connect with local stdio
 
