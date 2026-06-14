@@ -62,23 +62,53 @@ You can also follow along with this video walkthrough:
 
 https://www.youtube.com/watch?v=aDLmeQ5AHgo
 
+## Connect Gainium in your AI app
+
+Pick your app for step-by-step setup. The **directory** listing gives read-only access; add the **custom** connector URL when you want full read + write (trading) access.
+
+- [Claude (claude.ai, Desktop, Code)](https://gainium.io/help/mcp-claude)
+- [ChatGPT](https://gainium.io/help/mcp-chatgpt)
+- [Perplexity](https://gainium.io/help/mcp-perplexity)
+
+Using another MCP client (VS Code, Cursor, or your own)? The general connection modes, authentication, and configuration examples are all below.
+
 ## Example prompts to try
 
-Once Gainium MCP is connected, you can drive your account in plain language. These prompts work in any MCP-compatible agent (Claude, VS Code, Claude Code, or another client). Start with **paper trading** while you get comfortable.
+Once Gainium MCP is connected, you can drive your account in plain language. What you can do depends on **which connector you added** — read-only (directory) or read + write (custom).
 
-1. **Review your account (read-only):**
+### With the read-only connector (directory)
 
-   > Connect to my Gainium account and give me a portfolio summary: list my open bots and deals with their pair, status, take-profit %, and unrealized P&L, and flag any open deal that has no stop-loss set.
+These only read your account and the market — safe to run anytime:
 
-2. **Build a bot from the most volatile pairs (paper):**
+1. **Find opportunities:**
 
-   > Using the Gainium screener, find the 3 most volatile coins by 24-hour price change and create a **paper** DCA bot trading those pairs with a 2% take-profit and a 3-order safety ladder. Show me the bot's settings after it's created.
+   > Find the 5 most volatile coins on the Gainium screener and summarize their 24-hour price moves and volume.
 
-3. **Try a curated strategy (paper):**
+2. **Evaluate strategies:**
 
-   > Show me Gainium's top curated DCA presets for BTC on Binance, compare the short, mid, and long risk tiers by ROI and max drawdown, then create a **paper** bot from the mid-risk long strategy.
+   > Show Gainium's top curated DCA presets for BTC on Binance and compare the short, mid, and long risk tiers by ROI and max drawdown.
 
-The agent picks the right Gainium tools for each step. Read prompts are always safe; for any prompt that creates or changes a bot or deal, keep the connection on **paper trading only** (or pass `paperContext: true`) until you are ready to trade for real.
+3. **Review your portfolio:**
+
+   > Summarize my open bots, deals, and balances with pair, status, take-profit %, and unrealized P&L, and flag any open deal that has no stop-loss set.
+
+### With the read + write connector (custom)
+
+These also **create or manage** bots and deals — keep the connection on paper trading while you test:
+
+4. **Build from the screener:**
+
+   > Find the 3 most volatile coins and create a **paper** DCA bot trading them with a 2% take-profit and a 3-order safety ladder.
+
+5. **Apply a curated strategy:**
+
+   > Create a **paper** bot from Gainium's mid-risk long DCA preset for BTC on Binance.
+
+6. **Adjust a deal:**
+
+   > Set a 20% take-profit on my open BNBUSDT **paper** deal.
+
+The agent picks the right Gainium tools for each step. Prompts 1–3 work on either connector; prompts 4–6 require the **read + write** connector — keep it paper-only (or pass `paperContext: true`) until you are ready to trade for real.
 
 ## Before you start
 
