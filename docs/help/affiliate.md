@@ -7,7 +7,7 @@ description: >-
   work, understand commission levels based on successful referrals, and discover
   how to split commissions with friends for mutual benefits.
 createdAt: '2023-08-24T15:34:40.183Z'
-updatedAt: '2026-02-24T07:44:20.560Z'
+updatedAt: '2026-06-27T07:44:20.560Z'
 publishedAt: '2023-08-24T16:17:49.261Z'
 locale: en
 categories:
@@ -20,7 +20,7 @@ tldr: >-
   Gainium''s referral program gives affiliates a default 30% commission on
   referred users'' purchases, with a 30-day cookie window. Affiliates can create
   multiple tracking links, split commissions with referred friends, and receive
-  payouts to a crypto wallet once they exceed 25 USDT.
+  payouts to a crypto wallet once they exceed 50 USDT.
 ---
 
 Welcome to Gainium's referral program guide. In this article, we'll walk you through the inner workings of our system, ensuring that you maximize your earnings and understand the benefits it brings to you and your referred friends.
@@ -45,6 +45,10 @@ The default commission is **30%**. Custom affiliate commissions can be discussed
 
 ![affiliate-links.jpeg](https://content.gainium.io/images/content/help/affiliate_links_0ec33d0e41-d7b860.webp)
 
+## Promoting Gainium with our brand assets
+
+When you promote Gainium, use our official logos and follow our brand guidelines so your content looks polished and stays compliant. You can view and download the logo files, color palette, and usage rules — including what's allowed and what isn't — on our [Brand page](https://gainium.io/brand). The full rules are in our [Brand &amp; Trademark Guidelines](https://gainium.io/legal/brand-guidelines).
+
 ## Benefits for referred users
 
 **Splitting the Commission with Referred Friends**
@@ -59,7 +63,7 @@ You can set the commission split on a per-link basis. Let's illustrate this with
 ![affiliate-split.jpeg](https://content.gainium.io/images/content/help/affiliate_split_6a44e1f865-53bae8.webp)
 
 ## Getting paid
-- Payout to your wallet: You can request a payout once your affiliate wallet balance exceeds 25 USDT. When you're ready to cash out, specify the wallet address where your funds would be transferred. Ensure it's accurate, as Gainium cannot reverse transactions made to incorrect addresses.
+- Payout to your wallet: You can request a payout once your affiliate wallet balance exceeds 50 USDT. When you're ready to cash out, specify the wallet address where your funds would be transferred. Ensure it's accurate, as Gainium cannot reverse transactions made to incorrect addresses.
 - Transfer to Payment Wallet: Not interested in cashing out just yet? No worries! Transfer your referral earnings directly to your payment wallet. This lets you use your accrued rewards to purchase a Gainium subscription. There's no minimum amount required for this transfer. However, remember that the operation cannot be reversed once transferred to the payment wallet. So, choose wisely!
 
 ### **Locked Affiliate Funds**
