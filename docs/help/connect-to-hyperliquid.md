@@ -7,7 +7,7 @@ description: >-
   Gainium using an API (agent) wallet for trading while keeping your main wallet
   secure.
 createdAt: '2025-09-26T00:00:00.000Z'
-updatedAt: '2026-02-24T07:44:20.568Z'
+updatedAt: '2026-06-30T00:00:00.000Z'
 publishedAt: '2024-04-06T11:33:03.122Z'
 locale: en
 categories:
@@ -21,7 +21,9 @@ tldr: >-
   connection (via MetaMask/WalletConnect with no API keys needed), or the
   advanced API wallet method. Both methods offer a choice between Free User mode
   (builder fees, no credit consumption) and Paid User mode (no builder fees,
-  credits consumed).
+  credits consumed). Sub-accounts and Vaults connect via the API wallet method
+  with the Sub-account toggle (paid plans only) for hedged / two-way perp
+  strategies.
 ---
 # How to Connect Hyperliquid Exchange to Gainium
 
@@ -151,6 +153,27 @@ Now that you have funds on Hyperliquid and an API wallet created:
 **Why this pairing?** Hyperliquid authorizes trading via the API wallet key while attributing balances and risk to your main wallet address. This improves security because you never expose your main wallet’s private key.
 
 **If you created multiple API wallets:** You may use any one of them with the same main wallet address. Revoke unused keys to reduce risk.
+
+---
+
+## Connecting a Sub-account or Vault
+
+By default the API Wallet method connects your **main** wallet. Hyperliquid only supports one-way (one-directional) positions per account on perps, so to run hedged / two-way strategies — or to trade a **Vault** — you connect a **sub-account** instead.
+
+> Sub-accounts and Vaults must be connected with the **API Wallet** method (Option 2). They are not available through the Web3 Wallet flow. The connection is only available on **paid plans**, because Hyperliquid does not allow builder fees on sub-account / Vault connections — so Free User (builder-fee) mode does not apply.
+
+### Steps:
+
+1. In Hyperliquid, create the sub-account (or open the Vault) and **create an API (agent) wallet** exactly as in [Step 4 above](#4-create-an-api-agent-wallet-on-hyperliquid). Copy the agent wallet **private key**.
+2. Copy the **sub-account (or Vault) wallet address** from Hyperliquid. If Hyperliquid shows it with an `HL:` prefix, **drop the prefix** — enter only the raw `0x…` address.
+3. In Gainium, go to **Exchanges → Hyperliquid** and choose the **API Wallet** connection option.
+4. Turn on the **Sub-account** toggle (shown below the key fields).
+5. Fill the fields:
+   - **Wallet**: the **sub-account / Vault address** (without the `HL:` prefix) — *not* your main wallet address.
+   - **Private key**: the **agent (API) wallet private key** from Step 1.
+6. Save / Connect.
+
+> **Why the sub-account toggle matters:** without it, Hyperliquid attributes the order to your main account — the order executes on the main wallet while Gainium shows an error, and order/deal info can't be tracked back. The toggle tells Gainium to route and read orders against the sub-account.
 
 ---
 
