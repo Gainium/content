@@ -4,7 +4,7 @@ name: Connect to OKX
 slug: connect-to-okx
 description: This guide will walk you through step by step how to connect OKX to Gainium.
 createdAt: '2023-12-04T16:34:41.588Z'
-updatedAt: '2026-02-24T07:44:20.568Z'
+updatedAt: '2026-07-18T00:00:00.000Z'
 publishedAt: '2023-12-04T16:34:45.153Z'
 locale: en
 categories:
@@ -16,7 +16,10 @@ ingestedAt: '2025-06-29T10:57:30.003Z'
 tldr: >-
   Step-by-step guide to connecting OKX to Gainium by creating an API key. Select
   "Linking third-party apps" and choose "Gainium" from the app name dropdown,
-  enable Trade permissions, then enter the credentials in Gainium.
+  enable Trade permissions, then enter the credentials in Gainium. Set the OKX
+  Origin (Advanced Settings) to match the OKX platform your account is on —
+  okx.com (global), my.okx.com (EU/EEA), or app.okx.com (regional entities such
+  as OKX US / Australia) — or the connection will fail.
 ---
 
 This guide will walk you through creating a new API key in OKX and inputting the details into Gainium's exchange page, enabling seamless integration for enhanced trading experiences.
@@ -65,11 +68,20 @@ This guide will walk you through creating a new API key in OKX and inputting the
 
 Note: If you are adding a SPOT or a Futures-only API key, make sure to select either "OKX SPOT" or "OKX Futures," not the option "OKX SPOT & Futures."
 
-### **2.3 Enter API Key Details**
+### **2.3 Choose the Correct OKX Origin**
+OKX operates several separate regional platforms, each on its own domain. An API key created on one of them will **only** authenticate against that same domain — so Gainium needs to know which one your account lives on. On the connection form, expand **Advanced Settings** and set the **OKX Origin** dropdown to match the site where you created your OKX account and API key.
+
+- **https://okx.com — Global (default).** Choose this if you signed up on the main **www.okx.com** site. This covers most users worldwide and is the correct choice if you're unsure and not in the regions below.
+- **https://my.okx.com — OKX Europe (EEA).** Choose this if you're in the European Economic Area and your account was created on or migrated to **my.okx.com**. Note that OKX Europe offers a restricted product set: through Gainium you can currently trade **USDC/EUR spot** pairs only — USDT pairs are unavailable, and X-Perp futures aren't supported yet.
+- **https://app.okx.com — Regional entities (e.g. OKX US, OKX Australia).** Choose this if your account was created on the **app.okx.com** platform used by these standalone regional entities.
+
+Picking the wrong origin is the most common cause of "invalid API key" or connection errors on OKX, even when the key and secret are correct — because Gainium ends up querying a different OKX platform than the one that issued the key. When in doubt, log in to OKX and check the domain in your browser's address bar, then select the matching origin here.
+
+### **2.4 Enter API Key Details**
 - In the provided fields, enter the API Key and Secret Key you obtained from OKX.
 - Ensure the details are entered correctly to avoid connection issues.
 
-### **2.4 Save and Test the Connection**
+### **2.5 Save and Test the Connection**
 - Save your settings and test the connection to ensure that Gainium can successfully communicate with OKX.
 - If there are any issues, double-check the API key details and permissions.
 - Note that in order to trade futures, the account should be [unified](https://www.okx.com/learn/what-is-a-unified-account).
