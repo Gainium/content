@@ -28,6 +28,10 @@ Most traders lose money not because their strategy is bad, but because they don'
 
 This article covers everything the Trade Journal offers: creating entries, recording executions, using rulebook checklists, ratings, and tags, reading the trading calendar, and analyzing your results.
 
+Prefer to watch? Here is a video walkthrough of the feature:
+
+https://www.youtube.com/watch?v=8BmgsQy0R90
+
 ## Why Keep a Trade Journal?
 
 - **Find your edge.** Tagging trades by setup, market condition, or mistake reveals which patterns are profitable and which quietly drain your account.

@@ -26,6 +26,10 @@ tldr: >-
 
 Manual Backtesting is a market replay simulator built into Gainium. It feeds you real historical candles one bar at a time, and you decide when to enter, how much to risk, and when to exit — exactly like live trading, but compressed and risk-free. It is the fastest way to build screen time, test a discretionary strategy, and gather honest statistics about your own decision making.
 
+Prefer to watch? Here is a video walkthrough of the feature:
+
+https://www.youtube.com/watch?v=Xd64kFdtaHM
+
 This article covers creating sessions and controlling the replay. Two companion articles go deeper:
 
 - [Placing and managing trades](/help/manual-backtesting-trade-setup) — order types, position sizing, take profit, stop loss, and templates.
