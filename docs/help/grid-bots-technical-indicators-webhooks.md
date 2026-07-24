@@ -45,6 +45,10 @@ Combo bots are engineered to be more than just a reaction to market conditions; 
 
 Combo bots can be activated using webhooks or technical indicators, providing a precision start based on robust market signals. This automated response to market conditions ensures that the bot begins trading when certain predefined criteria are met, avoiding the pitfalls of poor timing.
 
+You choose the trigger under the combo bot's **Deal start condition** — selecting **Webhook** lets an external signal (for example a TradingView alert) start the grid.
+
+![Combo bot deal start condition set to Webhook](https://content.gainium.io/images/content/help/grid-bots-technical-indicators-webhooks__add1.webp)
+
 ### Strategic Investment Distribution
 
 Combo bots adopt a staggered approach rather than committing a lump sum at a potentially disadvantageous time. This method lessens the risk associated with entering the market all at once and favors a more measured investment spread that can average the entry price.
@@ -52,6 +56,8 @@ Combo bots adopt a staggered approach rather than committing a lump sum at a pot
 ### Flexible Grid Configurations
 
 Beyond these features, combo bots on Gainium also offer the flexibility to create advanced grid configurations. This includes adjustable DCA order step and volume scales, allowing asymmetrical grids. Traders can allocate more funds toward either the top or bottom of the grid and vary the spacing between orders. Such configurations cater to more sophisticated trading strategies, providing unparalleled flexibility that aligns with market trends and individual risk profiles.
+
+![Combo bot Step scale and Volume scale controls for asymmetrical grids](https://content.gainium.io/images/content/help/grid-bots-technical-indicators-webhooks__add2.webp)
 
 By combining the intelligence of technical indicators with the sophistication of flexible grid configurations, combo bots offer a trading experience that is responsive, strategic, and fine-tuned to the dynamics of the crypto markets.
 

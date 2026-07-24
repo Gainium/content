@@ -112,6 +112,9 @@ Once you have switched to paper mode, go to your exchanges and add a new paper t
 
 ![add-exchange.png](https://content.gainium.io/images/content/help/add_exchange_a287032f64-a990eb.webp)
 
+The Add Exchange dialog opens with the Paper Trading tab selected: pick the exchange to simulate and set the starting balance for each market, then confirm.
+![Add New Exchange dialog in Paper Trading mode with per-market funding](https://content.gainium.io/images/content/help/paper-trading-forward-testing__add1.webp)
+
 Think of paper trading mode as another account. You can add and remove exchanges; all other functionality remains the same. There's no limit on how many paper exchanges you can create.
 
 If you use AI agents through Gainium MCP, paper mode is usually passed per tool call with `paperContext: true`, or enforced server-side with `GAINIUM_PAPER_ONLY=true`. See [Connect Gainium MCP to AI agents](https://gainium.io/help/mcp) for the MCP-specific setup.
@@ -121,6 +124,9 @@ If you use AI agents through Gainium MCP, paper mode is usually passed per tool 
 You can manage your paper trading accounts from the "Exchanges" menu. There you can add new accounts, add more funds to existing accounts, delete accounts, and reset all paper trading data.
 
 ![manage paper trading.png](https://content.gainium.io/images/content/help/manage_paper_trading_cdb824114f-1dc8a8.webp)
+
+To top up an existing paper account, open its menu and choose Edit, then enter the amount to add:
+![Edit Exchange dialog with the Amount to Add field for topping up a paper account](https://content.gainium.io/images/content/help/paper-trading-forward-testing__add2.webp)
 
 ## From Paper Trading to Live: The Recommended Path
 

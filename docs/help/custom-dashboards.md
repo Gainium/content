@@ -28,6 +28,8 @@ A dashboard is a page made of **widgets**: self-contained cards showing your por
 
 > **Overview vs. dashboards:** the **Overview** page is a fixed, curated summary that is the same for everyone. Custom dashboards are fully yours — different widgets, different layouts, different purposes.
 
+![A custom dashboard with several widgets on the grid](https://content.gainium.io/images/content/help/custom-dashboards__add1.webp)
+
 ## Your first dashboards
 
 The first time you use dashboards, Gainium creates three starter dashboards for you:
@@ -50,6 +52,8 @@ Both open the same creation dialog:
 1. **Pick a starting point.** Choose **Blank** for an empty dashboard, or pick a template (see below). Each template card shows how many widgets it includes.
 2. **Name it.** The name must be unique, between 2 and 50 characters. Picking a template pre-fills its name, but you can type your own at any time.
 3. Click **Create Dashboard**. You are taken straight to the new dashboard.
+
+![The Create New Dashboard dialog with template picker and name field](https://content.gainium.io/images/content/help/custom-dashboards__add2.webp)
 
 Each dashboard gets its own web address based on its name (for example, a dashboard called "My Bots" lives at `/dashboard/my-bots`), so you can bookmark individual dashboards.
 
@@ -82,7 +86,11 @@ A template only sets the initial widgets and their arrangement — after creatio
 
 ## Managing dashboards
 
-Open the **Dashboard Manager** from the dashboard page toolbar. It has three sections — dashboards, layout, and widgets — so everything is in one place. In the *All Dashboards* list you can:
+Open the **Dashboard Manager** from the dashboard page toolbar. It has three sections — dashboards, layout, and widgets — so everything is in one place.
+
+![The Dashboard Manager drawer showing the dashboards, layout, and widgets sections](https://content.gainium.io/images/content/help/custom-dashboards__add3.webp)
+
+In the *All Dashboards* list you can:
 
 - **Switch** — click a dashboard to open it.
 - **Reorder** — drag dashboards by the grip handle to change their order in lists and panels.
@@ -102,6 +110,8 @@ Note that day-to-day changes are saved automatically as you make them — these 
 Open the **Widget Manager** (the *Widgets* section of the Dashboard Manager). It lists every widget currently on the dashboard and lets you:
 
 - **Add widgets** — click *Add Widget* to open the widget browser, which groups widgets by category (Portfolio, Analytics, Bots, Trading, Market, News, Utilities). Each entry shows a short description of what the widget does. You can add several widgets in a row without closing the browser, and you can add multiple copies of the same widget — for example, two Coin Charts showing different pairs.
+
+![The widget browser with widgets grouped by category](https://content.gainium.io/images/content/help/custom-dashboards__add4.webp)
 - **Remove widgets** — via the remove button on each list entry, or directly on the widget itself with the **×** button.
 - **Reorder widgets** — drag entries in the list to re-flow the grid.
 - **Open a widget's settings** — for widgets that have configuration options.

@@ -50,6 +50,9 @@ Let's dive into a practical example to understand how Smart Orders can make a di
 **With Smart Orders**: Using the same scenario with the Smart Orders feature activated, instead of placing all 100 orders, the system might only place 10 orders around the current price. As the price of BTC/USDT moves and an order gets executed, the bot will then place a new order in the next grid. This means a significant portion of your 10,000 USDT remains available and isn't locked in unexecuted orders.
 
 ## How to Set Up Smart Orders
+![Smart orders in the combo bot DCA section](https://content.gainium.io/images/content/help/smart-orders__add1.webp)
+*Smart orders in combo bots (DCA section)*
+
 - Create a New bot- In grid bots, Smart orders are found in the Budget section. In DCA and Combo bots, they are found in the DCA section- Configure the number of active orders, meaning, the number of limit orders to keep in the exchange at any given time- Complete the bot setup and activate it.
 
 ## Conclusion

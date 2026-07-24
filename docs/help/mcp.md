@@ -101,6 +101,8 @@ When you add Gainium from an app's connector directory or via a hosted connector
 
 Manage or revoke any connection anytime under **Gainium → Settings → Connected apps**. Revoking immediately deletes that connection's access key.
 
+![Connected apps page in Settings with a Revoke control on each authorized app](https://content.gainium.io/images/content/help/mcp__add1.webp)
+
 ## What your AI can do
 
 **Read (both connectors):** list and inspect DCA, Combo, and Grid bots and their deals; check balances and connected exchanges; run the crypto screener; review backtests; and browse curated, backtested strategy presets.

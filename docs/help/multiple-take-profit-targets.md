@@ -46,3 +46,6 @@ To use multiple TP in your terminal in bot deals, enable the option in the Take 
 Here are a few things to keep in mind:
 - You can add up to 10 TP targets as long as each target meets the minimum order size as dictated by the exchange- When DCA mode is enabled, TP targets are always calculated from the average order price- Once the first TP target is filled, all pending DCA orders will be canceled. This is to help avoid the situation where you sold part of the deal, then the price came back to fill a DCA order. In this case, the initial profit projection would not have been accurate, so in order to avoid confusion and unexpected results, we decided to cancel pending DCAs.
 ![multiple-tp.png](https://content.gainium.io/images/content/help/multiple_tp_3fc49eab62-6df13f.webp)
+
+You can stack up to 10 targets, each closing a portion of the position at a higher price. The Expected average profit updates as you add or adjust targets:
+![Five take profit targets stacked with descending position sizes](https://content.gainium.io/images/content/help/multiple-take-profit-targets__add1.webp)

@@ -43,6 +43,7 @@ https://www.youtube.com/watch?v=8BmgsQy0R90
 
 Open **Trade Journal** from the dashboard navigation. The page has two main areas: the **trading calendar** at the top and the **All Trades** list below it, with your overall stats in the header. Use the **+** button (or **New Entry**) to add a trade manually, and the book icon to jump to your manual backtesting sessions.
 
+
 ## Adding Trades to the Journal
 
 There are two ways to get trades into your journal:
@@ -55,6 +56,8 @@ Journaling backtest trades is a great habit: it lets you practice the full routi
 ## Creating an Entry
 
 Click **New Entry** to open the journal entry form. It sits alongside a live chart and a notes panel, so you can document the trade while looking at exactly what the market did.
+
+![The New Journal Entry form](https://content.gainium.io/images/content/help/trade-journal__add2.webp)
 
 ### Symbol and Market Type
 

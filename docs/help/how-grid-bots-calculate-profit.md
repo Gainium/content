@@ -45,4 +45,8 @@ This approach reflects a comprehensive profit calculation, accounting for the gr
 
 It's worth noting that the Gainium grid bot strategy is designed to perform best in a volatile market where the price of a trading pair fluctuates within a specific range. The unmatched order profits help in maximizing gains in these volatile market conditions.
 
+In the app, this calculated profit is surfaced on the grid bot's detail page — the **Bot Profit** figure already reflects both matched grid pairs and unmatched orders valued against the token's initial price (with exchange fees included).
+
+![Grid bot profit shown on the bot detail page](https://content.gainium.io/images/content/help/how-grid-bots-calculate-profit__add1.webp)
+
 We hope this article provides a clear understanding of how Gainium's grid bot calculates profits. As always, our team is available to answer any queries regarding our trading platform. Happy trading!

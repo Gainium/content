@@ -70,6 +70,10 @@ Here's a pro tip: Avoid grid spaces that are too narrow. Why? Because every trad
 
 There's another hoop to jump through. Exchanges have rules. Many prevent orders that are less than 0.2% apart. This limitation ensures that your grid bot isn't stepping on its own toes or, worse, working for free just to cover fees.
 
+You set the grid step directly in the grid bot form, in the **Range** section — alongside the price range (top/low price) and the number of grid levels. The grid step and grid levels are linked: for a fixed range, a smaller step means more levels.
+
+![Grid step and range fields in the grid bot form](https://content.gainium.io/images/content/help/grid-step__add1.webp)
+
 ### Example: Backtest results of BTC/USDT with different grid spacing
 
 Now, it's time to put theory into practice. Here are the results of 3 backtests performed in the same period, each with a different grid spacing: 1%, 0.5%, and 0.25%. You can observe that as the grid spacing is reduced, the net result % decreases. However, bear in mind that the absolute net result in USDT is higher because as we used more grids with less spacing, the required budget is also much higher (due to the exchange minimum order).

@@ -26,6 +26,8 @@ tldr: >-
 
 This article walks through every control in the Manual Backtesting trade panel. If you have not created a session yet, start with the [Manual Backtesting overview](/help/manual-backtesting). For interpreting your results, see [statistics and performance metrics](/help/manual-backtesting-stats).
 
+![The trade panel: direction, order type, position size, leverage, and the take-profit section](https://content.gainium.io/images/content/help/manual-backtesting-trade-setup__add1.webp)
+
 ## Direction
 
 Choose **Long** (profit when price rises) or **Short** (profit when price falls). Shorts are simulated even on spot pairs, so you can practice both sides of the market anywhere.
@@ -64,6 +66,8 @@ When the active pair is a futures market, an extra section appears:
 
 Futures pairs also auto-apply the 0.02% futures trading fee unless you set a different fee on the session.
 
+![Futures settings: margin type (Cross/Isolated) and the leverage slider with presets](https://content.gainium.io/images/content/help/manual-backtesting-trade-setup__add3.webp)
+
 ## Take profit targets
 
 Enable the **Take Profit Targets** switch to define where you take profit. You can add multiple targets to scale out of a position in parts:
@@ -77,6 +81,8 @@ The mode selector switches how quick buttons work:
 - **R:R mode** — buttons place the target at a multiple of your risk: 1:1, 1:2, up to 1:5. A 1:3 target sits three times as far from entry as your stop loss does. R:R mode requires a valid stop loss, since risk distance is measured from it.
 
 When a partial target hits during replay, that portion of the position closes and the profit is locked in; the rest keeps running.
+
+![Take-profit targets with two partial targets, each with its own size percentage of the position](https://content.gainium.io/images/content/help/manual-backtesting-trade-setup__add2.webp)
 
 ## Stop loss
 

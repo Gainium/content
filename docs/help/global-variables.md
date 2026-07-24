@@ -37,6 +37,8 @@ Global Variables let you define reusable values (**text**, **integer**, or **flo
 - When editing a bot, type `/` in any supported field to open the variable menu.
 - Select your variable to insert it.
 
+![The Global Variables page listing your variables with their name, type, and value](https://content.gainium.io/images/content/help/global-variables__add1.webp)
+
 **Note:** Once inserted, the variable **replaces the entire field**. You can’t combine it with other values (e.g.,  `name + "test"` is not valid).
 
 ## What Happens When a Variable is Changed?

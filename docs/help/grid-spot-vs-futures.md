@@ -55,6 +55,10 @@ With these foundational concepts clarified, we can dive deeper into how grid tra
 
 **Futures**: In futures, the mechanism incorporates the essence of contracts. While grid levels can still be set, traders must be cognizant of the contract's expiry date and potential liquidations due to the leverage used. Orders may not necessarily lead to asset ownership but might settle in cash or roll over to another contract.
 
+In Gainium, whether a grid runs on spot or futures is determined by the exchange account you pick when creating the bot. On a futures account, the grid bot's **Strategy** section exposes the futures-only controls — the ability to go **Short** as well as Long, the margin type, and a **Leverage** selector — none of which appear for a spot grid.
+
+![Futures grid bot direction, margin and leverage controls](https://content.gainium.io/images/content/help/grid-spot-vs-futures__add1.webp)
+
 ### 2.2. Risk Profile
 
 **Spot**: The risks in spot grid trading are mainly related to market volatility. Since there's no leverage involved, traders risk what they put in and not more.
@@ -152,6 +156,8 @@ Before deploying real capital, Gainium users can test their grid trading strateg
 ### 6.3. Automated Grid Trading Bots
 
 Gainium offers a suite of trading bots designed explicitly for grid strategies. Users can customize their grid parameters, and the bot will manage buying and selling automatically based on those settings, ensuring 24/7 trading without manual oversight.
+
+![List of grid bots in Gainium](https://content.gainium.io/images/content/help/grid-spot-vs-futures__add3.webp)
 
 ### 6.4. Community Knowledge and Engagement
 

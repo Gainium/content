@@ -84,6 +84,8 @@ Here's how they achieve this:
 
 By incorporating these features, combo bots provide a more fluid and robust trading experience, rendering trailing up and down unnecessary and somewhat obsolete.
 
+![A running combo bot showing its active grid levels above the range and DCA orders below](https://content.gainium.io/images/content/help/trailing-up-down-combo__add1.webp)
+
 ## Advantages of Combo Bots Over Grids
 
 The introduction of combo bots has brought several key advantages over traditional grid trading bots:

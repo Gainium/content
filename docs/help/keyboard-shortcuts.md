@@ -34,6 +34,8 @@ There are three ways to open it:
 
 The manager shows all shortcuts grouped by category, with a search box that filters by name, category, or page.
 
+![The Shortcut Manager, with the search box, Disable shortcut hints toggle, and shortcuts grouped by category](https://content.gainium.io/images/content/help/keyboard-shortcuts__add1.webp)
+
 **Mac vs. Windows:** shortcuts shown with **⌘** on Mac use **Ctrl** on Windows and Linux. Single-letter shortcuts are the same everywhere.
 
 ## Default shortcut reference
@@ -117,6 +119,8 @@ When you save a bot template, you can optionally assign it a hotkey. Pressing th
 3. Press the key combination you want. It's saved immediately.
 4. Press **Escape** (or click elsewhere) to cancel recording.
 
+![A shortcut row in the manager showing its key, the cog (record) icon, the reset icon, and the trash icon](https://content.gainium.io/images/content/help/keyboard-shortcuts__add2.webp)
+
 If the combination is already used by another shortcut, you'll see a warning and the old binding is kept — pick a different combination or free up the conflicting one first.
 
 **Tip:** avoid combinations your browser or operating system already reserves (like ⌘/Ctrl + W to close a tab) — the browser may act on them before Gainium can.
@@ -129,6 +133,8 @@ At the bottom of the list, the **Custom shortcuts** section lets you create your
 2. Enter the **path** of the page inside Gainium it should open — for example `/portfolio` or `/bot/new`. The easiest way to find a path is to open that page and copy everything after `app.gainium.io` from the address bar. The path must start with `/`.
 3. Click the **cog icon** and press the key combination you want.
 4. Click **Add**.
+
+![The Custom shortcuts form at the bottom of the manager: a name field, a path field, the record-key cog, and the Add button](https://content.gainium.io/images/content/help/keyboard-shortcuts__add3.webp)
 
 Custom shortcuts work anywhere in the app, just like the built-in ones.
 

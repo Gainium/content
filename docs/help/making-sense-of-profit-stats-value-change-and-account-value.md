@@ -39,3 +39,7 @@ We have to clarify the concept of realized and unrealized profit. When the bot s
 
 Therefore, we need another metric to consider the realized and unrealized profit so we can better understand what's going on. This is what value change tells us. Value change takes into account the initial value of the bot at the start (around $1000), the current value, including the ETH it is still holding, and the profit generated.
 ![value_change.png](https://content.gainium.io/images/content/help/value_change_e3a9795f57-233127.webp)
+
+For a single bot, the same figures sit side by side in its Profit panel: **Value Change** (which folds in both realized and unrealized profit) next to **Bot Profit** (the realized profit reported in the stats). Reading them together is what reconciles the reported profit with your actual account value.
+
+![Value change next to bot profit for a single grid bot](https://content.gainium.io/images/content/help/making-sense-of-profit-stats-value-change-and-account-value__add1.webp)

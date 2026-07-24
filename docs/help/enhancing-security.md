@@ -40,6 +40,8 @@ These same precautions matter if you use your Gainium API keys with external too
 
 Activating 2FA on the exchange and Gainium is the first step to safeguard access to your API keys. This is a standard security practice; however, hackers can sometimes find security holes in the platforms and access the database directly. That's why it's important to take additional security measures so that in the event that a hacker manages to obtain your API keys, they would be rendered useless anyway.
 
+![Enable two-factor authentication in Gainium under Settings → Login & Security](https://content.gainium.io/images/content/help/enhancing-security__add1.webp)
+
 ### Exchange API key IP whitelist
 
 Exchanges usually allow extra security measures to ensure your API keys are safe. One of such measure is IP whitelisting. By allowing only certain IPs to use the API key, you can ensure that they will not work even if they were leaked. Remember that the IP to whitelist is not your computer IP, but the IP of Gainium's server, which connects to the exchange. During API creation, enable IP whitelisting and add Gainium's server IP:

@@ -33,6 +33,8 @@ Recommended Authenticator Apps:
 
 To enable 2FA in your Gainium account, head over to Settings → Security. Find the 2FA switch, and once you turn it on, you will be shown a QR code that can be scanned with your 2FA app.
 
+![Security settings — the 2FA enable switch](https://content.gainium.io/images/content/help/2fa__add1.webp)
+
 Once you successfully link 2FA to your authenticator app, you will be shown a set of recovery tokens if you lose your 2FA device. Write down these codes and keep them in a safe place.
 
 ## Recovering/resetting 2FA

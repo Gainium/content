@@ -206,6 +206,8 @@ This section shares many similarities with the DCA mode of our standard trading 
 
 #### Take Profit & Stop Loss
 
+![Combo bot Take Profit settings, including the Base take profit on selector (Used DCA vs Max DCA)](https://content.gainium.io/images/content/help/understanding-combo-bot__add1.webp)
+
 The Take Profit and Stop Loss sections operate similarly using Take Profit and Stop Loss by ROI % in the [grid bot](https://gainium.io/help/take-profit-stop-loss-grid). As explained earlier, a Take Profit in the combo bot is optional, since the deal will be closed anyway when the price crosses the base minigrid's upper bound (for longs) or lower bound (for shorts). If you turn Take Profit or Stop Loss on, here are the settings you can configure:
 - **Deal close type**: Market or Limit. A market order ensures the order closes immediately, though higher fees and slippage may result in a different price. A limit order ensures you get the expected price, though it may not fill immediately. To avoid long waiting times, the bot will reposition your limit order every few seconds to ensure it gets filled. You can learn more about [Exchange order types](https://gainium.io/academy/order-types).
 - **Take Profit or Stop Loss**: This is the percentage gain or loss that the deal needs to reach for the bot to close it. As mentioned earlier, we include the profit generated through the minigrid orders in computing the ROI; therefore, we do not know in advance at which price the bot will execute the TP or SL.

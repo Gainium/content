@@ -25,6 +25,8 @@ tldr: >-
 The sell displacement is an extra price % added to grid distance, which increases the distance between a buy and its corresponding sell order. Note that this does not affect the distance between buy orders and sell orders, only between a buy and its corresponding sell order.
 
 This is used to avoid users losing money on exchange fees. Hence the minimum setting is double the exchange fee.
+![Sell displacement field in the grid bot settings](https://content.gainium.io/images/content/help/sell-displacement__add1.webp)
+*The Sell displacement field in the grid bot settings.*
 
 There are, however other cases in which increasing this gap may be helpful. If you have detected a price range and would like to maximize your profits, increasing the sell displacement will allow you to concentrate the buy orders towards the bottom and the sell orders towards the top of the range.
 ![sell-dsplacement.webp](https://content.gainium.io/images/content/help/sell_dsplacement_028be72d95-dcfe0c.webp)

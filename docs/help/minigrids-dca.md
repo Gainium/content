@@ -43,6 +43,8 @@ tldr: >-
 
 ### Practical Use and Configuration
 
+![DCA Minigrids settings inside the Combo Bot builder](https://content.gainium.io/images/content/help/minigrids-dca__add1.webp)
+
 The DCA Minigrids feature is particularly useful in volatile markets. Here’s how you might configure it:
 - Set **DCA Orders** to 5 to allow the bot to place 5 orders across different price levels.
 - Use a **5% Order Step** to ensure orders are spaced far enough apart to capture meaningful price movements.

@@ -55,6 +55,8 @@ Now, let's unpack both options, with examples to guide you.
 
 ### Using % of Total Tokens
 
+![DCA orders count and per-order sizing in the bot form](https://content.gainium.io/images/content/help/autocompunding-trading-bots__add1.webp)
+
 This method tells the bot to use a specific percentage of your total holdings for each trade. Using this option, the bot will check only the total amount, including tokens that might be locked in limit orders and, therefore, inaccessible to trade. This option is straightforward but requires attention to not exceed 100% when combined with all orders, including DCA (Dollar Cost Averaging) orders.
 
 **Example:** Suppose you have 1000 USDT. You set your bot to use 20% of your total tokens for the base order and 10% for each DCA order. If you plan five DCA orders, that's 50% for DCA orders plus 20% for the base order, totaling 70%. All is good here, as it's under 100%.

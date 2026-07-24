@@ -34,6 +34,8 @@ When setting up your trading bot with multiple indicators, you can use the AND/O
 ![image.png](https://content.gainium.io/images/content/help/image_6adcc3e7eb-c5acdc.webp)
 ## Applying AND/OR to Multiple Indicators
 
+![Two indicators combined under a single AND operator](https://content.gainium.io/images/content/help/and-or-operators__add1.webp)
+
 When you apply AND or OR, it affects all the indicators you’ve chosen. This means that the logic is applied uniformly across the board. For example:
 
 - AND Example: If you set up three indicators (A, B, C) with the AND operator, the bot will only trade if A AND B AND C are all true.

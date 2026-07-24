@@ -54,4 +54,8 @@ However, there are also some situations where you may want to avoid it:
 
 You can enable Trailing Take Profit in Trading Bot and Trading Terminal deals under Take Profit section.
 ![trailing-take-profit.png](https://content.gainium.io/images/content/help/trailing_take_profit_f5ddf3d1c4-0f6ea5.webp)
+
+Trailing Take Profit is also available for manual deals in the Trading Terminal, under its Take Profit section:
+![Trailing take profit in a Trading Terminal deal](https://content.gainium.io/images/content/help/trailing-take-profit__add1.webp)
+
 **Trading tip**: a good rule of thumb is to set your trailing take profit deviation between 10 to 25% of your take profit target.

@@ -43,6 +43,8 @@ A strategy that looks great on a chart in hindsight can fall apart when you only
 
 Open **Manual Backtesting** from the dashboard menu and click **New Session**. Each session is an independent simulation with its own balance, symbols, time period, and trade history.
 
+![The New Session form with balance, fee, slippage, symbols, blind mode, and Backtest period options](https://content.gainium.io/images/content/help/manual-backtesting__add1.webp)
+
 ### Session name
 
 Give the session a recognizable name (for example, "BTC breakouts – Q1 2024"). Use **Generate Name** if you just want a timestamped placeholder.
@@ -97,9 +99,13 @@ Once a session opens, the screen has four areas:
 
 Both side and bottom panels can be collapsed to give the chart more room.
 
+![The replay interface: chart, right-side trade panel, bottom trades panel, and floating playback bar](https://content.gainium.io/images/content/help/manual-backtesting__add2.webp)
+
 ## Playback controls
 
 A floating control bar drives the replay. Drag it by its handle to any position on screen — it remembers where you left it.
+
+![The floating playback control bar: drag handle, speed, play, previous/next bar, sync, step size](https://content.gainium.io/images/content/help/manual-backtesting__add3.webp)
 
 - **Play / Pause** — advance automatically. Playback speed can be set to 1x, 2x, 4x, 8x, or 16x.
 - **Next bar / Previous bar** — step one bar at a time. Stepping backward is only available when no trade is open (you cannot un-see the future once you have positioned on it).
@@ -147,6 +153,8 @@ The Manual Backtesting home page lists all your sessions with their equity curve
 - **Delete** a session. If some of its trades were saved to your trade journal, you can choose whether to delete those journal entries too or keep them.
 
 The header of the list aggregates stats across all sessions — total P&L, total trades, overall winrate, and total time replayed — so you can watch your practice volume grow.
+
+![The Manual Backtesting home page with the aggregate stats header and a saved session card](https://content.gainium.io/images/content/help/manual-backtesting__add4.webp)
 
 ## Practical tips
 

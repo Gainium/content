@@ -63,9 +63,13 @@ Let's dive into how you can smartly employ deal start price filters to optimize 
 
 Static filters are available in single-pair bots. Setting a minimum and/or maximum price ensures your bot only activates within your defined price zone. If the price strays outside these boundaries, your bot switches to "range" mode until the price enters the trading range again.
 
+You'll find these fields under the bot's **Deal Start → More Settings**, once you enable the Static price filter:
+![Static price filter: minimum and maximum deal start price fields](https://content.gainium.io/images/content/help/price-filters__add1.webp)
+
 ## Dynamic Filters
 
 Now, let's get dynamic. With dynamic price filters, your bot's allowed price range is based on the most recent concurrently open deal for that pair. Note that this filter is only active when the bot is running multiple deals, and it will reset once all deals on that pair are closed. Here’s the lowdown:
+![Dynamic price filter: minimum deviation from last deal and entry/average price source](https://content.gainium.io/images/content/help/price-filters__add2.webp)
 - **Minimum Deviation from Last Deal:** This is the percentage gap you set from the price of the last deal. It's your buffer zone, ensuring you don't jump back in too soon.
 - **Price Source Options:** You can choose between the entry price and the average price of the last deal. The entry price is static. It's the price point at which your last concurrently open deal started. The average price, however, changes if the previous deal executes a DCA (Dollar Cost Averaging) order. This average price adjusts based on how the market moves and how you've averaged down your entry point on the last deal.
 

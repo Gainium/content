@@ -51,6 +51,8 @@ Adjust the grid bot settings to your liking and perform a new backtest.
 
 ## Evaluating Backtesting Results
 
+![Grid backtest results — General, Financial and Performance Ratios](https://content.gainium.io/images/content/help/backtesting-grid-bots__add1.webp)
+
 When analyzing the results of a backtest, it is essential to consider the following factors:
 - **Market conditions**: Assess the grid bot's performance across various market conditions, such as bull markets, bear markets, and periods of high volatility.
 - **Risk-adjusted returns**: Evaluate the bot's performance relative to the risk involved. Metrics like the Sharpe ratio, which measures the risk-adjusted return, can help with this assessment.

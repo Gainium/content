@@ -28,4 +28,8 @@ You have four possible choices:
 - You can edit the bot configuration and cover a broader range.
 - You can create another bot that covers an additional price range.
 
+To widen the range so it covers the current price, edit the bot and adjust the **Top price** and **Low price** fields in the Range section:
+
+![Grid bot Range settings showing the Top price and Low price fields](https://content.gainium.io/images/content/help/what-happens-when-the-price-is-out-of-range__add2.webp)
+
 **A note for users trading on Futures**: if the price moves above the upper grid level, you will have an active short position on the exchange. Likewise, if the price moves under the lower grid level, you will have an active long position on the exchange. We strongly suggest you monitor these positions closely and close them if necessary to avoid account liquidation.

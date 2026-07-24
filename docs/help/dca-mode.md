@@ -100,6 +100,9 @@ In **Technical Indicators** DCA mode, the bot places orders based on specific ma
 ![image.png](https://content.gainium.io/images/content/help/image_22b0e91d0f-d1f932.webp)
 *DCA Mode by Indicators*
 
+![DCA Mode by Indicators using RSI](https://content.gainium.io/images/content/help/dca-mode__add1.webp)
+*DCA Mode by Indicators (RSI example)*
+
 ### DCA Type: Custom
 
 **Custom DCA** allows you to set your percentage steps between orders and create as many DCA orders as you like. This mode gives you full flexibility in order sizes, spacing, and timing.

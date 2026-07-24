@@ -183,6 +183,9 @@ This is the section where the DCA comes into play (picture 10).
 ![Screenshot 2023-03-30 at 17.37.53.png](https://content.gainium.io/images/content/help/Screenshot_2023_03_30_at_17_37_53_388e2b75ad-8ddb6e.webp)
 *Picture 10*
 
+![DCA Mode card in the redesign, with the DCA overview graph and total required funds](https://content.gainium.io/images/content/help/dca-bot-set-up-walkthrough__add2.webp)
+*The DCA Mode card in the redesigned bot form, showing the order settings, the DCA overview graph, and the total funds the strategy requires*
+
 ### Number of DCA orders
 
 This is the number of orders generated each time you run a DCA cycle.In this example, I want to have 14 orders below my initial Base Order of 5 usdt, I want each DCA order to be 10 USDT (DCA order amount) and to fill my next order when the price drops 1% below my initial Base Order (Orders Step = 1%, which is also the interface’s default setting).

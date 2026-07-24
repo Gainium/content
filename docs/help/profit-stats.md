@@ -27,6 +27,7 @@ The profit chart shows the aggregated profit in USD generated over time. The pro
 The profit chart located in the dashboard shows the profit in USD for the full account. The USD value is calculated at the moment of profit. It does not change over time (if you generated the equivalent of $1 and profited in crypto, the profit value of that transaction will be $1 even after the crypto changes in value).
 
 The profit chart located on the bot pages can display data in base, quote, or USD. You can select which currency you want to see on the graph by changing the currency switch above the chart.
+![Bot-page profit chart](https://content.gainium.io/images/content/help/profit-stats__add1.webp)
 
 *Exchange fees [are excluded](https://gainium.io/help/are-exchange-fees-excluded-from-profit-calculation) (accounted for) in profit calculation.
 ![profit-chart.png](https://content.gainium.io/images/content/help/profit_chart_af732cbf8e-34e1ff.webp)

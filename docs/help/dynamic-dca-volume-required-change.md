@@ -39,6 +39,8 @@ The key here is flexibility and control. Users can precisely manage their DCA ac
 
 Pro tip: in the bot page, under settings, there is a widget named "Example orders for a deal." This table shows the required change and volume necessary for each DCA, you can experiment with the settings and observe how they change the required volume for each DCA.
 
+![DCA overview widget showing each DCA order's price level and volume for the deal](https://content.gainium.io/images/content/help/dynamic-dca-volume-required-change__add2.webp)
+
 ## Using Dynamic DCA in Bot Trading
 
 Dynamic DCA orders can be highly effective when combined with other indicators to optimize entry and exit conditions in bot trading. Here are some trading strategies that can utilize Dynamic DCA effectively:

@@ -50,6 +50,9 @@ The heart of a rulebook is its checklist. It is organized into **sections**, eac
 
 A good rule of thumb: make the 3–5 conditions that *define* the setup required, and leave extra confirmations optional. If everything is required, you'll never trade; if nothing is, the checklist becomes decoration.
 
+![The Create New Rulebook form with name, concept, video and a checklist section and item](https://content.gainium.io/images/content/help/rulebooks__add2.webp)
+*The rulebook editor — name, trading concept and video at the top, then the pre-trade checklist built from sections and items, each item with a Required toggle.*
+
 ## Using a Rulebook in Manual Backtesting
 
 Rulebooks come alive inside manual backtesting sessions — chart-replay practice where you place simulated trades bar by bar.
@@ -83,6 +86,9 @@ When you create a new session with a rulebook selected, Gainium warns you if you
 ## Tracking Performance and Adherence
 
 ### The Rulebooks page
+
+![The Rulebooks page: Overall Performance summary and the Rulebook Library](https://content.gainium.io/images/content/help/rulebooks__add1.webp)
+*The Rulebooks page — Overall Performance stats above the Rulebook Library, with the New button top-right.*
 
 The [Rulebooks](https://app.gainium.io/rulebooks) page gives you a portfolio view of all your strategies:
 
