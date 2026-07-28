@@ -4,7 +4,7 @@ name: Connect to Kraken
 slug: connect-to-kraken
 description: Step-by-step guide to connecting your Kraken account to Gainium via API keys.
 createdAt: '2026-03-30T11:44:00.000Z'
-updatedAt: '2026-03-30T11:44:00.000Z'
+updatedAt: '2026-07-29T00:00:00.000Z'
 publishedAt: '2026-03-30T11:44:00.000Z'
 locale: en
 categories:
@@ -15,8 +15,9 @@ tags:
 ingested: false
 tldr: >-
   Step-by-step guide to connecting Kraken to Gainium. Create an API key on
-  Kraken Pro with Orders & Trades permissions enabled, whitelist Gainium's IPs,
-  then paste your API Key and Private Key into Gainium.
+  Kraken Pro with Orders & Trades and WebSocket interface permissions enabled,
+  whitelist Gainium's IPs, then paste your API Key and Private Key into
+  Gainium.
 ---
 
 Gainium uses APIs to connect to your exchange and execute trades. This guide walks you through creating a Kraken API key and linking it to your Gainium account.
@@ -52,11 +53,13 @@ Kraken uses granular permission settings. For Gainium to trade on your behalf, e
 - ✅ **Modify Orders** — required to place new orders
 - ✅ **Cancel/Close Orders** — required to close or cancel orders
 
+**WebSocket:**
+- ✅ **WebSocket interface** (also shown as **Access WebSockets API**) — **required**. Gainium uses Kraken's WebSocket feed to receive order fills and balance changes in real time. Without this permission the connection cannot be verified, and bots would only learn about fills with a delay.
+
 > Do **not** enable **Withdraw Funds** unless you explicitly need it. Gainium does not require withdrawal permissions.
 
 **Optional:**
 - ✅ **Query Ledger Entries** — useful for PnL tracking
-- ✅ **Access WebSockets API** — recommended for real-time data
 
 **IP Whitelist (Recommended):**
 
