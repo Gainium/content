@@ -67,11 +67,6 @@ Toggle on **Enable Spot & Margin Trading** to allow Gainium to place orders on y
 Enable **Restrict access to trusted IPs only** and add the following Gainium server IPs:
 
 ```
-78.128.60.89
-78.128.43.82
-78.128.8.36
-78.128.43.168
-217.174.152.25
 62.84.191.108
 62.84.191.109
 62.84.191.110

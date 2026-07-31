@@ -55,11 +55,6 @@ You will also be asked to create an **API Passphrase** — this is a custom pass
 Restrict the API key to Gainium's servers by whitelisting the following IPs:
 
 ```
-78.128.60.89
-78.128.43.82
-78.128.8.36
-78.128.43.168
-217.174.152.25
 62.84.191.108
 62.84.191.109
 62.84.191.110
