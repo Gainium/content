@@ -4,7 +4,7 @@ name: Connect to Kraken
 slug: connect-to-kraken
 description: Step-by-step guide to connecting your Kraken account to Gainium via API keys.
 createdAt: '2026-03-30T11:44:00.000Z'
-updatedAt: '2026-08-01T00:00:00.000Z'
+updatedAt: '2026-08-13T00:00:00.000Z'
 publishedAt: '2026-03-30T11:44:00.000Z'
 locale: en
 categories:
@@ -72,12 +72,10 @@ Kraken uses granular permission settings. For Gainium to trade on your behalf, e
 
 Under **IP whitelisting**, add the following Gainium server IPs to restrict API access to trusted sources only:
 
+Kraken expects them as a single comma-separated list with no spaces:
+
 ```
-62.84.191.108
-62.84.191.109
-62.84.191.110
-62.84.191.111
-62.84.191.112
+62.84.191.108,62.84.191.109,62.84.191.110,62.84.191.111,62.84.191.112
 ```
 
 ### Step 6 – Generate the Key

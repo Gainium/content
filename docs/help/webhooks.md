@@ -6,7 +6,7 @@ description: >-
   Learn how to send webhooks to your trading bots and use them as entry trigger
   signal for trading.
 createdAt: '2022-11-22T13:46:17.530Z'
-updatedAt: '2026-02-24T07:44:20.586Z'
+updatedAt: '2026-08-13T00:00:00.000Z'
 publishedAt: '2022-11-22T13:46:20.790Z'
 locale: en
 categories:
@@ -39,8 +39,11 @@ Before diving into webhooks, it's essential to understand the various bots Gaini
 ### **Step 2: Create a new bot**
 
 To start, create a new bot. There are several places where the bot can accept webhooks, those include:
-- Deal Start- [Add funds](https://gainium.io/help/add-funds-to-deals)
-- Take Profit- Stop Loss- Start bot
+- Deal Start
+- [Add funds](https://gainium.io/help/add-funds-to-deals)
+- Take Profit
+- Stop Loss
+- Start bot
 
 ![webhooks.png](https://content.gainium.io/images/content/help/webhooks_8680099d81-baf1c8.webp)
 
@@ -65,7 +68,8 @@ You may input the webhook URL and the message as shown in your bot info. The ale
 There are different types of webhook actions:
 - Open deal: will instruct the bot to start a new deal.
 - Close all deals: will instruct to close all open deals at market price.
-- Close bot- [Add funds](https://gainium.io/help/add-funds-to-deals)
+- Close bot
+- [Add funds](https://gainium.io/help/add-funds-to-deals)
 
 ## **Concatenating Webhook Actions on the Same Alert**
 
@@ -78,9 +82,19 @@ Concatenating actions means executing multiple actions in sequence based on a si
 **Structure the Payload:** When setting up your webhook, structure the payload as an array of actions. Each action should be a distinct object within the array.
 
 Example to start a deal adding funds right away:
-[
-  { "action": "startDeal", "uuid": "f944e169-2398-482w-4987-10a30eeb477b" },
-  { "action": "addFunds", "uuid": "f944e169-2398-482w-4987-10a30eeb477b", "asset": "quote", "qty": "50" }
 
+```json
+[
+  { "action": "startDeal", "uuid": "f944e169-2398-482b-4987-10a30eeb477b" },
+  {
+    "action": "addFunds",
+    "uuid": "f944e169-2398-482b-4987-10a30eeb477b",
+    "asset": "quote",
+    "qty": "50"
+  }
 ]
+```
+
+Replace the `uuid` with your own bot's UUID, shown in the webhook info box after you create the bot.
+
 **Test the Webhook:** Before going live, test the webhook with the array payload to ensure all actions are executed as expected.
