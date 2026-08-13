@@ -88,7 +88,7 @@ Every payload is a JSON object with at least an `action` and a `uuid`:
 
 The `uuid` is the **bot's UUID shown in the webhook info box** — not the bot id from the browser address bar. A payload carrying the wrong identifier matches no bot and the signal is dropped.
 
-These are all the actions Gainium accepts. **An `action` value that isn't in this list is ignored silently** — the request still returns successfully, so a typo (or an action name suggested by an AI assistant) looks like it worked while doing nothing at all.
+These are all the actions Gainium accepts. **An `action` value that isn't in this list is rejected** — the request comes back with HTTP 400 and a message naming the action you sent and listing the valid ones. Older integrations may have been built when an unrecognised action returned success and did nothing; if one of yours starts erroring, the action name was never working in the first place.
 
 | Action | What it does | Extra fields |
 | --- | --- | --- |
@@ -177,10 +177,12 @@ Some exchanges — Hyperliquid among them — do not offer a "reverse" endpoint 
 
 ## **Troubleshooting: my webhook does nothing**
 
-The endpoint accepts almost anything and returns success, so a silent no-op is the usual failure. Work through these in order:
+A misspelled action now comes back as an error, but a correctly-named action can still do nothing — if the bot isn't configured for it, the signal is accepted and dropped further down, and the response is still a success. That silent no-op is the usual failure. Work through these in order:
 
 1. **Is the action enabled on the bot?** Check the webhook info box — if the action isn't listed there, the setting that enables it is off. This is by far the most common cause, and `closeDeal` is by far the most common victim.
-2. **Is the action spelled exactly as in the reference table?** Names are case-sensitive and there are no aliases. `closeAllDeals`, `openDeal`, `exitLong` and similar invented names are not valid actions and are discarded without complaint. To close every deal on a bot, use `closeDeal` **without** a `symbol`.
+2. **Is the action spelled exactly as in the reference table?** Names are case-sensitive and there are no aliases. `closeAllDeals`, `openDeal`, `exitLong` and similar invented names are not valid actions and are rejected with HTTP 400. To close every deal on a bot, use `closeDeal` **without** a `symbol`.
+
+   `enterLong`, `enterShort`, `exitLong` and `exitShort` deserve a special mention: the app listed them in the webhook info box for futures bots for a while, but the platform never acted on them. They have been removed. Direction is a bot setting, so `startDeal` opens in the direction the bot is configured for and `closeDeal` exits it — if you built an alert around one of the four, switch it to those.
 3. **Is the `uuid` the bot's UUID from the webhook info box?** Not the bot id from the address bar.
 4. **Is the bot running?** A stopped bot ignores deal actions. Use `startBot` first, or start it from the dashboard.
 5. **Does the `symbol` belong to the bot?** A `startDeal` for a pair that isn't in the bot's settings — or one that fails the bot's volume filter — is rejected.
