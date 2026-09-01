@@ -6,7 +6,7 @@ description: >-
   In this article you will learn how to connect your Coinbase exchange account
   to Gainium.
 createdAt: '2024-03-16T14:57:48.243Z'
-updatedAt: '2026-02-24T07:44:20.568Z'
+updatedAt: '2026-09-01T00:00:00.000Z'
 publishedAt: '2024-04-06T11:33:03.122Z'
 locale: en
 categories:
@@ -17,9 +17,9 @@ ingested: true
 ingestedAt: '2025-06-29T10:57:30.003Z'
 tldr: >-
   Step-by-step guide to connecting Coinbase to Gainium via the Coinbase
-  Developer portal. Create a Trading API key with View and Trade permissions,
-  add Gainium''s IP addresses for whitelisting, then paste the credentials into
-  Gainium.
+  Developer portal. Create a Trading API key with the ECDSA signature algorithm
+  (not Ed25519) and View and Trade permissions, add Gainium''s IP addresses for
+  whitelisting, then paste the full key name and PEM secret into Gainium.
 ---
 
 1. [Log in](https://portal.cdp.coinbase.com/) to your Coinbase Developer account
@@ -34,11 +34,13 @@ tldr: >-
 
 ![step-1.png](https://content.gainium.io/images/content/help/step_1_d70675511f-2ecec9.webp)
 
-5. Name your API key and choose a portfolio
+5. **Important:** in the key creation dialog, set the **Signature algorithm** to **ECDSA** — not **Ed25519**. Coinbase now pre-selects Ed25519 for new keys, but Gainium only supports ECDSA-signed keys. An Ed25519 key will fail to connect (you may see an error mentioning "asymmetric key" or "ES256"). If you already created an Ed25519 key, delete it and create a new one with ECDSA selected.
 
-6. Enable permissions **View** and **Trade**; don't enable Transfer permissions.
+6. Name your API key and choose a portfolio
 
-7. Enter our IP addresses in **Enable IP Addresses** section. Here are the addresses you can copy and paste, make sure they are separated by commas and spaces:
+7. Enable permissions **View** and **Trade**; don't enable Transfer permissions.
+
+8. Enter our IP addresses in **Enable IP Addresses** section. Here are the addresses you can copy and paste, make sure they are separated by commas and spaces:
 
 ```
 62.84.191.108, 62.84.191.109, 62.84.191.110, 62.84.191.111, 62.84.191.112
@@ -46,18 +48,23 @@ tldr: >-
 
 ![step-2.png](https://content.gainium.io/images/content/help/step_2_385a2fcbe7-9cf6b1.webp)
 
-8. Click on **Create & Download**
+9. Click on **Create & Download**
 
-9. Complete 3-factor authentication
+10. Complete 3-factor authentication
 
 ![step-3.png](https://content.gainium.io/images/content/help/step_3_51d3dcdffb-d03e4c.webp)
 
-10. Now you have your API details, which you can use to link your exchange in Gainium.
+11. Now you have your API details, which you can use to link your exchange in Gainium.
 
 ![step-4.png](https://content.gainium.io/images/content/help/step_4_1bf859ccb2-71c4ae.webp)
 
-11. In Gainium, go to the [Exchanges](https://app.gainium.io/exchanges) page. Then click on **Add New**
+12. In Gainium, go to the [Exchanges](https://app.gainium.io/exchanges) page. Then click on **Add New**
 
 ![Screenshot 2024-04-02 at 10.18.50.png](https://content.gainium.io/images/content/help/Screenshot_2024_04_02_at_10_18_50_706883bd70-c20bfc.webp)
 
-12. Paste key name and secret and you are done!
+13. Paste your key name and secret, exactly as Coinbase provided them:
+
+- **API Key**: the full key *name*, in the form `organizations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/apiKeys/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` — not just the short UUID at the end.
+- **Secret**: the entire private key, including the `-----BEGIN EC PRIVATE KEY-----` and `-----END EC PRIVATE KEY-----` lines and the line breaks between them.
+
+That's it — you are done!
