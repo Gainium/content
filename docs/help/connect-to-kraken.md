@@ -4,7 +4,7 @@ name: Connect to Kraken
 slug: connect-to-kraken
 description: Step-by-step guide to connecting your Kraken account to Gainium via API keys.
 createdAt: '2026-03-30T11:44:00.000Z'
-updatedAt: '2026-08-13T00:00:00.000Z'
+updatedAt: '2026-09-11T00:00:00.000Z'
 publishedAt: '2026-03-30T11:44:00.000Z'
 locale: en
 categories:
@@ -17,7 +17,8 @@ tldr: >-
   Step-by-step guide to connecting Kraken to Gainium. Kraken SPOT and Kraken
   Futures use two separate platforms and two separate API keys. Spot keys are
   created on Kraken Pro (Orders & Trades plus WebSocket interface permissions,
-  Gainium IPs whitelisted); futures keys are created on futures.kraken.com with
+  Custom nonce window set to 2000000, Gainium IPs whitelisted); futures keys
+  are created on futures.kraken.com with
   General API = Full Access, Withdrawal API = No Access, and no IP whitelist.
 ---
 
@@ -67,6 +68,11 @@ Kraken uses granular permission settings. For Gainium to trade on your behalf, e
 
 **Optional:**
 - ✅ **Query Ledger Entries** — useful for PnL tracking
+
+**Nonce window (required):**
+- ✅ Enable **Custom nonce window** and enter **2000000** (2 million). On the classic Kraken interface the field is called **Nonce window** — set it to the same value.
+
+Every Kraken API request carries a number (a *nonce*) that must be higher than the previous one. When several requests are sent at nearly the same moment, they can reach Kraken slightly out of order, and with the default nonce window of 0 Kraken rejects the late ones as "invalid nonce" — and after repeated rejections it can temporarily lock the key, which pauses your bots until the lock lifts. A nonce window of 2000000 tells Kraken to tolerate that small reordering.
 
 **IP Whitelist (Recommended):**
 
