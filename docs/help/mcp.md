@@ -8,7 +8,7 @@ description: >-
   connector for full read + write access. Covers authentication, tools, safety,
   and self-hosting.
 createdAt: '2026-03-11T00:00:00.000Z'
-updatedAt: '2026-06-14T00:00:00.000Z'
+updatedAt: '2026-09-27T00:00:00.000Z'
 publishedAt: '2026-03-11T00:00:00.000Z'
 locale: en
 categories:
@@ -30,6 +30,14 @@ faq:
       never places or modifies trades. The read + write connector (a custom
       connector you add by URL) can also create, start, stop, and modify bots and
       deals.
+  - title: Can my AI app run backtests through MCP, and are they free?
+    details: >-
+      Backtests started through MCP (or the API) run on Gainium's servers, so
+      each one uses consumable credits: check the cost first with the estimate
+      step. The free plan includes no consumable credits, so MCP backtests need a
+      paid plan or purchased credits. The unlimited, free client backtesting
+      in the pricing plans only covers backtests you run yourself in the Gainium
+      app, in your browser. It does not apply to MCP or the API.
   - title: How do I keep an AI app on paper trading or restricted to one bot?
     details: >-
       Use the read-only connector if the app only needs to read. For the read +
@@ -108,6 +116,15 @@ Manage or revoke any connection anytime under **Gainium → Settings → Connect
 **Read (both connectors):** list and inspect DCA, Combo, and Grid bots and their deals; check balances and connected exchanges; run the crypto screener; review backtests; and browse curated, backtested strategy presets.
 
 **Write (read + write connector only):** create, clone, start, stop, archive, and modify bots; open, adjust, and close deals; add or reduce deal funds; set take-profit and stop-loss.
+
+## Backtesting through MCP uses consumable credits
+
+When your AI runs a backtest through MCP, it runs **on Gainium's servers** (a server-side backtest), not in your browser. Each run uses **consumable credits**:
+
+- Ask your AI to **estimate** the cost first. The estimate is free, and the backtest only starts if you have enough credits.
+- The **free plan includes 0 consumable credits**, so MCP backtests need a paid plan (each includes a monthly allowance) or credits you buy separately. See [Pricing](https://gainium.io/pricing).
+- If you don't have enough credits, the backtest is **refused and never runs**, and your AI gets an "Insufficient credits" error. If your AI says it ran a backtest but no result appears in your account, this is the most likely reason.
+- **Unlimited client backtesting** (included in every plan, free plan too) means backtests you run yourself in the Gainium app, which are calculated in your browser. MCP cannot run those.
 
 ## Safety: paper trading and restrictions
 
