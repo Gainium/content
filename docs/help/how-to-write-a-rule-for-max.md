@@ -56,7 +56,7 @@ Use Max for rules that need judgement, such as reading levels, how price is movi
 
 ## Entry filter
 
-Max checks this rule each time a new deal is about to open. The deal is skipped only when the rule says so.
+Turn it on in the bot's **Deal Start** section with **Let Max approve new deals by your rule**. Max checks this rule each time a new deal is about to open, and skips the deal only when the rule says so. **Decide within** sets how long the deal waits for his answer, and **If no answer** chooses what happens then: **Open the deal** or **Skip the deal**.
 
 | Bad | Better |
 |---|---|
@@ -66,14 +66,14 @@ Max checks this rule each time a new deal is about to open. The deal is skipped 
 
 ## Take profit: range and early close
 
-**Take-profit range.** Max sets your TP % inside the range you allow, by your rule.
+**Adjust TP %.** Max moves your take profit inside the range you allow, by your rule. This needs a single take-profit target.
 
 | Bad | Better |
 |---|---|
 | Take more profit when the market is strong. | Set TP 0.3% under the nearest 4h resistance inside my range; if there is none, set 2%. |
 | Aim higher if it's trending. | If the 4h trend is up and the next resistance is more than 3% away, use the top of my range; otherwise the bottom. |
 
-**Early close.** On each check, Max closes an open deal at market only when your rule says so.
+**Early close at market.** On each check, Max closes an open deal at market only when your rule says so.
 
 | Bad | Better |
 |---|---|
@@ -82,7 +82,7 @@ Max checks this rule each time a new deal is about to open. The deal is skipped 
 
 ## Exit filter (take profit on a signal)
 
-When your take-profit signal fires (indicators or a webhook), Max holds the deal open only when your rule says so. Otherwise the deal closes as usual.
+With **Max confirms each exit** on (only with an Indicators or Webhook take profit), Max decides when your take-profit signal fires: he holds the deal open only when your rule says so. Otherwise the deal closes as usual, and it also closes if Max doesn't answer in time. Stop loss and manual closes are never held.
 
 | Bad | Better |
 |---|---|
@@ -91,7 +91,9 @@ When your take-profit signal fires (indicators or a webhook), Max holds the deal
 
 ## Stop loss
 
-Max moves your stop inside your range by your rule. That includes raising it to lock in profit. With **Only raise the stop** on, Max only ever moves it toward profit.
+Max moves your stop inside your range by your rule. That includes raising it to lock in profit. With **Only raise the stop** on, Max only ever moves it toward profit and never switches it off. With it off, Max may also lower the stop within your range, and you can tick **Max may also switch the stop off**.
+
+If the bot's stop loss is off, the Max mark in the **Stop Loss** header lets Max set a stop by your rule. The stop stays off until your rule sets one on a deal.
 
 | Bad | Better |
 |---|---|
