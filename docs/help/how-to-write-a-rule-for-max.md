@@ -38,10 +38,11 @@ For a bot, Max can read:
 - **The deal's own data**: average price, safety orders filled, time in the deal, unrealised P&L, distance to its take profit, stop loss and next safety order, and funds used.
 - **The bot's statistics per pair** (deals, win rate, average duration, drawdown) and **Max's own past decisions** on this bot with their outcomes.
 - **BTC's trend and volatility** on the bot's exchange, and the crypto fear & greed index.
+- **Screener data**, the same as on Gainium's Screener page: market cap, market cap rank, 24h volume and its change, price change over 1h, 24h, 7 days and 30 days, distance from the all-time high, and categories. Max can read it for the bot's coins, for other coins you name in the rule, and for the top coins by market cap (up to the top 100). It comes from CoinGecko and is refreshed about every 5 hours, so it suits rules like "only coins in the top 50 by market cap", not minute-by-minute moves.
 
-The **entry filter** and the **exit filter** decide in one quick step from a snapshot: the market snapshot on three timeframes around the signal, the deal, the pair statistics and past decisions. There Max can't fetch other indicators or candles.
+The **entry filter** decides in one quick step from a snapshot: the market snapshot on three timeframes around the signal, the coin's screener data (market cap, rank, 24h volume, 24h and 7-day change), the pair statistics and past entry decisions. The **exit filter** does the same with the market snapshot, the screener data, the deal and past exit decisions. There Max can't fetch other indicators, candles or coins.
 
-Max **can't** see news, social media, announcements, order books, funding rates, other coins (apart from BTC), other exchanges, your other bots or balances, or anything about the future. A rule that depends on those can't be carried out.
+Max **can't** see news, social media, announcements, order books, funding rates, prices or candles of other pairs (apart from BTC), other exchanges, your other bots or balances, or anything about the future. A rule that depends on those can't be carried out.
 
 ## What makes a rule clear
 
