@@ -128,6 +128,10 @@ Many indicators send an entry together with its own stop loss and take profit. A
 | `slPerc` | Stop loss, as a percentage. `2` and `-2` both mean a 2% stop. |
 | `slPrice` | Stop loss at this exact price. **DCA bots only.** |
 
+A ready-to-copy example is in the bot's **Webhooks** section (DCA and Combo bots, with the deal start condition set to *Webhook*). The **TP/SL** selector switches between percentages and prices. The fields marked `// optional` there are the ones you can leave out; the marker is only on screen, so the payload you copy is plain JSON.
+
+![Start deal example with its own base order size, take profit and stop loss in the bot's Webhooks section](https://content.gainium.io/images/content/help/webhooks__start-deal-own-tp-sl.webp)
+
 Send only the fields you need; anything you leave out comes from the bot. Values can be numbers or text (`"50"` or `50`), which is what TradingView produces when you use placeholders such as `{{plot("TP")}}`.
 
 How the deal uses them:
