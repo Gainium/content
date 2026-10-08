@@ -4,7 +4,7 @@ name: Understanding the Combo bot
 slug: understanding-combo-bot
 description: Learn how the combo bot works and how you can use it to maximize your profits.
 createdAt: '2023-07-24T08:45:39.653Z'
-updatedAt: '2026-02-24T07:44:20.585Z'
+updatedAt: '2026-10-08T00:00:00.000Z'
 publishedAt: '2023-07-24T10:49:49.497Z'
 locale: en
 categories:
@@ -162,7 +162,7 @@ Now that we know the basics about the combo bot let's examine its settings in de
 
 #### Basic settings
 
-This is where you give your bot a **name**, choose your **exchange** and a **coin pair**. Note that como bot do not support multi-pair yet, but that will be coming soon!
+This is where you give your bot a **name**, choose your **exchange** and a **coin pair**. To run one combo bot on several pairs at once, see [Multi-coin combo bots](https://gainium.io/help/multi-coin-combo-bots).
 
 #### Strategy
 - **Directions**: You can choose whether to go long or short. Note that in spot, the only difference is the initial action—a long bot makes an initial buy order, while the short bot makes an initial short order. To make a short combo bot in spot, you must have the asset you want to short available in your wallet balance.

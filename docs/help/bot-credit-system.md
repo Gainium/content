@@ -6,7 +6,7 @@ description: >-
   Learn about Gainium's new credit-based pricing system that offers fairer and
   more transparent pricing based on actual resource usage.
 createdAt: '2025-11-04T00:00:00.000Z'
-updatedAt: '2026-02-24T07:44:20.566Z'
+updatedAt: '2026-10-08T00:00:00.000Z'
 publishedAt: '2025-11-04T00:00:00.000Z'
 locale: en
 categories:
@@ -63,8 +63,9 @@ Each bot type has a base cost in credits per month, with additional costs for ex
 
 ### Combo Bot
 - **Base cost:** 200 credits
-- **Includes:** 10 max deals
+- **Includes:** 1 pair, 10 max deals
 - **Additional costs:**
+  - +200 credits per additional pair the bot can trade at the same time (the number of pairs, capped by max open deals) — see [Multi-coin combo bots](https://gainium.io/help/multi-coin-combo-bots)
   - +1 credit per additional deal
   - +1 credit per indicator per pair
 
