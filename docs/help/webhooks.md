@@ -6,7 +6,7 @@ description: >-
   Learn how to send webhooks to your trading bots and use them as entry trigger
   signal for trading.
 createdAt: '2022-11-22T13:46:17.530Z'
-updatedAt: '2026-08-13T04:00:00.000Z'
+updatedAt: '2026-10-08T04:00:00.000Z'
 publishedAt: '2022-11-22T13:46:20.790Z'
 locale: en
 categories:
@@ -21,8 +21,10 @@ tldr: >-
   Webhooks let you trigger Gainium bot actions (open deal, close deals, add
   funds, close bot) from external platforms like TradingView by sending a JSON
   payload to a unique bot URL. Each action only works if the matching option is
-  enabled in the bot's settings first. Multiple actions can be concatenated in a
-  single alert by sending an array — which is how you reverse a position.
+  enabled in the bot's settings first. A startDeal signal can carry its own base
+  order size, take profit and stop loss for that one deal. Multiple actions can
+  be concatenated in a single alert by sending an array — which is how you
+  reverse a position.
 ---
 
 This article will guide you through using webhooks to operate Gainium bots, including a special focus on concatenating webhook actions on the same alert by sending an array in the webhook payload.
@@ -92,7 +94,7 @@ These are all the actions Gainium accepts. **An `action` value that isn't in thi
 
 | Action | What it does | Extra fields |
 | --- | --- | --- |
-| `startDeal` | Starts a new deal. | `symbol` *(optional)* — limit the signal to one pair. Omit it and the bot uses its configured pairs. |
+| `startDeal` | Starts a new deal. | `symbol` *(optional)* — limit the signal to one pair. Omit it and the bot uses its configured pairs. Also `baseOrderSize`, `tpPerc`, `tpPrice`, `slPerc`, `slPrice` *(all optional)* — see [Opening a deal with its own size, TP and SL](#opening-a-deal-with-its-own-size-tp-and-sl). |
 | `closeDeal` | Closes open deals at the take-profit close type. | `symbol` *(optional)* — close only that pair. **Omit it and every open deal on the bot is closed.** |
 | `closeDealSl` | Same as `closeDeal`, but closes at market and books the result as a stop loss. | `symbol` *(optional)* |
 | `startBot` | Starts the bot (equivalent to pressing Start). | — |
@@ -102,6 +104,52 @@ These are all the actions Gainium accepts. **An `action` value that isn't in thi
 | `changePairs` | Changes the pairs a multi-pair bot trades. | `pairsToSet` **(required)**, an array of pairs; `pairsToSetMode`: `add`, `remove` or `replace` |
 
 `addFunds` and `reduceFunds` do nothing if `qty` or `asset` is missing or empty, and `changePairs` does nothing without `pairsToSet` — again with no error returned.
+
+## **Opening a deal with its own size, TP and SL**
+
+Many indicators send an entry together with its own stop loss and take profit. A `startDeal` signal can carry them, and the deal opens with those values instead of the bot's. The bot's settings don't change: the next deal uses them again.
+
+```json
+{
+  "action": "startDeal",
+  "uuid": "f944e169-2398-482b-4987-10a30eeb477b",
+  "symbol": "BTC_USDT",
+  "baseOrderSize": "50",
+  "tpPrice": "68500",
+  "slPrice": "61200"
+}
+```
+
+| Field | What it sets for this deal |
+| --- | --- |
+| `baseOrderSize` | The base order size, in the same unit as the bot's base order (for example USDT on a bot sized in quote). Safety orders keep their size. |
+| `tpPerc` | Take profit, as a percentage. |
+| `tpPrice` | Take profit at this exact price. **DCA bots only.** |
+| `slPerc` | Stop loss, as a percentage. `2` and `-2` both mean a 2% stop. |
+| `slPrice` | Stop loss at this exact price. **DCA bots only.** |
+
+Send only the fields you need; anything you leave out comes from the bot. Values can be numbers or text (`"50"` or `50`), which is what TradingView produces when you use placeholders such as `{{plot("TP")}}`.
+
+How the deal uses them:
+
+- A TP or SL from the signal **replaces the bot's whole TP (or SL) setup for that deal**: one target, closed at that price or percentage, even if the bot normally uses multiple targets or closes by webhook or indicator.
+- A **price** stays fixed while the deal runs, also when safety orders fill. A stop loss given as a price is not trailed and is not moved by *Move SL*. A stop loss given as a percentage keeps the bot's trailing and *Move SL* settings.
+- You can still edit the deal's TP and SL afterwards, like any other deal.
+- If the bot can't use your `baseOrderSize` (not enough balance for it, below the exchange minimum, a bot sized as a percentage of the balance, or a Risk:Reward bot), the deal opens at the bot's configured size and the bot's log says why.
+
+The signal is **rejected** (HTTP 400, nothing opens) when:
+
+- a field isn't a positive number. For example, an empty value, `NaN`, or a TradingView placeholder that didn't render. Gainium won't open a deal without the stop you asked for.
+- it sends both `tpPerc` and `tpPrice`, or both `slPerc` and `slPrice`.
+- it sends `tpPrice` or `slPrice` to a Combo or Hedge bot. Use `tpPerc` / `slPerc` there. A hedge bot opens both directions, so one price would always be on the wrong side.
+
+The deal is **not opened** (with an error in the bot's log) when:
+
+- the take profit price is already passed (at or below the current price for a long, at or above it for a short), or the stop loss price is (at or above the current price for a long, at or below it for a short). That usually means the alert arrived late or the template is wrong.
+- the signal has a TP or SL and the bot uses Risk:Reward. That bot's size is derived from its own stop loss.
+- the bot trades several pairs and the signal has a price but no `symbol`.
+
+On a bot with *Single position per pair*, a signal that adds to an already open position ignores these fields. The position keeps its own size and exits.
 
 ## **Concatenating Webhook Actions on the Same Alert**
 
