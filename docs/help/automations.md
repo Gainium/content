@@ -43,7 +43,7 @@ Each automation has three parts:
 | Part | What it does |
 |---|---|
 | **When** | One or more conditions, grouped with ANY/ALL and AND/OR |
-| **Then** | Up to 10 actions, run in order |
+| **Then** | One or more actions, run in order (up to 3 on Free, 10 on paid plans) |
 | **Fire** | How often it may run: Re-arm, Once or Cooldown |
 
 Every automation is either **paper** or **live**. The list follows the dashboard's paper/live mode, and each action that touches a bot also says whether it targets a paper or a live bot.
@@ -102,6 +102,7 @@ The comparisons are **greater than**, **less than**, **between** (not available 
 - Indicators are checked on **closed candles**, the same way your bots check them.
 - Add several coins and choose **any** (one coin is enough) or **all** (every coin must match).
 - If no new candle arrives for three candle lengths, the condition becomes unknown.
+- ADR always uses daily candles, whatever timeframe you choose.
 - Percentile options, trend filters and MA-versus-MA crossings are not available in automations yet.
 
 ### Gainium P&L today
@@ -116,7 +117,7 @@ Example: *When my live P&L today is less than −100, stop all my bots.*
 
 ### Screener
 
-Use the [screener](https://gainium.io/help/master-the-screener-for-volatility-volume-and-breakout-trading) as a condition. Add up to 5 numeric filters (price, price change over 1h / 24h / 7d / 30d / 1y, market cap, market cap rank, volume, volume change, distance from all-time high or low, volatility, sentiment, liquidity score). All filters must hold. Then choose:
+Use the [screener](https://gainium.io/help/master-the-screener-for-volatility-volume-and-breakout-trading) as a condition. Add up to 5 numeric filters (price, price change over 1h / 24h / 7d / 30d / 1y, market cap, market cap change over 24h, market cap rank, volume, volume change, distance from all-time high or low, volatility, sentiment, liquidity score). All filters must hold. Then choose:
 
 - **Coin matches** — a specific coin passes all filters;
 - **At least N coins match**;
@@ -128,9 +129,9 @@ Screener results refresh every 5 minutes.
 
 Compare the crypto Fear & Greed Index (0 = extreme fear, 100 = extreme greed): greater than, less than, crosses up or crosses down.
 
-- The index updates **every 15 minutes**, so this condition changes at most that often.
-- A cross happens when a new reading lands on the other side of your value.
-- If the latest reading is more than 45 minutes old, the condition becomes unknown.
+- The index is **daily**: there is one new reading a day, so this condition changes at most once a day.
+- A cross compares today's reading with the previous day's: it happens when today's value is on the other side of your value from yesterday's.
+- If no new daily reading has arrived for about 36 hours, the condition becomes unknown.
 
 ### Incoming webhook (paid plans)
 
@@ -186,7 +187,7 @@ Most conditions are states — "price is above 70,000" stays true while it's abo
 |---|---|
 | Price cross | 1 minute after the cross |
 | Indicator cross | Until the next candle closes |
-| Fear & Greed cross | Until the next reading (up to 30 minutes) |
+| Fear & Greed cross | Until the next daily reading replaces it (about a day) |
 | Incoming webhook | The window you set (1–1,440 minutes) |
 
 A price cross needs Gainium to see the price on both sides of your value. Right after an automation is activated, the first price doesn't count as a cross.
@@ -209,7 +210,9 @@ Actions run one after another, in the order you list them. If one fails, the res
 
 **Notify.** Messages go to the channels you choose in the action, as long as they're connected to your account (see [Telegram notifications](https://gainium.io/help/telegram-notifications)). Choosing a channel in the action counts as opting in, so it's sent even if you turned off the general "automation fired" notification.
 
-**Outgoing webhook.** The URL must use `https`. The body is optional: leave it empty to send a JSON summary (automation name and id, time, paper/live and the condition values), or write your own JSON. Calls to private or internal addresses are refused, and so is a URL that points back at an automation webhook, so automations can't loop through each other.
+**Automation notifications.** Besides Notify actions, Gainium can tell you when an automation fires, when it's paused for you, and when an old balance is holding one back. Choose Telegram and/or email for each in **Settings → Notification Preferences**, under **Automations**. All are on by default.
+
+**Outgoing webhook.** The URL must use `https` on the standard port (443). The body is optional (up to 4 KB): leave it empty to send a JSON summary (automation name and id, time, paper/live and the condition values), or write your own JSON. Calls to private or internal addresses are refused, and so is a URL that points back at an automation webhook, so automations can't loop through each other.
 
 You can use these placeholders in a Notify message or a webhook body: `{{automation.name}}`, `{{automation.id}}`, `{{firedAt}}` (time in UTC) and `{{paper}}` (`true` or `false`).
 
@@ -235,7 +238,7 @@ If the conditions are **already true when you activate** an automation, it fires
 
 - the live value and result of every condition;
 - whether it would fire, and if not, why (not true, waiting to re-arm, cooling down, daily cap reached or paused);
-- whether every action's bot, variable or exchange is still available to it.
+- whether every action's bot or variable is still available to it.
 
 Nothing is executed and nothing is saved. A condition you just added may show *warming up* for a moment while Gainium starts watching its data. You can run up to 10 checks a minute.
 
@@ -306,7 +309,7 @@ An automation never deletes itself, and it never resumes on its own. Once you've
 | **Paused – inactive** | Free account with no login for 30 days |
 | **Paused – plan limit** | Your plan changed and the automation uses paid-only features or exceeds a limit |
 | **Paused – credits** | Its credits couldn't stay locked |
-| **Error** | Repeated action failures, the safety limit below, or a bot, variable or exchange it uses is no longer available |
+| **Error** | Repeated action failures, the safety limit below, or a bot or variable an action uses is no longer available |
 
 Hover the badge to see the exact reason. You also get a notification when an automation is paused for you.
 
@@ -322,7 +325,7 @@ These protect your account from runaway rules, including automations that trigge
 - **Same target, once a minute:** the same bot, deal, variable or webhook URL is acted on at most once every 60 seconds, even if several automations ask for it. Notify actions are exempt.
 - **60 actions per hour:** your account runs at most 60 actions an hour across all automations (notifications don't count). If an automation has 3 firings in a row where every action was over this limit, it's paused with *Error*.
 - **Failing actions:** if an automation has 5 firings in a row where every action failed, it's paused with *Error*.
-- **Missing targets:** if a bot is deleted, a variable removed or an exchange disconnected, the automation pauses the first time it tries to use it.
+- **Missing targets:** if a bot is deleted or a variable removed, the automation pauses the first time an action tries to use it. If the exchange connection of a balance condition is removed, that condition becomes unknown instead.
 
 ## FAQ
 
@@ -330,7 +333,7 @@ These protect your account from runaway rules, including automations that trigge
 
 Open **Check now** — it usually tells you. The common reasons:
 
-- **A condition is unknown.** Its data is missing or too old: no price for 5 minutes, no new candle, a Fear & Greed reading older than 45 minutes, or a balance older than 30 minutes. Gainium waits instead of firing on old data. For balances, open **Portfolio** to refresh them.
+- **A condition is unknown.** Its data is missing or too old: no price for 5 minutes, no new candle, no new daily Fear & Greed reading for about 36 hours, or a balance older than 30 minutes. Gainium waits instead of firing on old data. For balances, open **Portfolio** to refresh them.
 - **It's waiting to re-arm.** A *Re-arm* automation fired earlier and its conditions haven't been false since.
 - **It's cooling down.** A *Cooldown* automation fired less than one cooldown ago.
 - **A daily cap was reached.** Check the history for a *skipped* entry.
