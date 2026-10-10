@@ -77,33 +77,14 @@ Compare the live price of a pair on an exchange to a value: **greater than**, **
 
 ### Indicator
 
-Compare an indicator on one or more coins, using the same indicator editor as your bots. Supported indicators:
+Compare an indicator on one or more coins, using the same indicator editor as your bots. Automations support **the same indicators as bot conditions, with the same options** — percentile, trend filter, keep condition for N bars, moving average versus another moving average, cross oscillator and the rest — and they are evaluated exactly the way your bots evaluate them. When a new indicator becomes available for bots, it is available here too.
 
-- [RSI](https://gainium.io/help/rsi)
-- [CCI](https://gainium.io/help/cci)
-- [Awesome Oscillator (AO)](https://gainium.io/help/awesome-oscillator)
-- [Ultimate Oscillator (UO)](https://gainium.io/help/ultimate-oscillator)
-- [Momentum (MOM)](https://gainium.io/help/momentum)
-- [Williams %R](https://gainium.io/help/williams-r)
-- [Money Flow Index (MFI)](https://gainium.io/help/mfi)
-- [ADX](https://gainium.io/help/adx)
-- [Bollinger Band Width (BBW)](https://gainium.io/help/bbw)
-- [Bollinger Bands %B](https://gainium.io/help/bollinger-bands-b)
-- [Keltner Channel %B](https://gainium.io/help/keltner-channel-b)
-- [Volume Oscillator (VO)](https://gainium.io/help/volume-oscillator)
-- [Moving Average Ratio (MAR)](https://gainium.io/help/moving-average-ratio)
-- [ATR](https://gainium.io/help/atr)
-- [Average Daily Range (ADR)](https://gainium.io/help/adr)
-- Bollinger Band Width Percentile (BBWP)
-- [Moving average (MA)](https://gainium.io/help/moving-averages) — compares the price to the moving average
+Two bot conditions are not available, because they need a running bot: **unrealized P&L** (it reads the bot's open deals) and **trading session**.
 
-The comparisons are **greater than**, **less than**, **between** (not available for MA), **crosses up** and **crosses down**.
-
-- Indicators are checked on **closed candles**, the same way your bots check them.
+- Indicators are checked on **closed candles**, the same way your bots check them, so most conditions need two closed candles before they have a result.
 - Add several coins and choose **any** (one coin is enough) or **all** (every coin must match).
 - If no new candle arrives for three candle lengths, the condition becomes unknown.
 - ADR always uses daily candles, whatever timeframe you choose.
-- Percentile options, trend filters and MA-versus-MA crossings are not available in automations yet.
 
 ### Gainium P&L today
 
@@ -186,7 +167,7 @@ Most conditions are states — "price is above 70,000" stays true while it's abo
 | Condition | Stays true for |
 |---|---|
 | Price cross | 1 minute after the cross |
-| Indicator cross | Until the next candle closes |
+| Indicator signal | Until one more candle has closed, as in bots (longer with **keep condition for N bars**) |
 | Fear & Greed cross | Until the next daily reading replaces it (about a day) |
 | Incoming webhook | The window you set (1–1,440 minutes) |
 
