@@ -6,7 +6,7 @@ description: >-
   Learn about Gainium's new credit-based pricing system that offers fairer and
   more transparent pricing based on actual resource usage.
 createdAt: '2025-11-04T00:00:00.000Z'
-updatedAt: '2026-10-08T00:00:00.000Z'
+updatedAt: '2026-10-10T00:00:00.000Z'
 publishedAt: '2025-11-04T00:00:00.000Z'
 locale: en
 categories:
@@ -77,6 +77,9 @@ Each bot type has a base cost in credits per month, with additional costs for ex
 - **Base cost:** 10 credits
 - **Additional costs:**
   - +1 credit per indicator
+
+### Automations (alpha)
+- **Base cost:** 10 credits, plus 1–2 credits per condition and 2 per action (notifications are free), locked only while the automation is active — see [Automations](https://gainium.io/help/automations)
 
 ## How Credits Work
 
