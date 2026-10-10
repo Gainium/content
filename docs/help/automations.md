@@ -208,9 +208,9 @@ Actions run one after another, in the order you list them. If one fails, the res
 
 **Paper or live.** Each bot action says whether it targets a paper or a live bot, and you can only pick bots of that kind. Global variables are shared between paper and live, so setting one affects both.
 
-**Notify.** Messages go to the channels you choose in the action, as long as they're connected to your account (see [Telegram notifications](https://gainium.io/help/telegram-notifications)). Choosing a channel in the action counts as opting in, so it's sent even if you turned off the general "automation fired" notification.
+**Notify.** Messages go to the channels you choose in the action, as long as they're connected to your account (see [Telegram notifications](https://gainium.io/help/telegram-notifications)). There's no separate "automation fired" setting: a Notify action is how you choose to hear about a firing, and it decides its own channels.
 
-**Automation notifications.** Besides Notify actions, Gainium can tell you when an automation fires, when it's paused for you, and when an old balance is holding one back. Choose Telegram and/or email for each in **Settings → Notification Preferences**, under **Automations**. All are on by default.
+**Automation notifications.** Besides Notify actions, Gainium tells you when an automation is paused for you and when an old balance is holding one back. Choose Telegram and/or email for each in **Settings → Notification Preferences**, under **Automations**. Both are on by default.
 
 **Outgoing webhook.** The URL must use `https` on the standard port (443). The body is optional (up to 4 KB): leave it empty to send a JSON summary (automation name and id, time, paper/live and the condition values), or write your own JSON. Calls to private or internal addresses are refused, and so is a URL that points back at an automation webhook, so automations can't loop through each other.
 
