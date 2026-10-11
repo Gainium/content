@@ -6,9 +6,9 @@ description: >-
   Run actions automatically when market, account or webhook conditions are met:
   start or stop bots, open or close deals, set global variables, send
   notifications or webhooks.
-createdAt: '2026-10-10T00:00:00.000Z'
+createdAt: '2026-10-11T00:00:00.000Z'
 updatedAt: '2026-10-11T00:00:00.000Z'
-publishedAt: '2026-10-10T00:00:00.000Z'
+publishedAt: '2026-10-11T00:00:00.000Z'
 locale: en
 categories:
   - platform
@@ -48,7 +48,7 @@ Each automation has three parts:
 
 Every automation is either **paper** or **live**. The list follows the dashboard's paper/live mode, and each action that touches a bot also says whether it targets a paper or a live bot.
 
-<!-- Screenshot: automations__list.webp — Automations page: list with name, paper/live chip, state badge, When/Then summaries, last fired, cost, active switch -->
+![The Automations page: each automation with its status, conditions, actions, last firing and credit cost](https://content.gainium.io/images/content/help/automations__list.webp)
 
 ## Creating an automation
 
@@ -62,7 +62,7 @@ Every automation is either **paper** or **live**. The list follows the dashboard
 
 Credits are locked when you activate it and released when you pause it. The cost is shown in the builder footer while you edit.
 
-<!-- Screenshot: automations__builder.webp — Builder: When groups with live values per condition, Then actions, Fire selector, cost chip and Check now / Save buttons in the footer -->
+![The automation builder: a price condition with its live value, a Notify action, the fire mode, and the cost and Check now in the footer](https://content.gainium.io/images/content/help/automations__builder.webp)
 
 ## Conditions (When)
 
@@ -94,7 +94,7 @@ Compare your **realized** profit for today, in USD, to a value (greater than or 
 - It counts only profit from deals of your **Gainium bots**, not trades you made elsewhere.
 - It updates about once a minute, and right after an automation closes a deal.
 
-Example: *When my live P&L today is less than −100, stop all my bots.*
+Example: *When my paper P&L today is greater than 50, send me a Telegram message.*
 
 ### Screener
 
@@ -140,7 +140,7 @@ Fire an automation from TradingView or any other tool that can send a web reques
 
 If you leave the event name empty, any call to the URL counts, whatever the message.
 
-<!-- Screenshot: automations__webhook-condition.webp — Incoming webhook condition after saving: webhook URL with copy button, Regenerate button, window and event name fields -->
+![An incoming webhook condition after saving: how long it stays true, the event name, and the webhook URL with Copy and Regenerate](https://content.gainium.io/images/content/help/automations__webhook-condition.webp)
 
 ### Exchange balance (paid plans)
 
@@ -237,11 +237,11 @@ If the conditions are **already true when you activate** an automation, it fires
 
 Nothing is executed and nothing is saved. A condition you just added may show *warming up* for a moment while Gainium starts watching its data. You can run up to 10 checks a minute.
 
+![Check now: the condition is true, but the automation would not fire because it is paused; the Notify action is ready](https://content.gainium.io/images/content/help/automations__check-now.webp)
+
 **History** (from the automation's menu) lists every firing for the last 90 days: when it fired, the value of each condition at that moment and the result of each action. When a firing was blocked by a daily cap, it's listed once that day as *skipped*.
 
-<!-- Screenshot: automations__check-now.webp — Check now panel: per-condition values and results, would-fire verdict with reason, per-action availability -->
-
-<!-- Screenshot: automations__history.webp — History drawer: one firing with its condition table and action outcomes -->
+![History: one firing, with the price at that moment and the result of the Notify action](https://content.gainium.io/images/content/help/automations__history.webp)
 
 ## Limits
 
