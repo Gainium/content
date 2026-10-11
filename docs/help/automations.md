@@ -7,7 +7,7 @@ description: >-
   start or stop bots, open or close deals, set global variables, send
   notifications or webhooks.
 createdAt: '2026-10-10T00:00:00.000Z'
-updatedAt: '2026-10-10T00:00:00.000Z'
+updatedAt: '2026-10-11T00:00:00.000Z'
 publishedAt: '2026-10-10T00:00:00.000Z'
 locale: en
 categories:
@@ -26,11 +26,11 @@ tldr: >-
   notifications or webhooks, or set global variables. The fire mode (Re-arm,
   Once or Cooldown) decides how often it can run. It costs 10 credits plus 1–2
   per condition and 2 per action (notifications are free), locked only while
-  the automation is active. Automations are in alpha on Gainium Cloud and
-  enabled for selected accounts.
+  the automation is active. Automations are available to all Gainium Cloud
+  users, in beta.
 ---
 
-> **Alpha.** Automations are in alpha on Gainium Cloud and are being enabled for selected accounts. If you don't see **Automations** in the sidebar, it isn't enabled for your account yet. Things may change while we collect feedback.
+> **Beta.** Automations are available to all Gainium Cloud users. Automations are in beta. Don't rely on them yet for critical risk management such as stop-losses. Things may change while we collect feedback.
 
 An **automation** is a rule you write once and Gainium keeps watching for you: **When** something happens, **Then** do something. For example:
 
@@ -185,19 +185,31 @@ Actions run one after another, in the order you list them. If one fails, the res
 | **Stop bot** | Stops a bot. Choose what happens to its deals: leave them open (DCA and Combo only), cancel, close by limit or close by market |
 | **Start deal** | Opens a deal on a DCA or Combo bot. For a multi-pair bot, choose the pair |
 | **Close deal** | Closes all, the oldest or the newest open deal of a DCA or Combo bot, by limit, by market or by cancelling |
-| **Notify** | Sends a Telegram and/or email message, with your own text if you like |
+| **Notify** | Sends a Telegram and/or email message, in your own words |
 | **Outgoing webhook** | Sends a request to a URL of your choice |
 | **Set global variable** | Sets one of your [global variables](https://gainium.io/help/global-variables) to a new value. Bots that use it pick up the change |
 
 **Paper or live.** Each bot action says whether it targets a paper or a live bot, and you can only pick bots of that kind. Global variables are shared between paper and live, so setting one affects both.
 
-**Notify.** Messages go to the channels you choose in the action, as long as they're connected to your account (see [Telegram notifications](https://gainium.io/help/telegram-notifications)). There's no separate "automation fired" setting: a Notify action is how you choose to hear about a firing, and it decides its own channels. The history shows whether each channel delivered: if one couldn't (for example Telegram isn't connected, or the Gainium bot was blocked), the action is marked *Partial* — or *Failed* if none could — with the reason.
+**Notify.** Click the **Default** button next to *Message* to edit the message. It opens the same editor as the message templates in **Settings → Notification Preferences**: Markdown formatting, a preview, **Send test** (to your Telegram) and a **Variables** menu. The message starts as `Automation "%automationName%" fired`; change it or replace it. What you write is exactly what is sent — no title is added. The email subject is its own field (shown when Email is chosen). If you clear the message, the starting text is sent.
+
+Messages go to the channels you choose in the action, as long as they're connected to your account (see [Telegram notifications](https://gainium.io/help/telegram-notifications)). There's no separate "automation fired" setting: a Notify action is how you choose to hear about a firing, and it decides its own channels. The history shows whether each channel delivered: if one couldn't (for example Telegram isn't connected, or the Gainium bot was blocked), the action is marked *Partial* — or *Failed* if none could — with the reason.
 
 **Automation notifications.** Besides Notify actions, Gainium tells you when an automation is paused for you and when an old balance is holding one back. Choose Telegram and/or email for each in **Settings → Notification Preferences**, under **Automations**. Both are on by default.
 
 **Outgoing webhook.** The URL must use `https` on the standard port (443). The body is optional (up to 4 KB): leave it empty to send a JSON summary (automation name and id, time, paper/live and the condition values), or write your own JSON. Calls to private or internal addresses are refused, and so is a URL that points back at an automation webhook, so automations can't loop through each other.
 
-You can use these placeholders in a Notify message or a webhook body: `{{automation.name}}`, `{{automation.id}}`, `{{firedAt}}` (time in UTC) and `{{paper}}` (`true` or `false`).
+**Variables.** A Notify message and a webhook body use the same variables as the notification templates, written `%name%` and inserted from the **Variables** menu:
+
+| Variable | Value |
+|---|---|
+| `%automationName%` | The automation's name |
+| `%automationMode%` | `Paper` or `Live` |
+| `%time%` | When it fired (UTC) |
+| `%automationId%` | The automation's id |
+| `%condition…%` | One per condition: its live value when the automation fired. The menu lists each condition by what it checks, e.g. *Condition 1: BTCUSDT > 70,000* |
+
+A variable that doesn't exist (for example one for a condition you deleted) is refused when you save. A condition without a value (an indicator on several coins, a webhook that hasn't been called) is left empty — `null` in a webhook body. In a webhook body, values are escaped so the JSON stays valid.
 
 **Hedge bots** can't be used in actions yet.
 
