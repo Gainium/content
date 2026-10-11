@@ -52,13 +52,13 @@ Every automation is either **paper** or **live**. The list follows the dashboard
 
 ## Creating an automation
 
-1. Open **Automations** in the sidebar and click **New automation**.
+1. Open **Automations** in the sidebar and click **New**.
 2. Give it a name and choose paper or live.
 3. Under **When**, add your conditions (see below).
 4. Under **Then**, add your actions.
 5. Under **Fire**, choose how often it may run.
 6. Click **Check now** to see what it would do right now, without running anything.
-7. Click **Save** to keep it paused, or **Save & activate** to start it.
+7. Click **Create automation**. It saves the automation and starts it. Afterwards, **Save** keeps your edits and **Start** / **Stop** turns it on or off (also in the ⋯ menu of the list).
 
 Credits are locked when you activate it and released when you pause it. The cost is shown in the builder footer while you edit.
 
@@ -296,7 +296,7 @@ The builder shows the cost as you edit and turns red if your available credits c
 
 ## When automations pause themselves
 
-An automation never deletes itself, and it never resumes on its own. Once you've fixed the cause, turn it back on with its switch; activating checks your limits and credits again.
+An automation never deletes itself, and it never resumes on its own. Once you've fixed the cause, turn it back on with **Start** (in the builder or the list's ⋯ menu); activating checks your limits and credits again.
 
 | Badge | Why |
 |---|---|
