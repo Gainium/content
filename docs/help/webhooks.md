@@ -125,6 +125,7 @@ By default `addFunds` and `reduceFunds` fill straight away with a market order. 
 - With `asset: "quote"`, the amount of coins is worked out at your `price`, not at the current price.
 - The price is rounded to the pair's price step, so values calculated by your script are fine as they are.
 - A buy price above the current price (or a sell price below it) fills at once, like any limit order on the exchange.
+- The API's add and reduce funds endpoints take the same optional `price` field, with the same rules.
 
 The signal is **rejected** (HTTP 400, no order placed) when:
 
