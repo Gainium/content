@@ -7,7 +7,7 @@ description: >-
   open position instead of opening more deals, and the take profit follows the
   new average.
 createdAt: '2026-10-08T00:00:00.000Z'
-updatedAt: '2026-10-08T00:00:00.000Z'
+updatedAt: '2026-10-12T00:00:00.000Z'
 publishedAt: '2026-10-08T00:00:00.000Z'
 locale: en
 categories:
@@ -49,6 +49,14 @@ The setting is available for DCA bots. Combo, Grid and Hedge bots don't have it.
 The deal card shows how many entries the position has, out of your limit.
 
 ![A position with 10 of 10 entries](https://content.gainium.io/images/content/help/single-position__entries.webp)
+
+### Entries with multiple take profits or stop losses
+
+With **multiple take profits**, a target that has already filled stays used for the rest of the position. An entry after it does not bring it back. The bot spreads the whole remaining position, including the new entry, over the targets that are left, in proportion to their amounts, and prices them from the new average.
+
+For example, take three targets of 33%, 33% and 34% at +1%, +2% and +3%. TP1 fills, then an entry is added. TP1 is not placed again. TP2 now closes about 49% and TP3 about 51% of the whole position, at +2% and +3% from the new average. Nothing is left without a take profit, but coins added after TP1 can only exit at TP2 or TP3.
+
+**Multiple stop losses** work the same way: a stop loss target that has filled is not placed again, and the remaining targets cover the whole position.
 
 ### Spacing entries with ASAP
 
