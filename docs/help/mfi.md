@@ -6,7 +6,7 @@ description: >-
   In this article, we explain what is the Money Flow Index (MFI) indicator and
   how it can be used in bot trading.
 createdAt: '2023-04-15T00:21:46.079Z'
-updatedAt: '2026-02-24T07:44:20.576Z'
+updatedAt: '2026-10-12T00:00:00.000Z'
 publishedAt: '2023-04-15T04:17:04.524Z'
 locale: en
 categories:
@@ -35,9 +35,11 @@ The MFI indicator ranges from 0 to 100. When the MFI exceeds 80, it indicates an
 
 ## Using The Money Flow Index in Gainium
 
-You can select this indicator by selecting “Technical Indicators” from the drop-down menu first, then “Money Flow Index” in the “Indicator” Section.
+To select it, set the deal start condition (or the take profit or stop loss type) to **Indicators**, click **Edit** on the indicator, then **Change indicator**, and choose **Money Flow Index (MFI)**.
 ![Screenshot 2023-04-14 at 18.12.51.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_14_at_18_12_51_f570e2cb18-af93dc.webp)
 *MFI*
+
+**Smoothing (optional):** set **Smoothing** to a moving average (SMA, EMA, WMA, DEMA, TEMA, HMA or RMA) and a **Smoothing length** to smooth the MFI line. With **Compare** set to *Smoothed line vs value*, the condition tests the smoothed line against your Value, which filters out short spikes. With *Line vs smoothed line*, it tests the MFI against its own moving average (crossing up or down, greater or lower than) and no Value is needed. The chart draws the smoothed line in orange. Leave Smoothing on **None** to use the MFI as usual. Learn more in [Indicator Smoothing](https://gainium.io/help/indicator-smoothing).
 
 The MFI indicator in Gainium allows you to determine the strength of buying or selling pressure in the market.
 

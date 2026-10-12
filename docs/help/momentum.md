@@ -7,7 +7,7 @@ description: >-
   strategies, identifying trend strength, reversals, and overbought/oversold
   conditions.
 createdAt: '2024-10-06T08:41:16.093Z'
-updatedAt: '2026-02-24T07:44:20.576Z'
+updatedAt: '2026-10-12T00:00:00.000Z'
 publishedAt: '2024-10-06T08:56:39.887Z'
 locale: en
 categories:
@@ -53,6 +53,8 @@ If the momentum value is high, it signals increasing strength in the upward move
 
 ![image.png](https://content.gainium.io/images/content/help/image_00e2e4398c-1b8946.webp)
 *Momentum Oscillator Settings*
+
+**Smoothing (optional):** set **Smoothing** to a moving average (SMA, EMA, WMA, DEMA, TEMA, HMA or RMA) and a **Smoothing length** to smooth the Momentum line. With **Compare** set to *Smoothed line vs value*, the condition tests the smoothed line against your Value, which filters out short spikes. With *Line vs smoothed line*, it tests the Momentum against its own moving average (crossing up or down, greater or lower than) and no Value is needed. The chart draws the smoothed line in orange. Leave Smoothing on **None** to use the Momentum as usual. Learn more in [Indicator Smoothing](https://gainium.io/help/indicator-smoothing).
 
 ### Step 2: Interpret the Indicator
 - **High Momentum**: Indicates strong price movement in one direction, potentially signaling an overbought market if it reaches extreme levels.

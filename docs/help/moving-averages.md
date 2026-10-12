@@ -6,7 +6,7 @@ description: >-
   In this article, we explain what is the Moving Averages (SMA, EMA, HMA, etc.)
   indicators and how they can be used in bot trading.
 createdAt: '2023-04-05T15:46:39.260Z'
-updatedAt: '2026-02-24T07:44:20.577Z'
+updatedAt: '2026-10-12T00:00:00.000Z'
 publishedAt: '2023-04-14T06:55:36.772Z'
 locale: en
 categories:
@@ -74,7 +74,7 @@ Selecting the right moving average for your trading strategy is crucial for opti
 
 ## Using Moving Average in Gainium
 
-You can select this indicator by selecting “Technical Indicators” from the drop-down menu first, then “MA” in the “Indicator” Section.
+To select it, set the deal start condition (or the take profit or stop loss type) to **Indicators**, click **Edit** on the indicator, then **Change indicator**, and choose **Moving Averages**.
 ![Screenshot 2023-04-05 at 16.02.52.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_05_at_16_02_52_5492a98299-40e1bb.webp)
 *Moving Averages*
 

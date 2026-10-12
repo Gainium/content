@@ -3,10 +3,10 @@ id: 110
 name: Understanding AND/OR operators in indicators
 slug: and-or-operators
 description: >-
-  Learn how to use AND/OR operators for multiple indicators in Gainium trading
-  bots. Apply logic uniformly for precise trading strategies.
+  Learn how to combine multiple indicators in Gainium trading bots with AND/OR,
+  inside a group and between groups.
 createdAt: '2024-08-14T07:51:12.849Z'
-updatedAt: '2026-02-24T07:44:20.561Z'
+updatedAt: '2026-10-12T00:00:00.000Z'
 publishedAt: '2024-08-14T07:51:14.109Z'
 locale: en
 categories:
@@ -17,41 +17,49 @@ tags:
 ingested: true
 ingestedAt: '2025-06-29T10:57:29.986Z'
 tldr: >-
-  When combining multiple technical indicators in Gainium bots, you choose
-  either AND (all conditions must be true) or OR (any one condition triggers a
-  trade). The logic applies uniformly across all indicators—you cannot mix
-  AND/OR in a single setup.
+  In Gainium bots, indicators sit in groups. Inside a group, all indicators are
+  joined with the group's AND or OR. Groups are joined to each other with their
+  own AND or OR, so you can build conditions like (RSI and MACD) or SuperTrend.
+  AND binds tighter than OR, and the line above the groups shows the whole
+  condition.
 ---
 
-In trading, combining multiple indicators can refine your strategy and improve decision-making. At Gainium, we’ve made it straightforward to use the AND/OR operators with multiple indicators in your bot's settings. However, there are some key nuances to understand.
+Combining several indicators lets you filter out weak signals or catch more opportunities. In Gainium you combine them with **AND** and **OR**, inside a group and between groups.
 
 ## Understanding AND/OR in Gainium
 
-When setting up your trading bot with multiple indicators, you can use the AND/OR operators to define how these indicators should interact. Here’s what each operator does:
+- **AND**: all the indicators must meet their conditions.
+- **OR**: at least one of the indicators must meet its condition.
 
-- **AND**: All selected indicators must meet the defined conditions for the bot to trigger a trade.
-- **OR**: The bot will trigger a trade if any one of the selected indicators meets its condition.
-![image.png](https://content.gainium.io/images/content/help/image_6adcc3e7eb-c5acdc.webp)
-## Applying AND/OR to Multiple Indicators
+When you set the deal start condition (or the take profit or stop loss type) to **Indicators**, your indicators are shown in a list. Click **+ Indicator** to add another one. Between two indicators you will see an **AND** pill: click it to switch the group to **OR**. A group uses one operator for all its indicators, so switching one pill switches them all.
 
-![Two indicators combined under a single AND operator](https://content.gainium.io/images/content/help/and-or-operators__add1.webp)
+Once you have two or more indicators, the line above them spells out the whole condition, for example **RSI and MACD**.
 
-When you apply AND or OR, it affects all the indicators you’ve chosen. This means that the logic is applied uniformly across the board. For example:
+![Two indicators in one group, joined with AND, and the condition line RSI and MACD](https://content.gainium.io/images/content/help/image_6adcc3e7eb-c5acdc.webp)
 
-- AND Example: If you set up three indicators (A, B, C) with the AND operator, the bot will only trade if A AND B AND C are all true.
-- OR Example: If you use the OR operator, the bot will trade if A OR B OR C is true.
+## Combining groups
 
-## Limitations: No Mixing of AND/OR
+Click **+ Group** to add another group. Each group is joined to the one before it with its own **AND** or **OR** pill, shown between the groups. A new group starts with **OR**, because a group joined with AND would add nothing over putting the indicator in the first group. Click the pill to switch it.
 
-It’s important to note that you can’t mix these operators in a single setup. The logic is applied uniformly, meaning you can’t do something like A OR (B AND C). This constraint ensures simplicity but requires carefully planning how you combine your indicators.
+This lets you mix operators. For example, group 1 holds **RSI AND MACD**, and group 2 holds **SuperTrend**, joined with **OR**. The bot starts a deal when RSI and MACD are both true, or when SuperTrend is true on its own. The condition line shows **(RSI and MACD) or SuperTrend**.
+
+![Two groups: RSI and MACD in group 1, SuperTrend in group 2, joined with OR, and the condition line (RSI and MACD) or SuperTrend](https://content.gainium.io/images/content/help/and-or-operators__add1.webp)
+
+## How the condition is read
+
+**AND binds tighter than OR**, as in most logic. Groups joined with AND are evaluated together first, and OR separates the alternatives. With three groups A, B and C:
+
+- A **AND** B **OR** C reads as (A and B) or C.
+- A **OR** B **AND** C reads as A or (B and C).
+
+When in doubt, read the condition line: it adds the brackets for you.
 
 ## Practical Tips
-- Clear Strategy Definition: Before setting up your indicators, clearly define your strategy. Decide whether you want all conditions to be met (AND) or if meeting any one condition is enough (OR).
-- Consider the Trade-offs: Remember, using AND may reduce the number of trades but potentially increase the accuracy, while OR may increase the number of trades but with a wider range of conditions being acceptable.
-- Test and Adjust: As with any strategy, backtest your settings. See how different combinations affect performance and adjust accordingly.
+- **Start simple.** Decide whether you want every condition to be met (AND) or any of several setups to trigger (OR), then add groups only when you need alternatives.
+- **Consider the trade-offs.** More AND conditions usually mean fewer but more selective trades. More OR alternatives mean more trades with a wider range of setups.
+- **Mind the limit.** A bot can use up to 20 indicators across all its conditions; the counter shows how many remain.
+- **Test and adjust.** Backtest your combinations and compare how they perform before going live.
 
 ## Conclusion
 
-Using AND/OR operators with multiple indicators in Gainium gives you flexibility in your trading strategy. While the logic applies uniformly to all indicators, understanding this system allows you to fine-tune your bot’s behavior to match your trading goals.
-
-Plan your indicator combinations carefully and leverage these tools to enhance your trading efficiency.
+Groups and AND/OR pills let you describe almost any combination of indicators, from a simple "all of these" to several alternative setups. Use the condition line to check that the bot will read your rules the way you mean them.

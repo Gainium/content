@@ -6,7 +6,7 @@ description: >-
   In this article, we explain what is the Tradingview Technical Ratings
   indicator and how it can be used in bot trading.
 createdAt: '2023-04-11T17:54:14.611Z'
-updatedAt: '2026-02-24T07:44:20.584Z'
+updatedAt: '2026-10-12T00:00:00.000Z'
 publishedAt: '2023-04-14T07:56:21.020Z'
 locale: en
 categories:
@@ -35,7 +35,7 @@ It's essential to remember that Technical Ratings should not be used in isolatio
 
 ## Using Tradingview Techincal Ratings in Gainium
 
-You can select this indicator by selecting “Technical Indicators” from the drop-down menu first, then “Combined Ratings” in the “Indicator” Section.
+To select it, set the deal start condition (or the take profit or stop loss type) to **Indicators**, click **Edit** on the indicator, then **Change indicator**, and choose **Combined Ratings (TradingView)**.
 ![Screenshot 2023-04-11 at 18.51.59.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_18_51_59_09012eb084-69f064.webp)
 *Tradingview Analysis*
 

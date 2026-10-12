@@ -7,7 +7,7 @@ description: >-
   change. This article explains how to close trades using Gainium's technical
   indicators deal close conditions.
 createdAt: '2023-04-02T03:11:20.622Z'
-updatedAt: '2026-02-24T07:44:20.583Z'
+updatedAt: '2026-10-12T00:00:00.000Z'
 publishedAt: '2023-04-02T04:10:04.916Z'
 locale: en
 categories:
@@ -39,7 +39,7 @@ Some people prefer to close their trades using indicators because they are more 
 
 When creating a trading bot or terminal deal, you have the option to close the deal with indicators by setting “Indicators” in the Take Profit section, the Stop Loss section, or both.
 ![close-with-indicators-tp.png](https://content.gainium.io/images/content/help/close_with_indicators_tp_72b6080ced-18589f.webp)![close-with-indicators-sl.png](https://content.gainium.io/images/content/help/close_with_indicators_sl_b91f3ee627-e50e09.webp)
-Multiple Deal close conditions use "AND" logic, meaning all conditions must be true to close the deal, just like with Deal start conditions.
+Close conditions combine the same way as deal start conditions: indicators inside a group are joined with that group's **AND** or **OR**, and groups are joined with the AND/OR between them. The line above the groups spells out the whole condition. See [AND/OR operators in indicators](https://gainium.io/help/and-or-operators).
 
 You can edit your bot and change the deal close conditions, but new bot settings apply only to new trades; old trades keep their original settings. You can also change current open deals from closing with indicators to percentage, but switching from one closing with indicator condition to another for an open deal is not possible.
 

@@ -6,7 +6,7 @@ description: >-
   Learn how to use the Moving Average Ratio (MAR) in Gainium for flexible bot
   trading with advanced trend detection and customizable entry/exit rules.
 createdAt: '2024-10-05T11:55:03.576Z'
-updatedAt: '2026-02-24T07:44:20.576Z'
+updatedAt: '2026-10-12T00:00:00.000Z'
 publishedAt: '2024-10-05T12:19:52.638Z'
 locale: en
 categories:
@@ -53,6 +53,8 @@ The Moving Average Ratio (MAR) is an advanced indicator that measures the ratio 
 - **Trend Condition:** To fine-tune trend detection, set a condition like "MAR must be greater than or equal to 2% over the last 10 bars."-** Trend Filter Activation:** Enable this to color the background green when the trend matches your rules.
 ![image.png](https://content.gainium.io/images/content/help/image_54a307f207-344a72.webp)
 *MAR Indicator Options*
+
+**Smoothing (optional):** set **Smoothing** to a moving average (SMA, EMA, WMA, DEMA, TEMA, HMA or RMA) and a **Smoothing length** to smooth the MAR line. With **Compare** set to *Smoothed line vs value*, the condition tests the smoothed line against your Value, which filters out short spikes. With *Line vs smoothed line*, it tests the MAR against its own moving average (crossing up or down, greater or lower than) and no Value is needed. The chart draws the smoothed line in orange. Leave Smoothing on **None** to use the MAR as usual. Learn more in [Indicator Smoothing](https://gainium.io/help/indicator-smoothing).
 
 ### Step 4: Interpret the Indicator
 - The indicator values range from close to 0 to infinity, typically in the 0.5 to 1.5 range. Visually, it is similar to oscillators like RSI.

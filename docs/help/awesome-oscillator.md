@@ -7,7 +7,7 @@ description: >-
   detecting trend reversals, and capturing market momentum with detailed
   strategy examples.
 createdAt: '2024-10-06T13:00:26.149Z'
-updatedAt: '2026-02-24T07:44:20.564Z'
+updatedAt: '2026-10-12T00:00:00.000Z'
 publishedAt: '2024-10-06T13:00:29.057Z'
 locale: en
 categories:
@@ -51,6 +51,8 @@ Here’s how to configure the **Awesome Oscillator** in Gainium using the settin
 - **Keep True**: This setting controls how long the condition remains true after being triggered. A value of **0** means the condition resets immediately after the signal is triggered.
 ![image.png](https://content.gainium.io/images/content/help/image_a74835783b-4ecf16.webp)
 *Awesome Oscillator Settings*
+
+**Smoothing (optional):** set **Smoothing** to a moving average (SMA, EMA, WMA, DEMA, TEMA, HMA or RMA) and a **Smoothing length** to smooth the Awesome Oscillator line. With **Compare** set to *Smoothed line vs value*, the condition tests the smoothed line against your Value, which filters out short spikes. With *Line vs smoothed line*, it tests the Awesome Oscillator against its own moving average (crossing up or down, greater or lower than) and no Value is needed. The chart draws the smoothed line in orange. Leave Smoothing on **None** to use the Awesome Oscillator as usual. Learn more in [Indicator Smoothing](https://gainium.io/help/indicator-smoothing).
 
 ## Using the Awesome Oscillator in Bot Trading
 

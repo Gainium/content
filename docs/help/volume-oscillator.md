@@ -7,7 +7,7 @@ description: >-
   detecting trend reversals, and confirming market momentum with volume-based
   strategies.
 createdAt: '2024-10-06T13:07:57.822Z'
-updatedAt: '2026-02-24T07:44:20.586Z'
+updatedAt: '2026-10-12T00:00:00.000Z'
 publishedAt: '2024-10-06T13:08:01.346Z'
 locale: en
 categories:
@@ -50,7 +50,9 @@ Here’s how to configure the **Volume Oscillator** in Gainium using the setting
 - **Value (0)**: This value represents the trigger level for the oscillator. When the oscillator crosses **below 0**, it signals a potential decrease in momentum.
 - **Keep True (0)**: This setting determines how long the condition remains true after it triggers. A value of **0** means the condition resets immediately after it is triggered.
 ![image.png](https://content.gainium.io/images/content/help/image_fc0fc55c55-6b36ae.webp)
-*Ultimate Oscillator Settings*
+*Volume Oscillator Settings*
+
+**Smoothing (optional):** set **Smoothing** to a moving average (SMA, EMA, WMA, DEMA, TEMA, HMA or RMA) and a **Smoothing length** to smooth the Volume Oscillator line. With **Compare** set to *Smoothed line vs value*, the condition tests the smoothed line against your Value, which filters out short spikes. With *Line vs smoothed line*, it tests the Volume Oscillator against its own moving average (crossing up or down, greater or lower than) and no Value is needed. The chart draws the smoothed line in orange. Leave Smoothing on **None** to use the Volume Oscillator as usual. Learn more in [Indicator Smoothing](https://gainium.io/help/indicator-smoothing).
 
 ## Using the Volume Oscillator in Bot Trading
 

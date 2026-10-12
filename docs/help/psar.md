@@ -6,7 +6,7 @@ description: >-
   In this article, we explain what is the Parabolic SAR Indicator (PSAR)
   indicator and how it can be used in bot trading.
 createdAt: '2023-08-09T15:12:27.329Z'
-updatedAt: '2026-02-24T07:44:20.579Z'
+updatedAt: '2026-10-12T00:00:00.000Z'
 publishedAt: '2023-08-13T17:28:56.645Z'
 locale: en
 categories:
@@ -43,7 +43,7 @@ The formula for calculating the Parabolic SAR dots is as follows:
 
 ## Using The Parabolic SAR Indicator in Gainium
 
-You can select this indicator by selecting “Technical Indicators” from the drop-down menu first, then “Parabolic SAR” in the “Indicator” Section.
+To select it, set the deal start condition (or the take profit or stop loss type) to **Indicators**, click **Edit** on the indicator, then **Change indicator**, and choose **Parabolic SAR**.
 ![](https://content.gainium.io/images/content/help/Screenshot_2023_08_09_at_21_31_21_ac55c4e9c5-132b97.webp)
 *PSAR indicator*
 

@@ -6,7 +6,7 @@ description: >-
   In this article, we explain what is the RSI indicator and how it can be used
   in bot trading.
 createdAt: '2023-04-11T17:49:23.152Z'
-updatedAt: '2026-02-24T07:44:20.580Z'
+updatedAt: '2026-10-12T00:00:00.000Z'
 publishedAt: '2023-04-14T07:29:26.368Z'
 locale: en
 categories:
@@ -20,7 +20,9 @@ tldr: >-
   The Relative Strength Index (RSI) measures momentum strength, with readings
   below 30 indicating oversold (buy signal) and above 70 indicating overbought
   (sell signal). In Gainium, RSI can be used for classic overbought/oversold
-  trading, trend confirmation, and divergence strategies.
+  trading, trend confirmation, and divergence strategies. The RSI line can
+  also be smoothed with a moving average, or compared with its own moving
+  average to time momentum turns.
 ---
 
 In the rapidly changing world of cryptocurrency trading, traders are continually seeking effective tools and strategies to gain an edge in the market. One such tool is the Relative Strength Index (RSI), a widely-used technical indicator that can help identify potential entry and exit points in a trade. In this article, we'll explore the basics of RSI, how it can be applied to the BTC/USDT trading pair, and example strategies to help you maximize your profits.
@@ -33,9 +35,31 @@ The RSI is typically interpreted using two key threshold levels: 30 and 70. When
 
 ## Using RSI in Gainium
 
-You can select this indicator by selecting “Technical Indicators” from the drop-down menu first, then “RSI” in the “Indicator” Section.
-![Screenshot 2023-04-11 at 17.23.03.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_17_23_03_54b9344e4a-0f3d3e.webp)
+To use it, set the deal start condition (or the take profit or stop loss type) to **Indicators**. An RSI is added for you: click **Edit** on it to open its settings, then set the **Length**, the **Interval**, the **Condition** and the **Value**. To add another indicator, click **+ Indicator**, then **Edit** and **Change indicator** to pick its type. For DCA orders, set the DCA type to **Indicators** and click **Add DCA Indicator**.
+![The RSI settings: Use percentile, Length and Interval, Smoothing, Condition and Value, and Keep true](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_17_23_03_54b9344e4a-0f3d3e.webp)
 *RSI*
+
+### Smoothing the RSI
+
+The RSI can be noisy, especially on short lengths and intervals. **Smoothing** applies a moving average to the RSI line before the condition is tested:
+
+- **Smoothing**: None (default), SMA, EMA, WMA, DEMA, TEMA, HMA or RMA.
+- **Smoothing length**: how many candles the moving average covers (default 14).
+- **Compare**: what the condition tests once smoothing is on.
+
+With Compare set to **Smoothed line vs value**, every condition — Crossing up, Crossing down, Greater than, Lower than and Between — tests the smoothed RSI against your Value. A one-candle spike barely moves the smoothed line, so the condition fires on sustained moves. For example, the common rule "EMA of RSI(14) over 14 candles below 80" is: Length **14**, Smoothing **EMA**, Smoothing length **14**, Compare **Smoothed line vs value**, Condition **Lower than**, Value **80**.
+
+![RSI 14 smoothed with an EMA 14, tested with Lower than 80](https://content.gainium.io/images/content/help/rsi__smoothing-vs-value.webp)
+
+With Compare set to **Line vs smoothed line**, the condition tests the RSI against its own moving average: **Crossing up** or **Crossing down** when the RSI crosses its average, **Greater than** or **Lower than** while it is above or below it. The Value field is hidden and **Between** is not offered. With a short average, such as an EMA of 9 to 14 candles, this is a timing signal: the RSI crossing up through its average shows momentum turning up, often before the RSI reaches a fixed level.
+
+![RSI 14 crossing up its EMA 9: Compare set to Line vs smoothed line, with no Value field](https://content.gainium.io/images/content/help/rsi__smoothing-line-vs-smoothed.webp)
+
+When smoothing is on, the bot chart draws the smoothed line in orange next to the purple RSI.
+
+![The RSI pane: the RSI in purple and its EMA 14 in orange](https://content.gainium.io/images/content/help/rsi__chart-smoothed-line.webp)
+
+If you turn on **Use percentile**, the percentile ranks the smoothed RSI and Compare is hidden. Leave Smoothing on **None** to use the RSI exactly as before. More details in [Indicator Smoothing](https://gainium.io/help/indicator-smoothing).
 
 
 
@@ -82,6 +106,10 @@ For example, if a trader identifies a bullish divergence between the BTC/USDT pr
 An RSI breakout strategy involves monitoring the RSI for breakouts from established support and resistance levels. For instance, if the RSI for BTC/USDT has been fluctuating between 40 and 60 for an extended period, a breakout above 60 or below 40 could signal the start of a new trend.
 
 In this scenario, if the RSI breaks out above 60, a trader might consider opening a long position, anticipating a continuation of the upward trend. Alternatively, if the RSI breaks down below 40, a short position could be warranted, with the expectation of a downward trend.
+
+### RSI and its moving average
+
+Instead of waiting for the RSI to reach 30 or 70, you can trade the moment its momentum turns. Add the RSI with Smoothing **EMA**, Smoothing length **9**, Compare **Line vs smoothed line** and Condition **Crossing up**: the bot opens a deal when the RSI crosses above its own average. To avoid buying every small bounce, add a second RSI condition with the same settings but Compare **Smoothed line vs value**, Condition **Lower than** and Value **40**, so the turn only counts while the RSI is still low.
 
 ### Indicator combinations
 

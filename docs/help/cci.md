@@ -7,7 +7,7 @@ description: >-
   trading strategies, detect trends, and identify overbought/oversold
   conditions.
 createdAt: '2024-10-06T09:17:03.242Z'
-updatedAt: '2026-02-24T07:44:20.567Z'
+updatedAt: '2026-10-12T00:00:00.000Z'
 publishedAt: '2024-10-06T09:17:05.240Z'
 locale: en
 categories:
@@ -52,6 +52,8 @@ Here’s how to set up the **CCI** indicator in Gainium.
 - **Keep True**: This defines how long the condition remains active after it’s triggered. Setting this to **0** means the condition resets immediately after the trigger.
 ![image.png](https://content.gainium.io/images/content/help/image_4f3abd1064-80512a.webp)
 *CCI Oscillator Settings*
+
+**Smoothing (optional):** set **Smoothing** to a moving average (SMA, EMA, WMA, DEMA, TEMA, HMA or RMA) and a **Smoothing length** to smooth the CCI line. With **Compare** set to *Smoothed line vs value*, the condition tests the smoothed line against your Value, which filters out short spikes. With *Line vs smoothed line*, it tests the CCI against its own moving average (crossing up or down, greater or lower than) and no Value is needed. The chart draws the smoothed line in orange. Leave Smoothing on **None** to use the CCI as usual. Learn more in [Indicator Smoothing](https://gainium.io/help/indicator-smoothing).
 
 ## Using CCI in Bot Trading
 

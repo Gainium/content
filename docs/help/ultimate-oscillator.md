@@ -7,7 +7,7 @@ description: >-
   detecting overbought/oversold conditions, and effectively trading momentum
   divergences.
 createdAt: '2024-10-06T12:51:51.641Z'
-updatedAt: '2026-02-24T07:44:20.585Z'
+updatedAt: '2026-10-12T00:00:00.000Z'
 publishedAt: '2024-10-06T12:51:54.365Z'
 locale: en
 categories:
@@ -50,7 +50,9 @@ The **Ultimate Oscillator** is designed to track momentum across three different
 - **Value (70)**: This is the trigger point for the condition. The bot will act when the oscillator crosses **below 70**, signaling a potential exit from overbought territory.
 - **Keep True (0)**: This setting defines how long the condition remains active after it is triggered. Setting it to **0** means the condition resets immediately after the signal.
 ![image.png](https://content.gainium.io/images/content/help/image_8656eba5b8-a5c6f5.webp)
-*UJltimate Oscillator Settings*
+*Ultimate Oscillator Settings*
+
+**Smoothing (optional):** set **Smoothing** to a moving average (SMA, EMA, WMA, DEMA, TEMA, HMA or RMA) and a **Smoothing length** to smooth the Ultimate Oscillator line. With **Compare** set to *Smoothed line vs value*, the condition tests the smoothed line against your Value, which filters out short spikes. With *Line vs smoothed line*, it tests the Ultimate Oscillator against its own moving average (crossing up or down, greater or lower than) and no Value is needed. The chart draws the smoothed line in orange. Leave Smoothing on **None** to use the Ultimate Oscillator as usual. Learn more in [Indicator Smoothing](https://gainium.io/help/indicator-smoothing).
 
 ## Using the Ultimate Oscillator in Bot Trading
 

@@ -7,7 +7,7 @@ description: >-
   capturing overbought/oversold conditions, and building effective bot trading
   strategies.
 createdAt: '2024-10-06T07:36:52.543Z'
-updatedAt: '2026-02-24T07:44:20.565Z'
+updatedAt: '2026-10-12T00:00:00.000Z'
 publishedAt: '2024-10-06T07:36:54.333Z'
 locale: en
 categories:
@@ -50,6 +50,8 @@ It helps traders quickly assess where the price is relative to the bands, signal
 
 ![image.png](https://content.gainium.io/images/content/help/image_001f9207f0-07f7d9.webp)
 *Bollinger Bands %B Settings*
+
+**Smoothing (optional):** set **Smoothing** to a moving average (SMA, EMA, WMA, DEMA, TEMA, HMA or RMA) and a **Smoothing length** to smooth the %B line. With **Compare** set to *Smoothed line vs value*, the condition tests the smoothed line against your Value, which filters out short spikes. With *Line vs smoothed line*, it tests the %B against its own moving average (crossing up or down, greater or lower than) and no Value is needed. The chart draws the smoothed line in orange. Leave Smoothing on **None** to use the %B as usual. Learn more in [Indicator Smoothing](https://gainium.io/help/indicator-smoothing).
 
 ### Step 2: Use Percentile (Optional)
 

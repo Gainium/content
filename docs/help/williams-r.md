@@ -7,7 +7,7 @@ description: >-
   detecting trends, reversals, and overbought/oversold conditions with detailed
   strategy examples.
 createdAt: '2024-10-06T12:15:15.080Z'
-updatedAt: '2026-02-24T07:44:20.586Z'
+updatedAt: '2026-10-12T00:00:00.000Z'
 publishedAt: '2024-10-06T12:22:36.175Z'
 locale: en
 categories:
@@ -52,6 +52,8 @@ Here’s how to configure the **Williams %R** indicator in Gainium.
 - **Keep True**: This setting determines how long the condition remains active after being triggered. A value of **0** means it resets immediately after the condition is met.
 ![image.png](https://content.gainium.io/images/content/help/image_e18959360b-ffe68e.webp)
 *Williams %R Indicator Settings*
+
+**Smoothing (optional):** set **Smoothing** to a moving average (SMA, EMA, WMA, DEMA, TEMA, HMA or RMA) and a **Smoothing length** to smooth the Williams %R line. With **Compare** set to *Smoothed line vs value*, the condition tests the smoothed line against your Value, which filters out short spikes. With *Line vs smoothed line*, it tests the Williams %R against its own moving average (crossing up or down, greater or lower than) and no Value is needed. The chart draws the smoothed line in orange. Leave Smoothing on **None** to use the Williams %R as usual. Learn more in [Indicator Smoothing](https://gainium.io/help/indicator-smoothing).
 
 ### Step 3: Positive and Negative Percent Changes
 - **Positive % Change**: Detects price increases. If the Williams %R rises above a specific level (e.g., -40 to -20), it indicates increasing bullish momentum.

@@ -6,7 +6,7 @@ description: >-
   In this article, we explain what is the ADX indicator and how it can be used
   in bot trading.
 createdAt: '2023-04-05T14:48:28.247Z'
-updatedAt: '2026-02-24T07:44:20.560Z'
+updatedAt: '2026-10-12T00:00:00.000Z'
 publishedAt: '2023-04-12T04:57:26.585Z'
 locale: en
 categories:
@@ -37,13 +37,15 @@ The ADX, developed by J. Welles Wilder Jr. in 1978, is a momentum-based technica
 | 75-100 | Extremely strong trend (rarely happens and can be considered unsustainable) |
 ## Using the ADX indicator in Gainium
 
-You can select this indicator by selecting “Technical Indicators” from the drop-down menu first then “ADX” in the “Indicator” Section.
+To select it, set the deal start condition (or the take profit or stop loss type) to **Indicators**, click **Edit** on the indicator, then **Change indicator**, and choose **Average Directional Index (ADX)**.
 ![Screenshot 2023-04-01 at 17.38.49.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_01_at_17_38_49_08a719285a-91c355.webp)
 *Deal Start*
 
 The Adx indicator in Gainium allows you to trade a trending market by selecting the value and the condition. When price action is supported by a crossover of a desired value of ADX, the more likely the move is going to continue in that direction. Meaning that ADX is a very good tool to support a real breakout.
 ![Screenshot 2023-04-03 at 17.09.18.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_03_at_17_09_18_7db210263e-1dad6b.webp)
 *ADX Indicator in Gainium*
+
+**Smoothing (optional):** set **Smoothing** to a moving average (SMA, EMA, WMA, DEMA, TEMA, HMA or RMA) and a **Smoothing length** to smooth the ADX line. With **Compare** set to *Smoothed line vs value*, the condition tests the smoothed line against your Value, which filters out short spikes. With *Line vs smoothed line*, it tests the ADX against its own moving average (crossing up or down, greater or lower than) and no Value is needed. The chart draws the smoothed line in orange. Leave Smoothing on **None** to use the ADX as usual. Learn more in [Indicator Smoothing](https://gainium.io/help/indicator-smoothing).
 
 The most common ADX settings are a 14-period length, a high volatility threshold of 25, and a low volatility threshold of 20. In other words, a market is considered volatile when the ADX is greater than 25, and calm when it is less than 20.
 

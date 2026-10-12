@@ -6,7 +6,7 @@ description: >-
   In this article, we explain what is the Stoch RSI indicator and how it can be
   used in bot trading.
 createdAt: '2023-04-14T15:37:48.812Z'
-updatedAt: '2026-02-24T07:44:20.582Z'
+updatedAt: '2026-10-12T00:00:00.000Z'
 publishedAt: '2023-04-15T04:28:11.100Z'
 locale: en
 categories:
@@ -31,7 +31,7 @@ The Stochastic RSI (Relative Strength Index) indicator is a technical analysis t
 
 ## Using Stochastic RSI in Gainium
 
-You can select this indicator by selecting “Technical Indicators” from the drop-down menu first then “StochRSI” in the “Indicator” Section.
+To select it, set the deal start condition (or the take profit or stop loss type) to **Indicators**, click **Edit** on the indicator, then **Change indicator**, and choose **Stochastic RSI (StochRSI)**.
 ![Screenshot 2023-04-12 at 15.51.36.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_12_at_15_51_36_0a418f2984-43c17c.webp)
 *StochRSI*
 

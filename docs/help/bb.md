@@ -6,7 +6,7 @@ description: >-
   In this article, we explain what is the Bollinger Bands indicator and how it
   can be used in bot trading.
 createdAt: '2023-04-05T14:51:39.550Z'
-updatedAt: '2026-02-24T07:44:20.565Z'
+updatedAt: '2026-10-12T00:00:00.000Z'
 publishedAt: '2023-04-12T06:03:51.322Z'
 locale: en
 categories:
@@ -38,7 +38,7 @@ As mentioned in the BBW indicator, when the Upper and Lower bands are very close
 
 ## Using the Bollinger Bands Indicator in Gainium
 
-You can select this indicator by selecting “Technical Indicators” from the drop-down menu first, then “Bollinger Bands” in the “Indicator” Section.
+To select it, set the deal start condition (or the take profit or stop loss type) to **Indicators**, click **Edit** on the indicator, then **Change indicator**, and choose **Bollinger Bands (BB)**.
 ![Screenshot 2023-04-03 at 18.22.47.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_03_at_18_22_47_fdabbde9ea-54154a.webp)
 *Bollinger Bands*
 

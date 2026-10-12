@@ -6,7 +6,7 @@ description: >-
   Unlock advanced crypto trading strategies with Gainium's new Percentiles
   feature, offering nuanced insights using historical indicator analysis
 createdAt: '2023-12-04T17:58:26.428Z'
-updatedAt: '2026-02-24T07:44:20.574Z'
+updatedAt: '2026-10-12T00:00:00.000Z'
 publishedAt: '2023-12-04T18:27:36.919Z'
 locale: en
 categories:
@@ -39,6 +39,16 @@ In this case, applying the Percent Rank function with a lookback period of seven
 
 The PercentRank function is adaptable and can be applied to various types of time series data. This includes price data and technical analysis indicators.
 
+### **What the percentile tells you**
+
+A percentile is a **rank**, not a level. It tells you where the indicator sits compared with its own recent history over the lookback, so it describes the current **regime**: is the RSI high or low *for this market, right now*? An RSI of 60 can be the top of a quiet range or the middle of a strong trend; its percentile tells you which.
+
+- **90%**: the indicator is higher than 90% of its recent values — unusually high for the period.
+- **50%**: the indicator is right in the middle of its recent values — roughly its rolling median.
+- **10%**: the indicator is lower than 90% of its recent values — unusually low for the period.
+
+Because it adapts to each pair and timeframe, the same percentile rule can work on a calm pair and a volatile one, where a fixed level like RSI 70 would trigger far more often on one than the other.
+
 ## **How Percentiles Work in Gainium**
 
 When you enable the Percentile option for an indicator, the bot will use the indicator's percentile value rather than its actual value. This approach allows for a more relative indicator interpretation, considering its historical performance over a specified lookback period.
@@ -47,13 +57,19 @@ When you enable the Percentile option for an indicator, the bot will use the ind
 
 **Select an Indicator:** Choose an indicator to which you want to apply the Percentile feature. Not all indicators may support this feature, so check the compatibility first.
 
-**Enable “Use Percentile” Option:** You will find an option to enable Percentiles in the indicator settings. Turn this on to activate the feature.
+**Enable “Use percentile” Option:** You will find an option to enable Percentiles in the indicator settings. Turn this on to activate the feature.
 
 **Specify Lookback Period:** Once Percentiles are enabled, specify the lookback period. This is the number of bars over which the percentile calculation will be made.
 
 ![indicator-percentile.jpeg](https://content.gainium.io/images/content/help/indicator_percentile_de891f97bd-43b997.webp)
 
 As you can see from the screenshot above, setting the rule to trigger when the RSI crosses the 90th percentile will display a dotted line with the value the RSI needs to reach to be in the 90th percentile.
+
+### **Percentiles with smoothing**
+
+On oscillators that support [smoothing](https://gainium.io/help/indicator-smoothing), you can combine both: when **Smoothing** is set to a moving average and **Use percentile** is on, the percentile ranks the **smoothed** line over the lookback. This gives you a regime signal that ignores one-candle spikes. With percentile on, the **Compare** option is hidden, because a percentile is always compared against a value.
+
+![RSI with Use percentile on and EMA 14 smoothing: Lookback and Percentile, Length and Interval, Smoothing and Smoothing length](https://content.gainium.io/images/content/help/indicator-percentiles__percentile-with-smoothing.webp)
 
 ## **Practical Applications of Percentiles in Trading**
 

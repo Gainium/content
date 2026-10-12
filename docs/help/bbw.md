@@ -6,7 +6,7 @@ description: >-
   In this article, we explain what is BBW indicator and how it can be used in
   bot trading.
 createdAt: '2023-04-05T14:49:25.356Z'
-updatedAt: '2026-02-24T07:44:20.565Z'
+updatedAt: '2026-10-12T00:00:00.000Z'
 publishedAt: '2023-04-12T05:15:20.930Z'
 locale: en
 categories:
@@ -38,9 +38,11 @@ This indicator is non-directional, which means it only registers the strength of
 
 ## Using BBW in Gainium
 
-You can select this indicator by selecting “Technical Indicators” from the drop-down menu first, then “BBW” in the “Indicator” Section.
+To select it, set the deal start condition (or the take profit or stop loss type) to **Indicators**, click **Edit** on the indicator, then **Change indicator**, and choose **Bollinger Band Width (BBW)**.
 ![Screenshot 2023-04-03 at 18.05.15.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_03_at_18_05_15_3b2a466729-c7132f.webp)
 *BBW indicator*
+
+**Smoothing (optional):** set **Smoothing** to a moving average (SMA, EMA, WMA, DEMA, TEMA, HMA or RMA) and a **Smoothing length** to smooth the BBW line. With **Compare** set to *Smoothed line vs value*, the condition tests the smoothed line against your Value, which filters out short spikes. With *Line vs smoothed line*, it tests the BBW against its own moving average (crossing up or down, greater or lower than) and no Value is needed. The chart draws the smoothed line in orange. Leave Smoothing on **None** to use the BBW as usual. Learn more in [Indicator Smoothing](https://gainium.io/help/indicator-smoothing).
 
 ## How to incorporate BBW in your bot trading
 
