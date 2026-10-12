@@ -6,7 +6,7 @@ description: >-
   Learn how to send webhooks to your trading bots and use them as entry trigger
   signal for trading.
 createdAt: '2022-11-22T13:46:17.530Z'
-updatedAt: '2026-10-08T04:00:00.000Z'
+updatedAt: '2026-10-12T10:00:00.000Z'
 publishedAt: '2022-11-22T13:46:20.790Z'
 locale: en
 categories:
@@ -99,11 +99,37 @@ These are all the actions Gainium accepts. **An `action` value that isn't in thi
 | `closeDealSl` | Same as `closeDeal`, but closes at market and books the result as a stop loss. | `symbol` *(optional)* |
 | `startBot` | Starts the bot (equivalent to pressing Start). | — |
 | `stopBot` | Stops the bot. | `closeType`: `limit`, `market`, `cancel`, or `leave`. Defaults to `leave` (open deals are left running). |
-| `addFunds` | [Adds funds](https://gainium.io/help/add-funds-to-deals) to open deals. | `qty` **(required)**, `asset` **(required)**: `base`, `quote`, `percTotal`, `percFree` or `usd`; `type` *(optional)*: `fixed` or `perc`; `symbol` *(optional)* |
+| `addFunds` | [Adds funds](https://gainium.io/help/add-funds-to-deals) to open deals. | `qty` **(required)**, `asset` **(required)**: `base`, `quote`, `percTotal`, `percFree` or `usd`; `type` *(optional)*: `fixed` or `perc`; `symbol` *(optional)*; `price` *(optional)* — place a limit order at this price instead of a market order, see [Adding or reducing funds with a limit order](#adding-or-reducing-funds-with-a-limit-order) |
 | `reduceFunds` | Reduces funds in open deals. | Same as `addFunds` |
 | `changePairs` | Changes the pairs a multi-pair bot trades. | `pairsToSet` **(required)**, an array of pairs; `pairsToSetMode`: `add`, `remove` or `replace` |
 
-`addFunds` and `reduceFunds` do nothing if `qty` or `asset` is missing or empty, and `changePairs` does nothing without `pairsToSet` — again with no error returned.
+`addFunds` and `reduceFunds` are rejected (HTTP 400) if `qty` or `asset` is missing or empty, and `changePairs` is rejected without `pairsToSet`.
+
+## **Adding or reducing funds with a limit order**
+
+By default `addFunds` and `reduceFunds` fill straight away with a market order. Add a `price` and the order is placed as a **limit order** at that price instead, the same as choosing *Limit* when you add or reduce funds by hand in a deal. That's useful for scaling in or trimming at a level your script calculates (an ATR step, an order block, a support level) without paying the spread and taker fee.
+
+```json
+{
+  "action": "addFunds",
+  "uuid": "f944e169-2398-482b-4987-10a30eeb477b",
+  "symbol": "BTC_USDT",
+  "qty": "50",
+  "asset": "quote",
+  "price": "{{close}}"
+}
+```
+
+- Leave `price` out and nothing changes: the order is filled at market.
+- The order waits on the order book until it fills. When it fills, the deal's average price, take profit and safety orders are updated as for any other added (or reduced) funds. When the deal closes, an unfilled order is cancelled.
+- With `asset: "quote"`, the amount of coins is worked out at your `price`, not at the current price.
+- The price is rounded to the pair's price step, so values calculated by your script are fine as they are.
+- A buy price above the current price (or a sell price below it) fills at once, like any limit order on the exchange.
+
+The signal is **rejected** (HTTP 400, no order placed) when:
+
+- `price` isn't a positive number. For example, an empty value, `NaN`, or a TradingView placeholder that didn't render. Gainium won't swap your limit order for a market one.
+- the bot trades several pairs and the signal has a `price` but no `symbol`. One price can only be right for one pair.
 
 ## **Opening a deal with its own size, TP and SL**
 
