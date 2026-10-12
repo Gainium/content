@@ -7,7 +7,7 @@ description: >-
   minigrids. How to set it up, how deals are limited, and how credits are
   calculated.
 createdAt: '2026-10-08T00:00:00.000Z'
-updatedAt: '2026-10-08T00:00:00.000Z'
+updatedAt: '2026-10-12T00:00:00.000Z'
 publishedAt: '2026-10-08T00:00:00.000Z'
 locale: en
 categories:
@@ -61,7 +61,7 @@ Make sure your balance can fund the deals you allow. Each deal needs its base mi
 A multi-coin combo costs **one combo (200 credits) for each pair it can trade at the same time**. That is the number of pairs, capped by Max open deals, because no more pairs than that can have a deal open at once. The usual combo extras still apply on top:
 
 - +1 credit per deal above 10 max deals
-- +1 credit per indicator per pair
+- +1 credit per indicator per pair. DCA by indicators counts as one indicator, however many DCA levels it has
 
 | Pairs | Max open deals | Credits |
 |---|---|---|

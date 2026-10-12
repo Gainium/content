@@ -6,7 +6,7 @@ description: >-
   Learn about Gainium's new credit-based pricing system that offers fairer and
   more transparent pricing based on actual resource usage.
 createdAt: '2025-11-04T00:00:00.000Z'
-updatedAt: '2026-10-10T00:00:00.000Z'
+updatedAt: '2026-10-12T00:00:00.000Z'
 publishedAt: '2025-11-04T00:00:00.000Z'
 locale: en
 categories:
@@ -59,7 +59,7 @@ Each bot type has a base cost in credits per month, with additional costs for ex
 - **Additional costs:**
   - +0.5 credits per additional pair
   - +1 credit per additional deal
-  - +1 credit per indicator per pair
+  - +1 credit per indicator per pair. DCA by indicators counts as one indicator, however many DCA levels it has
 
 ### Combo Bot
 - **Base cost:** 200 credits
@@ -67,7 +67,9 @@ Each bot type has a base cost in credits per month, with additional costs for ex
 - **Additional costs:**
   - +200 credits per additional pair the bot can trade at the same time (the number of pairs, capped by max open deals) — see [Multi-coin combo bots](https://gainium.io/help/multi-coin-combo-bots)
   - +1 credit per additional deal
-  - +1 credit per indicator per pair
+  - +1 credit per indicator per pair. DCA by indicators counts as one indicator, however many DCA levels it has
+
+A bot can use up to 20 indicators. DCA by indicators counts as one toward that limit too.
 
 ### Grid Bot
 - **Base cost:** 250 credits (fixed)
