@@ -6,7 +6,7 @@ description: >-
   Learn how to send webhooks to your trading bots and use them as entry trigger
   signal for trading.
 createdAt: '2022-11-22T13:46:17.530Z'
-updatedAt: '2026-10-12T10:00:00.000Z'
+updatedAt: '2026-10-13T08:00:00.000Z'
 publishedAt: '2022-11-22T13:46:20.790Z'
 locale: en
 categories:
@@ -100,7 +100,7 @@ These are all the actions Gainium accepts. **An `action` value that isn't in thi
 | `startBot` | Starts the bot (equivalent to pressing Start). | — |
 | `stopBot` | Stops the bot. | `closeType`: `limit`, `market`, `cancel`, or `leave`. Defaults to `leave` (open deals are left running). |
 | `addFunds` | [Adds funds](https://gainium.io/help/add-funds-to-deals) to open deals. | `qty` **(required)**, `asset` **(required)**: `base`, `quote`, `percTotal`, `percFree` or `usd`; `type` *(optional)*: `fixed` or `perc`; `symbol` *(optional)*; `price` *(optional)* — place a limit order at this price instead of a market order, see [Adding or reducing funds with a limit order](#adding-or-reducing-funds-with-a-limit-order) |
-| `reduceFunds` | Reduces funds in open deals. | Same as `addFunds` |
+| `reduceFunds` | [Reduces funds](https://gainium.io/help/reduce-funds) in open deals. | Same as `addFunds`: `qty` **(required)**, `asset` **(required)**; `type`, `symbol` and `price` *(optional)*. With `price`, the reduction is a limit order at that price |
 | `changePairs` | Changes the pairs a multi-pair bot trades. | `pairsToSet` **(required)**, an array of pairs; `pairsToSetMode`: `add`, `remove` or `replace` |
 
 `addFunds` and `reduceFunds` are rejected (HTTP 400) if `qty` or `asset` is missing or empty, and `changePairs` is rejected without `pairsToSet`.

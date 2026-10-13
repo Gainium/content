@@ -8,7 +8,7 @@ description: >-
   terminal deals, lowering the average acquisition cost of the asset in the
   process. But how does it all work? This article explains how.
 createdAt: '2023-07-22T12:53:02.670Z'
-updatedAt: '2026-04-10T08:33:00.000Z'
+updatedAt: '2026-10-13T08:00:00.000Z'
 publishedAt: '2023-07-23T09:42:14.250Z'
 locale: en
 categories:
@@ -59,7 +59,7 @@ You can also execute the “Add Funds” feature through a webhook, regardless o
 Some considerations when using the Add Funds feature through webhooks:
 - For a single coin bot, it will add the specified funds to all open deals. For example, if you have 2 open deals and send a webhook to add 20 USDT, it will add 20 USDT to **each deal**, totaling 40 USDT.
 - For multi-coin bots, you will see two options:Add funds to all open deals- Add funds to all open deals of a specific symbol
-- Adding funds through webhooks only support market orders
+- Adding funds through webhooks fills at market by default. Send a `price` and the funds are added with a limit order at that price instead; see [Webhooks](https://gainium.io/help/webhooks#adding-or-reducing-funds-with-a-limit-order). The API's add funds endpoints accept the same `price` field.
 
 ### API
 

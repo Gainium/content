@@ -4,9 +4,9 @@ name: Reduce Funds
 slug: reduce-funds
 description: >-
   Gainium’s Reduce Funds feature allows you to decrease positions in open deals
-  via web UI, webhook, or API, with options for market or limit orders.
+  via web UI, webhook, or API, with market or limit orders.
 createdAt: '2024-10-07T08:37:43.506Z'
-updatedAt: '2026-02-24T07:44:20.580Z'
+updatedAt: '2026-10-13T08:00:00.000Z'
 publishedAt: '2024-10-08T05:14:23.981Z'
 locale: en
 categories:
@@ -17,9 +17,9 @@ ingested: true
 ingestedAt: '2025-06-29T10:57:30.023Z'
 tldr: >-
   The Reduce Funds feature lets you decrease your position size in an active
-  deal by a fixed amount or percentage, via the web UI, webhook, or API. Web UI
-  supports both market and limit orders, while webhook and API reductions
-  execute as market orders.
+  deal by a fixed amount or percentage, via the web UI, webhook, or API. All
+  three support market and limit orders: webhook and API reductions fill at
+  market unless you send a price, which places a limit order at that price.
 ---
 
 ### Reduce Funds Feature in Gainium
@@ -47,7 +47,20 @@ Like the **Add Funds** feature, you can use webhooks to reduce funds in an open 
 - **Set Up the Webhook**:Configure the webhook with the necessary parameters, including the deal to modify and the amount or percentage to reduce.
 - **Options for Single and Multi-Coin Bots**:For single-coin bots, the webhook reduces funds in all open deals.
 - For multi-coin bots, you can choose to reduce funds across all deals or specify which deal to reduce funds from.
-- **Market Order Only**:Reductions via webhook are executed using **Market Orders** only.
+- **Market or Limit**: Without a `price`, the reduction fills at market. Add a `price` to the webhook and it's placed as a **limit order** at that price instead:
+
+```json
+{
+  "action": "reduceFunds",
+  "uuid": "BOT_UUID",
+  "symbol": "BTC_USDT",
+  "qty": "25",
+  "asset": "quote",
+  "price": "{{close}}"
+}
+```
+
+The price is rounded to the pair's price step. On a bot with more than one pair, a webhook with a `price` must also include `symbol`. Full details are in [Webhooks](https://gainium.io/help/webhooks#adding-or-reducing-funds-with-a-limit-order).
 
 ### Reduce Funds via API
 
@@ -55,7 +68,7 @@ For more advanced users, the **Reduce Funds** feature is also accessible through
 - **API Call**:Reduce funds in an open deal using the appropriate endpoint. The [API documentation](https://api.gainium.io/api/docs/) provides a reference.
 - **Parameters**:Provide details such as the deal ID, reduction amount, or percentage.
 - Ensure you specify whether the reduction is by a fixed amount or percentage.
-- **Market Order**:API calls to reduce funds will typically execute as **market orders**, ensuring instant reduction at the current price.
+- **Market or Limit**: API calls fill at market by default. Send the optional `price` field and the reduction is placed as a **limit order** at that price, with the same rules as the webhook.
 
 ### Example with ETH/USDT
 
