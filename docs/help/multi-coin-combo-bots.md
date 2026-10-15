@@ -7,7 +7,7 @@ description: >-
   minigrids. How to set it up, how deals are limited, and how credits are
   calculated.
 createdAt: '2026-10-08T00:00:00.000Z'
-updatedAt: '2026-10-12T00:00:00.000Z'
+updatedAt: '2026-10-15T00:00:00.000Z'
 publishedAt: '2026-10-08T00:00:00.000Z'
 locale: en
 categories:
@@ -73,7 +73,7 @@ A multi-coin combo costs **one combo (200 credits) for each pair it can trade at
 
 If Max open deals is left unlimited, every pair counts.
 
-As with every bot, the credits are locked when the bot starts. If you add pairs to a running bot, the extra credits are locked when you save, and the change is refused if your balance can't cover it. See [Bot Credit System](https://gainium.io/help/bot-credit-system) for how locking works.
+As with every bot, the credits are locked when the bot starts. If you add pairs to a running bot, the extra credits are locked when you save, and the change is refused if your balance can't cover it. Lowering Max open deals on a running bot doesn't close the deals it already has, so every pair that still has an open deal stays counted until that deal closes; the credits then drop to what the new setting asks for. See [Bot Credit System](https://gainium.io/help/bot-credit-system) for how locking works.
 
 ## Changing pairs
 
