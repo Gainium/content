@@ -6,7 +6,7 @@ description: >-
   Gainium’s Reduce Funds feature allows you to decrease positions in open deals
   via web UI, webhook, or API, with market or limit orders.
 createdAt: '2024-10-07T08:37:43.506Z'
-updatedAt: '2026-10-13T08:00:00.000Z'
+updatedAt: '2026-10-20T08:00:00.000Z'
 publishedAt: '2024-10-08T05:14:23.981Z'
 locale: en
 categories:
@@ -19,7 +19,9 @@ tldr: >-
   The Reduce Funds feature lets you decrease your position size in an active
   deal by a fixed amount or percentage, via the web UI, webhook, or API. All
   three support market and limit orders: webhook and API reductions fill at
-  market unless you send a price, which places a limit order at that price.
+  market unless you send a price, which places a limit order at that price. On a
+  Combo deal, reducing funds shrinks every DCA level of the deal by the same
+  factor, at market.
 ---
 
 ### Reduce Funds Feature in Gainium
@@ -41,12 +43,29 @@ The **Reduce Funds** feature allows you to reduce your position size in an activ
 ![image.png](https://content.gainium.io/images/content/help/image_d64f1bffe5-2be2f6.webp)
 *Reduce Funds Options*
 
+Before you confirm, the dialog shows what the order will do: how much is sold now, the position before → after, the average price (a reduction does not change it) and the profit or loss the sale realizes. A reduction of 100% or more closes the deal, and the dialog says so.
+
+### Reduce Funds on Combo deals
+
+On a Combo deal, reducing funds is the mirror of [adding funds](https://gainium.io/help/add-funds-to-deals#add-funds-on-combo-deals): it makes **every level of the deal smaller by the same factor**.
+
+- **Filled levels**: part of the position is sold **at market now**, and every minigrid's orders shrink by the same factor.
+- **Pending levels** that have not filled yet are resized down.
+- **Percentage**: −30% makes every level 0.7× its current size. **Fixed amount**: the total to withdraw across the position (at today's price) and the pending levels.
+- The sale is booked against the deal's average price, so the profit or loss it realizes is shown before you confirm. The average price itself does not change.
+- If any grid line or pending level would fall below the exchange's minimum order size, the request is refused, and the message tells you the largest reduction possible right now.
+- A reduction of 100% or more closes the deal.
+- Combo reductions always use a **market** order; a webhook or API request with a `price` is refused for a Combo deal. Hedge Combo deals do not support Reduce Funds.
+
+For example, on the Combo deal from the [Add Funds example](https://gainium.io/help/add-funds-to-deals#combo-example) (8.359 coins at an average of 95.70, price 90), reducing by **25%** sells 2.090 coins at market, realizes a loss of about 11.92 USDT, and shrinks every minigrid line to 0.75× its size.
+
 ### Reduce Funds via Webhook
 
 Like the **Add Funds** feature, you can use webhooks to reduce funds in an open deal. Here’s how:
 - **Set Up the Webhook**:Configure the webhook with the necessary parameters, including the deal to modify and the amount or percentage to reduce.
 - **Options for Single and Multi-Coin Bots**:For single-coin bots, the webhook reduces funds in all open deals.
 - For multi-coin bots, you can choose to reduce funds across all deals or specify which deal to reduce funds from.
+- On a Combo bot, the webhook shrinks every DCA level of each open deal as described above, always at market.
 - **Market or Limit**: Without a `price`, the reduction fills at market. Add a `price` to the webhook and it's placed as a **limit order** at that price instead:
 
 ```json
