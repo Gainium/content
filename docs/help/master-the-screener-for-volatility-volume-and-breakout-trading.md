@@ -69,3 +69,5 @@ Integrate screener insights with other Gainium tools for a holistic trading appr
 ## **Conclusion**
 
 The Gainium screener is a dynamic tool that adapts to your trading needs. Whether you’re a beginner or a seasoned trader, it offers invaluable insights to help you navigate the crypto market confidently. Remember, the key to mastering the screener is experimentation and adaptation.
+
+Wondering how Gainium's screener stacks up against TradingView, CoinGlass, altFINS and other free tools? See [Best Free Crypto Screeners, Ranked and Compared](https://gainium.io/blog/best-free-crypto-screeners-ranked-and-compared).

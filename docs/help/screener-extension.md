@@ -93,5 +93,6 @@ You can filter coins based on over 17 different metrics, including price change,
 - **Customize Your View:** Tailor the screener to your trading style by adjusting the columns and filters to focus on the metrics that matter most to you.
 - **Stay Updated:** Use the browser notifications to stay on top of new opportunities without constantly monitoring the screener.
 - **Utilize Saved Filters:** Save multiple filters for different strategies and quickly switch between them as needed.
+- **Compare the Alternatives:** Weighing the extension against TradingView, CoinGlass or altFINS? Our [ranking of the best free crypto screeners](https://gainium.io/blog/best-free-crypto-screeners-ranked-and-compared) compares their free tiers on filters, alerts and cost.
 
 By leveraging these features, you can streamline your trading process and make more informed decisions with ease. Happy trading!
