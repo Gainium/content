@@ -77,7 +77,7 @@ Aggregate performance for the session:
 
 - **Net Win / Avg. Win** — total and average profit of winning trades.
 - **Net Loss / Avg. Loss** — total and average loss of losing trades.
-- **Net P&L / Avg. P&L** — overall result and per-trade expectancy. Average P&L is your **expectancy** — what one trade of this strategy earns on average. A positive expectancy, sustained over a large sample, is the definition of an edge.
+- **Net P&L / Avg. P&L** — overall result and per-trade expectancy. Average P&L is your **[expectancy](https://gainium.io/blog/strategy-performance-metrics)** — what one trade of this strategy earns on average. A positive expectancy, sustained over a large sample, is the definition of an edge.
 - **Winrate** — winning trades over total trades.
 - **Avg. Trade Duration** — how long your trades stay open on average (in market time).
 
