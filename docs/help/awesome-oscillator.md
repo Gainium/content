@@ -30,7 +30,7 @@ This article will define the **Awesome Oscillator**, configure it in Gainium, an
 
 ## What Is the Awesome Oscillator?
 
-The **Awesome Oscillator (AO)** compares the 34-period and 5-period simple moving averages (SMA) of the price’s midpoints. The result is a histogram that oscillates around the zero line, showing changes in market momentum.
+The **Awesome Oscillator (AO)** compares the 34-period and 5-period [simple moving averages (SMA)](https://gainium.io/help/moving-averages) of the price’s midpoints. The result is a histogram that oscillates around the zero line, showing changes in market momentum.
 
 ### Key Features:
 - **Above Zero**: When the oscillator is above zero, the short-term momentum is stronger than the long-term momentum, which is generally bullish.
@@ -44,7 +44,7 @@ Here’s how to configure the **Awesome Oscillator** in Gainium using the settin
 - **Navigate to Bot Settings**:Log in to Gainium, select your bot, and find the **Awesome Oscillator** from the list of available indicators.
 
 ### Step 2: Configure the Indicator Settings
-- **Use Percentile**: It allows using percentile rankings instead of raw values. For this setup, leave it disabled for typical AO readings.
+- **Use Percentile**: It allows using [percentile rankings instead of raw values](https://gainium.io/help/indicator-percentiles). For this setup, leave it disabled for typical AO readings.
 - **Interval**: This setting determines the time interval for each candlestick used in the calculation. In this example, the interval is set to **1 day**, meaning the Awesome Oscillator is calculated based on daily data. You can adjust this to shorter timeframes like 1 hour for more frequent signals or use daily for more significant trends.
 - **Condition**: The condition defines when a signal will be triggered. In this case, it is set to **Crossing Down**, meaning the bot will trigger an action when the AO crosses down through a specific value.
 - **Value**: The value is set to **0**, which means the bot will trigger when the AO crosses down from above the zero line, signaling weakening bullish momentum and potential bearish movement.
@@ -94,7 +94,7 @@ Here are a few practical tips when using the **Awesome Oscillator** in your trad
 - If you prefer more frequent trading opportunities, use smaller timeframes like **1 hour** or **15 minutes**. For longer-term trends, daily or weekly timeframes can help capture larger price moves.
 
 ### 2. Combining with Other Indicators
-- To avoid false signals, combining the Awesome Oscillator with other technical indicators like **RSI** or **moving averages is a good idea**. This can confirm momentum and strengthen the reliability of your signals.
+- To avoid false signals, combining the Awesome Oscillator with [other technical indicators](https://gainium.io/help/ultimate-oscillator) like **RSI** or **moving averages is a good idea**. This can confirm momentum and strengthen the reliability of your signals.
 
 ### 3. Avoiding False Signals
 - In choppy, sideways markets, the Awesome Oscillator may generate false signals. Use filters such as trend indicators or volume to avoid trading in consolidating markets.

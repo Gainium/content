@@ -39,7 +39,7 @@ If you are new to combo bots, read [Understanding the Combo bot](https://gainium
 2. In **Trading Pairs**, switch **Single** to **Multiple**.
 3. Click **Add pairs** and pick the pairs you want. All pairs must share the same quote currency — the first pair sets it. For example, after adding BTC/USDT you can only add other /USDT pairs.
 4. Set the rest of the bot as usual. The order sizes, minigrid settings, take profit and stop loss apply to every pair.
-5. Set **Max open deals** and, if you want, **Max open deals per pair** (see below).
+5. Set **Max open deals** and, if you want, **[Max open deals per pair](https://gainium.io/help/single-position-per-pair)** (see below).
 
 You choose single or multiple pairs when you create the bot; the switch is locked when you edit an existing bot.
 

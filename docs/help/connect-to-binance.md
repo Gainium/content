@@ -102,7 +102,7 @@ If you only trade specific token pairs, you can enhance the security of your API
 
 ## Step 8 – Connecting Gainium to Binance
 
-Login to the dashboard of gainium.io and click on the Exchanges icon, then "Add new".
+Login to the dashboard of gainium.io and click on the Exchanges icon, then "[Add new](https://gainium.io/help/connect-to-bybit)".
 
 ![gainium-add-exchange.png](https://content.gainium.io/images/content/help/gainium_add_exchange_c55c474ea1-2b91de.webp)
 

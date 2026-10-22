@@ -49,7 +49,7 @@ Here are a few examples of how to use the MACD indicator in your trading bots.
 
 ### A. Trend reversal (MACD Crossover) Strategy
 
-In the crossover strategy, your trading bot will initiate a long position when the MACD Line crosses above the Signal Line, indicating a bullish trend. Conversely, the bot will exit the position or enter a short trade when the MACD Line crosses below the Signal Line, signaling a bearish trend.
+In the [crossover strategy](https://gainium.io/help/oscillator-crossover), your trading bot will initiate a long position when the MACD Line crosses above the Signal Line, indicating a bullish trend. Conversely, the bot will exit the position or enter a short trade when the MACD Line crosses below the Signal Line, signaling a bearish trend.
 
 For example, your bot will initiate a long position if the BTC/USDT pair demonstrates a bullish crossover with the MACD Line rising above the Signal Line. The bot will then hold onto the position until a bearish crossover occurs, prompting an exit or a short trade.
 ![Screenshot 2023-04-11 at 17.03.41.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_17_03_41_00a59824d2-f37f22.webp)

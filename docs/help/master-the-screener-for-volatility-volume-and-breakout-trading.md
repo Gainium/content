@@ -60,7 +60,7 @@ Experiment with different combinations to discover what works best for your stra
 
 ## **Setting up Notifications**
 
-To enable notifications, install our [Free Crypto Screener](https://chromewebstore.google.com/detail/free-crypto-screener-chec/khkneeocnbijcikdlkbkgcikafeofchg?pli=1) Chrome Extension.
+To enable notifications, install our [Free Crypto Screener](https://chromewebstore.google.com/detail/free-crypto-screener-chec/khkneeocnbijcikdlkbkgcikafeofchg?pli=1) [Chrome Extension](https://gainium.io/help/screener-extension).
 ![image.png](https://content.gainium.io/images/content/help/image_2ca9930ed7-ada807.webp)
 ## **Advanced Tips and Best Practices**
 

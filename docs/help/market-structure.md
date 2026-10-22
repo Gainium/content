@@ -53,7 +53,7 @@ Here’s how to configure the **Market Structure Indicator** in Gainium based on
 - **Price-Based**: Detects movements around key price levels, such as pivot highs, pivot lows, and their respective changes. The **multiplier** setting allows you to fine-tune the sensitivity of the condition.
 - **Condition**:For **Event-Based Triggers**, you can choose **Swing Bullish Change of Character** or **Swing Bearish Break of Structure**. These conditions help identify significant shifts in market sentiment.
 - For **Market-Based Triggers**, you can select **a Bullish** or **Bearish Market Structure** to signal the overall market direction.
-- For **Price-Based Triggers**, conditions like **Price Crossing Down Any Pivot Low** allow you to detect when the price crosses significant support or resistance levels.
+- For **Price-Based Triggers**, conditions like **Price Crossing Down Any Pivot Low** allow you to detect when the price crosses significant [support or resistance levels](https://gainium.io/help/support-resistance-indicator).
 - **Multiplier** (For Price-Based Only): The multiplier allows you to adjust the condition's sensitivity. A larger multiplier means the trigger will require a more substantial price movement before firing.
 - **Keep True (0)**: This setting defines how long the condition remains true after it’s triggered. Setting it to **0** means the condition resets immediately after it’s met.
 ![image.png](https://content.gainium.io/images/content/help/image_e16381735e-6943e4.webp)
@@ -116,7 +116,7 @@ Here are some practical tips when using the **Market Structure Indicator** in yo
 - For **Price-Based** triggers, the multiplier allows you to adjust the amount of price movement required to trigger a condition. This is helpful in volatile markets where small price fluctuations may create false signals.
 
 ### 3. Combine with Other Indicators
-- To improve the accuracy of the Market Structure Indicator, combine it with other indicators like **RSI**, **moving averages**, or **volume** to confirm signals and avoid false positives.
+- To improve the accuracy of the Market Structure Indicator, combine it with other indicators like **RSI**, **moving averages**, or **[volume](https://gainium.io/help/volume-oscillator)** to confirm signals and avoid false positives.
 - For Smart Money Concepts trading, combine Market Structure with [Fair Value Gaps](/help/fair-value-gap) to identify both the trend direction and precise institutional entry zones.
 
 ### 4. Backtest Thoroughly

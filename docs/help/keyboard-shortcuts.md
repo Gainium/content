@@ -104,7 +104,7 @@ Shift plus the bot type's navigation letter — no shift to browse, shift to cre
 
 ### Dashboards
 
-Each dashboard you create gets its own entry in the **Dashboards** category, with no key assigned by default. Record a key for a dashboard (in the Shortcut Manager or in the Dashboard Manager) and you can jump straight to it from anywhere.
+Each [dashboard you create](https://gainium.io/help/custom-dashboards) gets its own entry in the **Dashboards** category, with no key assigned by default. Record a key for a dashboard (in the Shortcut Manager or in the Dashboard Manager) and you can jump straight to it from anywhere.
 
 ### Templates
 

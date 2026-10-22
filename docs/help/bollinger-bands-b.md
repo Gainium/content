@@ -92,7 +92,7 @@ Bollinger Bands %B can be effectively used in bot trading to capture overbought 
 #### Implementation in Gainium
 - **Set Up Bollinger Bands %B**:Configure %B to trigger trades when crossing the 0.5 level, indicating strong momentum.
 - **Configure Trend Conditions**:For a long entry, wait until %B crosses up above 0.5 and stays there for a few bars.
-- **Risk Management**:Use a risk-to-reward ratio of at least 2:1 to maintain profitable trade setups.
+- **Risk Management**:Use a [risk-to-reward ratio](https://gainium.io/help/risk-reward) of at least 2:1 to maintain profitable trade setups.
 
 ## Practical Considerations
 

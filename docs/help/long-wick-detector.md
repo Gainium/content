@@ -26,7 +26,7 @@ tldr: >-
   zones.
 ---
 
-The **Long Wick Detector** is a chart-based indicator that spots candles with unusually large wicks — a sign that price was aggressively rejected at a certain level. A long upper wick suggests strong selling pressure pushed price back down, while a long lower wick indicates buyers stepped in to defend a level. These rejection points often become meaningful support or resistance zones that price revisits later.
+The **Long Wick Detector** is a chart-based indicator that spots candles with unusually large wicks — a sign that price was aggressively rejected at a certain level. A long upper wick suggests strong selling pressure pushed price back down, while a long lower wick indicates buyers stepped in to defend a level. These rejection points often become meaningful [support or resistance zones](https://gainium.io/help/support-resistance-indicator) that price revisits later.
 
 The indicator uses the **Average True Range (ATR)** over 200 periods as a volatility baseline, so it automatically adapts to the current market environment. A wick that would be considered "long" in a quiet market may be normal during a high-volatility event — ATR normalization keeps the signals relevant regardless of conditions.
 
@@ -88,7 +88,7 @@ Trade the mitigation of a wick level as a breakout signal.
 - **Short Entry**: When a bottom-wick (support) level is mitigated — price body closes below it — enter short.
 
 #### Implementation in Gainium
-- Set **Condition** to **On Start** combined with a price-action confirmation indicator (e.g., Engulfing Candle or Market Structure).
+- Set **Condition** to **On Start** combined with a price-action confirmation indicator (e.g., [Engulfing Candle](https://gainium.io/help/engulfing-candle) or Market Structure).
 - Monitor for the moment a wick level disappears (mitigation), which signals that the rejection zone has been overcome.
 
 ### Strategy 3: Multi-Timeframe Wick Analysis
@@ -109,7 +109,7 @@ The Wick Threshold is the most important parameter. A value of **2** (2× ATR) i
 Very old wick levels lose relevance as market conditions change. A Max Duration of **100–500** candles is a reasonable range for most strategies. Setting it too high may leave stale levels on the chart that no longer represent meaningful rejection zones.
 
 ### 3. Combine with Other Indicators
-The Long Wick Detector provides levels, not directional signals. Always pair it with trend-following or momentum indicators to determine the direction of your trade. Good companions include Moving Averages, Market Structure, RSI, and Bollinger Bands.
+The Long Wick Detector provides levels, not directional signals. Always pair it with trend-following or momentum indicators to determine the direction of your trade. Good companions include Moving Averages, [Market Structure](https://gainium.io/help/market-structure), RSI, and Bollinger Bands.
 
 ### 4. Backtest Across Market Conditions
 Long-wick signals behave differently in trending versus ranging markets. Backtest your strategy across multiple market phases to ensure the threshold and duration settings are robust.

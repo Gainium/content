@@ -55,7 +55,7 @@ With these foundational concepts clarified, we can dive deeper into how grid tra
 
 **Futures**: In futures, the mechanism incorporates the essence of contracts. While grid levels can still be set, traders must be cognizant of the contract's expiry date and potential liquidations due to the leverage used. Orders may not necessarily lead to asset ownership but might settle in cash or roll over to another contract.
 
-In Gainium, whether a grid runs on spot or futures is determined by the exchange account you pick when creating the bot. On a futures account, the grid bot's **Strategy** section exposes the futures-only controls — the ability to go **Short** as well as Long, the margin type, and a **Leverage** selector — none of which appear for a spot grid.
+In Gainium, whether a grid runs on [spot or futures](https://gainium.io/help/free-profit-grid-bots) is determined by the exchange account you pick when creating the bot. On a futures account, the grid bot's **Strategy** section exposes the futures-only controls — the ability to go **Short** as well as Long, the margin type, and a **Leverage** selector — none of which appear for a spot grid.
 
 ![Futures grid bot direction, margin and leverage controls](https://content.gainium.io/images/content/help/grid-spot-vs-futures__add1.webp)
 
@@ -147,7 +147,7 @@ In summary, while grid trading presents opportunities in both spot and futures m
 
 ### 6.1. Intuitive Smart Trading Terminal
 
-Gainium provides an advanced yet user-friendly trading terminal, streamlining the process of setting up grid trading strategies. With visual aids, real-time data, and a sleek interface, users can efficiently map out their grid levels, regardless of their expertise.
+Gainium provides an advanced yet user-friendly [trading terminal](https://gainium.io/help/trading-terminal-deal-types), streamlining the process of setting up grid trading strategies. With visual aids, real-time data, and a sleek interface, users can efficiently map out their grid levels, regardless of their expertise.
 
 ### 6.2. Backtesting and Paper Trading Capabilities
 

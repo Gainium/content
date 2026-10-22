@@ -30,7 +30,7 @@ Welcome to Gainium, where we blend cutting-edge technology with user-friendly fe
 
 When you set up a grid bot on Gainium, you define its operating budget. This budget is crucial as it determines the scope of your trading activities. However, it's important to note that due to exchange constraints, like minimum order sizes and rounding necessities, the actual funds held by your bot at the start might slightly differ from your specified budget. Rest assured, this discrepancy is minimal and is a common aspect of digital asset trading platforms.
 
-Despite these initial variations, your bot's budget will generally align closely with the value of the funds initially allocated to it. This close alignment ensures consistency in your trading strategy, maintaining the effectiveness of the grid bot.
+Despite these initial variations, your bot's budget will generally align closely with the value of the [funds initially allocated to it](https://gainium.io/help/initial-current-funds-grid). This close alignment ensures consistency in your trading strategy, maintaining the effectiveness of the grid bot.
 
 ### Minimum Budget
 

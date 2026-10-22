@@ -57,7 +57,7 @@ Traders might also use the Stochastic RSI to identify divergences between the in
 
 ### Crossovers
 
-Traders may also use crossovers of the Stochastic RSI and its signal line to identify potential buy or sell signals. For example, if the RSI (K) crosses above the Stochastic (D), it may indicate a bullish signal, and if it crosses below, it may indicate a bearish signal. Traders might use these crossovers to enter or exit positions. For example, you might want to start a long DCA bot when the K variable is crossing up D or start a short DCA or take profit when the K variable is crossing down D. In the example below, you might even want to use the first cross down for the variable D to sell part of your position or move your stop loss higher as another cross down happens later on at a higher price.
+Traders may also use [crossovers](https://gainium.io/help/oscillator-crossover) of the Stochastic RSI and its signal line to identify potential buy or sell signals. For example, if the RSI (K) crosses above the Stochastic (D), it may indicate a bullish signal, and if it crosses below, it may indicate a bearish signal. Traders might use these crossovers to enter or exit positions. For example, you might want to start a long DCA bot when the K variable is crossing up D or start a short DCA or take profit when the K variable is crossing down D. In the example below, you might even want to use the first cross down for the variable D to sell part of your position or move your stop loss higher as another cross down happens later on at a higher price.
 ![Screenshot 2023-04-14 at 16.44.56.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_14_at_16_44_56_b285f22558-cdd924.webp)
 *Crossovers*
 

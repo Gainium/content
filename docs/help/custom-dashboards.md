@@ -82,7 +82,7 @@ A template only sets the initial widgets and their arrangement — after creatio
 - **Dashboards panel:** open the *Dashboards* section of the navigation sidebar and click any dashboard. Pin the panel to keep it open while you browse.
 - **Dashboard Manager:** click any dashboard in the *All Dashboards* list.
 - **Direct link:** every dashboard has its own URL — bookmark the ones you use most.
-- **Keyboard shortcut:** each dashboard can have its own shortcut. In the Dashboard Manager, use the shortcut recorder next to a dashboard to record a key combination; pressing it will jump straight to that dashboard from anywhere in the app.
+- **[Keyboard shortcut](https://gainium.io/help/keyboard-shortcuts):** each dashboard can have its own shortcut. In the Dashboard Manager, use the shortcut recorder next to a dashboard to record a key combination; pressing it will jump straight to that dashboard from anywhere in the app.
 
 ## Managing dashboards
 

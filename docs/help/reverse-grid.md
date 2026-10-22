@@ -35,8 +35,8 @@ Grid trading, whether it's a long or short strategy, has become one of the most 
 - **Risk Management:** By dividing the capital into multiple orders, grid trading can prevent pouring all funds into a less favorable position. This spread reduces the impact of any single bad trade.
 - **No Need for Predictive Analysis:** Predicting the market's next move can be challenging. With grid trading, there’s no need to predict long-term price movements accurately. As long as the price remains within the grid range, the strategy can be profitable.
 - **Hedging Capabilities:** By employing both long and short grid strategies simultaneously, traders can hedge their positions, potentially profiting from both upward and downward price movements.
-- **Compounding Profits:** Grid trading allows for the reinvestment of profits. As trades are executed, the generated profits can be reinvested, allowing for potential compound growth.
-- **Flexibility:** Grid parameters, like grid size and spacing, can be adjusted according to the trader's preferences and price volatility, making it a versatile tool for various market conditions.
+- **Compounding Profits:** Grid trading allows for the reinvestment of profits. As trades are executed, the generated profits can be reinvested, allowing for potential [compound growth](https://gainium.io/help/autocompunding-trading-bots).
+- **Flexibility:** Grid parameters, like [grid size and spacing](https://gainium.io/help/grid-step), can be adjusted according to the trader's preferences and price volatility, making it a versatile tool for various market conditions.
 - **Reduced Emotional Trading:** Emotional decisions can often result in trading mistakes. Grid trading, being automated, removes the emotion from the equation, leading to more rational and systematic trading decisions.
 - **Time Efficiency:** For those who can't dedicate their entire day to the markets, grid trading bots provide an efficient way to participate without the need for constant oversight.
 
@@ -65,7 +65,7 @@ A reverse grid bot is most effective during bear market conditions or when a tra
 Setting up a reverse grid bot on Gainium involves several steps:
 - **Registration:** If you're not already registered, sign up on the Gainium platform.
 - **Select Bot Type:** choose 'Grid Bot'.
-- **Configuration:** Determine the price range for your trading, set the price interval, grid levels, arithmetic grid or geometric grid type, and allocate budget. The only requisite to make a reverse grid bot is to set the direction to short; however, many traders also set the profit currency to base, hence accumulating more base coin.
+- **Configuration:** Determine the price range for your trading, set the price interval, grid levels, [arithmetic grid or geometric grid type](https://gainium.io/help/arithmetic-and-geometric-grid-types), and allocate budget. The only requisite to make a reverse grid bot is to set the direction to short; however, many traders also set the profit currency to base, hence accumulating more base coin.
 - **Activate the Bot:** Once set up, click on “Add new bot” and start your bot. It will begin trading based on the parameters you've set.
 
 Note that you will need to have the base token available in your balance for the bot to start.

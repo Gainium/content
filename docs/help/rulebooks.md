@@ -55,7 +55,7 @@ A good rule of thumb: make the 3–5 conditions that *define* the setup required
 
 ## Using a Rulebook in Manual Backtesting
 
-Rulebooks come alive inside manual backtesting sessions — chart-replay practice where you place simulated trades bar by bar.
+Rulebooks come alive inside [manual backtesting sessions](https://gainium.io/help/manual-backtesting) — chart-replay practice where you place simulated trades bar by bar.
 
 ### Attaching a checklist to a session
 
@@ -92,7 +92,7 @@ When you create a new session with a rulebook selected, Gainium warns you if you
 
 The [Rulebooks](https://app.gainium.io/rulebooks) page gives you a portfolio view of all your strategies:
 
-- **Overall Performance** — aggregate statistics across every rulebook: total sessions and trades, total P&L (split into profit and loss), overall win rate, and overall risk:reward. The **R:R Graph** tab plots each rulebook as a point on a win rate vs. risk:reward chart — the two numbers that together determine profitability. A strategy with a 40% win rate can be excellent if its R:R is high, and a 70% win rate can lose money if winners are small; this chart shows at a glance which of your strategies sit in profitable territory. The **Stats** tab shows detailed trade statistics across all rulebook trades.
+- **Overall Performance** — aggregate statistics across every rulebook: total sessions and trades, total P&L (split into profit and loss), overall win rate, and overall risk:reward. The **R:R Graph** tab plots each rulebook as a point on a [win rate vs. risk:reward](https://gainium.io/help/manual-backtesting-stats) chart — the two numbers that together determine profitability. A strategy with a 40% win rate can be excellent if its R:R is high, and a 70% win rate can lose money if winners are small; this chart shows at a glance which of your strategies sit in profitable territory. The **Stats** tab shows detailed [trade statistics](https://gainium.io/help/profit-stats) across all rulebook trades.
 - **Rulebook Library** — a table (or card view) of every rulebook with its sessions, trades, total and per-session P&L, win rate, average R:R, a mini win-rate-vs-R:R chart of its sessions, checklist size, and when it was last used. Sort, filter, and toggle columns to compare strategies side by side.
 
 Only trades entered with a rulebook's checklist count toward that rulebook's statistics — practicing without the checklist attached produces trades that don't attribute to any strategy.

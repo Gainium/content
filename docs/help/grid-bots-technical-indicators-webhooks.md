@@ -35,7 +35,7 @@ Grid trading has been a popular strategy among cryptocurrency traders due to its
 
 [Combo bots](https://gainium.io/combo-bot) emerge as a revolutionary solution to address the shortcomings of traditional grid trading. They represent a hybrid between the passive income generation of grid strategies and the cost-averaging benefits of DCA bots. These sophisticated bots retain the ability to profit from market swings while mitigating the risks associated with bad timing and severe market downturns.
 
-Combo bots are engineered to be more than just a reaction to market conditions; they are a proactive trading solution. With the incorporation of DCA strategies, they spread the investment over time, which can prevent the pitfalls of entering the market with a lump-sum investment at an inopportune moment. This gradual investment strategy averages the entry price and aligns closely with the adage of 'time in the market beats timing the market.'
+Combo bots are engineered to be more than just a reaction to market conditions; they are a proactive trading solution. With the incorporation of DCA strategies, they spread the investment over time, which can prevent the pitfalls of entering the market with a lump-sum investment at an inopportune moment. This gradual investment strategy averages [the entry price](https://gainium.io/help/breakeven-price-grid) and aligns closely with the adage of 'time in the market beats timing the market.'
 
 ![Combo_settings.png](https://content.gainium.io/images/content/help/Combo_settings_79e124e362-d3f17b.webp)
 
@@ -55,7 +55,7 @@ Combo bots adopt a staggered approach rather than committing a lump sum at a pot
 
 ### Flexible Grid Configurations
 
-Beyond these features, combo bots on Gainium also offer the flexibility to create advanced grid configurations. This includes adjustable DCA order step and volume scales, allowing asymmetrical grids. Traders can allocate more funds toward either the top or bottom of the grid and vary the spacing between orders. Such configurations cater to more sophisticated trading strategies, providing unparalleled flexibility that aligns with market trends and individual risk profiles.
+Beyond these features, combo bots on Gainium also offer the flexibility to create advanced grid configurations. This includes adjustable DCA order step and volume scales, allowing asymmetrical grids. Traders can allocate more funds toward either the top or bottom of the grid and vary [the spacing between orders](https://gainium.io/help/grid-step). Such configurations cater to more sophisticated trading strategies, providing unparalleled flexibility that aligns with market trends and individual risk profiles.
 
 ![Combo bot Step scale and Volume scale controls for asymmetrical grids](https://content.gainium.io/images/content/help/grid-bots-technical-indicators-webhooks__add2.webp)
 

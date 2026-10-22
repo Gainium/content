@@ -23,7 +23,7 @@ tldr: >-
   breakout strategies.
 ---
 
-The **Keltner Channel %B (KC%B)** is a technical indicator that measures where the price lies within the Keltner Channel's range. This indicator is especially useful for identifying potential overbought and oversold conditions based on price movements relative to the upper, middle, and lower bands of the Keltner Channel. The %B value tells you how close the price is to these bands, helping you make informed decisions about potential breakouts or reversals.
+The **Keltner Channel %B (KC%B)** is a technical indicator that measures where the price lies within the [Keltner Channel](https://gainium.io/help/keltner-channel)'s range. This indicator is especially useful for identifying potential overbought and oversold conditions based on price movements relative to the upper, middle, and lower bands of the Keltner Channel. The %B value tells you how close the price is to these bands, helping you make informed decisions about potential breakouts or reversals.
 
 In this article, we will explain the **Keltner Channel %B** indicator, demonstrate how to configure it in Gainium, and show how to use it in bot trading with strategy examples, including entry and exit rules. We will also cover practical considerations and conclude with best practices for integrating the Keltner Channel %B into your trading strategy.
 

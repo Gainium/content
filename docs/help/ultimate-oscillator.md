@@ -77,7 +77,7 @@ The **Ultimate Oscillator** can be used in various trading strategies, including
 
 #### Entry Rules
 - **Long Entry (Buy)**:Enter a long position when there is a **bullish divergence** between the price and the Ultimate Oscillator (price makes a lower low, but the oscillator makes a higher low), signaling that downward momentum is weakening and an upward reversal is likely.
-- **Short Entry (Sell)**:Enter a short position when there is a **bearish divergence** (price makes a higher high, but the oscillator makes a lower high), indicating that upward momentum is weakening and a downward reversal is likely.
+- **Short Entry (Sell)**:Enter a short position when there is a **[bearish divergence](https://gainium.io/help/divergences-indicator)** (price makes a higher high, but the oscillator makes a lower high), indicating that upward momentum is weakening and a downward reversal is likely.
 
 #### Exit Rules
 - **Long Exit**:Exit the position when the Ultimate Oscillator crosses **above 70**, signaling that the price has reached an overbought condition.

@@ -53,7 +53,7 @@ Switch between light and dark modes to suit your preference and reduce eye strai
 
 ### Working with filters
 
-You can filter coins based on over 17 different metrics, including price change, volume change, volatility, liquidity, market cap, and more.
+You can filter coins based on over 17 different metrics, including price change, [volume change](https://gainium.io/help/volume-filter), volatility, liquidity, market cap, and more.
 
 **To Filter Coins:**
 - Click on the filter icon next to any column header or "Filters" button in the toolbar.
@@ -90,7 +90,7 @@ You can filter coins based on over 17 different metrics, including price change,
 - Choose your preferred format (CSV, Excel, etc.) and save the file to your device.
 ![image.png](https://content.gainium.io/images/content/help/image_0e1f81719a-76b2f0.webp)
 ## Tips for Effective Use
-- **Customize Your View:** Tailor the screener to your trading style by adjusting the columns and filters to focus on the metrics that matter most to you.
+- **Customize Your View:** Tailor [the screener](https://gainium.io/help/master-the-screener-for-volatility-volume-and-breakout-trading) to your trading style by adjusting the columns and filters to focus on the metrics that matter most to you.
 - **Stay Updated:** Use the browser notifications to stay on top of new opportunities without constantly monitoring the screener.
 - **Utilize Saved Filters:** Save multiple filters for different strategies and quickly switch between them as needed.
 - **Compare the Alternatives:** Weighing the extension against TradingView, CoinGlass or altFINS? Our [ranking of the best free crypto screeners](https://gainium.io/blog/best-free-crypto-screeners-ranked-and-compared) compares their free tiers on filters, alerts and cost.

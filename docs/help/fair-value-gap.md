@@ -40,7 +40,7 @@ A **Fair Value Gap** occurs when there is a three-candle pattern where the middl
 
 ### Key Characteristics:
 - **Price Magnets**: FVGs act as magnets, attracting price back to fill the inefficiency before continuing in the original direction or reversing.
-- **Support/Resistance Zones**: Bullish FVGs become support zones, while bearish FVGs become resistance zones.
+- **[Support/Resistance Zones](https://gainium.io/help/support-resistance-indicator)**: Bullish FVGs become support zones, while bearish FVGs become resistance zones.
 - **Institutional Footprints**: FVGs often mark areas where smart money (institutional traders) entered the market aggressively, leaving behind these imbalances.
 
 ![image.png](https://content.gainium.io/images/content/help/image_fvg_example.webp)

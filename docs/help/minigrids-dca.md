@@ -33,7 +33,7 @@ tldr: >-
 - **DCA Order Amount**:The amount allocated to each DCA order. In this case, it’s **3.178095 USDT** per order, which is customizable based on the trader’s risk tolerance and capital.
 - **Orders Step (5%)**:This determines the percentage price drop required between each DCA order. Setting it to 5% means the bot will place a new order every time the asset’s price drops by 5%.
 - **DCA Minigrid Levels (5)**:This specifies the number of grid levels within each DCA order. Setting it to **5** levels ensures that after each DCA order is triggered, the bot will place 5 grid orders within that price range to maximize profits from smaller price fluctuations.
-- **Active Minigrids**:Enabling this option allows the bot to open buy orders below the current price, creating a grid under the base minigrid instead of placing DCA orders.
+- **[Active Minigrids](https://gainium.io/help/active-minigrids)**:Enabling this option allows the bot to open buy orders below the current price, creating a grid under the base minigrid instead of placing DCA orders.
 - **Smart Orders**:If enabled, this allows the bot to only lock funds for **active** orders, freeing up capital for other trades until the remaining orders are activated. This is useful for managing capital efficiently when trading multiple assets.
 - **Step Scale**:This setting multiplies the percentage step between each DCA order. A **Step Scale** of 1 means the steps between each order remain constant, while increasing the value progressively widens the gap between each order.
 - **Volume Scale**:This multiplier adjusts the amount for each DCA order progressively. A **Volume Scale** of 1 means the order sizes remain the same, but increasing the value will scale up the amount for each subsequent DCA order.

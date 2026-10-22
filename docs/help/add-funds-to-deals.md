@@ -98,7 +98,7 @@ Adding **50%**:
 | DCA 3 | +2.128 | 1.064 → 1.596 |
 | **Total** | **+4.180 (≈ 376 USDT)** | |
 
-The average drops from 95.70 to 93.80, so the price needs a smaller bounce to reach break-even and your take profit. Each minigrid now trades 1.5× the amount as the price moves back up through its range.
+The average drops from 95.70 to 93.80, so the price needs a smaller bounce to reach [break-even](https://gainium.io/help/current-break-even-and-final-break-even-lines) and your take profit. Each minigrid now trades 1.5× the amount as the price moves back up through its range.
 
 ### Webhook
 

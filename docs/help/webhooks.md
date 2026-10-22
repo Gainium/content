@@ -164,7 +164,7 @@ Send only the fields you need; anything you leave out comes from the bot. Values
 How the deal uses them:
 
 - A TP or SL from the signal **replaces the bot's whole TP (or SL) setup for that deal**: one target, closed at that price or percentage, even if the bot normally uses multiple targets or closes by webhook or indicator.
-- A **price** stays fixed while the deal runs, also when safety orders fill. A stop loss given as a price is not trailed and is not moved by *Move SL*. A stop loss given as a percentage keeps the bot's trailing and *Move SL* settings.
+- A **price** stays fixed while the deal runs, also when safety orders fill. A stop loss given as a price is not trailed and is not moved by *Move SL*. A stop loss given as a percentage keeps the bot's trailing and *[Move SL](https://gainium.io/help/move-stop-loss)* settings.
 - You can still edit the deal's TP and SL afterwards, like any other deal.
 - If the bot can't use your `baseOrderSize` (not enough balance for it, below the exchange minimum, a bot sized as a percentage of the balance, or a Risk:Reward bot), the deal opens at the bot's configured size and the bot's log says why.
 
@@ -180,7 +180,7 @@ The deal is **not opened** (with an error in the bot's log) when:
 - the signal has a TP or SL and the bot uses Risk:Reward. That bot's size is derived from its own stop loss.
 - the bot trades several pairs and the signal has a price but no `symbol`.
 
-On a bot with *Single position per pair*, a signal that adds to an already open position ignores these fields. The position keeps its own size and exits.
+On a bot with *[Single position per pair](https://gainium.io/help/single-position-per-pair)*, a signal that adds to an already open position ignores these fields. The position keeps its own size and exits.
 
 ## **Concatenating Webhook Actions on the Same Alert**
 

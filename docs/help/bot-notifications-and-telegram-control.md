@@ -41,7 +41,7 @@ Open a DCA, Combo or Grid bot and scroll to the **Notifications** section (the b
 - **Switch off (default):** the bot follows your account settings in **Settings → Notification Preferences**.
 - **Switch on:** only this section decides which alerts this bot sends and where. Your other bots are not affected.
 
-With the switch on, you get a table of events with a **Telegram** and an **Email** column. Tick where each alert should go. An event with neither box ticked is muted for this bot. Press **Save** to keep the changes.
+With the switch on, you get a table of events with a **Telegram** and an **[Email](https://gainium.io/help/not-receiving-emails-from-gainium)** column. Tick where each alert should go. An event with neither box ticked is muted for this bot. Press **Save** to keep the changes.
 
 If you switch the override off later, your choices are kept and come back when you switch it on again.
 
@@ -59,7 +59,7 @@ DCA and Combo bots:
 - Bot warning
 - Started / stopped by controller
 
-Grid bots: Grid closed, Price out of range, Bot error, Bot warning, Started / stopped by controller.
+Grid bots: Grid closed, Price out of range, Bot error, Bot warning, Started / stopped by [controller](https://gainium.io/help/bot-controller).
 
 Account-wide alerts such as Daily Profit stay in **Settings → Notification Preferences** and cannot be set per bot.
 

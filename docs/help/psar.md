@@ -77,7 +77,7 @@ To use parabolic SAR to set stop-loss levels, place your stop-loss order at the 
 
 ### PSAR and MACD crossover
 
-A stronger reversal can be identified using MACD indicator crossover as an additional deal start condition. In the example below, the price crossing above PSAR indicates a possible buy-long entry. By adding to the same chart the MACD crossing up, we have an additional confirmation for a long entry.
+A stronger reversal can be identified using MACD indicator crossover as an additional deal start condition. In the example below, the price crossing above PSAR indicates a possible buy-long entry. By adding to the same chart the [MACD](https://gainium.io/help/macd) crossing up, we have an additional confirmation for a long entry.
 ![](https://content.gainium.io/images/content/help/Screenshot_2023_08_10_at_22_11_04_7c06dfc9fe-3e1522.webp)
 *PSAR and MACD*
 

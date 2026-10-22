@@ -24,7 +24,7 @@ tldr: >-
   setting realistic daily price targets.
 ---
 
-The **Average Daily Range (ADR)** indicator measures an asset's average price range (high to low) within a single trading day. The ADR provides insights into market volatility and helps traders anticipate potential price movements. Unlike the **ATR** (Average True Range), which can be applied across various timeframes, the **ADR** focuses specifically on the daily range, making it an excellent tool for day traders or those wanting to understand daily volatility patterns.
+The **Average Daily Range (ADR)** indicator measures an asset's average price range (high to low) within a single trading day. The ADR provides insights into market volatility and helps traders anticipate potential price movements. Unlike the **[ATR](https://gainium.io/help/atr)** (Average True Range), which can be applied across various timeframes, the **ADR** focuses specifically on the daily range, making it an excellent tool for day traders or those wanting to understand daily volatility patterns.
 
 In this article, we’ll define the **ADR**, explain how to configure it in Gainium, and demonstrate how to use it in bot trading with practical strategy examples, including detailed entry and exit rules. We’ll also cover practical considerations and tips for integrating the ADR into your trading strategies.
 

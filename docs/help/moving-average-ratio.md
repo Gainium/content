@@ -30,8 +30,8 @@ The Moving Average Ratio (MAR) is an advanced indicator that measures the ratio 
 
 ### Key Features of MAR:
 - **Customizable Separation:** Define when the moving averages cross and how far apart they must be for the signal to trigger. For example, a crossover happens when the indicator value changes from less than 1 to more than 1 (when the ratio is 1, both indicators have the same value). You can also trigger a signal when they cross and diverge a certain amount by setting the indicator to trigger when the value is 1.05 (the moving average value is 5% bigger than the second).
-- **Flexible Moving Averages:** MAR supports all types of moving averages available in Gainium, such as Simple Moving Average (SMA), Exponential Moving Average (EMA), and more.
-- **Percentile Use:** MAR can be applied in percentile mode to fine-tune trend identification, taking into account recent market conditions.
+- **Flexible Moving Averages:** MAR supports all types of [moving averages](https://gainium.io/help/moving-averages) available in Gainium, such as Simple Moving Average (SMA), Exponential Moving Average (EMA), and more.
+- **Percentile Use:** MAR can be applied in [percentile mode](https://gainium.io/help/indicator-percentiles) to fine-tune trend identification, taking into account recent market conditions.
 - **Trend Detection with Lookback and Conditions:** For more refined trend filtering, you can specify a lookback period and set a condition (e.g., the MAR must be greater than 2% over the last 10 bars). This can help avoid entering a long trade when the fast-moving average is getting closer to the slow-moving average (price is trending down).
 - **Visual Trend Detection:** When the trend filter is activated, the indicator's chart background is colored green when the conditions are met, offering a visual aid for real-time trend monitoring.
 
@@ -112,7 +112,7 @@ When using the Moving Average Ratio in bot trading, here are some practical tips
 - **Lookback Period:** Experiment with different lookback periods and trend conditions to find what works best for your strategy.
 
 ### 2. Combining Indicators
-- **Use Confirmation Tools:** Consider adding indicators like RSI, MACD, or Bollinger Bands to confirm MAR signals further.
+- **Use Confirmation Tools:** Consider adding indicators like RSI, [MACD](https://gainium.io/help/macd), or Bollinger Bands to confirm MAR signals further.
 - **Avoid Overcomplication:** Adding too many indicators can lead to conflicting signals, so keep it simple and effective.
 
 ### 3. Backtesting

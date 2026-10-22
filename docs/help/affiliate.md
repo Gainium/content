@@ -64,7 +64,7 @@ You can set the commission split on a per-link basis. Let's illustrate this with
 
 ## Getting paid
 - Payout to your wallet: You can request a payout once your affiliate wallet balance exceeds 50 USDT. When you're ready to cash out, specify the wallet address where your funds would be transferred. Ensure it's accurate, as Gainium cannot reverse transactions made to incorrect addresses.
-- Transfer to Payment Wallet: Not interested in cashing out just yet? No worries! Transfer your referral earnings directly to your payment wallet. This lets you use your accrued rewards to purchase a Gainium subscription. There's no minimum amount required for this transfer. However, remember that the operation cannot be reversed once transferred to the payment wallet. So, choose wisely!
+- Transfer to Payment Wallet: Not interested in cashing out just yet? No worries! Transfer your referral earnings directly to your payment wallet. This lets you use your accrued rewards to [purchase a Gainium subscription](https://gainium.io/help/purchasing-subscription). There's no minimum amount required for this transfer. However, remember that the operation cannot be reversed once transferred to the payment wallet. So, choose wisely!
 
 ### **Locked Affiliate Funds**
 

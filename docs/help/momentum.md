@@ -44,7 +44,7 @@ If the momentum value is high, it signals increasing strength in the upward move
 
 ### Step 1: Add the Momentum Oscillator
 - **Access the Bot Settings**:Log in to Gainium, go to your bot, and find the **Momentum Oscillator** under the available indicators.
-- **Configure the Settings**:**Use Percentile**: Use percentile values instead of indicator values, which allows for better adaptability to current market conditions.
+- **Configure the Settings**:**Use Percentile**: Use [percentile values instead of indicator values](https://gainium.io/help/indicator-percentiles), which allows for better adaptability to current market conditions.
 - **Price Source**: Choose which price data (e.g., **close**, **open**, **high**, or **low** prices) to base the momentum on.
 - **Length**: This defines the lookback period, typically set to **10**.
 - **Interval**: Choose the timeframe (e.g., **1 hour**) based on your trading strategy.

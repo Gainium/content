@@ -54,9 +54,9 @@ The deal card shows how many entries the position has, out of your limit.
 
 With **multiple take profits**, a target that has already filled stays used for the rest of the position. An entry after it does not bring it back. The bot spreads the whole remaining position, including the new entry, over the targets that are left, in proportion to their amounts, and prices them from the new average.
 
-For example, take three targets of 33%, 33% and 34% at +1%, +2% and +3%. TP1 fills, then an entry is added. TP1 is not placed again. TP2 now closes about 49% and TP3 about 51% of the whole position, at +2% and +3% from the new average. Nothing is left without a take profit, but coins added after TP1 can only exit at TP2 or TP3.
+For example, take three [targets](https://gainium.io/help/multiple-take-profit-targets) of 33%, 33% and 34% at +1%, +2% and +3%. TP1 fills, then an entry is added. TP1 is not placed again. TP2 now closes about 49% and TP3 about 51% of the whole position, at +2% and +3% from the new average. Nothing is left without a take profit, but coins added after TP1 can only exit at TP2 or TP3.
 
-**Multiple stop losses** work the same way: a stop loss target that has filled is not placed again, and the remaining targets cover the whole position.
+**[Multiple stop losses](https://gainium.io/help/multiple-stop-loss-targets)** work the same way: a stop loss target that has filled is not placed again, and the remaining targets cover the whole position.
 
 ### Spacing entries with ASAP
 
@@ -71,7 +71,7 @@ With indicator or webhook start conditions no spacing is required. An indicator 
 
 ## Turning it on with open deals
 
-If the bot already has more than one open deal on a pair, saving asks you to confirm. Those deals are merged into the **oldest** one, which becomes the position. The other deals are closed, and their open orders are cancelled and replaced by one take profit for the whole position.
+If the bot already has more than one open deal on a pair, saving asks you to confirm. Those deals are [merged](https://gainium.io/help/merge-deals) into the **oldest** one, which becomes the position. The other deals are closed, and their open orders are cancelled and replaced by one take profit for the whole position.
 
 ![Confirmation when open deals are merged into one position](https://content.gainium.io/images/content/help/single-position__confirm.webp)
 

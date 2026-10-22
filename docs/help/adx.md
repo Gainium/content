@@ -65,7 +65,7 @@ In the image below, you can see the price action in the chart BTC USDT when ADH 
 
 In a range trading strategy, your bot will capitalize on the lack of a strong trend by buying low and selling high within a specified price range. Your bot can implement range trading tactics if the ADX value falls below 20, indicating a weak or non-trending market. Combining the ADX with other range-bound indicators, such as [Bollinger Bands](https://gainium.io/help/bb) or [Stochastic Oscillator](https://gainium.io/help/stoch), or [stoch RSI,](https://gainium.io/help/stochrsi) can further improve the accuracy of buy and sell signals.
 
-For instance, when the ADX for the BTC/USDT pair drops below 20 and the price reaches the lower Bollinger Band, the bot can initiate a long position, anticipating an upward price movement. Conversely, the bot can exit the position or create a short trade when the price reaches the upper Bollinger Band.
+For instance, when the ADX for the BTC/USDT pair drops below 20 and the price reaches the [lower Bollinger Band](https://gainium.io/help/bollinger-bands-b), the bot can initiate a long position, anticipating an upward price movement. Conversely, the bot can exit the position or create a short trade when the price reaches the upper Bollinger Band.
 
 ### C. ADX Divergence Trading Strategy
 

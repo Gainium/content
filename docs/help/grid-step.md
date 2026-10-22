@@ -54,7 +54,7 @@ Before asking yourself what grid step you should be using, you have to consider 
 
 The answer to these two questions may limit your grid step. If you have a small budget, you will have no choice but to allow for a bigger grid step to cover a decent trading range.
 
-If budget is not an issue, the next question is how wide the trading range should be. The wider the range, the more you spread your funds. Hence, the less profit per transaction, but the more likely the price will stay within range. So, there is another “sweet spot” to be considered here.
+If budget is not an issue, the next question is how wide the trading range should be. The [wider the range](https://gainium.io/blog/the-super-wide-range-grid-stack-strategy), the more you spread your funds. Hence, the less profit per transaction, but the more likely the price will stay within range. So, there is another “sweet spot” to be considered here.
 
 As a general rule of thumb, you should emphasize the budget and trading range more than the grid step. If budget is not an issue and you have already set a trading range you are comfortable with, you can aim for a 0.5-1% grid step. You can use around 0.5% for less volatile coins (top 10 by market cap) and 1% or even more for the more volatile currencies.
 
@@ -64,7 +64,7 @@ One size does not fit all. Each coin pair has its dance, with unique volatility 
 
 ### The Thin Line: Overcoming Exchange Fees
 
-Here's a pro tip: Avoid grid spaces that are too narrow. Why? Because every trade has a cost, thanks to exchange fees. Your grid bot needs not just to make a profit but also cover these fees. For instance, if you set grids 0.2% apart in spot trading, the grid bot will space them 0.4% apart when accounting for the buy and sell fees (0.2% grid plus 0.1% spot fee x 2). Suddenly, half of your spacing is just to overcome fees, making it very inefficient for you (great for the exchange though).
+Here's a pro tip: Avoid grid spaces that are too narrow. Why? Because every trade has a cost, thanks to exchange fees. Your grid bot needs not just to make a profit but also [cover these fees](https://gainium.io/help/breakeven-price-grid). For instance, if you set grids 0.2% apart in spot trading, the grid bot will space them 0.4% apart when accounting for the buy and sell fees (0.2% grid plus 0.1% spot fee x 2). Suddenly, half of your spacing is just to overcome fees, making it very inefficient for you (great for the exchange though).
 
 ### Navigating Exchange Limitations
 

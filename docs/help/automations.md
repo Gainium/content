@@ -30,7 +30,7 @@ tldr: >-
   users, in beta.
 ---
 
-> **Beta.** Automations are available to all Gainium Cloud users. Automations are in beta. Don't rely on them yet for critical risk management such as stop-losses. Things may change while we collect feedback.
+> **Beta.** Automations are available to all Gainium Cloud users. Automations are in beta. Don't rely on them yet for critical risk management such as stop-losses. Things may change while we [collect feedback](https://gainium.io/help/feedback-bug-reporting).
 
 An **automation** is a rule you write once and Gainium keeps watching for you: **When** something happens, **Then** do something. For example:
 
@@ -79,7 +79,7 @@ Compare the live price of a pair on an exchange to a value: **greater than**, **
 
 Compare an indicator on one or more coins, using the same indicator editor as your bots. Automations support **the same indicators as bot conditions, with the same options** — percentile, trend filter, keep condition for N bars, moving average versus another moving average, cross oscillator and the rest — and they are evaluated exactly the way your bots evaluate them. When a new indicator becomes available for bots, it is available here too.
 
-That includes **smoothing** on oscillators such as RSI, CCI or MFI: set **Smoothing** to a moving average and **Compare** to *Smoothed line vs value* or *Line vs smoothed line*, exactly as in a bot. See [Indicator Smoothing](https://gainium.io/help/indicator-smoothing).
+That includes **smoothing** on oscillators such as RSI, [CCI](https://gainium.io/help/cci) or MFI: set **Smoothing** to a moving average and **Compare** to *Smoothed line vs value* or *Line vs smoothed line*, exactly as in a bot. See [Indicator Smoothing](https://gainium.io/help/indicator-smoothing).
 
 ![An RSI indicator condition in the automation builder, smoothed with an EMA 14 and tested with Lower than 30](https://content.gainium.io/images/content/help/automations__indicator-smoothing.webp)
 
@@ -199,7 +199,7 @@ Actions run one after another, in the order you list them. If one fails, the res
 
 Messages go to the channels you choose in the action, as long as they're connected to your account (see [Telegram notifications](https://gainium.io/help/telegram-notifications)). There's no separate "automation fired" setting: a Notify action is how you choose to hear about a firing, and it decides its own channels. The history shows whether each channel delivered: if one couldn't (for example Telegram isn't connected, or the Gainium bot was blocked), the action is marked *Partial* — or *Failed* if none could — with the reason.
 
-**Automation notifications.** Besides Notify actions, Gainium tells you when an automation is paused for you and when an old balance is holding one back. Choose Telegram and/or email for each in **Settings → Notification Preferences**, under **Automations**. Both are on by default.
+**Automation notifications.** Besides Notify actions, Gainium tells you when an automation is paused for you and when an old balance is holding one back. Choose Telegram and/or [email](https://gainium.io/help/not-receiving-emails-from-gainium) for each in **Settings → Notification Preferences**, under **Automations**. Both are on by default.
 
 **Outgoing webhook.** The URL must use `https` on the standard port (443). The body is optional (up to 4 KB): leave it empty to send a JSON summary (automation name and id, time, paper/live and the condition values), or write your own JSON. Calls to private or internal addresses are refused, and so is a URL that points back at an automation webhook, so automations can't loop through each other.
 

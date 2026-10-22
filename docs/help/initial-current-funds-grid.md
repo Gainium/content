@@ -46,9 +46,9 @@ Current Funds indicate the present value of your funds managed by the grid bot. 
 
 ### **Interpreting PnL in Base Currency**
 
-When analyzing stats in the base currency, the PnL can appear counterintuitive:
+When analyzing [stats](https://gainium.io/help/profit-stats) in the base currency, the PnL can appear counterintuitive:
 - **Negative PnL**: Indicates an increase in the value of the base currency against the quote currency. This scenario suggests that a simple buy-and-hold strategy might have been more beneficial.
-- **Positive PnL**: Implies a decrease in the value of the base currency against the quote currency. In this case, your grid bot has effectively capitalized on market movements to generate profit.
+- **Positive PnL**: Implies a decrease in the value of the [base currency against the quote currency](https://gainium.io/help/order-fixed-in-base-and-quote-grid). In this case, your grid bot has effectively capitalized on market movements to generate profit.
 ![initial_negative_base.webp](https://content.gainium.io/images/content/help/initial_negative_base_95ae5704f0-2621cb.webp)
 ### **Why This Matters**
 - **Strategy Adjustment**: Understanding how PnL behaves in relation to currency value changes can guide you in adjusting your grid bot settings for optimal performance.

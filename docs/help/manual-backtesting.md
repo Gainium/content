@@ -67,7 +67,7 @@ Add up to 10 trading pairs to a single session. The first pair in the list becom
 
 ### Checklist rulebooks
 
-Optionally attach one or more rulebooks — or individual sections of them — to the session. The selected checklists appear in the trade panel so you can verify your entry criteria before each trade. You can mix and match: for example, the "Market structure" section from one rulebook plus a full risk-management rulebook.
+Optionally attach one or more [rulebooks](https://gainium.io/help/rulebooks) — or individual sections of them — to the session. The selected checklists appear in the trade panel so you can verify your entry criteria before each trade. You can mix and match: for example, the "Market structure" section from one rulebook plus a full risk-management rulebook.
 
 ### TradingView layout
 

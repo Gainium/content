@@ -74,7 +74,7 @@ The bot keeps its name, settings, order sizes, leverage, take profit, stop loss 
 
 ## Indicator conditions are not flipped
 
-Indicator conditions are written for one direction. "RSI below 30" or "MOM above 0" are Long entries, and Reverse does **not** mirror them. If your bot starts or closes deals on indicators, the confirmation lists every condition under **Indicators unchanged**. Review them before or right after reversing, otherwise a Short bot will keep opening deals on Long signals.
+Indicator conditions are written for one direction. "RSI below 30" or "MOM above 0" are Long entries, and Reverse does **not** mirror them. If your bot starts or [closes deals on indicators](https://gainium.io/help/technical-indicators-conditions-deal-close), the confirmation lists every condition under **Indicators unchanged**. Review them before or right after reversing, otherwise a Short bot will keep opening deals on Long signals.
 
 If your bot starts deals from **webhook signals**, the same "start deal" signal now opens a deal in the new direction.
 

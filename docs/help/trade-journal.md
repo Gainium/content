@@ -167,7 +167,7 @@ Below the calendar, every journal entry appears in a full trade table with your 
 - **Total Trades** — how many entries you've journaled.
 - **Total P&L** — your cumulative profit and loss across all entries.
 - **Win Rate** — the percentage of trades that closed in profit, with the win/loss split.
-- **Profit Factor** — total profits divided by total losses. Above 1 means your winners outweigh your losers; most traders consider 1.5–2.0 a healthy range. It's a better health check than win rate alone, because a strategy can win 70% of the time and still lose money if the losers are large.
+- **[Profit Factor](https://gainium.io/blog/strategy-performance-metrics)** — total profits divided by total losses. Above 1 means your winners outweigh your losers; most traders consider 1.5–2.0 a healthy range. It's a better health check than win rate alone, because a strategy can win 70% of the time and still lose money if the losers are large.
 
 The table itself supports sorting, per-column filtering, hiding columns you don't need, and pagination. Click any row to open that trade's details. Select multiple rows to delete entries in bulk.
 

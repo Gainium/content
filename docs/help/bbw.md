@@ -28,7 +28,7 @@ As the popularity of cryptocurrency trading continues to grow, so does the inter
 
 ## Understanding the BBW Indicator
 
-The BBW, developed by John Bollinger in the 1980s, is a technical indicator that measures the distance between the upper and lower [Bollinger Bands](https://gainium.io/help/bb). The Bollinger Bands are composed of three lines: a Simple Moving Average (SMA) and two lines plotted at a specified number of standard deviations above and below the SMA. The BBW indicator helps traders identify periods of high volatility and potential price reversals by measuring the relative width of the bands.
+The BBW, developed by John Bollinger in the 1980s, is a technical indicator that measures the distance between the upper and lower [Bollinger Bands](https://gainium.io/help/bb). The Bollinger Bands are composed of three lines: a [Simple Moving Average (SMA)](https://gainium.io/help/moving-averages) and two lines plotted at a specified number of standard deviations above and below the SMA. The BBW indicator helps traders identify periods of high volatility and potential price reversals by measuring the relative width of the bands.
 
 BBW = (Upper Bollinger Band - Lower Bollinger Band) / Middle Bollinger Band
 
@@ -56,7 +56,7 @@ For example, in the image below, when BBW is very low (I have drawn a line to vi
 
 ### B. BBW Mean Reversion Strategy
 
-In a mean reversion strategy, your trading bot will take advantage of price fluctuations by buying low and selling high within the Bollinger Bands. When the BBW value is high, indicating a volatile market, your bot can initiate a long position when the price touches the lower Bollinger Band and a short position when it touches the upper Bollinger Band.
+In a mean reversion strategy, your trading bot will take advantage of price fluctuations by buying low and selling high within the Bollinger Bands. When the BBW value is high, indicating a volatile market, your bot can initiate a long position when the price touches [the lower Bollinger Band](https://gainium.io/help/bollinger-bands-b) and a short position when it touches the upper Bollinger Band.
 
 For instance, when the BTC/USDT pair has a high BBW value and the price reaches the lower Bollinger Band, the bot can initiate a long position, expecting the price to revert to the mean (SMA). Conversely, when the price reaches the upper Bollinger Band, the bot can exit the position or initiate a short trade.
 

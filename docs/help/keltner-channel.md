@@ -51,7 +51,7 @@ Here’s how to configure the **Keltner Channel** in Gainium based on the attach
 - **Multiplier (2)**: The multiplier determines how far the upper and lower bands are placed from the EMA. In this case, it is set to **2**, meaning the bands are placed 2 times the ATR away from the EMA.
 - **Interval**: This determines the timeframe used for each candlestick in the calculation. In the provided settings, the interval is set to **1 day**, meaning the indicator is calculated based on daily price data.
 - **Condition (Price Crossing Up)**: This condition is set to trigger when the price crosses **up** through the lower band of the Keltner Channel, which could signal a reversal or an opportunity to buy.
-- **Value (Lower)**: This setting specifies the band to use for the trigger. Here, the lower band is selected, meaning the bot will act when the price crosses up from below the lower Keltner Channel.
+- **Value (Lower)**: This setting specifies [the band](https://gainium.io/help/keltner-channel-b) to use for the trigger. Here, the lower band is selected, meaning the bot will act when the price crosses up from below the lower Keltner Channel.
 - **Keep True (0)**: This setting defines how long the condition remains true after it’s triggered. Setting this to **0** means the condition resets immediately after being triggered.
 ![image.png](https://content.gainium.io/images/content/help/image_f0ea620428-3818cf.webp)
 *Keltner Channel Settings*

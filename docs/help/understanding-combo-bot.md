@@ -22,7 +22,7 @@ tldr: >-
   deal start conditions including indicators, webhooks, and timers.
 ---
 
-The crypto trading world often calls for an intricate blend of strategies to optimize profits and mitigate losses. At Gainium, we strive to provide our users with the most innovative and sophisticated tools to help them navigate this fast-paced landscape. Our latest addition, the Combo Bot, is a testament to this commitment. It effectively fuses Grid and Dollar-Cost Averaging (DCA) trading into one powerful strategy.
+The crypto trading world often calls for an intricate blend of strategies to optimize profits and mitigate losses. At Gainium, we strive to provide our users with the most innovative and sophisticated tools to help them navigate this fast-paced landscape. Our latest addition, the Combo Bot, is a testament to this commitment. It effectively fuses [Grid and Dollar-Cost Averaging (DCA) trading](https://gainium.io/blog/dca-vs-grid-vs-combo-bots-choosing-the-right-strategy) into one powerful strategy.
 
 In this article, we will explore in detail how it works and how to optimally use this new tool, allowing for more nuanced trading and increased potential for gains.
 
@@ -34,7 +34,7 @@ To understand why the combo was created, we should examine the grid and DCA stra
 
 I love grid bots. Thanks to their set-and-forget approach and ability to generate passive wealth, they have been my favorite kind of bot for a long time. As long as the price is within their range and there is volatility, they will keep producing small but consistent profits. They are perfect for busy investors seeking a profit stream with minimum oversight.
 
-However, as great a tool as they are, they have one significant drawback: timing. The bot must buy a lump sum of crypto at the start to place all sell orders in the grid. This requirement makes the grid bot performance highly dependent on the timing of that purchase and the long-term market direction.
+However, as great a tool as they are, they have one significant drawback: timing. The bot must buy a lump sum of crypto at [the start](https://gainium.io/help/start-price-grid-bots) to place all sell orders in the grid. This requirement makes the grid bot performance highly dependent on the timing of that purchase and the long-term market direction.
 
 You will reap a great profit if you get the timing right and set up your long grid bot before a bull run. But your investment will be in the red if you are unlucky enough to start a long grid bot before a market dump. The silver lining is that the bot will produce profits if the price is in range. If the bot manages to keep profiting, you may be able to profit despite the dump, though this will likely take weeks or even months, depending on how much volatility and the price stays in range. Certainly not an ideal scenario, but knowing you have that safety net if things turn south (or down) is good.
 
@@ -102,7 +102,7 @@ If you are familiar with the [DCA bot logic](https://gainium.io/help/dca-bot-set
 
 #### Minigrid levels
 
-Due to exchange limitations, the minimum spacing between grid orders is typically around 0.2%. Thus, each minigrid can contain a limited number of grid levels. The optimal number of minigrid levels depends on the specific coin pair and minigrid settings, which you can always fine-tune through backtesting. You can find the sweet spot for [grid spacing](https://gainium.io/help/grid-step) through backtesting and experimentation, as you'd do for grid bots.
+Due to exchange limitations, the minimum spacing between grid orders is typically around 0.2%. Thus, each minigrid can contain a limited number of grid levels. The optimal number of minigrid levels depends on the specific coin pair and minigrid settings, which you can always fine-tune through backtesting. You can find the sweet spot for [grid spacing](https://gainium.io/help/grid-step) through backtesting and experimentation, as you'd do for [grid bots](https://gainium.io/blog/the-super-wide-range-grid-stack-strategy).
 
 For example, if you set the order step to 5%, the DCA orders are spaced in 5% price drops. When the bot fills the DCA order, it has a 5% price range to fit grid levels. Given that the minimum spacing is 0.2%, the bot can create a minimum of 1 and a maximum of 25 grid levels on each minigrid.
 

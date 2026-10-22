@@ -95,7 +95,7 @@ Traders may use the RSI indicator to confirm trends. For example, if the RSI val
 
 ### Divergence Trading
 
-Another effective RSI-based strategy is divergence trading. A bullish divergence occurs when the price of an asset forms lower lows, while the RSI forms higher lows, suggesting that the selling pressure is weakening and a potential trend reversal is imminent. In contrast, a bearish divergence occurs when the price forms higher highs, while the RSI forms lower highs, indicating that buying pressure is decreasing and a potential trend reversal is on the horizon.
+Another effective RSI-based strategy is divergence trading. A [bullish divergence](https://gainium.io/help/divergences-indicator) occurs when the price of an asset forms lower lows, while the RSI forms higher lows, suggesting that the selling pressure is weakening and a potential trend reversal is imminent. In contrast, a bearish divergence occurs when the price forms higher highs, while the RSI forms lower highs, indicating that buying pressure is decreasing and a potential trend reversal is on the horizon.
 
 For example, if a trader identifies a bullish divergence between the BTC/USDT price and RSI, they might consider opening a long position in anticipation of an upward price movement. Conversely, a short position may be more appropriate if a bearish divergence is observed.
 ![Screenshot 2023-04-11 at 18.32.54.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_18_32_54_34679fd994-8e07b7.webp)

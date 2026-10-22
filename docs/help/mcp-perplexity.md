@@ -23,7 +23,7 @@ tldr: >-
   read + write endpoint is https://mcp.gainium.io/mcp.
 ---
 
-Gainium connects to Perplexity as a remote MCP connector, authorized with a secure one-click sign-in (OAuth) — no API key to copy.
+Gainium connects to Perplexity as a [remote MCP connector](https://gainium.io/help/mcp-chatgpt), authorized with a secure one-click sign-in (OAuth) — no API key to copy.
 
 For what Gainium MCP does, the full tool list, paper-trading and safety controls, and troubleshooting, see [Connect Gainium MCP to AI agents](https://gainium.io/help/mcp).
 

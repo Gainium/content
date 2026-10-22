@@ -48,7 +48,7 @@ In Gainium, you can easily create a HODL bot by visiting the[ new bot page](http
 ![HODL-bot-settings.png](https://content.gainium.io/images/content/help/HODL_bot_settings_c04a7c1ad0-4fb7cd.webp)
 You can specify the period duration in days, the time of the day (in your timezone), and when should the next deal start. It's essential to notice that the total budget is dictated by the number of open deals the bot is allowed to have. For example, if you would like to invest $100 every week for a total of $1000, you would set the Max open deals to 10. Once the bot has reached the max open deals number, it will not open any more deals.
 
-We have built the HODL bot with flexibility in mind, so you can use all options available for trading bots. That means you can enable DCA on each open deal or even activate Take Profit targets. This will allow you to deploy advanced such as the [double-DCA](https://gainium.io/academy/double-dca-strategy).
+We have built the HODL bot with flexibility in mind, so you can use all options available for trading bots. That means you can enable DCA on each open deal or even activate [Take Profit targets](https://gainium.io/help/multiple-take-profit-targets). This will allow you to deploy advanced such as the [double-DCA](https://gainium.io/academy/double-dca-strategy).
 
 Note that each time the bot will open a separate deal. This has the advantage of being able to configure deals separately. However, if you would rather see the total accumulated token as a single deal, you can [merge the deals](https://gainium.io/help/merge-deals) into one.
 
