@@ -55,7 +55,7 @@ On a Combo deal, reducing funds is the mirror of [adding funds](https://gainium.
 - The sale is booked against the deal's average price, so the profit or loss it realizes is shown before you confirm. The average price itself does not change.
 - If any grid line or pending level would fall below the exchange's minimum order size, the request is refused, and the message tells you the largest reduction possible right now.
 - A reduction of 100% or more closes the deal.
-- Combo reductions always use a **market** order; a webhook or API request with a `price` is refused for a Combo deal. Hedge Combo deals do not support Reduce Funds.
+- Combo reductions always use a **market** order; a webhook or API request with a `price` is refused for a Combo deal. [Hedge Combo](https://gainium.io/help/hedge-bots) deals do not support Reduce Funds.
 
 For example, on the Combo deal from the [Add Funds example](https://gainium.io/help/add-funds-to-deals#combo-example) (8.359 coins at an average of 95.70, price 90), reducing by **25%** sells 2.090 coins at market, realizes a loss of about 11.92 USDT, and shrinks every minigrid line to 0.75× its size.
 

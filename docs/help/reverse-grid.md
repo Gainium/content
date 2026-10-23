@@ -84,7 +84,7 @@ Imagine BTC is trading at 40,000 USDT and you anticipate a decline in price.
 
 **Q: Can I use both long and short grid bots simultaneously?**
 
-*A:* Yes, some traders use both types to hedge their positions and capitalize on both rising and falling markets.
+*A:* Yes, some traders use both types to hedge their positions and capitalize on both rising and falling markets. To run a long and a short DCA or Combo bot as one, with a combined take profit, use a [hedge bot](https://gainium.io/help/hedge-bots).
 
 **Q: What are the risks associated with using a reverse grid bot?**
 

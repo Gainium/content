@@ -85,7 +85,7 @@ Hedge DCA bots always measure against the funds used.
 
 Turn on **Stop Loss (hedge)** and enter the combined loss at which both deals should close. **Enter it as a negative number**, for example `-8` for a stop at an 8% combined loss. A positive value would close the pair as soon as it was in profit.
 
-A hedge-level stop loss is the main protection against the one case a hedge bot handles badly: a strong trend in one direction. One leg keeps averaging against the move while the other leg's profit is capped by its take profit. The stop loss closes both before that gap grows too large.
+A hedge-level stop loss is the main protection against the one case a hedge bot handles badly: a strong trend in one direction (see [Risks to understand first](https://gainium.io/help/hedge-bots#risks-to-understand-first)). One leg keeps averaging against the move while the other leg's profit is capped by its take profit. The stop loss closes both before that gap grows too large.
 
 ## How it interacts with each leg's own TP and SL
 
@@ -94,13 +94,13 @@ The hedge-level settings **take over** from the legs' fixed settings:
 - While **Take Profit (hedge)** is on, the legs do not place their own take-profit orders. Deals close when the combined target is reached.
 - While **Stop Loss (hedge)** is on, the legs' own percentage stop losses are not used. Deals close when the combined stop is reached.
 
-Switching a hedge-level setting off on an existing bot gives the legs back their own TP or SL. If you want each leg to take its own profit independently, leave **Take Profit (hedge)** off and set the take profit on the **Long leg** and **Short leg** tabs instead.
+Switching a hedge-level setting off on an existing bot gives the legs back their own TP or SL. If you want each leg to take its own profit independently, leave **Take Profit (hedge)** off and set the take profit on the **Long leg** and **Short leg** tabs instead. Those work as in the [DCA bot walkthrough](https://gainium.io/help/dca-bot-set-up-walkthrough#take-profit), including [multiple take profit targets](https://gainium.io/help/multiple-take-profit-targets) and [move stop loss](https://gainium.io/help/move-stop-loss).
 
 ## Things to know
 
 - The combined close is always a **market** order, so expect some slippage on illiquid pairs.
 - The check runs every 30 seconds, not on every price tick. On a fast move the deals can close a little past your level.
-- Closing both legs costs two market orders' worth of fees. Leave room for them in your Take Profit (hedge).
+- Closing both legs costs two market orders' worth of fees. Leave room for them in your Take Profit (hedge). [Backtest](https://gainium.io/help/hedge-bots#backtest-before-you-go-live) with your real fee and some slippage before going live.
 - The [Quick Setup presets](https://gainium.io/help/hedge-bots#quick-setup) turn on Take Profit (hedge) for you: 1.5% (Conservative), 3% (Balanced) or 6% (Aggressive). None of them turns on Stop Loss (hedge).
 
 ## FAQ
@@ -112,7 +112,7 @@ No. Each pair is judged on its own. Only the pair that reached the target closes
 No. The bot keeps running and each leg opens new deals according to its own start conditions.
 
 **Can I use a combined take profit together with a trailing take profit on a leg?**
-The hedge-level take profit is the one that closes the deals while it is on. If you want trailing behaviour on a leg, leave Take Profit (hedge) off and configure the trailing take profit on that leg.
+The hedge-level take profit is the one that closes the deals while it is on. If you want trailing behaviour on a leg, leave Take Profit (hedge) off and configure the [trailing take profit](https://gainium.io/help/trailing-take-profit) on that leg.
 
 **Why did my pair close at a loss when I only set a take profit?**
 A take profit on the combined PnL can close a losing leg, because the other leg's profit covers it. The total for the pair is what reached your target. Check the closed deals of both legs together.

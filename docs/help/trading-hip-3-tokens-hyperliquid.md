@@ -62,7 +62,7 @@ All HIP-3 perps on Hyperliquid are **USDC-settled**. You don't need a brokerage 
 From your perspective as a Gainium user, **HIP-3 markets behave like any other Hyperliquid perp**:
 
 1. They appear in the symbol list on the Hyperliquid linear/perp exchange.
-2. You can run any Hyperliquid-supported bot type on them — DCA, Grid, Combo, Hedge, Max Gain AI, Terminal deals.
+2. You can run any Hyperliquid-supported bot type on them — DCA, Grid, Combo, [Hedge](https://gainium.io/help/hedge-bots), Max Gain AI, Terminal deals.
 3. Backtesting, indicators, and risk controls work the same way as native pairs.
 4. Balances, P&L, and credit usage roll up under your existing Hyperliquid connection.
 

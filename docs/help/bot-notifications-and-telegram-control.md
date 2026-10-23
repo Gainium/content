@@ -189,7 +189,7 @@ Every confirmed change is written to the bot's event log as a **Telegram** entry
 
 ## Limits
 
-- **Hedge DCA and Hedge Combo bots** are read-only in Telegram: card, deals, deal charts and P&L, but no changes. They don't have a Notifications section in the bot form yet.
+- **[Hedge DCA and Hedge Combo bots](https://gainium.io/help/hedge-bots)** are read-only in Telegram: card, deals, deal charts and P&L, but no changes. They don't have a Notifications section in the bot form yet.
 - **Grid bots:** from Telegram, you can start, stop and reload them. Their settings can't be changed there.
 - **Combo deals:** TP, SL and close work. Add/reduce funds and DCA step/size don't, because a Combo deal's DCA is its grid.
 - **Editing DCA levels** works only on deals with a percentage DCA ladder. Deals using custom, indicator-based or ATR-based DCA levels, and deals with every DCA order already filled, can't be edited from Telegram.

@@ -66,11 +66,11 @@ Each leg has all the settings of a normal bot: exchange, pairs, order sizes, DCA
 
 Apart from that, each leg trades on its own. Each one opens deals when its own start condition is met, and nothing forces both legs to open at the same moment. When one leg's deal closes, the other leg's deal is not touched: it keeps running until its own take profit, its own stop loss or the combined close.
 
-The legs normally trade the same pair on the same exchange account, which is what Quick Setup creates. Gainium does not require that, though. In Manual mode a leg can trade a different pair, or sit on another account.
+The legs normally trade the same pair on the same exchange account, which is what Quick Setup creates. Gainium does not require that, though. In Manual mode a leg can trade a different pair, or sit on another account. For example, a spot long leg against a perpetual short leg makes the classic cash-and-carry hedge described in our guide to [delta neutral crypto strategies](https://gainium.io/blog/delta-neutral-crypto-strategies).
 
 ## Create a hedge bot
 
-Open **Hedge DCA** or **Hedge Combo** from the bots menu and click **New**. The form opens in **Quick Setup**. Switch to **Manual** at any time for full control. Your Quick Setup choices carry over.
+Open **Hedge DCA** or **Hedge Combo** from the bots menu and click **New**. With [keyboard shortcuts](https://gainium.io/help/keyboard-shortcuts), press **H** or **W** to open the lists, and **Shift + H** or **Shift + W** to start a new one. The form opens in **Quick Setup**. Switch to **Manual** at any time for full control. Your Quick Setup choices carry over.
 
 ### Quick Setup
 
@@ -105,9 +105,9 @@ In Manual mode the form has three tabs:
 
 ![Manual mode, Long leg tab: the leg's exchange, pairs, order size reference, margin type and leverage](https://content.gainium.io/images/content/help/hedge-bots__leg-tab.webp)
 
-The leg tabs are the same forms you know from DCA and Combo bots, so every setting works as described in those guides. A few options don't apply to hedge legs and are not offered:
+The leg tabs are the same forms you know from DCA and Combo bots, so every setting works as described in those guides: see the [DCA bot walkthrough](https://gainium.io/help/dca-bot-set-up-walkthrough), [trailing take profit](https://gainium.io/help/trailing-take-profit) and [trailing stop loss](https://gainium.io/help/trailing-stop-loss). A few options don't apply to hedge legs and are not offered:
 
-- single position per pair;
+- [single position per pair](https://gainium.io/help/single-position-per-pair);
 - "use available balance" (reducing a deal to the free balance);
 - adopting existing deals into the bot.
 
@@ -118,9 +118,10 @@ When the settings are ready, click **Create hedge bot**. Both legs are created a
 A futures account normally holds **one** position per pair (one-way mode). A long and a short on the same pair would cancel each other out. To hold both at once, the account must be in **hedge mode**, also called *dual-side* or *two-way* position mode.
 
 - If both legs trade the **same pair on the same account**, Gainium checks the position mode when the bot starts. If hedge mode is off, the bot does not start and shows **"Cannot start hedge bot when hedge mode not enabled."**
-- Turn it on with the **Hedge Mode** switch when you edit the futures exchange account in Gainium, or in your exchange's own futures settings (some exchanges call it *Two-way Mode*).
+- Turn it on with the **Hedge Mode** switch under **Advanced Settings** when you add or edit the futures exchange in Gainium, or in your exchange's own futures settings (some exchanges call it *Two-way Mode*).
 - The mode can't be changed while any bot on that account is running or has open deals. Stop them first.
 - If the legs trade different pairs, or sit on different accounts, hedge mode isn't needed.
+- **Hyperliquid** perpetuals are one-way per account. Put the second perpetual leg on a [Hyperliquid sub-account](https://gainium.io/help/connect-to-hyperliquid#connecting-a-sub-account-or-vault), or pair a spot long leg with a perpetual short leg. **Kraken Futures** is one-way too.
 
 ### Funding fees on a futures hedge
 
@@ -168,6 +169,14 @@ A hedge bot reduces directional risk. It does not remove risk:
 - **Fees and funding.** Two legs, two sets of fees and funding. Small take-profit targets can be eaten up by them.
 
 Try a new setup on a [paper trading](https://gainium.io/help/paper-trading-forward-testing) account first. It runs on live prices with simulated funds.
+
+## What hedge bots don't support yet
+
+- [Add Funds](https://gainium.io/help/add-funds-to-deals) and [Reduce Funds](https://gainium.io/help/reduce-funds) on Hedge Combo deals.
+- [Automations](https://gainium.io/help/automations) actions.
+- Changes from Telegram: hedge bots are [read-only there](https://gainium.io/help/bot-notifications-and-telegram-control).
+- [Reversing the direction](https://gainium.io/help/reverse-futures-bot-direction). A hedge bot already runs both directions.
+- `tpPrice` and `slPrice` in [webhook](https://gainium.io/help/webhooks) signals. Send `tpPerc` and `slPerc` instead, since one price would be on the wrong side for one of the legs.
 
 ## FAQ
 

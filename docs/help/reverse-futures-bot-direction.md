@@ -35,7 +35,7 @@ Reverse switches a **futures** DCA or Combo bot from Long to Short, or from Shor
 
 - Reverse is available for **futures** DCA and Combo bots, single-pair and multi-pair.
 - It is **not** available for spot bots. On spot, the direction decides which coin the bot holds (the quote coin for Long, the base coin for Short), so it can't change on an existing bot. Clone the bot instead.
-- Grid bots and hedge bots can't be reversed.
+- Grid bots and [hedge bots](https://gainium.io/help/hedge-bots) can't be reversed.
 - Reverse **closes your open deals at market**. That realizes their profit or loss and can't be undone.
 
 ## How to reverse a bot
@@ -88,4 +88,4 @@ If the direction was switched but the bot couldn't start (for example, not enoug
 
 ## Hedge-mode accounts
 
-On an account in hedge mode, Long and Short positions can be open at the same time. Reverse only waits for the side the bot is leaving to close; a position on the other side doesn't block it.
+On an account in [hedge mode](https://gainium.io/help/hedge-bots#futures-enable-hedge-mode-on-the-exchange), Long and Short positions can be open at the same time. Reverse only waits for the side the bot is leaving to close; a position on the other side doesn't block it.

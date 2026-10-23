@@ -57,7 +57,7 @@ You can choose one or multiple pairs as long as they have the same quote currenc
 
 ### Direction
 
-In this setting you can specify if you want to go long (buy lower, sell higher) or short (sell higher, buy lower). I have selected a long strategy (it is already the default).
+In this setting you can specify if you want to go long (buy lower, sell higher) or short (sell higher, buy lower). I have selected a long strategy (it is already the default). To run a long and a short DCA bot on the same pair as one bot, use a [Hedge DCA bot](https://gainium.io/help/hedge-bots).
 
 ### Profit currency
 

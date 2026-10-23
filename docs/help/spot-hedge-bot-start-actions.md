@@ -42,7 +42,7 @@ Start the bot from its card, its table row or its page. If at least one leg is o
 - a **start action** to choose from a list;
 - a **funding preview** of what that action will do with your balance.
 
-Futures legs aren't listed. They always start on their own balance.
+Futures legs aren't listed. They always start on their own balance. So a hedge with a spot long leg and a perpetual short leg, the cash-and-carry setup from our [delta neutral strategies guide](https://gainium.io/blog/delta-neutral-crypto-strategies), only asks about the long leg.
 
 Click **Start** to start both legs. The button is unavailable while the price and the estimate are still loading, and when a leg's balance can't cover its deal.
 
@@ -103,7 +103,8 @@ Both legs trade on the same account, so the estimate covers both of them togethe
 - **The action applies to the first deal after each start.** Once that deal's base order is in, the leg's later deals run on its balance as usual. Stopping and starting the bot asks again.
 - **Funds set aside for one deal are not counted as free** by your other bots' balance checks, so two bots can't plan with the same coins.
 - **Both legs are planned together**, under one lock per account, so the two legs' funding trades don't race each other.
-- To trade a hedge on futures instead, where each leg opens its position directly, see [Futures: enable hedge mode on the exchange](https://gainium.io/help/hedge-bots).
+- To trade a hedge on futures instead, where each leg opens its position directly, see [Futures: enable hedge mode on the exchange](https://gainium.io/help/hedge-bots#futures-enable-hedge-mode-on-the-exchange).
+- Once the bot runs, a [combined take profit and stop loss](https://gainium.io/help/hedge-bot-combined-take-profit-stop-loss) can close both legs' deals together.
 
 ## FAQ
 

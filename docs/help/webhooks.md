@@ -172,7 +172,7 @@ The signal is **rejected** (HTTP 400, nothing opens) when:
 
 - a field isn't a positive number. For example, an empty value, `NaN`, or a TradingView placeholder that didn't render. Gainium won't open a deal without the stop you asked for.
 - it sends both `tpPerc` and `tpPrice`, or both `slPerc` and `slPrice`.
-- it sends `tpPrice` or `slPrice` to a Combo or Hedge bot. Use `tpPerc` / `slPerc` there. A hedge bot opens both directions, so one price would always be on the wrong side.
+- it sends `tpPrice` or `slPrice` to a Combo or Hedge bot. Use `tpPerc` / `slPerc` there. A [hedge bot](https://gainium.io/help/hedge-bots) opens both directions, so one price would always be on the wrong side.
 
 The deal is **not opened** (with an error in the bot's log) when:
 

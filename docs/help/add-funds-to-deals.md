@@ -75,7 +75,7 @@ The dialog shows the factor as **Every DCA level ×1.3** (for example), together
 - Combo add funds always uses a **market** order. There is no limit option in the dialog, and a webhook or API request with a `price` is refused for a Combo deal.
 - If the order, or any grid line it would resize, would fall below the exchange's minimum order size, the request is refused and nothing changes.
 - One change at a time: while an add or reduce is still being processed, a new one is refused with a message. Send it again once the first has filled.
-- Hedge Combo deals do not support Add Funds.
+- [Hedge Combo](https://gainium.io/help/hedge-bots) deals do not support Add Funds.
 
 ### Add funds or add a DCA level?
 

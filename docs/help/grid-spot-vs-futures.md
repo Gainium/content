@@ -93,7 +93,7 @@ In Gainium, whether a grid runs on [spot or futures](https://gainium.io/help/fre
 ### 3.2. Futures Market
 - **Leverage**: This can be a significant advantage for those with limited capital but a strong market understanding. It allows for larger positions and potentially greater profits.
 - **Profit in Various Market Conditions**: Futures allow traders to easily take both long and short positions, enabling them to potentially profit in both rising and falling markets.
-- **Hedging Opportunities**: Experienced traders can use futures to hedge positions, providing a safety net against unfavorable market moves. A futures grid set to Neutral, or a spot long paired with a perpetual short, can also earn from volatility or funding without betting on direction; see [delta neutral crypto strategies](https://gainium.io/blog/delta-neutral-crypto-strategies).
+- **Hedging Opportunities**: Experienced traders can use futures to hedge positions, providing a safety net against unfavorable market moves. A futures grid set to Neutral, a [hedge bot](https://gainium.io/help/hedge-bots) running a long and a short leg together, or a spot long paired with a perpetual short, can also earn from volatility or funding without betting on direction; see [delta neutral crypto strategies](https://gainium.io/blog/delta-neutral-crypto-strategies).
 
 Both spot and futures markets offer unique advantages, and the choice between them often boils down to individual trading goals, risk appetite, and market outlook.
 

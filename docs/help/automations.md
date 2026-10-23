@@ -215,7 +215,7 @@ Messages go to the channels you choose in the action, as long as they're connect
 
 A variable that doesn't exist (for example one for a condition you deleted) is refused when you save. A condition without a value (an indicator on several coins, a webhook that hasn't been called) is left empty — `null` in a webhook body. In a webhook body, values are escaped so the JSON stays valid.
 
-**Hedge bots** can't be used in actions yet.
+**[Hedge bots](https://gainium.io/help/hedge-bots)** can't be used in actions yet.
 
 ## Fire modes
 

@@ -79,8 +79,8 @@ Single letters, no modifier needed. If you're already on the page, pressing its 
 | DCA Bots | B |
 | Combo Bots | C |
 | Grid Bots | G |
-| Hedge DCA Bots | H |
-| Hedge Combo Bots | W |
+| [Hedge DCA Bots](https://gainium.io/help/hedge-bots) | H |
+| [Hedge Combo Bots](https://gainium.io/help/hedge-bots) | W |
 | Rulebooks | R |
 | Manual Backtesting Sessions | M |
 | Settings | S |

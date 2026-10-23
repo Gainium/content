@@ -224,4 +224,6 @@ This section enables extra settings to control automatic bot start and stop. You
 
 Gainium's Combo Bot blends the best of DCA and grid trading strategies, providing our users with a powerful tool for navigating the volatile crypto markets. This innovative feature allows you to automate and optimize your trading strategy to leverage market fluctuations effectively.
 
+To run a long and a short Combo bot side by side as one bot, with a combined take profit, see [Hedge Combo bots](https://gainium.io/help/hedge-bots).
+
 As with any trading strategy, it is essential to understand your risk tolerance and investment goals before using the Combo Bot. Gainium is here to provide the tools you need, but the strategy is ultimately up to you. Happy trading!

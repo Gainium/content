@@ -37,7 +37,7 @@ Open a DCA bot (new or **Edit**) and go to **Deal Start**. Switch on **Single po
 - **Max open deals** still applies. On a multi-pair bot it limits how many pairs hold a position at the same time.
 - **Max deals per pair** is not used, because it is always one.
 
-The setting is available for DCA bots. Combo, Grid and Hedge bots don't have it.
+The setting is available for DCA bots. Combo, Grid and [Hedge bots](https://gainium.io/help/hedge-bots) don't have it.
 
 ## How entries work
 

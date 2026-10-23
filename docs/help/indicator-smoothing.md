@@ -45,7 +45,7 @@ Smoothing is available on the single-line oscillators:
 
 Indicators that already have their own signal line (MACD, Stochastic, Stochastic RSI) and price-based indicators don't offer it.
 
-It works wherever you use these indicators: deal start, deal close, DCA and take profit conditions in DCA, Combo, Grid and Hedge bots, the backtester, and indicator conditions in [Automations](https://gainium.io/help/automations).
+It works wherever you use these indicators: deal start, deal close, DCA and take profit conditions in DCA, Combo, Grid and [Hedge bots](https://gainium.io/help/hedge-bots), the backtester, and indicator conditions in [Automations](https://gainium.io/help/automations).
 
 ## The settings
 
