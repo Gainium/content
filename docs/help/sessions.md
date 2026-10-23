@@ -7,7 +7,7 @@ description: >-
   signals by day of the week and time of day, restricting activity to your
   preferred trading sessions.
 createdAt: '2026-04-07T12:00:00.000Z'
-updatedAt: '2026-04-07T12:00:00.000Z'
+updatedAt: '2026-10-23T12:00:00.000Z'
 publishedAt: '2026-04-07T12:00:00.000Z'
 locale: en
 categories:
@@ -19,13 +19,13 @@ tags:
 ingested: false
 ingestedAt: ''
 tldr: >-
-  The Sessions indicator filters trading signals based on the day of the week
-  and time ranges (UTC). Enable or disable individual days, set custom start and
-  end times for each, and choose whether the bot should trade inside or outside
-  the configured sessions.
+  The Sessions indicator filters trading signals by day of the week and,
+  optionally, time of day in a time zone you pick. Choose a market session
+  (Sydney, Tokyo, London, New York, US stock market) or set your own hours, and
+  whether the bot should trade inside or outside the session.
 ---
 
-The **Sessions** indicator is a time-based filter that lets you restrict when your trading bot is allowed to act. Instead of analyzing price data, it checks the current day and time (in UTC) against a schedule you define, and only allows signals through when the market is inside — or outside — your configured trading windows.
+The **Sessions** indicator is a time-based filter that lets you restrict when your trading bot is allowed to act. Instead of analyzing price data, it checks the current day and time against a schedule you define, on the clock of the time zone you choose, and only allows signals through when the market is inside — or outside — your configured trading windows.
 
 Crypto markets run 24/7, but not every hour is equally liquid or volatile. The Sessions indicator gives you precise control over when your strategy is active, so you can target the periods that best suit your edge.
 
@@ -39,22 +39,40 @@ Different times of day and days of the week exhibit different market characteris
 
 Navigate to your bot settings, open the indicator list, and select **Session Selector** from the **Filter** category.
 
-### Step 2: Select Active Days
+### Step 2: Pick a Session
 
-Use the **Session Days** multi-select field to choose which days of the week the session is active. Days are numbered Sunday (0) through Saturday (6). The default selection is Monday through Friday (1–5), which mirrors traditional market days.
+The **Session** field fills in the hours and time zone of a market session:
 
-### Step 3: Choose the Session Rule
+| Session | Hours (local) | Time zone |
+|---|---|---|
+| Sydney | 07:00–16:00 | Australia/Sydney |
+| Tokyo | 09:00–18:00 | Asia/Tokyo |
+| London | 08:00–17:00 | Europe/London |
+| New York | 08:00–17:00 | America/New_York |
+| US stock market | 09:30–16:00 | America/New_York |
+
+**All day** clears the hours, so only the selected days matter. **Custom** gives you hours to edit; changing the hours of a preset also makes it custom.
+
+### Step 3: Adjust Start, End and Time Zone
+
+**Start** and **End** are local times in the selected **Time zone**. The session opens at Start and closes at End (End itself is outside the session). Because the times are local, a session follows its market's daylight-saving changes: the New York session opens at 08:00 New York time all year, which is 12:00 UTC in summer and 13:00 UTC in winter.
+
+An End earlier than Start is an **overnight session** (for example 22:00–02:00). The part after midnight belongs to the day the session opened, so a Friday 22:00–02:00 session keeps running into Saturday morning even if Saturday is not selected.
+
+### Step 4: Select Active Days
+
+Use **Session Days** to choose which days of the week the session runs. Days are read in the session's time zone. The default is Monday through Friday.
+
+### Step 5: Choose the Session Rule
 
 The **Rule** field determines how the filter behaves:
 
-- **In session** — the indicator condition is **true** only during the selected days (and time windows, if configured). Use this when you want the bot to trade only within the session.
-- **Out of session** — the indicator condition is **true** only **outside** the selected days/times. Use this to invert the filter, for example to run a different strategy during off-hours.
+- **In session** — the indicator condition is **true** only inside the session (selected days, and hours when set). Use this when you want the bot to trade only within the session.
+- **Out of session** — the indicator condition is **true** only **outside** the session. Use this to invert the filter, for example to run a different strategy during off-hours.
 
-### Step 4: Set Time Ranges (Advanced)
+### On the Chart
 
-Each enabled day can have its own start and end time, specified in **HH:MM UTC** format. This lets you narrow activity to specific hours within a day — for example, only trading Monday between 13:00 and 21:00 UTC to capture the New York session.
-
-The indicator supports **midnight crossover**: setting a start time of 22:00 and an end time of 02:00 correctly spans across midnight.
+The chart shades every candle the session touches, on any timeframe: on a 1-hour chart you see the session's hours, on a daily chart the days it runs.
 
 ## Using Sessions in Bot Trading
 
@@ -72,8 +90,8 @@ The simplest use case: enable Monday through Friday and disable Saturday and Sun
 Target a narrow, high-liquidity window for a scalping strategy:
 
 #### Implementation in Gainium
-- Enable only **Monday** through **Friday**.
-- Set each day's time range to **13:00–17:00 UTC** (the London–New York overlap).
+- Keep **Monday** through **Friday**.
+- Choose **Custom** and set **08:00–12:00** in the **New York** time zone (roughly the London–New York overlap, kept aligned through daylight saving).
 - Combine with a short-interval RSI or Bollinger Bands indicator to catch quick mean-reversion moves during peak volume.
 
 ### Strategy 3: Weekend Mean-Reversion
@@ -86,14 +104,14 @@ Crypto-specific: use the **Out of session** rule to trade only on weekends, wher
 
 ## Practical Considerations
 
-### 1. All Times Are UTC
-The Sessions indicator works entirely in UTC. Make sure to convert your local timezone when configuring start and end times.
+### 1. Times Follow the Chosen Time Zone
+Start, End and the session days are read in the selected time zone, including its daylight-saving changes. Choose **UTC** if you want a session that never shifts.
 
 ### 2. Combine with Other Indicators
 Sessions is a **filter** — it does not generate buy or sell signals on its own. Always combine it with one or more technical indicators that define your actual entry and exit logic.
 
 ### 3. Midnight Crossover
-If your session spans midnight (e.g., 22:00–02:00), the indicator handles this correctly. There is no need to split the session into two separate entries.
+If your session spans midnight (e.g., 22:00–02:00), set it as one session with End before Start. There is no need to split it into two.
 
 ### 4. Backtest with Sessions Enabled
 Time-of-day effects can significantly change backtest results. Always re-run your backtest after adding a Sessions filter to see how restricting the trading window affects performance.
