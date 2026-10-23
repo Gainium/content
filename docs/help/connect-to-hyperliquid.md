@@ -7,7 +7,7 @@ description: >-
   Gainium using an API (agent) wallet for trading while keeping your main wallet
   secure.
 createdAt: '2025-09-26T00:00:00.000Z'
-updatedAt: '2026-06-30T00:00:00.000Z'
+updatedAt: '2026-10-23T00:00:00.000Z'
 publishedAt: '2024-04-06T11:33:03.122Z'
 locale: en
 categories:
@@ -158,7 +158,7 @@ Now that you have funds on Hyperliquid and an API wallet created:
 
 ## Connecting a Sub-account or Vault
 
-By default the API Wallet method connects your **main** wallet. Hyperliquid only supports one-way (one-directional) positions per account on perps, so to run hedged / two-way strategies — or to trade a **Vault** — you connect a **sub-account** instead.
+By default the API Wallet method connects your **main** wallet. Hyperliquid only supports one-way (one-directional) positions per account on perps, so to run hedged / two-way strategies — or to trade a **Vault** — you connect a **sub-account** instead. (A hedge bot can also pair a Hyperliquid spot long with a perpetual short on the main wallet; see [delta neutral crypto strategies](https://gainium.io/blog/delta-neutral-crypto-strategies).)
 
 > Sub-accounts and Vaults must be connected with the **API Wallet** method (Option 2). They are not available through the Web3 Wallet flow. The connection is only available on **paid plans**, because Hyperliquid does not allow builder fees on sub-account / Vault connections — so Free User (builder-fee) mode does not apply.
 
