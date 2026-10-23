@@ -7,7 +7,7 @@ description: >-
   minigrids. How to set it up, how deals are limited, and how credits are
   calculated.
 createdAt: '2026-10-08T00:00:00.000Z'
-updatedAt: '2026-10-15T00:00:00.000Z'
+updatedAt: '2026-10-23T00:00:00.000Z'
 publishedAt: '2026-10-08T00:00:00.000Z'
 locale: en
 categories:
@@ -23,15 +23,12 @@ tldr: >-
   combo. Max open deals caps how many deals run in total and Max open deals per pair
   caps each pair. It costs one combo (200 credits) for every pair it can trade
   at the same time — the number of pairs, capped by Max open deals — plus the
-  usual extra-deal and indicator credits. On Gainium Cloud it is in beta and
-  enabled for selected accounts.
+  usual extra-deal and indicator credits.
 ---
 
 A combo bot normally trades one pair. A **multi-coin combo bot** trades several pairs with the same settings: every pair runs its own deal, with its own base minigrid and its own DCA minigrids, exactly as a single-pair combo would. It is the combo equivalent of a multi-pair DCA bot.
 
 If you are new to combo bots, read [Understanding the Combo bot](https://gainium.io/help/understanding-combo-bot) first — everything in it applies to each pair of a multi-coin bot.
-
-> **Beta.** On Gainium Cloud, multi-coin combo bots are in beta and are being enabled for selected accounts. If you don't see the **Multiple** switch on a combo bot, it isn't enabled for your account yet. Self-hosted installations have it available.
 
 ## Setting it up
 
