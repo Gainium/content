@@ -78,19 +78,19 @@ In your bot's settings, open the deal start (or another indicator section), choo
 
 ### Step 2: Configure the Settings
 
-![Discount/Premium OTE Levels settings in the bot form: Interval 1 hour, Swing sensitivity 10 bars, Minimum leg size 1 %, Leg Bullish, Level 0.705, Condition Price crossing down](https://content.gainium.io/images/content/help/discount-premium-ote-levels__settings.webp)
+![Discount/Premium OTE Levels settings in the bot form: Interval 1 hour, Swing sensitivity 10 bars, Minimum leg size 1 %, Leg Bullish, Condition Price crossing down, Level 0.705](https://content.gainium.io/images/content/help/discount-premium-ote-levels__settings.webp)
 
 - **Interval** — the candle timeframe the legs are built on (default: 1 hour).
 - **Swing sensitivity** — how many candles to the left a swing high or low must dominate (default **10**). Higher values find fewer, more significant swings; lower values react to smaller swings.
 - **Minimum leg size** — the smallest move, in percent of the leg's low, that counts as a leg (default **1%**). Raise it on higher timeframes or volatile coins so only meaningful moves create levels.
 - **Leg** — which leg direction the condition reads: **Bullish**, **Bearish** or **Any** (default Bullish). Only the latest leg is ever used; if it points the other way, the condition stays false.
-- **Level** — the retracement level the price is compared with, from 0 (leg end) to 1 (leg origin). Default **0.705**, the OTE sweet spot. Use **0.618** or **0.79** for the edges of the OTE zone, or **0.5** for equilibrium.
 - **Condition** — how the price is compared with the level:
   - **Price crossing down** (default) — the candle closes at or below the level after closing above it on the previous candle.
   - **Price crossing up** — the candle closes at or above the level after closing below it.
   - **Price greater than** / **Price lower than** — the close is above / below the level.
 
   A crossing only counts when both candles belong to the **same leg**. When a new leg forms, every level moves at once, and that jump is not treated as price crossing a level.
+- **Level** — the retracement level the price is compared with, from 0 (leg end) to 1 (leg origin). Default **0.705**, the OTE sweet spot. Use **0.618** or **0.79** for the edges of the OTE zone, or **0.5** for equilibrium.
 - **Keep true** — how many candles the signal stays valid after it fires, like on any other indicator.
 
 ## Reading the Indicator on the Chart
