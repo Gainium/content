@@ -14,7 +14,8 @@ PR that references the slug, not long after.
 ## Checklist
 
 ```
-[ ] docs/help/<slug>.md   ← the URL the dashboard catalog links to
+[ ] docs/indicators/<slug>.md, kind: native + catalogKeys   ← the page the dashboard catalog links to
+[ ] scripts/check-indicators.ts passes
 [ ] field descriptions match the actual catalog fields in main-dash-sh
 [ ] note any chart-visual approximation from Step 0's Pine Script check, if applicable
 ```

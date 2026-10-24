@@ -55,8 +55,8 @@ When using **ATR** or **ADR**, this mode becomes [more dynamic](https://gainium.
 - **DCA Orders**:This defines the number of DCA orders you want the bot to place. For example, setting it to **5** will divide your capital across five different price levels.
 - **DCA Order Amount**:The amount allocated to each DCA order. For example, you can set this to **5 USDT** per order.
 - **Base Scaling (Percentage, ATR, or ADR)**:You can select one of three options:**Percentage**: Orders are spaced at fixed percentage intervals. For instance, if set to **1%**, the bot will place each order every 1% price movement.
-- **ATR**: Orders are spaced according to the **[Average True Range](https://gainium.io/help/atr)**, which measures volatility. The higher the ATR, the larger the spacing between orders.
-- **ADR**: Orders are spaced based on the **[Average Daily Range](https://gainium.io/help/adr)**, which captures the typical daily movement of an asset. Similar to ATR, a higher ADR indicates more volatility and thus larger spacing between DCA orders.
+- **ATR**: Orders are spaced according to the **[Average True Range](https://gainium.io/indicators/atr)**, which measures volatility. The higher the ATR, the larger the spacing between orders.
+- **ADR**: Orders are spaced based on the **[Average Daily Range](https://gainium.io/indicators/adr)**, which captures the typical daily movement of an asset. Similar to ATR, a higher ADR indicates more volatility and thus larger spacing between DCA orders.
 
 - **Step Scale**:This allows you to adjust the distance between each order dynamically. A **Step Scale** of **1** means the distance between each order is equal. Increasing the step scale (e.g., **2**) will progressively increase the gap between orders, which can be useful in trending or highly volatile markets.
 - **Factor (for ATR/ADR)**:When using **ATR** or **ADR** as your base scaling, the **Factor** setting multiplies the volatility value (ATR or ADR) to determine the step size between orders.Example: If the current price is **1000** and the **ATR** is **10**, setting the **Factor** to **1** will place orders at **990, 980, 970**, and so on.

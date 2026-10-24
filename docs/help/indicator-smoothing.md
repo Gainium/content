@@ -29,19 +29,19 @@ Oscillators like the RSI react to every candle, so a single spike can trigger a 
 
 Smoothing is available on the single-line oscillators:
 
-- [Relative Strength Index (RSI)](https://gainium.io/help/rsi)
-- [Commodity Channel Index (CCI)](https://gainium.io/help/cci)
-- [Money Flow Index (MFI)](https://gainium.io/help/mfi)
-- [Williams %R](https://gainium.io/help/williams-r)
-- [Ultimate Oscillator](https://gainium.io/help/ultimate-oscillator)
-- [Momentum](https://gainium.io/help/momentum)
-- [Awesome Oscillator](https://gainium.io/help/awesome-oscillator)
-- [Average Directional Index (ADX)](https://gainium.io/help/adx)
-- [Bollinger Bands %B](https://gainium.io/help/bollinger-bands-b)
-- [Keltner Channel %B](https://gainium.io/help/keltner-channel-b)
-- [Bollinger Band Width (BBW)](https://gainium.io/help/bbw)
-- [Volume Oscillator](https://gainium.io/help/volume-oscillator)
-- [Moving Average Ratio (MAR)](https://gainium.io/help/moving-average-ratio)
+- [Relative Strength Index (RSI)](https://gainium.io/indicators/rsi)
+- [Commodity Channel Index (CCI)](https://gainium.io/indicators/cci)
+- [Money Flow Index (MFI)](https://gainium.io/indicators/mfi)
+- [Williams %R](https://gainium.io/indicators/williams-r)
+- [Ultimate Oscillator](https://gainium.io/indicators/ultimate-oscillator)
+- [Momentum](https://gainium.io/indicators/momentum)
+- [Awesome Oscillator](https://gainium.io/indicators/awesome-oscillator)
+- [Average Directional Index (ADX)](https://gainium.io/indicators/adx)
+- [Bollinger Bands %B](https://gainium.io/indicators/bollinger-bands-b)
+- [Keltner Channel %B](https://gainium.io/indicators/keltner-channel-b)
+- [Bollinger Band Width (BBW)](https://gainium.io/indicators/bbw)
+- [Volume Oscillator](https://gainium.io/indicators/volume-oscillator)
+- [Moving Average Ratio (MAR)](https://gainium.io/indicators/moving-average-ratio)
 
 Indicators that already have their own signal line (MACD, Stochastic, Stochastic RSI) and price-based indicators don't offer it.
 

@@ -79,7 +79,7 @@ Compare the live price of a pair on an exchange to a value: **greater than**, **
 
 Compare an indicator on one or more coins, using the same indicator editor as your bots. Automations support **the same indicators as bot conditions, with the same options** — percentile, trend filter, keep condition for N bars, moving average versus another moving average, cross oscillator and the rest — and they are evaluated exactly the way your bots evaluate them. When a new indicator becomes available for bots, it is available here too.
 
-That includes **smoothing** on oscillators such as RSI, [CCI](https://gainium.io/help/cci) or MFI: set **Smoothing** to a moving average and **Compare** to *Smoothed line vs value* or *Line vs smoothed line*, exactly as in a bot. See [Indicator Smoothing](https://gainium.io/help/indicator-smoothing).
+That includes **smoothing** on oscillators such as RSI, [CCI](https://gainium.io/indicators/cci) or MFI: set **Smoothing** to a moving average and **Compare** to *Smoothed line vs value* or *Line vs smoothed line*, exactly as in a bot. See [Indicator Smoothing](https://gainium.io/help/indicator-smoothing).
 
 ![An RSI indicator condition in the automation builder, smoothed with an EMA 14 and tested with Lower than 30](https://content.gainium.io/images/content/help/automations__indicator-smoothing.webp)
 

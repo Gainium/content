@@ -59,7 +59,7 @@ Dynamic DCA orders can also be used to manage risk more effectively. For example
 
 ### 3. **Combining Dynamic DCA with Technical Indicators**
 
-For more nuanced strategies, Dynamic DCA can be combined with other technical indicators to enhance profitability. For instance, using the **[Moving Average Ratio (MAR)](https://gainium.io/help/moving-average-ratio)** in combination with Dynamic DCA allows traders to automate volume adjustments when specific conditions are met, like crossing below a specific EMA (Exponential Moving Average).
+For more nuanced strategies, Dynamic DCA can be combined with other technical indicators to enhance profitability. For instance, using the **[Moving Average Ratio (MAR)](https://gainium.io/indicators/moving-average-ratio)** in combination with Dynamic DCA allows traders to automate volume adjustments when specific conditions are met, like crossing below a specific EMA (Exponential Moving Average).
 - **Entry Rule:** Open a deal when MAR crosses below **0.99** compared to the **20 EMA**.
 - **Exit Rule:** If the price drops further, use a Dynamic DCA to adjust volume, and set a target to exit at **2%** profit when MAR crosses back above **1.00**.
 

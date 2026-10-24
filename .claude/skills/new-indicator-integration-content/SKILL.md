@@ -19,8 +19,15 @@ in-app RAG/help assistant reads from when a user asks about the indicator.
 
 ## This repo's part
 
-Add a markdown file: `docs/help/<slug>.md` (e.g.
-`docs/help/long-wick-detector.md`). Cover:
+Add a markdown file: `docs/indicators/<slug>.md` (e.g.
+`docs/indicators/long-wick-detector.md`) with `kind: native` and
+`catalogKeys` set to the indicator's `IndicatorEnum` values. If the
+indicator already has a page as a TradingView-only indicator
+(`kind: builtin` or `community`), keep that page and its URL: flip it to
+`native`, add `catalogKeys`, and replace its webhook recipe with the
+bot-form configuration, in the same release as the dashboard. Run
+`scripts/check-indicators.ts`, which fails when the catalog and the native
+pages disagree. Cover:
 
 - What the indicator measures / what the filter does, in plain terms.
 - What each configurable field means (should mirror the dashboard

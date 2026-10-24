@@ -192,7 +192,7 @@ This is the number of orders generated each time you run a DCA cycle.In this exa
 
 ### Smart Orders
 
-Activating this will allow you to only send a portion of all DCA orders to the exchange as a limit order. You can learn more about smart orders in this [article](https://gainium.io/help/smart-orders). Smart Orders is not activated by default, and the bot will send all the DCA orders to the exchange.**Tip**: having all Smart Orders off allows you to catch falling knives or fat fingers if they happen. They are easy to spot in the charts as the candles have no body but leave a [huge wick](https://gainium.io/help/long-wick-detector) (Picture 11).
+Activating this will allow you to only send a portion of all DCA orders to the exchange as a limit order. You can learn more about smart orders in this [article](https://gainium.io/help/smart-orders). Smart Orders is not activated by default, and the bot will send all the DCA orders to the exchange.**Tip**: having all Smart Orders off allows you to catch falling knives or fat fingers if they happen. They are easy to spot in the charts as the candles have no body but leave a [huge wick](https://gainium.io/indicators/long-wick-detector) (Picture 11).
 ![12.png](https://content.gainium.io/images/content/help/12_d14ebefb7e-5e78ad.webp)
 *Picture 11*
 
