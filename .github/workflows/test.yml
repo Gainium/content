@@ -25,3 +25,6 @@ jobs:
 
       - name: Run tests
         run: npm test
+
+      - name: Check indicator pages against the dashboard catalog
+        run: npm run check:indicators

@@ -6,6 +6,7 @@ import metadataRouter from './routes/metadata'
 import helpRouter from './routes/help'
 import blogRouter from './routes/blog'
 import searchRouter from './routes/search'
+import indicatorsRouter from './routes/indicators'
 import logger from './utils/logger'
 
 const PORT = process.env.PORT || 7570
@@ -34,6 +35,8 @@ export function createServer(): Application {
         help: '/help',
         blog: '/blog',
         search: '/search',
+        indicators: '/indicators',
+        indicatorManifest: '/indicators/manifest',
         images: '/images/content/{help,blog}/<filename>',
       },
     })
@@ -54,6 +57,7 @@ export function createServer(): Application {
   app.use('/help', helpRouter)
   app.use('/blog', blogRouter)
   app.use('/search', searchRouter)
+  app.use('/indicators', indicatorsRouter)
 
   // 404 handler
   app.use((req: Request, res: Response) => {

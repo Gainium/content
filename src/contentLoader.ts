@@ -1,51 +1,140 @@
 import fs from 'fs/promises'
 import path from 'path'
-import matter from 'gray-matter'
 import {
-  HelpDocFrontmatter,
-  BlogPostFrontmatter,
   ParsedHelpDoc,
   ParsedBlogPost,
+  ParsedIndicator,
+  IndicatorManifest,
   CacheData,
   GitMetadata,
 } from './types'
 import { getLatestCommitInfo } from './gitManager'
+import {
+  parseBlogPostSource,
+  parseHelpDocSource,
+  parseIndicatorSource,
+  readMarkdownDir,
+} from './contentParser'
+import { INDICATOR_SLUGS_MOVED_FROM_HELP } from './indicators/movedFromHelp'
+import { isIndicatorsHelpCompatOn } from './indicators/helpCompat'
 import logger from './utils/logger'
 
 const DOCS_DIR = path.join(process.cwd(), 'docs')
-const HELP_DIR = path.join(DOCS_DIR, 'help')
-const BLOG_DIR = path.join(DOCS_DIR, 'blog')
+// Bump when the cached shape or the parse rules change, so an old cache is
+// never served.
+const CACHE_VERSION = 3
 const TEMP_DIR = path.join(process.cwd(), 'temp')
 const CACHE_FILE = path.join(TEMP_DIR, 'content-cache.json')
-const REQUIRED_HELP_FIELDS = [
-  'id',
-  'name',
-  'slug',
-  'description',
-  'createdAt',
-  'updatedAt',
-  'publishedAt',
-  'locale',
-  'categories',
-] as const
-const REQUIRED_BLOG_FIELDS = [
-  'title',
-  'slug',
-  'excerpt',
-  'createdAt',
-  'updatedAt',
-  'publishedAt',
-  'locale',
-] as const
+
+interface Collection<T> {
+  docs: Map<string, T>
+  byCategory: Map<string, string[]>
+  byTag: Map<string, string[]>
+}
+
+/**
+ * Everything the API serves, built in full and then swapped in with one
+ * assignment, so a request during a reload sees the old corpus or the new
+ * one, never a half-filled mix.
+ */
+interface ContentSnapshot {
+  /** docs/help only. */
+  help: Collection<ParsedHelpDoc>
+  /** docs/help plus the moved native indicator pages (compat mode). */
+  helpCompat: Collection<ParsedHelpDoc>
+  /** Moved native indicator pages in the help-doc shape, with `movedTo`. */
+  movedHelp: Map<string, ParsedHelpDoc>
+  blog: Collection<ParsedBlogPost>
+  indicators: Map<string, ParsedIndicator>
+}
+
+const bySlug = (a: { metadata: { slug: string } }, b: typeof a) =>
+  a.metadata.slug < b.metadata.slug
+    ? -1
+    : a.metadata.slug > b.metadata.slug
+      ? 1
+      : 0
+
+function indexBy<T extends { metadata: { slug: string } }>(
+  docs: T[],
+  keysOf: (doc: T) => string[] | undefined,
+): Map<string, string[]> {
+  const index = new Map<string, string[]>()
+  docs.forEach((doc) => {
+    ;(keysOf(doc) ?? []).forEach((key) => {
+      if (!index.has(key)) index.set(key, [])
+      index.get(key)!.push(doc.metadata.slug)
+    })
+  })
+  return index
+}
+
+function helpCollection(docs: ParsedHelpDoc[]): Collection<ParsedHelpDoc> {
+  const sorted = [...docs].sort(bySlug)
+  return {
+    docs: new Map(sorted.map((doc) => [doc.metadata.slug, doc])),
+    byCategory: indexBy(sorted, (doc) => doc.metadata.categories),
+    byTag: indexBy(sorted, (doc) => doc.metadata.tags),
+  }
+}
+
+function buildSnapshot(
+  helpDocs: ParsedHelpDoc[],
+  blogPosts: ParsedBlogPost[],
+  indicatorPages: ParsedIndicator[],
+): ContentSnapshot {
+  const indicators = new Map(
+    [...indicatorPages].sort(bySlug).map((doc) => [doc.metadata.slug, doc]),
+  )
+  const helpSlugs = new Set(helpDocs.map((doc) => doc.metadata.slug))
+
+  const movedHelp = new Map<string, ParsedHelpDoc>()
+  for (const slug of INDICATOR_SLUGS_MOVED_FROM_HELP) {
+    const page = indicators.get(slug)
+    if (!page || page.metadata.kind !== 'native' || helpSlugs.has(slug)) {
+      continue
+    }
+    movedHelp.set(slug, {
+      metadata: page.metadata as unknown as ParsedHelpDoc['metadata'],
+      content: page.content,
+      rawContent: page.rawContent,
+      movedTo: `/indicators/${slug}`,
+    })
+  }
+
+  return {
+    help: helpCollection(helpDocs),
+    helpCompat: helpCollection([...helpDocs, ...movedHelp.values()]),
+    movedHelp,
+    blog: {
+      docs: new Map(blogPosts.map((post) => [post.metadata.slug, post])),
+      byCategory: indexBy(blogPosts, (post) =>
+        post.metadata.categories?.map((cat) =>
+          typeof cat === 'string' ? cat : cat.slug,
+        ),
+      ),
+      byTag: indexBy(blogPosts, (post) => post.metadata.tags),
+    },
+    indicators,
+  }
+}
+
+const countIndex = (index: Map<string, string[]>) =>
+  Array.from(index.entries()).map(([slug, docs]) => ({
+    slug,
+    count: docs.length,
+  }))
+
+function lookup<T>(collection: Collection<T>, slugs: string[] | undefined) {
+  return (slugs ?? [])
+    .map((slug) => collection.docs.get(slug))
+    .filter((doc): doc is T => doc !== undefined)
+}
 
 export class ContentLoader {
-  private helpDocs: Map<string, ParsedHelpDoc> = new Map()
-  private blogPosts: Map<string, ParsedBlogPost> = new Map()
-  private helpByCategory: Map<string, string[]> = new Map()
-  private blogByCategory: Map<string, string[]> = new Map()
-  private helpByTag: Map<string, string[]> = new Map()
-  private blogByTag: Map<string, string[]> = new Map()
+  private snapshot: ContentSnapshot = buildSnapshot([], [], [])
   private currentCommit: GitMetadata | null = null
+  private docsDir = DOCS_DIR
 
   async initialize(): Promise<void> {
     logger.info('Initializing content loader...')
@@ -87,20 +176,17 @@ export class ContentLoader {
       )
       const latestCommit = await getLatestCommitInfo()
 
-      // If commits match, use cache
-      if (cacheData.metadata.commit === latestCommit.commit) {
+      // If commits match (and the cache shape is current), use cache
+      if (
+        cacheData.version === CACHE_VERSION &&
+        cacheData.metadata.commit === latestCommit.commit
+      ) {
+        this.snapshot = buildSnapshot(
+          cacheData.helpDocs,
+          cacheData.blogPosts,
+          cacheData.indicators ?? [],
+        )
         this.currentCommit = cacheData.metadata
-
-        // Rebuild maps from cached data
-        cacheData.helpDocs.forEach((doc) => {
-          this.helpDocs.set(doc.metadata.slug, doc)
-        })
-
-        cacheData.blogPosts.forEach((post) => {
-          this.blogPosts.set(post.metadata.slug, post)
-        })
-
-        this.rebuildIndexes()
         return true
       }
 
@@ -114,18 +200,7 @@ export class ContentLoader {
   async loadAllContent(): Promise<void> {
     logger.info('Loading all content from files...')
 
-    // Clear existing data
-    this.helpDocs.clear()
-    this.blogPosts.clear()
-
-    // Load help docs
-    await this.loadHelpDocs()
-
-    // Load blog posts
-    await this.loadBlogPosts()
-
-    // Rebuild indexes
-    this.rebuildIndexes()
+    await this.loadFiles()
 
     // Get latest commit info
     this.currentCommit = await getLatestCommitInfo()
@@ -134,246 +209,88 @@ export class ContentLoader {
     await this.saveToCache()
 
     logger.info(
-      `Loaded ${this.helpDocs.size} help docs and ${this.blogPosts.size} blog posts`,
+      `Loaded ${this.snapshot.help.docs.size} help docs, ${this.snapshot.blog.docs.size} blog posts and ${this.snapshot.indicators.size} indicator pages`,
     )
   }
 
-  private normalizeFrontmatter(rawContent: string, filePath: string): string {
-    const frontmatterMatch = rawContent.match(/^(---\n)([\s\S]*?)(\n---\n?)/)
-
-    if (!frontmatterMatch || !/^\t+/m.test(frontmatterMatch[2])) {
-      return rawContent
-    }
-
-    const normalizedFrontmatter = frontmatterMatch[2].replace(
-      /^\t+/gm,
-      (tabs) => '  '.repeat(tabs.length),
-    )
-
-    logger.warn(
-      `Normalized tab-indented frontmatter in ${path.relative(process.cwd(), filePath)}`,
-    )
-
-    return rawContent.replace(
-      frontmatterMatch[0],
-      `${frontmatterMatch[1]}${normalizedFrontmatter}${frontmatterMatch[3]}`,
-    )
+  /**
+   * Load every content type from `docsDir` without touching git or the
+   * on-disk cache. Used by tests to serve fixtures through the real routes.
+   */
+  async loadFromDirectory(docsDir: string): Promise<void> {
+    this.docsDir = docsDir
+    await this.loadFiles()
   }
 
-  private validateRequiredFields(
-    metadata: Record<string, unknown>,
-    requiredFields: readonly string[],
-    filePath: string,
-  ): boolean {
-    const missingFields = requiredFields.filter((field) => {
-      const value = metadata[field]
+  private async loadFiles(): Promise<void> {
+    const helpDocs = await this.loadDir('help', parseHelpDocSource)
+    const blogPosts = await this.loadDir('blog', parseBlogPostSource)
+    const indicators = await this.loadDir('indicators', parseIndicatorSource)
 
-      if (Array.isArray(value)) {
-        return value.length === 0
+    const helpSlugs = new Set(helpDocs.map((doc) => doc.metadata.slug))
+    indicators.forEach(({ metadata }) => {
+      if (helpSlugs.has(metadata.slug)) {
+        logger.error(
+          `Indicator slug "${metadata.slug}" also exists in docs/help; /help serves the help doc, /indicators the indicator page`,
+        )
       }
-
-      return value === undefined || value === null || value === ''
     })
 
-    if (missingFields.length > 0) {
-      logger.error(
-        `Skipping ${path.relative(process.cwd(), filePath)} due to missing frontmatter fields: ${missingFields.join(', ')}`,
-      )
-      return false
-    }
-
-    return true
+    // Swap in one assignment: no request ever sees a partial corpus
+    this.snapshot = buildSnapshot(helpDocs, blogPosts, indicators)
   }
 
-  private parseHelpDoc(
-    rawContent: string,
-    filePath: string,
-  ): ParsedHelpDoc | undefined {
-    const normalizedContent = this.normalizeFrontmatter(rawContent, filePath)
-    const { data, content } = matter(normalizedContent)
-
-    if (
-      !this.validateRequiredFields(
-        data as Record<string, unknown>,
-        REQUIRED_HELP_FIELDS,
-        filePath,
-      )
-    ) {
-      return undefined
-    }
-
-    const metadata = data as HelpDocFrontmatter
-
-    if (this.helpDocs.has(metadata.slug)) {
-      logger.error(
-        `Skipping duplicate help doc slug "${metadata.slug}" from ${path.relative(process.cwd(), filePath)}`,
-      )
-      return undefined
-    }
-
-    return {
-      metadata,
-      content: content.trim(),
-      rawContent: normalizedContent,
-    }
-  }
-
-  private parseBlogPost(
-    rawContent: string,
-    filePath: string,
-  ): ParsedBlogPost | undefined {
-    const normalizedContent = this.normalizeFrontmatter(rawContent, filePath)
-    const { data, content } = matter(normalizedContent)
-
-    if (
-      !this.validateRequiredFields(
-        data as Record<string, unknown>,
-        REQUIRED_BLOG_FIELDS,
-        filePath,
-      )
-    ) {
-      return undefined
-    }
-
-    const metadata = data as BlogPostFrontmatter
-
-    if (this.blogPosts.has(metadata.slug)) {
-      logger.error(
-        `Skipping duplicate blog slug "${metadata.slug}" from ${path.relative(process.cwd(), filePath)}`,
-      )
-      return undefined
-    }
-
-    return {
-      metadata,
-      content: content.trim(),
-      rawContent: normalizedContent,
-    }
-  }
-
-  private async loadHelpDocs(): Promise<void> {
+  private async loadDir<T extends { metadata: { slug: string } }>(
+    subdir: string,
+    parse: (raw: string) => {
+      doc?: T
+      errors: string[]
+      warnings: string[]
+    },
+  ): Promise<T[]> {
+    const dir = path.join(this.docsDir, subdir)
+    const docs = new Map<string, T>()
     try {
-      const dirExists = await fs
-        .access(HELP_DIR)
-        .then(() => true)
-        .catch(() => false)
-      if (!dirExists) {
-        logger.warn(`Help directory not found: ${HELP_DIR}`)
-        return
+      const { exists, files } = await readMarkdownDir(dir)
+      if (!exists) {
+        logger.warn(`Content directory not found: ${dir}`)
+        return []
       }
-
-      const files = await fs.readdir(HELP_DIR)
-      const mdFiles = files.filter((file) => file.endsWith('.md'))
-
-      for (const file of mdFiles) {
+      for (const { filePath, raw } of files) {
+        const relativePath = path.relative(process.cwd(), filePath)
         try {
-          const filePath = path.join(HELP_DIR, file)
-          const rawContent = await fs.readFile(filePath, 'utf-8')
-          const parsedDoc = this.parseHelpDoc(rawContent, filePath)
-
-          if (parsedDoc) {
-            this.helpDocs.set(parsedDoc.metadata.slug, parsedDoc)
+          const { doc, errors, warnings } = parse(raw)
+          warnings.forEach((w) => logger.warn(`${relativePath}: ${w}`))
+          if (!doc) {
+            logger.error(`Skipping ${relativePath}: ${errors.join('; ')}`)
+            continue
           }
+          if (docs.has(doc.metadata.slug)) {
+            logger.error(
+              `Skipping duplicate slug "${doc.metadata.slug}" from ${relativePath}`,
+            )
+            continue
+          }
+          docs.set(doc.metadata.slug, doc)
         } catch (error) {
-          logger.error(`Error parsing help doc ${file}:`, error)
+          logger.error(`Error parsing ${relativePath}:`, error)
         }
       }
     } catch (error) {
-      logger.error('Error loading help docs:', error)
+      logger.error(`Error loading ${dir}:`, error)
     }
-  }
-
-  private async loadBlogPosts(): Promise<void> {
-    try {
-      const dirExists = await fs
-        .access(BLOG_DIR)
-        .then(() => true)
-        .catch(() => false)
-      if (!dirExists) {
-        logger.warn(`Blog directory not found: ${BLOG_DIR}`)
-        return
-      }
-
-      const files = await fs.readdir(BLOG_DIR)
-      const mdFiles = files.filter((file) => file.endsWith('.md'))
-
-      for (const file of mdFiles) {
-        try {
-          const filePath = path.join(BLOG_DIR, file)
-          const rawContent = await fs.readFile(filePath, 'utf-8')
-          const parsedPost = this.parseBlogPost(rawContent, filePath)
-
-          if (parsedPost) {
-            this.blogPosts.set(parsedPost.metadata.slug, parsedPost)
-          }
-        } catch (error) {
-          logger.error(`Error parsing blog post ${file}:`, error)
-        }
-      }
-    } catch (error) {
-      logger.error('Error loading blog posts:', error)
-    }
-  }
-
-  private rebuildIndexes(): void {
-    // Clear indexes
-    this.helpByCategory.clear()
-    this.blogByCategory.clear()
-    this.helpByTag.clear()
-    this.blogByTag.clear()
-
-    // Index help docs by category
-    this.helpDocs.forEach((doc) => {
-      if (doc.metadata.categories) {
-        doc.metadata.categories.forEach((cat) => {
-          if (!this.helpByCategory.has(cat)) {
-            this.helpByCategory.set(cat, [])
-          }
-          this.helpByCategory.get(cat)!.push(doc.metadata.slug)
-        })
-      }
-
-      // Index by tag
-      if (doc.metadata.tags) {
-        doc.metadata.tags.forEach((tag) => {
-          if (!this.helpByTag.has(tag)) {
-            this.helpByTag.set(tag, [])
-          }
-          this.helpByTag.get(tag)!.push(doc.metadata.slug)
-        })
-      }
-    })
-
-    // Index blog posts by category
-    this.blogPosts.forEach((post) => {
-      if (post.metadata.categories) {
-        post.metadata.categories.forEach((cat) => {
-          const slug = typeof cat === 'string' ? cat : cat.slug
-          if (!this.blogByCategory.has(slug)) {
-            this.blogByCategory.set(slug, [])
-          }
-          this.blogByCategory.get(slug)!.push(post.metadata.slug)
-        })
-      }
-
-      // Index by tag
-      if (post.metadata.tags) {
-        post.metadata.tags.forEach((tag) => {
-          if (!this.blogByTag.has(tag)) {
-            this.blogByTag.set(tag, [])
-          }
-          this.blogByTag.get(tag)!.push(post.metadata.slug)
-        })
-      }
-    })
+    return Array.from(docs.values())
   }
 
   private async saveToCache(): Promise<void> {
     try {
+      const { help, blog, indicators } = this.snapshot
       const cacheData: CacheData = {
+        version: CACHE_VERSION,
         metadata: this.currentCommit!,
-        helpDocs: Array.from(this.helpDocs.values()),
-        blogPosts: Array.from(this.blogPosts.values()),
+        helpDocs: Array.from(help.docs.values()),
+        blogPosts: Array.from(blog.docs.values()),
+        indicators: Array.from(indicators.values()),
         timestamp: Date.now(),
       }
 
@@ -384,85 +301,132 @@ export class ContentLoader {
     }
   }
 
+  /** The /help view: plus the moved indicator pages in compat mode. */
+  private get helpView(): Collection<ParsedHelpDoc> {
+    return isIndicatorsHelpCompatOn()
+      ? this.snapshot.helpCompat
+      : this.snapshot.help
+  }
+
   // Getters
   getCommitMetadata(): GitMetadata | null {
     return this.currentCommit
   }
 
   getAllHelpDocs(): ParsedHelpDoc[] {
-    return Array.from(this.helpDocs.values())
+    return Array.from(this.helpView.docs.values())
   }
 
   getAllBlogPosts(): ParsedBlogPost[] {
-    return Array.from(this.blogPosts.values())
+    return Array.from(this.snapshot.blog.docs.values())
   }
 
+  /**
+   * A help doc, or — in either mode — a moved native indicator page in the
+   * help-doc shape with `movedTo` (spec 053 §2.3 migration alias).
+   */
   getHelpDocBySlug(slug: string): ParsedHelpDoc | undefined {
-    return this.helpDocs.get(slug)
+    return (
+      this.snapshot.help.docs.get(slug) ?? this.snapshot.movedHelp.get(slug)
+    )
   }
 
   getBlogPostBySlug(slug: string): ParsedBlogPost | undefined {
-    return this.blogPosts.get(slug)
+    return this.snapshot.blog.docs.get(slug)
+  }
+
+  /**
+   * Indicator pages. Native only unless `includeAll` — a caller that forgets
+   * the flag gets less, never more (spec 053 §2.3, invariant I-1).
+   */
+  getIndicators(includeAll = false): ParsedIndicator[] {
+    const all = Array.from(this.snapshot.indicators.values())
+    return includeAll
+      ? all
+      : all.filter((doc) => doc.metadata.kind === 'native')
+  }
+
+  getIndicatorBySlug(
+    slug: string,
+    includeAll = false,
+  ): ParsedIndicator | undefined {
+    const doc = this.snapshot.indicators.get(slug)
+    if (!doc) return undefined
+    return includeAll || doc.metadata.kind === 'native' ? doc : undefined
+  }
+
+  /**
+   * Native indicator pages that /search returns as `source: 'indicator'`.
+   * In compat mode the moved ones come back through the help docs instead.
+   */
+  getSearchableIndicators(): ParsedIndicator[] {
+    const native = this.getIndicators()
+    if (!isIndicatorsHelpCompatOn()) return native
+    return native.filter(
+      (doc) => !this.snapshot.movedHelp.has(doc.metadata.slug),
+    )
+  }
+
+  getIndicatorManifest(): IndicatorManifest {
+    const manifest: IndicatorManifest = { native: [], other: [] }
+    this.snapshot.indicators.forEach(({ metadata }) => {
+      if (metadata.kind === 'native') {
+        manifest.native.push({
+          slug: metadata.slug,
+          name: metadata.name,
+          aliases: metadata.aliases,
+          catalogKeys: metadata.catalogKeys ?? [],
+        })
+      } else {
+        manifest.other.push({
+          slug: metadata.slug,
+          name: metadata.name,
+          aliases: metadata.aliases,
+          kind: metadata.kind,
+        })
+      }
+    })
+    return manifest
   }
 
   getHelpDocsByCategory(category: string): ParsedHelpDoc[] {
-    const slugs = this.helpByCategory.get(category) || []
-    return slugs
-      .map((slug) => this.helpDocs.get(slug))
-      .filter((doc): doc is ParsedHelpDoc => doc !== undefined)
+    const view = this.helpView
+    return lookup(view, view.byCategory.get(category))
   }
 
   getBlogPostsByCategory(category: string): ParsedBlogPost[] {
-    const slugs = this.blogByCategory.get(category) || []
-    return slugs
-      .map((slug) => this.blogPosts.get(slug))
-      .filter((post): post is ParsedBlogPost => post !== undefined)
+    const blog = this.snapshot.blog
+    return lookup(blog, blog.byCategory.get(category))
   }
 
   getHelpDocsByTag(tag: string): ParsedHelpDoc[] {
-    const slugs = this.helpByTag.get(tag) || []
-    return slugs
-      .map((slug) => this.helpDocs.get(slug))
-      .filter((doc): doc is ParsedHelpDoc => doc !== undefined)
+    const view = this.helpView
+    return lookup(view, view.byTag.get(tag))
   }
 
   getBlogPostsByTag(tag: string): ParsedBlogPost[] {
-    const slugs = this.blogByTag.get(tag) || []
-    return slugs
-      .map((slug) => this.blogPosts.get(slug))
-      .filter((post): post is ParsedBlogPost => post !== undefined)
+    const blog = this.snapshot.blog
+    return lookup(blog, blog.byTag.get(tag))
   }
 
   // Get all help categories with count
   getAllHelpCategories(): Array<{ slug: string; count: number }> {
-    return Array.from(this.helpByCategory.entries()).map(([slug, docs]) => ({
-      slug,
-      count: docs.length,
-    }))
+    return countIndex(this.helpView.byCategory)
   }
 
   // Get all help tags with count
   getAllHelpTags(): Array<{ slug: string; count: number }> {
-    return Array.from(this.helpByTag.entries()).map(([slug, docs]) => ({
-      slug,
-      count: docs.length,
-    }))
+    return countIndex(this.helpView.byTag)
   }
 
   // Get all blog categories with count
   getAllBlogCategories(): Array<{ slug: string; count: number }> {
-    return Array.from(this.blogByCategory.entries()).map(([slug, posts]) => ({
-      slug,
-      count: posts.length,
-    }))
+    return countIndex(this.snapshot.blog.byCategory)
   }
 
   // Get all blog tags with count
   getAllBlogTags(): Array<{ slug: string; count: number }> {
-    return Array.from(this.blogByTag.entries()).map(([slug, posts]) => ({
-      slug,
-      count: posts.length,
-    }))
+    return countIndex(this.snapshot.blog.byTag)
   }
 }
 

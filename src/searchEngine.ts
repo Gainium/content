@@ -1,16 +1,26 @@
-import { ParsedHelpDoc, ParsedBlogPost, SearchResult } from './types'
+import {
+  ParsedHelpDoc,
+  ParsedBlogPost,
+  ParsedIndicator,
+  SearchResult,
+} from './types'
 
 export class SearchEngine {
   search(
     query: string,
     helpDocs: ParsedHelpDoc[],
     blogPosts: ParsedBlogPost[],
+    indicators: ParsedIndicator[] = [],
   ): SearchResult[] {
     const results: SearchResult[] = []
     const normalizedQuery = query.toLowerCase()
 
-    // Search through help docs
+    // Search through help docs. Never an indicator page that is not native,
+    // whatever the caller passed (spec 053 invariant I-1).
     helpDocs.forEach((doc) => {
+      const kind = (doc.metadata as { kind?: unknown }).kind
+      if (kind !== undefined && kind !== 'native') return
+
       const matches = this.searchInDocument(
         normalizedQuery,
         doc.metadata.name,
@@ -29,6 +39,10 @@ export class SearchEngine {
           description: doc.metadata.description,
           match: bestMatch.text,
           relevance: bestMatch.relevance,
+          // A moved indicator page served as help (compat mode)
+          ...(doc.movedTo
+            ? { kind: 'native' as const, movedTo: doc.movedTo }
+            : {}),
         })
       }
     })
@@ -56,6 +70,32 @@ export class SearchEngine {
         })
       }
     })
+
+    // Search through indicator pages. Native only, whatever the caller
+    // passed: search feeds Max (spec 053 invariant I-1).
+    indicators
+      .filter((doc) => doc.metadata.kind === 'native')
+      .forEach((doc) => {
+        const matches = this.searchInDocument(
+          normalizedQuery,
+          doc.metadata.name,
+          doc.metadata.description,
+          [doc.metadata.tldr, ...(doc.metadata.aliases ?? [])].join(' \n'),
+          doc.content,
+        )
+
+        if (matches.length > 0) {
+          const bestMatch = matches[0]
+          results.push({
+            source: 'indicator',
+            slug: doc.metadata.slug,
+            title: doc.metadata.name,
+            description: doc.metadata.description,
+            match: bestMatch.text,
+            relevance: bestMatch.relevance,
+          })
+        }
+      })
 
     // Sort by relevance
     results.sort((a, b) => b.relevance - a.relevance)

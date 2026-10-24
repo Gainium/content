@@ -9,6 +9,8 @@ interface RouterConfig<T> {
   getAllCategories: () => Array<{ slug: string; count: number }>
   getAllTags: () => Array<{ slug: string; count: number }>
   toMetadata: (doc: T) => DocMetadata
+  /** Extra top-level fields for `GET /:id` (e.g. `movedTo`). */
+  getDocResponseExtras?: (doc: T) => Record<string, unknown> | undefined
 }
 
 type DocWithContent = { metadata: any; content: string; rawContent: string }
@@ -33,7 +35,7 @@ function shouldReturnFullContent(fullParam: string | undefined): boolean {
 }
 
 // Helper to parse pagination parameters from request
-function getPaginationParams(
+export function getPaginationParams(
   req: Request,
   includeFull: boolean,
 ): PaginationParams {
@@ -48,7 +50,7 @@ function getPaginationParams(
 }
 
 // Helper to paginate array
-function paginateArray<T>(
+export function paginateArray<T>(
   items: T[],
   page: number,
   limit: number,
@@ -175,6 +177,7 @@ export function createContentRouter<T extends DocWithContent>(
     res.json({
       metadata: doc.metadata,
       content: doc.content,
+      ...config.getDocResponseExtras?.(doc),
     })
   })
 

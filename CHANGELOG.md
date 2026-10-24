@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-10-24
+### Added
+- Indicator library content type (`docs/indicators/`) and API:
+  `GET /indicators`, `GET /indicators/:slug`, `GET /indicators/manifest`.
+  Built-in Gainium indicators are returned by default; other indicator pages
+  only with `?include=all`.
+- `/search` returns Gainium indicator pages with `source: "indicator"`.
+- `npm run check:indicators`: validates indicator pages and checks them
+  against the dashboard's indicator catalog; runs in CI.
+
+### Changed
+- The indicator articles moved from `docs/help/` to `docs/indicators/`
+  unchanged. `GET /help/:slug` still answers for them, with a `movedTo` field.
+- `INDICATORS_HELP_COMPAT` (default on): `/help` listings and `/search` keep
+  returning the moved articles as help items, marked with `movedTo`, until
+  clients have moved to `/indicators`.
+- Help listings are sorted by slug. A content reload swaps in the new corpus
+  at once instead of clearing it first.
+
 ## [1.0.4] - 2026-09-03
 ### Added
 - CI now runs a real `npm test` (mocha) on every PR. This repo had no

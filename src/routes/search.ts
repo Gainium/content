@@ -14,10 +14,12 @@ const performSearch = (req: Request, res: Response, includeFull: boolean) => {
     })
   }
 
+  // In compat mode the moved indicator pages are part of the help docs
   const helpDocs = contentLoader.getAllHelpDocs()
   const blogPosts = contentLoader.getAllBlogPosts()
+  const indicators = contentLoader.getSearchableIndicators() // native only
 
-  const allResults = searchEngine.search(query, helpDocs, blogPosts)
+  const allResults = searchEngine.search(query, helpDocs, blogPosts, indicators)
 
   // Pagination
   const page = Math.max(1, parseInt(req.query.page as string) || 1)
@@ -39,7 +41,9 @@ const performSearch = (req: Request, res: Response, includeFull: boolean) => {
         const doc =
           result.source === 'help'
             ? contentLoader.getHelpDocBySlug(result.slug)
-            : contentLoader.getBlogPostBySlug(result.slug)
+            : result.source === 'indicator'
+              ? contentLoader.getIndicatorBySlug(result.slug)
+              : contentLoader.getBlogPostBySlug(result.slug)
 
         return {
           ...result,

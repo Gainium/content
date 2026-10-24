@@ -1,6 +1,6 @@
 {
   "name": "@gainium/content",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Content API service for Gainium documentation and blog",
   "main": "dist/index.js",
   "repository": {
@@ -21,6 +21,7 @@
     "images:webp": "tsx scripts/convert-to-webp.ts",
     "images:webp:dry": "tsx scripts/convert-to-webp.ts --dry-run",
     "images:webp:delete": "tsx scripts/convert-to-webp.ts --delete",
+    "check:indicators": "tsx scripts/check-indicators.ts",
     "lint": "tsc --noEmit && eslint .",
     "lint:fix": "eslint . --fix",
     "prepare": "husky"
