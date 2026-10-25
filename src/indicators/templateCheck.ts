@@ -461,7 +461,8 @@ export function checkTemplateV2(
     err(`frontmatter \`faq\` needs 3–5 questions (found ${fm.length})`)
   }
   fm.forEach((item, i) => {
-    if (!plain(String(item?.title ?? ''))) err(`frontmatter faq[${i}] has no "title"`)
+    if (!plain(String(item?.title ?? '')))
+      err(`frontmatter faq[${i}] has no "title"`)
     if (!plain(String(item?.details ?? ''))) {
       err(`frontmatter faq[${i}] has no "details"`)
     }
