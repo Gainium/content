@@ -29,7 +29,10 @@ import {
  *                                  webhook payload
  *   ## Related indicators          ≥2 list items, each linking an existing
  *                                  https://gainium.io/indicators/<slug>
- *   ## FAQ                         3–5 `###` questions = frontmatter `faq`
+ *
+ * The FAQ is frontmatter only (`faq`: 3–5 `{title, details}`), the same as
+ * /help articles: the site renders it with its FAQ component and FAQPage
+ * schema. A `## FAQ` in the body would print the questions as plain headings.
  */
 
 export const TEMPLATE_VERSION = 2
@@ -69,7 +72,6 @@ const SECTIONS = [
     label: '## Related indicators',
     test: /^related indicators$/i,
   },
-  { key: 'faq', label: '## FAQ', test: /^faq$/i },
 ] as const
 
 const SETUP_LABELS: Array<{ name: string; test: RegExp }> = [
@@ -323,7 +325,7 @@ export function checkTemplateV2(
     if (n < 2 || n > 3) err(`the opening must be 2–3 sentences (found ${n})`)
   }
 
-  // Section order: exactly the five, in order
+  // Section order: exactly the four, in order
   const headings = sections.map((s) => s.heading)
   const expected = SECTIONS.map((s) => s.label)
   const matches =
@@ -450,35 +452,20 @@ export function checkTemplateV2(
     }
   }
 
-  // FAQ
-  const faq = byKey.get('faq')
-  if (faq) {
-    const { lead: faqLead, sections: questions } = splitSections(faq.body, 3)
-    if (faqLead.trim()) err('"FAQ" holds only `###` questions')
-    if (questions.length < 3 || questions.length > 5) {
-      err(`"FAQ" needs 3–5 \`###\` questions (found ${questions.length})`)
-    }
-    questions
-      .filter((q) => !q.body.trim())
-      .forEach((q) => err(`FAQ "${q.heading}" has no answer`))
-    const fm = Array.isArray(page.data.faq) ? (page.data.faq as any[]) : []
-    const norm = (s: unknown) => plain(String(s ?? '')).toLowerCase()
-    const bodyTitles = questions.map((q) => norm(q.heading))
-    const fmTitles = fm.map((item) => norm(item?.title))
-    if (
-      bodyTitles.length !== fmTitles.length ||
-      bodyTitles.some((title, i) => title !== fmTitles[i])
-    ) {
-      err(
-        'frontmatter `faq` titles must match the body FAQ questions, same order',
-      )
-    }
-    fm.forEach((item, i) => {
-      if (!plain(String(item?.details ?? ''))) {
-        err(`frontmatter faq[${i}] has no "details"`)
-      }
-    })
+  // FAQ: frontmatter only, like /help articles
+  if (sections.some((s) => /^faq$/i.test(s.heading))) {
+    err('the FAQ goes in frontmatter `faq`, not in a body `## FAQ`')
   }
+  const fm = Array.isArray(page.data.faq) ? (page.data.faq as any[]) : []
+  if (fm.length < 3 || fm.length > 5) {
+    err(`frontmatter \`faq\` needs 3–5 questions (found ${fm.length})`)
+  }
+  fm.forEach((item, i) => {
+    if (!plain(String(item?.title ?? ''))) err(`frontmatter faq[${i}] has no "title"`)
+    if (!plain(String(item?.details ?? ''))) {
+      err(`frontmatter faq[${i}] has no "details"`)
+    }
+  })
 
   // Every image needs alt text
   const { emptyAlt } = countImages(body)

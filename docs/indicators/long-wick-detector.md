@@ -45,8 +45,8 @@ faq:
       the low.
   - title: When does a wick level disappear?
     details: >-
-      When a later candle's body reaches it: the body top at or above a top-
-      wick level, or the body bottom at or below a bottom-wick level. It also
+      When a later candle's body reaches it: the body top at or above a top-wick
+      level, or the body bottom at or below a bottom-wick level. It also
       expires after Max Duration bars (1,000 by default), and a newer long
       wick on the same side replaces it.
   - title: What is the difference between During the signal and On signal start?
@@ -155,21 +155,3 @@ The fields and their defaults:
 - [Engulfing Candle](https://gainium.io/indicators/engulfing-candle): the other one-candle reversal signal, from bodies instead of wicks.
 - [Support and Resistance](https://gainium.io/indicators/support-resistance-indicator): pivot levels that last until a newer pivot, where wick levels last until price closes through.
 - [ATR](https://gainium.io/indicators/atr): the volatility measure the wick threshold is built on.
-
-## FAQ
-
-### How long does a wick have to be?
-
-At least Threshold times the 200-bar Average True Range at that candle. With the default Threshold of 2 on BTC/USDT 1h, that is a wick of roughly twice the range of an average 1h candle. A wick is measured from the body: high minus the top of the body, or the bottom of the body minus the low.
-
-### When does a wick level disappear?
-
-When a later candle's body reaches it: the body top at or above a top-wick level, or the body bottom at or below a bottom-wick level. It also expires after Max Duration bars (1,000 by default), and a newer long wick on the same side replaces it.
-
-### What is the difference between During the signal and On signal start?
-
-During the signal is true on every candle while a level is active. On signal start is true only on the candle that creates a level where none was active. A new wick that replaces an active level on the same side does not fire On signal start.
-
-### Why does the indicator show nothing on a new pair?
-
-It needs 200 candles to compute ATR(200) before it can measure a wick. The higher the interval, the longer a newly listed pair waits for its first level: on a 1-day interval it needs 200 daily candles.

@@ -213,15 +213,10 @@ values: levels, crosses, divergences.
 
 - [<Indicator>](https://gainium.io/indicators/<slug>): one line on why it pairs with this one.
 - [<Indicator>](https://gainium.io/indicators/<slug>): …
-
-## FAQ
-
-### <Question 1>
-
-<Answer>
-
-(3–5 questions.)
 ```
+
+The FAQ is not a body section. Write it in the frontmatter `faq`, the same format as /help
+articles; the site renders it with the FAQ component and its FAQPage schema.
 
 ### What the check requires
 
@@ -240,8 +235,8 @@ values: levels, crosses, divergences.
 - **Related indicators:** at least 2 list items. Each one links an existing page as an absolute URL,
   `https://gainium.io/indicators/<slug>`, and never the page itself. The frontmatter `related` lists
   the same slugs.
-- **FAQ:** 3–5 `###` questions, each answered. The frontmatter `faq` has the same questions in the
-  same order (`title` = the question), each with `details`.
+- **FAQ:** frontmatter `faq` only, 3–5 items, each with a `title` (the question) and `details` (the
+  answer, plain text: no links or markdown). A body `## FAQ` fails the check.
 - **Images:** every image has alt text that says what it shows. A `<!-- screenshot: … -->`
   placeholder holds an image's place with a warning until the capture is filled in.
 

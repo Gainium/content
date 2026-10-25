@@ -373,7 +373,6 @@ const page = (what: string, json: unknown = SETTINGS) => ({
     `## Trading setups for bots\n\n${setup('Oversold bounce')}\n${setup('Trend pullback')}`,
     `## Using Example in Gainium\n\n1. Add it.\n\n${IMG('bot-form')}\n\n\`\`\`json\n{ "action": "startDeal" }\n\`\`\``,
     '## Related indicators\n\n- [MACD](https://gainium.io/indicators/macd): confirms.\n- [ATR](https://gainium.io/indicators/atr): sizes.',
-    '## FAQ\n\n### Q1?\n\nA.\n\n### Q2?\n\nA.\n\n### Q3?\n\nA.',
   ].join('\n\n'),
 })
 

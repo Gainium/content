@@ -50,20 +50,6 @@ ${IMG('bot-form')}
 - [MACD](https://gainium.io/indicators/macd): confirms the momentum turn.
 - [ATR](https://gainium.io/indicators/atr): sizes the stop.
 `,
-  faq: `## FAQ
-
-### What is a good length?
-
-Seven on 1h bars.
-
-### Does it repaint?
-
-No.
-
-### Can a bot use it?
-
-Yes.
-`,
 }
 
 const FAQ = [
@@ -84,7 +70,7 @@ const data = (overrides: Record<string, unknown> = {}) => ({
 
 const body = (parts: Partial<typeof SECTIONS> = {}) => {
   const s = { ...SECTIONS, ...parts }
-  return [s.opening, s.what, s.setups, s.gainium, s.related, s.faq]
+  return [s.opening, s.what, s.setups, s.gainium, s.related]
     .filter(Boolean)
     .join('\n\n')
 }
@@ -148,14 +134,13 @@ describe('indicator template v2 (spec 053 §2.1, docs/STYLE.md)', () => {
     ).to.equal(2)
   })
 
-  it('requires the five sections in order, and no others', () => {
+  it('requires the four sections in order, and no others', () => {
     const swapped = [
       SECTIONS.opening,
       SECTIONS.setups,
       SECTIONS.what,
       SECTIONS.gainium,
       SECTIONS.related,
-      SECTIONS.faq,
     ].join('\n\n')
     expect(errorsOf({ body: swapped })).to.include('must be exactly, in order')
     expect(
@@ -268,18 +253,14 @@ describe('indicator template v2 (spec 053 §2.1, docs/STYLE.md)', () => {
     )
   })
 
-  it('requires 3–5 FAQ questions that match the frontmatter faq', () => {
-    const two =
-      '## FAQ\n\n### What is a good length?\n\nSeven.\n\n### Does it repaint?\n\nNo.\n'
-    const errors = errorsOf({ body: body({ faq: two }) })
-    expect(errors).to.include('3–5 `###` questions (found 2)')
-    expect(errors).to.include('frontmatter `faq` titles must match')
-    const renamed = data({
-      faq: [{ ...FAQ[0], title: 'Other?' }, FAQ[1], FAQ[2]],
-    })
-    expect(errorsOf({ data: renamed })).to.include(
-      'frontmatter `faq` titles must match',
+  it('keeps the FAQ in frontmatter: 3–5 questions, none in the body', () => {
+    const inBody = `${body()}\n\n## FAQ\n\n### What is a good length?\n\nSeven.\n`
+    expect(errorsOf({ body: inBody })).to.include('not in a body `## FAQ`')
+    expect(errorsOf({ data: data({ faq: FAQ.slice(0, 2) }) })).to.include(
+      'needs 3–5 questions (found 2)',
     )
+    const noTitle = data({ faq: [{ details: 'Seven.' }, FAQ[1], FAQ[2]] })
+    expect(errorsOf({ data: noTitle })).to.include('faq[0] has no "title"')
     const noDetails = data({ faq: [{ title: FAQ[0].title }, FAQ[1], FAQ[2]] })
     expect(errorsOf({ data: noDetails })).to.include('faq[0] has no "details"')
   })
