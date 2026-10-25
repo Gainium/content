@@ -1,0 +1,2945 @@
+{
+ "indicator": "long-wick-detector",
+ "defaultTf": "1h",
+ "method": {
+  "horizon": 20,
+  "horizons": [
+   10,
+   20,
+   50,
+   100
+  ],
+  "randomDraws": 500,
+  "minEpisodes": 30,
+  "source": "Binance spot",
+  "pairs": [
+   "BTC/USDT",
+   "ETH/USDT",
+   "SOL/USDT"
+  ],
+  "from": "2020-09-01",
+  "warmupFrom": "2020-06-01",
+  "to": "2026-10-24",
+  "engine": {
+   "indicators": "56f63e97",
+   "analysisMath": "cab0ed99"
+  }
+ },
+ "updatedAt": "2026-10-25",
+ "settings": [
+  {
+   "id": "bottom-start-t1",
+   "tf": "1h",
+   "label": "Bottom wick, signal start, threshold 1",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 1547,
+    "episodes": 1225,
+    "draws": 161,
+    "edge": 0.31,
+    "chance": [
+     -0.19,
+     0.21
+    ],
+    "verdict": "fragile",
+    "robustness": {
+     "fragile": true,
+     "strongest": {
+      "deals": 3,
+      "start": "2021-09-08",
+      "end": "2021-09-08",
+      "without": "edge"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "chance"
+      },
+      {
+       "horizon": 50,
+       "state": "chance"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     0.01,
+     0.06,
+     0.109,
+     0.199,
+     0.173,
+     0.191,
+     0.161,
+     0.117,
+     0.133,
+     0.114,
+     0.161,
+     0.161,
+     0.173,
+     0.242,
+     0.248,
+     0.269,
+     0.259,
+     0.292,
+     0.273,
+     0.315
+    ],
+    "band": [
+     [
+      -0.038,
+      0.049
+     ],
+     [
+      -0.062,
+      0.073
+     ],
+     [
+      -0.08,
+      0.085
+     ],
+     [
+      -0.083,
+      0.085
+     ],
+     [
+      -0.097,
+      0.107
+     ],
+     [
+      -0.09,
+      0.131
+     ],
+     [
+      -0.121,
+      0.114
+     ],
+     [
+      -0.119,
+      0.13
+     ],
+     [
+      -0.13,
+      0.136
+     ],
+     [
+      -0.14,
+      0.144
+     ],
+     [
+      -0.147,
+      0.139
+     ],
+     [
+      -0.154,
+      0.157
+     ],
+     [
+      -0.143,
+      0.148
+     ],
+     [
+      -0.162,
+      0.177
+     ],
+     [
+      -0.164,
+      0.179
+     ],
+     [
+      -0.16,
+      0.178
+     ],
+     [
+      -0.184,
+      0.177
+     ],
+     [
+      -0.193,
+      0.192
+     ],
+     [
+      -0.19,
+      0.202
+     ],
+     [
+      -0.193,
+      0.214
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 544,
+     "episodes": 417,
+     "draws": 459,
+     "edge": -0.2,
+     "chance": [
+      -0.17,
+      0.2
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 9,
+       "start": "2022-06-12",
+       "end": "2022-06-15",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "worse"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 499,
+     "episodes": 403,
+     "draws": 500,
+     "edge": 0.12,
+     "chance": [
+      -0.26,
+      0.3
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 504,
+     "episodes": 405,
+     "draws": 496,
+     "edge": 1.07,
+     "chance": [
+      -0.42,
+      0.37
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 3,
+       "start": "2021-09-08",
+       "end": "2021-09-08",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "bottom-start-t2",
+   "tf": "1h",
+   "label": "Bottom wick, signal start, threshold 2",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 290,
+    "episodes": 271,
+    "draws": 500,
+    "edge": 0.11,
+    "chance": [
+     -0.46,
+     0.44
+    ],
+    "verdict": "none",
+    "path": [
+     -0.104,
+     -0.186,
+     -0.245,
+     -0.095,
+     -0.128,
+     -0.07,
+     -0.135,
+     -0.233,
+     -0.002,
+     -0.047,
+     0.046,
+     -0.007,
+     0.118,
+     0.06,
+     0.044,
+     0.028,
+     0.194,
+     0.232,
+     0.218,
+     0.106
+    ],
+    "band": [
+     [
+      -0.097,
+      0.104
+     ],
+     [
+      -0.16,
+      0.153
+     ],
+     [
+      -0.174,
+      0.204
+     ],
+     [
+      -0.197,
+      0.215
+     ],
+     [
+      -0.208,
+      0.237
+     ],
+     [
+      -0.246,
+      0.254
+     ],
+     [
+      -0.271,
+      0.262
+     ],
+     [
+      -0.26,
+      0.296
+     ],
+     [
+      -0.274,
+      0.33
+     ],
+     [
+      -0.309,
+      0.311
+     ],
+     [
+      -0.299,
+      0.344
+     ],
+     [
+      -0.334,
+      0.38
+     ],
+     [
+      -0.345,
+      0.377
+     ],
+     [
+      -0.374,
+      0.391
+     ],
+     [
+      -0.4,
+      0.416
+     ],
+     [
+      -0.394,
+      0.418
+     ],
+     [
+      -0.404,
+      0.429
+     ],
+     [
+      -0.404,
+      0.412
+     ],
+     [
+      -0.424,
+      0.45
+     ],
+     [
+      -0.464,
+      0.436
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 97,
+     "episodes": 91,
+     "draws": 500,
+     "edge": -0.08,
+     "chance": [
+      -0.44,
+      0.47
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 98,
+     "episodes": 90,
+     "draws": 500,
+     "edge": -0.3,
+     "chance": [
+      -0.62,
+      0.57
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 95,
+     "episodes": 90,
+     "draws": 500,
+     "edge": 0.72,
+     "chance": [
+      -0.89,
+      0.95
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "bottom-during-t2-200",
+   "tf": "1h",
+   "label": "Bottom wick level holds, threshold 2, 200 bars",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 37418,
+    "episodes": 286,
+    "draws": 100,
+    "edge": 0.03,
+    "chance": [
+     -0.16,
+     0.2
+    ],
+    "verdict": "none",
+    "path": [
+     -0.001,
+     -0.002,
+     -0.001,
+     0.001,
+     0.002,
+     0.004,
+     0.005,
+     0.007,
+     0.01,
+     0.011,
+     0.013,
+     0.015,
+     0.017,
+     0.019,
+     0.02,
+     0.023,
+     0.026,
+     0.028,
+     0.03,
+     0.032
+    ],
+    "band": [
+     [
+      -0.008,
+      0.01
+     ],
+     [
+      -0.017,
+      0.019
+     ],
+     [
+      -0.025,
+      0.028
+     ],
+     [
+      -0.033,
+      0.037
+     ],
+     [
+      -0.041,
+      0.045
+     ],
+     [
+      -0.05,
+      0.052
+     ],
+     [
+      -0.059,
+      0.061
+     ],
+     [
+      -0.067,
+      0.071
+     ],
+     [
+      -0.076,
+      0.081
+     ],
+     [
+      -0.085,
+      0.091
+     ],
+     [
+      -0.092,
+      0.102
+     ],
+     [
+      -0.099,
+      0.112
+     ],
+     [
+      -0.105,
+      0.122
+     ],
+     [
+      -0.112,
+      0.133
+     ],
+     [
+      -0.121,
+      0.143
+     ],
+     [
+      -0.13,
+      0.155
+     ],
+     [
+      -0.138,
+      0.165
+     ],
+     [
+      -0.146,
+      0.177
+     ],
+     [
+      -0.153,
+      0.187
+     ],
+     [
+      -0.16,
+      0.197
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 13166,
+     "episodes": 92,
+     "draws": 100,
+     "edge": -0.08,
+     "chance": [
+      -0.15,
+      0.15
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 14191,
+     "episodes": 97,
+     "draws": 100,
+     "edge": -0.01,
+     "chance": [
+      -0.2,
+      0.2
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 10061,
+     "episodes": 97,
+     "draws": 100,
+     "edge": 0.27,
+     "chance": [
+      -0.34,
+      0.43
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "top-start-t1",
+   "tf": "1h",
+   "label": "Top wick, signal start, threshold 1",
+   "side": "short",
+   "featured": true,
+   "pooled": {
+    "entries": 1493,
+    "episodes": 1159,
+    "draws": 167,
+    "edge": -0.6,
+    "chance": [
+     -0.2,
+     0.21
+    ],
+    "verdict": "worse",
+    "robustness": {
+     "fragile": false,
+     "strongest": {
+      "deals": 9,
+      "start": "2021-08-15",
+      "end": "2021-08-18",
+      "without": "worse"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "worse"
+      },
+      {
+       "horizon": 50,
+       "state": "worse"
+      },
+      {
+       "horizon": 100,
+       "state": "worse"
+      }
+     ]
+    },
+    "path": [
+     -0.126,
+     -0.162,
+     -0.159,
+     -0.199,
+     -0.184,
+     -0.192,
+     -0.246,
+     -0.304,
+     -0.359,
+     -0.406,
+     -0.401,
+     -0.4,
+     -0.404,
+     -0.463,
+     -0.48,
+     -0.485,
+     -0.498,
+     -0.513,
+     -0.53,
+     -0.603
+    ],
+    "band": [
+     [
+      -0.038,
+      0.039
+     ],
+     [
+      -0.058,
+      0.061
+     ],
+     [
+      -0.071,
+      0.064
+     ],
+     [
+      -0.071,
+      0.073
+     ],
+     [
+      -0.096,
+      0.09
+     ],
+     [
+      -0.098,
+      0.103
+     ],
+     [
+      -0.103,
+      0.122
+     ],
+     [
+      -0.118,
+      0.125
+     ],
+     [
+      -0.124,
+      0.139
+     ],
+     [
+      -0.132,
+      0.138
+     ],
+     [
+      -0.144,
+      0.131
+     ],
+     [
+      -0.135,
+      0.148
+     ],
+     [
+      -0.146,
+      0.159
+     ],
+     [
+      -0.15,
+      0.193
+     ],
+     [
+      -0.149,
+      0.169
+     ],
+     [
+      -0.166,
+      0.185
+     ],
+     [
+      -0.184,
+      0.187
+     ],
+     [
+      -0.18,
+      0.188
+     ],
+     [
+      -0.183,
+      0.181
+     ],
+     [
+      -0.2,
+      0.206
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 512,
+     "episodes": 397,
+     "draws": 488,
+     "edge": -0.5,
+     "chance": [
+      -0.21,
+      0.19
+     ],
+     "verdict": "worse",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 6,
+       "start": "2026-08-19",
+       "end": "2026-08-21",
+       "without": "worse"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "worse"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 481,
+     "episodes": 389,
+     "draws": 500,
+     "edge": -0.45,
+     "chance": [
+      -0.3,
+      0.26
+     ],
+     "verdict": "worse",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 3,
+       "start": "2025-05-08",
+       "end": "2025-05-09",
+       "without": "worse"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 500,
+     "episodes": 373,
+     "draws": 500,
+     "edge": -0.86,
+     "chance": [
+      -0.43,
+      0.42
+     ],
+     "verdict": "worse",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 9,
+       "start": "2021-08-15",
+       "end": "2021-08-18",
+       "without": "worse"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "worse"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "top-during-t2-200",
+   "tf": "1h",
+   "label": "Top wick level holds, threshold 2, 200 bars",
+   "side": "short",
+   "featured": false,
+   "pooled": {
+    "entries": 13164,
+    "episodes": 167,
+    "draws": 100,
+    "edge": -0.34,
+    "chance": [
+     -0.25,
+     0.31
+    ],
+    "verdict": "worse",
+    "robustness": {
+     "fragile": false,
+     "strongest": {
+      "deals": 93,
+      "start": "2021-02-19",
+      "end": "2021-02-23",
+      "without": "worse"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "worse"
+      },
+      {
+       "horizon": 50,
+       "state": "chance"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     -0.027,
+     -0.049,
+     -0.072,
+     -0.094,
+     -0.118,
+     -0.138,
+     -0.157,
+     -0.177,
+     -0.193,
+     -0.207,
+     -0.221,
+     -0.238,
+     -0.252,
+     -0.267,
+     -0.28,
+     -0.292,
+     -0.305,
+     -0.316,
+     -0.325,
+     -0.34
+    ],
+    "band": [
+     [
+      -0.015,
+      0.014
+     ],
+     [
+      -0.028,
+      0.027
+     ],
+     [
+      -0.043,
+      0.041
+     ],
+     [
+      -0.057,
+      0.056
+     ],
+     [
+      -0.069,
+      0.07
+     ],
+     [
+      -0.083,
+      0.084
+     ],
+     [
+      -0.092,
+      0.103
+     ],
+     [
+      -0.106,
+      0.118
+     ],
+     [
+      -0.118,
+      0.135
+     ],
+     [
+      -0.132,
+      0.153
+     ],
+     [
+      -0.148,
+      0.169
+     ],
+     [
+      -0.16,
+      0.185
+     ],
+     [
+      -0.171,
+      0.198
+     ],
+     [
+      -0.181,
+      0.212
+     ],
+     [
+      -0.194,
+      0.227
+     ],
+     [
+      -0.205,
+      0.245
+     ],
+     [
+      -0.215,
+      0.261
+     ],
+     [
+      -0.224,
+      0.279
+     ],
+     [
+      -0.235,
+      0.295
+     ],
+     [
+      -0.247,
+      0.311
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 5023,
+     "episodes": 60,
+     "draws": 100,
+     "edge": -0.27,
+     "chance": [
+      -0.26,
+      0.25
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 267,
+       "start": "2023-01-12",
+       "end": "2023-01-24",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 3411,
+     "episodes": 47,
+     "draws": 100,
+     "edge": -0.53,
+     "chance": [
+      -0.36,
+      0.46
+     ],
+     "verdict": "worse",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 59,
+       "start": "2021-01-03",
+       "end": "2021-01-06",
+       "without": "worse"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 4730,
+     "episodes": 60,
+     "draws": 100,
+     "edge": -0.27,
+     "chance": [
+      -0.53,
+      0.53
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "bottom-start-t1",
+   "tf": "4h",
+   "label": "Bottom wick, signal start, threshold 1",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 421,
+    "episodes": 329,
+    "draws": 500,
+    "edge": 0.7,
+    "chance": [
+     -0.83,
+     0.89
+    ],
+    "verdict": "none",
+    "path": [
+     -0.163,
+     -0.212,
+     0.131,
+     0.179,
+     0.242,
+     0.535,
+     0.504,
+     0.319,
+     0.512,
+     0.372,
+     0.19,
+     0.038,
+     0.113,
+     0.236,
+     0.177,
+     0.134,
+     0.258,
+     0.495,
+     0.733,
+     0.698
+    ],
+    "band": [
+     [
+      -0.213,
+      0.178
+     ],
+     [
+      -0.276,
+      0.252
+     ],
+     [
+      -0.338,
+      0.287
+     ],
+     [
+      -0.349,
+      0.329
+     ],
+     [
+      -0.402,
+      0.4
+     ],
+     [
+      -0.445,
+      0.434
+     ],
+     [
+      -0.438,
+      0.462
+     ],
+     [
+      -0.453,
+      0.488
+     ],
+     [
+      -0.497,
+      0.571
+     ],
+     [
+      -0.487,
+      0.603
+     ],
+     [
+      -0.565,
+      0.602
+     ],
+     [
+      -0.6,
+      0.641
+     ],
+     [
+      -0.628,
+      0.717
+     ],
+     [
+      -0.637,
+      0.751
+     ],
+     [
+      -0.646,
+      0.797
+     ],
+     [
+      -0.721,
+      0.814
+     ],
+     [
+      -0.757,
+      0.866
+     ],
+     [
+      -0.861,
+      0.823
+     ],
+     [
+      -0.832,
+      0.862
+     ],
+     [
+      -0.83,
+      0.889
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 135,
+     "episodes": 108,
+     "draws": 500,
+     "edge": -0.37,
+     "chance": [
+      -0.73,
+      0.66
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 140,
+     "episodes": 111,
+     "draws": 500,
+     "edge": 0.57,
+     "chance": [
+      -0.96,
+      0.97
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 146,
+     "episodes": 110,
+     "draws": 500,
+     "edge": 1.78,
+     "chance": [
+      -1.52,
+      1.83
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "bottom-start-t2",
+   "tf": "4h",
+   "label": "Bottom wick, signal start, threshold 2",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 88,
+    "episodes": 84,
+    "draws": 500,
+    "edge": 0.46,
+    "chance": [
+     -1.59,
+     1.78
+    ],
+    "verdict": "none",
+    "path": [
+     -0.678,
+     -0.681,
+     -0.381,
+     -0.731,
+     -0.678,
+     0.08,
+     -0.609,
+     -0.083,
+     0.146,
+     -0.002,
+     0.84,
+     0.588,
+     0.247,
+     0.05,
+     -0.023,
+     0.377,
+     0.328,
+     0.658,
+     0.627,
+     0.462
+    ],
+    "band": [
+     [
+      -0.421,
+      0.359
+     ],
+     [
+      -0.589,
+      0.505
+     ],
+     [
+      -0.705,
+      0.647
+     ],
+     [
+      -0.765,
+      0.742
+     ],
+     [
+      -0.949,
+      0.851
+     ],
+     [
+      -0.956,
+      0.941
+     ],
+     [
+      -1.069,
+      0.978
+     ],
+     [
+      -1.098,
+      1.143
+     ],
+     [
+      -1.139,
+      1.244
+     ],
+     [
+      -1.18,
+      1.339
+     ],
+     [
+      -1.18,
+      1.408
+     ],
+     [
+      -1.367,
+      1.508
+     ],
+     [
+      -1.456,
+      1.472
+     ],
+     [
+      -1.553,
+      1.559
+     ],
+     [
+      -1.495,
+      1.567
+     ],
+     [
+      -1.588,
+      1.67
+     ],
+     [
+      -1.56,
+      1.633
+     ],
+     [
+      -1.614,
+      1.792
+     ],
+     [
+      -1.675,
+      1.804
+     ],
+     [
+      -1.595,
+      1.781
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 28,
+     "episodes": 28,
+     "draws": 500,
+     "edge": 0.54,
+     "chance": [
+      -1.6,
+      1.82
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 30,
+     "episodes": 28,
+     "draws": 500,
+     "edge": -2.15,
+     "chance": [
+      -2.3,
+      2.35
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 30,
+     "episodes": 28,
+     "draws": 500,
+     "edge": 2.98,
+     "chance": [
+      -2.98,
+      3.3
+     ],
+     "verdict": "few"
+    }
+   }
+  },
+  {
+   "id": "bottom-during-t2-200",
+   "tf": "4h",
+   "label": "Bottom wick level holds, threshold 2, 200 bars",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 8651,
+    "episodes": 87,
+    "draws": 100,
+    "edge": 0.01,
+    "chance": [
+     -0.71,
+     0.82
+    ],
+    "verdict": "none",
+    "path": [
+     -0.024,
+     -0.036,
+     -0.056,
+     -0.069,
+     -0.072,
+     -0.074,
+     -0.075,
+     -0.065,
+     -0.056,
+     -0.047,
+     -0.037,
+     -0.038,
+     -0.043,
+     -0.04,
+     -0.032,
+     -0.021,
+     -0.009,
+     -0.003,
+     0.003,
+     0.009
+    ],
+    "band": [
+     [
+      -0.036,
+      0.038
+     ],
+     [
+      -0.071,
+      0.079
+     ],
+     [
+      -0.11,
+      0.119
+     ],
+     [
+      -0.147,
+      0.162
+     ],
+     [
+      -0.183,
+      0.201
+     ],
+     [
+      -0.219,
+      0.239
+     ],
+     [
+      -0.254,
+      0.271
+     ],
+     [
+      -0.288,
+      0.303
+     ],
+     [
+      -0.323,
+      0.345
+     ],
+     [
+      -0.353,
+      0.383
+     ],
+     [
+      -0.381,
+      0.429
+     ],
+     [
+      -0.413,
+      0.472
+     ],
+     [
+      -0.439,
+      0.518
+     ],
+     [
+      -0.471,
+      0.565
+     ],
+     [
+      -0.506,
+      0.608
+     ],
+     [
+      -0.549,
+      0.656
+     ],
+     [
+      -0.596,
+      0.694
+     ],
+     [
+      -0.634,
+      0.737
+     ],
+     [
+      -0.67,
+      0.777
+     ],
+     [
+      -0.712,
+      0.82
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 2999,
+     "episodes": 30,
+     "draws": 100,
+     "edge": -0.02,
+     "chance": [
+      -0.69,
+      0.65
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 2446,
+     "episodes": 28,
+     "draws": 102,
+     "edge": -0.58,
+     "chance": [
+      -1.2,
+      1.19
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 3206,
+     "episodes": 29,
+     "draws": 100,
+     "edge": 0.43,
+     "chance": [
+      -1.4,
+      1.45
+     ],
+     "verdict": "few"
+    }
+   }
+  },
+  {
+   "id": "top-start-t1",
+   "tf": "4h",
+   "label": "Top wick, signal start, threshold 1",
+   "side": "short",
+   "featured": true,
+   "pooled": {
+    "entries": 406,
+    "episodes": 289,
+    "draws": 500,
+    "edge": -2.25,
+    "chance": [
+     -0.92,
+     1.02
+    ],
+    "verdict": "worse",
+    "robustness": {
+     "fragile": false,
+     "strongest": {
+      "deals": 9,
+      "start": "2021-08-30",
+      "end": "2021-09-09",
+      "without": "worse"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "worse"
+      },
+      {
+       "horizon": 50,
+       "state": "worse"
+      },
+      {
+       "horizon": 100,
+       "state": "worse"
+      }
+     ]
+    },
+    "path": [
+     -0.17,
+     -0.287,
+     -0.563,
+     -0.946,
+     -0.99,
+     -1.045,
+     -0.749,
+     -1.013,
+     -1.24,
+     -1.276,
+     -1.317,
+     -1.23,
+     -1.432,
+     -1.577,
+     -1.626,
+     -1.857,
+     -1.947,
+     -1.856,
+     -2.078,
+     -2.249
+    ],
+    "band": [
+     [
+      -0.18,
+      0.176
+     ],
+     [
+      -0.251,
+      0.25
+     ],
+     [
+      -0.304,
+      0.319
+     ],
+     [
+      -0.369,
+      0.33
+     ],
+     [
+      -0.397,
+      0.369
+     ],
+     [
+      -0.413,
+      0.449
+     ],
+     [
+      -0.472,
+      0.505
+     ],
+     [
+      -0.516,
+      0.542
+     ],
+     [
+      -0.561,
+      0.553
+     ],
+     [
+      -0.583,
+      0.557
+     ],
+     [
+      -0.597,
+      0.627
+     ],
+     [
+      -0.62,
+      0.674
+     ],
+     [
+      -0.665,
+      0.727
+     ],
+     [
+      -0.715,
+      0.739
+     ],
+     [
+      -0.761,
+      0.776
+     ],
+     [
+      -0.761,
+      0.844
+     ],
+     [
+      -0.793,
+      0.842
+     ],
+     [
+      -0.832,
+      0.911
+     ],
+     [
+      -0.876,
+      0.937
+     ],
+     [
+      -0.916,
+      1.018
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 134,
+     "episodes": 108,
+     "draws": 500,
+     "edge": -1.34,
+     "chance": [
+      -0.9,
+      0.82
+     ],
+     "verdict": "worse",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 3,
+       "start": "2024-11-10",
+       "end": "2024-11-12",
+       "without": "worse"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "worse"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 117,
+     "episodes": 92,
+     "draws": 500,
+     "edge": -0.4,
+     "chance": [
+      -1.1,
+      1.22
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 155,
+     "episodes": 89,
+     "draws": 500,
+     "edge": -4.36,
+     "chance": [
+      -1.74,
+      1.84
+     ],
+     "verdict": "worse",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 9,
+       "start": "2021-08-30",
+       "end": "2021-09-09",
+       "without": "worse"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "worse"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "top-during-t2-200",
+   "tf": "4h",
+   "label": "Top wick level holds, threshold 2, 200 bars",
+   "side": "short",
+   "featured": false,
+   "pooled": {
+    "entries": 2969,
+    "episodes": 52,
+    "draws": 100,
+    "edge": -1.26,
+    "chance": [
+     -1.51,
+     1.52
+    ],
+    "verdict": "none",
+    "path": [
+     -0.097,
+     -0.183,
+     -0.259,
+     -0.326,
+     -0.39,
+     -0.466,
+     -0.546,
+     -0.65,
+     -0.754,
+     -0.813,
+     -0.851,
+     -0.895,
+     -0.948,
+     -0.993,
+     -1.045,
+     -1.106,
+     -1.156,
+     -1.201,
+     -1.242,
+     -1.265
+    ],
+    "band": [
+     [
+      -0.088,
+      0.066
+     ],
+     [
+      -0.176,
+      0.142
+     ],
+     [
+      -0.259,
+      0.222
+     ],
+     [
+      -0.34,
+      0.3
+     ],
+     [
+      -0.419,
+      0.384
+     ],
+     [
+      -0.494,
+      0.465
+     ],
+     [
+      -0.576,
+      0.55
+     ],
+     [
+      -0.661,
+      0.639
+     ],
+     [
+      -0.736,
+      0.723
+     ],
+     [
+      -0.813,
+      0.79
+     ],
+     [
+      -0.901,
+      0.861
+     ],
+     [
+      -0.96,
+      0.947
+     ],
+     [
+      -1.021,
+      1.036
+     ],
+     [
+      -1.092,
+      1.092
+     ],
+     [
+      -1.163,
+      1.149
+     ],
+     [
+      -1.227,
+      1.208
+     ],
+     [
+      -1.3,
+      1.267
+     ],
+     [
+      -1.363,
+      1.335
+     ],
+     [
+      -1.436,
+      1.435
+     ],
+     [
+      -1.51,
+      1.52
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 944,
+     "episodes": 17,
+     "draws": 264,
+     "edge": -1.43,
+     "chance": [
+      -1.28,
+      1.11
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 65,
+       "start": "2024-02-27",
+       "end": "2024-03-11",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 889,
+     "episodes": 12,
+     "draws": 281,
+     "edge": -0.55,
+     "chance": [
+      -1.63,
+      1.57
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 1136,
+     "episodes": 23,
+     "draws": 220,
+     "edge": -1.62,
+     "chance": [
+      -2.86,
+      2.17
+     ],
+     "verdict": "few"
+    }
+   }
+  },
+  {
+   "id": "bottom-start-t1",
+   "tf": "1d",
+   "label": "Bottom wick, signal start, threshold 1",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 83,
+    "episodes": 62,
+    "draws": 500,
+    "edge": 3.19,
+    "chance": [
+     -7.05,
+     9.42
+    ],
+    "verdict": "none",
+    "path": [
+     0.656,
+     1.433,
+     1.604,
+     2.065,
+     2.075,
+     1.708,
+     2.066,
+     2.392,
+     1.983,
+     1.929,
+     3.798,
+     4.509,
+     4.581,
+     6.053,
+     5.345,
+     3.568,
+     4.284,
+     3.749,
+     3.217,
+     3.189
+    ],
+    "band": [
+     [
+      -0.816,
+      1.094
+     ],
+     [
+      -1.349,
+      1.583
+     ],
+     [
+      -1.762,
+      1.91
+     ],
+     [
+      -2.055,
+      2.204
+     ],
+     [
+      -2.036,
+      2.919
+     ],
+     [
+      -2.826,
+      3.201
+     ],
+     [
+      -3.066,
+      3.534
+     ],
+     [
+      -3.318,
+      4.306
+     ],
+     [
+      -3.936,
+      4.547
+     ],
+     [
+      -4.339,
+      4.862
+     ],
+     [
+      -4.512,
+      5.266
+     ],
+     [
+      -4.886,
+      5.837
+     ],
+     [
+      -5.04,
+      6.293
+     ],
+     [
+      -5.17,
+      6.734
+     ],
+     [
+      -5.55,
+      7.033
+     ],
+     [
+      -5.603,
+      7.667
+     ],
+     [
+      -6.117,
+      8.088
+     ],
+     [
+      -6.165,
+      7.953
+     ],
+     [
+      -6.646,
+      8.611
+     ],
+     [
+      -7.053,
+      9.42
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 25,
+     "episodes": 20,
+     "draws": 500,
+     "edge": 4.05,
+     "chance": [
+      -4.88,
+      6.64
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 29,
+     "episodes": 23,
+     "draws": 500,
+     "edge": 5.17,
+     "chance": [
+      -5.87,
+      6.95
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 29,
+     "episodes": 19,
+     "draws": 500,
+     "edge": 0.22,
+     "chance": [
+      -13.19,
+      17.8
+     ],
+     "verdict": "few"
+    }
+   }
+  },
+  {
+   "id": "bottom-start-t2",
+   "tf": "1d",
+   "label": "Bottom wick, signal start, threshold 2",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 25,
+    "episodes": 25,
+    "draws": 500,
+    "edge": 5.53,
+    "chance": [
+     -10.36,
+     12.41
+    ],
+    "verdict": "few",
+    "path": [
+     4.377,
+     4.142,
+     5.209,
+     3.651,
+     3.97,
+     3.1,
+     4.597,
+     5.519,
+     4.521,
+     5.569,
+     7.215,
+     8.082,
+     6.846,
+     6.977,
+     7.766,
+     6.699,
+     5.096,
+     5.192,
+     4.415,
+     5.53
+    ],
+    "band": [
+     [
+      -1.782,
+      1.795
+     ],
+     [
+      -2.271,
+      2.713
+     ],
+     [
+      -3.222,
+      2.929
+     ],
+     [
+      -3.697,
+      3.987
+     ],
+     [
+      -4.061,
+      4.722
+     ],
+     [
+      -4.322,
+      5.741
+     ],
+     [
+      -5.062,
+      6.361
+     ],
+     [
+      -5.677,
+      6.515
+     ],
+     [
+      -6.089,
+      6.901
+     ],
+     [
+      -6.568,
+      7.549
+     ],
+     [
+      -6.829,
+      7.904
+     ],
+     [
+      -7.519,
+      8.385
+     ],
+     [
+      -8.701,
+      8.488
+     ],
+     [
+      -8.959,
+      9.33
+     ],
+     [
+      -8.815,
+      10.008
+     ],
+     [
+      -9.057,
+      10.905
+     ],
+     [
+      -9.37,
+      11.247
+     ],
+     [
+      -9.695,
+      10.999
+     ],
+     [
+      -9.985,
+      12.129
+     ],
+     [
+      -10.359,
+      12.41
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 9,
+     "episodes": 9,
+     "draws": 500,
+     "edge": 7.89,
+     "chance": [
+      -7.2,
+      8.67
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 9,
+     "episodes": 9,
+     "draws": 500,
+     "edge": -0.96,
+     "chance": [
+      -9.98,
+      11.85
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 7,
+     "episodes": 7,
+     "draws": 500,
+     "edge": 11.73,
+     "chance": [
+      -19.71,
+      31.29
+     ],
+     "verdict": "few"
+    }
+   }
+  },
+  {
+   "id": "bottom-during-t2-200",
+   "tf": "1d",
+   "label": "Bottom wick level holds, threshold 2, 200 bars",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 1517,
+    "episodes": 17,
+    "draws": 164,
+    "edge": 1.89,
+    "chance": [
+     -7.82,
+     9.45
+    ],
+    "verdict": "few",
+    "path": [
+     0.142,
+     0.206,
+     0.306,
+     0.391,
+     0.513,
+     0.625,
+     0.727,
+     0.829,
+     0.919,
+     1.016,
+     1.103,
+     1.188,
+     1.267,
+     1.361,
+     1.443,
+     1.511,
+     1.579,
+     1.686,
+     1.781,
+     1.889
+    ],
+    "band": [
+     [
+      -0.349,
+      0.414
+     ],
+     [
+      -0.689,
+      0.821
+     ],
+     [
+      -1.045,
+      1.22
+     ],
+     [
+      -1.403,
+      1.643
+     ],
+     [
+      -1.784,
+      2.089
+     ],
+     [
+      -2.138,
+      2.549
+     ],
+     [
+      -2.455,
+      2.991
+     ],
+     [
+      -2.844,
+      3.445
+     ],
+     [
+      -3.238,
+      3.942
+     ],
+     [
+      -3.613,
+      4.407
+     ],
+     [
+      -3.984,
+      4.901
+     ],
+     [
+      -4.35,
+      5.386
+     ],
+     [
+      -4.73,
+      5.855
+     ],
+     [
+      -5.118,
+      6.338
+     ],
+     [
+      -5.496,
+      6.833
+     ],
+     [
+      -5.939,
+      7.379
+     ],
+     [
+      -6.425,
+      7.902
+     ],
+     [
+      -6.939,
+      8.439
+     ],
+     [
+      -7.403,
+      8.929
+     ],
+     [
+      -7.821,
+      9.451
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 502,
+     "episodes": 7,
+     "draws": 498,
+     "edge": 0.21,
+     "chance": [
+      -5.42,
+      6.77
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 421,
+     "episodes": 6,
+     "draws": 500,
+     "edge": -2.79,
+     "chance": [
+      -7.57,
+      7.6
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 594,
+     "episodes": 4,
+     "draws": 420,
+     "edge": 5.97,
+     "chance": [
+      -12.39,
+      17.9
+     ],
+     "verdict": "few"
+    }
+   }
+  },
+  {
+   "id": "top-start-t1",
+   "tf": "1d",
+   "label": "Top wick, signal start, threshold 1",
+   "side": "short",
+   "featured": true,
+   "pooled": {
+    "entries": 84,
+    "episodes": 38,
+    "draws": 500,
+    "edge": -4.3,
+    "chance": [
+     -8.91,
+     7.91
+    ],
+    "verdict": "none",
+    "path": [
+     -0.218,
+     -0.416,
+     -0.616,
+     -2.019,
+     -1.551,
+     -2.239,
+     -2.548,
+     -2.938,
+     -3.497,
+     -3.729,
+     -4.491,
+     -5.308,
+     -4.222,
+     -5.199,
+     -5.662,
+     -4.738,
+     -5.56,
+     -6.445,
+     -4.553,
+     -4.302
+    ],
+    "band": [
+     [
+      -0.939,
+      0.872
+     ],
+     [
+      -1.608,
+      1.256
+     ],
+     [
+      -1.941,
+      1.63
+     ],
+     [
+      -2.073,
+      2.052
+     ],
+     [
+      -2.457,
+      2.249
+     ],
+     [
+      -2.876,
+      2.761
+     ],
+     [
+      -3.495,
+      3.047
+     ],
+     [
+      -3.547,
+      3.484
+     ],
+     [
+      -4.127,
+      3.842
+     ],
+     [
+      -4.737,
+      4.111
+     ],
+     [
+      -5.376,
+      4.436
+     ],
+     [
+      -5.563,
+      4.88
+     ],
+     [
+      -5.717,
+      5.357
+     ],
+     [
+      -6.09,
+      5.748
+     ],
+     [
+      -6.633,
+      6.059
+     ],
+     [
+      -6.739,
+      6.431
+     ],
+     [
+      -7.393,
+      6.773
+     ],
+     [
+      -7.9,
+      7.207
+     ],
+     [
+      -8.239,
+      7.637
+     ],
+     [
+      -8.911,
+      7.908
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 29,
+     "episodes": 16,
+     "draws": 500,
+     "edge": -2.77,
+     "chance": [
+      -7.22,
+      5.93
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 27,
+     "episodes": 13,
+     "draws": 500,
+     "edge": -3.29,
+     "chance": [
+      -10.15,
+      7.9
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 28,
+     "episodes": 9,
+     "draws": 500,
+     "edge": -6.88,
+     "chance": [
+      -19.41,
+      15.51
+     ],
+     "verdict": "few"
+    }
+   }
+  },
+  {
+   "id": "top-during-t2-200",
+   "tf": "1d",
+   "label": "Top wick level holds, threshold 2, 200 bars",
+   "side": "short",
+   "featured": false,
+   "pooled": {
+    "entries": 692,
+    "episodes": 13,
+    "draws": 361,
+    "edge": -8.05,
+    "chance": [
+     -12.7,
+     9.65
+    ],
+    "verdict": "few",
+    "path": [
+     -0.491,
+     -0.964,
+     -1.388,
+     -1.795,
+     -2.058,
+     -2.343,
+     -2.59,
+     -3.006,
+     -3.398,
+     -3.77,
+     -4.232,
+     -4.622,
+     -4.988,
+     -5.475,
+     -5.876,
+     -6.329,
+     -6.782,
+     -7.267,
+     -7.609,
+     -8.045
+    ],
+    "band": [
+     [
+      -0.573,
+      0.451
+     ],
+     [
+      -1.161,
+      0.907
+     ],
+     [
+      -1.725,
+      1.326
+     ],
+     [
+      -2.281,
+      1.817
+     ],
+     [
+      -2.775,
+      2.323
+     ],
+     [
+      -3.412,
+      2.813
+     ],
+     [
+      -4.01,
+      3.291
+     ],
+     [
+      -4.593,
+      3.757
+     ],
+     [
+      -5.168,
+      4.232
+     ],
+     [
+      -5.758,
+      4.715
+     ],
+     [
+      -6.463,
+      5.224
+     ],
+     [
+      -7.161,
+      5.689
+     ],
+     [
+      -7.772,
+      6.165
+     ],
+     [
+      -8.416,
+      6.64
+     ],
+     [
+      -9.038,
+      7.177
+     ],
+     [
+      -9.88,
+      7.691
+     ],
+     [
+      -10.644,
+      8.165
+     ],
+     [
+      -11.31,
+      8.67
+     ],
+     [
+      -11.943,
+      9.16
+     ],
+     [
+      -12.703,
+      9.654
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 181,
+     "episodes": 4,
+     "draws": 500,
+     "edge": -4.76,
+     "chance": [
+      -9.73,
+      6.04
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 135,
+     "episodes": 3,
+     "draws": 500,
+     "edge": -6.02,
+     "chance": [
+      -17.16,
+      10.7
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 376,
+     "episodes": 6,
+     "draws": 500,
+     "edge": -8.58,
+     "chance": [
+      -18.39,
+      14.99
+     ],
+     "verdict": "few"
+    }
+   }
+  }
+ ],
+ "summary": "Mostly no. Price after a bottom wick did no better than after a random candle on 4h or daily, and on 1h the lead shows at 20 candles only. The result that holds up runs against shorts: after a top wick started, price rose more than after a random candle, by 0.6% on 1h and 2.25% on 4h.",
+ "verdicts": [
+  {
+   "use": "Going long after a bottom wick starts (threshold 1)",
+   "verdict": "fragile",
+   "text": "On 1h it beat random entries at 20 candles only, and was chance at 10, 50 and 100. It fires in volatile candles in a window that rose, so this is timing, not direction. On 4h and daily it was inside the luck band."
+  },
+  {
+   "use": "Going long while the bottom wick level holds",
+   "verdict": "none",
+   "text": "No better than random entries on 1h or 4h, at threshold 2 with a 200-bar level. Daily has too few separate moves to judge."
+  },
+  {
+   "use": "Shorting after a top wick starts (threshold 1)",
+   "verdict": "worse",
+   "text": "Worse than random on 1h and 4h. Price kept rising after long upper wicks, at 10, 20, 50 and 100 candles, and the result holds without its strongest stretch."
+  },
+  {
+   "use": "Shorting while the top wick level holds",
+   "verdict": "worse",
+   "text": "Worse than random on 1h at 10 and 20 candles, then chance at 50 and 100. On 4h it was inside the luck band."
+  }
+ ],
+ "notes": [
+  "On 1h, a bottom wick starting at threshold 1 gave 1,547 entries in 1,225 separate moves. Twenty candles later price was 0.31% ahead of random entries, just above a luck band of -0.19% to 0.21%. At 10, 50 and 100 candles it was chance. These signals fire in volatile candles, and in a window that rose, price moved more after them. That is when they fire, not a read on direction.",
+  "The coins split. On SOL 1h, price was 1.07% ahead of random after 20 candles. The lead shows at 10, 50 and 100 candles and holds without signals on Sep 8, 2021. It is the same volatility timing, not a directional edge. On BTC 1h price was 0.2% behind random, but only because of signals on Jun 12–15, 2022, when Celsius froze withdrawals. ETH sat inside the band.",
+  "Top wicks are the clearer result. A short after a top wick started at threshold 1 did 0.6% worse than random after 20 candles on 1h, across 1,159 separate moves, and 2.25% worse on 4h. Both hold without their strongest stretch and at 10, 20, 50 and 100 candles. On 1h each coin was worse than random. On 4h SOL was 4.36% worse and BTC 1.34% worse, while ETH sat inside the band.",
+  "On 1h, bottom wicks at threshold 1 gave 1,547 entries against 290 at threshold 2, and threshold 2 lands inside the luck band on 1h and 4h. Holding a 200-bar bottom wick level was within 0.03% of random on 1h and 0.01% on 4h. Holding a top wick level did 0.34% worse than random for shorts on 1h, but only at 10 and 20 candles.",
+  "Daily candles give too few separate moves to judge most settings. Where a pooled daily result exists, it sits inside the luck band: price was 3.19% ahead after bottom wicks and 4.3% behind for shorts after top wicks, both chance.",
+  "For a long bot on 1h, a bottom wick start adds at most a short-lived lift tied to volatile candles, so treat it as a filter beside a trend condition rather than a trigger. A take profit that needs more than 20 candles to fill gets nothing from it. For a short bot, a fresh top wick is a reason to leave the setting out: price kept rising after it on 1h and 4h."
+ ],
+ "summaryRefs": [
+  {
+   "tf": "*",
+   "setting": "bottom-start-t1",
+   "scope": "pooled"
+  },
+  {
+   "tf": "1h",
+   "setting": "top-start-t1",
+   "scope": "pooled"
+  },
+  {
+   "tf": "4h",
+   "setting": "top-start-t1",
+   "scope": "pooled"
+  }
+ ],
+ "verdictRefs": [
+  [
+   {
+    "tf": "1h",
+    "setting": "bottom-start-t1",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "bottom-start-t1",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "bottom-start-t1",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "bottom-during-t2-200",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "bottom-during-t2-200",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "bottom-during-t2-200",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "top-start-t1",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "top-start-t1",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "top-during-t2-200",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "top-during-t2-200",
+    "scope": "pooled"
+   }
+  ]
+ ],
+ "noteRefs": [
+  [
+   {
+    "tf": "1h",
+    "setting": "bottom-start-t1",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "bottom-start-t1",
+    "scope": "SOL"
+   },
+   {
+    "tf": "1h",
+    "setting": "bottom-start-t1",
+    "scope": "BTC"
+   },
+   {
+    "tf": "1h",
+    "setting": "bottom-start-t1",
+    "scope": "ETH"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "top-start-t1",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "top-start-t1",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "top-start-t1",
+    "scope": "BTC"
+   },
+   {
+    "tf": "1h",
+    "setting": "top-start-t1",
+    "scope": "ETH"
+   },
+   {
+    "tf": "1h",
+    "setting": "top-start-t1",
+    "scope": "SOL"
+   },
+   {
+    "tf": "4h",
+    "setting": "top-start-t1",
+    "scope": "SOL"
+   },
+   {
+    "tf": "4h",
+    "setting": "top-start-t1",
+    "scope": "BTC"
+   },
+   {
+    "tf": "4h",
+    "setting": "top-start-t1",
+    "scope": "ETH"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "bottom-start-t1",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "bottom-start-t2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "bottom-start-t2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "bottom-during-t2-200",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "bottom-during-t2-200",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "top-during-t2-200",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1d",
+    "setting": "bottom-start-t1",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "top-start-t1",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "bottom-start-t1",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "top-start-t1",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "top-start-t1",
+    "scope": "pooled"
+   }
+  ]
+ ]
+}

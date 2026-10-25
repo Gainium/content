@@ -1,0 +1,4191 @@
+{
+ "indicator": "price-change-indicator",
+ "defaultTf": "1h",
+ "method": {
+  "horizon": 20,
+  "horizons": [
+   10,
+   20,
+   50,
+   100
+  ],
+  "randomDraws": 500,
+  "minEpisodes": 30,
+  "source": "Binance spot",
+  "pairs": [
+   "BTC/USDT",
+   "ETH/USDT",
+   "SOL/USDT"
+  ],
+  "from": "2020-09-01",
+  "warmupFrom": "2020-06-01",
+  "to": "2026-10-24",
+  "engine": {
+   "indicators": "56f63e97",
+   "analysisMath": "cab0ed99"
+  }
+ },
+ "updatedAt": "2026-10-25",
+ "settings": [
+  {
+   "id": "pc-minus2",
+   "tf": "1h",
+   "label": "Low 2% under the open, long",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 7844,
+    "episodes": 1608,
+    "draws": 100,
+    "edge": 0.75,
+    "chance": [
+     -0.17,
+     0.32
+    ],
+    "verdict": "edge",
+    "robustness": {
+     "fragile": false,
+     "strongest": {
+      "deals": 230,
+      "start": "2020-12-26",
+      "end": "2021-01-23",
+      "without": "edge"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "edge"
+      },
+      {
+       "horizon": 100,
+       "state": "edge"
+      }
+     ]
+    },
+    "path": [
+     0.053,
+     0.14,
+     0.203,
+     0.26,
+     0.3,
+     0.336,
+     0.348,
+     0.339,
+     0.363,
+     0.365,
+     0.41,
+     0.466,
+     0.505,
+     0.573,
+     0.608,
+     0.639,
+     0.678,
+     0.7,
+     0.735,
+     0.752
+    ],
+    "band": [
+     [
+      -0.016,
+      0.027
+     ],
+     [
+      -0.026,
+      0.045
+     ],
+     [
+      -0.038,
+      0.066
+     ],
+     [
+      -0.046,
+      0.085
+     ],
+     [
+      -0.051,
+      0.103
+     ],
+     [
+      -0.061,
+      0.122
+     ],
+     [
+      -0.076,
+      0.123
+     ],
+     [
+      -0.087,
+      0.133
+     ],
+     [
+      -0.089,
+      0.152
+     ],
+     [
+      -0.089,
+      0.184
+     ],
+     [
+      -0.107,
+      0.209
+     ],
+     [
+      -0.113,
+      0.218
+     ],
+     [
+      -0.122,
+      0.225
+     ],
+     [
+      -0.134,
+      0.225
+     ],
+     [
+      -0.136,
+      0.236
+     ],
+     [
+      -0.155,
+      0.266
+     ],
+     [
+      -0.152,
+      0.269
+     ],
+     [
+      -0.158,
+      0.288
+     ],
+     [
+      -0.164,
+      0.299
+     ],
+     [
+      -0.174,
+      0.315
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 1069,
+     "episodes": 414,
+     "draws": 233,
+     "edge": 0.53,
+     "chance": [
+      -0.22,
+      0.21
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 89,
+       "start": "2021-05-14",
+       "end": "2021-05-30",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 2092,
+     "episodes": 579,
+     "draws": 119,
+     "edge": 0.45,
+     "chance": [
+      -0.2,
+      0.22
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 117,
+       "start": "2021-01-02",
+       "end": "2021-01-18",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 4683,
+     "episodes": 615,
+     "draws": 100,
+     "edge": 0.87,
+     "chance": [
+      -0.29,
+      0.35
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 230,
+       "start": "2020-12-26",
+       "end": "2021-01-23",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "pc-plus2",
+   "tf": "1h",
+   "label": "High 2% over the open, long",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 7125,
+    "episodes": 1500,
+    "draws": 100,
+    "edge": 0.79,
+    "chance": [
+     -0.23,
+     0.27
+    ],
+    "verdict": "edge",
+    "robustness": {
+     "fragile": false,
+     "strongest": {
+      "deals": 195,
+      "start": "2020-12-31",
+      "end": "2021-01-24",
+      "without": "edge"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "edge"
+      },
+      {
+       "horizon": 100,
+       "state": "edge"
+      }
+     ]
+    },
+    "path": [
+     0.087,
+     0.077,
+     0.094,
+     0.125,
+     0.154,
+     0.189,
+     0.229,
+     0.276,
+     0.345,
+     0.382,
+     0.437,
+     0.479,
+     0.538,
+     0.551,
+     0.59,
+     0.661,
+     0.699,
+     0.728,
+     0.758,
+     0.795
+    ],
+    "band": [
+     [
+      -0.021,
+      0.02
+     ],
+     [
+      -0.039,
+      0.037
+     ],
+     [
+      -0.054,
+      0.056
+     ],
+     [
+      -0.063,
+      0.069
+     ],
+     [
+      -0.077,
+      0.081
+     ],
+     [
+      -0.078,
+      0.105
+     ],
+     [
+      -0.089,
+      0.116
+     ],
+     [
+      -0.096,
+      0.127
+     ],
+     [
+      -0.115,
+      0.15
+     ],
+     [
+      -0.124,
+      0.151
+     ],
+     [
+      -0.122,
+      0.164
+     ],
+     [
+      -0.143,
+      0.19
+     ],
+     [
+      -0.158,
+      0.195
+     ],
+     [
+      -0.145,
+      0.211
+     ],
+     [
+      -0.162,
+      0.217
+     ],
+     [
+      -0.173,
+      0.245
+     ],
+     [
+      -0.179,
+      0.244
+     ],
+     [
+      -0.192,
+      0.275
+     ],
+     [
+      -0.209,
+      0.28
+     ],
+     [
+      -0.232,
+      0.271
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 891,
+     "episodes": 365,
+     "draws": 280,
+     "edge": 0.7,
+     "chance": [
+      -0.23,
+      0.22
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 54,
+       "start": "2021-05-19",
+       "end": "2021-05-26",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 1725,
+     "episodes": 529,
+     "draws": 144,
+     "edge": 0.65,
+     "chance": [
+      -0.24,
+      0.22
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 122,
+       "start": "2021-01-02",
+       "end": "2021-01-22",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 4509,
+     "episodes": 606,
+     "draws": 100,
+     "edge": 0.8,
+     "chance": [
+      -0.34,
+      0.26
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 195,
+       "start": "2020-12-31",
+       "end": "2021-01-24",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "pc-minus3",
+   "tf": "1h",
+   "label": "Low 3% under the open, long",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 3033,
+    "episodes": 934,
+    "draws": 100,
+    "edge": 1.41,
+    "chance": [
+     -0.3,
+     0.47
+    ],
+    "verdict": "edge",
+    "robustness": {
+     "fragile": false,
+     "strongest": {
+      "deals": 84,
+      "start": "2021-01-02",
+      "end": "2021-01-15",
+      "without": "edge"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "edge"
+      },
+      {
+       "horizon": 100,
+       "state": "edge"
+      }
+     ]
+    },
+    "path": [
+     0.133,
+     0.271,
+     0.386,
+     0.482,
+     0.607,
+     0.64,
+     0.661,
+     0.643,
+     0.687,
+     0.696,
+     0.761,
+     0.867,
+     0.948,
+     1.033,
+     1.081,
+     1.105,
+     1.241,
+     1.292,
+     1.383,
+     1.405
+    ],
+    "band": [
+     [
+      -0.028,
+      0.042
+     ],
+     [
+      -0.046,
+      0.076
+     ],
+     [
+      -0.071,
+      0.095
+     ],
+     [
+      -0.08,
+      0.11
+     ],
+     [
+      -0.088,
+      0.136
+     ],
+     [
+      -0.11,
+      0.168
+     ],
+     [
+      -0.126,
+      0.181
+     ],
+     [
+      -0.137,
+      0.23
+     ],
+     [
+      -0.148,
+      0.23
+     ],
+     [
+      -0.167,
+      0.24
+     ],
+     [
+      -0.187,
+      0.26
+     ],
+     [
+      -0.193,
+      0.292
+     ],
+     [
+      -0.207,
+      0.323
+     ],
+     [
+      -0.222,
+      0.338
+     ],
+     [
+      -0.238,
+      0.351
+     ],
+     [
+      -0.238,
+      0.374
+     ],
+     [
+      -0.252,
+      0.363
+     ],
+     [
+      -0.252,
+      0.405
+     ],
+     [
+      -0.278,
+      0.445
+     ],
+     [
+      -0.295,
+      0.474
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 344,
+     "episodes": 170,
+     "draws": 500,
+     "edge": 1.16,
+     "chance": [
+      -0.37,
+      0.36
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 25,
+       "start": "2021-05-16",
+       "end": "2021-05-22",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 740,
+     "episodes": 281,
+     "draws": 337,
+     "edge": 0.88,
+     "chance": [
+      -0.37,
+      0.39
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 66,
+       "start": "2021-05-15",
+       "end": "2021-05-27",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 1949,
+     "episodes": 483,
+     "draws": 128,
+     "edge": 1.58,
+     "chance": [
+      -0.4,
+      0.49
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 84,
+       "start": "2021-01-02",
+       "end": "2021-01-15",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "pc-plus3",
+   "tf": "1h",
+   "label": "High 3% over the open, long",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 2683,
+    "episodes": 840,
+    "draws": 100,
+    "edge": 1.21,
+    "chance": [
+     -0.3,
+     0.42
+    ],
+    "verdict": "edge",
+    "robustness": {
+     "fragile": false,
+     "strongest": {
+      "deals": 39,
+      "start": "2020-11-05",
+      "end": "2020-11-10",
+      "without": "edge"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "edge"
+      },
+      {
+       "horizon": 100,
+       "state": "edge"
+      }
+     ]
+    },
+    "path": [
+     0.111,
+     0.133,
+     0.2,
+     0.238,
+     0.244,
+     0.245,
+     0.249,
+     0.376,
+     0.459,
+     0.566,
+     0.67,
+     0.76,
+     0.838,
+     0.902,
+     0.913,
+     1.053,
+     1.131,
+     1.168,
+     1.16,
+     1.213
+    ],
+    "band": [
+     [
+      -0.034,
+      0.033
+     ],
+     [
+      -0.045,
+      0.071
+     ],
+     [
+      -0.074,
+      0.087
+     ],
+     [
+      -0.091,
+      0.107
+     ],
+     [
+      -0.094,
+      0.12
+     ],
+     [
+      -0.119,
+      0.159
+     ],
+     [
+      -0.127,
+      0.178
+     ],
+     [
+      -0.142,
+      0.196
+     ],
+     [
+      -0.154,
+      0.192
+     ],
+     [
+      -0.16,
+      0.207
+     ],
+     [
+      -0.176,
+      0.218
+     ],
+     [
+      -0.192,
+      0.27
+     ],
+     [
+      -0.215,
+      0.287
+     ],
+     [
+      -0.227,
+      0.336
+     ],
+     [
+      -0.235,
+      0.359
+     ],
+     [
+      -0.256,
+      0.36
+     ],
+     [
+      -0.289,
+      0.38
+     ],
+     [
+      -0.298,
+      0.394
+     ],
+     [
+      -0.292,
+      0.44
+     ],
+     [
+      -0.297,
+      0.425
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 244,
+     "episodes": 146,
+     "draws": 500,
+     "edge": 1.07,
+     "chance": [
+      -0.41,
+      0.4
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 6,
+       "start": "2021-05-23",
+       "end": "2021-05-24",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 557,
+     "episodes": 258,
+     "draws": 448,
+     "edge": 1.05,
+     "chance": [
+      -0.37,
+      0.36
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 46,
+       "start": "2021-05-19",
+       "end": "2021-05-26",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 1882,
+     "episodes": 436,
+     "draws": 132,
+     "edge": 1.2,
+     "chance": [
+      -0.46,
+      0.46
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 39,
+       "start": "2020-11-05",
+       "end": "2020-11-10",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "pc-minus5",
+   "tf": "1h",
+   "label": "Low 5% under the open, long",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 763,
+    "episodes": 335,
+    "draws": 327,
+    "edge": 2.32,
+    "chance": [
+     -0.53,
+     0.71
+    ],
+    "verdict": "edge",
+    "robustness": {
+     "fragile": false,
+     "strongest": {
+      "deals": 12,
+      "start": "2021-02-22",
+      "end": "2021-02-23",
+      "without": "edge"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "edge"
+      },
+      {
+       "horizon": 100,
+       "state": "edge"
+      }
+     ]
+    },
+    "path": [
+     0.329,
+     0.701,
+     0.801,
+     1.021,
+     1.165,
+     1.132,
+     1.109,
+     1.035,
+     1.15,
+     0.962,
+     0.987,
+     1.165,
+     1.441,
+     1.64,
+     1.806,
+     1.884,
+     2.007,
+     2.156,
+     2.277,
+     2.323
+    ],
+    "band": [
+     [
+      -0.075,
+      0.078
+     ],
+     [
+      -0.104,
+      0.128
+     ],
+     [
+      -0.15,
+      0.182
+     ],
+     [
+      -0.188,
+      0.208
+     ],
+     [
+      -0.221,
+      0.246
+     ],
+     [
+      -0.233,
+      0.29
+     ],
+     [
+      -0.263,
+      0.313
+     ],
+     [
+      -0.26,
+      0.358
+     ],
+     [
+      -0.285,
+      0.402
+     ],
+     [
+      -0.317,
+      0.439
+     ],
+     [
+      -0.35,
+      0.515
+     ],
+     [
+      -0.362,
+      0.522
+     ],
+     [
+      -0.402,
+      0.576
+     ],
+     [
+      -0.43,
+      0.588
+     ],
+     [
+      -0.444,
+      0.6
+     ],
+     [
+      -0.47,
+      0.621
+     ],
+     [
+      -0.498,
+      0.665
+     ],
+     [
+      -0.504,
+      0.68
+     ],
+     [
+      -0.519,
+      0.696
+     ],
+     [
+      -0.533,
+      0.713
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 75,
+     "episodes": 49,
+     "draws": 500,
+     "edge": 1.48,
+     "chance": [
+      -0.66,
+      0.75
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 6,
+       "start": "2021-05-19",
+       "end": "2021-05-20",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 174,
+     "episodes": 95,
+     "draws": 500,
+     "edge": 1.81,
+     "chance": [
+      -0.62,
+      0.66
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 4,
+       "start": "2021-05-23",
+       "end": "2021-05-23",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 514,
+     "episodes": 191,
+     "draws": 486,
+     "edge": 2.55,
+     "chance": [
+      -0.72,
+      0.77
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 12,
+       "start": "2021-02-22",
+       "end": "2021-02-23",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "pc-plus5",
+   "tf": "1h",
+   "label": "High 5% over the open, long",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 698,
+    "episodes": 298,
+    "draws": 358,
+    "edge": 2.01,
+    "chance": [
+     -0.5,
+     0.6
+    ],
+    "verdict": "edge",
+    "robustness": {
+     "fragile": false,
+     "strongest": {
+      "deals": 17,
+      "start": "2021-02-22",
+      "end": "2021-02-24",
+      "without": "edge"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "edge"
+      },
+      {
+       "horizon": 100,
+       "state": "edge"
+      }
+     ]
+    },
+    "path": [
+     0.109,
+     0.12,
+     0.202,
+     0.27,
+     0.401,
+     0.332,
+     0.395,
+     0.607,
+     0.694,
+     0.841,
+     1.037,
+     1.208,
+     1.317,
+     1.339,
+     1.436,
+     1.657,
+     1.785,
+     1.858,
+     1.969,
+     2.012
+    ],
+    "band": [
+     [
+      -0.07,
+      0.081
+     ],
+     [
+      -0.108,
+      0.115
+     ],
+     [
+      -0.134,
+      0.16
+     ],
+     [
+      -0.167,
+      0.201
+     ],
+     [
+      -0.189,
+      0.243
+     ],
+     [
+      -0.214,
+      0.259
+     ],
+     [
+      -0.215,
+      0.274
+     ],
+     [
+      -0.239,
+      0.313
+     ],
+     [
+      -0.264,
+      0.344
+     ],
+     [
+      -0.274,
+      0.362
+     ],
+     [
+      -0.32,
+      0.387
+     ],
+     [
+      -0.336,
+      0.401
+     ],
+     [
+      -0.362,
+      0.427
+     ],
+     [
+      -0.39,
+      0.461
+     ],
+     [
+      -0.424,
+      0.498
+     ],
+     [
+      -0.441,
+      0.516
+     ],
+     [
+      -0.449,
+      0.534
+     ],
+     [
+      -0.466,
+      0.561
+     ],
+     [
+      -0.479,
+      0.613
+     ],
+     [
+      -0.502,
+      0.602
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 45,
+     "episodes": 37,
+     "draws": 500,
+     "edge": 1.41,
+     "chance": [
+      -0.74,
+      0.74
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 2,
+       "start": "2021-05-19",
+       "end": "2021-05-19",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 113,
+     "episodes": 65,
+     "draws": 500,
+     "edge": 1.8,
+     "chance": [
+      -0.77,
+      0.81
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 9,
+       "start": "2021-05-21",
+       "end": "2021-05-24",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 540,
+     "episodes": 196,
+     "draws": 462,
+     "edge": 2.02,
+     "chance": [
+      -0.64,
+      0.64
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 17,
+       "start": "2021-02-22",
+       "end": "2021-02-24",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "pc-minus2",
+   "tf": "4h",
+   "label": "Low 2% under the open, long",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 7291,
+    "episodes": 375,
+    "draws": 100,
+    "edge": 0.66,
+    "chance": [
+     -0.43,
+     0.6
+    ],
+    "verdict": "fragile",
+    "robustness": {
+     "fragile": true,
+     "strongest": {
+      "deals": 1912,
+      "start": "2020-09-01",
+      "end": "2022-09-02",
+      "without": "chance"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "edge"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     0.09,
+     0.11,
+     0.164,
+     0.178,
+     0.217,
+     0.36,
+     0.403,
+     0.422,
+     0.431,
+     0.459,
+     0.425,
+     0.491,
+     0.487,
+     0.488,
+     0.514,
+     0.54,
+     0.598,
+     0.628,
+     0.66,
+     0.663
+    ],
+    "band": [
+     [
+      -0.034,
+      0.05
+     ],
+     [
+      -0.044,
+      0.084
+     ],
+     [
+      -0.067,
+      0.116
+     ],
+     [
+      -0.086,
+      0.148
+     ],
+     [
+      -0.101,
+      0.171
+     ],
+     [
+      -0.112,
+      0.195
+     ],
+     [
+      -0.118,
+      0.224
+     ],
+     [
+      -0.146,
+      0.259
+     ],
+     [
+      -0.186,
+      0.277
+     ],
+     [
+      -0.201,
+      0.302
+     ],
+     [
+      -0.222,
+      0.329
+     ],
+     [
+      -0.256,
+      0.374
+     ],
+     [
+      -0.268,
+      0.376
+     ],
+     [
+      -0.279,
+      0.425
+     ],
+     [
+      -0.308,
+      0.442
+     ],
+     [
+      -0.318,
+      0.5
+     ],
+     [
+      -0.339,
+      0.549
+     ],
+     [
+      -0.355,
+      0.55
+     ],
+     [
+      -0.399,
+      0.582
+     ],
+     [
+      -0.427,
+      0.601
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 1306,
+     "episodes": 174,
+     "draws": 191,
+     "edge": 0.44,
+     "chance": [
+      -0.47,
+      0.5
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 2196,
+     "episodes": 138,
+     "draws": 113,
+     "edge": 0.1,
+     "chance": [
+      -0.53,
+      0.45
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 3789,
+     "episodes": 63,
+     "draws": 100,
+     "edge": 0.85,
+     "chance": [
+      -0.6,
+      0.65
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 1912,
+       "start": "2020-09-01",
+       "end": "2022-09-02",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "pc-plus2",
+   "tf": "4h",
+   "label": "High 2% over the open, long",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 6885,
+    "episodes": 375,
+    "draws": 100,
+    "edge": 0.79,
+    "chance": [
+     -0.44,
+     0.57
+    ],
+    "verdict": "fragile",
+    "robustness": {
+     "fragile": true,
+     "strongest": {
+      "deals": 1354,
+      "start": "2020-09-01",
+      "end": "2022-01-01",
+      "without": "chance"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "edge"
+      },
+      {
+       "horizon": 100,
+       "state": "edge"
+      }
+     ]
+    },
+    "path": [
+     0.065,
+     0.159,
+     0.265,
+     0.342,
+     0.375,
+     0.294,
+     0.287,
+     0.341,
+     0.413,
+     0.454,
+     0.53,
+     0.552,
+     0.607,
+     0.639,
+     0.654,
+     0.711,
+     0.738,
+     0.731,
+     0.749,
+     0.789
+    ],
+    "band": [
+     [
+      -0.048,
+      0.052
+     ],
+     [
+      -0.059,
+      0.088
+     ],
+     [
+      -0.087,
+      0.108
+     ],
+     [
+      -0.12,
+      0.149
+     ],
+     [
+      -0.125,
+      0.185
+     ],
+     [
+      -0.124,
+      0.21
+     ],
+     [
+      -0.157,
+      0.225
+     ],
+     [
+      -0.165,
+      0.266
+     ],
+     [
+      -0.196,
+      0.297
+     ],
+     [
+      -0.235,
+      0.324
+     ],
+     [
+      -0.244,
+      0.338
+     ],
+     [
+      -0.249,
+      0.376
+     ],
+     [
+      -0.279,
+      0.392
+     ],
+     [
+      -0.303,
+      0.434
+     ],
+     [
+      -0.317,
+      0.453
+     ],
+     [
+      -0.322,
+      0.477
+     ],
+     [
+      -0.359,
+      0.501
+     ],
+     [
+      -0.369,
+      0.515
+     ],
+     [
+      -0.383,
+      0.586
+     ],
+     [
+      -0.438,
+      0.573
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 1219,
+     "episodes": 170,
+     "draws": 205,
+     "edge": 0.34,
+     "chance": [
+      -0.48,
+      0.47
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 1988,
+     "episodes": 139,
+     "draws": 125,
+     "edge": 0.43,
+     "chance": [
+      -0.56,
+      0.48
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 3678,
+     "episodes": 66,
+     "draws": 100,
+     "edge": 0.91,
+     "chance": [
+      -0.65,
+      0.52
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 1354,
+       "start": "2020-09-01",
+       "end": "2022-01-01",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "pc-minus3",
+   "tf": "4h",
+   "label": "Low 3% under the open, long",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 3628,
+    "episodes": 471,
+    "draws": 100,
+    "edge": 1.02,
+    "chance": [
+     -0.62,
+     0.84
+    ],
+    "verdict": "fragile",
+    "robustness": {
+     "fragile": true,
+     "strongest": {
+      "deals": 202,
+      "start": "2020-12-01",
+      "end": "2021-03-17",
+      "without": "chance"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "edge"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     0.173,
+     0.227,
+     0.284,
+     0.376,
+     0.479,
+     0.711,
+     0.752,
+     0.757,
+     0.757,
+     0.789,
+     0.724,
+     0.794,
+     0.756,
+     0.764,
+     0.797,
+     0.865,
+     0.929,
+     0.996,
+     1.012,
+     1.017
+    ],
+    "band": [
+     [
+      -0.061,
+      0.068
+     ],
+     [
+      -0.077,
+      0.14
+     ],
+     [
+      -0.108,
+      0.166
+     ],
+     [
+      -0.174,
+      0.227
+     ],
+     [
+      -0.182,
+      0.267
+     ],
+     [
+      -0.21,
+      0.313
+     ],
+     [
+      -0.236,
+      0.354
+     ],
+     [
+      -0.272,
+      0.388
+     ],
+     [
+      -0.311,
+      0.423
+     ],
+     [
+      -0.308,
+      0.481
+     ],
+     [
+      -0.333,
+      0.523
+     ],
+     [
+      -0.366,
+      0.547
+     ],
+     [
+      -0.401,
+      0.597
+     ],
+     [
+      -0.381,
+      0.644
+     ],
+     [
+      -0.418,
+      0.686
+     ],
+     [
+      -0.447,
+      0.708
+     ],
+     [
+      -0.451,
+      0.758
+     ],
+     [
+      -0.503,
+      0.802
+     ],
+     [
+      -0.561,
+      0.791
+     ],
+     [
+      -0.622,
+      0.837
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 560,
+     "episodes": 154,
+     "draws": 446,
+     "edge": 0.58,
+     "chance": [
+      -0.72,
+      0.78
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 1017,
+     "episodes": 179,
+     "draws": 245,
+     "edge": 0.42,
+     "chance": [
+      -0.79,
+      0.64
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 2051,
+     "episodes": 138,
+     "draws": 121,
+     "edge": 1.19,
+     "chance": [
+      -0.87,
+      0.91
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 202,
+       "start": "2020-12-01",
+       "end": "2021-03-17",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "pc-plus3",
+   "tf": "4h",
+   "label": "High 3% over the open, long",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 3363,
+    "episodes": 483,
+    "draws": 100,
+    "edge": 1.31,
+    "chance": [
+     -0.61,
+     0.84
+    ],
+    "verdict": "fragile",
+    "robustness": {
+     "fragile": true,
+     "strongest": {
+      "deals": 552,
+      "start": "2020-10-27",
+      "end": "2021-07-09",
+      "without": "chance"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "edge"
+      },
+      {
+       "horizon": 100,
+       "state": "edge"
+      }
+     ]
+    },
+    "path": [
+     0.061,
+     0.197,
+     0.371,
+     0.482,
+     0.56,
+     0.458,
+     0.446,
+     0.584,
+     0.65,
+     0.686,
+     0.822,
+     0.847,
+     0.943,
+     0.979,
+     0.994,
+     1.087,
+     1.197,
+     1.21,
+     1.244,
+     1.309
+    ],
+    "band": [
+     [
+      -0.068,
+      0.091
+     ],
+     [
+      -0.108,
+      0.141
+     ],
+     [
+      -0.127,
+      0.182
+     ],
+     [
+      -0.144,
+      0.261
+     ],
+     [
+      -0.17,
+      0.288
+     ],
+     [
+      -0.222,
+      0.324
+     ],
+     [
+      -0.266,
+      0.358
+     ],
+     [
+      -0.282,
+      0.365
+     ],
+     [
+      -0.304,
+      0.449
+     ],
+     [
+      -0.318,
+      0.461
+     ],
+     [
+      -0.351,
+      0.523
+     ],
+     [
+      -0.35,
+      0.559
+     ],
+     [
+      -0.349,
+      0.61
+     ],
+     [
+      -0.388,
+      0.591
+     ],
+     [
+      -0.447,
+      0.624
+     ],
+     [
+      -0.5,
+      0.648
+     ],
+     [
+      -0.545,
+      0.682
+     ],
+     [
+      -0.58,
+      0.676
+     ],
+     [
+      -0.574,
+      0.781
+     ],
+     [
+      -0.607,
+      0.836
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 467,
+     "episodes": 161,
+     "draws": 500,
+     "edge": 0.48,
+     "chance": [
+      -0.69,
+      0.6
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 877,
+     "episodes": 176,
+     "draws": 285,
+     "edge": 0.91,
+     "chance": [
+      -0.72,
+      0.63
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 98,
+       "start": "2020-12-22",
+       "end": "2021-02-12",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 2019,
+     "episodes": 146,
+     "draws": 123,
+     "edge": 1.41,
+     "chance": [
+      -0.94,
+      0.85
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 552,
+       "start": "2020-10-27",
+       "end": "2021-07-09",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "pc-minus5",
+   "tf": "4h",
+   "label": "Low 5% under the open, long",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 1206,
+    "episodes": 342,
+    "draws": 207,
+    "edge": 1.99,
+    "chance": [
+     -0.96,
+     1.47
+    ],
+    "verdict": "edge",
+    "robustness": {
+     "fragile": false,
+     "strongest": {
+      "deals": 47,
+      "start": "2021-01-02",
+      "end": "2021-01-22",
+      "without": "edge"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "edge"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     0.392,
+     0.435,
+     0.675,
+     0.829,
+     1.016,
+     1.467,
+     1.567,
+     1.585,
+     1.576,
+     1.597,
+     1.51,
+     1.51,
+     1.464,
+     1.56,
+     1.614,
+     1.717,
+     1.874,
+     1.913,
+     1.997,
+     1.99
+    ],
+    "band": [
+     [
+      -0.109,
+      0.128
+     ],
+     [
+      -0.157,
+      0.21
+     ],
+     [
+      -0.23,
+      0.329
+     ],
+     [
+      -0.257,
+      0.406
+     ],
+     [
+      -0.314,
+      0.468
+     ],
+     [
+      -0.339,
+      0.492
+     ],
+     [
+      -0.379,
+      0.587
+     ],
+     [
+      -0.463,
+      0.61
+     ],
+     [
+      -0.527,
+      0.707
+     ],
+     [
+      -0.566,
+      0.783
+     ],
+     [
+      -0.613,
+      0.865
+     ],
+     [
+      -0.687,
+      0.995
+     ],
+     [
+      -0.705,
+      1.009
+     ],
+     [
+      -0.759,
+      1.013
+     ],
+     [
+      -0.767,
+      1.106
+     ],
+     [
+      -0.808,
+      1.136
+     ],
+     [
+      -0.842,
+      1.312
+     ],
+     [
+      -0.904,
+      1.274
+     ],
+     [
+      -0.882,
+      1.353
+     ],
+     [
+      -0.961,
+      1.469
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 151,
+     "episodes": 69,
+     "draws": 500,
+     "edge": 0.87,
+     "chance": [
+      -1.16,
+      1.28
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 307,
+     "episodes": 113,
+     "draws": 500,
+     "edge": 0.58,
+     "chance": [
+      -1.35,
+      1.4
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 748,
+     "episodes": 160,
+     "draws": 334,
+     "edge": 2.52,
+     "chance": [
+      -1.33,
+      1.51
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 47,
+       "start": "2021-01-02",
+       "end": "2021-01-22",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "pc-plus5",
+   "tf": "4h",
+   "label": "High 5% over the open, long",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 1124,
+    "episodes": 308,
+    "draws": 222,
+    "edge": 1.78,
+    "chance": [
+     -0.99,
+     1.5
+    ],
+    "verdict": "edge",
+    "robustness": {
+     "fragile": false,
+     "strongest": {
+      "deals": 63,
+      "start": "2020-12-23",
+      "end": "2021-01-26",
+      "without": "edge"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "edge"
+      },
+      {
+       "horizon": 100,
+       "state": "edge"
+      }
+     ]
+    },
+    "path": [
+     0.163,
+     0.432,
+     0.681,
+     0.844,
+     0.971,
+     0.8,
+     0.685,
+     0.974,
+     1.043,
+     1.169,
+     1.346,
+     1.362,
+     1.572,
+     1.647,
+     1.522,
+     1.64,
+     1.64,
+     1.677,
+     1.764,
+     1.78
+    ],
+    "band": [
+     [
+      -0.109,
+      0.137
+     ],
+     [
+      -0.168,
+      0.241
+     ],
+     [
+      -0.213,
+      0.329
+     ],
+     [
+      -0.263,
+      0.432
+     ],
+     [
+      -0.304,
+      0.473
+     ],
+     [
+      -0.39,
+      0.547
+     ],
+     [
+      -0.446,
+      0.56
+     ],
+     [
+      -0.504,
+      0.655
+     ],
+     [
+      -0.564,
+      0.761
+     ],
+     [
+      -0.605,
+      0.907
+     ],
+     [
+      -0.588,
+      0.946
+     ],
+     [
+      -0.648,
+      1.054
+     ],
+     [
+      -0.67,
+      1.069
+     ],
+     [
+      -0.74,
+      1.134
+     ],
+     [
+      -0.79,
+      1.256
+     ],
+     [
+      -0.839,
+      1.303
+     ],
+     [
+      -0.869,
+      1.322
+     ],
+     [
+      -0.91,
+      1.371
+     ],
+     [
+      -0.964,
+      1.452
+     ],
+     [
+      -0.992,
+      1.501
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 103,
+     "episodes": 60,
+     "draws": 500,
+     "edge": -0.13,
+     "chance": [
+      -1.05,
+      1.13
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 240,
+     "episodes": 102,
+     "draws": 500,
+     "edge": 0.91,
+     "chance": [
+      -1.14,
+      1.2
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 781,
+     "episodes": 146,
+     "draws": 320,
+     "edge": 1.99,
+     "chance": [
+      -1.44,
+      1.58
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 49,
+       "start": "2021-01-30",
+       "end": "2021-03-01",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "pc-minus2",
+   "tf": "1d",
+   "label": "Low 2% under the open, long",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 3398,
+    "episodes": 6,
+    "draws": 100,
+    "edge": 1.16,
+    "chance": [
+     -0.69,
+     1.6
+    ],
+    "verdict": "few",
+    "path": [
+     0.05,
+     0.147,
+     0.074,
+     0.161,
+     0.242,
+     0.205,
+     0.273,
+     0.442,
+     0.447,
+     0.521,
+     0.566,
+     0.556,
+     0.585,
+     0.725,
+     0.75,
+     0.783,
+     0.825,
+     0.958,
+     1.043,
+     1.164
+    ],
+    "band": [
+     [
+      -0.097,
+      0.127
+     ],
+     [
+      -0.127,
+      0.197
+     ],
+     [
+      -0.144,
+      0.263
+     ],
+     [
+      -0.208,
+      0.324
+     ],
+     [
+      -0.225,
+      0.374
+     ],
+     [
+      -0.248,
+      0.446
+     ],
+     [
+      -0.264,
+      0.529
+     ],
+     [
+      -0.29,
+      0.617
+     ],
+     [
+      -0.326,
+      0.733
+     ],
+     [
+      -0.374,
+      0.727
+     ],
+     [
+      -0.429,
+      0.804
+     ],
+     [
+      -0.437,
+      0.891
+     ],
+     [
+      -0.462,
+      0.97
+     ],
+     [
+      -0.487,
+      1.063
+     ],
+     [
+      -0.575,
+      1.187
+     ],
+     [
+      -0.58,
+      1.265
+     ],
+     [
+      -0.614,
+      1.332
+     ],
+     [
+      -0.66,
+      1.401
+     ],
+     [
+      -0.741,
+      1.495
+     ],
+     [
+      -0.689,
+      1.597
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 859,
+     "episodes": 4,
+     "draws": 291,
+     "edge": 0.18,
+     "chance": [
+      -1.33,
+      1.29
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 1113,
+     "episodes": 1,
+     "draws": 224,
+     "edge": 0.75,
+     "chance": [
+      -1.32,
+      1.07
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 1426,
+     "episodes": 1,
+     "draws": 175,
+     "edge": 1.07,
+     "chance": [
+      -1.64,
+      1.67
+     ],
+     "verdict": "few"
+    }
+   }
+  },
+  {
+   "id": "pc-plus2",
+   "tf": "1d",
+   "label": "High 2% over the open, long",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 3380,
+    "episodes": 6,
+    "draws": 100,
+    "edge": 1.06,
+    "chance": [
+     -0.9,
+     1.55
+    ],
+    "verdict": "few",
+    "path": [
+     0.07,
+     0.123,
+     0.19,
+     0.281,
+     0.233,
+     0.276,
+     0.351,
+     0.318,
+     0.302,
+     0.455,
+     0.469,
+     0.474,
+     0.566,
+     0.584,
+     0.716,
+     0.785,
+     0.89,
+     0.875,
+     0.992,
+     1.059
+    ],
+    "band": [
+     [
+      -0.096,
+      0.122
+     ],
+     [
+      -0.091,
+      0.214
+     ],
+     [
+      -0.154,
+      0.258
+     ],
+     [
+      -0.16,
+      0.36
+     ],
+     [
+      -0.222,
+      0.459
+     ],
+     [
+      -0.262,
+      0.533
+     ],
+     [
+      -0.248,
+      0.583
+     ],
+     [
+      -0.319,
+      0.692
+     ],
+     [
+      -0.353,
+      0.763
+     ],
+     [
+      -0.418,
+      0.871
+     ],
+     [
+      -0.497,
+      0.996
+     ],
+     [
+      -0.525,
+      1.076
+     ],
+     [
+      -0.578,
+      1.143
+     ],
+     [
+      -0.651,
+      1.139
+     ],
+     [
+      -0.653,
+      1.204
+     ],
+     [
+      -0.662,
+      1.275
+     ],
+     [
+      -0.708,
+      1.385
+     ],
+     [
+      -0.767,
+      1.402
+     ],
+     [
+      -0.771,
+      1.47
+     ],
+     [
+      -0.899,
+      1.546
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 851,
+     "episodes": 4,
+     "draws": 293,
+     "edge": -0.07,
+     "chance": [
+      -1.12,
+      1.21
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 1114,
+     "episodes": 1,
+     "draws": 224,
+     "edge": 0.24,
+     "chance": [
+      -1.26,
+      1.21
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 1415,
+     "episodes": 1,
+     "draws": 176,
+     "edge": 1.38,
+     "chance": [
+      -2.15,
+      1.62
+     ],
+     "verdict": "few"
+    }
+   }
+  },
+  {
+   "id": "pc-minus3",
+   "tf": "1d",
+   "label": "Low 3% under the open, long",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 2389,
+    "episodes": 22,
+    "draws": 104,
+    "edge": 2,
+    "chance": [
+     -0.96,
+     2.33
+    ],
+    "verdict": "few",
+    "path": [
+     0.161,
+     0.324,
+     0.298,
+     0.476,
+     0.643,
+     0.616,
+     0.732,
+     1.014,
+     1.167,
+     1.151,
+     1.177,
+     1.27,
+     1.368,
+     1.474,
+     1.5,
+     1.579,
+     1.672,
+     1.839,
+     1.915,
+     2.001
+    ],
+    "band": [
+     [
+      -0.128,
+      0.176
+     ],
+     [
+      -0.181,
+      0.261
+     ],
+     [
+      -0.24,
+      0.353
+     ],
+     [
+      -0.329,
+      0.493
+     ],
+     [
+      -0.356,
+      0.609
+     ],
+     [
+      -0.391,
+      0.762
+     ],
+     [
+      -0.467,
+      0.868
+     ],
+     [
+      -0.504,
+      0.916
+     ],
+     [
+      -0.492,
+      1.028
+     ],
+     [
+      -0.535,
+      1.189
+     ],
+     [
+      -0.585,
+      1.32
+     ],
+     [
+      -0.65,
+      1.442
+     ],
+     [
+      -0.725,
+      1.541
+     ],
+     [
+      -0.729,
+      1.596
+     ],
+     [
+      -0.832,
+      1.719
+     ],
+     [
+      -0.871,
+      1.868
+     ],
+     [
+      -0.879,
+      1.98
+     ],
+     [
+      -0.942,
+      2.072
+     ],
+     [
+      -0.912,
+      2.18
+     ],
+     [
+      -0.964,
+      2.329
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 530,
+     "episodes": 15,
+     "draws": 471,
+     "edge": 0.75,
+     "chance": [
+      -1.93,
+      1.95
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 778,
+     "episodes": 5,
+     "draws": 321,
+     "edge": 1.02,
+     "chance": [
+      -1.86,
+      1.68
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 1081,
+     "episodes": 2,
+     "draws": 231,
+     "edge": 2.03,
+     "chance": [
+      -2.24,
+      2.36
+     ],
+     "verdict": "few"
+    }
+   }
+  },
+  {
+   "id": "pc-plus3",
+   "tf": "1d",
+   "label": "High 3% over the open, long",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 2369,
+    "episodes": 13,
+    "draws": 105,
+    "edge": 2.39,
+    "chance": [
+     -1.3,
+     2.43
+    ],
+    "verdict": "few",
+    "path": [
+     0.157,
+     0.218,
+     0.324,
+     0.367,
+     0.4,
+     0.575,
+     0.775,
+     0.806,
+     0.777,
+     1.057,
+     1.088,
+     1.176,
+     1.332,
+     1.401,
+     1.695,
+     1.87,
+     2.048,
+     2.059,
+     2.205,
+     2.387
+    ],
+    "band": [
+     [
+      -0.136,
+      0.181
+     ],
+     [
+      -0.205,
+      0.28
+     ],
+     [
+      -0.222,
+      0.331
+     ],
+     [
+      -0.289,
+      0.452
+     ],
+     [
+      -0.384,
+      0.61
+     ],
+     [
+      -0.439,
+      0.659
+     ],
+     [
+      -0.432,
+      0.748
+     ],
+     [
+      -0.495,
+      0.882
+     ],
+     [
+      -0.555,
+      1.064
+     ],
+     [
+      -0.707,
+      1.305
+     ],
+     [
+      -0.79,
+      1.419
+     ],
+     [
+      -0.875,
+      1.522
+     ],
+     [
+      -0.92,
+      1.663
+     ],
+     [
+      -1.036,
+      1.745
+     ],
+     [
+      -1.049,
+      1.84
+     ],
+     [
+      -1.107,
+      2.006
+     ],
+     [
+      -1.155,
+      2.092
+     ],
+     [
+      -1.334,
+      2.188
+     ],
+     [
+      -1.304,
+      2.354
+     ],
+     [
+      -1.302,
+      2.426
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 511,
+     "episodes": 10,
+     "draws": 489,
+     "edge": 0.73,
+     "chance": [
+      -2.03,
+      1.81
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 752,
+     "episodes": 2,
+     "draws": 332,
+     "edge": 0.98,
+     "chance": [
+      -2.08,
+      1.56
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 1106,
+     "episodes": 1,
+     "draws": 226,
+     "edge": 2.71,
+     "chance": [
+      -2.64,
+      2.27
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": null,
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "pc-minus5",
+   "tf": "1d",
+   "label": "Low 5% under the open, long",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 1241,
+    "episodes": 64,
+    "draws": 201,
+    "edge": 2.52,
+    "chance": [
+     -2.08,
+     4.16
+    ],
+    "verdict": "none",
+    "path": [
+     0.304,
+     0.634,
+     0.6,
+     0.745,
+     1.012,
+     0.926,
+     0.768,
+     1.266,
+     1.547,
+     1.323,
+     1.461,
+     1.698,
+     1.535,
+     1.83,
+     1.906,
+     2.09,
+     2.18,
+     2.381,
+     2.433,
+     2.519
+    ],
+    "band": [
+     [
+      -0.197,
+      0.31
+     ],
+     [
+      -0.278,
+      0.424
+     ],
+     [
+      -0.37,
+      0.687
+     ],
+     [
+      -0.475,
+      0.736
+     ],
+     [
+      -0.535,
+      0.962
+     ],
+     [
+      -0.618,
+      1.19
+     ],
+     [
+      -0.787,
+      1.471
+     ],
+     [
+      -0.849,
+      1.654
+     ],
+     [
+      -0.911,
+      1.946
+     ],
+     [
+      -1.001,
+      2.194
+     ],
+     [
+      -1.142,
+      2.216
+     ],
+     [
+      -1.268,
+      2.453
+     ],
+     [
+      -1.393,
+      2.577
+     ],
+     [
+      -1.594,
+      2.816
+     ],
+     [
+      -1.561,
+      3.019
+     ],
+     [
+      -1.629,
+      3.485
+     ],
+     [
+      -1.767,
+      3.747
+     ],
+     [
+      -1.984,
+      3.879
+     ],
+     [
+      -1.957,
+      4.016
+     ],
+     [
+      -2.077,
+      4.158
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 214,
+     "episodes": 28,
+     "draws": 500,
+     "edge": 0.67,
+     "chance": [
+      -3.13,
+      3.36
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 379,
+     "episodes": 26,
+     "draws": 500,
+     "edge": 0.98,
+     "chance": [
+      -3.06,
+      2.75
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 648,
+     "episodes": 10,
+     "draws": 385,
+     "edge": 2.27,
+     "chance": [
+      -4.38,
+      4.25
+     ],
+     "verdict": "few"
+    }
+   }
+  },
+  {
+   "id": "pc-plus5",
+   "tf": "1d",
+   "label": "High 5% over the open, long",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 1229,
+    "episodes": 53,
+    "draws": 203,
+    "edge": 4.91,
+    "chance": [
+     -2.08,
+     4.52
+    ],
+    "verdict": "fragile",
+    "robustness": {
+     "fragile": true,
+     "strongest": {
+      "deals": 337,
+      "start": "2020-09-03",
+      "end": "2022-09-26",
+      "without": "chance"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "chance"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     0.205,
+     0.309,
+     0.621,
+     0.714,
+     0.946,
+     1.498,
+     1.823,
+     1.894,
+     1.974,
+     2.491,
+     2.648,
+     2.89,
+     3.237,
+     3.546,
+     4.034,
+     4.385,
+     4.6,
+     4.52,
+     4.728,
+     4.913
+    ],
+    "band": [
+     [
+      -0.194,
+      0.322
+     ],
+     [
+      -0.322,
+      0.493
+     ],
+     [
+      -0.44,
+      0.678
+     ],
+     [
+      -0.537,
+      0.913
+     ],
+     [
+      -0.689,
+      1.16
+     ],
+     [
+      -0.792,
+      1.321
+     ],
+     [
+      -0.94,
+      1.608
+     ],
+     [
+      -1.065,
+      1.872
+     ],
+     [
+      -1.139,
+      2.052
+     ],
+     [
+      -1.214,
+      2.337
+     ],
+     [
+      -1.33,
+      2.578
+     ],
+     [
+      -1.396,
+      2.846
+     ],
+     [
+      -1.387,
+      3.038
+     ],
+     [
+      -1.407,
+      3.138
+     ],
+     [
+      -1.507,
+      3.239
+     ],
+     [
+      -1.637,
+      3.311
+     ],
+     [
+      -1.675,
+      3.655
+     ],
+     [
+      -1.805,
+      3.866
+     ],
+     [
+      -1.908,
+      4.111
+     ],
+     [
+      -2.082,
+      4.523
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 220,
+     "episodes": 28,
+     "draws": 500,
+     "edge": 1.92,
+     "chance": [
+      -2.8,
+      2.52
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 342,
+     "episodes": 19,
+     "draws": 500,
+     "edge": 1.46,
+     "chance": [
+      -2.67,
+      2.52
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 667,
+     "episodes": 6,
+     "draws": 374,
+     "edge": 5.82,
+     "chance": [
+      -4.17,
+      4.26
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 337,
+       "start": "2020-09-03",
+       "end": "2022-09-26",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   }
+  }
+ ],
+ "summary": "Not as a signal for direction. On 1h, long entries beat random ones after 20 candles both when the low reached 2% under the open (by 0.75%) and when the high reached 2% over it (by 0.79%). That shows price moving more after volatile hours, in a window that rose, rather than a choice of direction. On 4h the 2% settings fall back to chance without one long SOL stretch, and on daily they have too few separate moves to judge.",
+ "verdicts": [
+  {
+   "use": "Low 2% under the open, long, 1h",
+   "verdict": "edge",
+   "text": "Beat random entries by 0.75% after 20 candles and held at 10, 20, 50 and 100 candles. A 2% spike did the same, so read this as price moving more after volatile hours in a window that rose, not as a dip-buying edge."
+  },
+  {
+   "use": "High 2% over the open, long, 1h",
+   "verdict": "edge",
+   "text": "Beat random entries by 0.79% after 20 candles, almost the same as the dip. The setting picks out volatile hours, not direction."
+  },
+  {
+   "use": "2% and 3% moves, long, 4h",
+   "verdict": "fragile",
+   "text": "These finished above the luck band, but each falls back to chance once its strongest stretch is left out. On BTC alone, none of them beat random."
+  },
+  {
+   "use": "5% moves, long, 4h",
+   "verdict": "edge",
+   "text": "Beat random by 1.99% after a 5% dip and by 1.78% after a 5% spike, and SOL carries the whole gap. On BTC and ETH, both settings stayed inside the luck band."
+  },
+  {
+   "use": "2% and 3% moves, long, daily",
+   "verdict": "few",
+   "text": "Too few separate moves to judge: 6 to 22, under the 30 needed."
+  }
+ ],
+ "notes": [
+  "On 1h, a candle whose low reached 2% under the open gave 7,844 entries in 1,608 separate moves. Twenty candles later, price was 0.75% ahead of random entries, above a luck band that tops out at 0.32%. A high 2% over the open gave 7,125 entries and beat random by 0.79%. Dips and spikes both came out ahead, which means the setting picks out volatile hours in a window that rose, not a direction: the random copies keep the timing of the signals but not the volatility around them.",
+  "A larger threshold thins the signals and widens the gap: on 1h, a low 5% under the open gave 763 entries against 7,844 for the 2% setting, and beat random by 2.32%. The 3% dip sits between them at 1.41%, and each holds without its strongest stretch and at 10, 20, 50 and 100 candles. On BTC alone, the 5% spike shows at 20 candles only, from 45 entries.",
+  "On 4h, the 2% settings rest on one SOL stretch. A low 2% under the open beat random by 0.66%, but 1,912 of its entries fall between Sep 1, 2020 and Sep 2, 2022, and without them the result is chance. The 2% spike leans the same way on 1,354 entries between Sep 1, 2020 and Jan 1, 2022, and on BTC and ETH neither 2% setting left the luck band. The 3% dip also returns to chance without 202 entries between Dec 1, 2020 and Mar 17, 2021.",
+  "On 4h, the 5% moves keep their lead without their strongest stretch: 1.99% after a dip and 1.78% after a spike. SOL supplies the gap, at 2.52% and 1.99%. On BTC and ETH, both settings stayed inside the luck band, and BTC after a 5% spike sat at -0.13%.",
+  "On daily, the 2% and 3% settings fire on so many days in a row that they form only 6 to 22 separate moves, under the 30 needed to judge. A 5% dip landed inside the luck band. A 5% spike beat random by 4.91%, but only at 10 and 20 candles, and it is chance without 337 entries between Sep 3, 2020 and Sep 26, 2022.",
+  "Treat price change as a marker of volatility, not a call on direction. On 1h, a 2% move either way marked hours after which price travelled further, so it can sit beside a long DCA bot's other conditions when its take profit and DCA steps are sized for wider swings. The result comes from a window that rose overall and says nothing about direction, so it gives a long bot no protection when your pair trends down. On 4h and daily, the 2% and 3% settings add nothing you can count on, which is a reason to leave them out."
+ ],
+ "summaryRefs": [
+  {
+   "tf": "1h",
+   "setting": "pc-minus2",
+   "scope": "pooled"
+  },
+  {
+   "tf": "1h",
+   "setting": "pc-plus2",
+   "scope": "pooled"
+  },
+  {
+   "tf": "4h",
+   "setting": "pc-minus2",
+   "scope": "pooled"
+  },
+  {
+   "tf": "4h",
+   "setting": "pc-plus2",
+   "scope": "pooled"
+  },
+  {
+   "tf": "4h",
+   "setting": "pc-minus2",
+   "scope": "SOL"
+  },
+  {
+   "tf": "4h",
+   "setting": "pc-plus2",
+   "scope": "SOL"
+  },
+  {
+   "tf": "1d",
+   "setting": "pc-minus2",
+   "scope": "pooled"
+  },
+  {
+   "tf": "1d",
+   "setting": "pc-plus2",
+   "scope": "pooled"
+  }
+ ],
+ "verdictRefs": [
+  [
+   {
+    "tf": "1h",
+    "setting": "pc-minus2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "pc-plus2",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "pc-plus2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "pc-minus2",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "4h",
+    "setting": "pc-minus2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-plus2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-minus3",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-plus3",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-minus2",
+    "scope": "BTC"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-plus2",
+    "scope": "BTC"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-minus3",
+    "scope": "BTC"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-plus3",
+    "scope": "BTC"
+   }
+  ],
+  [
+   {
+    "tf": "4h",
+    "setting": "pc-minus5",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-plus5",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-minus5",
+    "scope": "SOL"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-plus5",
+    "scope": "SOL"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-minus5",
+    "scope": "BTC"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-plus5",
+    "scope": "BTC"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-minus5",
+    "scope": "ETH"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-plus5",
+    "scope": "ETH"
+   }
+  ],
+  [
+   {
+    "tf": "1d",
+    "setting": "pc-minus2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "pc-plus2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "pc-minus3",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "pc-plus3",
+    "scope": "pooled"
+   }
+  ]
+ ],
+ "noteRefs": [
+  [
+   {
+    "tf": "1h",
+    "setting": "pc-minus2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "pc-plus2",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "pc-minus2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "pc-minus3",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "pc-minus5",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "pc-plus5",
+    "scope": "BTC"
+   }
+  ],
+  [
+   {
+    "tf": "4h",
+    "setting": "pc-minus2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-minus2",
+    "scope": "SOL"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-minus2",
+    "scope": "BTC"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-minus2",
+    "scope": "ETH"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-plus2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-plus2",
+    "scope": "SOL"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-plus2",
+    "scope": "BTC"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-plus2",
+    "scope": "ETH"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-minus3",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "4h",
+    "setting": "pc-minus5",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-plus5",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-minus5",
+    "scope": "SOL"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-plus5",
+    "scope": "SOL"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-minus5",
+    "scope": "BTC"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-plus5",
+    "scope": "BTC"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-minus5",
+    "scope": "ETH"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-plus5",
+    "scope": "ETH"
+   }
+  ],
+  [
+   {
+    "tf": "1d",
+    "setting": "pc-minus2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "pc-plus2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "pc-minus3",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "pc-plus3",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "pc-minus5",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "pc-plus5",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "pc-minus2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "pc-plus2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-minus2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-plus2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-minus3",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "pc-plus3",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "pc-minus2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "pc-plus2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "pc-minus3",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "pc-plus3",
+    "scope": "pooled"
+   }
+  ]
+ ]
+}

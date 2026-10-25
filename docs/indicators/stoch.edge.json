@@ -1,0 +1,2782 @@
+{
+ "indicator": "stoch",
+ "defaultTf": "1h",
+ "method": {
+  "horizon": 20,
+  "horizons": [
+   10,
+   20,
+   50,
+   100
+  ],
+  "randomDraws": 500,
+  "minEpisodes": 30,
+  "source": "Binance spot",
+  "pairs": [
+   "BTC/USDT",
+   "ETH/USDT",
+   "SOL/USDT"
+  ],
+  "from": "2020-09-01",
+  "warmupFrom": "2020-06-01",
+  "to": "2026-10-24",
+  "engine": {
+   "indicators": "56f63e97",
+   "analysisMath": "cab0ed99"
+  }
+ },
+ "updatedAt": "2026-10-25",
+ "settings": [
+  {
+   "id": "stoch-kd-up-lower",
+   "tf": "1h",
+   "label": "Stoch(14,1,3) %K crosses up %D below 20",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 3093,
+    "episodes": 1668,
+    "draws": 100,
+    "edge": 0,
+    "chance": [
+     -0.13,
+     0.17
+    ],
+    "verdict": "none",
+    "path": [
+     0.007,
+     -0.015,
+     0.007,
+     0.01,
+     -0.024,
+     -0.047,
+     -0.078,
+     -0.085,
+     -0.081,
+     -0.117,
+     -0.127,
+     -0.121,
+     -0.122,
+     -0.102,
+     -0.072,
+     -0.088,
+     -0.054,
+     -0.031,
+     -0.01,
+     0.001
+    ],
+    "band": [
+     [
+      -0.034,
+      0.032
+     ],
+     [
+      -0.044,
+      0.048
+     ],
+     [
+      -0.064,
+      0.064
+     ],
+     [
+      -0.067,
+      0.076
+     ],
+     [
+      -0.072,
+      0.091
+     ],
+     [
+      -0.084,
+      0.09
+     ],
+     [
+      -0.094,
+      0.111
+     ],
+     [
+      -0.095,
+      0.108
+     ],
+     [
+      -0.111,
+      0.123
+     ],
+     [
+      -0.105,
+      0.127
+     ],
+     [
+      -0.109,
+      0.131
+     ],
+     [
+      -0.117,
+      0.145
+     ],
+     [
+      -0.113,
+      0.151
+     ],
+     [
+      -0.116,
+      0.151
+     ],
+     [
+      -0.116,
+      0.16
+     ],
+     [
+      -0.129,
+      0.178
+     ],
+     [
+      -0.134,
+      0.177
+     ],
+     [
+      -0.133,
+      0.18
+     ],
+     [
+      -0.134,
+      0.166
+     ],
+     [
+      -0.132,
+      0.169
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 958,
+     "episodes": 513,
+     "draws": 260,
+     "edge": -0.15,
+     "chance": [
+      -0.17,
+      0.18
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 876,
+     "episodes": 508,
+     "draws": 285,
+     "edge": -0.01,
+     "chance": [
+      -0.21,
+      0.25
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 1259,
+     "episodes": 647,
+     "draws": 198,
+     "edge": 0.1,
+     "chance": [
+      -0.29,
+      0.3
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "stoch-kd-down-upper",
+   "tf": "1h",
+   "label": "Stoch(14,1,3) %K crosses down %D above 80",
+   "side": "short",
+   "featured": true,
+   "pooled": {
+    "entries": 4668,
+    "episodes": 2122,
+    "draws": 100,
+    "edge": -0.07,
+    "chance": [
+     -0.17,
+     0.15
+    ],
+    "verdict": "none",
+    "path": [
+     -0.001,
+     -0.019,
+     -0.009,
+     -0.02,
+     -0.042,
+     -0.035,
+     -0.05,
+     -0.034,
+     -0.047,
+     -0.054,
+     -0.063,
+     -0.1,
+     -0.065,
+     -0.088,
+     -0.084,
+     -0.102,
+     -0.101,
+     -0.099,
+     -0.071,
+     -0.066
+    ],
+    "band": [
+     [
+      -0.024,
+      0.026
+     ],
+     [
+      -0.037,
+      0.036
+     ],
+     [
+      -0.041,
+      0.049
+     ],
+     [
+      -0.061,
+      0.055
+     ],
+     [
+      -0.076,
+      0.07
+     ],
+     [
+      -0.083,
+      0.079
+     ],
+     [
+      -0.087,
+      0.082
+     ],
+     [
+      -0.101,
+      0.085
+     ],
+     [
+      -0.105,
+      0.098
+     ],
+     [
+      -0.124,
+      0.1
+     ],
+     [
+      -0.139,
+      0.098
+     ],
+     [
+      -0.126,
+      0.099
+     ],
+     [
+      -0.131,
+      0.113
+     ],
+     [
+      -0.147,
+      0.105
+     ],
+     [
+      -0.152,
+      0.11
+     ],
+     [
+      -0.15,
+      0.137
+     ],
+     [
+      -0.172,
+      0.133
+     ],
+     [
+      -0.167,
+      0.127
+     ],
+     [
+      -0.16,
+      0.131
+     ],
+     [
+      -0.172,
+      0.147
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 1523,
+     "episodes": 710,
+     "draws": 164,
+     "edge": -0.05,
+     "chance": [
+      -0.15,
+      0.12
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 1600,
+     "episodes": 702,
+     "draws": 156,
+     "edge": -0.14,
+     "chance": [
+      -0.21,
+      0.17
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 1545,
+     "episodes": 710,
+     "draws": 161,
+     "edge": 0,
+     "chance": [
+      -0.35,
+      0.26
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "stoch-k-lt20",
+   "tf": "1h",
+   "label": "Stoch(14,1,3) %K below 20",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 24641,
+    "episodes": 2641,
+    "draws": 100,
+    "edge": 0.03,
+    "chance": [
+     -0.07,
+     0.13
+    ],
+    "verdict": "none",
+    "path": [
+     0.009,
+     0.02,
+     0.012,
+     0.015,
+     0.014,
+     0.007,
+     -0.004,
+     -0.018,
+     -0.03,
+     -0.038,
+     -0.041,
+     -0.04,
+     -0.044,
+     -0.043,
+     -0.041,
+     -0.035,
+     -0.023,
+     -0.005,
+     0.013,
+     0.029
+    ],
+    "band": [
+     [
+      -0.01,
+      0.009
+     ],
+     [
+      -0.016,
+      0.02
+     ],
+     [
+      -0.021,
+      0.027
+     ],
+     [
+      -0.024,
+      0.035
+     ],
+     [
+      -0.032,
+      0.044
+     ],
+     [
+      -0.036,
+      0.048
+     ],
+     [
+      -0.042,
+      0.052
+     ],
+     [
+      -0.045,
+      0.062
+     ],
+     [
+      -0.053,
+      0.068
+     ],
+     [
+      -0.056,
+      0.077
+     ],
+     [
+      -0.057,
+      0.086
+     ],
+     [
+      -0.058,
+      0.089
+     ],
+     [
+      -0.059,
+      0.09
+     ],
+     [
+      -0.059,
+      0.098
+     ],
+     [
+      -0.062,
+      0.105
+     ],
+     [
+      -0.063,
+      0.112
+     ],
+     [
+      -0.066,
+      0.119
+     ],
+     [
+      -0.066,
+      0.122
+     ],
+     [
+      -0.068,
+      0.129
+     ],
+     [
+      -0.07,
+      0.128
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 7803,
+     "episodes": 894,
+     "draws": 100,
+     "edge": -0.01,
+     "chance": [
+      -0.08,
+      0.11
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 7444,
+     "episodes": 917,
+     "draws": 100,
+     "edge": -0.03,
+     "chance": [
+      -0.11,
+      0.11
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 9394,
+     "episodes": 830,
+     "draws": 100,
+     "edge": 0.09,
+     "chance": [
+      -0.13,
+      0.18
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "stoch-k-up20",
+   "tf": "1h",
+   "label": "Stoch(14,1,3) %K crosses up 20",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 10347,
+    "episodes": 2888,
+    "draws": 100,
+    "edge": 0,
+    "chance": [
+     -0.06,
+     0.11
+    ],
+    "verdict": "none",
+    "path": [
+     -0.001,
+     -0.014,
+     0.004,
+     -0.011,
+     -0.012,
+     -0.025,
+     -0.03,
+     -0.04,
+     -0.047,
+     -0.043,
+     -0.036,
+     -0.04,
+     -0.03,
+     -0.019,
+     -0.025,
+     -0.017,
+     0.003,
+     0.012,
+     0.017,
+     0.004
+    ],
+    "band": [
+     [
+      -0.016,
+      0.017
+     ],
+     [
+      -0.022,
+      0.026
+     ],
+     [
+      -0.029,
+      0.032
+     ],
+     [
+      -0.029,
+      0.034
+     ],
+     [
+      -0.031,
+      0.039
+     ],
+     [
+      -0.041,
+      0.047
+     ],
+     [
+      -0.035,
+      0.05
+     ],
+     [
+      -0.04,
+      0.056
+     ],
+     [
+      -0.038,
+      0.058
+     ],
+     [
+      -0.042,
+      0.067
+     ],
+     [
+      -0.044,
+      0.068
+     ],
+     [
+      -0.044,
+      0.071
+     ],
+     [
+      -0.048,
+      0.072
+     ],
+     [
+      -0.048,
+      0.084
+     ],
+     [
+      -0.048,
+      0.082
+     ],
+     [
+      -0.061,
+      0.094
+     ],
+     [
+      -0.059,
+      0.093
+     ],
+     [
+      -0.068,
+      0.091
+     ],
+     [
+      -0.063,
+      0.092
+     ],
+     [
+      -0.058,
+      0.105
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 3324,
+     "episodes": 965,
+     "draws": 100,
+     "edge": 0,
+     "chance": [
+      -0.06,
+      0.08
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 3287,
+     "episodes": 980,
+     "draws": 100,
+     "edge": 0.03,
+     "chance": [
+      -0.09,
+      0.11
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 3736,
+     "episodes": 943,
+     "draws": 100,
+     "edge": -0.03,
+     "chance": [
+      -0.12,
+      0.16
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "stoch-k-gt80",
+   "tf": "1h",
+   "label": "Stoch(14,1,3) %K above 80",
+   "side": "short",
+   "featured": false,
+   "pooled": {
+    "entries": 31691,
+    "episodes": 2457,
+    "draws": 100,
+    "edge": -0.03,
+    "chance": [
+     -0.11,
+     0.1
+    ],
+    "verdict": "none",
+    "path": [
+     -0.001,
+     -0.004,
+     -0.009,
+     -0.015,
+     -0.018,
+     -0.02,
+     -0.025,
+     -0.027,
+     -0.03,
+     -0.032,
+     -0.032,
+     -0.033,
+     -0.039,
+     -0.039,
+     -0.036,
+     -0.046,
+     -0.042,
+     -0.043,
+     -0.038,
+     -0.028
+    ],
+    "band": [
+     [
+      -0.01,
+      0.008
+     ],
+     [
+      -0.015,
+      0.016
+     ],
+     [
+      -0.024,
+      0.025
+     ],
+     [
+      -0.034,
+      0.031
+     ],
+     [
+      -0.04,
+      0.036
+     ],
+     [
+      -0.044,
+      0.041
+     ],
+     [
+      -0.049,
+      0.049
+     ],
+     [
+      -0.052,
+      0.055
+     ],
+     [
+      -0.058,
+      0.057
+     ],
+     [
+      -0.062,
+      0.057
+     ],
+     [
+      -0.066,
+      0.071
+     ],
+     [
+      -0.069,
+      0.075
+     ],
+     [
+      -0.076,
+      0.081
+     ],
+     [
+      -0.082,
+      0.081
+     ],
+     [
+      -0.089,
+      0.082
+     ],
+     [
+      -0.088,
+      0.089
+     ],
+     [
+      -0.096,
+      0.095
+     ],
+     [
+      -0.104,
+      0.099
+     ],
+     [
+      -0.109,
+      0.093
+     ],
+     [
+      -0.112,
+      0.096
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 10515,
+     "episodes": 814,
+     "draws": 100,
+     "edge": -0.04,
+     "chance": [
+      -0.08,
+      0.09
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 10689,
+     "episodes": 819,
+     "draws": 100,
+     "edge": -0.05,
+     "chance": [
+      -0.12,
+      0.1
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 10487,
+     "episodes": 824,
+     "draws": 100,
+     "edge": 0.01,
+     "chance": [
+      -0.17,
+      0.15
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "stoch-kd-up-lower",
+   "tf": "4h",
+   "label": "Stoch(14,1,3) %K crosses up %D below 20",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 810,
+    "episodes": 441,
+    "draws": 308,
+    "edge": -0.42,
+    "chance": [
+     -0.72,
+     0.89
+    ],
+    "verdict": "none",
+    "path": [
+     -0.03,
+     -0.13,
+     -0.092,
+     -0.064,
+     -0.085,
+     -0.06,
+     -0.094,
+     -0.257,
+     -0.273,
+     -0.408,
+     -0.312,
+     -0.308,
+     -0.436,
+     -0.441,
+     -0.259,
+     -0.318,
+     -0.328,
+     -0.282,
+     -0.182,
+     -0.423
+    ],
+    "band": [
+     [
+      -0.119,
+      0.123
+     ],
+     [
+      -0.197,
+      0.193
+     ],
+     [
+      -0.221,
+      0.254
+     ],
+     [
+      -0.276,
+      0.268
+     ],
+     [
+      -0.308,
+      0.326
+     ],
+     [
+      -0.365,
+      0.349
+     ],
+     [
+      -0.377,
+      0.388
+     ],
+     [
+      -0.399,
+      0.464
+     ],
+     [
+      -0.416,
+      0.517
+     ],
+     [
+      -0.482,
+      0.527
+     ],
+     [
+      -0.51,
+      0.53
+     ],
+     [
+      -0.52,
+      0.58
+     ],
+     [
+      -0.574,
+      0.615
+     ],
+     [
+      -0.56,
+      0.669
+     ],
+     [
+      -0.595,
+      0.693
+     ],
+     [
+      -0.651,
+      0.711
+     ],
+     [
+      -0.663,
+      0.736
+     ],
+     [
+      -0.637,
+      0.752
+     ],
+     [
+      -0.688,
+      0.836
+     ],
+     [
+      -0.72,
+      0.887
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 255,
+     "episodes": 142,
+     "draws": 500,
+     "edge": 0.15,
+     "chance": [
+      -0.63,
+      0.72
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 246,
+     "episodes": 138,
+     "draws": 500,
+     "edge": -1.44,
+     "chance": [
+      -1.06,
+      1.14
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 5,
+       "start": "2022-06-11",
+       "end": "2022-06-13",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 309,
+     "episodes": 161,
+     "draws": 500,
+     "edge": -0.16,
+     "chance": [
+      -1.07,
+      1.33
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "stoch-kd-down-upper",
+   "tf": "4h",
+   "label": "Stoch(14,1,3) %K crosses down %D above 80",
+   "side": "short",
+   "featured": true,
+   "pooled": {
+    "entries": 1350,
+    "episodes": 579,
+    "draws": 185,
+    "edge": -0.33,
+    "chance": [
+     -0.48,
+     0.55
+    ],
+    "verdict": "none",
+    "path": [
+     -0.016,
+     -0.032,
+     -0.065,
+     -0.063,
+     0.067,
+     -0.04,
+     -0.186,
+     -0.163,
+     -0.137,
+     -0.156,
+     -0.282,
+     -0.246,
+     -0.203,
+     -0.253,
+     -0.254,
+     -0.208,
+     -0.245,
+     -0.3,
+     -0.327,
+     -0.331
+    ],
+    "band": [
+     [
+      -0.104,
+      0.095
+     ],
+     [
+      -0.135,
+      0.146
+     ],
+     [
+      -0.164,
+      0.173
+     ],
+     [
+      -0.209,
+      0.202
+     ],
+     [
+      -0.229,
+      0.221
+     ],
+     [
+      -0.233,
+      0.256
+     ],
+     [
+      -0.277,
+      0.295
+     ],
+     [
+      -0.302,
+      0.328
+     ],
+     [
+      -0.325,
+      0.4
+     ],
+     [
+      -0.336,
+      0.429
+     ],
+     [
+      -0.321,
+      0.489
+     ],
+     [
+      -0.325,
+      0.49
+     ],
+     [
+      -0.366,
+      0.51
+     ],
+     [
+      -0.373,
+      0.527
+     ],
+     [
+      -0.383,
+      0.554
+     ],
+     [
+      -0.414,
+      0.582
+     ],
+     [
+      -0.443,
+      0.573
+     ],
+     [
+      -0.483,
+      0.57
+     ],
+     [
+      -0.497,
+      0.585
+     ],
+     [
+      -0.481,
+      0.552
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 463,
+     "episodes": 197,
+     "draws": 500,
+     "edge": -0.58,
+     "chance": [
+      -0.49,
+      0.52
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 9,
+       "start": "2020-12-26",
+       "end": "2021-01-02",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 483,
+     "episodes": 196,
+     "draws": 500,
+     "edge": -0.39,
+     "chance": [
+      -0.77,
+      0.77
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 404,
+     "episodes": 186,
+     "draws": 500,
+     "edge": -0.04,
+     "chance": [
+      -1.01,
+      1.08
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "stoch-k-lt20",
+   "tf": "4h",
+   "label": "Stoch(14,1,3) %K below 20",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 6414,
+    "episodes": 644,
+    "draws": 100,
+    "edge": -0.04,
+    "chance": [
+     -0.43,
+     0.59
+    ],
+    "verdict": "none",
+    "path": [
+     0.002,
+     -0.023,
+     -0.056,
+     -0.032,
+     -0.009,
+     0.02,
+     -0.01,
+     -0.053,
+     -0.081,
+     -0.118,
+     -0.126,
+     -0.112,
+     -0.123,
+     -0.11,
+     -0.076,
+     -0.071,
+     -0.035,
+     -0.03,
+     -0.026,
+     -0.04
+    ],
+    "band": [
+     [
+      -0.046,
+      0.053
+     ],
+     [
+      -0.082,
+      0.094
+     ],
+     [
+      -0.107,
+      0.128
+     ],
+     [
+      -0.142,
+      0.156
+     ],
+     [
+      -0.162,
+      0.192
+     ],
+     [
+      -0.178,
+      0.226
+     ],
+     [
+      -0.207,
+      0.245
+     ],
+     [
+      -0.225,
+      0.275
+     ],
+     [
+      -0.246,
+      0.307
+     ],
+     [
+      -0.255,
+      0.346
+     ],
+     [
+      -0.274,
+      0.377
+     ],
+     [
+      -0.294,
+      0.414
+     ],
+     [
+      -0.312,
+      0.403
+     ],
+     [
+      -0.305,
+      0.439
+     ],
+     [
+      -0.325,
+      0.483
+     ],
+     [
+      -0.332,
+      0.522
+     ],
+     [
+      -0.368,
+      0.531
+     ],
+     [
+      -0.384,
+      0.553
+     ],
+     [
+      -0.398,
+      0.57
+     ],
+     [
+      -0.425,
+      0.593
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 2059,
+     "episodes": 216,
+     "draws": 121,
+     "edge": -0.09,
+     "chance": [
+      -0.39,
+      0.44
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 1947,
+     "episodes": 225,
+     "draws": 128,
+     "edge": -0.19,
+     "chance": [
+      -0.55,
+      0.64
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 2408,
+     "episodes": 203,
+     "draws": 103,
+     "edge": 0.06,
+     "chance": [
+      -0.55,
+      0.93
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "stoch-k-up20",
+   "tf": "4h",
+   "label": "Stoch(14,1,3) %K crosses up 20",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 2573,
+    "episodes": 712,
+    "draws": 100,
+    "edge": -0.08,
+    "chance": [
+     -0.27,
+     0.33
+    ],
+    "verdict": "none",
+    "path": [
+     -0.083,
+     -0.094,
+     -0.041,
+     -0.056,
+     -0.044,
+     -0.142,
+     -0.157,
+     -0.128,
+     -0.124,
+     -0.085,
+     -0.023,
+     -0.102,
+     -0.065,
+     -0.008,
+     -0.038,
+     0.009,
+     -0.045,
+     -0.019,
+     -0.044,
+     -0.078
+    ],
+    "band": [
+     [
+      -0.071,
+      0.067
+     ],
+     [
+      -0.1,
+      0.077
+     ],
+     [
+      -0.122,
+      0.113
+     ],
+     [
+      -0.13,
+      0.114
+     ],
+     [
+      -0.15,
+      0.145
+     ],
+     [
+      -0.159,
+      0.172
+     ],
+     [
+      -0.16,
+      0.158
+     ],
+     [
+      -0.185,
+      0.197
+     ],
+     [
+      -0.195,
+      0.227
+     ],
+     [
+      -0.208,
+      0.21
+     ],
+     [
+      -0.217,
+      0.25
+     ],
+     [
+      -0.236,
+      0.281
+     ],
+     [
+      -0.229,
+      0.285
+     ],
+     [
+      -0.229,
+      0.289
+     ],
+     [
+      -0.234,
+      0.295
+     ],
+     [
+      -0.24,
+      0.304
+     ],
+     [
+      -0.221,
+      0.288
+     ],
+     [
+      -0.238,
+      0.321
+     ],
+     [
+      -0.274,
+      0.326
+     ],
+     [
+      -0.269,
+      0.33
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 828,
+     "episodes": 238,
+     "draws": 301,
+     "edge": -0.14,
+     "chance": [
+      -0.32,
+      0.32
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 806,
+     "episodes": 246,
+     "draws": 310,
+     "edge": 0.1,
+     "chance": [
+      -0.44,
+      0.44
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 939,
+     "episodes": 228,
+     "draws": 266,
+     "edge": -0.23,
+     "chance": [
+      -0.52,
+      0.55
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "stoch-k-gt80",
+   "tf": "4h",
+   "label": "Stoch(14,1,3) %K above 80",
+   "side": "short",
+   "featured": false,
+   "pooled": {
+    "entries": 8534,
+    "episodes": 593,
+    "draws": 100,
+    "edge": -0.18,
+    "chance": [
+     -0.27,
+     0.42
+    ],
+    "verdict": "none",
+    "path": [
+     0.003,
+     -0.023,
+     -0.028,
+     -0.03,
+     -0.014,
+     0.007,
+     -0.023,
+     -0.046,
+     -0.046,
+     -0.054,
+     -0.086,
+     -0.097,
+     -0.099,
+     -0.089,
+     -0.129,
+     -0.123,
+     -0.155,
+     -0.168,
+     -0.17,
+     -0.183
+    ],
+    "band": [
+     [
+      -0.039,
+      0.037
+     ],
+     [
+      -0.069,
+      0.063
+     ],
+     [
+      -0.1,
+      0.095
+     ],
+     [
+      -0.119,
+      0.118
+     ],
+     [
+      -0.157,
+      0.144
+     ],
+     [
+      -0.168,
+      0.177
+     ],
+     [
+      -0.186,
+      0.205
+     ],
+     [
+      -0.213,
+      0.21
+     ],
+     [
+      -0.224,
+      0.225
+     ],
+     [
+      -0.239,
+      0.23
+     ],
+     [
+      -0.248,
+      0.262
+     ],
+     [
+      -0.257,
+      0.29
+     ],
+     [
+      -0.257,
+      0.322
+     ],
+     [
+      -0.298,
+      0.336
+     ],
+     [
+      -0.286,
+      0.352
+     ],
+     [
+      -0.293,
+      0.377
+     ],
+     [
+      -0.298,
+      0.377
+     ],
+     [
+      -0.282,
+      0.414
+     ],
+     [
+      -0.272,
+      0.407
+     ],
+     [
+      -0.271,
+      0.419
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 2912,
+     "episodes": 203,
+     "draws": 100,
+     "edge": -0.25,
+     "chance": [
+      -0.28,
+      0.37
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 2947,
+     "episodes": 188,
+     "draws": 100,
+     "edge": -0.25,
+     "chance": [
+      -0.42,
+      0.54
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 2675,
+     "episodes": 202,
+     "draws": 100,
+     "edge": -0.06,
+     "chance": [
+      -0.55,
+      0.63
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "stoch-kd-up-lower",
+   "tf": "1d",
+   "label": "Stoch(14,1,3) %K crosses up %D below 20",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 152,
+    "episodes": 81,
+    "draws": 500,
+    "edge": -0.73,
+    "chance": [
+     -4.31,
+     5.56
+    ],
+    "verdict": "none",
+    "path": [
+     0.334,
+     0.389,
+     0.21,
+     0.489,
+     0.117,
+     0.538,
+     1.039,
+     0.441,
+     1.231,
+     1.238,
+     1.861,
+     1.048,
+     0.143,
+     -0.49,
+     -0.481,
+     -0.782,
+     -0.937,
+     -0.347,
+     -0.841,
+     -0.729
+    ],
+    "band": [
+     [
+      -0.69,
+      0.78
+     ],
+     [
+      -1.045,
+      1.09
+     ],
+     [
+      -1.093,
+      1.44
+     ],
+     [
+      -1.371,
+      1.842
+     ],
+     [
+      -1.476,
+      2.235
+     ],
+     [
+      -1.773,
+      2.606
+     ],
+     [
+      -1.951,
+      2.994
+     ],
+     [
+      -2.3,
+      3.182
+     ],
+     [
+      -2.333,
+      3.724
+     ],
+     [
+      -2.711,
+      3.881
+     ],
+     [
+      -2.924,
+      4.061
+     ],
+     [
+      -3.142,
+      4.183
+     ],
+     [
+      -3.133,
+      4.523
+     ],
+     [
+      -3.359,
+      4.467
+     ],
+     [
+      -3.67,
+      5.134
+     ],
+     [
+      -3.914,
+      5.059
+     ],
+     [
+      -3.956,
+      5.182
+     ],
+     [
+      -4.187,
+      5.289
+     ],
+     [
+      -4.244,
+      5.74
+     ],
+     [
+      -4.312,
+      5.564
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 45,
+     "episodes": 26,
+     "draws": 500,
+     "edge": -1.66,
+     "chance": [
+      -4.1,
+      5.01
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 42,
+     "episodes": 27,
+     "draws": 500,
+     "edge": 1.05,
+     "chance": [
+      -5.28,
+      5.29
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 65,
+     "episodes": 28,
+     "draws": 500,
+     "edge": -2.25,
+     "chance": [
+      -8.49,
+      9.31
+     ],
+     "verdict": "few"
+    }
+   }
+  },
+  {
+   "id": "stoch-kd-down-upper",
+   "tf": "1d",
+   "label": "Stoch(14,1,3) %K crosses down %D above 80",
+   "side": "short",
+   "featured": true,
+   "pooled": {
+    "entries": 266,
+    "episodes": 98,
+    "draws": 500,
+    "edge": -4.64,
+    "chance": [
+     -3.96,
+     4.25
+    ],
+    "verdict": "fragile-worse",
+    "robustness": {
+     "fragile": true,
+     "strongest": {
+      "deals": 9,
+      "start": "2021-08-01",
+      "end": "2021-09-09",
+      "without": "chance"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "worse"
+      },
+      {
+       "horizon": 50,
+       "state": "chance"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     -0.178,
+     -0.577,
+     -0.529,
+     -0.847,
+     -1.677,
+     -1.747,
+     -1.977,
+     -2.183,
+     -2.38,
+     -2.094,
+     -2.206,
+     -2.374,
+     -2.924,
+     -3.18,
+     -3.605,
+     -3.729,
+     -3.999,
+     -4.648,
+     -5.226,
+     -4.637
+    ],
+    "band": [
+     [
+      -0.429,
+      0.549
+     ],
+     [
+      -0.677,
+      0.822
+     ],
+     [
+      -0.895,
+      0.995
+     ],
+     [
+      -1.129,
+      1.236
+     ],
+     [
+      -1.352,
+      1.504
+     ],
+     [
+      -1.503,
+      1.619
+     ],
+     [
+      -1.698,
+      1.92
+     ],
+     [
+      -1.863,
+      2.133
+     ],
+     [
+      -2.046,
+      2.362
+     ],
+     [
+      -2.29,
+      2.551
+     ],
+     [
+      -2.446,
+      2.809
+     ],
+     [
+      -2.628,
+      2.965
+     ],
+     [
+      -2.887,
+      3.094
+     ],
+     [
+      -2.965,
+      3.284
+     ],
+     [
+      -3.121,
+      3.403
+     ],
+     [
+      -3.347,
+      3.517
+     ],
+     [
+      -3.381,
+      3.803
+     ],
+     [
+      -3.582,
+      3.967
+     ],
+     [
+      -3.866,
+      4.046
+     ],
+     [
+      -3.96,
+      4.252
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 108,
+     "episodes": 30,
+     "draws": 500,
+     "edge": -2.62,
+     "chance": [
+      -3.72,
+      3.03
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 87,
+     "episodes": 34,
+     "draws": 500,
+     "edge": -1.96,
+     "chance": [
+      -4.29,
+      3.82
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 71,
+     "episodes": 34,
+     "draws": 500,
+     "edge": -12.22,
+     "chance": [
+      -9.03,
+      8.23
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 9,
+       "start": "2021-08-01",
+       "end": "2021-09-09",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "stoch-k-lt20",
+   "tf": "1d",
+   "label": "Stoch(14,1,3) %K below 20",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 1057,
+    "episodes": 107,
+    "draws": 236,
+    "edge": -2.31,
+    "chance": [
+     -3.24,
+     3.96
+    ],
+    "verdict": "none",
+    "path": [
+     0,
+     -0.167,
+     -0.23,
+     -0.348,
+     -0.448,
+     -0.439,
+     -0.666,
+     -0.631,
+     -0.474,
+     -0.443,
+     -0.423,
+     -0.627,
+     -0.925,
+     -1.197,
+     -1.572,
+     -1.866,
+     -2.075,
+     -2.155,
+     -2.194,
+     -2.309
+    ],
+    "band": [
+     [
+      -0.28,
+      0.277
+     ],
+     [
+      -0.5,
+      0.5
+     ],
+     [
+      -0.696,
+      0.74
+     ],
+     [
+      -0.845,
+      0.993
+     ],
+     [
+      -1.022,
+      1.166
+     ],
+     [
+      -1.351,
+      1.572
+     ],
+     [
+      -1.51,
+      1.573
+     ],
+     [
+      -1.7,
+      1.697
+     ],
+     [
+      -1.851,
+      1.778
+     ],
+     [
+      -2.068,
+      1.924
+     ],
+     [
+      -2.323,
+      2.166
+     ],
+     [
+      -2.513,
+      2.564
+     ],
+     [
+      -2.665,
+      2.889
+     ],
+     [
+      -2.776,
+      2.829
+     ],
+     [
+      -2.914,
+      2.946
+     ],
+     [
+      -3.009,
+      3.226
+     ],
+     [
+      -2.992,
+      3.407
+     ],
+     [
+      -3.103,
+      3.6
+     ],
+     [
+      -3.265,
+      3.722
+     ],
+     [
+      -3.241,
+      3.96
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 338,
+     "episodes": 38,
+     "draws": 500,
+     "edge": -0.45,
+     "chance": [
+      -2.63,
+      2.5
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 312,
+     "episodes": 38,
+     "draws": 500,
+     "edge": -1.23,
+     "chance": [
+      -3.62,
+      3.51
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 407,
+     "episodes": 31,
+     "draws": 500,
+     "edge": -5.29,
+     "chance": [
+      -5.77,
+      7.01
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "stoch-k-up20",
+   "tf": "1d",
+   "label": "Stoch(14,1,3) %K crosses up 20",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 398,
+    "episodes": 119,
+    "draws": 500,
+    "edge": -3.78,
+    "chance": [
+     -2.69,
+     2.68
+    ],
+    "verdict": "worse",
+    "robustness": {
+     "fragile": false,
+     "strongest": {
+      "deals": 16,
+      "start": "2022-04-13",
+      "end": "2022-07-13",
+      "without": "worse"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "worse"
+      },
+      {
+       "horizon": 50,
+       "state": "worse"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     -0.436,
+     -0.425,
+     -0.68,
+     -0.77,
+     -0.571,
+     -1.002,
+     -0.933,
+     -0.918,
+     -1.268,
+     -1.627,
+     -2.1,
+     -2.433,
+     -2.785,
+     -3.16,
+     -2.952,
+     -2.816,
+     -3.026,
+     -3.203,
+     -3.433,
+     -3.784
+    ],
+    "band": [
+     [
+      -0.405,
+      0.415
+     ],
+     [
+      -0.531,
+      0.629
+     ],
+     [
+      -0.692,
+      0.79
+     ],
+     [
+      -0.919,
+      0.856
+     ],
+     [
+      -1.017,
+      1.02
+     ],
+     [
+      -1.184,
+      1.144
+     ],
+     [
+      -1.351,
+      1.283
+     ],
+     [
+      -1.598,
+      1.391
+     ],
+     [
+      -1.589,
+      1.501
+     ],
+     [
+      -1.725,
+      1.574
+     ],
+     [
+      -1.886,
+      1.607
+     ],
+     [
+      -1.829,
+      1.735
+     ],
+     [
+      -2.07,
+      1.869
+     ],
+     [
+      -2.276,
+      1.961
+     ],
+     [
+      -2.359,
+      2.12
+     ],
+     [
+      -2.393,
+      2.212
+     ],
+     [
+      -2.459,
+      2.318
+     ],
+     [
+      -2.472,
+      2.412
+     ],
+     [
+      -2.685,
+      2.516
+     ],
+     [
+      -2.689,
+      2.681
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 133,
+     "episodes": 41,
+     "draws": 500,
+     "edge": -0.66,
+     "chance": [
+      -2.2,
+      2.47
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 128,
+     "episodes": 41,
+     "draws": 500,
+     "edge": -3.64,
+     "chance": [
+      -3.23,
+      3.91
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 16,
+       "start": "2022-04-13",
+       "end": "2022-07-13",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "worse"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 137,
+     "episodes": 37,
+     "draws": 500,
+     "edge": -7.09,
+     "chance": [
+      -4.21,
+      5.19
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 8,
+       "start": "2022-04-19",
+       "end": "2022-06-15",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "stoch-k-gt80",
+   "tf": "1d",
+   "label": "Stoch(14,1,3) %K above 80",
+   "side": "short",
+   "featured": false,
+   "pooled": {
+    "entries": 1581,
+    "episodes": 96,
+    "draws": 158,
+    "edge": -3.73,
+    "chance": [
+     -2.62,
+     3.04
+    ],
+    "verdict": "fragile-worse",
+    "robustness": {
+     "fragile": true,
+     "strongest": {
+      "deals": 34,
+      "start": "2021-07-29",
+      "end": "2021-09-09",
+      "without": "chance"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "worse"
+      },
+      {
+       "horizon": 50,
+       "state": "chance"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     -0.176,
+     -0.377,
+     -0.618,
+     -0.804,
+     -1.026,
+     -1.283,
+     -1.492,
+     -1.578,
+     -1.895,
+     -2.086,
+     -2.173,
+     -2.217,
+     -2.369,
+     -2.515,
+     -2.71,
+     -2.85,
+     -2.955,
+     -3.132,
+     -3.48,
+     -3.725
+    ],
+    "band": [
+     [
+      -0.192,
+      0.233
+     ],
+     [
+      -0.381,
+      0.432
+     ],
+     [
+      -0.565,
+      0.619
+     ],
+     [
+      -0.776,
+      0.786
+     ],
+     [
+      -0.899,
+      0.999
+     ],
+     [
+      -1.051,
+      1.148
+     ],
+     [
+      -1.186,
+      1.301
+     ],
+     [
+      -1.383,
+      1.477
+     ],
+     [
+      -1.445,
+      1.582
+     ],
+     [
+      -1.516,
+      1.746
+     ],
+     [
+      -1.606,
+      1.853
+     ],
+     [
+      -1.73,
+      2.005
+     ],
+     [
+      -1.905,
+      2.138
+     ],
+     [
+      -2.068,
+      2.24
+     ],
+     [
+      -2.242,
+      2.338
+     ],
+     [
+      -2.361,
+      2.416
+     ],
+     [
+      -2.424,
+      2.535
+     ],
+     [
+      -2.371,
+      2.788
+     ],
+     [
+      -2.563,
+      2.85
+     ],
+     [
+      -2.62,
+      3.036
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 595,
+     "episodes": 29,
+     "draws": 420,
+     "edge": -1.82,
+     "chance": [
+      -2.13,
+      1.94
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 541,
+     "episodes": 31,
+     "draws": 462,
+     "edge": -1.66,
+     "chance": [
+      -2.59,
+      2.56
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 445,
+     "episodes": 36,
+     "draws": 500,
+     "edge": -9.67,
+     "chance": [
+      -6.06,
+      6.29
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 34,
+       "start": "2021-07-29",
+       "end": "2021-09-09",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   }
+  }
+ ],
+ "summary": "No, not as a timing signal on its own. On 1h and 4h, every Stochastic setting landed inside the luck band, whether long below 20 or short above 80. One result holds up, and it runs against the dip buy: on daily, after %K crossed up through 20, price did 3.78% worse than random entries 20 candles later, and the gap held without its strongest stretch and at 10, 20 and 50 candles.",
+ "verdicts": [
+  {
+   "use": "Buying oversold (%K below 20, or %K crossing up %D below 20)",
+   "verdict": "none",
+   "text": "No better than random entries on 1h, 4h or daily. This holds whether %K sat below 20 as a level or crossed up through %D below 20."
+  },
+  {
+   "use": "Buying the cross back up through 20",
+   "verdict": "worse",
+   "text": "On daily, price did 3.78% worse than random entries 20 candles later. The gap held without its strongest stretch and at 10, 20 and 50 candles. On 1h and 4h the result was chance."
+  },
+  {
+   "use": "Shorting overbought (%K above 80)",
+   "verdict": "fragile-worse",
+   "text": "Inside the luck band on 1h and 4h. On daily, shorts did worse than random only because of signals between Jul 29, 2021 and Sep 9, 2021. Without them, the result is chance."
+  },
+  {
+   "use": "Shorting the %K cross down %D above 80",
+   "verdict": "fragile-worse",
+   "text": "On daily, it did 4.64% worse than random after 20 candles, carried by signals between Aug 1, 2021 and Sep 9, 2021. Without them, and on 1h and 4h, the result is chance."
+  }
+ ],
+ "notes": [
+  "On 1h, %K crossing up %D below 20 gave 3,093 entries in 1,668 separate moves. Twenty candles later they matched random entries, with an edge of 0, inside a luck band between -0.13% and 0.17%. Holding %K below 20 as a level enters about eight times as often and also lands inside the band.",
+  "The short side looks the same. On 4h, %K crossing down %D above 80 gave 1,350 entries in 579 moves and finished 0.33% behind random, inside the band. On BTC 4h the same cross looked worse than random, but only because of 9 signals between Dec 26, 2020 and Jan 2, 2021. Without them it is chance, and it is chance at 10, 50 and 100 candles too.",
+  "On daily, shorting overbought readings looked worse than random, and single runs explain it. %K above 80 did 3.73% worse after 20 candles, carried by signals between Jul 29, 2021 and Sep 9, 2021. The %K cross down %D above 80 did 4.64% worse, carried by signals between Aug 1, 2021 and Sep 9, 2021, and on SOL alone it did 12.22% worse. Leave those stretches out and both are chance.",
+  "The daily cross up through 20 is the one result that holds. It gave 398 entries in 119 moves and did 3.78% worse than random after 20 candles, below a band between -2.69% and 2.68%. It stays worse without its strongest stretch, 16 signals between Apr 13, 2022 and Jul 13, 2022, and it shows at 10, 20 and 50 candles. At 100 candles it is chance.",
+  "For a long DCA bot on 1h or 4h, %K below 20 adds nothing to entry timing, so the DCA orders and take profit do the work. On daily, a bounce of %K through 20 tended to come before more weakness, not a recovery. That makes it a reason to leave the cross out of a long start condition, or to give the bot's DCA more room, rather than an entry trigger. On the short side, Stochastic above 80 carries no information on any timeframe once single runs are left out."
+ ],
+ "summaryRefs": [
+  {
+   "tf": "1h",
+   "setting": "*",
+   "scope": "pooled"
+  },
+  {
+   "tf": "4h",
+   "setting": "*",
+   "scope": "pooled"
+  },
+  {
+   "tf": "1d",
+   "setting": "stoch-k-up20",
+   "scope": "pooled"
+  }
+ ],
+ "verdictRefs": [
+  [
+   {
+    "tf": "*",
+    "setting": "stoch-k-lt20",
+    "scope": "pooled"
+   },
+   {
+    "tf": "*",
+    "setting": "stoch-kd-up-lower",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1d",
+    "setting": "stoch-k-up20",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "stoch-k-up20",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "stoch-k-up20",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1d",
+    "setting": "stoch-k-gt80",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "stoch-k-gt80",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "stoch-k-gt80",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1d",
+    "setting": "stoch-kd-down-upper",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "stoch-kd-down-upper",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "stoch-kd-down-upper",
+    "scope": "pooled"
+   }
+  ]
+ ],
+ "noteRefs": [
+  [
+   {
+    "tf": "1h",
+    "setting": "stoch-kd-up-lower",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "stoch-k-lt20",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "4h",
+    "setting": "stoch-kd-down-upper",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "stoch-kd-down-upper",
+    "scope": "BTC"
+   }
+  ],
+  [
+   {
+    "tf": "1d",
+    "setting": "stoch-k-gt80",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "stoch-kd-down-upper",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "stoch-kd-down-upper",
+    "scope": "SOL"
+   }
+  ],
+  [
+   {
+    "tf": "1d",
+    "setting": "stoch-k-up20",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "stoch-k-lt20",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "stoch-k-lt20",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "stoch-k-up20",
+    "scope": "pooled"
+   },
+   {
+    "tf": "*",
+    "setting": "stoch-k-gt80",
+    "scope": "pooled"
+   },
+   {
+    "tf": "*",
+    "setting": "stoch-kd-down-upper",
+    "scope": "pooled"
+   }
+  ]
+ ]
+}

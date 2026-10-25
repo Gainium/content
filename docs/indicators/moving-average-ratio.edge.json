@@ -1,0 +1,3297 @@
+{
+ "indicator": "moving-average-ratio",
+ "defaultTf": "1h",
+ "method": {
+  "horizon": 20,
+  "horizons": [
+   10,
+   20,
+   50,
+   100
+  ],
+  "randomDraws": 500,
+  "minEpisodes": 30,
+  "source": "Binance spot",
+  "pairs": [
+   "BTC/USDT",
+   "ETH/USDT",
+   "SOL/USDT"
+  ],
+  "from": "2020-09-01",
+  "warmupFrom": "2020-06-01",
+  "to": "2026-10-24",
+  "engine": {
+   "indicators": "56f63e97",
+   "analysisMath": "cab0ed99"
+  }
+ },
+ "updatedAt": "2026-10-25",
+ "settings": [
+  {
+   "id": "mar-ema20-down099",
+   "tf": "1h",
+   "label": "Price / EMA 20 crosses down 0.99",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 6844,
+    "episodes": 2302,
+    "draws": 100,
+    "edge": -0.01,
+    "chance": [
+     -0.06,
+     0.12
+    ],
+    "verdict": "none",
+    "path": [
+     -0.007,
+     0.007,
+     0.019,
+     -0.007,
+     0.007,
+     0.007,
+     0.026,
+     0.018,
+     0.034,
+     0.02,
+     0.01,
+     0.015,
+     -0.004,
+     -0.007,
+     0.009,
+     -0.007,
+     0,
+     -0.019,
+     0.006,
+     -0.013
+    ],
+    "band": [
+     [
+      -0.02,
+      0.026
+     ],
+     [
+      -0.028,
+      0.032
+     ],
+     [
+      -0.034,
+      0.039
+     ],
+     [
+      -0.034,
+      0.045
+     ],
+     [
+      -0.041,
+      0.059
+     ],
+     [
+      -0.038,
+      0.064
+     ],
+     [
+      -0.043,
+      0.072
+     ],
+     [
+      -0.052,
+      0.072
+     ],
+     [
+      -0.061,
+      0.068
+     ],
+     [
+      -0.057,
+      0.074
+     ],
+     [
+      -0.062,
+      0.079
+     ],
+     [
+      -0.065,
+      0.079
+     ],
+     [
+      -0.071,
+      0.093
+     ],
+     [
+      -0.068,
+      0.1
+     ],
+     [
+      -0.068,
+      0.113
+     ],
+     [
+      -0.067,
+      0.118
+     ],
+     [
+      -0.07,
+      0.116
+     ],
+     [
+      -0.069,
+      0.112
+     ],
+     [
+      -0.073,
+      0.121
+     ],
+     [
+      -0.064,
+      0.116
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 1708,
+     "episodes": 672,
+     "draws": 146,
+     "edge": -0.02,
+     "chance": [
+      -0.14,
+      0.13
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 2147,
+     "episodes": 771,
+     "draws": 116,
+     "edge": -0.14,
+     "chance": [
+      -0.13,
+      0.13
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 7,
+       "start": "2021-05-17",
+       "end": "2021-05-19",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 2989,
+     "episodes": 859,
+     "draws": 100,
+     "edge": 0.05,
+     "chance": [
+      -0.14,
+      0.16
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "mar-ema20-down097",
+   "tf": "1h",
+   "label": "Price / EMA 20 crosses down 0.97",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 2136,
+    "episodes": 978,
+    "draws": 117,
+    "edge": 0.46,
+    "chance": [
+     -0.17,
+     0.29
+    ],
+    "verdict": "edge",
+    "robustness": {
+     "fragile": false,
+     "strongest": {
+      "deals": 6,
+      "start": "2021-05-16",
+      "end": "2021-05-18",
+      "without": "edge"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "edge"
+      },
+      {
+       "horizon": 100,
+       "state": "edge"
+      }
+     ]
+    },
+    "path": [
+     0.054,
+     0.085,
+     0.103,
+     0.137,
+     0.158,
+     0.168,
+     0.225,
+     0.219,
+     0.233,
+     0.252,
+     0.273,
+     0.303,
+     0.312,
+     0.353,
+     0.339,
+     0.28,
+     0.38,
+     0.421,
+     0.445,
+     0.456
+    ],
+    "band": [
+     [
+      -0.039,
+      0.045
+     ],
+     [
+      -0.054,
+      0.056
+     ],
+     [
+      -0.067,
+      0.071
+     ],
+     [
+      -0.076,
+      0.082
+     ],
+     [
+      -0.093,
+      0.113
+     ],
+     [
+      -0.112,
+      0.13
+     ],
+     [
+      -0.116,
+      0.145
+     ],
+     [
+      -0.106,
+      0.162
+     ],
+     [
+      -0.12,
+      0.166
+     ],
+     [
+      -0.121,
+      0.19
+     ],
+     [
+      -0.115,
+      0.216
+     ],
+     [
+      -0.117,
+      0.221
+     ],
+     [
+      -0.139,
+      0.212
+     ],
+     [
+      -0.135,
+      0.228
+     ],
+     [
+      -0.162,
+      0.239
+     ],
+     [
+      -0.157,
+      0.265
+     ],
+     [
+      -0.151,
+      0.268
+     ],
+     [
+      -0.147,
+      0.246
+     ],
+     [
+      -0.164,
+      0.297
+     ],
+     [
+      -0.175,
+      0.287
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 338,
+     "episodes": 178,
+     "draws": 500,
+     "edge": 0.46,
+     "chance": [
+      -0.32,
+      0.31
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 2,
+       "start": "2022-06-19",
+       "end": "2022-06-19",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 632,
+     "episodes": 312,
+     "draws": 395,
+     "edge": 0.45,
+     "chance": [
+      -0.29,
+      0.29
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 4,
+       "start": "2021-02-28",
+       "end": "2021-02-28",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 1166,
+     "episodes": 488,
+     "draws": 214,
+     "edge": 0.4,
+     "chance": [
+      -0.29,
+      0.32
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 6,
+       "start": "2021-05-16",
+       "end": "2021-05-18",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "mar-ema50-gt101-trend",
+   "tf": "1h",
+   "label": "Price / EMA 50 above 1.01, rising 2% in 10 bars",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 13479,
+    "episodes": 1720,
+    "draws": 100,
+    "edge": 0.35,
+    "chance": [
+     -0.15,
+     0.2
+    ],
+    "verdict": "edge",
+    "robustness": {
+     "fragile": false,
+     "strongest": {
+      "deals": 78,
+      "start": "2020-12-31",
+      "end": "2021-01-08",
+      "without": "edge"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "edge"
+      },
+      {
+       "horizon": 100,
+       "state": "edge"
+      }
+     ]
+    },
+    "path": [
+     0.024,
+     0.034,
+     0.061,
+     0.087,
+     0.105,
+     0.126,
+     0.154,
+     0.181,
+     0.209,
+     0.232,
+     0.256,
+     0.277,
+     0.308,
+     0.331,
+     0.347,
+     0.365,
+     0.372,
+     0.372,
+     0.365,
+     0.349
+    ],
+    "band": [
+     [
+      -0.018,
+      0.016
+     ],
+     [
+      -0.034,
+      0.033
+     ],
+     [
+      -0.042,
+      0.047
+     ],
+     [
+      -0.054,
+      0.057
+     ],
+     [
+      -0.066,
+      0.071
+     ],
+     [
+      -0.073,
+      0.087
+     ],
+     [
+      -0.083,
+      0.096
+     ],
+     [
+      -0.099,
+      0.106
+     ],
+     [
+      -0.103,
+      0.114
+     ],
+     [
+      -0.105,
+      0.123
+     ],
+     [
+      -0.108,
+      0.141
+     ],
+     [
+      -0.116,
+      0.155
+     ],
+     [
+      -0.125,
+      0.16
+     ],
+     [
+      -0.128,
+      0.162
+     ],
+     [
+      -0.131,
+      0.169
+     ],
+     [
+      -0.13,
+      0.18
+     ],
+     [
+      -0.133,
+      0.191
+     ],
+     [
+      -0.138,
+      0.192
+     ],
+     [
+      -0.147,
+      0.204
+     ],
+     [
+      -0.154,
+      0.197
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 2787,
+     "episodes": 462,
+     "draws": 100,
+     "edge": 0.14,
+     "chance": [
+      -0.18,
+      0.18
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 4204,
+     "episodes": 587,
+     "draws": 100,
+     "edge": 0.25,
+     "chance": [
+      -0.21,
+      0.22
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 71,
+       "start": "2021-01-02",
+       "end": "2021-01-10",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 6488,
+     "episodes": 671,
+     "draws": 100,
+     "edge": 0.46,
+     "chance": [
+      -0.32,
+      0.3
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 78,
+       "start": "2020-12-31",
+       "end": "2021-01-08",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "mar-ema20-ema50-up1",
+   "tf": "1h",
+   "label": "EMA 20 / EMA 50 crosses up 1",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 1495,
+    "episodes": 1365,
+    "draws": 167,
+    "edge": 0.16,
+    "chance": [
+     -0.16,
+     0.16
+    ],
+    "verdict": "fragile",
+    "robustness": {
+     "fragile": true,
+     "strongest": {
+      "deals": 1,
+      "start": "2021-02-22",
+      "end": "2021-02-22",
+      "without": "chance"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "chance"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     0.029,
+     0.033,
+     0.032,
+     0.025,
+     0.021,
+     0.048,
+     0.067,
+     0.103,
+     0.125,
+     0.143,
+     0.17,
+     0.173,
+     0.216,
+     0.204,
+     0.235,
+     0.244,
+     0.217,
+     0.181,
+     0.165,
+     0.163
+    ],
+    "band": [
+     [
+      -0.04,
+      0.035
+     ],
+     [
+      -0.052,
+      0.053
+     ],
+     [
+      -0.079,
+      0.063
+     ],
+     [
+      -0.083,
+      0.08
+     ],
+     [
+      -0.087,
+      0.087
+     ],
+     [
+      -0.105,
+      0.098
+     ],
+     [
+      -0.107,
+      0.115
+     ],
+     [
+      -0.122,
+      0.121
+     ],
+     [
+      -0.14,
+      0.139
+     ],
+     [
+      -0.138,
+      0.142
+     ],
+     [
+      -0.139,
+      0.16
+     ],
+     [
+      -0.141,
+      0.151
+     ],
+     [
+      -0.153,
+      0.148
+     ],
+     [
+      -0.162,
+      0.154
+     ],
+     [
+      -0.156,
+      0.16
+     ],
+     [
+      -0.169,
+      0.164
+     ],
+     [
+      -0.163,
+      0.171
+     ],
+     [
+      -0.174,
+      0.157
+     ],
+     [
+      -0.159,
+      0.163
+     ],
+     [
+      -0.163,
+      0.158
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 504,
+     "episodes": 445,
+     "draws": 496,
+     "edge": 0.17,
+     "chance": [
+      -0.18,
+      0.2
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 508,
+     "episodes": 466,
+     "draws": 492,
+     "edge": 0.1,
+     "chance": [
+      -0.27,
+      0.25
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 483,
+     "episodes": 454,
+     "draws": 500,
+     "edge": 0.23,
+     "chance": [
+      -0.38,
+      0.42
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "mar-ema20-up103-short",
+   "tf": "1h",
+   "label": "Price / EMA 20 crosses up 1.03, short",
+   "side": "short",
+   "featured": false,
+   "pooled": {
+    "entries": 2116,
+    "episodes": 972,
+    "draws": 118,
+    "edge": -0.52,
+    "chance": [
+     -0.29,
+     0.26
+    ],
+    "verdict": "worse",
+    "robustness": {
+     "fragile": false,
+     "strongest": {
+      "deals": 8,
+      "start": "2021-01-07",
+      "end": "2021-01-10",
+      "without": "worse"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "worse"
+      },
+      {
+       "horizon": 50,
+       "state": "worse"
+      },
+      {
+       "horizon": 100,
+       "state": "worse"
+      }
+     ]
+    },
+    "path": [
+     -0.08,
+     -0.081,
+     -0.097,
+     -0.108,
+     -0.185,
+     -0.255,
+     -0.224,
+     -0.257,
+     -0.334,
+     -0.357,
+     -0.388,
+     -0.347,
+     -0.407,
+     -0.383,
+     -0.357,
+     -0.439,
+     -0.456,
+     -0.491,
+     -0.506,
+     -0.525
+    ],
+    "band": [
+     [
+      -0.04,
+      0.043
+     ],
+     [
+      -0.067,
+      0.062
+     ],
+     [
+      -0.086,
+      0.056
+     ],
+     [
+      -0.096,
+      0.084
+     ],
+     [
+      -0.111,
+      0.097
+     ],
+     [
+      -0.108,
+      0.107
+     ],
+     [
+      -0.13,
+      0.12
+     ],
+     [
+      -0.156,
+      0.123
+     ],
+     [
+      -0.15,
+      0.148
+     ],
+     [
+      -0.142,
+      0.155
+     ],
+     [
+      -0.162,
+      0.162
+     ],
+     [
+      -0.182,
+      0.181
+     ],
+     [
+      -0.193,
+      0.198
+     ],
+     [
+      -0.19,
+      0.204
+     ],
+     [
+      -0.201,
+      0.2
+     ],
+     [
+      -0.231,
+      0.205
+     ],
+     [
+      -0.26,
+      0.218
+     ],
+     [
+      -0.278,
+      0.225
+     ],
+     [
+      -0.27,
+      0.246
+     ],
+     [
+      -0.285,
+      0.255
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 330,
+     "episodes": 190,
+     "draws": 500,
+     "edge": -0.41,
+     "chance": [
+      -0.3,
+      0.35
+     ],
+     "verdict": "worse",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 4,
+       "start": "2021-01-28",
+       "end": "2021-01-29",
+       "without": "worse"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 621,
+     "episodes": 308,
+     "draws": 402,
+     "edge": -0.42,
+     "chance": [
+      -0.32,
+      0.32
+     ],
+     "verdict": "worse",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 16,
+       "start": "2021-01-04",
+       "end": "2021-01-08",
+       "without": "worse"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "worse"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 1165,
+     "episodes": 474,
+     "draws": 214,
+     "edge": -0.55,
+     "chance": [
+      -0.34,
+      0.36
+     ],
+     "verdict": "worse",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 8,
+       "start": "2021-01-07",
+       "end": "2021-01-10",
+       "without": "worse"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "worse"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "mar-ema20-down099",
+   "tf": "4h",
+   "label": "Price / EMA 20 crosses down 0.99",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 2225,
+    "episodes": 700,
+    "draws": 112,
+    "edge": -0.06,
+    "chance": [
+     -0.25,
+     0.35
+    ],
+    "verdict": "none",
+    "path": [
+     -0.029,
+     -0.032,
+     -0.051,
+     -0.098,
+     -0.059,
+     0.057,
+     -0.008,
+     0.009,
+     -0.01,
+     -0.032,
+     -0.072,
+     -0.079,
+     -0.111,
+     -0.091,
+     -0.093,
+     -0.053,
+     -0.071,
+     -0.053,
+     -0.078,
+     -0.058
+    ],
+    "band": [
+     [
+      -0.061,
+      0.081
+     ],
+     [
+      -0.095,
+      0.106
+     ],
+     [
+      -0.119,
+      0.129
+     ],
+     [
+      -0.152,
+      0.134
+     ],
+     [
+      -0.16,
+      0.144
+     ],
+     [
+      -0.145,
+      0.162
+     ],
+     [
+      -0.166,
+      0.168
+     ],
+     [
+      -0.175,
+      0.198
+     ],
+     [
+      -0.212,
+      0.216
+     ],
+     [
+      -0.206,
+      0.245
+     ],
+     [
+      -0.199,
+      0.242
+     ],
+     [
+      -0.209,
+      0.225
+     ],
+     [
+      -0.215,
+      0.271
+     ],
+     [
+      -0.213,
+      0.313
+     ],
+     [
+      -0.237,
+      0.344
+     ],
+     [
+      -0.205,
+      0.385
+     ],
+     [
+      -0.255,
+      0.356
+     ],
+     [
+      -0.268,
+      0.363
+     ],
+     [
+      -0.271,
+      0.354
+     ],
+     [
+      -0.253,
+      0.353
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 691,
+     "episodes": 226,
+     "draws": 361,
+     "edge": -0.02,
+     "chance": [
+      -0.35,
+      0.41
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 715,
+     "episodes": 232,
+     "draws": 349,
+     "edge": -0.07,
+     "chance": [
+      -0.39,
+      0.44
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 819,
+     "episodes": 242,
+     "draws": 305,
+     "edge": -0.13,
+     "chance": [
+      -0.55,
+      0.6
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "mar-ema20-down097",
+   "tf": "4h",
+   "label": "Price / EMA 20 crosses down 0.97",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 1312,
+    "episodes": 489,
+    "draws": 190,
+    "edge": 0.27,
+    "chance": [
+     -0.37,
+     0.65
+    ],
+    "verdict": "none",
+    "path": [
+     -0.025,
+     -0.059,
+     -0.093,
+     -0.13,
+     0.005,
+     0.073,
+     0.116,
+     0.083,
+     0.069,
+     0.144,
+     0.014,
+     0.117,
+     0.163,
+     0.15,
+     0.171,
+     0.149,
+     0.213,
+     0.245,
+     0.289,
+     0.272
+    ],
+    "band": [
+     [
+      -0.086,
+      0.107
+     ],
+     [
+      -0.118,
+      0.163
+     ],
+     [
+      -0.149,
+      0.195
+     ],
+     [
+      -0.174,
+      0.211
+     ],
+     [
+      -0.208,
+      0.276
+     ],
+     [
+      -0.23,
+      0.273
+     ],
+     [
+      -0.235,
+      0.321
+     ],
+     [
+      -0.241,
+      0.333
+     ],
+     [
+      -0.267,
+      0.359
+     ],
+     [
+      -0.297,
+      0.379
+     ],
+     [
+      -0.279,
+      0.387
+     ],
+     [
+      -0.293,
+      0.439
+     ],
+     [
+      -0.297,
+      0.445
+     ],
+     [
+      -0.32,
+      0.512
+     ],
+     [
+      -0.369,
+      0.564
+     ],
+     [
+      -0.393,
+      0.578
+     ],
+     [
+      -0.388,
+      0.585
+     ],
+     [
+      -0.404,
+      0.579
+     ],
+     [
+      -0.385,
+      0.597
+     ],
+     [
+      -0.369,
+      0.652
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 292,
+     "episodes": 127,
+     "draws": 500,
+     "edge": -0.12,
+     "chance": [
+      -0.7,
+      0.67
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 393,
+     "episodes": 169,
+     "draws": 500,
+     "edge": 0.35,
+     "chance": [
+      -0.76,
+      0.7
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 627,
+     "episodes": 193,
+     "draws": 398,
+     "edge": 0.23,
+     "chance": [
+      -0.78,
+      0.73
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "mar-ema50-gt101-trend",
+   "tf": "4h",
+   "label": "Price / EMA 50 above 1.01, rising 2% in 10 bars",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 6735,
+    "episodes": 537,
+    "draws": 100,
+    "edge": 0.5,
+    "chance": [
+     -0.52,
+     0.35
+    ],
+    "verdict": "fragile",
+    "robustness": {
+     "fragile": true,
+     "strongest": {
+      "deals": 135,
+      "start": "2021-07-22",
+      "end": "2021-09-10",
+      "without": "chance"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "chance"
+      },
+      {
+       "horizon": 100,
+       "state": "edge"
+      }
+     ]
+    },
+    "path": [
+     0.038,
+     0.09,
+     0.129,
+     0.182,
+     0.196,
+     0.228,
+     0.264,
+     0.334,
+     0.367,
+     0.393,
+     0.414,
+     0.43,
+     0.46,
+     0.481,
+     0.492,
+     0.494,
+     0.502,
+     0.512,
+     0.497,
+     0.497
+    ],
+    "band": [
+     [
+      -0.037,
+      0.041
+     ],
+     [
+      -0.068,
+      0.077
+     ],
+     [
+      -0.091,
+      0.105
+     ],
+     [
+      -0.105,
+      0.14
+     ],
+     [
+      -0.126,
+      0.174
+     ],
+     [
+      -0.153,
+      0.212
+     ],
+     [
+      -0.184,
+      0.25
+     ],
+     [
+      -0.212,
+      0.277
+     ],
+     [
+      -0.238,
+      0.302
+     ],
+     [
+      -0.26,
+      0.306
+     ],
+     [
+      -0.275,
+      0.317
+     ],
+     [
+      -0.286,
+      0.314
+     ],
+     [
+      -0.311,
+      0.338
+     ],
+     [
+      -0.357,
+      0.34
+     ],
+     [
+      -0.363,
+      0.333
+     ],
+     [
+      -0.408,
+      0.326
+     ],
+     [
+      -0.431,
+      0.338
+     ],
+     [
+      -0.463,
+      0.333
+     ],
+     [
+      -0.494,
+      0.344
+     ],
+     [
+      -0.519,
+      0.354
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 1842,
+     "episodes": 181,
+     "draws": 135,
+     "edge": 0.4,
+     "chance": [
+      -0.43,
+      0.34
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 49,
+       "start": "2020-12-23",
+       "end": "2021-01-08",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 2207,
+     "episodes": 194,
+     "draws": 113,
+     "edge": 0.26,
+     "chance": [
+      -0.57,
+      0.49
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 2686,
+     "episodes": 162,
+     "draws": 100,
+     "edge": 0.66,
+     "chance": [
+      -0.79,
+      0.52
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 135,
+       "start": "2021-07-22",
+       "end": "2021-09-10",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "mar-ema20-ema50-up1",
+   "tf": "4h",
+   "label": "EMA 20 / EMA 50 crosses up 1",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 375,
+    "episodes": 339,
+    "draws": 500,
+    "edge": 0.18,
+    "chance": [
+     -0.87,
+     0.75
+    ],
+    "verdict": "none",
+    "path": [
+     0.061,
+     0.082,
+     0.131,
+     0.142,
+     -0.009,
+     0.057,
+     0.001,
+     -0.087,
+     0.017,
+     0.084,
+     0.069,
+     0.177,
+     0.05,
+     0.052,
+     -0.021,
+     -0.001,
+     0.064,
+     0.1,
+     0.195,
+     0.184
+    ],
+    "band": [
+     [
+      -0.153,
+      0.172
+     ],
+     [
+      -0.197,
+      0.213
+     ],
+     [
+      -0.273,
+      0.268
+     ],
+     [
+      -0.32,
+      0.301
+     ],
+     [
+      -0.371,
+      0.342
+     ],
+     [
+      -0.377,
+      0.404
+     ],
+     [
+      -0.457,
+      0.426
+     ],
+     [
+      -0.497,
+      0.483
+     ],
+     [
+      -0.492,
+      0.522
+     ],
+     [
+      -0.523,
+      0.534
+     ],
+     [
+      -0.556,
+      0.556
+     ],
+     [
+      -0.588,
+      0.589
+     ],
+     [
+      -0.61,
+      0.607
+     ],
+     [
+      -0.657,
+      0.601
+     ],
+     [
+      -0.679,
+      0.617
+     ],
+     [
+      -0.7,
+      0.669
+     ],
+     [
+      -0.728,
+      0.698
+     ],
+     [
+      -0.743,
+      0.714
+     ],
+     [
+      -0.792,
+      0.718
+     ],
+     [
+      -0.866,
+      0.75
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 125,
+     "episodes": 116,
+     "draws": 500,
+     "edge": 0.19,
+     "chance": [
+      -0.86,
+      0.72
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 128,
+     "episodes": 113,
+     "draws": 500,
+     "edge": 0.3,
+     "chance": [
+      -1.02,
+      1.02
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 122,
+     "episodes": 110,
+     "draws": 500,
+     "edge": 0.07,
+     "chance": [
+      -1.72,
+      1.65
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "mar-ema20-up103-short",
+   "tf": "4h",
+   "label": "Price / EMA 20 crosses up 1.03, short",
+   "side": "short",
+   "featured": false,
+   "pooled": {
+    "entries": 1383,
+    "episodes": 527,
+    "draws": 180,
+    "edge": -0.58,
+    "chance": [
+     -0.57,
+     0.44
+    ],
+    "verdict": "fragile-worse",
+    "robustness": {
+     "fragile": true,
+     "strongest": {
+      "deals": 12,
+      "start": "2021-08-02",
+      "end": "2021-08-15",
+      "without": "chance"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "worse"
+      },
+      {
+       "horizon": 50,
+       "state": "chance"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     -0.059,
+     -0.13,
+     -0.221,
+     -0.259,
+     -0.346,
+     -0.283,
+     -0.331,
+     -0.464,
+     -0.575,
+     -0.537,
+     -0.533,
+     -0.502,
+     -0.453,
+     -0.491,
+     -0.53,
+     -0.51,
+     -0.554,
+     -0.556,
+     -0.538,
+     -0.577
+    ],
+    "band": [
+     [
+      -0.091,
+      0.09
+     ],
+     [
+      -0.14,
+      0.129
+     ],
+     [
+      -0.198,
+      0.155
+     ],
+     [
+      -0.238,
+      0.195
+     ],
+     [
+      -0.223,
+      0.201
+     ],
+     [
+      -0.276,
+      0.222
+     ],
+     [
+      -0.277,
+      0.275
+     ],
+     [
+      -0.311,
+      0.289
+     ],
+     [
+      -0.354,
+      0.295
+     ],
+     [
+      -0.369,
+      0.32
+     ],
+     [
+      -0.392,
+      0.317
+     ],
+     [
+      -0.396,
+      0.319
+     ],
+     [
+      -0.441,
+      0.339
+     ],
+     [
+      -0.408,
+      0.345
+     ],
+     [
+      -0.454,
+      0.356
+     ],
+     [
+      -0.46,
+      0.398
+     ],
+     [
+      -0.487,
+      0.406
+     ],
+     [
+      -0.525,
+      0.404
+     ],
+     [
+      -0.539,
+      0.47
+     ],
+     [
+      -0.565,
+      0.442
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 313,
+     "episodes": 139,
+     "draws": 500,
+     "edge": -0.78,
+     "chance": [
+      -0.6,
+      0.59
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 11,
+       "start": "2021-02-02",
+       "end": "2021-02-19",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 439,
+     "episodes": 183,
+     "draws": 500,
+     "edge": -0.15,
+     "chance": [
+      -0.69,
+      0.72
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 631,
+     "episodes": 205,
+     "draws": 396,
+     "edge": -0.61,
+     "chance": [
+      -0.74,
+      0.81
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "mar-ema20-down099",
+   "tf": "1d",
+   "label": "Price / EMA 20 crosses down 0.99",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 399,
+    "episodes": 109,
+    "draws": 500,
+    "edge": -2.42,
+    "chance": [
+     -2.06,
+     2.19
+    ],
+    "verdict": "fragile-worse",
+    "robustness": {
+     "fragile": true,
+     "strongest": {
+      "deals": 7,
+      "start": "2021-03-22",
+      "end": "2021-05-12",
+      "without": "chance"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "worse"
+      },
+      {
+       "horizon": 50,
+       "state": "chance"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     -0.557,
+     -0.789,
+     -1.039,
+     -1.21,
+     -1.009,
+     -1.613,
+     -1.97,
+     -1.966,
+     -1.82,
+     -2.313,
+     -2.171,
+     -2.169,
+     -1.99,
+     -1.756,
+     -2.002,
+     -2.328,
+     -2.335,
+     -2.129,
+     -2.433,
+     -2.418
+    ],
+    "band": [
+     [
+      -0.41,
+      0.419
+     ],
+     [
+      -0.521,
+      0.577
+     ],
+     [
+      -0.68,
+      0.722
+     ],
+     [
+      -0.757,
+      0.85
+     ],
+     [
+      -0.88,
+      0.95
+     ],
+     [
+      -1.006,
+      1.028
+     ],
+     [
+      -1.055,
+      1.167
+     ],
+     [
+      -1.126,
+      1.228
+     ],
+     [
+      -1.264,
+      1.222
+     ],
+     [
+      -1.397,
+      1.313
+     ],
+     [
+      -1.404,
+      1.424
+     ],
+     [
+      -1.552,
+      1.466
+     ],
+     [
+      -1.57,
+      1.465
+     ],
+     [
+      -1.622,
+      1.571
+     ],
+     [
+      -1.74,
+      1.668
+     ],
+     [
+      -1.801,
+      1.86
+     ],
+     [
+      -1.822,
+      1.967
+     ],
+     [
+      -1.912,
+      1.95
+     ],
+     [
+      -1.98,
+      2.131
+     ],
+     [
+      -2.059,
+      2.195
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 126,
+     "episodes": 36,
+     "draws": 500,
+     "edge": -1.43,
+     "chance": [
+      -2.31,
+      2.25
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 136,
+     "episodes": 35,
+     "draws": 500,
+     "edge": -1.92,
+     "chance": [
+      -2.61,
+      2.99
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 137,
+     "episodes": 38,
+     "draws": 500,
+     "edge": -3.98,
+     "chance": [
+      -4.54,
+      4.79
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "mar-ema20-down097",
+   "tf": "1d",
+   "label": "Price / EMA 20 crosses down 0.97",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 383,
+    "episodes": 99,
+    "draws": 500,
+    "edge": -4.11,
+    "chance": [
+     -2.65,
+     2.62
+    ],
+    "verdict": "worse",
+    "robustness": {
+     "fragile": false,
+     "strongest": {
+      "deals": 12,
+      "start": "2024-12-18",
+      "end": "2025-03-28",
+      "without": "worse"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "worse"
+      },
+      {
+       "horizon": 50,
+       "state": "worse"
+      },
+      {
+       "horizon": 100,
+       "state": "worse"
+      }
+     ]
+    },
+    "path": [
+     -0.115,
+     -0.509,
+     -0.881,
+     -1.255,
+     -1.362,
+     -1.829,
+     -2.17,
+     -2.495,
+     -2.737,
+     -2.964,
+     -3.022,
+     -2.737,
+     -3.156,
+     -3.34,
+     -3.36,
+     -3.702,
+     -3.762,
+     -3.904,
+     -3.936,
+     -4.114
+    ],
+    "band": [
+     [
+      -0.429,
+      0.402
+     ],
+     [
+      -0.528,
+      0.618
+     ],
+     [
+      -0.694,
+      0.746
+     ],
+     [
+      -0.818,
+      0.88
+     ],
+     [
+      -1.03,
+      0.999
+     ],
+     [
+      -1.066,
+      1.008
+     ],
+     [
+      -1.259,
+      1.255
+     ],
+     [
+      -1.402,
+      1.317
+     ],
+     [
+      -1.548,
+      1.484
+     ],
+     [
+      -1.724,
+      1.707
+     ],
+     [
+      -1.836,
+      1.656
+     ],
+     [
+      -1.937,
+      1.916
+     ],
+     [
+      -2.205,
+      1.946
+     ],
+     [
+      -2.273,
+      2.006
+     ],
+     [
+      -2.363,
+      2.199
+     ],
+     [
+      -2.363,
+      2.328
+     ],
+     [
+      -2.585,
+      2.373
+     ],
+     [
+      -2.712,
+      2.316
+     ],
+     [
+      -2.599,
+      2.538
+     ],
+     [
+      -2.65,
+      2.616
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 129,
+     "episodes": 33,
+     "draws": 500,
+     "edge": -1.57,
+     "chance": [
+      -2.76,
+      2.79
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 126,
+     "episodes": 32,
+     "draws": 500,
+     "edge": -4.47,
+     "chance": [
+      -3.59,
+      3.68
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 12,
+       "start": "2024-12-18",
+       "end": "2025-03-28",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 128,
+     "episodes": 34,
+     "draws": 500,
+     "edge": -6.33,
+     "chance": [
+      -4.51,
+      5.69
+     ],
+     "verdict": "worse",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 6,
+       "start": "2020-09-03",
+       "end": "2020-10-13",
+       "without": "worse"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "worse"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "mar-ema50-gt101-trend",
+   "tf": "1d",
+   "label": "Price / EMA 50 above 1.01, rising 2% in 10 bars",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 1651,
+    "episodes": 85,
+    "draws": 151,
+    "edge": 3.97,
+    "chance": [
+     -3.3,
+     3.51
+    ],
+    "verdict": "fragile",
+    "robustness": {
+     "fragile": true,
+     "strongest": {
+      "deals": 66,
+      "start": "2021-07-30",
+      "end": "2021-11-09",
+      "without": "chance"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "chance"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     0.288,
+     0.508,
+     0.703,
+     0.868,
+     1.035,
+     1.375,
+     1.54,
+     1.63,
+     1.796,
+     2.052,
+     2.185,
+     2.381,
+     2.58,
+     2.695,
+     2.794,
+     3.038,
+     3.271,
+     3.479,
+     3.798,
+     3.97
+    ],
+    "band": [
+     [
+      -0.232,
+      0.204
+     ],
+     [
+      -0.444,
+      0.4
+     ],
+     [
+      -0.667,
+      0.565
+     ],
+     [
+      -0.845,
+      0.761
+     ],
+     [
+      -1.057,
+      0.983
+     ],
+     [
+      -1.269,
+      1.243
+     ],
+     [
+      -1.429,
+      1.396
+     ],
+     [
+      -1.575,
+      1.558
+     ],
+     [
+      -1.689,
+      1.694
+     ],
+     [
+      -1.828,
+      1.852
+     ],
+     [
+      -1.981,
+      2.053
+     ],
+     [
+      -2.233,
+      2.308
+     ],
+     [
+      -2.34,
+      2.493
+     ],
+     [
+      -2.43,
+      2.696
+     ],
+     [
+      -2.562,
+      2.838
+     ],
+     [
+      -2.799,
+      3.081
+     ],
+     [
+      -2.909,
+      3.251
+     ],
+     [
+      -3.042,
+      3.404
+     ],
+     [
+      -3.175,
+      3.439
+     ],
+     [
+      -3.295,
+      3.507
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 528,
+     "episodes": 27,
+     "draws": 473,
+     "edge": 2.02,
+     "chance": [
+      -2.58,
+      2.57
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 551,
+     "episodes": 29,
+     "draws": 453,
+     "edge": 1.71,
+     "chance": [
+      -3.15,
+      2.92
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 572,
+     "episodes": 29,
+     "draws": 437,
+     "edge": 7.76,
+     "chance": [
+      -6,
+      6.14
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 66,
+       "start": "2021-07-30",
+       "end": "2021-11-09",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "mar-ema20-ema50-up1",
+   "tf": "1d",
+   "label": "EMA 20 / EMA 50 crosses up 1",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 58,
+    "episodes": 52,
+    "draws": 500,
+    "edge": -1.32,
+    "chance": [
+     -5.46,
+     6.78
+    ],
+    "verdict": "none",
+    "path": [
+     0.449,
+     0.839,
+     1.145,
+     0.434,
+     0.823,
+     0.32,
+     0.272,
+     -0.226,
+     -0.1,
+     0.113,
+     0.513,
+     0.752,
+     -0.292,
+     -0.703,
+     -1.056,
+     -1.089,
+     -1.008,
+     -1.09,
+     -1.381,
+     -1.316
+    ],
+    "band": [
+     [
+      -1.035,
+      0.956
+     ],
+     [
+      -1.478,
+      1.561
+     ],
+     [
+      -1.75,
+      1.851
+     ],
+     [
+      -1.948,
+      2.163
+     ],
+     [
+      -2.287,
+      2.502
+     ],
+     [
+      -2.652,
+      2.81
+     ],
+     [
+      -2.84,
+      3.036
+     ],
+     [
+      -3.139,
+      3.366
+     ],
+     [
+      -3.327,
+      3.496
+     ],
+     [
+      -3.568,
+      3.647
+     ],
+     [
+      -3.83,
+      3.864
+     ],
+     [
+      -4.06,
+      4.15
+     ],
+     [
+      -4.258,
+      4.839
+     ],
+     [
+      -4.517,
+      5.015
+     ],
+     [
+      -4.635,
+      5.443
+     ],
+     [
+      -4.661,
+      5.958
+     ],
+     [
+      -4.801,
+      5.988
+     ],
+     [
+      -4.75,
+      6.234
+     ],
+     [
+      -5.138,
+      6.769
+     ],
+     [
+      -5.459,
+      6.783
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 18,
+     "episodes": 17,
+     "draws": 500,
+     "edge": -0.04,
+     "chance": [
+      -5.25,
+      5.32
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 19,
+     "episodes": 17,
+     "draws": 500,
+     "edge": -1.53,
+     "chance": [
+      -7.05,
+      8.25
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 21,
+     "episodes": 18,
+     "draws": 500,
+     "edge": -2.6,
+     "chance": [
+      -9.93,
+      14.76
+     ],
+     "verdict": "few"
+    }
+   }
+  },
+  {
+   "id": "mar-ema20-up103-short",
+   "tf": "1d",
+   "label": "Price / EMA 20 crosses up 1.03, short",
+   "side": "short",
+   "featured": false,
+   "pooled": {
+    "entries": 344,
+    "episodes": 134,
+    "draws": 500,
+    "edge": -0.08,
+    "chance": [
+     -2.29,
+     2.42
+    ],
+    "verdict": "none",
+    "path": [
+     0.095,
+     -0.031,
+     -0.122,
+     0.164,
+     0.238,
+     0.16,
+     0.221,
+     0.455,
+     0.328,
+     0.071,
+     -0.049,
+     -0.111,
+     -0.164,
+     -0.346,
+     -0.215,
+     -0.615,
+     -0.724,
+     -0.486,
+     -0.55,
+     -0.08
+    ],
+    "band": [
+     [
+      -0.421,
+      0.432
+     ],
+     [
+      -0.559,
+      0.574
+     ],
+     [
+      -0.726,
+      0.726
+     ],
+     [
+      -0.856,
+      0.842
+     ],
+     [
+      -0.925,
+      1.042
+     ],
+     [
+      -1.026,
+      1.029
+     ],
+     [
+      -1.104,
+      1.118
+     ],
+     [
+      -1.201,
+      1.278
+     ],
+     [
+      -1.231,
+      1.421
+     ],
+     [
+      -1.316,
+      1.578
+     ],
+     [
+      -1.48,
+      1.685
+     ],
+     [
+      -1.517,
+      1.647
+     ],
+     [
+      -1.618,
+      1.813
+     ],
+     [
+      -1.742,
+      1.866
+     ],
+     [
+      -1.837,
+      1.934
+     ],
+     [
+      -1.875,
+      2.117
+     ],
+     [
+      -1.983,
+      2.086
+     ],
+     [
+      -1.911,
+      2.171
+     ],
+     [
+      -2.034,
+      2.284
+     ],
+     [
+      -2.285,
+      2.423
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 110,
+     "episodes": 46,
+     "draws": 500,
+     "edge": 0.72,
+     "chance": [
+      -2.5,
+      2.55
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 114,
+     "episodes": 45,
+     "draws": 500,
+     "edge": -3,
+     "chance": [
+      -2.71,
+      3.19
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 4,
+       "start": "2020-11-28",
+       "end": "2020-12-25",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 120,
+     "episodes": 43,
+     "draws": 500,
+     "edge": 2.17,
+     "chance": [
+      -4.33,
+      4
+     ],
+     "verdict": "none"
+    }
+   }
+  }
+ ],
+ "summary": "Mostly no: MAR shows an edge on one setting and one timeframe. On 1h, after price / EMA 20 crossed down through 0.97, price did 0.46% better than random entries 20 candles later, on BTC, ETH and SOL alike. The same cross on daily did worse than random, and shorting a cross up through 1.03 on 1h did worse too.",
+ "verdicts": [
+  {
+   "use": "Deep dip below EMA 20 (cross down 0.97) on 1h",
+   "verdict": "edge",
+   "text": "Price did 0.46% better than random 20 candles later, and each of BTC, ETH and SOL beat its luck band. It holds without its strongest stretch and at 10, 20, 50 and 100 candles."
+  },
+  {
+   "use": "Shallow dip below EMA 20 (cross down 0.99)",
+   "verdict": "none",
+   "text": "No better than random entries on 1h or 4h. On daily it looked worse than random, but only because of one stretch."
+  },
+  {
+   "use": "Deep dip below EMA 20 (cross down 0.97) on daily",
+   "verdict": "worse",
+   "text": "Price did 4.11% worse than random 20 days later. It holds without its strongest stretch and at 10, 20, 50 and 100 candles."
+  },
+  {
+   "use": "Riding a trend (above 1.01 over EMA 50, rising 2% in 10 bars)",
+   "verdict": "edge",
+   "text": "On 1h, price did 0.35% better than random and held at 10, 20, 50 and 100 candles. BTC on its own stayed inside the luck band, and on 4h and daily the gap rests on a single stretch."
+  },
+  {
+   "use": "Shorting a stretch above EMA 20 (cross up 1.03)",
+   "verdict": "worse",
+   "text": "On 1h, price kept rising: the short did 0.52% worse than random on every coin. On 4h the result rests on one stretch, and on daily it sits inside the luck band."
+  },
+  {
+   "use": "EMA 20 crossing above EMA 50",
+   "verdict": "fragile",
+   "text": "On 1h it beat random only because of one entry on Feb 22, 2021. On 4h and daily it sits inside the luck band."
+  }
+ ],
+ "notes": [
+  "On 1h, price / EMA 20 crossing down through 0.97 gave 2,136 entries in 978 separate moves. Twenty candles later they were 0.46% ahead of random entries, above a luck band of -0.17% to 0.29%. BTC came in at 0.46%, ETH at 0.45% and SOL at 0.4%, and the result held without the signals on May 16–18, 2021. The 0.99 cross fires about three times as often and lands at -0.01%, inside the band.",
+  "The same 0.97 cross does not carry over to slower candles. On 4h it was 0.27% ahead, inside a band of -0.37% to 0.65%. On daily it was 4.11% behind random, and the gap held at every horizon and without the stretch between Dec 18, 2024 and Mar 28, 2025. On daily, a close 0.97 below EMA 20 marked a fall that kept going, most of all on SOL at -6.33%.",
+  "Shorting a cross up through 1.03 on 1h did 0.52% worse than random, and BTC, ETH and SOL were each worse on their own. It stays worse at 10, 50 and 100 candles and without the signals on Jan 7–10, 2021. On 4h it was 0.58% worse, but only because of signals between Aug 2 and Aug 15, 2021. On 1h, a close stretched above EMA 20 tended to mark strength that continued, not a top.",
+  "The trend setting, price / EMA 50 above 1.01 and rising 2% in 10 bars, was 0.35% ahead of random on 1h. It fires about eight times per move and held without the run between Dec 31, 2020 and Jan 8, 2021. The gap is mostly SOL at 0.46%, while BTC at 0.14% stayed inside its band. On 4h and daily it disappears without SOL's signals between Jul 22 and Sep 10, 2021, and between Jul 30 and Nov 9, 2021.",
+  "EMA 20 crossing above EMA 50 on 1h was 0.16% ahead, right at the top of its luck band. It falls back to chance without one entry on Feb 22, 2021. On 4h it was 0.18% inside a band of -0.87% to 0.75%. On daily it gave only 58 entries and sat inside the band.",
+  "For a long DCA bot on 1h, the 0.97 cross can be a filter beside your other start conditions, since price tended to recover from that stretch within 10 to 100 candles. Leave the 0.99 cross out, because it adds entries without adding anything. On daily, a 0.97 cross came before further falls, which is where DCA orders fill one after another. For a short bot, a 1.03 stretch on 1h means opening against a move that tended to continue."
+ ],
+ "summaryRefs": [
+  {
+   "tf": "1h",
+   "setting": "mar-ema20-down097",
+   "scope": "pooled"
+  },
+  {
+   "tf": "1h",
+   "setting": "mar-ema20-down097",
+   "scope": "BTC"
+  },
+  {
+   "tf": "1h",
+   "setting": "mar-ema20-down097",
+   "scope": "ETH"
+  },
+  {
+   "tf": "1h",
+   "setting": "mar-ema20-down097",
+   "scope": "SOL"
+  },
+  {
+   "tf": "1d",
+   "setting": "mar-ema20-down097",
+   "scope": "pooled"
+  },
+  {
+   "tf": "1h",
+   "setting": "mar-ema20-up103-short",
+   "scope": "pooled"
+  }
+ ],
+ "verdictRefs": [
+  [
+   {
+    "tf": "1h",
+    "setting": "mar-ema20-down097",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "mar-ema20-down097",
+    "scope": "BTC"
+   },
+   {
+    "tf": "1h",
+    "setting": "mar-ema20-down097",
+    "scope": "ETH"
+   },
+   {
+    "tf": "1h",
+    "setting": "mar-ema20-down097",
+    "scope": "SOL"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "mar-ema20-down099",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "mar-ema20-down099",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "mar-ema20-down099",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1d",
+    "setting": "mar-ema20-down097",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "mar-ema50-gt101-trend",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "mar-ema50-gt101-trend",
+    "scope": "BTC"
+   },
+   {
+    "tf": "4h",
+    "setting": "mar-ema50-gt101-trend",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "mar-ema50-gt101-trend",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "mar-ema20-up103-short",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "mar-ema20-up103-short",
+    "scope": "BTC"
+   },
+   {
+    "tf": "1h",
+    "setting": "mar-ema20-up103-short",
+    "scope": "ETH"
+   },
+   {
+    "tf": "1h",
+    "setting": "mar-ema20-up103-short",
+    "scope": "SOL"
+   },
+   {
+    "tf": "4h",
+    "setting": "mar-ema20-up103-short",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "mar-ema20-up103-short",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "mar-ema20-ema50-up1",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "mar-ema20-ema50-up1",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "mar-ema20-ema50-up1",
+    "scope": "pooled"
+   }
+  ]
+ ],
+ "noteRefs": [
+  [
+   {
+    "tf": "1h",
+    "setting": "mar-ema20-down097",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "mar-ema20-down097",
+    "scope": "BTC"
+   },
+   {
+    "tf": "1h",
+    "setting": "mar-ema20-down097",
+    "scope": "ETH"
+   },
+   {
+    "tf": "1h",
+    "setting": "mar-ema20-down097",
+    "scope": "SOL"
+   },
+   {
+    "tf": "1h",
+    "setting": "mar-ema20-down099",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "4h",
+    "setting": "mar-ema20-down097",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "mar-ema20-down097",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "mar-ema20-down097",
+    "scope": "SOL"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "mar-ema20-up103-short",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "mar-ema20-up103-short",
+    "scope": "BTC"
+   },
+   {
+    "tf": "1h",
+    "setting": "mar-ema20-up103-short",
+    "scope": "ETH"
+   },
+   {
+    "tf": "1h",
+    "setting": "mar-ema20-up103-short",
+    "scope": "SOL"
+   },
+   {
+    "tf": "4h",
+    "setting": "mar-ema20-up103-short",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "mar-ema50-gt101-trend",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "mar-ema50-gt101-trend",
+    "scope": "SOL"
+   },
+   {
+    "tf": "1h",
+    "setting": "mar-ema50-gt101-trend",
+    "scope": "BTC"
+   },
+   {
+    "tf": "4h",
+    "setting": "mar-ema50-gt101-trend",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "mar-ema50-gt101-trend",
+    "scope": "SOL"
+   },
+   {
+    "tf": "1d",
+    "setting": "mar-ema50-gt101-trend",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "mar-ema20-ema50-up1",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "mar-ema20-ema50-up1",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "mar-ema20-ema50-up1",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "mar-ema20-down097",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "mar-ema20-down099",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "mar-ema20-down097",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "mar-ema20-up103-short",
+    "scope": "pooled"
+   }
+  ]
+ ]
+}

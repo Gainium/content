@@ -1,0 +1,2731 @@
+{
+ "indicator": "ath-drawdown",
+ "defaultTf": "1h",
+ "method": {
+  "horizon": 20,
+  "horizons": [
+   10,
+   20,
+   50,
+   100
+  ],
+  "randomDraws": 500,
+  "minEpisodes": 30,
+  "source": "Binance spot",
+  "pairs": [
+   "BTC/USDT",
+   "ETH/USDT",
+   "SOL/USDT"
+  ],
+  "from": "2020-09-01",
+  "warmupFrom": "2020-06-01",
+  "to": "2026-10-24",
+  "engine": {
+   "indicators": "56f63e97",
+   "analysisMath": "cab0ed99"
+  }
+ },
+ "updatedAt": "2026-10-25",
+ "settings": [
+  {
+   "id": "ath100-lt10",
+   "tf": "1h",
+   "label": "More than 10% under the 100-bar high",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 28665,
+    "episodes": 563,
+    "draws": 100,
+    "edge": 0.15,
+    "chance": [
+     -0.14,
+     0.24
+    ],
+    "verdict": "none",
+    "path": [
+     0.013,
+     0.025,
+     0.031,
+     0.034,
+     0.04,
+     0.051,
+     0.062,
+     0.073,
+     0.079,
+     0.082,
+     0.089,
+     0.093,
+     0.095,
+     0.101,
+     0.105,
+     0.115,
+     0.124,
+     0.135,
+     0.143,
+     0.154
+    ],
+    "band": [
+     [
+      -0.008,
+      0.012
+     ],
+     [
+      -0.015,
+      0.024
+     ],
+     [
+      -0.023,
+      0.037
+     ],
+     [
+      -0.028,
+      0.048
+     ],
+     [
+      -0.035,
+      0.06
+     ],
+     [
+      -0.039,
+      0.073
+     ],
+     [
+      -0.046,
+      0.087
+     ],
+     [
+      -0.055,
+      0.098
+     ],
+     [
+      -0.06,
+      0.111
+     ],
+     [
+      -0.068,
+      0.12
+     ],
+     [
+      -0.076,
+      0.13
+     ],
+     [
+      -0.083,
+      0.141
+     ],
+     [
+      -0.088,
+      0.154
+     ],
+     [
+      -0.095,
+      0.169
+     ],
+     [
+      -0.101,
+      0.183
+     ],
+     [
+      -0.107,
+      0.19
+     ],
+     [
+      -0.115,
+      0.202
+     ],
+     [
+      -0.121,
+      0.217
+     ],
+     [
+      -0.127,
+      0.23
+     ],
+     [
+      -0.135,
+      0.241
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 4301,
+     "episodes": 105,
+     "draws": 100,
+     "edge": 0.08,
+     "chance": [
+      -0.23,
+      0.22
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 7992,
+     "episodes": 180,
+     "draws": 100,
+     "edge": 0,
+     "chance": [
+      -0.25,
+      0.26
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 16372,
+     "episodes": 278,
+     "draws": 100,
+     "edge": 0.19,
+     "chance": [
+      -0.21,
+      0.24
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "ath100-down10",
+   "tf": "1h",
+   "label": "Drawdown crosses down 10%",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 1642,
+    "episodes": 802,
+    "draws": 152,
+    "edge": 0.03,
+    "chance": [
+     -0.21,
+     0.28
+    ],
+    "verdict": "none",
+    "path": [
+     0.044,
+     0.086,
+     0.094,
+     0.103,
+     0.051,
+     -0.008,
+     -0.006,
+     0.056,
+     0.054,
+     0.062,
+     0.092,
+     0.099,
+     0.055,
+     0.079,
+     0.029,
+     0.039,
+     0.02,
+     0.051,
+     0.044,
+     0.03
+    ],
+    "band": [
+     [
+      -0.046,
+      0.049
+     ],
+     [
+      -0.067,
+      0.076
+     ],
+     [
+      -0.071,
+      0.092
+     ],
+     [
+      -0.092,
+      0.094
+     ],
+     [
+      -0.094,
+      0.117
+     ],
+     [
+      -0.098,
+      0.138
+     ],
+     [
+      -0.115,
+      0.142
+     ],
+     [
+      -0.127,
+      0.153
+     ],
+     [
+      -0.136,
+      0.169
+     ],
+     [
+      -0.136,
+      0.18
+     ],
+     [
+      -0.143,
+      0.191
+     ],
+     [
+      -0.166,
+      0.212
+     ],
+     [
+      -0.17,
+      0.239
+     ],
+     [
+      -0.158,
+      0.244
+     ],
+     [
+      -0.178,
+      0.227
+     ],
+     [
+      -0.191,
+      0.246
+     ],
+     [
+      -0.175,
+      0.264
+     ],
+     [
+      -0.197,
+      0.268
+     ],
+     [
+      -0.183,
+      0.272
+     ],
+     [
+      -0.207,
+      0.282
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 281,
+     "episodes": 139,
+     "draws": 500,
+     "edge": -0.34,
+     "chance": [
+      -0.33,
+      0.37
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 5,
+       "start": "2024-08-02",
+       "end": "2024-08-04",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 467,
+     "episodes": 241,
+     "draws": 500,
+     "edge": -0.01,
+     "chance": [
+      -0.36,
+      0.38
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 894,
+     "episodes": 422,
+     "draws": 279,
+     "edge": 0.11,
+     "chance": [
+      -0.34,
+      0.36
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "ath100-bw10-20",
+   "tf": "1h",
+   "label": "10% to 20% under the 100-bar high",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 24640,
+    "episodes": 615,
+    "draws": 100,
+    "edge": -0.07,
+    "chance": [
+     -0.11,
+     0.25
+    ],
+    "verdict": "none",
+    "path": [
+     -0.008,
+     -0.015,
+     -0.026,
+     -0.038,
+     -0.045,
+     -0.039,
+     -0.033,
+     -0.024,
+     -0.029,
+     -0.034,
+     -0.04,
+     -0.053,
+     -0.066,
+     -0.073,
+     -0.084,
+     -0.086,
+     -0.085,
+     -0.081,
+     -0.079,
+     -0.069
+    ],
+    "band": [
+     [
+      -0.008,
+      0.013
+     ],
+     [
+      -0.015,
+      0.025
+     ],
+     [
+      -0.021,
+      0.037
+     ],
+     [
+      -0.024,
+      0.048
+     ],
+     [
+      -0.03,
+      0.062
+     ],
+     [
+      -0.034,
+      0.074
+     ],
+     [
+      -0.042,
+      0.087
+     ],
+     [
+      -0.048,
+      0.099
+     ],
+     [
+      -0.053,
+      0.116
+     ],
+     [
+      -0.059,
+      0.129
+     ],
+     [
+      -0.065,
+      0.141
+     ],
+     [
+      -0.07,
+      0.154
+     ],
+     [
+      -0.075,
+      0.167
+     ],
+     [
+      -0.08,
+      0.177
+     ],
+     [
+      -0.085,
+      0.191
+     ],
+     [
+      -0.089,
+      0.204
+     ],
+     [
+      -0.095,
+      0.217
+     ],
+     [
+      -0.095,
+      0.226
+     ],
+     [
+      -0.102,
+      0.236
+     ],
+     [
+      -0.109,
+      0.25
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 3984,
+     "episodes": 108,
+     "draws": 100,
+     "edge": -0.13,
+     "chance": [
+      -0.24,
+      0.23
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 6881,
+     "episodes": 196,
+     "draws": 100,
+     "edge": -0.15,
+     "chance": [
+      -0.25,
+      0.32
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 13775,
+     "episodes": 311,
+     "draws": 100,
+     "edge": -0.07,
+     "chance": [
+      -0.21,
+      0.25
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "ath100-lt20",
+   "tf": "1h",
+   "label": "More than 20% under the 100-bar high",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 4022,
+    "episodes": 183,
+    "draws": 100,
+    "edge": 1.51,
+    "chance": [
+     -0.44,
+     0.56
+    ],
+    "verdict": "edge",
+    "robustness": {
+     "fragile": false,
+     "strongest": {
+      "deals": 54,
+      "start": "2020-09-16",
+      "end": "2020-09-18",
+      "without": "edge"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "edge"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     0.14,
+     0.26,
+     0.371,
+     0.471,
+     0.553,
+     0.597,
+     0.634,
+     0.66,
+     0.733,
+     0.796,
+     0.882,
+     0.979,
+     1.072,
+     1.162,
+     1.263,
+     1.341,
+     1.402,
+     1.452,
+     1.499,
+     1.514
+    ],
+    "band": [
+     [
+      -0.026,
+      0.035
+     ],
+     [
+      -0.048,
+      0.069
+     ],
+     [
+      -0.07,
+      0.1
+     ],
+     [
+      -0.094,
+      0.125
+     ],
+     [
+      -0.126,
+      0.148
+     ],
+     [
+      -0.152,
+      0.183
+     ],
+     [
+      -0.178,
+      0.199
+     ],
+     [
+      -0.203,
+      0.222
+     ],
+     [
+      -0.22,
+      0.253
+     ],
+     [
+      -0.223,
+      0.283
+     ],
+     [
+      -0.242,
+      0.311
+     ],
+     [
+      -0.271,
+      0.333
+     ],
+     [
+      -0.288,
+      0.361
+     ],
+     [
+      -0.296,
+      0.387
+     ],
+     [
+      -0.306,
+      0.426
+     ],
+     [
+      -0.325,
+      0.449
+     ],
+     [
+      -0.345,
+      0.474
+     ],
+     [
+      -0.371,
+      0.517
+     ],
+     [
+      -0.409,
+      0.532
+     ],
+     [
+      -0.438,
+      0.558
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 317,
+     "episodes": 21,
+     "draws": 500,
+     "edge": 2.72,
+     "chance": [
+      -0.73,
+      0.85
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 14,
+       "start": "2021-05-23",
+       "end": "2021-05-23",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 1111,
+     "episodes": 47,
+     "draws": 225,
+     "edge": 0.98,
+     "chance": [
+      -0.72,
+      0.62
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 52,
+       "start": "2021-01-11",
+       "end": "2021-01-13",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 2594,
+     "episodes": 115,
+     "draws": 100,
+     "edge": 1.52,
+     "chance": [
+      -0.61,
+      0.66
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 54,
+       "start": "2020-09-16",
+       "end": "2020-09-18",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "ath100-gt5-short",
+   "tf": "1h",
+   "label": "Within 5% of the 100-bar high, short",
+   "side": "short",
+   "featured": true,
+   "pooled": {
+    "entries": 87786,
+    "episodes": 772,
+    "draws": 100,
+    "edge": 0.06,
+    "chance": [
+     -0.05,
+     0.09
+    ],
+    "verdict": "none",
+    "path": [
+     0.002,
+     0.004,
+     0.006,
+     0.008,
+     0.01,
+     0.011,
+     0.013,
+     0.015,
+     0.019,
+     0.022,
+     0.027,
+     0.031,
+     0.035,
+     0.038,
+     0.04,
+     0.043,
+     0.045,
+     0.05,
+     0.054,
+     0.059
+    ],
+    "band": [
+     [
+      -0.003,
+      0.005
+     ],
+     [
+      -0.005,
+      0.01
+     ],
+     [
+      -0.009,
+      0.015
+     ],
+     [
+      -0.01,
+      0.021
+     ],
+     [
+      -0.013,
+      0.025
+     ],
+     [
+      -0.014,
+      0.03
+     ],
+     [
+      -0.017,
+      0.035
+     ],
+     [
+      -0.021,
+      0.039
+     ],
+     [
+      -0.025,
+      0.043
+     ],
+     [
+      -0.03,
+      0.047
+     ],
+     [
+      -0.034,
+      0.05
+     ],
+     [
+      -0.038,
+      0.054
+     ],
+     [
+      -0.04,
+      0.059
+     ],
+     [
+      -0.042,
+      0.064
+     ],
+     [
+      -0.043,
+      0.068
+     ],
+     [
+      -0.044,
+      0.071
+     ],
+     [
+      -0.047,
+      0.076
+     ],
+     [
+      -0.05,
+      0.081
+     ],
+     [
+      -0.052,
+      0.087
+     ],
+     [
+      -0.052,
+      0.092
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 38003,
+     "episodes": 183,
+     "draws": 100,
+     "edge": 0.04,
+     "chance": [
+      -0.04,
+      0.05
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 30668,
+     "episodes": 261,
+     "draws": 100,
+     "edge": 0.04,
+     "chance": [
+      -0.08,
+      0.09
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 19115,
+     "episodes": 328,
+     "draws": 100,
+     "edge": 0.04,
+     "chance": [
+      -0.17,
+      0.19
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "ath100-lt10",
+   "tf": "4h",
+   "label": "More than 10% under the 100-bar high",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 18935,
+    "episodes": 217,
+    "draws": 100,
+    "edge": -0.09,
+    "chance": [
+     -0.23,
+     0.53
+    ],
+    "verdict": "none",
+    "path": [
+     -0.005,
+     -0.01,
+     -0.005,
+     -0.001,
+     0.001,
+     0.003,
+     -0.001,
+     -0.006,
+     -0.009,
+     -0.013,
+     -0.013,
+     -0.022,
+     -0.028,
+     -0.029,
+     -0.034,
+     -0.041,
+     -0.058,
+     -0.065,
+     -0.077,
+     -0.089
+    ],
+    "band": [
+     [
+      -0.017,
+      0.03
+     ],
+     [
+      -0.036,
+      0.058
+     ],
+     [
+      -0.051,
+      0.091
+     ],
+     [
+      -0.06,
+      0.116
+     ],
+     [
+      -0.072,
+      0.149
+     ],
+     [
+      -0.089,
+      0.176
+     ],
+     [
+      -0.096,
+      0.208
+     ],
+     [
+      -0.106,
+      0.235
+     ],
+     [
+      -0.119,
+      0.263
+     ],
+     [
+      -0.126,
+      0.282
+     ],
+     [
+      -0.141,
+      0.305
+     ],
+     [
+      -0.157,
+      0.336
+     ],
+     [
+      -0.161,
+      0.36
+     ],
+     [
+      -0.172,
+      0.385
+     ],
+     [
+      -0.183,
+      0.409
+     ],
+     [
+      -0.192,
+      0.432
+     ],
+     [
+      -0.206,
+      0.45
+     ],
+     [
+      -0.211,
+      0.474
+     ],
+     [
+      -0.222,
+      0.504
+     ],
+     [
+      -0.232,
+      0.533
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 4153,
+     "episodes": 74,
+     "draws": 100,
+     "edge": -0.12,
+     "chance": [
+      -0.41,
+      0.58
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 6035,
+     "episodes": 81,
+     "draws": 100,
+     "edge": 0.01,
+     "chance": [
+      -0.42,
+      0.69
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 8747,
+     "episodes": 62,
+     "draws": 100,
+     "edge": -0.31,
+     "chance": [
+      -0.39,
+      0.46
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "ath100-down10",
+   "tf": "4h",
+   "label": "Drawdown crosses down 10%",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 836,
+    "episodes": 381,
+    "draws": 299,
+    "edge": 0.2,
+    "chance": [
+     -0.68,
+     0.62
+    ],
+    "verdict": "none",
+    "path": [
+     -0.059,
+     -0.199,
+     -0.171,
+     -0.178,
+     -0.204,
+     -0.169,
+     -0.206,
+     -0.128,
+     -0.112,
+     -0.001,
+     0.053,
+     0.061,
+     0.032,
+     0.124,
+     0.192,
+     0.329,
+     0.216,
+     0.304,
+     0.275,
+     0.199
+    ],
+    "band": [
+     [
+      -0.112,
+      0.117
+     ],
+     [
+      -0.139,
+      0.139
+     ],
+     [
+      -0.205,
+      0.179
+     ],
+     [
+      -0.259,
+      0.217
+     ],
+     [
+      -0.27,
+      0.276
+     ],
+     [
+      -0.305,
+      0.318
+     ],
+     [
+      -0.342,
+      0.31
+     ],
+     [
+      -0.378,
+      0.363
+     ],
+     [
+      -0.399,
+      0.369
+     ],
+     [
+      -0.441,
+      0.408
+     ],
+     [
+      -0.455,
+      0.436
+     ],
+     [
+      -0.422,
+      0.48
+     ],
+     [
+      -0.494,
+      0.51
+     ],
+     [
+      -0.506,
+      0.491
+     ],
+     [
+      -0.496,
+      0.523
+     ],
+     [
+      -0.564,
+      0.522
+     ],
+     [
+      -0.611,
+      0.568
+     ],
+     [
+      -0.613,
+      0.557
+     ],
+     [
+      -0.614,
+      0.574
+     ],
+     [
+      -0.679,
+      0.622
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 211,
+     "episodes": 108,
+     "draws": 500,
+     "edge": -0.8,
+     "chance": [
+      -0.74,
+      0.67
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 5,
+       "start": "2026-05-28",
+       "end": "2026-06-02",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 286,
+     "episodes": 136,
+     "draws": 500,
+     "edge": -0.09,
+     "chance": [
+      -0.89,
+      0.79
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 339,
+     "episodes": 137,
+     "draws": 500,
+     "edge": 0.95,
+     "chance": [
+      -1.16,
+      1.24
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "ath100-bw10-20",
+   "tf": "4h",
+   "label": "10% to 20% under the 100-bar high",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 12497,
+    "episodes": 290,
+    "draws": 100,
+    "edge": -0.12,
+    "chance": [
+     -0.41,
+     0.53
+    ],
+    "verdict": "none",
+    "path": [
+     -0.039,
+     -0.054,
+     -0.057,
+     -0.057,
+     -0.063,
+     -0.057,
+     -0.049,
+     -0.048,
+     -0.041,
+     -0.037,
+     -0.03,
+     -0.049,
+     -0.058,
+     -0.056,
+     -0.056,
+     -0.073,
+     -0.092,
+     -0.099,
+     -0.108,
+     -0.119
+    ],
+    "band": [
+     [
+      -0.022,
+      0.028
+     ],
+     [
+      -0.046,
+      0.059
+     ],
+     [
+      -0.065,
+      0.082
+     ],
+     [
+      -0.082,
+      0.11
+     ],
+     [
+      -0.099,
+      0.143
+     ],
+     [
+      -0.119,
+      0.166
+     ],
+     [
+      -0.138,
+      0.186
+     ],
+     [
+      -0.158,
+      0.217
+     ],
+     [
+      -0.17,
+      0.236
+     ],
+     [
+      -0.187,
+      0.269
+     ],
+     [
+      -0.201,
+      0.29
+     ],
+     [
+      -0.219,
+      0.315
+     ],
+     [
+      -0.232,
+      0.356
+     ],
+     [
+      -0.252,
+      0.392
+     ],
+     [
+      -0.261,
+      0.422
+     ],
+     [
+      -0.272,
+      0.444
+     ],
+     [
+      -0.292,
+      0.467
+     ],
+     [
+      -0.332,
+      0.49
+     ],
+     [
+      -0.376,
+      0.513
+     ],
+     [
+      -0.405,
+      0.534
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 3337,
+     "episodes": 82,
+     "draws": 100,
+     "edge": -0.26,
+     "chance": [
+      -0.47,
+      0.75
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 4227,
+     "episodes": 100,
+     "draws": 100,
+     "edge": 0.06,
+     "chance": [
+      -0.57,
+      0.74
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 4933,
+     "episodes": 108,
+     "draws": 100,
+     "edge": -0.27,
+     "chance": [
+      -0.68,
+      0.75
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "ath100-lt20",
+   "tf": "4h",
+   "label": "More than 20% under the 100-bar high",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 6436,
+    "episodes": 149,
+    "draws": 100,
+    "edge": -0.04,
+    "chance": [
+     -0.53,
+     1.1
+    ],
+    "verdict": "none",
+    "path": [
+     0.061,
+     0.077,
+     0.096,
+     0.106,
+     0.124,
+     0.117,
+     0.089,
+     0.072,
+     0.05,
+     0.033,
+     0.017,
+     0.025,
+     0.027,
+     0.02,
+     0.006,
+     0.017,
+     0.006,
+     -0.002,
+     -0.02,
+     -0.035
+    ],
+    "band": [
+     [
+      -0.042,
+      0.053
+     ],
+     [
+      -0.066,
+      0.096
+     ],
+     [
+      -0.095,
+      0.149
+     ],
+     [
+      -0.123,
+      0.2
+     ],
+     [
+      -0.148,
+      0.251
+     ],
+     [
+      -0.169,
+      0.316
+     ],
+     [
+      -0.195,
+      0.373
+     ],
+     [
+      -0.235,
+      0.427
+     ],
+     [
+      -0.262,
+      0.48
+     ],
+     [
+      -0.301,
+      0.542
+     ],
+     [
+      -0.33,
+      0.6
+     ],
+     [
+      -0.368,
+      0.655
+     ],
+     [
+      -0.375,
+      0.718
+     ],
+     [
+      -0.375,
+      0.787
+     ],
+     [
+      -0.41,
+      0.852
+     ],
+     [
+      -0.445,
+      0.907
+     ],
+     [
+      -0.474,
+      0.956
+     ],
+     [
+      -0.503,
+      1.002
+     ],
+     [
+      -0.509,
+      1.058
+     ],
+     [
+      -0.527,
+      1.104
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 816,
+     "episodes": 29,
+     "draws": 306,
+     "edge": 0.44,
+     "chance": [
+      -1.17,
+      1.2
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 1808,
+     "episodes": 46,
+     "draws": 138,
+     "edge": -0.11,
+     "chance": [
+      -1.03,
+      1.36
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 3812,
+     "episodes": 74,
+     "draws": 100,
+     "edge": -0.36,
+     "chance": [
+      -0.83,
+      1.15
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "ath100-gt5-short",
+   "tf": "4h",
+   "label": "Within 5% of the 100-bar high, short",
+   "side": "short",
+   "featured": true,
+   "pooled": {
+    "entries": 10788,
+    "episodes": 254,
+    "draws": 100,
+    "edge": -0.14,
+    "chance": [
+     -0.35,
+     0.69
+    ],
+    "verdict": "none",
+    "path": [
+     -0.019,
+     -0.024,
+     -0.028,
+     -0.031,
+     -0.03,
+     -0.045,
+     -0.065,
+     -0.074,
+     -0.088,
+     -0.105,
+     -0.121,
+     -0.128,
+     -0.133,
+     -0.139,
+     -0.141,
+     -0.142,
+     -0.138,
+     -0.149,
+     -0.147,
+     -0.143
+    ],
+    "band": [
+     [
+      -0.027,
+      0.034
+     ],
+     [
+      -0.055,
+      0.071
+     ],
+     [
+      -0.074,
+      0.106
+     ],
+     [
+      -0.09,
+      0.143
+     ],
+     [
+      -0.108,
+      0.176
+     ],
+     [
+      -0.122,
+      0.198
+     ],
+     [
+      -0.137,
+      0.236
+     ],
+     [
+      -0.148,
+      0.256
+     ],
+     [
+      -0.163,
+      0.295
+     ],
+     [
+      -0.18,
+      0.312
+     ],
+     [
+      -0.184,
+      0.332
+     ],
+     [
+      -0.195,
+      0.381
+     ],
+     [
+      -0.22,
+      0.422
+     ],
+     [
+      -0.238,
+      0.453
+     ],
+     [
+      -0.258,
+      0.495
+     ],
+     [
+      -0.287,
+      0.53
+     ],
+     [
+      -0.288,
+      0.564
+     ],
+     [
+      -0.308,
+      0.607
+     ],
+     [
+      -0.318,
+      0.639
+     ],
+     [
+      -0.347,
+      0.689
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 5445,
+     "episodes": 78,
+     "draws": 100,
+     "edge": -0.24,
+     "chance": [
+      -0.36,
+      0.46
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 3703,
+     "episodes": 84,
+     "draws": 100,
+     "edge": -0.27,
+     "chance": [
+      -0.52,
+      0.8
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 1640,
+     "episodes": 92,
+     "draws": 152,
+     "edge": -0.27,
+     "chance": [
+      -1.41,
+      1.27
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "ath100-lt10",
+   "tf": "1d",
+   "label": "More than 10% under the 100-bar high",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 5355,
+    "episodes": 20,
+    "draws": 100,
+    "edge": -0.02,
+    "chance": [
+     -0.63,
+     1.13
+    ],
+    "verdict": "few",
+    "path": [
+     -0.008,
+     -0.028,
+     -0.057,
+     -0.072,
+     -0.094,
+     -0.099,
+     -0.09,
+     -0.085,
+     -0.098,
+     -0.114,
+     -0.11,
+     -0.109,
+     -0.107,
+     -0.097,
+     -0.082,
+     -0.072,
+     -0.062,
+     -0.049,
+     -0.048,
+     -0.023
+    ],
+    "band": [
+     [
+      -0.038,
+      0.063
+     ],
+     [
+      -0.08,
+      0.117
+     ],
+     [
+      -0.111,
+      0.167
+     ],
+     [
+      -0.145,
+      0.219
+     ],
+     [
+      -0.175,
+      0.281
+     ],
+     [
+      -0.213,
+      0.336
+     ],
+     [
+      -0.257,
+      0.409
+     ],
+     [
+      -0.274,
+      0.458
+     ],
+     [
+      -0.285,
+      0.488
+     ],
+     [
+      -0.302,
+      0.539
+     ],
+     [
+      -0.366,
+      0.59
+     ],
+     [
+      -0.417,
+      0.642
+     ],
+     [
+      -0.455,
+      0.711
+     ],
+     [
+      -0.487,
+      0.774
+     ],
+     [
+      -0.531,
+      0.843
+     ],
+     [
+      -0.574,
+      0.907
+     ],
+     [
+      -0.605,
+      0.968
+     ],
+     [
+      -0.632,
+      1.019
+     ],
+     [
+      -0.635,
+      1.075
+     ],
+     [
+      -0.63,
+      1.133
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 1490,
+     "episodes": 11,
+     "draws": 167,
+     "edge": -0.42,
+     "chance": [
+      -1.5,
+      1.47
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 1776,
+     "episodes": 7,
+     "draws": 140,
+     "edge": -0.55,
+     "chance": [
+      -1.4,
+      1.11
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 2089,
+     "episodes": 2,
+     "draws": 119,
+     "edge": -0.01,
+     "chance": [
+      -1.01,
+      0.72
+     ],
+     "verdict": "few"
+    }
+   }
+  },
+  {
+   "id": "ath100-down10",
+   "tf": "1d",
+   "label": "Drawdown crosses down 10%",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 177,
+    "episodes": 59,
+    "draws": 500,
+    "edge": 1.73,
+    "chance": [
+     -5.54,
+     5.23
+    ],
+    "verdict": "none",
+    "path": [
+     0.483,
+     0.811,
+     0.821,
+     0.913,
+     1.279,
+     1.435,
+     1.536,
+     2.096,
+     2.498,
+     2.281,
+     2.065,
+     2.046,
+     2.01,
+     2.069,
+     2.063,
+     1.987,
+     1.831,
+     1.815,
+     1.559,
+     1.728
+    ],
+    "band": [
+     [
+      -0.633,
+      0.551
+     ],
+     [
+      -0.904,
+      0.826
+     ],
+     [
+      -1.159,
+      1.113
+     ],
+     [
+      -1.343,
+      1.289
+     ],
+     [
+      -1.567,
+      1.623
+     ],
+     [
+      -1.856,
+      1.749
+     ],
+     [
+      -2.025,
+      1.96
+     ],
+     [
+      -2.286,
+      2.278
+     ],
+     [
+      -2.425,
+      2.373
+     ],
+     [
+      -2.713,
+      2.725
+     ],
+     [
+      -3.042,
+      2.959
+     ],
+     [
+      -3.18,
+      3.199
+     ],
+     [
+      -3.458,
+      3.499
+     ],
+     [
+      -3.66,
+      3.67
+     ],
+     [
+      -4.108,
+      3.74
+     ],
+     [
+      -4.365,
+      4.096
+     ],
+     [
+      -4.72,
+      4.462
+     ],
+     [
+      -5.009,
+      4.667
+     ],
+     [
+      -5.216,
+      5.086
+     ],
+     [
+      -5.54,
+      5.232
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 71,
+     "episodes": 23,
+     "draws": 500,
+     "edge": 1.85,
+     "chance": [
+      -3.76,
+      4.74
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 61,
+     "episodes": 19,
+     "draws": 500,
+     "edge": 0.86,
+     "chance": [
+      -6.19,
+      6.31
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 45,
+     "episodes": 17,
+     "draws": 500,
+     "edge": 4.23,
+     "chance": [
+      -10.44,
+      13.86
+     ],
+     "verdict": "few"
+    }
+   }
+  },
+  {
+   "id": "ath100-bw10-20",
+   "tf": "1d",
+   "label": "10% to 20% under the 100-bar high",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 1611,
+    "episodes": 56,
+    "draws": 155,
+    "edge": 1.42,
+    "chance": [
+     -3.97,
+     4.15
+    ],
+    "verdict": "none",
+    "path": [
+     0.091,
+     0.053,
+     0.148,
+     0.177,
+     0.216,
+     0.354,
+     0.45,
+     0.646,
+     0.73,
+     0.818,
+     0.871,
+     0.959,
+     1.045,
+     1.229,
+     1.276,
+     1.323,
+     1.377,
+     1.349,
+     1.368,
+     1.423
+    ],
+    "band": [
+     [
+      -0.241,
+      0.187
+     ],
+     [
+      -0.419,
+      0.325
+     ],
+     [
+      -0.64,
+      0.578
+     ],
+     [
+      -0.805,
+      0.771
+     ],
+     [
+      -0.975,
+      0.917
+     ],
+     [
+      -1.201,
+      1.138
+     ],
+     [
+      -1.407,
+      1.289
+     ],
+     [
+      -1.555,
+      1.396
+     ],
+     [
+      -1.694,
+      1.51
+     ],
+     [
+      -1.829,
+      1.687
+     ],
+     [
+      -2.062,
+      1.869
+     ],
+     [
+      -2.268,
+      2.144
+     ],
+     [
+      -2.453,
+      2.416
+     ],
+     [
+      -2.607,
+      2.602
+     ],
+     [
+      -2.892,
+      2.771
+     ],
+     [
+      -3.117,
+      3.006
+     ],
+     [
+      -3.353,
+      3.335
+     ],
+     [
+      -3.544,
+      3.581
+     ],
+     [
+      -3.769,
+      3.83
+     ],
+     [
+      -3.969,
+      4.148
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 636,
+     "episodes": 19,
+     "draws": 393,
+     "edge": -0.72,
+     "chance": [
+      -2.96,
+      2.37
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 576,
+     "episodes": 17,
+     "draws": 434,
+     "edge": 0.06,
+     "chance": [
+      -3.45,
+      5.32
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 399,
+     "episodes": 20,
+     "draws": 500,
+     "edge": 8.46,
+     "chance": [
+      -8.84,
+      9.31
+     ],
+     "verdict": "few"
+    }
+   }
+  },
+  {
+   "id": "ath100-lt20",
+   "tf": "1d",
+   "label": "More than 20% under the 100-bar high",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 3743,
+    "episodes": 41,
+    "draws": 100,
+    "edge": -0.65,
+    "chance": [
+     -2.56,
+     3
+    ],
+    "verdict": "none",
+    "path": [
+     -0.052,
+     -0.064,
+     -0.146,
+     -0.181,
+     -0.23,
+     -0.298,
+     -0.326,
+     -0.404,
+     -0.459,
+     -0.52,
+     -0.536,
+     -0.573,
+     -0.607,
+     -0.671,
+     -0.67,
+     -0.676,
+     -0.685,
+     -0.655,
+     -0.662,
+     -0.65
+    ],
+    "band": [
+     [
+      -0.099,
+      0.138
+     ],
+     [
+      -0.173,
+      0.277
+     ],
+     [
+      -0.285,
+      0.421
+     ],
+     [
+      -0.39,
+      0.535
+     ],
+     [
+      -0.477,
+      0.665
+     ],
+     [
+      -0.59,
+      0.813
+     ],
+     [
+      -0.724,
+      0.97
+     ],
+     [
+      -0.842,
+      1.134
+     ],
+     [
+      -0.968,
+      1.314
+     ],
+     [
+      -1.063,
+      1.459
+     ],
+     [
+      -1.215,
+      1.588
+     ],
+     [
+      -1.37,
+      1.745
+     ],
+     [
+      -1.528,
+      1.893
+     ],
+     [
+      -1.67,
+      2.06
+     ],
+     [
+      -1.803,
+      2.222
+     ],
+     [
+      -1.943,
+      2.395
+     ],
+     [
+      -2.102,
+      2.561
+     ],
+     [
+      -2.252,
+      2.719
+     ],
+     [
+      -2.398,
+      2.852
+     ],
+     [
+      -2.565,
+      2.998
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 853,
+     "episodes": 16,
+     "draws": 293,
+     "edge": -0.21,
+     "chance": [
+      -3.3,
+      3.1
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 1200,
+     "episodes": 16,
+     "draws": 208,
+     "edge": -0.85,
+     "chance": [
+      -4.28,
+      2.89
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 1690,
+     "episodes": 9,
+     "draws": 147,
+     "edge": -2.01,
+     "chance": [
+      -2.9,
+      2.96
+     ],
+     "verdict": "few"
+    }
+   }
+  },
+  {
+   "id": "ath100-gt5-short",
+   "tf": "1d",
+   "label": "Within 5% of the 100-bar high, short",
+   "side": "short",
+   "featured": true,
+   "pooled": {
+    "entries": 399,
+    "episodes": 35,
+    "draws": 500,
+    "edge": 0.49,
+    "chance": [
+     -3.59,
+     5.24
+    ],
+    "verdict": "none",
+    "path": [
+     -0.07,
+     -0.252,
+     -0.435,
+     -0.567,
+     -0.462,
+     -0.357,
+     -0.321,
+     -0.388,
+     -0.491,
+     -0.46,
+     -0.516,
+     -0.581,
+     -0.497,
+     -0.609,
+     -0.615,
+     -0.506,
+     -0.371,
+     -0.28,
+     0.2,
+     0.493
+    ],
+    "band": [
+     [
+      -0.259,
+      0.417
+     ],
+     [
+      -0.439,
+      0.703
+     ],
+     [
+      -0.708,
+      1.066
+     ],
+     [
+      -0.962,
+      1.396
+     ],
+     [
+      -1.124,
+      1.638
+     ],
+     [
+      -1.314,
+      1.879
+     ],
+     [
+      -1.539,
+      2.153
+     ],
+     [
+      -1.588,
+      2.406
+     ],
+     [
+      -1.64,
+      2.683
+     ],
+     [
+      -1.745,
+      2.854
+     ],
+     [
+      -1.832,
+      3.151
+     ],
+     [
+      -2.1,
+      3.292
+     ],
+     [
+      -2.143,
+      3.527
+     ],
+     [
+      -2.475,
+      3.807
+     ],
+     [
+      -2.781,
+      4.107
+     ],
+     [
+      -2.874,
+      4.432
+     ],
+     [
+      -3.069,
+      4.466
+     ],
+     [
+      -3.154,
+      4.822
+     ],
+     [
+      -3.405,
+      5.029
+     ],
+     [
+      -3.588,
+      5.24
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 263,
+     "episodes": 18,
+     "draws": 500,
+     "edge": -2.05,
+     "chance": [
+      -4.39,
+      3.7
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 119,
+     "episodes": 13,
+     "draws": 500,
+     "edge": -0.58,
+     "chance": [
+      -7.82,
+      6.49
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 17,
+     "episodes": 4,
+     "draws": 500,
+     "edge": 13.16,
+     "chance": [
+      -32.09,
+      20.42
+     ],
+     "verdict": "few"
+    }
+   }
+  }
+ ],
+ "summary": "Mostly no. Price did no better than after random entries when it was more than 10% under the 100-bar high, when the drawdown crossed down through 10%, or on a short within 5% of the high. One result holds up, on 1h only: after entries more than 20% under the 100-bar high, price beat random entries by 1.51% after 20 candles, and the lead remained without its strongest stretch.",
+ "verdicts": [
+  {
+   "use": "Buying a deep drop (more than 20% under the 100-bar high)",
+   "verdict": "edge",
+   "text": "On 1h, price beat random entries by 1.51% after 20 candles, and the lead remains without its strongest stretch. On 4h and daily the same setting lands inside the luck band."
+  },
+  {
+   "use": "Buying a 10% dip (more than 10% under the 100-bar high)",
+   "verdict": "none",
+   "text": "No better than random entries on 1h or 4h. On daily it had too few separate moves to judge."
+  },
+  {
+   "use": "Buying the cross down through 10%",
+   "verdict": "none",
+   "text": "Chance on 1h, 4h and daily, pooled across the three pairs. On BTC, the worse-than-random results on 1h and 4h each rest on one short stretch."
+  },
+  {
+   "use": "Shorting near the high (within 5%)",
+   "verdict": "none",
+   "text": "No better than random entries on 1h, 4h or daily. Price near the 100-bar high did not mark a top."
+  }
+ ],
+ "notes": [
+  "On 1h, entries more than 20% under the 100-bar high came in 183 separate moves. Twenty candles later they were 1.51% ahead of random entries, above a luck band of -0.44% to 0.56%. The lead also shows at 10 and 50 candles but is gone by 100. It remains without its strongest stretch, the signals on Sep 16–18, 2020.",
+  "The 1h result does not come from a single coin. After these entries SOL beat random entries by 1.52% and ETH by 0.98%, each above its own luck band. BTC fell that far below its 100-bar high in only 21 separate moves on 1h, too few to judge.",
+  "On 4h the same setting ended 0.04% behind random entries, inside the luck band. On daily it was 0.65% behind, also inside the band. The 20% setting showed a lead on 1h only.",
+  "Smaller drops show nothing. On 1h, the more-than-10% setting enters about seven times as often as the 20% one and lands 0.15% ahead of random, inside the band. The 10% to 20% zone was 0.07% behind on 1h and 0.12% behind on 4h, both chance. The 1h lead comes only from the deepest drops.",
+  "The cross down through 10% is chance pooled on 1h, 4h and daily. BTC looked worse than random on 1h, but only because of 5 signals on Aug 2–4, 2024. Without them it is chance. BTC's worse result on 4h rests in the same way on signals between May 28, 2026 and Jun 2, 2026. Shorting within 5% of the 100-bar high did no better than random on any timeframe.",
+  "For a long bot on 1h, price did better than average after it was more than 20% under the 100-bar high. Test that as a filter beside your other start conditions, not as a signal on its own. The lead is gone by 100 candles, so it suits a take profit that closes within about 50 candles better than a slow DCA ladder. On these pairs the 10% level, the cross and the short near the high added nothing, so you can leave them out."
+ ],
+ "summaryRefs": [
+  {
+   "tf": "*",
+   "setting": "ath100-lt10",
+   "scope": "pooled"
+  },
+  {
+   "tf": "*",
+   "setting": "ath100-down10",
+   "scope": "pooled"
+  },
+  {
+   "tf": "*",
+   "setting": "ath100-gt5-short",
+   "scope": "pooled"
+  },
+  {
+   "tf": "1h",
+   "setting": "ath100-lt20",
+   "scope": "pooled"
+  }
+ ],
+ "verdictRefs": [
+  [
+   {
+    "tf": "1h",
+    "setting": "ath100-lt20",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "ath100-lt20",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "ath100-lt20",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "*",
+    "setting": "ath100-lt10",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "*",
+    "setting": "ath100-down10",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "ath100-down10",
+    "scope": "BTC"
+   },
+   {
+    "tf": "4h",
+    "setting": "ath100-down10",
+    "scope": "BTC"
+   }
+  ],
+  [
+   {
+    "tf": "*",
+    "setting": "ath100-gt5-short",
+    "scope": "pooled"
+   }
+  ]
+ ],
+ "noteRefs": [
+  [
+   {
+    "tf": "1h",
+    "setting": "ath100-lt20",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "ath100-lt20",
+    "scope": "SOL"
+   },
+   {
+    "tf": "1h",
+    "setting": "ath100-lt20",
+    "scope": "ETH"
+   },
+   {
+    "tf": "1h",
+    "setting": "ath100-lt20",
+    "scope": "BTC"
+   }
+  ],
+  [
+   {
+    "tf": "4h",
+    "setting": "ath100-lt20",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "ath100-lt20",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "ath100-lt10",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "ath100-lt20",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "ath100-bw10-20",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "ath100-bw10-20",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "*",
+    "setting": "ath100-down10",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "ath100-down10",
+    "scope": "BTC"
+   },
+   {
+    "tf": "4h",
+    "setting": "ath100-down10",
+    "scope": "BTC"
+   },
+   {
+    "tf": "*",
+    "setting": "ath100-gt5-short",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "ath100-lt20",
+    "scope": "pooled"
+   },
+   {
+    "tf": "*",
+    "setting": "ath100-lt10",
+    "scope": "pooled"
+   },
+   {
+    "tf": "*",
+    "setting": "ath100-down10",
+    "scope": "pooled"
+   },
+   {
+    "tf": "*",
+    "setting": "ath100-gt5-short",
+    "scope": "pooled"
+   }
+  ]
+ ]
+}

@@ -3785,36 +3785,36 @@
    }
   }
  ],
- "summary": "Not as a dip-buying signal. On BTC, ETH and SOL, buying while RSI was below 30, or as it crossed back up through 30, did no better than buying on a random candle on 1h, 4h or daily. The result that holds up runs the other way: after RSI(14) went above 70 on 1h and 4h, price kept rising more than after a random candle, so shorting there did worse than random.",
+ "summary": "No, not as a dip-buying signal. On BTC, ETH and SOL, price did no better after RSI(7) or RSI(14) went below 30, or crossed back up through 30, than after a random candle. The result that holds up runs the other way: after RSI(14) went above 70, price kept rising more than after random candles on 1h, 4h and daily.",
  "verdicts": [
   {
    "use": "Buying the dip (below 30)",
    "verdict": "none",
-   "text": "Inside the luck band on 1h, 4h and daily, with RSI(7) or RSI(14), as a level or as a cross back up through 30. The one result outside the band came from a single stretch of signals."
+   "text": "No better than random entries on 1h, 4h or daily, with RSI(7) or RSI(14), as a level below 30 or as a cross back up through 30."
   },
   {
    "use": "Shorting overbought (above 70)",
    "verdict": "worse",
-   "text": "Worse than random on 1h, 4h and daily, because price kept rising after overbought readings. On 1h and 4h it holds without its strongest stretch and at 10, 20, 50 and 100 candles."
-  },
-  {
-   "use": "Shorting the cross down through 70",
-   "verdict": "none",
-   "text": "Inside the luck band on 1h and daily. On 4h it looked worse than random, but only because of SOL signals between Jan 31, 2021 and Feb 11, 2021."
+   "text": "Worse than random on 1h, 4h and daily. Price kept rising after RSI(14) went above 70, and the gap holds without its strongest stretch on all three."
   },
   {
    "use": "Riding momentum (above 50)",
    "verdict": "fragile",
-   "text": "Beat random entries on 4h and daily, but only because of the run between Dec 25, 2020 and Mar 3, 2021. Without it, chance, and on 1h it stayed inside the band."
+   "text": "Beat random entries on 4h and daily, but on 4h the gap comes from signals between Dec 25, 2020 and Mar 3, 2021. Without that stretch, chance. On 1h, no edge."
+  },
+  {
+   "use": "Shorting the turn down from overbought (cross down 70)",
+   "verdict": "none",
+   "text": "Inside the luck band on 1h and daily. On 4h it looked worse than random, but only because of SOL signals between Jan 31 and Feb 11, 2021."
   }
  ],
  "notes": [
-  "Buying while RSI(14) was below 30 on 1h gave 7,385 entries in 1,112 separate moves. Twenty candles later they were 0.06% behind random entries, inside the luck band. On 4h they were 0.32% behind, also inside it. RSI(7) enters about two and a half times as often as RSI(14) and lands in the same place.",
-  "On 1h, RSI(14) crossing up through 30 looked worse than random, 0.21% behind. That came from 7 signals on Nov 7–9, 2022, during the FTX collapse. Without them it is chance, and at 50 and 100 candles it is chance too. The one cross that stayed bad on its own was RSI(7) on SOL 4h, 0.96% behind random, while BTC and ETH were inside the band.",
-  "Shorting while RSI(14) was above 70 did 0.36% worse than random entries after 20 candles on 1h, 1.24% worse on 4h and 10% worse after 20 days on daily. On 1h and 4h it shows at 10, 20, 50 and 100 candles and holds without its strongest stretch. On daily it shows at 10 and 20 candles, not at 50 or 100. Overbought readings marked strength that continued, not tops.",
-  "Going long while RSI(14) was above 50 beat random entries by 0.25% on 4h and 2.93% on daily. On 4h the gap comes from the run between Dec 25, 2020 and Mar 3, 2021, and on daily from the run between Dec 29, 2020 and Jul 7, 2021. Leave that run out and both are chance. On 1h the gap was 0.02%, inside the band.",
-  "Shorting as RSI(14) crossed down through 70 looked bad on 4h, 0.80% behind random. That rests on 8 SOL signals between Jan 31, 2021 and Feb 11, 2021, and without them it is chance. On 1h and daily the cross stayed inside the band.",
-  "For a long DCA bot on these pairs, an RSI below 30 or a cross up through 30 does not pick better entries than a random candle, at either length or on any timeframe tested. Where RSI carries information is RSI(14) above 70 on 1h and 4h: a short bot that opens there is trading against a move that tended to continue. Treat RSI above 50 as a trend filter to test, since its result rests on one run."
+  "On 1h, RSI(14) below 30 gave 7,385 entries in 1,112 separate moves. After 20 candles they were 0.06% behind random entries, inside a luck band of -0.21% to 0.24%. RSI(7) enters about two and a half times as often on 1h and 4h, and it lands inside the band too. On daily, RSI(14) below 30 has only 38 separate moves, and its 2% gap sits inside a band from -8% to 11%.",
+  "Shorting while RSI(14) was above 70 did 0.36% worse than random entries after 20 candles on 1h. It did 1.24% worse on 4h and 10% worse after 20 days on daily. On 1h and 4h the gap shows at 10, 20, 50 and 100 candles and holds without its strongest stretch. On daily it shows at 10 and 20 candles only.",
+  "The 1h overbought result also holds on single coins. BTC and SOL each show it on their own and hold without their strongest stretch. ETH stays inside its band, at 0.26% worse than random.",
+  "Going long while RSI(14) was above 50 beat random entries by 0.25% on 4h and 3% on daily. On 4h the gap comes from signals between Dec 25, 2020 and Mar 3, 2021. On daily it comes from signals between Dec 29, 2020 and Jul 7, 2021. Without those stretches both fall back to chance, and on 1h the gap is 0.02%, inside the band.",
+  "Single stretches can fake a result. On 1h, RSI(14) crossing up through 30 looked worse than random, but only because of 7 signals on Nov 7–9, 2022, during the FTX collapse. On 4h, the short on a cross down through 70 looked worse only because of 8 SOL signals between Jan 31 and Feb 11, 2021.",
+  "For a long DCA bot, a start condition of RSI below 30 did not change where price went next on these pairs. The DCA step and take profit decide how those deals end. RSI(14) above 70 works better as a filter. Price kept rising after it on 1h, 4h and daily, so a short bot that opens there sits against the move. A long bot that blocks entries while RSI(14) is above 70 skips stretches where price kept climbing."
  ],
  "summaryRefs": [
   {
@@ -3875,7 +3875,34 @@
   ],
   [
    {
-    "tf": "*",
+    "tf": "4h",
+    "setting": "rsi14-gt50",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "rsi14-gt50",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "rsi14-gt50",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "rsi14-down70",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "rsi14-down70",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
     "setting": "rsi14-down70",
     "scope": "pooled"
    },
@@ -3883,13 +3910,6 @@
     "tf": "4h",
     "setting": "rsi14-down70",
     "scope": "SOL"
-   }
-  ],
-  [
-   {
-    "tf": "*",
-    "setting": "rsi14-gt50",
-    "scope": "pooled"
    }
   ]
  ],
@@ -3914,6 +3934,62 @@
     "tf": "4h",
     "setting": "rsi7-lt30",
     "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "rsi14-lt30",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "rsi14-gt70",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "rsi14-gt70",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "rsi14-gt70",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "rsi14-gt70",
+    "scope": "BTC"
+   },
+   {
+    "tf": "1h",
+    "setting": "rsi14-gt70",
+    "scope": "ETH"
+   },
+   {
+    "tf": "1h",
+    "setting": "rsi14-gt70",
+    "scope": "SOL"
+   }
+  ],
+  [
+   {
+    "tf": "4h",
+    "setting": "rsi14-gt50",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "rsi14-gt50",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "rsi14-gt50",
+    "scope": "pooled"
    }
   ],
   [
@@ -3924,57 +4000,6 @@
    },
    {
     "tf": "4h",
-    "setting": "rsi7-up30",
-    "scope": "SOL"
-   },
-   {
-    "tf": "4h",
-    "setting": "rsi7-up30",
-    "scope": "BTC"
-   },
-   {
-    "tf": "4h",
-    "setting": "rsi7-up30",
-    "scope": "ETH"
-   }
-  ],
-  [
-   {
-    "tf": "1h",
-    "setting": "rsi14-gt70",
-    "scope": "pooled"
-   },
-   {
-    "tf": "4h",
-    "setting": "rsi14-gt70",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1d",
-    "setting": "rsi14-gt70",
-    "scope": "pooled"
-   }
-  ],
-  [
-   {
-    "tf": "1h",
-    "setting": "rsi14-gt50",
-    "scope": "pooled"
-   },
-   {
-    "tf": "4h",
-    "setting": "rsi14-gt50",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1d",
-    "setting": "rsi14-gt50",
-    "scope": "pooled"
-   }
-  ],
-  [
-   {
-    "tf": "*",
     "setting": "rsi14-down70",
     "scope": "pooled"
    },
@@ -3985,11 +4010,6 @@
    }
   ],
   [
-   {
-    "tf": "*",
-    "setting": "rsi7-lt30",
-    "scope": "pooled"
-   },
    {
     "tf": "*",
     "setting": "rsi14-lt30",
@@ -3997,22 +4017,12 @@
    },
    {
     "tf": "*",
-    "setting": "rsi7-up30",
-    "scope": "pooled"
-   },
-   {
-    "tf": "*",
-    "setting": "rsi14-up30",
+    "setting": "rsi7-lt30",
     "scope": "pooled"
    },
    {
     "tf": "*",
     "setting": "rsi14-gt70",
-    "scope": "pooled"
-   },
-   {
-    "tf": "*",
-    "setting": "rsi14-gt50",
     "scope": "pooled"
    }
   ]

@@ -1,0 +1,2076 @@
+{
+ "indicator": "engulfing-candle",
+ "defaultTf": "1h",
+ "method": {
+  "horizon": 20,
+  "horizons": [
+   10,
+   20,
+   50,
+   100
+  ],
+  "randomDraws": 500,
+  "minEpisodes": 30,
+  "source": "Binance spot",
+  "pairs": [
+   "BTC/USDT",
+   "ETH/USDT",
+   "SOL/USDT"
+  ],
+  "from": "2020-09-01",
+  "warmupFrom": "2020-06-01",
+  "to": "2026-10-24",
+  "engine": {
+   "indicators": "56f63e97",
+   "analysisMath": "cab0ed99"
+  }
+ },
+ "updatedAt": "2026-10-25",
+ "settings": [
+  {
+   "id": "bullish",
+   "tf": "1h",
+   "label": "Bullish engulfing",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 14579,
+    "episodes": 1987,
+    "draws": 100,
+    "edge": 0,
+    "chance": [
+     -0.06,
+     0.05
+    ],
+    "verdict": "none",
+    "path": [
+     0.017,
+     -0.008,
+     -0.008,
+     -0.01,
+     0,
+     -0.005,
+     0.004,
+     0.007,
+     0.011,
+     0.01,
+     0.005,
+     -0.007,
+     -0.009,
+     0,
+     -0.001,
+     -0.001,
+     0.003,
+     0.001,
+     0.005,
+     0.004
+    ],
+    "band": [
+     [
+      -0.01,
+      0.011
+     ],
+     [
+      -0.02,
+      0.016
+     ],
+     [
+      -0.022,
+      0.021
+     ],
+     [
+      -0.02,
+      0.026
+     ],
+     [
+      -0.026,
+      0.028
+     ],
+     [
+      -0.028,
+      0.029
+     ],
+     [
+      -0.027,
+      0.033
+     ],
+     [
+      -0.036,
+      0.041
+     ],
+     [
+      -0.038,
+      0.038
+     ],
+     [
+      -0.04,
+      0.037
+     ],
+     [
+      -0.044,
+      0.041
+     ],
+     [
+      -0.04,
+      0.046
+     ],
+     [
+      -0.047,
+      0.04
+     ],
+     [
+      -0.042,
+      0.048
+     ],
+     [
+      -0.048,
+      0.045
+     ],
+     [
+      -0.054,
+      0.045
+     ],
+     [
+      -0.051,
+      0.045
+     ],
+     [
+      -0.058,
+      0.046
+     ],
+     [
+      -0.058,
+      0.047
+     ],
+     [
+      -0.057,
+      0.045
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 5021,
+     "episodes": 610,
+     "draws": 100,
+     "edge": 0.03,
+     "chance": [
+      -0.05,
+      0.06
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 4973,
+     "episodes": 653,
+     "draws": 100,
+     "edge": -0.01,
+     "chance": [
+      -0.08,
+      0.06
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 4585,
+     "episodes": 724,
+     "draws": 100,
+     "edge": 0,
+     "chance": [
+      -0.1,
+      0.13
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "bearish",
+   "tf": "1h",
+   "label": "Bearish engulfing",
+   "side": "short",
+   "featured": true,
+   "pooled": {
+    "entries": 14732,
+    "episodes": 1971,
+    "draws": 100,
+    "edge": 0.02,
+    "chance": [
+     -0.05,
+     0.05
+    ],
+    "verdict": "none",
+    "path": [
+     0.009,
+     -0.004,
+     -0.012,
+     -0.005,
+     -0.011,
+     -0.013,
+     -0.019,
+     -0.01,
+     -0.007,
+     -0.006,
+     -0.012,
+     -0.009,
+     -0.004,
+     -0.001,
+     0.004,
+     0.001,
+     -0.001,
+     0.016,
+     0.009,
+     0.021
+    ],
+    "band": [
+     [
+      -0.014,
+      0.013
+     ],
+     [
+      -0.02,
+      0.019
+     ],
+     [
+      -0.023,
+      0.022
+     ],
+     [
+      -0.021,
+      0.029
+     ],
+     [
+      -0.023,
+      0.031
+     ],
+     [
+      -0.027,
+      0.026
+     ],
+     [
+      -0.033,
+      0.03
+     ],
+     [
+      -0.032,
+      0.035
+     ],
+     [
+      -0.038,
+      0.033
+     ],
+     [
+      -0.034,
+      0.037
+     ],
+     [
+      -0.034,
+      0.033
+     ],
+     [
+      -0.036,
+      0.035
+     ],
+     [
+      -0.039,
+      0.042
+     ],
+     [
+      -0.038,
+      0.042
+     ],
+     [
+      -0.04,
+      0.045
+     ],
+     [
+      -0.038,
+      0.046
+     ],
+     [
+      -0.046,
+      0.05
+     ],
+     [
+      -0.045,
+      0.05
+     ],
+     [
+      -0.041,
+      0.047
+     ],
+     [
+      -0.047,
+      0.046
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 5118,
+     "episodes": 622,
+     "draws": 100,
+     "edge": 0.02,
+     "chance": [
+      -0.05,
+      0.06
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 4872,
+     "episodes": 660,
+     "draws": 100,
+     "edge": -0.05,
+     "chance": [
+      -0.07,
+      0.07
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 4742,
+     "episodes": 689,
+     "draws": 100,
+     "edge": 0.09,
+     "chance": [
+      -0.11,
+      0.1
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "both-long",
+   "tf": "1h",
+   "label": "Either engulfing (default), long",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 29311,
+    "episodes": 421,
+    "draws": 100,
+    "edge": -0.01,
+    "chance": [
+     -0.03,
+     0.03
+    ],
+    "verdict": "none",
+    "path": [
+     0.004,
+     -0.002,
+     0.002,
+     -0.002,
+     0.005,
+     0.004,
+     0.012,
+     0.009,
+     0.009,
+     0.008,
+     0.008,
+     0.001,
+     -0.002,
+     0.001,
+     -0.003,
+     -0.001,
+     0.002,
+     -0.008,
+     -0.002,
+     -0.008
+    ],
+    "band": [
+     [
+      -0.008,
+      0.009
+     ],
+     [
+      -0.012,
+      0.013
+     ],
+     [
+      -0.014,
+      0.016
+     ],
+     [
+      -0.015,
+      0.018
+     ],
+     [
+      -0.015,
+      0.015
+     ],
+     [
+      -0.018,
+      0.018
+     ],
+     [
+      -0.019,
+      0.019
+     ],
+     [
+      -0.021,
+      0.022
+     ],
+     [
+      -0.023,
+      0.021
+     ],
+     [
+      -0.021,
+      0.022
+     ],
+     [
+      -0.022,
+      0.023
+     ],
+     [
+      -0.022,
+      0.028
+     ],
+     [
+      -0.024,
+      0.025
+     ],
+     [
+      -0.03,
+      0.023
+     ],
+     [
+      -0.027,
+      0.026
+     ],
+     [
+      -0.033,
+      0.025
+     ],
+     [
+      -0.037,
+      0.028
+     ],
+     [
+      -0.033,
+      0.027
+     ],
+     [
+      -0.032,
+      0.031
+     ],
+     [
+      -0.033,
+      0.032
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 10139,
+     "episodes": 102,
+     "draws": 100,
+     "edge": 0.01,
+     "chance": [
+      -0.04,
+      0.04
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 9845,
+     "episodes": 152,
+     "draws": 100,
+     "edge": 0.02,
+     "chance": [
+      -0.04,
+      0.03
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 9327,
+     "episodes": 167,
+     "draws": 100,
+     "edge": -0.05,
+     "chance": [
+      -0.08,
+      0.1
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "bearish-long",
+   "tf": "1h",
+   "label": "Bearish engulfing, long",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 14732,
+    "episodes": 1971,
+    "draws": 100,
+    "edge": -0.02,
+    "chance": [
+     -0.05,
+     0.05
+    ],
+    "verdict": "none",
+    "path": [
+     -0.009,
+     0.004,
+     0.012,
+     0.005,
+     0.011,
+     0.013,
+     0.019,
+     0.01,
+     0.007,
+     0.006,
+     0.012,
+     0.009,
+     0.004,
+     0.001,
+     -0.004,
+     -0.001,
+     0.001,
+     -0.016,
+     -0.009,
+     -0.021
+    ],
+    "band": [
+     [
+      -0.013,
+      0.014
+     ],
+     [
+      -0.019,
+      0.02
+     ],
+     [
+      -0.022,
+      0.023
+     ],
+     [
+      -0.029,
+      0.021
+     ],
+     [
+      -0.031,
+      0.023
+     ],
+     [
+      -0.026,
+      0.027
+     ],
+     [
+      -0.03,
+      0.033
+     ],
+     [
+      -0.035,
+      0.032
+     ],
+     [
+      -0.033,
+      0.038
+     ],
+     [
+      -0.037,
+      0.034
+     ],
+     [
+      -0.033,
+      0.034
+     ],
+     [
+      -0.035,
+      0.036
+     ],
+     [
+      -0.042,
+      0.039
+     ],
+     [
+      -0.042,
+      0.038
+     ],
+     [
+      -0.045,
+      0.04
+     ],
+     [
+      -0.046,
+      0.038
+     ],
+     [
+      -0.05,
+      0.046
+     ],
+     [
+      -0.05,
+      0.045
+     ],
+     [
+      -0.047,
+      0.041
+     ],
+     [
+      -0.046,
+      0.047
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 5118,
+     "episodes": 622,
+     "draws": 100,
+     "edge": -0.02,
+     "chance": [
+      -0.06,
+      0.05
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 4872,
+     "episodes": 660,
+     "draws": 100,
+     "edge": 0.05,
+     "chance": [
+      -0.07,
+      0.07
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 4742,
+     "episodes": 689,
+     "draws": 100,
+     "edge": -0.09,
+     "chance": [
+      -0.1,
+      0.11
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "bullish",
+   "tf": "4h",
+   "label": "Bullish engulfing",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 3652,
+    "episodes": 492,
+    "draws": 100,
+    "edge": -0.04,
+    "chance": [
+     -0.24,
+     0.21
+    ],
+    "verdict": "none",
+    "path": [
+     -0.036,
+     -0.013,
+     -0.022,
+     -0.033,
+     -0.032,
+     -0.025,
+     -0.007,
+     -0.003,
+     0.043,
+     0.021,
+     0.045,
+     -0.004,
+     0.031,
+     0.023,
+     0.024,
+     0.045,
+     0.033,
+     0.026,
+     0.021,
+     -0.039
+    ],
+    "band": [
+     [
+      -0.057,
+      0.049
+     ],
+     [
+      -0.084,
+      0.068
+     ],
+     [
+      -0.083,
+      0.075
+     ],
+     [
+      -0.108,
+      0.095
+     ],
+     [
+      -0.112,
+      0.1
+     ],
+     [
+      -0.115,
+      0.103
+     ],
+     [
+      -0.126,
+      0.115
+     ],
+     [
+      -0.144,
+      0.144
+     ],
+     [
+      -0.141,
+      0.121
+     ],
+     [
+      -0.152,
+      0.12
+     ],
+     [
+      -0.175,
+      0.133
+     ],
+     [
+      -0.176,
+      0.151
+     ],
+     [
+      -0.199,
+      0.161
+     ],
+     [
+      -0.2,
+      0.157
+     ],
+     [
+      -0.218,
+      0.164
+     ],
+     [
+      -0.216,
+      0.155
+     ],
+     [
+      -0.214,
+      0.147
+     ],
+     [
+      -0.254,
+      0.186
+     ],
+     [
+      -0.248,
+      0.169
+     ],
+     [
+      -0.24,
+      0.206
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 1261,
+     "episodes": 154,
+     "draws": 198,
+     "edge": -0.1,
+     "chance": [
+      -0.21,
+      0.21
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 1211,
+     "episodes": 161,
+     "draws": 206,
+     "edge": -0.02,
+     "chance": [
+      -0.29,
+      0.32
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 1180,
+     "episodes": 177,
+     "draws": 211,
+     "edge": 0.03,
+     "chance": [
+      -0.52,
+      0.5
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "bearish",
+   "tf": "4h",
+   "label": "Bearish engulfing",
+   "side": "short",
+   "featured": true,
+   "pooled": {
+    "entries": 3755,
+    "episodes": 466,
+    "draws": 100,
+    "edge": -0.06,
+    "chance": [
+     -0.21,
+     0.18
+    ],
+    "verdict": "none",
+    "path": [
+     -0.021,
+     -0.068,
+     -0.076,
+     -0.051,
+     -0.071,
+     -0.113,
+     -0.098,
+     -0.095,
+     -0.025,
+     -0.048,
+     -0.053,
+     -0.006,
+     -0.012,
+     -0.023,
+     0.036,
+     0.045,
+     0.034,
+     0.01,
+     -0.005,
+     -0.063
+    ],
+    "band": [
+     [
+      -0.058,
+      0.066
+     ],
+     [
+      -0.065,
+      0.07
+     ],
+     [
+      -0.081,
+      0.095
+     ],
+     [
+      -0.081,
+      0.078
+     ],
+     [
+      -0.095,
+      0.105
+     ],
+     [
+      -0.101,
+      0.11
+     ],
+     [
+      -0.112,
+      0.111
+     ],
+     [
+      -0.123,
+      0.12
+     ],
+     [
+      -0.139,
+      0.136
+     ],
+     [
+      -0.159,
+      0.144
+     ],
+     [
+      -0.174,
+      0.17
+     ],
+     [
+      -0.151,
+      0.161
+     ],
+     [
+      -0.163,
+      0.162
+     ],
+     [
+      -0.177,
+      0.175
+     ],
+     [
+      -0.182,
+      0.165
+     ],
+     [
+      -0.18,
+      0.172
+     ],
+     [
+      -0.196,
+      0.18
+     ],
+     [
+      -0.192,
+      0.17
+     ],
+     [
+      -0.209,
+      0.168
+     ],
+     [
+      -0.209,
+      0.183
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 1282,
+     "episodes": 153,
+     "draws": 195,
+     "edge": -0.15,
+     "chance": [
+      -0.26,
+      0.21
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 1260,
+     "episodes": 157,
+     "draws": 198,
+     "edge": 0.11,
+     "chance": [
+      -0.31,
+      0.27
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 1213,
+     "episodes": 156,
+     "draws": 206,
+     "edge": -0.17,
+     "chance": [
+      -0.51,
+      0.39
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "both-long",
+   "tf": "4h",
+   "label": "Either engulfing (default), long",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 7407,
+    "episodes": 106,
+    "draws": 100,
+    "edge": 0.01,
+    "chance": [
+     -0.15,
+     0.13
+    ],
+    "verdict": "none",
+    "path": [
+     -0.007,
+     0.028,
+     0.028,
+     0.01,
+     0.02,
+     0.044,
+     0.047,
+     0.047,
+     0.034,
+     0.035,
+     0.049,
+     0.001,
+     0.022,
+     0.023,
+     -0.007,
+     -0.001,
+     -0.001,
+     0.008,
+     0.013,
+     0.013
+    ],
+    "band": [
+     [
+      -0.034,
+      0.03
+     ],
+     [
+      -0.048,
+      0.047
+     ],
+     [
+      -0.065,
+      0.054
+     ],
+     [
+      -0.066,
+      0.067
+     ],
+     [
+      -0.072,
+      0.071
+     ],
+     [
+      -0.076,
+      0.071
+     ],
+     [
+      -0.082,
+      0.073
+     ],
+     [
+      -0.087,
+      0.081
+     ],
+     [
+      -0.086,
+      0.084
+     ],
+     [
+      -0.097,
+      0.08
+     ],
+     [
+      -0.117,
+      0.095
+     ],
+     [
+      -0.118,
+      0.103
+     ],
+     [
+      -0.128,
+      0.112
+     ],
+     [
+      -0.127,
+      0.121
+     ],
+     [
+      -0.134,
+      0.118
+     ],
+     [
+      -0.142,
+      0.114
+     ],
+     [
+      -0.155,
+      0.109
+     ],
+     [
+      -0.147,
+      0.116
+     ],
+     [
+      -0.15,
+      0.117
+     ],
+     [
+      -0.154,
+      0.125
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 2543,
+     "episodes": 30,
+     "draws": 100,
+     "edge": 0.03,
+     "chance": [
+      -0.13,
+      0.15
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 2471,
+     "episodes": 34,
+     "draws": 101,
+     "edge": -0.07,
+     "chance": [
+      -0.19,
+      0.2
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 2393,
+     "episodes": 42,
+     "draws": 104,
+     "edge": 0.1,
+     "chance": [
+      -0.32,
+      0.29
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "bearish-long",
+   "tf": "4h",
+   "label": "Bearish engulfing, long",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 3755,
+    "episodes": 466,
+    "draws": 100,
+    "edge": 0.06,
+    "chance": [
+     -0.18,
+     0.21
+    ],
+    "verdict": "none",
+    "path": [
+     0.021,
+     0.068,
+     0.076,
+     0.051,
+     0.071,
+     0.113,
+     0.098,
+     0.095,
+     0.025,
+     0.048,
+     0.053,
+     0.006,
+     0.012,
+     0.023,
+     -0.036,
+     -0.045,
+     -0.034,
+     -0.01,
+     0.005,
+     0.063
+    ],
+    "band": [
+     [
+      -0.066,
+      0.058
+     ],
+     [
+      -0.07,
+      0.065
+     ],
+     [
+      -0.095,
+      0.081
+     ],
+     [
+      -0.078,
+      0.081
+     ],
+     [
+      -0.105,
+      0.095
+     ],
+     [
+      -0.11,
+      0.101
+     ],
+     [
+      -0.111,
+      0.112
+     ],
+     [
+      -0.12,
+      0.123
+     ],
+     [
+      -0.136,
+      0.139
+     ],
+     [
+      -0.144,
+      0.159
+     ],
+     [
+      -0.17,
+      0.174
+     ],
+     [
+      -0.161,
+      0.151
+     ],
+     [
+      -0.162,
+      0.163
+     ],
+     [
+      -0.175,
+      0.177
+     ],
+     [
+      -0.165,
+      0.182
+     ],
+     [
+      -0.172,
+      0.18
+     ],
+     [
+      -0.18,
+      0.196
+     ],
+     [
+      -0.17,
+      0.192
+     ],
+     [
+      -0.168,
+      0.209
+     ],
+     [
+      -0.183,
+      0.209
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 1282,
+     "episodes": 153,
+     "draws": 195,
+     "edge": 0.15,
+     "chance": [
+      -0.21,
+      0.26
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 1260,
+     "episodes": 157,
+     "draws": 198,
+     "edge": -0.11,
+     "chance": [
+      -0.27,
+      0.31
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 1213,
+     "episodes": 156,
+     "draws": 206,
+     "edge": 0.17,
+     "chance": [
+      -0.39,
+      0.51
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "bullish",
+   "tf": "1d",
+   "label": "Bullish engulfing",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 565,
+    "episodes": 75,
+    "draws": 442,
+    "edge": -0.01,
+    "chance": [
+     -1.97,
+     1.54
+    ],
+    "verdict": "none",
+    "path": [
+     -0.087,
+     -0.21,
+     -0.246,
+     -0.097,
+     0.042,
+     0.26,
+     0.24,
+     0.275,
+     0.362,
+     0.594,
+     0.409,
+     0.435,
+     0.456,
+     0.413,
+     0.476,
+     0.448,
+     0.298,
+     0.161,
+     0.196,
+     -0.013
+    ],
+    "band": [
+     [
+      -0.325,
+      0.306
+     ],
+     [
+      -0.452,
+      0.432
+     ],
+     [
+      -0.527,
+      0.468
+     ],
+     [
+      -0.66,
+      0.558
+     ],
+     [
+      -0.705,
+      0.597
+     ],
+     [
+      -0.813,
+      0.646
+     ],
+     [
+      -0.956,
+      0.737
+     ],
+     [
+      -1.033,
+      0.735
+     ],
+     [
+      -1.088,
+      0.83
+     ],
+     [
+      -1.25,
+      0.96
+     ],
+     [
+      -1.272,
+      0.992
+     ],
+     [
+      -1.285,
+      1.052
+     ],
+     [
+      -1.345,
+      1.081
+     ],
+     [
+      -1.364,
+      1.172
+     ],
+     [
+      -1.494,
+      1.166
+     ],
+     [
+      -1.589,
+      1.278
+     ],
+     [
+      -1.699,
+      1.334
+     ],
+     [
+      -1.757,
+      1.425
+     ],
+     [
+      -1.854,
+      1.496
+     ],
+     [
+      -1.968,
+      1.537
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 214,
+     "episodes": 19,
+     "draws": 500,
+     "edge": 1.52,
+     "chance": [
+      -1.44,
+      1.57
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 179,
+     "episodes": 31,
+     "draws": 500,
+     "edge": -1.2,
+     "chance": [
+      -2.09,
+      2.38
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 172,
+     "episodes": 25,
+     "draws": 500,
+     "edge": -0.18,
+     "chance": [
+      -4.22,
+      4.08
+     ],
+     "verdict": "few"
+    }
+   }
+  },
+  {
+   "id": "bearish",
+   "tf": "1d",
+   "label": "Bearish engulfing",
+   "side": "short",
+   "featured": true,
+   "pooled": {
+    "entries": 602,
+    "episodes": 82,
+    "draws": 415,
+    "edge": 0.71,
+    "chance": [
+     -1.45,
+     1.57
+    ],
+    "verdict": "none",
+    "path": [
+     0.14,
+     0.133,
+     0.221,
+     0.426,
+     0.458,
+     0.415,
+     0.262,
+     -0.004,
+     0.004,
+     0.046,
+     0.428,
+     0.08,
+     0.258,
+     0.319,
+     0.298,
+     0.601,
+     0.651,
+     0.806,
+     0.597,
+     0.709
+    ],
+    "band": [
+     [
+      -0.312,
+      0.334
+     ],
+     [
+      -0.373,
+      0.399
+     ],
+     [
+      -0.488,
+      0.461
+     ],
+     [
+      -0.516,
+      0.552
+     ],
+     [
+      -0.593,
+      0.614
+     ],
+     [
+      -0.729,
+      0.717
+     ],
+     [
+      -0.79,
+      0.803
+     ],
+     [
+      -0.831,
+      0.909
+     ],
+     [
+      -0.868,
+      0.915
+     ],
+     [
+      -0.894,
+      1.058
+     ],
+     [
+      -0.878,
+      1.019
+     ],
+     [
+      -1.064,
+      1.064
+     ],
+     [
+      -0.993,
+      1.078
+     ],
+     [
+      -1.135,
+      1.236
+     ],
+     [
+      -1.14,
+      1.213
+     ],
+     [
+      -1.186,
+      1.279
+     ],
+     [
+      -1.265,
+      1.328
+     ],
+     [
+      -1.362,
+      1.449
+     ],
+     [
+      -1.356,
+      1.559
+     ],
+     [
+      -1.45,
+      1.566
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 206,
+     "episodes": 24,
+     "draws": 500,
+     "edge": 0.73,
+     "chance": [
+      -1.46,
+      1.25
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 212,
+     "episodes": 26,
+     "draws": 500,
+     "edge": 0.37,
+     "chance": [
+      -2.01,
+      1.87
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 184,
+     "episodes": 32,
+     "draws": 500,
+     "edge": 0.66,
+     "chance": [
+      -4.15,
+      3.71
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "both-long",
+   "tf": "1d",
+   "label": "Either engulfing (default), long",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 1167,
+    "episodes": 21,
+    "draws": 214,
+    "edge": -0.37,
+    "chance": [
+     -1.1,
+     0.9
+    ],
+    "verdict": "few",
+    "path": [
+     -0.115,
+     -0.17,
+     -0.233,
+     -0.267,
+     -0.216,
+     -0.088,
+     -0.019,
+     0.135,
+     0.173,
+     0.264,
+     -0.023,
+     0.169,
+     0.088,
+     0.035,
+     0.077,
+     -0.094,
+     -0.191,
+     -0.338,
+     -0.213,
+     -0.372
+    ],
+    "band": [
+     [
+      -0.221,
+      0.236
+     ],
+     [
+      -0.29,
+      0.29
+     ],
+     [
+      -0.371,
+      0.298
+     ],
+     [
+      -0.382,
+      0.377
+     ],
+     [
+      -0.422,
+      0.429
+     ],
+     [
+      -0.509,
+      0.507
+     ],
+     [
+      -0.501,
+      0.54
+     ],
+     [
+      -0.624,
+      0.549
+     ],
+     [
+      -0.657,
+      0.577
+     ],
+     [
+      -0.758,
+      0.664
+     ],
+     [
+      -0.72,
+      0.655
+     ],
+     [
+      -0.757,
+      0.701
+     ],
+     [
+      -0.83,
+      0.771
+     ],
+     [
+      -0.86,
+      0.782
+     ],
+     [
+      -0.883,
+      0.804
+     ],
+     [
+      -0.95,
+      0.842
+     ],
+     [
+      -0.937,
+      0.783
+     ],
+     [
+      -1.023,
+      0.857
+     ],
+     [
+      -1.035,
+      0.868
+     ],
+     [
+      -1.1,
+      0.901
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 420,
+     "episodes": 2,
+     "draws": 500,
+     "edge": 0.41,
+     "chance": [
+      -0.83,
+      0.91
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 391,
+     "episodes": 10,
+     "draws": 500,
+     "edge": -0.75,
+     "chance": [
+      -1.3,
+      1.59
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 356,
+     "episodes": 9,
+     "draws": 500,
+     "edge": -0.43,
+     "chance": [
+      -2.35,
+      2.86
+     ],
+     "verdict": "few"
+    }
+   }
+  },
+  {
+   "id": "bearish-long",
+   "tf": "1d",
+   "label": "Bearish engulfing, long",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 602,
+    "episodes": 82,
+    "draws": 415,
+    "edge": -0.71,
+    "chance": [
+     -1.57,
+     1.45
+    ],
+    "verdict": "none",
+    "path": [
+     -0.14,
+     -0.133,
+     -0.221,
+     -0.426,
+     -0.458,
+     -0.415,
+     -0.262,
+     0.004,
+     -0.004,
+     -0.046,
+     -0.428,
+     -0.08,
+     -0.258,
+     -0.319,
+     -0.298,
+     -0.601,
+     -0.651,
+     -0.806,
+     -0.597,
+     -0.709
+    ],
+    "band": [
+     [
+      -0.334,
+      0.312
+     ],
+     [
+      -0.399,
+      0.373
+     ],
+     [
+      -0.461,
+      0.488
+     ],
+     [
+      -0.552,
+      0.516
+     ],
+     [
+      -0.614,
+      0.593
+     ],
+     [
+      -0.717,
+      0.729
+     ],
+     [
+      -0.803,
+      0.79
+     ],
+     [
+      -0.909,
+      0.831
+     ],
+     [
+      -0.915,
+      0.868
+     ],
+     [
+      -1.058,
+      0.894
+     ],
+     [
+      -1.019,
+      0.878
+     ],
+     [
+      -1.064,
+      1.064
+     ],
+     [
+      -1.078,
+      0.993
+     ],
+     [
+      -1.236,
+      1.135
+     ],
+     [
+      -1.213,
+      1.14
+     ],
+     [
+      -1.279,
+      1.186
+     ],
+     [
+      -1.328,
+      1.265
+     ],
+     [
+      -1.449,
+      1.362
+     ],
+     [
+      -1.559,
+      1.356
+     ],
+     [
+      -1.566,
+      1.45
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 206,
+     "episodes": 24,
+     "draws": 500,
+     "edge": -0.73,
+     "chance": [
+      -1.25,
+      1.46
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 212,
+     "episodes": 26,
+     "draws": 500,
+     "edge": -0.37,
+     "chance": [
+      -1.87,
+      2.01
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 184,
+     "episodes": 32,
+     "draws": 500,
+     "edge": -0.66,
+     "chance": [
+      -3.71,
+      4.15
+     ],
+     "verdict": "none"
+    }
+   }
+  }
+ ],
+ "summary": "No. On BTC, ETH and SOL, price after a bullish or a bearish engulfing candle moved no differently from price after a random candle, on 1h, 4h or daily. No setting holds up. The closest is a short after a daily bearish engulfing: 0.71% better than random after 20 days, still inside a luck band that reaches 1.57%.",
+ "verdicts": [
+  {
+   "use": "Going long on a bullish engulfing",
+   "verdict": "none",
+   "text": "No better than random entries on 1h, 4h or daily. Twenty candles later, price had moved the same as after any other candle."
+  },
+  {
+   "use": "Shorting a bearish engulfing",
+   "verdict": "none",
+   "text": "Inside the luck band on 1h, 4h and daily. The daily short came closest but did not clear the band."
+  },
+  {
+   "use": "Going long on either pattern (the default)",
+   "verdict": "none",
+   "text": "No better than random on 1h and 4h. On daily it gave only 21 separate moves, under the minimum of 30, so it was not judged."
+  },
+  {
+   "use": "Buying after a bearish engulfing (fading it)",
+   "verdict": "none",
+   "text": "Inside the luck band on 1h, 4h and daily. A bearish engulfing did not mark a bottom any more than a random candle did."
+  }
+ ],
+ "notes": [
+  "On 1h, a long after a bullish engulfing gave 14,579 entries in 1,987 separate moves. After 20 candles they were 0% ahead of random entries, with a luck band from -0.06% to 0.05%. A short after a bearish engulfing fired about as often and came out 0.02% ahead, inside a band of -0.05% to 0.05%.",
+  "Moving up a timeframe does not change the answer. On 4h the bullish pattern gave 3,652 entries and ended -0.04% against a band of -0.24% to 0.21%. On daily it ended -0.01%, inside a band of -1.97% to 1.54%.",
+  "A short after a daily bearish engulfing came closest, 0.71% better than random after 20 days. The luck band runs to 1.57%, so that is chance. Read the other way, as a long after the same candle, it is 0.71% worse, which is also inside its band. On BTC and ETH alone the daily pattern gave 24 and 26 moves, too few to judge.",
+  "The default setting goes long on either pattern, so it also buys right after a bearish candle. It enters about twice as often as the bullish pattern alone, but on 1h its 29,311 entries collapse into only 421 separate moves, because the patterns follow each other closely. It ended -0.01% against a band of -0.03% to 0.03%.",
+  "No single coin breaks out either. On 1h, SOL shorts after a bearish engulfing came out 0.09% ahead, just under the band's top at 0.10%. On 4h, BTC shorts after the same candle came out -0.15%, inside a band of -0.26% to 0.21%.",
+  "For a bot, the engulfing pattern does not time entries on these pairs by itself, so the take profit and DCA orders carry each deal. If you keep it, use the bullish pattern as one filter beside a trend or level condition, and backtest with and without it to see if your deals change. The default either-pattern setting adds the bearish candles too, so for a long bot you can leave it out and lose nothing measurable."
+ ],
+ "summaryRefs": [
+  {
+   "tf": "*",
+   "setting": "bullish",
+   "scope": "pooled"
+  },
+  {
+   "tf": "*",
+   "setting": "bearish",
+   "scope": "pooled"
+  },
+  {
+   "tf": "1d",
+   "setting": "bearish",
+   "scope": "pooled"
+  }
+ ],
+ "verdictRefs": [
+  [
+   {
+    "tf": "*",
+    "setting": "bullish",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "*",
+    "setting": "bearish",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "both-long",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "both-long",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "both-long",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "*",
+    "setting": "bearish-long",
+    "scope": "pooled"
+   }
+  ]
+ ],
+ "noteRefs": [
+  [
+   {
+    "tf": "1h",
+    "setting": "bullish",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "bearish",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "4h",
+    "setting": "bullish",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "bullish",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1d",
+    "setting": "bearish",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "bearish-long",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "bearish",
+    "scope": "BTC"
+   },
+   {
+    "tf": "1d",
+    "setting": "bearish",
+    "scope": "ETH"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "both-long",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "bullish",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "bearish",
+    "scope": "SOL"
+   },
+   {
+    "tf": "4h",
+    "setting": "bearish",
+    "scope": "BTC"
+   }
+  ],
+  []
+ ]
+}
