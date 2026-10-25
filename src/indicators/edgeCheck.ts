@@ -146,16 +146,20 @@ function cellInvariants(
     )
   }
   const band = `${edge} vs band [${lo}, ${hi}]`
+  // The verdict is decided on the unrounded numbers; the file holds them at
+  // two decimals. An edge less than 0.005 outside the band rounds to equal its
+  // end, so a tie is consistent with any verdict on that side. Strictly
+  // outside before rounding implies at-or-outside after it.
   const above = edge > hi
   const below = edge < lo
-  if ((verdict === 'edge' || verdict === 'fragile') && !above) {
+  if ((verdict === 'edge' || verdict === 'fragile') && edge < hi) {
     errors.push(
-      `[054.verdict-matches-numbers] ${where}: "${verdict}" needs an edge above the band, got ${band}`,
+      `[054.verdict-matches-numbers] ${where}: "${verdict}" needs an edge at or above the band, got ${band}`,
     )
   }
-  if ((verdict === 'worse' || verdict === 'fragile-worse') && !below) {
+  if ((verdict === 'worse' || verdict === 'fragile-worse') && edge > lo) {
     errors.push(
-      `[054.verdict-matches-numbers] ${where}: "${verdict}" needs an edge below the band, got ${band}`,
+      `[054.verdict-matches-numbers] ${where}: "${verdict}" needs an edge at or below the band, got ${band}`,
     )
   }
   if (verdict === 'none' && (above || below)) {

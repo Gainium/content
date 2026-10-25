@@ -117,11 +117,22 @@ describe('indicator edge data (spec 054)', () => {
       only(check(data), '054.verdict-matches-numbers')
     })
 
-    it('fails "worse" at or above the low end of the band', () => {
+    it('fails "worse" above the low end of the band', () => {
       const data = fixture()
       const cell = setting(data, '1h', 'rsi14-gt70').coins.BTC
-      cell.edge = cell.chance[0]
+      cell.edge = cell.chance[0] + 0.01
       only(check(data), '054.verdict-matches-numbers')
+    })
+
+    it('passes a rounding tie: the edge equal to the band end at two decimals', () => {
+      // decided unrounded (e.g. -0.304 below -0.302), both print as -0.30
+      const data = fixture()
+      const worse = setting(data, '1h', 'rsi14-gt70').coins.BTC
+      worse.edge = worse.chance[0]
+      const fragile = setting(data, '4h', 'rsi14-gt50').pooled
+      fragile.chance = [fragile.chance[0], fragile.edge]
+      fragile.band[fragile.band.length - 1] = fragile.chance
+      expect(check(data)).to.deep.equal([])
     })
 
     it('fails "none" outside the band', () => {
