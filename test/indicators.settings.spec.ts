@@ -168,10 +168,10 @@ describe('describe-native: the catalog → describe JSON (spec 053 §2.1)', () =
     ])
   })
 
-  const LOCAL =
-    '/Users/ares/Git/Gainium/App/Frontend/Local-Frontends/main-dash-redesign/core/src'
+  // Set INDICATOR_CATALOG_SRC to a dashboard core/src checkout to run this.
+  const LOCAL = process.env.INDICATOR_CATALOG_SRC || ''
   it('reads the real dashboard catalog when it is on this host', async function () {
-    if (!fs.existsSync(path.join(LOCAL, CATALOG_MODULE))) this.skip()
+    if (!LOCAL || !fs.existsSync(path.join(LOCAL, CATALOG_MODULE))) this.skip()
     const reader: ModuleReader = {
       read: async (rel) => fs.promises.readFile(path.join(LOCAL, rel), 'utf-8'),
     }
