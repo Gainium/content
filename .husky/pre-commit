@@ -1,1 +1,10 @@
+# Optimize staged images under docs/images (png/jpg/webp) and re-stage them.
+# Skipped without a node start when no image is staged.
+if git diff --cached --name-only --diff-filter=ACMR -- docs/images | grep -qiE '\.(png|jpe?g|webp)$'; then
+  if [ ! -x node_modules/.bin/tsx ]; then
+    echo "pre-commit: images are staged but dependencies are missing; run npm ci" >&2
+    exit 1
+  fi
+  node_modules/.bin/tsx scripts/convert-to-webp.ts --staged || exit 1
+fi
 npm run lint

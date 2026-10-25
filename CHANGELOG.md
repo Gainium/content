@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.1] - 2026-10-25
+### Added
+- `npm run images:check`: lists every image under `docs/images` that is not optimized and
+  exits non-zero; runs in CI.
+- The pre-commit hook optimizes staged images under `docs/images` and stages the result.
+### Changed
+- `npm run images:webp` re-encodes a WebP whenever it is missing, older than its source,
+  wider than the max width, or not written by the optimizer (tracked by a source hash stored
+  in the WebP). Width is capped at 1600 px (`--max-width` or `IMAGE_MAX_WIDTH`), quality 80,
+  metadata stripped. PNG sources are losslessly recompressed when that makes them smaller.
+  Accepts file or folder arguments and `--staged`.
+- All images under `docs/images` re-encoded with these settings; WebP files are about 30%
+  smaller overall. File names and URLs are unchanged.
+
 ## [1.2.0] - 2026-10-25
 ### Added
 - Writing style guide (`docs/STYLE.md`) and a style check (`npm run check:style`) that rejects

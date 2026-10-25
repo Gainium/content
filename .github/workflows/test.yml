@@ -31,3 +31,6 @@ jobs:
 
       - name: Check article style (docs/STYLE.md)
         run: npm run check:style
+
+      - name: Check images are optimized (docs/images)
+        run: npm run images:check
