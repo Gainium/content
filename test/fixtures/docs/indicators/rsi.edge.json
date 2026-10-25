@@ -3264,5 +3264,137 @@
     "Going long while RSI(14) was above 50 beat random entries by 0.31% on 4h, but the gap comes from the run between Dec 25, 2020 and Mar 3, 2021. Treat RSI above 50 as a trend filter to test, not as an edge on its own.",
     "Single stretches can fake a result. On 1h, RSI(14) crossing up through 30 looked worse than random, but only because of signals on Nov 7–9, 2022, during the FTX collapse, when every bounce failed. On 4h, the short on a cross down through 70 looked bad only because of SOL’s run from about $4 to $11 in February 2021.",
     "For a long DCA bot, oversold timing adds nothing on these pairs, and the DCA orders and take profit do the work. Where RSI carries information is above 70: a short bot that opens on overbought readings is trading against the trend. Test RSI on your own pair before you rely on it."
+  ],
+  "summaryRefs": [
+    {
+      "tf": "*",
+      "setting": "rsi7-lt30",
+      "scope": "pooled"
+    },
+    {
+      "tf": "*",
+      "setting": "rsi14-lt30",
+      "scope": "pooled"
+    },
+    {
+      "tf": "*",
+      "setting": "rsi7-up30",
+      "scope": "pooled"
+    },
+    {
+      "tf": "*",
+      "setting": "rsi14-up30",
+      "scope": "pooled"
+    },
+    {
+      "tf": "*",
+      "setting": "rsi14-gt70",
+      "scope": "pooled"
+    }
+  ],
+  "verdictRefs": [
+    [
+      {
+        "tf": "*",
+        "setting": "rsi7-lt30",
+        "scope": "pooled"
+      },
+      {
+        "tf": "*",
+        "setting": "rsi14-lt30",
+        "scope": "pooled"
+      },
+      {
+        "tf": "*",
+        "setting": "rsi7-up30",
+        "scope": "pooled"
+      },
+      {
+        "tf": "*",
+        "setting": "rsi14-up30",
+        "scope": "pooled"
+      }
+    ],
+    [
+      {
+        "tf": "*",
+        "setting": "rsi14-gt70",
+        "scope": "pooled"
+      }
+    ],
+    [
+      {
+        "tf": "4h",
+        "setting": "rsi14-gt50",
+        "scope": "pooled"
+      },
+      {
+        "tf": "1d",
+        "setting": "rsi14-gt50",
+        "scope": "pooled"
+      }
+    ]
+  ],
+  "noteRefs": [
+    [
+      {
+        "tf": "4h",
+        "setting": "rsi14-lt30",
+        "scope": "pooled"
+      },
+      {
+        "tf": "4h",
+        "setting": "rsi7-lt30",
+        "scope": "pooled"
+      }
+    ],
+    [
+      {
+        "tf": "1h",
+        "setting": "rsi14-gt70",
+        "scope": "pooled"
+      },
+      {
+        "tf": "4h",
+        "setting": "rsi14-gt70",
+        "scope": "pooled"
+      },
+      {
+        "tf": "1d",
+        "setting": "rsi14-gt70",
+        "scope": "pooled"
+      }
+    ],
+    [
+      {
+        "tf": "4h",
+        "setting": "rsi14-gt50",
+        "scope": "pooled"
+      }
+    ],
+    [
+      {
+        "tf": "1h",
+        "setting": "rsi14-up30",
+        "scope": "pooled"
+      },
+      {
+        "tf": "4h",
+        "setting": "rsi14-down70",
+        "scope": "pooled"
+      },
+      {
+        "tf": "4h",
+        "setting": "rsi14-down70",
+        "scope": "SOL"
+      }
+    ],
+    [
+      {
+        "tf": "*",
+        "setting": "rsi14-gt70",
+        "scope": "pooled"
+      }
+    ]
   ]
 }

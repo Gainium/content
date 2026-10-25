@@ -14,7 +14,8 @@ import { extraBannedFor, MONTH } from '../style/timePeriods'
  *   054.no-verdict-on-few          a verdict on fewer than minEpisodes moves
  *   054.no-unflagged-fragile       edge/worse where robustness said fragile
  *   054.verdict-matches-numbers    a label that contradicts its edge and band
- *   054.numbers-in-text-match-data a number in the commentary not in the data
+ *   054.numbers-in-text-match-data a number in a commentary text that is not
+ *                                  in the cells its refs name (or method)
  *   054.dated                      missing dates, or data more than 45 days old
  *   054.style                      a banned phrase or time-window claim
  *
@@ -172,20 +173,61 @@ function cellInvariants(
 
 // --- 054.numbers-in-text-match-data -----------------------------------------
 
-/** The commentary fields: the prose a reader quotes. */
-const COMMENTARY_KEYS = new Set(['summary', 'verdicts', 'notes'])
+/**
+ * The commentary fields: the prose a reader quotes, and the refs that say
+ * which cells each text cites.
+ */
+const COMMENTARY_KEYS = new Set([
+  'summary',
+  'verdicts',
+  'notes',
+  'summaryRefs',
+  'verdictRefs',
+  'noteRefs',
+])
+
+/**
+ * A cell a text cites: `{ tf, setting, scope }`, where `tf` and `setting` may
+ * be "*" (every timeframe / every setting) and `scope` is "pooled" or a coin
+ * of `method.pairs`. Each text carries a list of them: `summaryRefs`,
+ * `verdictRefs[i]` (for verdict i's use and text) and `noteRefs[i]`.
+ */
+interface EdgeRef {
+  tf: string
+  setting: string
+  scope: string
+}
+
+/** A referenced cell with the setting it belongs to. */
+interface RefCell {
+  setting: Obj
+  index: number
+  scope: string
+  cell: Obj
+}
 
 interface DataFacts {
   /**
-   * Every number in the file outside the commentary, as absolute values:
-   * the table cells, method, labels, ids and list lengths. Not the chart
-   * series (`path`, `band`): at three decimals they would let almost any
-   * two-decimal figure through by rounding.
+   * The numbers a text may cite, as absolute values: those of `method`, of
+   * the cells its refs name (not their chart series, `path` and `band`: at
+   * three decimals they would let almost any two-decimal figure through by
+   * rounding), the numbers in those settings' labels and ids, list lengths,
+   * and the number of coins and timeframes.
    */
   values: number[]
-  /** Ratios of two counts that a text may cite ("about twice as often"). */
+  /** Ratios of two counts of those cells ("about twice as often"). */
   ratios: number[]
+  /** The file's timeframes ("1h", "4h", "1d"): read as names, not numbers. */
+  timeframes: Set<string>
 }
+
+/** The file's timeframes, which a text names freely. */
+const timeframesOf = (data: Obj) =>
+  new Set(
+    (Array.isArray(data.settings) ? data.settings : []).flatMap((s) =>
+      isObj(s) && isStr(s.tf) ? [s.tf] : [],
+    ),
+  )
 
 /** Numbers in a data string: labels ("RSI(14) below 30"), ids, timeframes. */
 const numbersIn = (text: string) =>
@@ -193,7 +235,57 @@ const numbersIn = (text: string) =>
     Number,
   )
 
-function collectFacts(data: Obj): DataFacts {
+/** The cells a ref list names, and the refs that are malformed or name none. */
+function resolveRefs(
+  data: Obj,
+  refs: unknown,
+): { cells: RefCell[]; errors: string[] } {
+  if (!Array.isArray(refs))
+    return { cells: [], errors: ['must be a list of { tf, setting, scope }'] }
+  const method = isObj(data.method) ? data.method : {}
+  const scopes = [
+    'pooled',
+    ...(Array.isArray(method.pairs) ? method.pairs : []).map(
+      (p) => String(p).split('/')[0],
+    ),
+  ]
+  const settings = Array.isArray(data.settings) ? data.settings : []
+  const cells: RefCell[] = []
+  const errors: string[] = []
+  for (const ref of refs as unknown[]) {
+    if (
+      !isObj(ref) ||
+      !isStr(ref.tf) ||
+      !isStr(ref.setting) ||
+      !scopes.includes(ref.scope as string)
+    ) {
+      errors.push(
+        `ref ${JSON.stringify(ref)} must be { tf, setting, scope: ${scopes.join(' | ')} }`,
+      )
+      continue
+    }
+    const { tf, setting: id, scope } = ref as unknown as EdgeRef
+    let found = 0
+    settings.forEach((setting, index) => {
+      if (!isObj(setting)) return
+      if (tf !== '*' && setting.tf !== tf) return
+      if (id !== '*' && setting.id !== id) return
+      const cell =
+        scope === 'pooled'
+          ? setting.pooled
+          : isObj(setting.coins)
+            ? setting.coins[scope]
+            : undefined
+      if (!isObj(cell)) return
+      found++
+      cells.push({ setting, index, scope, cell })
+    })
+    if (found === 0) errors.push(`ref ${JSON.stringify(ref)} names no cell`)
+  }
+  return { cells, errors }
+}
+
+function collectFacts(data: Obj, cells: RefCell[]): DataFacts {
   const values: number[] = []
   const walk = (node: unknown, key: string) => {
     if (isNum(node)) values.push(Math.abs(node))
@@ -204,7 +296,6 @@ function collectFacts(data: Obj): DataFacts {
       if (!(node.length === 2 && node.every(isNum))) values.push(node.length)
       node.forEach((item) => walk(item, key))
     } else if (isObj(node)) {
-      if (key === 'coins') values.push(Object.keys(node).length)
       for (const [k, v] of Object.entries(node)) {
         // engine shas are not numbers; the chart series are not quoted
         if (k === 'engine' || k === 'path' || k === 'band') continue
@@ -212,38 +303,35 @@ function collectFacts(data: Obj): DataFacts {
       }
     }
   }
-  for (const [k, v] of Object.entries(data)) {
-    if (!COMMENTARY_KEYS.has(k)) walk(v, k)
+  walk(data.method, 'method')
+  for (const { setting, cell } of cells) {
+    walk(cell, 'cell')
+    walk(setting.label, 'label')
+    walk(setting.id, 'id')
   }
   const settings = Array.isArray(data.settings) ? data.settings : []
   values.push(new Set(settings.map((s) => (isObj(s) ? s.tf : ''))).size)
 
   // A ratio compares two counts of the same kind, scope ("pooled", "BTC", …)
   // and timeframe ("RSI(7) enters about twice as often as RSI(14)"), or the
-  // two counts of one cell.
+  // two counts of one cell — among the cells the text cites.
   type Count = {
     group: string
     cell: string
     value: number
   }
   const counts: Count[] = []
-  settings.forEach((setting, i) => {
-    if (!isObj(setting)) return
-    const cells: Array<[string, unknown]> = [['pooled', setting.pooled]]
-    if (isObj(setting.coins)) cells.push(...Object.entries(setting.coins))
-    for (const [scope, cell] of cells) {
-      if (!isObj(cell)) continue
-      for (const kind of ['entries', 'episodes']) {
-        const value = cell[kind]
-        if (isCount(value) && value > 0)
-          counts.push({
-            group: `${String(setting.tf)}|${scope}|${kind}`,
-            cell: `${i}|${scope}`,
-            value,
-          })
-      }
+  for (const { setting, index, scope, cell } of cells) {
+    for (const kind of ['entries', 'episodes']) {
+      const value = cell[kind]
+      if (isCount(value) && value > 0)
+        counts.push({
+          group: `${String(setting.tf)}|${scope}|${kind}`,
+          cell: `${index}|${scope}`,
+          value,
+        })
     }
-  })
+  }
   const ratios: number[] = []
   for (const a of counts) {
     for (const b of counts) {
@@ -252,7 +340,7 @@ function collectFacts(data: Obj): DataFacts {
       if (r <= 10) ratios.push(r)
     }
   }
-  return { values, ratios }
+  return { values, ratios, timeframes: timeframesOf(data) }
 }
 
 const SMALL_WORDS: Record<string, number> = {
@@ -327,6 +415,7 @@ const SPELLED = new RegExp(
   'gi',
 )
 const DIGITS = /(?<![A-Za-z0-9.])\d+(?:\.\d+)?/g
+const TIMEFRAME = /\b\d+[mhdwM]\b/g
 
 const near = (a: number, b: number, tol: number) =>
   Math.abs(a - b) <= tol + 1e-9
@@ -399,6 +488,10 @@ export function unsupportedNumbers(text: string, facts: DataFacts): string[] {
       },
     )
 
+    // a timeframe of the file is a name ("on 1h"), not the number 1
+    sentence = sentence.replace(TIMEFRAME, (raw) =>
+      facts.timeframes.has(raw) ? ' ' : raw,
+    )
     for (const [raw] of sentence.matchAll(DIGITS)) {
       const decimals = raw.split('.')[1]?.length ?? 0
       if (!inData(Number(raw), decimals, facts)) missing.push(raw)
@@ -407,20 +500,27 @@ export function unsupportedNumbers(text: string, facts: DataFacts): string[] {
   return missing
 }
 
-/** The commentary strings with where they sit, for errors. */
-function commentary(data: Obj): Array<[string, string]> {
-  const out: Array<[string, string]> = []
-  if (typeof data.summary === 'string') out.push(['summary', data.summary])
+/** The commentary strings with where they sit and the refs that cover them. */
+function commentary(data: Obj): Array<[string, string, unknown]> {
+  const out: Array<[string, string, unknown]> = []
+  const at = (list: unknown, i: number) =>
+    Array.isArray(list) ? list[i] : undefined
+  if (typeof data.summary === 'string')
+    out.push(['summary', data.summary, data.summaryRefs])
   if (Array.isArray(data.verdicts)) {
     data.verdicts.forEach((v, i) => {
       if (!isObj(v)) return
-      if (typeof v.use === 'string') out.push([`verdicts[${i}].use`, v.use])
-      if (typeof v.text === 'string') out.push([`verdicts[${i}].text`, v.text])
+      const refs = at(data.verdictRefs, i)
+      if (typeof v.use === 'string')
+        out.push([`verdicts[${i}].use`, v.use, refs])
+      if (typeof v.text === 'string')
+        out.push([`verdicts[${i}].text`, v.text, refs])
     })
   }
   if (Array.isArray(data.notes)) {
     data.notes.forEach((n, i) => {
-      if (typeof n === 'string') out.push([`notes[${i}]`, n])
+      if (typeof n === 'string')
+        out.push([`notes[${i}]`, n, at(data.noteRefs, i)])
     })
   }
   return out
@@ -614,15 +714,40 @@ export function checkEdgeFile(
     })
   if (!Array.isArray(data.notes) || !data.notes.every(isStr))
     errors.push('notes: must be a list of strings')
+  if (!Array.isArray(data.summaryRefs))
+    errors.push('summaryRefs: must be a list of { tf, setting, scope }')
+  if (
+    !Array.isArray(data.verdictRefs) ||
+    !Array.isArray(data.verdicts) ||
+    data.verdictRefs.length !== data.verdicts.length
+  )
+    errors.push('verdictRefs: must hold one list of refs per verdict')
+  if (
+    !Array.isArray(data.noteRefs) ||
+    !Array.isArray(data.notes) ||
+    data.noteRefs.length !== data.notes.length
+  )
+    errors.push('noteRefs: must hold one list of refs per note')
 
-  // 054.numbers-in-text-match-data and 054.style
-  const facts = collectFacts(data)
+  // 054.numbers-in-text-match-data (each text against the cells its refs
+  // name, plus method) and 054.style
   const extraBanned = extraBannedFor('docs/indicators')
-  for (const [where, text] of commentary(data)) {
-    const missing = unsupportedNumbers(text, facts)
+  for (const [where, text, refs] of commentary(data)) {
+    const resolved = resolveRefs(data, refs ?? [])
+    for (const error of resolved.errors)
+      errors.push(`[054.numbers-in-text-match-data] ${where}: ${error}`)
+    const cited = resolved.cells.length > 0
+    const missing = unsupportedNumbers(
+      text,
+      cited
+        ? collectFacts(data, resolved.cells)
+        : { values: [], ratios: [], timeframes: timeframesOf(data) },
+    )
     if (missing.length > 0)
       errors.push(
-        `[054.numbers-in-text-match-data] ${where}: ${missing.map((m) => `"${m}"`).join(', ')} not in the data`,
+        cited
+          ? `[054.numbers-in-text-match-data] ${where}: ${missing.map((m) => `"${m}"`).join(', ')} not in the cells its refs name`
+          : `[054.numbers-in-text-match-data] ${where}: cites ${missing.map((m) => `"${m}"`).join(', ')} but its refs name no cells`,
       )
     for (const hit of lintMarkdown(text, { extraBanned }).hits) {
       if (hit.severity !== 'banned') continue

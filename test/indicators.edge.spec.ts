@@ -149,11 +149,83 @@ describe('indicator edge data (spec 054)', () => {
   })
 
   describe('054.numbers-in-text-match-data', () => {
-    const withNote = (note: string) => {
+    const ref = (tf: string, setting: string, scope = 'pooled') => ({
+      tf,
+      setting,
+      scope,
+    })
+    // the cells the notes below cite: RSI(14) and RSI(7) below 30 on 4h, and
+    // RSI(14) above 70 on daily
+    const CITED = [
+      ref('4h', 'rsi14-lt30'),
+      ref('4h', 'rsi7-lt30'),
+      ref('1d', 'rsi14-gt70'),
+    ]
+    const withNote = (note: string, refs: unknown = CITED) => {
       const data = fixture()
       data.notes.push(note)
+      data.noteRefs.push(refs)
       return check(data)
     }
+
+    it('checks a number against the cells its refs name, not the whole file', () => {
+      const note = 'They were 0.26% behind random entries.'
+      expect(withNote(note, [ref('4h', 'rsi14-lt30')])).to.deep.equal([])
+      // 0.26 is the 4h RSI(14)-below-30 edge; cited from another cell it fails
+      const errors = withNote(note, [ref('1d', 'rsi14-gt70')])
+      only(errors, '054.numbers-in-text-match-data')
+      expect(errors[0]).to.include('not in the cells its refs name')
+    })
+
+    it("reads the file's timeframes as names, not numbers", () => {
+      expect(
+        withNote('On 1h, 4h and 1d it stayed inside the band.', [
+          ref('4h', 'rsi14-lt30'),
+        ]),
+      ).to.deep.equal([])
+      only(
+        withNote('On 15m it stayed inside the band.', [
+          ref('4h', 'rsi14-lt30'),
+        ]),
+        '054.numbers-in-text-match-data',
+      )
+    })
+
+    it('fails a text with numbers but no refs, and passes one without numbers', () => {
+      const errors = withNote('They were 0.26% behind random entries.', [])
+      only(errors, '054.numbers-in-text-match-data')
+      expect(errors[0]).to.include('its refs name no cells')
+      expect(withNote('Price kept rising after it.', [])).to.deep.equal([])
+    })
+
+    it('reads "*" as every timeframe or setting, and counts method numbers', () => {
+      expect(
+        withNote('They were 0.26% behind random entries.', [
+          ref('*', 'rsi14-lt30'),
+        ]),
+      ).to.deep.equal([])
+      expect(
+        withNote('It shows at 10, 20, 50 and 100 candles.', [
+          ref('1h', 'rsi14-gt70'),
+        ]),
+      ).to.deep.equal([])
+    })
+
+    it('fails refs that are malformed, name no cell, or do not line up', () => {
+      only(
+        withNote('Price kept rising.', [ref('4h', 'nope')]),
+        '054.numbers-in-text-match-data',
+      )
+      only(
+        withNote('Price kept rising.', [ref('4h', 'rsi14-lt30', 'XRP')]),
+        '054.numbers-in-text-match-data',
+      )
+      const data = fixture()
+      data.noteRefs.pop()
+      expect(check(data)).to.include(
+        'noteRefs: must hold one list of refs per note',
+      )
+    })
 
     it('fails a number the data does not hold', () => {
       const errors = withNote('They were 12.34% behind random entries.')
@@ -245,7 +317,8 @@ describe('indicator edge data (spec 054)', () => {
     it('fails a general time-window claim', () => {
       const data = fixture()
       data.summary = 'Over the last 12 months RSI did no better than random.'
-      only(check(data), '054.style')
+      // "12" is also not in the cited cells; the style error is what this pins
+      expect(check(data).join('\n')).to.include('[054.style] summary')
     })
 
     it('fails a date range in a summary', () => {
