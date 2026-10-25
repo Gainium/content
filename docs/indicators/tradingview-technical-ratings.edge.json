@@ -19,6 +19,10 @@
   ],
   "from": "2020-09-01",
   "warmupFrom": "2020-06-01",
+  "regime": {
+   "by": "pair close vs its 200-day SMA",
+   "sma": 200
+  },
   "to": "2026-10-24",
   "engine": {
    "indicators": "56f63e97",
@@ -182,6 +186,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1073,
+     "episodes": 680,
+     "draws": 232,
+     "edge": -0.03,
+     "chance": [
+      -0.2,
+      0.22
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 731,
+     "episodes": 488,
+     "draws": 341,
+     "edge": 0.07,
+     "chance": [
+      -0.24,
+      0.26
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -336,6 +364,30 @@
      "chance": [
       -0.14,
       0.14
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 5472,
+     "episodes": 1423,
+     "draws": 100,
+     "edge": -0.04,
+     "chance": [
+      -0.1,
+      0.1
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 4626,
+     "episodes": 1176,
+     "draws": 100,
+     "edge": 0.05,
+     "chance": [
+      -0.08,
+      0.1
      ],
      "verdict": "none"
     }
@@ -565,6 +617,53 @@
       ]
      }
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 15520,
+     "episodes": 750,
+     "draws": 100,
+     "edge": 0.13,
+     "chance": [
+      -0.15,
+      0.11
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 163,
+       "start": "2020-12-25",
+       "end": "2021-01-10",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 9817,
+     "episodes": 612,
+     "draws": 100,
+     "edge": 0.08,
+     "chance": [
+      -0.12,
+      0.11
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -719,6 +818,30 @@
      "chance": [
       -0.11,
       0.1
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 45772,
+     "episodes": 578,
+     "draws": 100,
+     "edge": 0.02,
+     "chance": [
+      -0.07,
+      0.06
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 33271,
+     "episodes": 595,
+     "draws": 100,
+     "edge": 0.01,
+     "chance": [
+      -0.07,
+      0.06
      ],
      "verdict": "none"
     }
@@ -902,6 +1025,53 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 869,
+     "episodes": 574,
+     "draws": 287,
+     "edge": 0.27,
+     "chance": [
+      -0.24,
+      0.24
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 4,
+       "start": "2021-12-02",
+       "end": "2021-12-03",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 882,
+     "episodes": 593,
+     "draws": 283,
+     "edge": 0.06,
+     "chance": [
+      -0.23,
+      0.21
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -1056,6 +1226,30 @@
      "chance": [
       -0.11,
       0.1
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 38953,
+     "episodes": 727,
+     "draws": 100,
+     "edge": 0.03,
+     "chance": [
+      -0.08,
+      0.07
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 36368,
+     "episodes": 495,
+     "draws": 100,
+     "edge": 0.01,
+     "chance": [
+      -0.06,
+      0.05
      ],
      "verdict": "none"
     }
@@ -1262,6 +1456,53 @@
       ]
      }
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 259,
+     "episodes": 169,
+     "draws": 500,
+     "edge": 0.55,
+     "chance": [
+      -0.92,
+      0.85
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 124,
+     "episodes": 95,
+     "draws": 500,
+     "edge": 2.26,
+     "chance": [
+      -1.39,
+      1.09
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 2,
+       "start": "2025-05-06",
+       "end": "2025-05-08",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    }
    }
   },
   {
@@ -1439,6 +1680,30 @@
      "chance": [
       -0.53,
       0.6
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1278,
+     "episodes": 364,
+     "draws": 195,
+     "edge": -0.39,
+     "chance": [
+      -0.43,
+      0.39
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 1153,
+     "episodes": 303,
+     "draws": 216,
+     "edge": -0.03,
+     "chance": [
+      -0.37,
+      0.36
      ],
      "verdict": "none"
     }
@@ -1641,6 +1906,53 @@
        {
         "horizon": 100,
         "state": "edge"
+       }
+      ]
+     }
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 4333,
+     "episodes": 186,
+     "draws": 100,
+     "edge": 0.38,
+     "chance": [
+      -0.49,
+      0.41
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 1937,
+     "episodes": 147,
+     "draws": 129,
+     "edge": 0.8,
+     "chance": [
+      -0.7,
+      0.57
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 63,
+       "start": "2023-01-03",
+       "end": "2023-02-04",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
        }
       ]
      }
@@ -1848,6 +2160,30 @@
       ]
      }
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 12323,
+     "episodes": 152,
+     "draws": 100,
+     "edge": 0.22,
+     "chance": [
+      -0.28,
+      0.3
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 7466,
+     "episodes": 178,
+     "draws": 100,
+     "edge": 0.11,
+     "chance": [
+      -0.26,
+      0.24
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -2002,6 +2338,30 @@
      "chance": [
       -1.87,
       1.47
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 196,
+     "episodes": 125,
+     "draws": 500,
+     "edge": 0.39,
+     "chance": [
+      -1.01,
+      1.13
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 251,
+     "episodes": 166,
+     "draws": 500,
+     "edge": 0.15,
+     "chance": [
+      -0.81,
+      0.79
      ],
      "verdict": "none"
     }
@@ -2208,6 +2568,30 @@
       ]
      }
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 8871,
+     "episodes": 206,
+     "draws": 100,
+     "edge": 0.28,
+     "chance": [
+      -0.39,
+      0.41
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 9937,
+     "episodes": 127,
+     "draws": 100,
+     "edge": 0.08,
+     "chance": [
+      -0.2,
+      0.18
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -2362,6 +2746,30 @@
      "chance": [
       -15.04,
       17.07
+     ],
+     "verdict": "few"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 43,
+     "episodes": 33,
+     "draws": 500,
+     "edge": -1.74,
+     "chance": [
+      -6.02,
+      5.65
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 8,
+     "episodes": 8,
+     "draws": 500,
+     "edge": 8.86,
+     "chance": [
+      -8.5,
+      11.23
      ],
      "verdict": "few"
     }
@@ -2568,6 +2976,53 @@
       ]
      }
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 169,
+     "episodes": 48,
+     "draws": 500,
+     "edge": -5.85,
+     "chance": [
+      -3.84,
+      5.29
+     ],
+     "verdict": "worse",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 7,
+       "start": "2021-11-19",
+       "end": "2022-01-01",
+       "without": "worse"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "worse"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 199,
+     "episodes": 56,
+     "draws": 500,
+     "edge": 1.87,
+     "chance": [
+      -2.17,
+      2.54
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -2722,6 +3177,30 @@
      "chance": [
       -8.68,
       10.74
+     ],
+     "verdict": "few"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 942,
+     "episodes": 38,
+     "draws": 265,
+     "edge": 2.03,
+     "chance": [
+      -2.25,
+      2.52
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 70,
+     "episodes": 24,
+     "draws": 500,
+     "edge": -0.14,
+     "chance": [
+      -7.19,
+      8.33
      ],
      "verdict": "few"
     }
@@ -2882,6 +3361,30 @@
      ],
      "verdict": "few"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 2322,
+     "episodes": 30,
+     "draws": 107,
+     "edge": 1.38,
+     "chance": [
+      -1.53,
+      1.68
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 842,
+     "episodes": 48,
+     "draws": 296,
+     "edge": -0.57,
+     "chance": [
+      -2.51,
+      3.01
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -3036,6 +3539,30 @@
      "chance": [
       -16.24,
       13.77
+     ],
+     "verdict": "few"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 22,
+     "episodes": 14,
+     "draws": 500,
+     "edge": 9.36,
+     "chance": [
+      -12.26,
+      11.24
+     ],
+     "verdict": "few"
+    },
+    "down": {
+     "entries": 42,
+     "episodes": 26,
+     "draws": 500,
+     "edge": -2.02,
+     "chance": [
+      -4.69,
+      4.49
      ],
      "verdict": "few"
     }
@@ -3196,65 +3723,137 @@
      ],
      "verdict": "few"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 945,
+     "episodes": 47,
+     "draws": 264,
+     "edge": 5.63,
+     "chance": [
+      -4.39,
+      4.07
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 47,
+       "start": "2021-11-18",
+       "end": "2022-01-19",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 2053,
+     "episodes": 29,
+     "draws": 121,
+     "edge": -0.17,
+     "chance": [
+      -1.22,
+      1.36
+     ],
+     "verdict": "few"
+    }
    }
   }
  ],
- "summary": "Mostly no. Most Combined Ratings settings did no better than random entries on BTC, ETH and SOL, and a fresh Buy on daily did 2.83% worse. The result that holds up is the fresh Strong Buy on 4h: price beat random entries by 1.37% after 20 candles, held without its strongest episode and at 10, 50 and 100 candles, though SOL carries most of it.",
+ "summary": "Mostly no. On 1h, a fresh Strong Buy did no better than random entries, and neither did staying long or short while the rating read Buy or Sell. The result that holds up is a fresh Strong Buy on 4h: price beat random entries by 1.37% after 20 candles, carried by downtrends and by SOL.",
  "verdicts": [
   {
    "use": "Going long on a fresh Strong Buy",
    "verdict": "edge",
-   "text": "On 4h, price after a fresh Strong Buy beat random entries by 1.37% after 20 candles, and it held at 10, 50 and 100 candles. On 1h and daily it was no better than random."
+   "text": "On 4h, price after a fresh Strong Buy beat random entries by 1.37% after 20 candles, and the gap held at 10, 20, 50 and 100 candles. The gap came from downtrends and from SOL, and on 1h and daily the signal showed nothing."
   },
   {
-   "use": "Staying long while CR reads Strong Buy",
+   "use": "Staying long while the rating reads Strong Buy",
    "verdict": "edge",
-   "text": "Beat random entries by 0.14% on 1h and 0.68% on 4h after 20 candles, and both held without their strongest stretch. On daily it sat inside the luck band."
+   "text": "Price beat random entries by 0.14% on 1h and 0.68% on 4h, at 10, 20, 50 and 100 candles. Split by trend or by pair, most of the pieces fall inside the luck band."
   },
   {
-   "use": "Staying long while CR reads Buy or Strong Buy",
-   "verdict": "fragile",
-   "text": "Inside the luck band on 1h and daily. On 4h it beat random by 0.3%, but only because of the stretch between Dec 25, 2020 and May 21, 2021. Without it, chance."
+   "use": "Staying long while the rating reads Buy or Strong Buy",
+   "verdict": "none",
+   "text": "No better than random entries on 1h or daily. On 4h it beat random only because of the run between Dec 25, 2020 and May 21, 2021."
   },
   {
    "use": "Going long on a fresh Buy",
    "verdict": "worse",
-   "text": "No different from random on 1h and 4h. On daily, price did 2.83% worse than random after 20 days and held without its strongest stretch, but sat inside the band at 10 and 50 days."
+   "text": "On daily, price was 2.83% behind random entries 20 days after a fresh Buy, and 5.85% behind in uptrends. On 1h and 4h it showed nothing."
   },
   {
    "use": "Shorting a fresh Strong Sell",
    "verdict": "edge",
-   "text": "On 1h, shorts opened on a fresh Strong Sell beat random shorts by 0.26% after 20 candles, and at 10 and 50 candles but not 100. On 4h and daily they sat inside the luck band."
+   "text": "On 1h, shorts after a fresh Strong Sell beat random entries by 0.26% at 10, 20 and 50 candles, but not at 100. In downtrends it showed nothing, and the uptrend part rests on signals on Dec 2–3, 2021."
   },
   {
-   "use": "Staying short while CR reads Sell or Strong Sell",
-   "verdict": "fragile",
-   "text": "On 4h it beat random shorts by 0.28%, but only because of the stretch between Apr 4, 2022 and Jun 22, 2022. On 1h and daily it sat inside the luck band."
+   "use": "Staying short while the rating reads Sell or Strong Sell",
+   "verdict": "none",
+   "text": "No better than random entries on 1h. On 4h the result rests on the drop between Apr 4 and Jun 22, 2022, and on daily it beat random by 5.63% only in uptrends."
   }
  ],
  "notes": [
-  "A fresh Strong Buy on 4h gave 394 entries in 272 separate moves. Twenty candles later price was 1.37% ahead of random entries, and the gap held without its strongest episode. SOL carries most of it at 2.66%, while BTC at 0.61% and ETH at 0.94% stay inside their luck bands. On 1h the same signal fires far more often and lands inside the band at 0.08%.",
-  "Staying long on every candle that reads Strong Buy beat random entries by 0.14% on 1h and 0.68% on 4h. Both hold without their strongest stretch and at 10, 20, 50 and 100 candles. Per coin it is thinner: on 1h only SOL clears its band, at 0.26%, and ETH's 0.12% depends on signals between Dec 25, 2020 and Jan 10, 2021. On 4h, SOL's 1.22% alone vanishes without the stretch between Jul 29, 2021 and Sep 11, 2021.",
-  "Adding plain Buy readings dilutes the signal. On 4h, Buy or Strong Buy on every candle enters about three times as often as Strong Buy alone. Its 0.3% gap disappears without the stretch between Dec 25, 2020 and May 21, 2021. On 1h its 81,097 entries landed inside the luck band, and a fresh Buy on 1h or 4h was no different from random.",
-  "On daily, a fresh Buy gave 368 entries in 98 moves and did 2.83% worse than random after 20 days. The gap holds without its strongest stretch and shows again at 100 days, but not at 10 or 50. Daily Strong Buy and Strong Sell signals are rare: per coin they stay under 30 separate moves, too few to judge.",
-  "On the short side, a fresh Strong Sell on 1h beat random shorts by 0.26% after 20 candles, with 1,795 entries in 1,197 moves. It holds without its strongest episode and at 10 and 50 candles, but fades by 100. No single coin clears its own band. Sell or Strong Sell on every 4h candle looked better by 0.28%, but only because of the stretch between Apr 4, 2022 and Jun 22, 2022.",
-  "On a long bot, a fresh 4h Strong Buy fits as a filter beside your own start condition, not as the trigger. Test it on your pair first, because SOL carries most of the result. The gap showed from 10 to 100 candles, so it pairs with a take profit that has room to fill rather than a tight scalp. A fresh Buy on daily is a reason to leave that setting out of a long bot, and only the 1h fresh Strong Sell showed anything for a short bot's timing."
+  "On 4h, a fresh Strong Buy gave 394 entries in 272 separate moves. Twenty candles later, price was 1.37% ahead of random entries, and the luck band topped out at 0.8%. The result holds without its strongest stretch and at 10, 20, 50 and 100 candles. On 1h the same signal gave 1,851 entries and landed inside the band.",
+  "The 4h result does not hold in every market. With the pair below its 200-day SMA, price after a fresh Strong Buy beat random entries by 2.26% and held at 10, 20, 50 and 100 candles. Above the SMA the gap was 0.55%, inside the luck band. Only SOL cleared its band on its own, at 2.66%, while BTC and ETH showed nothing.",
+  "Staying long on every Strong Buy candle beat random entries by 0.14% on 1h and 0.68% on 4h, at 10, 20, 50 and 100 candles. Split by trend, neither side holds alone. On 1h the uptrend result depends on the stretch between Dec 25, 2020 and Jan 10, 2021. On 4h the downtrend result depends on the stretch between Jan 3 and Feb 4, 2023, and BTC and ETH each stayed inside their bands.",
+  "Buy or Strong Buy, the featured long setting, enters about three times as often as Strong Buy alone on 1h. Adding the plain Buy readings pulled the 1h result down to 0.03%, inside the luck band. On 4h it beat random entries by 0.3%, but only because of the run between Dec 25, 2020 and May 21, 2021. Without that run the result is chance.",
+  "A fresh Buy on daily went the wrong way. Twenty days later, price was 2.83% behind random entries, and the gap holds without its strongest stretch. In uptrends it grew to 5.85% and showed at 10, 20, 50 and 100 days. In downtrends it was 1.87%, inside the band, and on 1h and 4h a fresh Buy showed nothing.",
+  "For a long DCA bot, a fresh Strong Buy on 4h is the reading worth testing as a filter beside your other start conditions. Its gap held out to 100 candles, so it fits a take profit that waits for a longer move rather than a quick one. A fresh Buy on daily is a reason to leave that reading out of a long bot in uptrends. On the short side, a fresh Strong Sell on 1h faded by 100 candles, so it suits a short take profit, not a long hold."
  ],
  "summaryRefs": [
   {
-   "tf": "*",
-   "setting": "*",
+   "tf": "1h",
+   "setting": "sbuy-entry",
    "scope": "pooled"
   },
   {
-   "tf": "1d",
-   "setting": "buy-entry",
+   "tf": "1h",
+   "setting": "bothbuy-every",
+   "scope": "pooled"
+  },
+  {
+   "tf": "1h",
+   "setting": "bothsell-every",
    "scope": "pooled"
   },
   {
    "tf": "4h",
    "setting": "sbuy-entry",
    "scope": "pooled"
+  },
+  {
+   "tf": "4h",
+   "setting": "sbuy-entry",
+   "scope": "up"
+  },
+  {
+   "tf": "4h",
+   "setting": "sbuy-entry",
+   "scope": "down"
+  },
+  {
+   "tf": "4h",
+   "setting": "sbuy-entry",
+   "scope": "BTC"
+  },
+  {
+   "tf": "4h",
+   "setting": "sbuy-entry",
+   "scope": "ETH"
   },
   {
    "tf": "4h",
@@ -3270,6 +3869,16 @@
     "scope": "pooled"
    },
    {
+    "tf": "4h",
+    "setting": "sbuy-entry",
+    "scope": "down"
+   },
+   {
+    "tf": "4h",
+    "setting": "sbuy-entry",
+    "scope": "SOL"
+   },
+   {
     "tf": "1h",
     "setting": "sbuy-entry",
     "scope": "pooled"
@@ -3292,9 +3901,34 @@
     "scope": "pooled"
    },
    {
-    "tf": "1d",
+    "tf": "1h",
     "setting": "sbuy-every",
-    "scope": "pooled"
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "sbuy-every",
+    "scope": "down"
+   },
+   {
+    "tf": "4h",
+    "setting": "sbuy-every",
+    "scope": "up"
+   },
+   {
+    "tf": "4h",
+    "setting": "sbuy-every",
+    "scope": "down"
+   },
+   {
+    "tf": "4h",
+    "setting": "sbuy-every",
+    "scope": "BTC"
+   },
+   {
+    "tf": "4h",
+    "setting": "sbuy-every",
+    "scope": "ETH"
    }
   ],
   [
@@ -3316,17 +3950,22 @@
   ],
   [
    {
+    "tf": "1d",
+    "setting": "buy-entry",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "buy-entry",
+    "scope": "up"
+   },
+   {
     "tf": "1h",
     "setting": "buy-entry",
     "scope": "pooled"
    },
    {
     "tf": "4h",
-    "setting": "buy-entry",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1d",
     "setting": "buy-entry",
     "scope": "pooled"
    }
@@ -3338,14 +3977,14 @@
     "scope": "pooled"
    },
    {
-    "tf": "4h",
+    "tf": "1h",
     "setting": "ssell-entry",
-    "scope": "pooled"
+    "scope": "up"
    },
    {
-    "tf": "1d",
+    "tf": "1h",
     "setting": "ssell-entry",
-    "scope": "pooled"
+    "scope": "down"
    }
   ],
   [
@@ -3363,6 +4002,16 @@
     "tf": "1d",
     "setting": "bothsell-every",
     "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "bothsell-every",
+    "scope": "up"
+   },
+   {
+    "tf": "1d",
+    "setting": "bothsell-every",
+    "scope": "down"
    }
   ]
  ],
@@ -3374,6 +4023,23 @@
     "scope": "pooled"
    },
    {
+    "tf": "1h",
+    "setting": "sbuy-entry",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "4h",
+    "setting": "sbuy-entry",
+    "scope": "down"
+   },
+   {
+    "tf": "4h",
+    "setting": "sbuy-entry",
+    "scope": "up"
+   },
+   {
     "tf": "4h",
     "setting": "sbuy-entry",
     "scope": "SOL"
@@ -3387,11 +4053,6 @@
     "tf": "4h",
     "setting": "sbuy-entry",
     "scope": "ETH"
-   },
-   {
-    "tf": "1h",
-    "setting": "sbuy-entry",
-    "scope": "pooled"
    }
   ],
   [
@@ -3408,34 +4069,66 @@
    {
     "tf": "1h",
     "setting": "sbuy-every",
-    "scope": "SOL"
+    "scope": "up"
    },
    {
     "tf": "1h",
+    "setting": "sbuy-every",
+    "scope": "down"
+   },
+   {
+    "tf": "4h",
+    "setting": "sbuy-every",
+    "scope": "up"
+   },
+   {
+    "tf": "4h",
+    "setting": "sbuy-every",
+    "scope": "down"
+   },
+   {
+    "tf": "4h",
+    "setting": "sbuy-every",
+    "scope": "BTC"
+   },
+   {
+    "tf": "4h",
     "setting": "sbuy-every",
     "scope": "ETH"
-   },
-   {
-    "tf": "4h",
-    "setting": "sbuy-every",
-    "scope": "SOL"
    }
   ],
   [
    {
-    "tf": "4h",
+    "tf": "1h",
     "setting": "bothbuy-every",
     "scope": "pooled"
    },
    {
-    "tf": "4h",
+    "tf": "1h",
     "setting": "sbuy-every",
     "scope": "pooled"
    },
    {
-    "tf": "1h",
+    "tf": "4h",
     "setting": "bothbuy-every",
     "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1d",
+    "setting": "buy-entry",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "buy-entry",
+    "scope": "up"
+   },
+   {
+    "tf": "1d",
+    "setting": "buy-entry",
+    "scope": "down"
    },
    {
     "tf": "1h",
@@ -3450,83 +4143,14 @@
   ],
   [
    {
-    "tf": "1d",
-    "setting": "buy-entry",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1d",
-    "setting": "sbuy-entry",
-    "scope": "BTC"
-   },
-   {
-    "tf": "1d",
-    "setting": "sbuy-entry",
-    "scope": "ETH"
-   },
-   {
-    "tf": "1d",
-    "setting": "sbuy-entry",
-    "scope": "SOL"
-   },
-   {
-    "tf": "1d",
-    "setting": "ssell-entry",
-    "scope": "BTC"
-   },
-   {
-    "tf": "1d",
-    "setting": "ssell-entry",
-    "scope": "ETH"
-   },
-   {
-    "tf": "1d",
-    "setting": "ssell-entry",
-    "scope": "SOL"
-   }
-  ],
-  [
-   {
-    "tf": "1h",
-    "setting": "ssell-entry",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1h",
-    "setting": "ssell-entry",
-    "scope": "BTC"
-   },
-   {
-    "tf": "1h",
-    "setting": "ssell-entry",
-    "scope": "ETH"
-   },
-   {
-    "tf": "1h",
-    "setting": "ssell-entry",
-    "scope": "SOL"
-   },
-   {
-    "tf": "4h",
-    "setting": "bothsell-every",
-    "scope": "pooled"
-   }
-  ],
-  [
-   {
     "tf": "4h",
     "setting": "sbuy-entry",
     "scope": "pooled"
-   },
-   {
-    "tf": "4h",
-    "setting": "sbuy-entry",
-    "scope": "SOL"
    },
    {
     "tf": "1d",
     "setting": "buy-entry",
-    "scope": "pooled"
+    "scope": "up"
    },
    {
     "tf": "1h",

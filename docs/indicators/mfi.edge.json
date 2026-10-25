@@ -19,6 +19,10 @@
   ],
   "from": "2020-09-01",
   "warmupFrom": "2020-06-01",
+  "regime": {
+   "by": "pair close vs its 200-day SMA",
+   "sma": 200
+  },
   "to": "2026-10-24",
   "engine": {
    "indicators": "56f63e97",
@@ -182,6 +186,53 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 3268,
+     "episodes": 712,
+     "draws": 100,
+     "edge": -0.3,
+     "chance": [
+      -0.25,
+      0.31
+     ],
+     "verdict": "worse",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 15,
+       "start": "2024-07-03",
+       "end": "2024-07-04",
+       "without": "worse"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 3284,
+     "episodes": 647,
+     "draws": 100,
+     "edge": 0.13,
+     "chance": [
+      -0.24,
+      0.25
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -339,6 +390,53 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1023,
+     "episodes": 718,
+     "draws": 244,
+     "edge": -0.26,
+     "chance": [
+      -0.23,
+      0.22
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 5,
+       "start": "2024-12-18",
+       "end": "2024-12-19",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 999,
+     "episodes": 672,
+     "draws": 250,
+     "edge": 0.11,
+     "chance": [
+      -0.19,
+      0.22
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -493,6 +591,30 @@
      "chance": [
       -0.17,
       0.15
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 4466,
+     "episodes": 1797,
+     "draws": 100,
+     "edge": 0.02,
+     "chance": [
+      -0.1,
+      0.09
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 3766,
+     "episodes": 1461,
+     "draws": 100,
+     "edge": -0.05,
+     "chance": [
+      -0.08,
+      0.09
      ],
      "verdict": "none"
     }
@@ -699,6 +821,53 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 4088,
+     "episodes": 782,
+     "draws": 100,
+     "edge": -0.42,
+     "chance": [
+      -0.24,
+      0.27
+     ],
+     "verdict": "worse",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 33,
+       "start": "2021-08-15",
+       "end": "2021-08-16",
+       "without": "worse"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "worse"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 3110,
+     "episodes": 620,
+     "draws": 100,
+     "edge": -0.06,
+     "chance": [
+      -0.28,
+      0.23
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -856,6 +1025,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1169,
+     "episodes": 817,
+     "draws": 213,
+     "edge": -0.15,
+     "chance": [
+      -0.22,
+      0.21
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 902,
+     "episodes": 618,
+     "draws": 277,
+     "edge": 0.11,
+     "chance": [
+      -0.2,
+      0.22
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -1010,6 +1203,30 @@
      "chance": [
       -0.23,
       0.22
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 2682,
+     "episodes": 1446,
+     "draws": 100,
+     "edge": 0.08,
+     "chance": [
+      -0.12,
+      0.14
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 2201,
+     "episodes": 1152,
+     "draws": 113,
+     "edge": 0.06,
+     "chance": [
+      -0.14,
+      0.13
      ],
      "verdict": "none"
     }
@@ -1193,6 +1410,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 608,
+     "episodes": 146,
+     "draws": 411,
+     "edge": -0.35,
+     "chance": [
+      -1.21,
+      1.33
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 977,
+     "episodes": 187,
+     "draws": 255,
+     "edge": -0.75,
+     "chance": [
+      -0.88,
+      1.02
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -1347,6 +1588,30 @@
      "chance": [
       -1.28,
       1.49
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 187,
+     "episodes": 140,
+     "draws": 500,
+     "edge": -0.72,
+     "chance": [
+      -1.09,
+      1.07
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 281,
+     "episodes": 196,
+     "draws": 500,
+     "edge": -0.33,
+     "chance": [
+      -0.85,
+      0.87
      ],
      "verdict": "none"
     }
@@ -1506,6 +1771,53 @@
       0.53
      ],
      "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1121,
+     "episodes": 443,
+     "draws": 223,
+     "edge": 0.05,
+     "chance": [
+      -0.33,
+      0.32
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 900,
+     "episodes": 383,
+     "draws": 277,
+     "edge": 0.34,
+     "chance": [
+      -0.32,
+      0.34
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 4,
+       "start": "2025-05-04",
+       "end": "2025-05-07",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
     }
    }
   },
@@ -1684,6 +1996,53 @@
      "chance": [
       -1.62,
       1.63
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1194,
+     "episodes": 219,
+     "draws": 209,
+     "edge": -1.17,
+     "chance": [
+      -0.92,
+      0.93
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 24,
+       "start": "2021-08-27",
+       "end": "2021-09-07",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "worse"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 711,
+     "episodes": 156,
+     "draws": 351,
+     "edge": -0.32,
+     "chance": [
+      -1.01,
+      1.03
      ],
      "verdict": "none"
     }
@@ -1890,6 +2249,30 @@
       ]
      }
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 339,
+     "episodes": 227,
+     "draws": 500,
+     "edge": -0.58,
+     "chance": [
+      -0.73,
+      0.72
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 208,
+     "episodes": 154,
+     "draws": 500,
+     "edge": -0.22,
+     "chance": [
+      -0.94,
+      0.9
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -2044,6 +2427,30 @@
      "chance": [
       -0.81,
       0.91
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 690,
+     "episodes": 376,
+     "draws": 362,
+     "edge": 0.23,
+     "chance": [
+      -0.47,
+      0.52
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 519,
+     "episodes": 290,
+     "draws": 481,
+     "edge": 0.01,
+     "chance": [
+      -0.5,
+      0.63
      ],
      "verdict": "none"
     }
@@ -2203,6 +2610,53 @@
       19.21
      ],
      "verdict": "few"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 15,
+     "episodes": 9,
+     "draws": 500,
+     "edge": -12.97,
+     "chance": [
+      -12.64,
+      13.44
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 2,
+       "start": "2021-04-28",
+       "end": "2021-04-29",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 106,
+     "episodes": 31,
+     "draws": 500,
+     "edge": 3.42,
+     "chance": [
+      -6.24,
+      5.81
+     ],
+     "verdict": "none"
     }
    }
   },
@@ -2384,6 +2838,53 @@
      ],
      "verdict": "few"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 9,
+     "episodes": 8,
+     "draws": 500,
+     "edge": -14.81,
+     "chance": [
+      -12.52,
+      19.2
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 2,
+       "start": "2025-02-03",
+       "end": "2025-02-08",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 39,
+     "episodes": 31,
+     "draws": 500,
+     "edge": 3.39,
+     "chance": [
+      -4.61,
+      4.96
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -2540,6 +3041,53 @@
       5.32
      ],
      "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 171,
+     "episodes": 79,
+     "draws": 500,
+     "edge": -3.36,
+     "chance": [
+      -3.58,
+      2.71
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 163,
+     "episodes": 66,
+     "draws": 500,
+     "edge": 2.89,
+     "chance": [
+      -2.54,
+      2.66
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 5,
+       "start": "2022-12-21",
+       "end": "2023-01-02",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
     }
    }
   },
@@ -2744,6 +3292,53 @@
       ]
      }
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 259,
+     "episodes": 44,
+     "draws": 500,
+     "edge": -10.04,
+     "chance": [
+      -9.44,
+      6.32
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 25,
+       "start": "2021-08-10",
+       "end": "2021-09-12",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 70,
+     "episodes": 17,
+     "draws": 500,
+     "edge": 0.33,
+     "chance": [
+      -13.99,
+      9.08
+     ],
+     "verdict": "few"
+    }
    }
   },
   {
@@ -2947,6 +3542,53 @@
       ]
      }
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 72,
+     "episodes": 45,
+     "draws": 500,
+     "edge": -7.14,
+     "chance": [
+      -6.99,
+      5.82
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 5,
+       "start": "2021-08-12",
+       "end": "2021-09-13",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 14,
+     "episodes": 12,
+     "draws": 500,
+     "edge": 1.61,
+     "chance": [
+      -10.02,
+      11.14
+     ],
+     "verdict": "few"
+    }
    }
   },
   {
@@ -3104,44 +3746,63 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 121,
+     "episodes": 65,
+     "draws": 500,
+     "edge": -2.89,
+     "chance": [
+      -4.61,
+      2.97
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 54,
+     "episodes": 35,
+     "draws": 500,
+     "edge": 1.98,
+     "chance": [
+      -5.03,
+      5.1
+     ],
+     "verdict": "none"
+    }
    }
   }
  ],
- "summary": "MFI does not work as a dip-buying signal. On BTC, ETH and SOL, price moved the same after MFI(14) went below 20, or crossed back up through 20, as after a random candle. The result that holds up runs the other way: on daily candles, price kept rising after MFI(14) went above 80, and a short opened there did 10% worse than random after 20 days.",
+ "summary": "MFI shows no edge as an oversold signal. On BTC, ETH and SOL, entries while MFI(14) was below 20, or as it crossed back up through 20, did no better than entries on a random candle on 1h, 4h or daily. The result that holds up runs the other way: after MFI(14) went above 80, price kept rising, ending 10% above random entries after 20 days on daily and also above them on 1h in uptrends.",
  "verdicts": [
   {
-   "use": "Buying the dip (below 20)",
+   "use": "Buying oversold (below 20)",
    "verdict": "none",
-   "text": "No better than random entries on 1h, 4h or daily. This holds for the level below 20 and for the cross back up through 20."
+   "text": "No better than random entries on 1h, 4h or daily, as a level or as a cross back up through 20. On 1h in uptrends, entries below 20 did worse than random."
   },
   {
    "use": "Shorting overbought (above 80)",
    "verdict": "worse",
-   "text": "Worse than random on daily, and it holds without its strongest stretch. On 1h and 4h it also lands below the luck band, but there it rests on one stretch each."
+   "text": "Worse than random on daily and on 1h in uptrends. Price kept rising after readings above 80."
   },
   {
-   "use": "Shorting the cross down through 80",
+   "use": "Shorting the turn down (crosses down 80 or 70)",
    "verdict": "fragile-worse",
-   "text": "Below the luck band on 4h and daily, but only because of signals between Aug 27 and Aug 31, 2021 on 4h and between Aug 12 and Sep 13, 2021 on daily. Without them, it is chance."
+   "text": "The cross down through 80 looked worse than random on 4h, but only because of signals on Aug 27–31, 2021. Without them, chance. Crossing down through 70 showed nothing on any timeframe."
   },
   {
    "use": "Riding momentum (crosses up 50)",
    "verdict": "none",
-   "text": "No different from random entries on 1h, 4h or daily."
-  },
-  {
-   "use": "Shorting the cross down through 70",
-   "verdict": "none",
-   "text": "Inside the luck band on 1h, 4h and daily."
+   "text": "No better than random entries on 1h, 4h or daily."
   }
  ],
  "notes": [
-  "Going long while MFI(14) was below 20 on 1h gave 6,764 entries in 1,387 separate moves. Twenty candles later, they were 0.08% behind random entries, inside the luck band. The cross back up through 20 enters about a third as often and lands in the same place.",
-  "Shorting while MFI(14) was above 80 did 10% worse than random entries after 20 days on daily. The result holds without its strongest stretch, between Aug 10 and Sep 12, 2021. It also shows at 10 candles, but not at 50 or 100. On BTC 1h the same short did 0.33% worse and held without its strongest stretch. Readings above 80 marked buying that continued, not tops.",
-  "On 1h and 4h, the pooled short above 80 also fell below the band, by 0.24% and 1%. On 1h that came from signals on Aug 15–16, 2021, and on 4h from signals between Aug 27 and Sep 7, 2021. The cross down through 80 on 4h looked worse only because of 4 signals between Aug 27 and Aug 31, 2021. Leave those stretches out and all three land in chance.",
-  "On BTC 4h, buying below 20 looked 1.36% worse than random. That came from 24 entries on May 7–11, 2022, during the Terra collapse, and without them it is chance. On daily, each coin has fewer than 30 episodes below 20, too few to judge on its own.",
-  "Crosses up through 50 and down through 70 stayed inside the luck band on every timeframe. On 1h, MFI(14) crosses up 50 about four times as often as it crosses up 20, and price after those crosses moved the same as after random candles.",
-  "For a long DCA bot, an MFI(14) dip condition adds nothing on these pairs, and the DCA orders and take profit do the work. MFI carries information above 80 on daily, where it marked strength that kept going. A short bot can treat daily MFI(14) above 80 as a reason to leave that entry out. A long bot can test it as a trend filter beside its other conditions."
+  "On 1h, entries while MFI(14) was below 20 came to 6,764 in 1,387 separate moves. Twenty candles later they were 0.08% behind random entries, inside the luck band. The cross back up through 20 fires about a third as often and lands in the same place. On 4h and daily, neither setting left the band.",
+  "Market regime splits the oversold result. On 1h in uptrends, entries below 20 were 0.3% behind random after 20 candles. They were also behind at 10 and 50 candles, and the gap holds without its strongest stretch. In downtrends the same setting showed nothing. A dip below 20 while the pair closed above its 200-day SMA was no better entry than any other uptrend candle.",
+  "Shorting while MFI(14) was above 80 did 10% worse than random after 20 days on daily. That result holds without its strongest stretch and also shows at 10 candles. On 1h in uptrends it did 0.42% worse, at 10, 20, 50 and 100 candles, and holds without its strongest stretch. In 1h downtrends it showed nothing, and daily downtrends have too few separate moves to judge.",
+  "Several other short results rest on one stretch. On 1h, the pooled above-80 result disappears without signals on Aug 15–16, 2021. On 4h it disappears without the signals between Aug 27, 2021 and Sep 7, 2021. On daily, the cross down through 80 was 7% worse than random, but only because of signals between Aug 12, 2021 and Sep 13, 2021.",
+  "Crossing up through 50 showed nothing on 1h, 4h or daily. In downtrends on 4h and daily it beat random entries, but each gap disappears without one stretch. On 4h that stretch is May 4–7, 2025. On daily it falls between Dec 21, 2022 and Jan 2, 2023.",
+  "In a long DCA bot, MFI below 20 adds nothing on these pairs, so the DCA orders and take profit do the work. On 1h in uptrends, the dip entries did slightly worse than random. MFI carries information above 80, where price tended to keep rising. A short bot that opens on readings above 80 trades against that move. That reading tells you nothing in downtrends, where it showed no effect."
  ],
  "summaryRefs": [
   {
@@ -3158,6 +3819,11 @@
    "tf": "1d",
    "setting": "mfi14-gt80",
    "scope": "pooled"
+  },
+  {
+   "tf": "1h",
+   "setting": "mfi14-gt80",
+   "scope": "up"
   }
  ],
  "verdictRefs": [
@@ -3171,13 +3837,23 @@
     "tf": "*",
     "setting": "mfi14-up20",
     "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "mfi14-lt20",
+    "scope": "up"
    }
   ],
   [
    {
-    "tf": "*",
+    "tf": "1d",
     "setting": "mfi14-gt80",
     "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "mfi14-gt80",
+    "scope": "up"
    }
   ],
   [
@@ -3187,8 +3863,8 @@
     "scope": "pooled"
    },
    {
-    "tf": "1d",
-    "setting": "mfi14-down80",
+    "tf": "*",
+    "setting": "mfi14-down70",
     "scope": "pooled"
    }
   ],
@@ -3196,13 +3872,6 @@
    {
     "tf": "*",
     "setting": "mfi14-up50",
-    "scope": "pooled"
-   }
-  ],
-  [
-   {
-    "tf": "*",
-    "setting": "mfi14-down70",
     "scope": "pooled"
    }
   ]
@@ -3218,6 +3887,38 @@
     "tf": "1h",
     "setting": "mfi14-up20",
     "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "mfi14-lt20",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "mfi14-up20",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "mfi14-lt20",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "mfi14-up20",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "mfi14-lt20",
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "mfi14-lt20",
+    "scope": "down"
    }
   ],
   [
@@ -3229,7 +3930,17 @@
    {
     "tf": "1h",
     "setting": "mfi14-gt80",
-    "scope": "BTC"
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "mfi14-gt80",
+    "scope": "down"
+   },
+   {
+    "tf": "1d",
+    "setting": "mfi14-gt80",
+    "scope": "down"
    }
   ],
   [
@@ -3244,31 +3955,9 @@
     "scope": "pooled"
    },
    {
-    "tf": "4h",
+    "tf": "1d",
     "setting": "mfi14-down80",
     "scope": "pooled"
-   }
-  ],
-  [
-   {
-    "tf": "4h",
-    "setting": "mfi14-lt20",
-    "scope": "BTC"
-   },
-   {
-    "tf": "1d",
-    "setting": "mfi14-lt20",
-    "scope": "BTC"
-   },
-   {
-    "tf": "1d",
-    "setting": "mfi14-lt20",
-    "scope": "ETH"
-   },
-   {
-    "tf": "1d",
-    "setting": "mfi14-lt20",
-    "scope": "SOL"
    }
   ],
   [
@@ -3278,26 +3967,41 @@
     "scope": "pooled"
    },
    {
-    "tf": "*",
-    "setting": "mfi14-down70",
+    "tf": "4h",
+    "setting": "mfi14-up50",
+    "scope": "down"
+   },
+   {
+    "tf": "1d",
+    "setting": "mfi14-up50",
+    "scope": "down"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "mfi14-lt20",
     "scope": "pooled"
    },
    {
     "tf": "1h",
-    "setting": "mfi14-up20",
-    "scope": "pooled"
-   }
-  ],
-  [
+    "setting": "mfi14-lt20",
+    "scope": "up"
+   },
    {
     "tf": "1d",
     "setting": "mfi14-gt80",
     "scope": "pooled"
    },
    {
-    "tf": "*",
-    "setting": "mfi14-lt20",
-    "scope": "pooled"
+    "tf": "1h",
+    "setting": "mfi14-gt80",
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "mfi14-gt80",
+    "scope": "down"
    }
   ]
  ]

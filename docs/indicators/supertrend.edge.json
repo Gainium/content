@@ -19,6 +19,10 @@
   ],
   "from": "2020-09-01",
   "warmupFrom": "2020-06-01",
+  "regime": {
+   "by": "pair close vs its 200-day SMA",
+   "sma": 200
+  },
   "to": "2026-10-24",
   "engine": {
    "indicators": "56f63e97",
@@ -205,6 +209,30 @@
       ]
      }
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 942,
+     "episodes": 916,
+     "draws": 265,
+     "edge": 0.15,
+     "chance": [
+      -0.17,
+      0.18
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 846,
+     "episodes": 817,
+     "draws": 295,
+     "edge": 0.09,
+     "chance": [
+      -0.2,
+      0.18
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -359,6 +387,30 @@
      "chance": [
       -0.32,
       0.28
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 996,
+     "episodes": 970,
+     "draws": 251,
+     "edge": 0.02,
+     "chance": [
+      -0.19,
+      0.16
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 794,
+     "episodes": 767,
+     "draws": 314,
+     "edge": -0.11,
+     "chance": [
+      -0.2,
+      0.19
      ],
      "verdict": "none"
     }
@@ -519,6 +571,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 44351,
+     "episodes": 778,
+     "draws": 100,
+     "edge": -0.01,
+     "chance": [
+      -0.09,
+      0.08
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 33393,
+     "episodes": 621,
+     "draws": 100,
+     "edge": 0.07,
+     "chance": [
+      -0.1,
+      0.09
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -673,6 +749,30 @@
      "chance": [
       -0.23,
       0.24
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1695,
+     "episodes": 1498,
+     "draws": 147,
+     "edge": 0.02,
+     "chance": [
+      -0.14,
+      0.11
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 1433,
+     "episodes": 1260,
+     "draws": 174,
+     "edge": 0.15,
+     "chance": [
+      -0.13,
+      0.15
      ],
      "verdict": "none"
     }
@@ -833,6 +933,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 618,
+     "episodes": 615,
+     "draws": 404,
+     "edge": -0.06,
+     "chance": [
+      -0.25,
+      0.25
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 534,
+     "episodes": 532,
+     "draws": 468,
+     "edge": 0.17,
+     "chance": [
+      -0.28,
+      0.25
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -987,6 +1111,30 @@
      "chance": [
       -0.13,
       0.12
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 41965,
+     "episodes": 771,
+     "draws": 100,
+     "edge": -0.01,
+     "chance": [
+      -0.09,
+      0.08
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 37520,
+     "episodes": 602,
+     "draws": 100,
+     "edge": 0.07,
+     "chance": [
+      -0.09,
+      0.08
      ],
      "verdict": "none"
     }
@@ -1147,6 +1295,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 222,
+     "episodes": 218,
+     "draws": 500,
+     "edge": -0.64,
+     "chance": [
+      -0.92,
+      0.77
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 231,
+     "episodes": 227,
+     "draws": 500,
+     "edge": -0.02,
+     "chance": [
+      -0.76,
+      0.68
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -1301,6 +1473,30 @@
      "chance": [
       -1.33,
       1.28
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 252,
+     "episodes": 250,
+     "draws": 500,
+     "edge": 0.49,
+     "chance": [
+      -0.78,
+      0.71
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 201,
+     "episodes": 199,
+     "draws": 500,
+     "edge": 0.19,
+     "chance": [
+      -0.76,
+      0.72
      ],
      "verdict": "none"
     }
@@ -1530,6 +1726,76 @@
       ]
      }
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 12092,
+     "episodes": 207,
+     "draws": 100,
+     "edge": 0.4,
+     "chance": [
+      -0.38,
+      0.24
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 308,
+       "start": "2021-07-21",
+       "end": "2021-09-12",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 7828,
+     "episodes": 178,
+     "draws": 100,
+     "edge": 0.32,
+     "chance": [
+      -0.35,
+      0.31
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 171,
+       "start": "2023-01-02",
+       "end": "2023-01-30",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
    }
   },
   {
@@ -1687,6 +1953,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 415,
+     "episodes": 375,
+     "draws": 500,
+     "edge": -0.16,
+     "chance": [
+      -0.55,
+      0.56
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 387,
+     "episodes": 347,
+     "draws": 500,
+     "edge": 0.15,
+     "chance": [
+      -0.58,
+      0.49
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -1841,6 +2131,30 @@
      "chance": [
       -1.67,
       1.61
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 143,
+     "episodes": 143,
+     "draws": 500,
+     "edge": -0.19,
+     "chance": [
+      -1.01,
+      1.02
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 141,
+     "episodes": 141,
+     "draws": 500,
+     "edge": -0.2,
+     "chance": [
+      -1.06,
+      0.94
      ],
      "verdict": "none"
     }
@@ -2070,6 +2384,76 @@
       ]
      }
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 9452,
+     "episodes": 189,
+     "draws": 100,
+     "edge": 0.51,
+     "chance": [
+      -0.48,
+      0.31
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 132,
+       "start": "2025-01-27",
+       "end": "2025-02-17",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 9902,
+     "episodes": 167,
+     "draws": 100,
+     "edge": 0.25,
+     "chance": [
+      -0.28,
+      0.24
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 386,
+       "start": "2022-04-06",
+       "end": "2022-06-15",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
    }
   },
   {
@@ -2226,6 +2610,30 @@
       9.33
      ],
      "verdict": "few"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 30,
+     "episodes": 30,
+     "draws": 500,
+     "edge": 5.11,
+     "chance": [
+      -6.42,
+      6.63
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 43,
+     "episodes": 42,
+     "draws": 500,
+     "edge": 0.93,
+     "chance": [
+      -3.86,
+      4.33
+     ],
+     "verdict": "none"
     }
    }
   },
@@ -2407,6 +2815,30 @@
       ]
      }
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 44,
+     "episodes": 43,
+     "draws": 500,
+     "edge": 1.7,
+     "chance": [
+      -4.83,
+      5.01
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 29,
+     "episodes": 29,
+     "draws": 500,
+     "edge": 3.81,
+     "chance": [
+      -6.63,
+      5.38
+     ],
+     "verdict": "few"
+    }
    }
   },
   {
@@ -2564,6 +2996,53 @@
      ],
      "verdict": "few"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 2320,
+     "episodes": 41,
+     "draws": 107,
+     "edge": 2.77,
+     "chance": [
+      -1.96,
+      2.38
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 110,
+       "start": "2021-07-31",
+       "end": "2021-11-17",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 890,
+     "episodes": 37,
+     "draws": 280,
+     "edge": 0.19,
+     "chance": [
+      -3.49,
+      4
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -2718,6 +3197,30 @@
      "chance": [
       -6.83,
       6.21
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 66,
+     "episodes": 57,
+     "draws": 500,
+     "edge": -0.09,
+     "chance": [
+      -4.18,
+      4.44
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 66,
+     "episodes": 62,
+     "draws": 500,
+     "edge": 2.33,
+     "chance": [
+      -3.47,
+      3.83
      ],
      "verdict": "none"
     }
@@ -2878,6 +3381,30 @@
      ],
      "verdict": "few"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 23,
+     "episodes": 23,
+     "draws": 500,
+     "edge": 3.95,
+     "chance": [
+      -9.12,
+      9.94
+     ],
+     "verdict": "few"
+    },
+    "down": {
+     "entries": 28,
+     "episodes": 28,
+     "draws": 500,
+     "edge": 1.63,
+     "chance": [
+      -5.45,
+      6.42
+     ],
+     "verdict": "few"
+    }
    }
   },
   {
@@ -3035,39 +3562,86 @@
      ],
      "verdict": "few"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1219,
+     "episodes": 40,
+     "draws": 205,
+     "edge": 5.23,
+     "chance": [
+      -3.74,
+      5.05
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 63,
+       "start": "2021-11-18",
+       "end": "2022-01-19",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 2065,
+     "episodes": 34,
+     "draws": 121,
+     "edge": 0.08,
+     "chance": [
+      -1.52,
+      1.71
+     ],
+     "verdict": "none"
+    }
    }
   }
  ],
- "summary": "Not as a flip signal. On BTC, ETH and SOL, price did no better after a SuperTrend(10, 3) flip up or flip down than after a random candle, on 1h, 4h or daily, and multipliers of 2 and 4 landed in the same place. The result that holds up is on the short side on 4h: while SuperTrend(10, 3) showed a down trend, price fell more than after random candles, mostly on SOL.",
+ "summary": "Not at the flips. On BTC, ETH and SOL, entries when SuperTrend(10, 3) flipped up or down did no better than random candles on 1h, 4h or daily. The result that holds up is the 4h down trend state: 20 candles later, price had fallen 0.45% more than after random candles, and this held without its strongest stretch.",
  "verdicts": [
   {
    "use": "Going long on a flip up",
    "verdict": "none",
-   "text": "No better than random entries on 1h, 4h or daily candles, with a multiplier of 2, 3 or 4."
+   "text": "No better than random entries on 1h, 4h or daily. This holds with a multiplier of 2, 3 or 4."
   },
   {
    "use": "Shorting a flip down",
    "verdict": "none",
-   "text": "No better than random entries on 1h, 4h or daily candles with SuperTrend(10, 3)."
+   "text": "No better than random entries on 1h, 4h or daily."
   },
   {
-   "use": "Staying long in an up trend",
+   "use": "Staying long while in an up trend",
    "verdict": "fragile",
-   "text": "Beat random entries on 4h, but only because of the run between Dec 25, 2020 and Mar 12, 2021. Without it, chance, and on 1h and daily it sits inside the luck band."
+   "text": "Beat random entries by 0.44% on 4h, but only because of the run between Dec 25, 2020 and Mar 12, 2021. It showed nothing on 1h or daily."
   },
   {
-   "use": "Staying short in a down trend",
+   "use": "Staying short while in a down trend",
    "verdict": "edge",
-   "text": "On 4h, price fell 0.45% more than after random candles 20 candles later. It holds without its strongest stretch and at 10, 20, 50 and 100 candles, but on 1h and daily it is inside the luck band."
+   "text": "On 4h, price fell 0.45% more than after random candles, and the result held at 10, 20, 50 and 100 candles. It showed nothing on 1h or daily."
   }
  ],
  "notes": [
-  "SuperTrend(10, 3) flipping up on 1h gave 1,851 entries in 1,790 separate moves. Twenty candles later they were 0.13% ahead of random entries, inside the luck band. A multiplier of 2 flips more often, and a multiplier of 4 about two thirds as often. Both land inside the band too, and the short on a flip down did 0.1% worse than random, also inside it.",
-  "On 4h the flip up fires about a quarter as often as on 1h, and it is still inside the luck band. The daily gaps look large: 1.91% after a flip up and 2.66% after a flip down on the short side. The daily luck band is wider still, so neither counts. Per pair, the daily flips have fewer than 30 separate moves and are never judged.",
-  "Staying short while SuperTrend(10, 3) showed a down trend on 4h beat random entries by 0.45% after 20 candles. The top of the luck band is 0.31%. The result holds without its strongest stretch, between Apr 6 and Jun 15, 2022, around the Terra collapse. It also holds at 10, 20, 50 and 100 candles. Most of it comes from SOL at 0.84%; on BTC it is fragile, and on ETH it is inside the band.",
-  "The mirror case, long while in an up trend on 4h, beat random entries by 0.44%. That gap comes from 412 entries on SOL between Dec 25, 2020 and Mar 12, 2021, and without that stretch it is chance. On 1h, both trend states were 0.03% from random, inside the band. On daily, both land inside it too.",
-  "Single episodes can fake a result. SOL's 1h flip up looked better than random only because of one entry on Sep 9, 2020, and without it, chance. SOL's daily short after a flip down shows 11.3%, but it has too few separate moves to judge.",
-  "For a long DCA bot, a SuperTrend flip as the start condition times entries no better than a random candle, so the DCA orders and the take profit carry the result. The 4h down-trend state is where the indicator carries information. Use it as a filter beside other conditions on a short bot, or as a reason to keep a long bot out while SuperTrend(10, 3) points down. The edge thins without a coin in a sell-off: on ETH alone, the 4h down-trend short sat inside the band."
+  "On 1h, SuperTrend(10, 3) flipping up gave 1,851 entries in 1,790 separate moves. Twenty candles later they were 0.13% ahead of random entries, which is inside the luck band. A multiplier of 2 flips about 1.7 times as often, and a multiplier of 4 about two thirds as often. Neither one beat random on any timeframe.",
+  "Shorting while SuperTrend(10, 3) was in a down trend on 4h gave 19,746 entries in 330 moves. Twenty candles later, price had fallen 0.45% more than after random candles, above the band's top of 0.31%. The result holds without its strongest stretch, between Apr 6 and Jun 15, 2022, and at 10, 20, 50 and 100 candles. SOL carries most of it at 0.84%. BTC's 0.34% is fragile, and ETH's 0.18% is inside the band.",
+  "The 4h short result is strongest while the pair closed above its 200-day SMA, at 0.51%. That holds without its strongest stretch, between Jan 27 and Feb 17, 2025, and at every horizon. Below the SMA the gap is 0.25% and fragile. It rests on the stretch between Apr 6 and Jun 15, 2022, and without that stretch it is chance.",
+  "The long side on 4h looks like a mirror image, but it is not. SuperTrend(10, 3) in an up trend beat random entries by 0.44%. Without its 412 entries between Dec 25, 2020 and Mar 12, 2021, the gap is chance. Both regimes are fragile too: 0.40% above the 200-day SMA, and 0.32% below it, which leans on Jan 2–30, 2023.",
+  "On 1h, the trend state on either side was 0.03% from random, inside the band. On daily, the up trend state was 3.19% ahead, still inside its wide band. Above the 200-day SMA it rose to 2.77%, but only because of the stretch between Jul 31 and Nov 17, 2021, and below the SMA it showed 0.19%, which is nothing. A single entry can also fake a result: SOL's 1h flip up looked 0.33% better than random, but only because of one signal on Sep 9, 2020.",
+  "As a start condition, the flip itself adds nothing on these pairs, so on a long DCA bot the DCA orders and take profit do the work. The 4h down trend state is the one shape worth adding as a filter beside other conditions on a short bot, because price tended to keep falling after it. The 4h up trend state on a long bot leaned on one rally, and on 1h neither state did anything, so leave it out there."
  ],
  "summaryRefs": [
   {
@@ -3081,24 +3655,9 @@
    "scope": "pooled"
   },
   {
-   "tf": "*",
-   "setting": "st2-flip-up",
-   "scope": "pooled"
-  },
-  {
-   "tf": "*",
-   "setting": "st4-flip-up",
-   "scope": "pooled"
-  },
-  {
    "tf": "4h",
    "setting": "st3-down-short",
    "scope": "pooled"
-  },
-  {
-   "tf": "4h",
-   "setting": "st3-down-short",
-   "scope": "SOL"
   }
  ],
  "verdictRefs": [
@@ -3179,61 +3738,14 @@
     "scope": "pooled"
    },
    {
-    "tf": "1h",
-    "setting": "st3-flip-down-short",
-    "scope": "pooled"
-   }
-  ],
-  [
-   {
-    "tf": "1h",
-    "setting": "st3-flip-up",
+    "tf": "*",
+    "setting": "st2-flip-up",
     "scope": "pooled"
    },
    {
-    "tf": "4h",
-    "setting": "st3-flip-up",
+    "tf": "*",
+    "setting": "st4-flip-up",
     "scope": "pooled"
-   },
-   {
-    "tf": "1d",
-    "setting": "st3-flip-up",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1d",
-    "setting": "st3-flip-down-short",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1d",
-    "setting": "st3-flip-up",
-    "scope": "BTC"
-   },
-   {
-    "tf": "1d",
-    "setting": "st3-flip-up",
-    "scope": "ETH"
-   },
-   {
-    "tf": "1d",
-    "setting": "st3-flip-up",
-    "scope": "SOL"
-   },
-   {
-    "tf": "1d",
-    "setting": "st3-flip-down-short",
-    "scope": "BTC"
-   },
-   {
-    "tf": "1d",
-    "setting": "st3-flip-down-short",
-    "scope": "ETH"
-   },
-   {
-    "tf": "1d",
-    "setting": "st3-flip-down-short",
-    "scope": "SOL"
    }
   ],
   [
@@ -3261,44 +3773,61 @@
   [
    {
     "tf": "4h",
+    "setting": "st3-down-short",
+    "scope": "up"
+   },
+   {
+    "tf": "4h",
+    "setting": "st3-down-short",
+    "scope": "down"
+   }
+  ],
+  [
+   {
+    "tf": "4h",
     "setting": "st3-up",
     "scope": "pooled"
    },
    {
     "tf": "4h",
     "setting": "st3-up",
-    "scope": "SOL"
+    "scope": "up"
    },
    {
-    "tf": "1h",
+    "tf": "4h",
     "setting": "st3-up",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1h",
-    "setting": "st3-down-short",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1d",
-    "setting": "st3-up",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1d",
-    "setting": "st3-down-short",
-    "scope": "pooled"
+    "scope": "down"
    }
   ],
   [
    {
     "tf": "1h",
-    "setting": "st3-flip-up",
-    "scope": "SOL"
+    "setting": "st3-up",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "st3-down-short",
+    "scope": "pooled"
    },
    {
     "tf": "1d",
-    "setting": "st3-flip-down-short",
+    "setting": "st3-up",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "st3-up",
+    "scope": "up"
+   },
+   {
+    "tf": "1d",
+    "setting": "st3-up",
+    "scope": "down"
+   },
+   {
+    "tf": "1h",
+    "setting": "st3-flip-up",
     "scope": "SOL"
    }
   ],
@@ -3315,8 +3844,18 @@
    },
    {
     "tf": "4h",
+    "setting": "st3-up",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "st3-up",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
     "setting": "st3-down-short",
-    "scope": "ETH"
+    "scope": "pooled"
    }
   ]
  ]

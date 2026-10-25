@@ -19,6 +19,10 @@
   ],
   "from": "2020-09-01",
   "warmupFrom": "2020-06-01",
+  "regime": {
+   "by": "pair close vs its 200-day SMA",
+   "sma": 200
+  },
   "to": "2026-10-24",
   "engine": {
    "indicators": "56f63e97",
@@ -182,6 +186,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 7726,
+     "episodes": 1119,
+     "draws": 100,
+     "edge": 0,
+     "chance": [
+      -0.08,
+      0.06
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 6547,
+     "episodes": 883,
+     "draws": 100,
+     "edge": 0.03,
+     "chance": [
+      -0.05,
+      0.07
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -336,6 +364,30 @@
      "chance": [
       -0.11,
       0.1
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 7749,
+     "episodes": 1140,
+     "draws": 100,
+     "edge": -0.01,
+     "chance": [
+      -0.06,
+      0.05
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 6687,
+     "episodes": 851,
+     "draws": 100,
+     "edge": 0.02,
+     "chance": [
+      -0.07,
+      0.07
      ],
      "verdict": "none"
     }
@@ -496,6 +548,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 15475,
+     "episodes": 312,
+     "draws": 100,
+     "edge": 0.01,
+     "chance": [
+      -0.04,
+      0.03
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 13234,
+     "episodes": 213,
+     "draws": 100,
+     "edge": 0.01,
+     "chance": [
+      -0.04,
+      0.04
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -650,6 +726,30 @@
      "chance": [
       -0.1,
       0.11
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 7749,
+     "episodes": 1140,
+     "draws": 100,
+     "edge": 0.01,
+     "chance": [
+      -0.05,
+      0.06
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 6687,
+     "episodes": 851,
+     "draws": 100,
+     "edge": -0.02,
+     "chance": [
+      -0.07,
+      0.07
      ],
      "verdict": "none"
     }
@@ -810,6 +910,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1942,
+     "episodes": 281,
+     "draws": 128,
+     "edge": -0.08,
+     "chance": [
+      -0.29,
+      0.26
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 1626,
+     "episodes": 248,
+     "draws": 153,
+     "edge": -0.01,
+     "chance": [
+      -0.24,
+      0.24
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -964,6 +1088,30 @@
      "chance": [
       -0.51,
       0.39
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1999,
+     "episodes": 286,
+     "draws": 125,
+     "edge": -0.12,
+     "chance": [
+      -0.28,
+      0.27
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 1676,
+     "episodes": 227,
+     "draws": 149,
+     "edge": -0.01,
+     "chance": [
+      -0.24,
+      0.26
      ],
      "verdict": "none"
     }
@@ -1124,6 +1272,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 3941,
+     "episodes": 103,
+     "draws": 100,
+     "edge": 0.02,
+     "chance": [
+      -0.23,
+      0.17
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 3302,
+     "episodes": 75,
+     "draws": 100,
+     "edge": 0,
+     "chance": [
+      -0.17,
+      0.15
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -1278,6 +1450,30 @@
      "chance": [
       -0.39,
       0.51
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1999,
+     "episodes": 286,
+     "draws": 125,
+     "edge": 0.12,
+     "chance": [
+      -0.27,
+      0.28
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 1676,
+     "episodes": 227,
+     "draws": 149,
+     "edge": 0.01,
+     "chance": [
+      -0.26,
+      0.24
      ],
      "verdict": "none"
     }
@@ -1438,6 +1634,30 @@
      ],
      "verdict": "few"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 295,
+     "episodes": 48,
+     "draws": 500,
+     "edge": 0.44,
+     "chance": [
+      -2.58,
+      3.07
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 261,
+     "episodes": 47,
+     "draws": 500,
+     "edge": 0.8,
+     "chance": [
+      -2.06,
+      1.82
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -1592,6 +1812,30 @@
      "chance": [
       -4.15,
       3.71
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 338,
+     "episodes": 55,
+     "draws": 500,
+     "edge": 2.32,
+     "chance": [
+      -1.54,
+      2.75
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 254,
+     "episodes": 48,
+     "draws": 500,
+     "edge": -0.58,
+     "chance": [
+      -1.77,
+      1.62
      ],
      "verdict": "none"
     }
@@ -1752,6 +1996,30 @@
      ],
      "verdict": "few"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 633,
+     "episodes": 29,
+     "draws": 394,
+     "edge": -1.03,
+     "chance": [
+      -1.58,
+      1.21
+     ],
+     "verdict": "few"
+    },
+    "down": {
+     "entries": 515,
+     "episodes": 29,
+     "draws": 485,
+     "edge": 0.69,
+     "chance": [
+      -1.31,
+      1.39
+     ],
+     "verdict": "few"
+    }
    }
   },
   {
@@ -1909,39 +2177,63 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 338,
+     "episodes": 55,
+     "draws": 500,
+     "edge": -2.32,
+     "chance": [
+      -2.75,
+      1.54
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 254,
+     "episodes": 48,
+     "draws": 500,
+     "edge": 0.58,
+     "chance": [
+      -1.62,
+      1.77
+     ],
+     "verdict": "none"
+    }
    }
   }
  ],
- "summary": "No. On BTC, ETH and SOL, price after a bullish or a bearish engulfing candle moved no differently from price after a random candle, on 1h, 4h or daily. No setting holds up. The closest is a short after a daily bearish engulfing: 0.71% better than random after 20 days, still inside a luck band that reaches 1.57%.",
+ "summary": "No. On BTC, ETH and SOL, price after a bullish or a bearish engulfing candle moved the same way it did after a random candle. That held on 1h, 4h and daily, for longs and for shorts. No setting landed outside its luck band, so no result holds up.",
  "verdicts": [
   {
-   "use": "Going long on a bullish engulfing",
+   "use": "Going long after a bullish engulfing candle",
    "verdict": "none",
-   "text": "No better than random entries on 1h, 4h or daily. Twenty candles later, price had moved the same as after any other candle."
+   "text": "Price after the pattern moved like price after a random candle on 1h, 4h and daily. The result was the same in uptrends and in downtrends."
   },
   {
-   "use": "Shorting a bearish engulfing",
+   "use": "Shorting after a bearish engulfing candle",
    "verdict": "none",
-   "text": "Inside the luck band on 1h, 4h and daily. The daily short came closest but did not clear the band."
+   "text": "Inside the luck band on 1h, 4h and daily. On daily it was ahead of random in uptrends and behind in downtrends, but neither split cleared its band."
   },
   {
-   "use": "Going long on either pattern (the default)",
+   "use": "Either engulfing pattern (default), long",
    "verdict": "none",
-   "text": "No better than random on 1h and 4h. On daily it gave only 21 separate moves, under the minimum of 30, so it was not judged."
+   "text": "No better than random entries on 1h or 4h. On daily it formed only 21 separate moves, too few to judge."
   },
   {
-   "use": "Buying after a bearish engulfing (fading it)",
+   "use": "Going long after a bearish engulfing candle",
    "verdict": "none",
-   "text": "Inside the luck band on 1h, 4h and daily. A bearish engulfing did not mark a bottom any more than a random candle did."
+   "text": "Reading the bearish candle as a bounce signal does no better. It sits inside the luck band on 1h, 4h and daily."
   }
  ],
  "notes": [
-  "On 1h, a long after a bullish engulfing gave 14,579 entries in 1,987 separate moves. After 20 candles they were 0% ahead of random entries, with a luck band from -0.06% to 0.05%. A short after a bearish engulfing fired about as often and came out 0.02% ahead, inside a band of -0.05% to 0.05%.",
-  "Moving up a timeframe does not change the answer. On 4h the bullish pattern gave 3,652 entries and ended -0.04% against a band of -0.24% to 0.21%. On daily it ended -0.01%, inside a band of -1.97% to 1.54%.",
-  "A short after a daily bearish engulfing came closest, 0.71% better than random after 20 days. The luck band runs to 1.57%, so that is chance. Read the other way, as a long after the same candle, it is 0.71% worse, which is also inside its band. On BTC and ETH alone the daily pattern gave 24 and 26 moves, too few to judge.",
-  "The default setting goes long on either pattern, so it also buys right after a bearish candle. It enters about twice as often as the bullish pattern alone, but on 1h its 29,311 entries collapse into only 421 separate moves, because the patterns follow each other closely. It ended -0.01% against a band of -0.03% to 0.03%.",
-  "No single coin breaks out either. On 1h, SOL shorts after a bearish engulfing came out 0.09% ahead, just under the band's top at 0.10%. On 4h, BTC shorts after the same candle came out -0.15%, inside a band of -0.26% to 0.21%.",
-  "For a bot, the engulfing pattern does not time entries on these pairs by itself, so the take profit and DCA orders carry each deal. If you keep it, use the bullish pattern as one filter beside a trend or level condition, and backtest with and without it to see if your deals change. The default either-pattern setting adds the bearish candles too, so for a long bot you can leave it out and lose nothing measurable."
+  "On 1h, a bullish engulfing candle gave 14,579 entries in 1,987 separate moves. Twenty candles later they were level with random entries: an edge of 0 against a luck band of -0.06% to 0.05%. The bearish candle as a short came out 0.02% ahead, also inside its band. Uptrends and downtrends show the same nothing.",
+  "On 4h, the bullish candle gave 3,652 entries in 492 separate moves. It lands at -0.04% after 20 candles, inside a band of -0.24% to 0.21%. The bearish candle as a short lands at -0.06%, inside its band too. A longer timeframe does not turn the pattern into a signal.",
+  "The default, either engulfing as a long, enters on 29,311 1h candles. That is about twice as many entries as bullish alone, but they fall into only 421 separate moves, so most of its signals sit inside the same move. Its result is -0.01%, inside the band. On daily it formed only 21 separate moves, under the 30 needed, so it was never judged.",
+  "On daily, the bearish candle as a short came out 0.71% ahead of random after 20 days, inside a band of -1.45% to 1.57%. Split by trend, it was 2.32% ahead in uptrends and 0.58% behind in downtrends. Neither split clears its own band, so the flip in sign between trends is not something to build a rule on.",
+  "Per coin on daily, the bullish candle on BTC showed 1.52% ahead of random, but from only 19 separate moves, too few to judge. SOL had 25 and was not judged either. ETH, with 31, landed at -1.2%, inside its band.",
+  "For a long DCA bot, an engulfing candle as the start condition times entries no better than a random candle on these pairs. The DCA orders and take profit carry the result either way. If you keep it, use it as a filter beside a condition that does carry information, and check whether it only cuts your deal count. Leaving it out costs nothing on this evidence."
  ],
  "summaryRefs": [
   {
@@ -1955,8 +2247,13 @@
    "scope": "pooled"
   },
   {
-   "tf": "1d",
-   "setting": "bearish",
+   "tf": "*",
+   "setting": "both-long",
+   "scope": "pooled"
+  },
+  {
+   "tf": "*",
+   "setting": "bearish-long",
    "scope": "pooled"
   }
  ],
@@ -1966,6 +2263,16 @@
     "tf": "*",
     "setting": "bullish",
     "scope": "pooled"
+   },
+   {
+    "tf": "*",
+    "setting": "bullish",
+    "scope": "up"
+   },
+   {
+    "tf": "*",
+    "setting": "bullish",
+    "scope": "down"
    }
   ],
   [
@@ -1973,6 +2280,16 @@
     "tf": "*",
     "setting": "bearish",
     "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "bearish",
+    "scope": "up"
+   },
+   {
+    "tf": "1d",
+    "setting": "bearish",
+    "scope": "down"
    }
   ],
   [
@@ -2011,6 +2328,26 @@
     "tf": "1h",
     "setting": "bearish",
     "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "bullish",
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "bullish",
+    "scope": "down"
+   },
+   {
+    "tf": "1h",
+    "setting": "bearish",
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "bearish",
+    "scope": "down"
    }
   ],
   [
@@ -2020,31 +2357,9 @@
     "scope": "pooled"
    },
    {
-    "tf": "1d",
-    "setting": "bullish",
-    "scope": "pooled"
-   }
-  ],
-  [
-   {
-    "tf": "1d",
+    "tf": "4h",
     "setting": "bearish",
     "scope": "pooled"
-   },
-   {
-    "tf": "1d",
-    "setting": "bearish-long",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1d",
-    "setting": "bearish",
-    "scope": "BTC"
-   },
-   {
-    "tf": "1d",
-    "setting": "bearish",
-    "scope": "ETH"
    }
   ],
   [
@@ -2057,20 +2372,58 @@
     "tf": "1h",
     "setting": "bullish",
     "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "both-long",
+    "scope": "pooled"
    }
   ],
   [
    {
-    "tf": "1h",
+    "tf": "1d",
     "setting": "bearish",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "bearish",
+    "scope": "up"
+   },
+   {
+    "tf": "1d",
+    "setting": "bearish",
+    "scope": "down"
+   }
+  ],
+  [
+   {
+    "tf": "1d",
+    "setting": "bullish",
+    "scope": "BTC"
+   },
+   {
+    "tf": "1d",
+    "setting": "bullish",
     "scope": "SOL"
    },
    {
-    "tf": "4h",
-    "setting": "bearish",
-    "scope": "BTC"
+    "tf": "1d",
+    "setting": "bullish",
+    "scope": "ETH"
    }
   ],
-  []
+  [
+   {
+    "tf": "*",
+    "setting": "bullish",
+    "scope": "pooled"
+   },
+   {
+    "tf": "*",
+    "setting": "both-long",
+    "scope": "pooled"
+   }
+  ]
  ]
 }

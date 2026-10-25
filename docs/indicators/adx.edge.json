@@ -19,6 +19,10 @@
   ],
   "from": "2020-09-01",
   "warmupFrom": "2020-06-01",
+  "regime": {
+   "by": "pair close vs its 200-day SMA",
+   "sma": 200
+  },
   "to": "2026-10-24",
   "engine": {
    "indicators": "56f63e97",
@@ -182,6 +186,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1504,
+     "episodes": 1258,
+     "draws": 166,
+     "edge": 0.04,
+     "chance": [
+      -0.16,
+      0.13
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 1227,
+     "episodes": 1029,
+     "draws": 203,
+     "edge": 0.14,
+     "chance": [
+      -0.15,
+      0.16
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -336,6 +364,30 @@
      "chance": [
       -0.11,
       0.13
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 42608,
+     "episodes": 850,
+     "draws": 100,
+     "edge": 0.06,
+     "chance": [
+      -0.07,
+      0.07
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 36085,
+     "episodes": 684,
+     "draws": 100,
+     "edge": -0.03,
+     "chance": [
+      -0.07,
+      0.08
      ],
      "verdict": "none"
     }
@@ -496,6 +548,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 26823,
+     "episodes": 905,
+     "draws": 100,
+     "edge": -0.06,
+     "chance": [
+      -0.13,
+      0.1
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 21006,
+     "episodes": 691,
+     "draws": 100,
+     "edge": 0.03,
+     "chance": [
+      -0.12,
+      0.12
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -650,6 +726,30 @@
      "chance": [
       -0.25,
       0.26
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1467,
+     "episodes": 1168,
+     "draws": 170,
+     "edge": -0.12,
+     "chance": [
+      -0.16,
+      0.16
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 1167,
+     "episodes": 922,
+     "draws": 214,
+     "edge": 0.03,
+     "chance": [
+      -0.16,
+      0.15
      ],
      "verdict": "none"
     }
@@ -810,6 +910,53 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 12338,
+     "episodes": 577,
+     "draws": 100,
+     "edge": 0.25,
+     "chance": [
+      -0.18,
+      0.18
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 17,
+       "start": "2021-05-19",
+       "end": "2021-05-20",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 10345,
+     "episodes": 497,
+     "draws": 100,
+     "edge": -0.13,
+     "chance": [
+      -0.24,
+      0.19
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -964,6 +1111,30 @@
      "chance": [
       -1.06,
       1.04
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 377,
+     "episodes": 332,
+     "draws": 500,
+     "edge": -0.25,
+     "chance": [
+      -0.54,
+      0.52
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 300,
+     "episodes": 248,
+     "draws": 500,
+     "edge": 0.24,
+     "chance": [
+      -0.7,
+      0.65
      ],
      "verdict": "none"
     }
@@ -1124,6 +1295,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 10627,
+     "episodes": 237,
+     "draws": 100,
+     "edge": 0.19,
+     "chance": [
+      -0.29,
+      0.31
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 9193,
+     "episodes": 188,
+     "draws": 100,
+     "edge": -0.34,
+     "chance": [
+      -0.44,
+      0.35
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -1278,6 +1473,30 @@
      "chance": [
       -0.78,
       0.65
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 6569,
+     "episodes": 212,
+     "draws": 100,
+     "edge": -0.2,
+     "chance": [
+      -0.41,
+      0.57
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 5129,
+     "episodes": 192,
+     "draws": 100,
+     "edge": 0.51,
+     "chance": [
+      -0.47,
+      0.6
      ],
      "verdict": "none"
     }
@@ -1438,6 +1657,76 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 387,
+     "episodes": 287,
+     "draws": 500,
+     "edge": -0.82,
+     "chance": [
+      -0.62,
+      0.55
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 2,
+       "start": "2022-01-03",
+       "end": "2022-01-04",
+       "without": "worse"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 304,
+     "episodes": 243,
+     "draws": 500,
+     "edge": 0.68,
+     "chance": [
+      -0.74,
+      0.55
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 4,
+       "start": "2022-10-19",
+       "end": "2022-10-25",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    }
    }
   },
   {
@@ -1592,6 +1881,53 @@
      "chance": [
       -1.23,
       1.32
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 3226,
+     "episodes": 159,
+     "draws": 100,
+     "edge": 0.82,
+     "chance": [
+      -0.69,
+      0.58
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 54,
+       "start": "2021-08-30",
+       "end": "2021-09-08",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 2734,
+     "episodes": 130,
+     "draws": 100,
+     "edge": -0.26,
+     "chance": [
+      -0.63,
+      0.71
      ],
      "verdict": "none"
     }
@@ -1752,6 +2088,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 64,
+     "episodes": 56,
+     "draws": 500,
+     "edge": 1.67,
+     "chance": [
+      -4.46,
+      7.59
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 46,
+     "episodes": 40,
+     "draws": 500,
+     "edge": -1.95,
+     "chance": [
+      -4.22,
+      4.63
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -1908,6 +2268,30 @@
       4.02
      ],
      "verdict": "few"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1966,
+     "episodes": 47,
+     "draws": 127,
+     "edge": 1.64,
+     "chance": [
+      -2.13,
+      2.02
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 1573,
+     "episodes": 42,
+     "draws": 158,
+     "edge": -1.74,
+     "chance": [
+      -2.05,
+      2.21
+     ],
+     "verdict": "none"
     }
    }
   },
@@ -2066,6 +2450,30 @@
      ],
      "verdict": "few"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 784,
+     "episodes": 41,
+     "draws": 318,
+     "edge": -1.39,
+     "chance": [
+      -4.85,
+      4.59
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 749,
+     "episodes": 35,
+     "draws": 333,
+     "edge": 2.72,
+     "chance": [
+      -4.51,
+      2.99
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -2222,6 +2630,53 @@
       8.57
      ],
      "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 55,
+     "episodes": 44,
+     "draws": 500,
+     "edge": -2.42,
+     "chance": [
+      -4.35,
+      4.48
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 47,
+     "episodes": 37,
+     "draws": 500,
+     "edge": 4.41,
+     "chance": [
+      -4.45,
+      4.2
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 1,
+       "start": "2022-03-16",
+       "end": "2022-03-16",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
     }
    }
   },
@@ -2380,60 +2835,88 @@
      ],
      "verdict": "few"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 680,
+     "episodes": 28,
+     "draws": 367,
+     "edge": 3.39,
+     "chance": [
+      -7.09,
+      6.85
+     ],
+     "verdict": "few"
+    },
+    "down": {
+     "entries": 474,
+     "episodes": 24,
+     "draws": 500,
+     "edge": -1.52,
+     "chance": [
+      -4.64,
+      5.29
+     ],
+     "verdict": "few"
+    }
    }
   }
  ],
- "summary": "No. No ADX(14) setting did better or worse than random candles on BTC, ETH or SOL. That holds for crossing up through 25, staying above 25 or 40, and dropping below 20, on 1h, 4h and daily. ADX measures how strong a trend is, and these results show it gave no clue about which way price moved next.",
+ "summary": "Not on its own. Pooled across BTC, ETH and SOL, no ADX(14) setting beat random entries on 1h, 4h or daily. The results that hold up depend on the trend. On 4h in downtrends, longs after ADX(14) crossed down through 20 beat random by 0.68% at 20 candles. In uptrends, ADX(14) above 40 beat random on 1h and 4h.",
  "verdicts": [
   {
-   "use": "Catching a trend as it starts (crosses up 25)",
+   "use": "Trend starting (crosses up 25)",
    "verdict": "none",
-   "text": "Inside the luck band on 1h, 4h and daily. A long opened as ADX(14) crossed 25 did no better than a random entry."
+   "text": "No better than random entries on 1h, 4h or daily, on any of the three pairs or in either trend regime."
   },
   {
-   "use": "Trading while a trend is strong (above 25 or 40)",
+   "use": "Trend strength filter (above 25)",
    "verdict": "none",
-   "text": "Inside the luck band on every timeframe, with 25 or 40 as the level. A high ADX reading did not say whether price would rise or fall."
+   "text": "Longs while ADX(14) was above 25 landed inside the luck band on every timeframe. Splitting by trend did not move it out."
   },
   {
-   "use": "Waiting out a quiet market (below 20)",
+   "use": "Waiting out a range (below 20)",
    "verdict": "none",
-   "text": "Neither staying below 20 nor crossing down through it changed what price did next, on 1h, 4h or daily."
+   "text": "Longs while ADX(14) was below 20 did no better or worse than random on 1h, 4h or daily, in uptrends or downtrends."
+  },
+  {
+   "use": "Strong trend (above 40)",
+   "verdict": "none",
+   "text": "Pooled, inside the luck band. With the pair above its 200-day SMA, longs beat random by 0.25% on 1h and 0.82% on 4h. In downtrends it showed nothing."
+  },
+  {
+   "use": "Trend fading (crosses down 20)",
+   "verdict": "none",
+   "text": "Pooled, inside the luck band. On 4h in downtrends, longs after the cross beat random by 0.68% and showed at 10, 20, 50 and 100 candles. In uptrends the same cross trailed random, at 20 candles only."
   }
  ],
  "notes": [
-  "On 1h, ADX(14) crossing up through 25 gave 2,810 entries in 2,344 separate moves. Twenty candles later they were 0.09% ahead of random entries, inside a luck band of -0.12% to 0.12%. SOL looked best at 0.25%, but its band reached 0.26%.",
-  "Staying above 25 on 1h enters far more often than the cross, because it fires on every candle the level holds. Those 80,667 entries bunch into 1,477 moves, fewer than the cross gives. The result is the same: 0.02% against random, inside a band of -0.07% to 0.05%.",
-  "A very strong trend reading did not help either. Above 40, longs were 0.38% ahead of random on 4h, against a band of -0.63% to 0.64%. On daily they were 1.59% ahead after 20 days, against a band of -4.86% to 5.67%. ADX rises in sharp sell-offs as well as in rallies, so a high value says nothing about direction.",
-  "Quiet markets did not lead to a move up. On 4h, ADX(14) crossing down through 20 gave -0.26% against random, inside a band of -0.51% to 0.48%. On 1h, the time spent below 20 came out at -0.03%.",
-  "Daily results are thin. ADX(14) above 25 on daily gives 64 moves pooled, and on BTC alone only 21, under the 30 this page needs before it judges a coin. The pooled gap of 0.23% sits inside a band of -2.23% to 1.43%. Do not read the single-coin daily numbers as a signal.",
-  "Because ADX carries no direction, it only works next to a condition that sets the side, such as a moving average or price above a recent high. Use it to decide when a long or short bot may open, then let the DCA orders and take profit handle the exit. If your backtest shows no difference with the ADX filter on and off, leave it out. That matches what this data shows on BTC, ETH and SOL."
+  "ADX(14) gave long entries no lift on its own. On 1h, entering while it was above 25 gave 80,667 entries in 1,477 separate moves, 0.02% ahead of random and inside the luck band. The cross up through 25 gave 2,810 entries and also landed inside the band, at 0.09%. Below 20 and the cross down through 20 showed nothing pooled on any timeframe.",
+  "Above 40 carried information only in uptrends. With the pair above its 200-day SMA, longs on 1h beat random by 0.25% against a band of -0.18 to 0.18. That result held without its strongest stretch, May 19–20, 2021, and showed at 10 candles but not at 50 or 100. On 4h the uptrend gap was 0.82%. It held without the stretch between Aug 30 and Sep 8, 2021, and showed at 50 candles but not at 10 or 100. In downtrends, above 40 showed nothing on either timeframe.",
+  "On 4h, the cross down through 20 split by trend. In downtrends, longs after the cross beat random by 0.68% at 20 candles, above a band that topped out at 0.55%. It also showed at 10, 50 and 100 candles and held without its strongest stretch, Oct 19–25, 2022. In uptrends the same cross trailed random by 0.82%, but at 20 candles only, so that result is fragile. Pooled, the two cancel out to nothing. On daily, the downtrend result of 4.41% rested on one entry on Mar 16, 2022 and vanished without it.",
+  "No single pair carried a result. On 1h, SOL after ADX(14) crossed up 25 came in 0.25% ahead, still inside a band that reached 0.26%. Daily data is thin. Each pair had fewer than 30 independent moves for above 25, above 40 and below 20, so none of those were judged per pair. Above 40 on daily was too thin to judge in either regime.",
+  "For a long DCA bot, ADX(14) above 40 is a candidate filter on 1h or 4h, next to an uptrend condition such as price above the 200-day SMA. Its lead was gone by 100 candles, so it fits a take profit that fills sooner rather than a long hold. On 4h, the cross down through 20 is worth testing as an extra condition for longs in downtrends. In uptrends, leave it out. The cross up through 25 and the level above 25 added nothing, so they are better left out as entry triggers."
  ],
  "summaryRefs": [
   {
    "tf": "*",
-   "setting": "adx14-up25",
+   "setting": "*",
    "scope": "pooled"
   },
   {
-   "tf": "*",
-   "setting": "adx14-gt25",
-   "scope": "pooled"
-  },
-  {
-   "tf": "*",
-   "setting": "adx14-gt40",
-   "scope": "pooled"
-  },
-  {
-   "tf": "*",
-   "setting": "adx14-lt20",
-   "scope": "pooled"
-  },
-  {
-   "tf": "*",
+   "tf": "4h",
    "setting": "adx14-down20",
-   "scope": "pooled"
+   "scope": "down"
+  },
+  {
+   "tf": "1h",
+   "setting": "adx14-gt40",
+   "scope": "up"
+  },
+  {
+   "tf": "4h",
+   "setting": "adx14-gt40",
+   "scope": "up"
   }
  ],
  "verdictRefs": [
@@ -2442,6 +2925,16 @@
     "tf": "*",
     "setting": "adx14-up25",
     "scope": "pooled"
+   },
+   {
+    "tf": "*",
+    "setting": "adx14-up25",
+    "scope": "up"
+   },
+   {
+    "tf": "*",
+    "setting": "adx14-up25",
+    "scope": "down"
    }
   ],
   [
@@ -2452,8 +2945,13 @@
    },
    {
     "tf": "*",
-    "setting": "adx14-gt40",
-    "scope": "pooled"
+    "setting": "adx14-gt25",
+    "scope": "up"
+   },
+   {
+    "tf": "*",
+    "setting": "adx14-gt25",
+    "scope": "down"
    }
   ],
   [
@@ -2461,6 +2959,55 @@
     "tf": "*",
     "setting": "adx14-lt20",
     "scope": "pooled"
+   },
+   {
+    "tf": "*",
+    "setting": "adx14-lt20",
+    "scope": "up"
+   },
+   {
+    "tf": "*",
+    "setting": "adx14-lt20",
+    "scope": "down"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "adx14-gt40",
+    "scope": "up"
+   },
+   {
+    "tf": "4h",
+    "setting": "adx14-gt40",
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "adx14-gt40",
+    "scope": "down"
+   },
+   {
+    "tf": "4h",
+    "setting": "adx14-gt40",
+    "scope": "down"
+   },
+   {
+    "tf": "*",
+    "setting": "adx14-gt40",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "4h",
+    "setting": "adx14-down20",
+    "scope": "down"
+   },
+   {
+    "tf": "4h",
+    "setting": "adx14-down20",
+    "scope": "up"
    },
    {
     "tf": "*",
@@ -2473,18 +3020,6 @@
   [
    {
     "tf": "1h",
-    "setting": "adx14-up25",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1h",
-    "setting": "adx14-up25",
-    "scope": "SOL"
-   }
-  ],
-  [
-   {
-    "tf": "1h",
     "setting": "adx14-gt25",
     "scope": "pooled"
    },
@@ -2492,44 +3027,155 @@
     "tf": "1h",
     "setting": "adx14-up25",
     "scope": "pooled"
+   },
+   {
+    "tf": "*",
+    "setting": "adx14-lt20",
+    "scope": "pooled"
+   },
+   {
+    "tf": "*",
+    "setting": "adx14-down20",
+    "scope": "pooled"
    }
   ],
   [
    {
-    "tf": "4h",
+    "tf": "1h",
     "setting": "adx14-gt40",
-    "scope": "pooled"
+    "scope": "up"
    },
    {
-    "tf": "1d",
+    "tf": "4h",
     "setting": "adx14-gt40",
-    "scope": "pooled"
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "adx14-gt40",
+    "scope": "down"
+   },
+   {
+    "tf": "4h",
+    "setting": "adx14-gt40",
+    "scope": "down"
    }
   ],
   [
    {
     "tf": "4h",
     "setting": "adx14-down20",
+    "scope": "down"
+   },
+   {
+    "tf": "4h",
+    "setting": "adx14-down20",
+    "scope": "up"
+   },
+   {
+    "tf": "4h",
+    "setting": "adx14-down20",
     "scope": "pooled"
    },
    {
-    "tf": "1h",
-    "setting": "adx14-lt20",
-    "scope": "pooled"
+    "tf": "1d",
+    "setting": "adx14-down20",
+    "scope": "down"
    }
   ],
   [
    {
-    "tf": "1d",
-    "setting": "adx14-gt25",
-    "scope": "pooled"
+    "tf": "1h",
+    "setting": "adx14-up25",
+    "scope": "SOL"
    },
    {
     "tf": "1d",
     "setting": "adx14-gt25",
     "scope": "BTC"
+   },
+   {
+    "tf": "1d",
+    "setting": "adx14-gt25",
+    "scope": "ETH"
+   },
+   {
+    "tf": "1d",
+    "setting": "adx14-gt25",
+    "scope": "SOL"
+   },
+   {
+    "tf": "1d",
+    "setting": "adx14-gt40",
+    "scope": "BTC"
+   },
+   {
+    "tf": "1d",
+    "setting": "adx14-gt40",
+    "scope": "ETH"
+   },
+   {
+    "tf": "1d",
+    "setting": "adx14-gt40",
+    "scope": "SOL"
+   },
+   {
+    "tf": "1d",
+    "setting": "adx14-lt20",
+    "scope": "BTC"
+   },
+   {
+    "tf": "1d",
+    "setting": "adx14-lt20",
+    "scope": "ETH"
+   },
+   {
+    "tf": "1d",
+    "setting": "adx14-lt20",
+    "scope": "SOL"
+   },
+   {
+    "tf": "1d",
+    "setting": "adx14-gt40",
+    "scope": "up"
+   },
+   {
+    "tf": "1d",
+    "setting": "adx14-gt40",
+    "scope": "down"
    }
   ],
-  []
+  [
+   {
+    "tf": "1h",
+    "setting": "adx14-gt40",
+    "scope": "up"
+   },
+   {
+    "tf": "4h",
+    "setting": "adx14-gt40",
+    "scope": "up"
+   },
+   {
+    "tf": "4h",
+    "setting": "adx14-down20",
+    "scope": "down"
+   },
+   {
+    "tf": "4h",
+    "setting": "adx14-down20",
+    "scope": "up"
+   },
+   {
+    "tf": "*",
+    "setting": "adx14-up25",
+    "scope": "pooled"
+   },
+   {
+    "tf": "*",
+    "setting": "adx14-gt25",
+    "scope": "pooled"
+   }
+  ]
  ]
 }

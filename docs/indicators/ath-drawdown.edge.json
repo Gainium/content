@@ -19,6 +19,10 @@
   ],
   "from": "2020-09-01",
   "warmupFrom": "2020-06-01",
+  "regime": {
+   "by": "pair close vs its 200-day SMA",
+   "sma": 200
+  },
   "to": "2026-10-24",
   "engine": {
    "indicators": "56f63e97",
@@ -179,6 +183,30 @@
      "chance": [
       -0.21,
       0.24
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 12576,
+     "episodes": 300,
+     "draws": 100,
+     "edge": 0.35,
+     "chance": [
+      -0.18,
+      0.38
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 13385,
+     "episodes": 268,
+     "draws": 100,
+     "edge": -0.12,
+     "chance": [
+      -0.2,
+      0.19
      ],
      "verdict": "none"
     }
@@ -362,6 +390,53 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 846,
+     "episodes": 403,
+     "draws": 295,
+     "edge": -0.19,
+     "chance": [
+      -0.3,
+      0.4
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 675,
+     "episodes": 353,
+     "draws": 370,
+     "edge": 0.34,
+     "chance": [
+      -0.31,
+      0.3
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 3,
+       "start": "2022-02-27",
+       "end": "2022-02-28",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
    }
   },
   {
@@ -516,6 +591,30 @@
      "chance": [
       -0.21,
       0.25
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 11181,
+     "episodes": 314,
+     "draws": 100,
+     "edge": 0.1,
+     "chance": [
+      -0.17,
+      0.36
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 11384,
+     "episodes": 294,
+     "draws": 100,
+     "edge": -0.23,
+     "chance": [
+      -0.23,
+      0.24
      ],
      "verdict": "none"
     }
@@ -768,6 +867,53 @@
       ]
      }
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1394,
+     "episodes": 81,
+     "draws": 179,
+     "edge": 2.4,
+     "chance": [
+      -0.64,
+      0.92
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 52,
+       "start": "2021-01-11",
+       "end": "2021-01-13",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 2000,
+     "episodes": 76,
+     "draws": 125,
+     "edge": 0.51,
+     "chance": [
+      -0.72,
+      0.61
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -925,6 +1071,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 51330,
+     "episodes": 431,
+     "draws": 100,
+     "edge": 0.06,
+     "chance": [
+      -0.04,
+      0.12
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 36022,
+     "episodes": 387,
+     "draws": 100,
+     "edge": 0.04,
+     "chance": [
+      -0.07,
+      0.08
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -1079,6 +1249,30 @@
      "chance": [
       -0.39,
       0.46
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 8119,
+     "episodes": 144,
+     "draws": 100,
+     "edge": 0.17,
+     "chance": [
+      -0.35,
+      0.94
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 9843,
+     "episodes": 108,
+     "draws": 100,
+     "edge": -0.27,
+     "chance": [
+      -0.4,
+      0.4
      ],
      "verdict": "none"
     }
@@ -1262,6 +1456,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 509,
+     "episodes": 220,
+     "draws": 491,
+     "edge": 0.01,
+     "chance": [
+      -0.73,
+      0.86
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 303,
+     "episodes": 151,
+     "draws": 500,
+     "edge": -0.07,
+     "chance": [
+      -0.8,
+      1.07
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -1416,6 +1634,30 @@
      "chance": [
       -0.68,
       0.75
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 6114,
+     "episodes": 166,
+     "draws": 100,
+     "edge": 0.02,
+     "chance": [
+      -0.45,
+      0.62
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 6028,
+     "episodes": 147,
+     "draws": 100,
+     "edge": -0.36,
+     "chance": [
+      -0.43,
+      0.53
      ],
      "verdict": "none"
     }
@@ -1576,6 +1818,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 2004,
+     "episodes": 80,
+     "draws": 124,
+     "edge": 0.64,
+     "chance": [
+      -0.8,
+      2.59
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 3814,
+     "episodes": 77,
+     "draws": 100,
+     "edge": -0.14,
+     "chance": [
+      -0.98,
+      0.68
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -1730,6 +1996,30 @@
      "chance": [
       -1.41,
       1.27
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 7267,
+     "episodes": 158,
+     "draws": 100,
+     "edge": 0.04,
+     "chance": [
+      -0.34,
+      0.65
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 3512,
+     "episodes": 119,
+     "draws": 100,
+     "edge": -0.4,
+     "chance": [
+      -0.59,
+      0.81
      ],
      "verdict": "none"
     }
@@ -1890,6 +2180,30 @@
      ],
      "verdict": "few"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 2254,
+     "episodes": 40,
+     "draws": 110,
+     "edge": 0.59,
+     "chance": [
+      -0.97,
+      2.47
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 2924,
+     "episodes": 21,
+     "draws": 100,
+     "edge": 0.14,
+     "chance": [
+      -0.14,
+      0.15
+     ],
+     "verdict": "few"
+    }
    }
   },
   {
@@ -2044,6 +2358,30 @@
      "chance": [
       -10.44,
       13.86
+     ],
+     "verdict": "few"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 167,
+     "episodes": 52,
+     "draws": 500,
+     "edge": 0.9,
+     "chance": [
+      -4.75,
+      3.51
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 9,
+     "episodes": 6,
+     "draws": 500,
+     "edge": -12.17,
+     "chance": [
+      -13.1,
+      12.91
      ],
      "verdict": "few"
     }
@@ -2204,6 +2542,30 @@
      ],
      "verdict": "few"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1228,
+     "episodes": 49,
+     "draws": 203,
+     "edge": 0.27,
+     "chance": [
+      -2.82,
+      3.26
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 352,
+     "episodes": 22,
+     "draws": 500,
+     "edge": -4.36,
+     "chance": [
+      -5.1,
+      6.12
+     ],
+     "verdict": "few"
+    }
    }
   },
   {
@@ -2360,6 +2722,53 @@
       2.96
      ],
      "verdict": "few"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1025,
+     "episodes": 40,
+     "draws": 243,
+     "edge": 0.95,
+     "chance": [
+      -3.71,
+      6.92
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 2572,
+     "episodes": 26,
+     "draws": 100,
+     "edge": 0.76,
+     "chance": [
+      -0.8,
+      0.73
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 31,
+       "start": "2023-05-25",
+       "end": "2023-07-07",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
     }
    }
   },
@@ -2518,53 +2927,87 @@
      ],
      "verdict": "few"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 394,
+     "episodes": 34,
+     "draws": 500,
+     "edge": 1.81,
+     "chance": [
+      -2.21,
+      5.29
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 5,
+     "episodes": 1,
+     "draws": 500,
+     "edge": 14.88,
+     "chance": [
+      -27.08,
+      23.58
+     ],
+     "verdict": "few"
+    }
    }
   }
  ],
- "summary": "Mostly no. Price did no better than after random entries when it was more than 10% under the 100-bar high, when the drawdown crossed down through 10%, or on a short within 5% of the high. One result holds up, on 1h only: after entries more than 20% under the 100-bar high, price beat random entries by 1.51% after 20 candles, and the lead remained without its strongest stretch.",
+ "summary": "Mostly no. On 1h and 4h, three uses did no better than random candles on BTC, ETH and SOL: buying more than 10% under the 100-bar high, buying the cross down through 10%, and shorting within 5% of the high. The one result that holds up is on 1h only. Entries more than 20% under the 100-bar high beat random entries by 1.51% after 20 candles, and that gap came from uptrends.",
  "verdicts": [
   {
-   "use": "Buying a deep drop (more than 20% under the 100-bar high)",
+   "use": "Buying a deep drawdown (more than 20% under the 100-bar high)",
    "verdict": "edge",
-   "text": "On 1h, price beat random entries by 1.51% after 20 candles, and the lead remains without its strongest stretch. On 4h and daily the same setting lands inside the luck band."
+   "text": "On 1h, price rose 1.51% more than after random candles over the next 20 candles, against a luck band that tops out at 0.56%. On 4h and daily the same level showed nothing."
   },
   {
-   "use": "Buying a 10% dip (more than 10% under the 100-bar high)",
+   "use": "Buying a 10% dip (level, 10% to 20% band, or cross down through 10%)",
    "verdict": "none",
-   "text": "No better than random entries on 1h or 4h. On daily it had too few separate moves to judge."
+   "text": "On 1h and 4h, none of these did better than random entries. On daily the band and the cross also land inside the luck band, and the level has too few separate moves to judge."
   },
   {
-   "use": "Buying the cross down through 10%",
+   "use": "Shorting near the high (within 5% of the 100-bar high)",
    "verdict": "none",
-   "text": "Chance on 1h, 4h and daily, pooled across the three pairs. On BTC, the worse-than-random results on 1h and 4h each rest on one short stretch."
-  },
-  {
-   "use": "Shorting near the high (within 5%)",
-   "verdict": "none",
-   "text": "No better than random entries on 1h, 4h or daily. Price near the 100-bar high did not mark a top."
+   "text": "On 1h, 4h and daily this did no better than random entries, in uptrends or in downtrends."
   }
  ],
  "notes": [
-  "On 1h, entries more than 20% under the 100-bar high came in 183 separate moves. Twenty candles later they were 1.51% ahead of random entries, above a luck band of -0.44% to 0.56%. The lead also shows at 10 and 50 candles but is gone by 100. It remains without its strongest stretch, the signals on Sep 16–18, 2020.",
-  "The 1h result does not come from a single coin. After these entries SOL beat random entries by 1.52% and ETH by 0.98%, each above its own luck band. BTC fell that far below its 100-bar high in only 21 separate moves on 1h, too few to judge.",
-  "On 4h the same setting ended 0.04% behind random entries, inside the luck band. On daily it was 0.65% behind, also inside the band. The 20% setting showed a lead on 1h only.",
-  "Smaller drops show nothing. On 1h, the more-than-10% setting enters about seven times as often as the 20% one and lands 0.15% ahead of random, inside the band. The 10% to 20% zone was 0.07% behind on 1h and 0.12% behind on 4h, both chance. The 1h lead comes only from the deepest drops.",
-  "The cross down through 10% is chance pooled on 1h, 4h and daily. BTC looked worse than random on 1h, but only because of 5 signals on Aug 2–4, 2024. Without them it is chance. BTC's worse result on 4h rests in the same way on signals between May 28, 2026 and Jun 2, 2026. Shorting within 5% of the 100-bar high did no better than random on any timeframe.",
-  "For a long bot on 1h, price did better than average after it was more than 20% under the 100-bar high. Test that as a filter beside your other start conditions, not as a signal on its own. The lead is gone by 100 candles, so it suits a take profit that closes within about 50 candles better than a slow DCA ladder. On these pairs the 10% level, the cross and the short near the high added nothing, so you can leave them out."
+  "On 1h, entries more than 20% under the 100-bar high gave 4,022 entries in 183 separate moves. Twenty candles later they were 1.51% ahead of random entries, and the luck band runs from -0.44% to 0.56%. The result holds without its strongest stretch, 54 entries on Sep 16–18, 2020, and it also shows at 10 and 50 candles. At 100 candles it is back to chance. ETH was ahead by 0.98% and SOL by 1.52%. BTC reached this depth in only 21 separate moves, which is too few to judge.",
+  "The 1h result comes from uptrends. When the pair closed above its 200-day SMA, these entries were 2.4% ahead of random uptrend candles, above a band that ends at 0.92%. In downtrends they were 0.51% ahead, which is inside the band, so they showed nothing. On 4h the same level landed at -0.04% and on daily at -0.65%, both inside their luck bands.",
+  "On 1h, entries more than 10% under the 100-bar high happened about seven times as often as entries more than 20% under it. They showed nothing: 0.15% ahead of random, inside a band of -0.14% to 0.24%. Uptrends gave 0.35% and downtrends -0.12%, and both are inside their bands. On 4h the level gave -0.09%, and the 10% to 20% band gave -0.07% on 1h. On daily the 10% level has only 20 separate moves, under the 30 needed to judge it.",
+  "The cross down through 10% came out at 0.03% on 1h, which is chance. In 1h downtrends it reached 0.34%, just above a band that ends at 0.31%. That came from 3 entries on Feb 27–28, 2022, and without them it falls back to chance. On 1h BTC the cross looked worse than random, at -0.34%, but only because of signals on Aug 2–4, 2024. On daily, downtrend crossings add up to only 6 separate moves, which is too few to judge.",
+  "On 1h, being within 5% of the 100-bar high happened on 87,786 candles. A short from those candles came out at 0.06%, inside a band of -0.05% to 0.09%. On 4h it gave -0.14% and on daily 0.49%, both chance. Neither regime moved it out of the band on 1h or 4h. On daily, downtrend entries form a single separate move, so they were never judged. Price near its recent high told you nothing about the next 20 candles, in either direction.",
+  "For a long DCA bot on 1h, use the drawdown of more than 20% below the 100-bar high as a filter beside your other start conditions, not as the trigger on its own. Pair it with a trend filter, because in downtrends it showed nothing. The gap was gone by 100 candles, so a take profit that tends to fill within 50 candles fits this shape better than one that waits longer. The 10% levels and the near-high short add nothing on these pairs, and your DCA orders and take profit do the work there. When it fails: in downtrends, and on 4h or daily, the deep drawdown was a coin flip."
  ],
  "summaryRefs": [
   {
-   "tf": "*",
+   "tf": "1h",
    "setting": "ath100-lt10",
    "scope": "pooled"
   },
   {
-   "tf": "*",
+   "tf": "4h",
+   "setting": "ath100-lt10",
+   "scope": "pooled"
+  },
+  {
+   "tf": "1h",
    "setting": "ath100-down10",
    "scope": "pooled"
   },
   {
-   "tf": "*",
+   "tf": "4h",
+   "setting": "ath100-down10",
+   "scope": "pooled"
+  },
+  {
+   "tf": "1h",
+   "setting": "ath100-gt5-short",
+   "scope": "pooled"
+  },
+  {
+   "tf": "4h",
    "setting": "ath100-gt5-short",
    "scope": "pooled"
   },
@@ -2572,6 +3015,11 @@
    "tf": "1h",
    "setting": "ath100-lt20",
    "scope": "pooled"
+  },
+  {
+   "tf": "1h",
+   "setting": "ath100-lt20",
+   "scope": "up"
   }
  ],
  "verdictRefs": [
@@ -2597,23 +3045,16 @@
     "tf": "*",
     "setting": "ath100-lt10",
     "scope": "pooled"
-   }
-  ],
-  [
+   },
+   {
+    "tf": "*",
+    "setting": "ath100-bw10-20",
+    "scope": "pooled"
+   },
    {
     "tf": "*",
     "setting": "ath100-down10",
     "scope": "pooled"
-   },
-   {
-    "tf": "1h",
-    "setting": "ath100-down10",
-    "scope": "BTC"
-   },
-   {
-    "tf": "4h",
-    "setting": "ath100-down10",
-    "scope": "BTC"
    }
   ],
   [
@@ -2621,6 +3062,26 @@
     "tf": "*",
     "setting": "ath100-gt5-short",
     "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "ath100-gt5-short",
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "ath100-gt5-short",
+    "scope": "down"
+   },
+   {
+    "tf": "4h",
+    "setting": "ath100-gt5-short",
+    "scope": "up"
+   },
+   {
+    "tf": "4h",
+    "setting": "ath100-gt5-short",
+    "scope": "down"
    }
   ]
  ],
@@ -2630,13 +3091,6 @@
     "tf": "1h",
     "setting": "ath100-lt20",
     "scope": "pooled"
-   }
-  ],
-  [
-   {
-    "tf": "1h",
-    "setting": "ath100-lt20",
-    "scope": "SOL"
    },
    {
     "tf": "1h",
@@ -2646,10 +3100,25 @@
    {
     "tf": "1h",
     "setting": "ath100-lt20",
+    "scope": "SOL"
+   },
+   {
+    "tf": "1h",
+    "setting": "ath100-lt20",
     "scope": "BTC"
    }
   ],
   [
+   {
+    "tf": "1h",
+    "setting": "ath100-lt20",
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "ath100-lt20",
+    "scope": "down"
+   },
    {
     "tf": "4h",
     "setting": "ath100-lt20",
@@ -2674,20 +3143,40 @@
    },
    {
     "tf": "1h",
+    "setting": "ath100-lt10",
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "ath100-lt10",
+    "scope": "down"
+   },
+   {
+    "tf": "4h",
+    "setting": "ath100-lt10",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
     "setting": "ath100-bw10-20",
     "scope": "pooled"
    },
    {
-    "tf": "4h",
-    "setting": "ath100-bw10-20",
+    "tf": "1d",
+    "setting": "ath100-lt10",
     "scope": "pooled"
    }
   ],
   [
    {
-    "tf": "*",
+    "tf": "1h",
     "setting": "ath100-down10",
     "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "ath100-down10",
+    "scope": "down"
    },
    {
     "tf": "1h",
@@ -2695,14 +3184,51 @@
     "scope": "BTC"
    },
    {
-    "tf": "4h",
+    "tf": "1d",
     "setting": "ath100-down10",
-    "scope": "BTC"
-   },
+    "scope": "down"
+   }
+  ],
+  [
    {
-    "tf": "*",
+    "tf": "1h",
     "setting": "ath100-gt5-short",
     "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "ath100-gt5-short",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "ath100-gt5-short",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "ath100-gt5-short",
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "ath100-gt5-short",
+    "scope": "down"
+   },
+   {
+    "tf": "4h",
+    "setting": "ath100-gt5-short",
+    "scope": "up"
+   },
+   {
+    "tf": "4h",
+    "setting": "ath100-gt5-short",
+    "scope": "down"
+   },
+   {
+    "tf": "1d",
+    "setting": "ath100-gt5-short",
+    "scope": "down"
    }
   ],
   [
@@ -2712,17 +3238,32 @@
     "scope": "pooled"
    },
    {
-    "tf": "*",
+    "tf": "1h",
+    "setting": "ath100-lt20",
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "ath100-lt20",
+    "scope": "down"
+   },
+   {
+    "tf": "4h",
+    "setting": "ath100-lt20",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "ath100-lt20",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
     "setting": "ath100-lt10",
     "scope": "pooled"
    },
    {
-    "tf": "*",
-    "setting": "ath100-down10",
-    "scope": "pooled"
-   },
-   {
-    "tf": "*",
+    "tf": "1h",
     "setting": "ath100-gt5-short",
     "scope": "pooled"
    }

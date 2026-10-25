@@ -19,6 +19,10 @@
   ],
   "from": "2020-09-01",
   "warmupFrom": "2020-06-01",
+  "regime": {
+   "by": "pair close vs its 200-day SMA",
+   "sma": 200
+  },
   "to": "2026-10-24",
   "engine": {
    "indicators": "56f63e97",
@@ -205,6 +209,30 @@
       ]
      }
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 5916,
+     "episodes": 1495,
+     "draws": 100,
+     "edge": 0.03,
+     "chance": [
+      -0.08,
+      0.09
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 4809,
+     "episodes": 1200,
+     "draws": 100,
+     "edge": 0.06,
+     "chance": [
+      -0.09,
+      0.09
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -359,6 +387,30 @@
      "chance": [
       -0.14,
       0.19
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 7396,
+     "episodes": 1346,
+     "draws": 100,
+     "edge": 0.05,
+     "chance": [
+      -0.08,
+      0.11
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 6570,
+     "episodes": 1065,
+     "draws": 100,
+     "edge": -0.07,
+     "chance": [
+      -0.08,
+      0.1
      ],
      "verdict": "none"
     }
@@ -519,6 +571,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 2102,
+     "episodes": 1097,
+     "draws": 118,
+     "edge": 0.07,
+     "chance": [
+      -0.16,
+      0.18
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 1919,
+     "episodes": 952,
+     "draws": 130,
+     "edge": -0.03,
+     "chance": [
+      -0.15,
+      0.15
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -673,6 +749,30 @@
      "chance": [
       -0.42,
       0.37
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 769,
+     "episodes": 623,
+     "draws": 325,
+     "edge": 0.1,
+     "chance": [
+      -0.23,
+      0.27
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 728,
+     "episodes": 573,
+     "draws": 343,
+     "edge": -0.01,
+     "chance": [
+      -0.23,
+      0.23
      ],
      "verdict": "none"
     }
@@ -856,6 +956,53 @@
       ]
      }
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 3857,
+     "episodes": 1394,
+     "draws": 100,
+     "edge": 0.01,
+     "chance": [
+      -0.11,
+      0.11
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 2921,
+     "episodes": 1132,
+     "draws": 100,
+     "edge": 0.13,
+     "chance": [
+      -0.12,
+      0.11
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 5,
+       "start": "2023-01-13",
+       "end": "2023-01-13",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
    }
   },
   {
@@ -1010,6 +1157,30 @@
      "chance": [
       -0.46,
       0.42
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 640,
+     "episodes": 526,
+     "draws": 390,
+     "edge": 0.12,
+     "chance": [
+      -0.27,
+      0.3
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 643,
+     "episodes": 485,
+     "draws": 388,
+     "edge": -0.2,
+     "chance": [
+      -0.29,
+      0.25
      ],
      "verdict": "none"
     }
@@ -1170,6 +1341,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 5821,
+     "episodes": 1501,
+     "draws": 100,
+     "edge": -0.02,
+     "chance": [
+      -0.09,
+      0.09
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 4945,
+     "episodes": 1245,
+     "draws": 100,
+     "edge": 0.01,
+     "chance": [
+      -0.06,
+      0.08
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -1324,6 +1519,30 @@
      "chance": [
       -0.63,
       0.54
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1533,
+     "episodes": 378,
+     "draws": 163,
+     "edge": 0.14,
+     "chance": [
+      -0.39,
+      0.34
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 1117,
+     "episodes": 325,
+     "draws": 223,
+     "edge": -0.19,
+     "chance": [
+      -0.4,
+      0.37
      ],
      "verdict": "none"
     }
@@ -1484,6 +1703,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1612,
+     "episodes": 336,
+     "draws": 155,
+     "edge": -0.15,
+     "chance": [
+      -0.5,
+      0.49
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 1700,
+     "episodes": 280,
+     "draws": 147,
+     "edge": -0.09,
+     "chance": [
+      -0.43,
+      0.41
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -1638,6 +1881,30 @@
      "chance": [
       -1.04,
       1.18
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 448,
+     "episodes": 259,
+     "draws": 500,
+     "edge": 0.09,
+     "chance": [
+      -0.74,
+      0.7
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 480,
+     "episodes": 241,
+     "draws": 500,
+     "edge": 0.27,
+     "chance": [
+      -0.61,
+      0.66
      ],
      "verdict": "none"
     }
@@ -1821,6 +2088,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 155,
+     "episodes": 131,
+     "draws": 500,
+     "edge": -0.33,
+     "chance": [
+      -1.17,
+      1.13
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 164,
+     "episodes": 121,
+     "draws": 500,
+     "edge": -0.62,
+     "chance": [
+      -0.98,
+      1.04
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -1975,6 +2266,30 @@
      "chance": [
       -0.96,
       0.94
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1092,
+     "episodes": 363,
+     "draws": 228,
+     "edge": 0.15,
+     "chance": [
+      -0.51,
+      0.45
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 645,
+     "episodes": 286,
+     "draws": 387,
+     "edge": -0.49,
+     "chance": [
+      -0.56,
+      0.56
      ],
      "verdict": "none"
     }
@@ -2135,6 +2450,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 124,
+     "episodes": 106,
+     "draws": 500,
+     "edge": -0.03,
+     "chance": [
+      -1.29,
+      1.3
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 144,
+     "episodes": 123,
+     "draws": 500,
+     "edge": 0.3,
+     "chance": [
+      -1.16,
+      1.07
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -2292,6 +2631,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1409,
+     "episodes": 407,
+     "draws": 177,
+     "edge": 0.09,
+     "chance": [
+      -0.27,
+      0.35
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 1204,
+     "episodes": 331,
+     "draws": 207,
+     "edge": 0.13,
+     "chance": [
+      -0.31,
+      0.33
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -2446,6 +2809,30 @@
      "chance": [
       -4.5,
       4.64
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 273,
+     "episodes": 66,
+     "draws": 500,
+     "edge": 0.35,
+     "chance": [
+      -2.37,
+      2.59
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 177,
+     "episodes": 59,
+     "draws": 500,
+     "edge": -2.51,
+     "chance": [
+      -2.67,
+      2.55
      ],
      "verdict": "none"
     }
@@ -2652,6 +3039,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 207,
+     "episodes": 54,
+     "draws": 500,
+     "edge": -3.62,
+     "chance": [
+      -4.17,
+      4.14
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 337,
+     "episodes": 61,
+     "draws": 500,
+     "edge": -1.19,
+     "chance": [
+      -2.25,
+      1.86
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -2831,6 +3242,76 @@
       9.95
      ],
      "verdict": "few"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 54,
+     "episodes": 30,
+     "draws": 500,
+     "edge": -7.9,
+     "chance": [
+      -5.92,
+      7.04
+     ],
+     "verdict": "worse",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 4,
+       "start": "2021-11-23",
+       "end": "2021-12-11",
+       "without": "worse"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "worse"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 96,
+     "episodes": 52,
+     "draws": 500,
+     "edge": -4.4,
+     "chance": [
+      -4.08,
+      3.15
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 5,
+       "start": "2022-04-24",
+       "end": "2022-05-28",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
     }
    }
   },
@@ -3012,6 +3493,30 @@
      ],
      "verdict": "few"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 23,
+     "episodes": 20,
+     "draws": 500,
+     "edge": -6.9,
+     "chance": [
+      -7.55,
+      7.73
+     ],
+     "verdict": "few"
+    },
+    "down": {
+     "entries": 30,
+     "episodes": 27,
+     "draws": 500,
+     "edge": -3.94,
+     "chance": [
+      -5.53,
+      4.95
+     ],
+     "verdict": "few"
+    }
    }
   },
   {
@@ -3166,6 +3671,30 @@
      "chance": [
       -7.83,
       7.2
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 221,
+     "episodes": 66,
+     "draws": 500,
+     "edge": 2.35,
+     "chance": [
+      -3.33,
+      3.96
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 82,
+     "episodes": 43,
+     "draws": 500,
+     "edge": 0.02,
+     "chance": [
+      -4.61,
+      5.51
      ],
      "verdict": "none"
     }
@@ -3346,6 +3875,30 @@
      "chance": [
       -15.56,
       19.74
+     ],
+     "verdict": "few"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 13,
+     "episodes": 11,
+     "draws": 500,
+     "edge": -9.94,
+     "chance": [
+      -11.02,
+      14.05
+     ],
+     "verdict": "few"
+    },
+    "down": {
+     "entries": 32,
+     "episodes": 23,
+     "draws": 500,
+     "edge": -4.71,
+     "chance": [
+      -5.46,
+      6.3
      ],
      "verdict": "few"
     }
@@ -3552,44 +4105,92 @@
       ]
      }
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 251,
+     "episodes": 70,
+     "draws": 500,
+     "edge": -1.97,
+     "chance": [
+      -2.92,
+      2.98
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 210,
+     "episodes": 53,
+     "draws": 500,
+     "edge": 3.53,
+     "chance": [
+      -2.49,
+      2.79
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 12,
+       "start": "2022-04-26",
+       "end": "2022-06-22",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
    }
   }
  ],
- "summary": "No. On BTC, ETH and SOL, price after bullish or bearish divergences, regular or hidden, moved no differently from price after random candles on 1h, 4h or daily. Two settings landed outside the luck band, both on the losing side, and neither held: each depended on a single stretch of signals.",
+ "summary": "No. On BTC, ETH and SOL, price after a bullish or bearish divergence moved like price after a random candle on 1h, 4h and daily. This held for RSI divergence alone and for 2 or more oscillators agreeing. The one result that holds up is negative: on daily candles in uptrends, regular bullish divergence on 2+ oscillators did 7.9% worse than random entries after 20 days.",
  "verdicts": [
   {
-   "use": "Going long on a bullish divergence (any type, 2+ oscillators)",
+   "use": "Buying any bullish divergence (2+ oscillators)",
    "verdict": "none",
-   "text": "Inside the luck band on 1h, 4h and daily. After the signal, price moved the same way it did after random candles."
+   "text": "Inside the luck band on 1h, 4h and daily, in uptrends and downtrends alike."
   },
   {
-   "use": "Going long on an RSI bullish divergence",
+   "use": "Buying RSI bullish divergence",
    "verdict": "none",
-   "text": "No better than random entries on 1h, 4h or daily. Using RSI alone instead of several oscillators changed nothing."
+   "text": "No better than random entries on 1h, 4h or daily. On daily it fired too rarely in each regime to be judged."
   },
   {
-   "use": "Shorting a bearish divergence (any type, 2+ oscillators)",
+   "use": "Shorting bearish divergence (2+ oscillators)",
    "verdict": "none",
-   "text": "Inside the luck band on 1h, 4h and daily. Bearish divergences did not mark the start of drops."
-  },
-  {
-   "use": "Going long on a hidden bullish divergence (trend continuation)",
-   "verdict": "none",
-   "text": "No better than random on any timeframe, including daily, where it came out 2.87% ahead but still inside a wide band."
+   "text": "Inside the band on all three timeframes. On daily in downtrends it beat random, but only because of one stretch of signals between Apr 26 and Jun 22, 2022."
   },
   {
    "use": "Waiting for 3+ oscillators to agree",
    "verdict": "fragile-worse",
-   "text": "On 4h it did 0.8% worse than random after 20 candles. The result depends on 4 entries between May 5 and May 11, 2022, and without them it falls back to chance."
+   "text": "On 4h, price did worse than random after these signals. Only the signals on May 5–11, 2022, during the Terra collapse, produced that. Without them, chance."
+  },
+  {
+   "use": "Regular bullish divergence on daily (2+ oscillators)",
+   "verdict": "none",
+   "text": "Inside the band when both regimes are pooled. In uptrends alone, price did worse than random after 20 days, and that held without its strongest stretch and at 50 and 100 candles."
   }
  ],
  "notes": [
-  "On 1h, the default timeframe, any bullish divergence on 2+ oscillators gave 11,001 entries in 2,703 separate moves. Twenty candles later they were 0.06% ahead of random entries, inside the luck band. RSI bullish divergence alone gave only 1,313 entries and came out 0.01% behind random. Neither result is distinguishable from luck.",
-  "Requiring more oscillators to agree makes the signal rarer without making it better. On 1h, the 1+ oscillator setting fires about three and a half times as often as the 2+ setting. All three counts, including 3+, landed inside the luck band. Confirmation from extra oscillators did not change how price moved afterward.",
-  "The two results outside the band both ran against the long side, and both depended on a single stretch. On 4h, 3+ oscillators did 0.8% worse than random, driven by signals between May 5 and May 11, 2022, during the Terra (LUNA) collapse. On daily, the 1+ oscillator setting did 2.86% worse, driven by 13 entries between Apr 23 and Jun 17, 2022. Leave either stretch out and the result goes back to chance.",
-  "Single coins tell the same story. SOL on 1h looked 0.14% ahead after any bullish divergence, but only because of 12 entries between Sep 8 and Sep 12, 2020. At 10, 50 and 100 candles it was chance. On daily, shorting bearish divergences looked good on ETH and bad on SOL. Each result came from one stretch: between Apr 26 and Jun 22, 2022 for ETH, and between Aug 7 and Sep 9, 2021 for SOL.",
-  "On daily, the per-coin RSI bullish divergence and 3+ oscillator cells had fewer than 30 separate moves each, so they were never judged. Hidden bullish divergence on daily came out 2.87% ahead pooled. The daily luck band is wide enough that this is still chance.",
-  "For a long DCA bot on these pairs, divergence timing adds nothing measurable, so the DCA orders and the take profit do the work. If you add a divergence as a start condition, treat it as a filter that thins out entries beside your other conditions, not as a source of edge. Do not read 3+ oscillator agreement on 4h as stronger confirmation. It fared worse than random in a crash, and a crash is when a long bot's DCA orders fill fastest."
+  "Buying on any bullish divergence across 2+ oscillators on 1h gave 11,001 entries in 2,703 separate moves. Twenty candles later they were 0.06% ahead of random entries, inside the luck band of -0.06% to 0.07%. The same setting fires about four times as often on 1h as on 4h, and it also lands inside the band on 4h and daily. Uptrends and downtrends show the same nothing.",
+  "On 1h, any bullish divergence fires about eight and a half times as often as RSI bullish divergence alone, and the stricter signal did no better. RSI divergence ended 0.01% behind random entries on 1h and 0.04% behind on 4h, both inside the band. Hidden bullish divergence on 1h beat random by 0.13% in downtrends, but five entries on Jan 13, 2023 carry that result. In uptrends it showed nothing.",
+  "Asking more oscillators to agree cuts the signal count hard: on 1h, 1+ oscillator fires about nine and a half times as often as 3+. It does not make the signals better. On 4h, regular bullish divergence on 3+ oscillators did 0.8% worse than random, just past the band's edge of -0.79%. Four entries on May 5–11, 2022, during the Terra collapse, account for that result, and without them it is chance.",
+  "On daily, regular bullish divergence on 1+ oscillator did 2.86% worse than random. That comes from 13 entries between Apr 23 and Jun 17, 2022, and without them it is chance. With 2+ oscillators the pooled daily result sits inside the band, but the regimes split it.",
+  "In uptrends, daily bullish divergence on 2+ oscillators did 7.9% worse than random after 20 days. That held without its strongest stretch and at 50 and 100 candles, and it rests on 30 moves, the fewest the test will judge. In downtrends it was 4.4% worse, but only because of signals between Apr 24 and May 28, 2022.",
+  "Shorting bearish divergence on 2+ oscillators landed inside the band on 1h, 4h and daily. On daily the two regimes differ: in downtrends the short beat random by 3.53%, and in uptrends it showed nothing. The downtrend result comes from 12 entries between Apr 26 and Jun 22, 2022, and without them it is chance.",
+  "On these pairs, a long DCA bot that starts on bullish divergence times its entries no better than one starting on a random candle, so the DCA orders and take profit do the work. If you keep divergence in a bot, use it as one filter beside your other conditions, not as the reason the bot opens a deal. On daily, consider leaving regular bullish divergence out as a start condition in uptrends, where price did worse than random after it. On a short bot, bearish divergence added nothing outside a single stretch of signals."
  ],
  "summaryRefs": [
   {
@@ -3599,28 +4200,18 @@
   },
   {
    "tf": "*",
-   "setting": "abear-2",
-   "scope": "pooled"
-  },
-  {
-   "tf": "*",
-   "setting": "hbull-2",
-   "scope": "pooled"
-  },
-  {
-   "tf": "*",
    "setting": "rsi-bull",
    "scope": "pooled"
   },
   {
-   "tf": "4h",
-   "setting": "bull-3",
+   "tf": "*",
+   "setting": "abear-2",
    "scope": "pooled"
   },
   {
    "tf": "1d",
-   "setting": "bull-1",
-   "scope": "pooled"
+   "setting": "bull-2",
+   "scope": "up"
   }
  ],
  "verdictRefs": [
@@ -3629,6 +4220,16 @@
     "tf": "*",
     "setting": "abull-2",
     "scope": "pooled"
+   },
+   {
+    "tf": "*",
+    "setting": "abull-2",
+    "scope": "up"
+   },
+   {
+    "tf": "*",
+    "setting": "abull-2",
+    "scope": "down"
    }
   ],
   [
@@ -3636,6 +4237,16 @@
     "tf": "*",
     "setting": "rsi-bull",
     "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "rsi-bull",
+    "scope": "up"
+   },
+   {
+    "tf": "1d",
+    "setting": "rsi-bull",
+    "scope": "down"
    }
   ],
   [
@@ -3643,18 +4254,11 @@
     "tf": "*",
     "setting": "abear-2",
     "scope": "pooled"
-   }
-  ],
-  [
-   {
-    "tf": "*",
-    "setting": "hbull-2",
-    "scope": "pooled"
    },
    {
     "tf": "1d",
-    "setting": "hbull-2",
-    "scope": "pooled"
+    "setting": "abear-2",
+    "scope": "down"
    }
   ],
   [
@@ -3662,6 +4266,18 @@
     "tf": "4h",
     "setting": "bull-3",
     "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1d",
+    "setting": "bull-2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "bull-2",
+    "scope": "up"
    }
   ]
  ],
@@ -3673,104 +4289,126 @@
     "scope": "pooled"
    },
    {
-    "tf": "1h",
-    "setting": "rsi-bull",
-    "scope": "pooled"
-   }
-  ],
-  [
-   {
-    "tf": "1h",
-    "setting": "bull-1",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1h",
-    "setting": "bull-2",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1h",
-    "setting": "bull-3",
-    "scope": "pooled"
-   }
-  ],
-  [
-   {
     "tf": "4h",
-    "setting": "bull-3",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1d",
-    "setting": "bull-1",
-    "scope": "pooled"
-   }
-  ],
-  [
-   {
-    "tf": "1h",
     "setting": "abull-2",
-    "scope": "SOL"
-   },
-   {
-    "tf": "1d",
-    "setting": "abear-2",
-    "scope": "ETH"
-   },
-   {
-    "tf": "1d",
-    "setting": "abear-2",
-    "scope": "SOL"
-   }
-  ],
-  [
-   {
-    "tf": "1d",
-    "setting": "rsi-bull",
-    "scope": "BTC"
-   },
-   {
-    "tf": "1d",
-    "setting": "rsi-bull",
-    "scope": "ETH"
-   },
-   {
-    "tf": "1d",
-    "setting": "rsi-bull",
-    "scope": "SOL"
-   },
-   {
-    "tf": "1d",
-    "setting": "bull-3",
-    "scope": "BTC"
-   },
-   {
-    "tf": "1d",
-    "setting": "bull-3",
-    "scope": "ETH"
-   },
-   {
-    "tf": "1d",
-    "setting": "bull-3",
-    "scope": "SOL"
-   },
-   {
-    "tf": "1d",
-    "setting": "hbull-2",
     "scope": "pooled"
-   }
-  ],
-  [
+   },
    {
-    "tf": "4h",
-    "setting": "bull-3",
+    "tf": "1d",
+    "setting": "abull-2",
     "scope": "pooled"
    },
    {
     "tf": "*",
     "setting": "abull-2",
+    "scope": "up"
+   },
+   {
+    "tf": "*",
+    "setting": "abull-2",
+    "scope": "down"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "abull-2",
     "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "rsi-bull",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "rsi-bull",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "hbull-2",
+    "scope": "down"
+   },
+   {
+    "tf": "1h",
+    "setting": "hbull-2",
+    "scope": "up"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "bull-1",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "bull-3",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "bull-3",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1d",
+    "setting": "bull-1",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "bull-2",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1d",
+    "setting": "bull-2",
+    "scope": "up"
+   },
+   {
+    "tf": "1d",
+    "setting": "bull-2",
+    "scope": "down"
+   }
+  ],
+  [
+   {
+    "tf": "*",
+    "setting": "abear-2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "abear-2",
+    "scope": "down"
+   },
+   {
+    "tf": "1d",
+    "setting": "abear-2",
+    "scope": "up"
+   }
+  ],
+  [
+   {
+    "tf": "*",
+    "setting": "abull-2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "bull-2",
+    "scope": "up"
+   },
+   {
+    "tf": "1d",
+    "setting": "abear-2",
+    "scope": "down"
    }
   ]
  ]

@@ -19,6 +19,10 @@
   ],
   "from": "2020-09-01",
   "warmupFrom": "2020-06-01",
+  "regime": {
+   "by": "pair close vs its 200-day SMA",
+   "sma": 200
+  },
   "to": "2026-10-24",
   "engine": {
    "indicators": "56f63e97",
@@ -182,6 +186,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 6703,
+     "episodes": 1349,
+     "draws": 100,
+     "edge": 0.05,
+     "chance": [
+      -0.08,
+      0.07
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 5543,
+     "episodes": 1137,
+     "draws": 100,
+     "edge": 0.02,
+     "chance": [
+      -0.07,
+      0.07
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -336,6 +364,30 @@
      "chance": [
       -0.11,
       0.1
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 6742,
+     "episodes": 1363,
+     "draws": 100,
+     "edge": 0.03,
+     "chance": [
+      -0.08,
+      0.06
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 5503,
+     "episodes": 1116,
+     "draws": 100,
+     "edge": 0.05,
+     "chance": [
+      -0.08,
+      0.07
      ],
      "verdict": "none"
     }
@@ -496,6 +548,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 44491,
+     "episodes": 415,
+     "draws": 100,
+     "edge": 0.02,
+     "chance": [
+      -0.06,
+      0.04
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 35220,
+     "episodes": 419,
+     "draws": 100,
+     "edge": 0.01,
+     "chance": [
+      -0.06,
+      0.05
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -650,6 +726,30 @@
      "chance": [
       -0.09,
       0.08
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 41765,
+     "episodes": 517,
+     "draws": 100,
+     "edge": 0.02,
+     "chance": [
+      -0.06,
+      0.04
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 35570,
+     "episodes": 354,
+     "draws": 100,
+     "edge": 0.01,
+     "chance": [
+      -0.06,
+      0.05
      ],
      "verdict": "none"
     }
@@ -879,6 +979,53 @@
       ]
      }
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 2513,
+     "episodes": 1230,
+     "draws": 100,
+     "edge": 0.06,
+     "chance": [
+      -0.15,
+      0.15
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 2198,
+     "episodes": 1031,
+     "draws": 113,
+     "edge": 0.28,
+     "chance": [
+      -0.15,
+      0.14
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 6,
+       "start": "2026-02-24",
+       "end": "2026-02-25",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
    }
   },
   {
@@ -1033,6 +1180,30 @@
      "chance": [
       -0.51,
       0.49
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1591,
+     "episodes": 375,
+     "draws": 157,
+     "edge": -0.2,
+     "chance": [
+      -0.29,
+      0.23
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 1347,
+     "episodes": 320,
+     "draws": 185,
+     "edge": 0.17,
+     "chance": [
+      -0.3,
+      0.28
      ],
      "verdict": "none"
     }
@@ -1193,6 +1364,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1639,
+     "episodes": 380,
+     "draws": 152,
+     "edge": 0.16,
+     "chance": [
+      -0.22,
+      0.23
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 1299,
+     "episodes": 312,
+     "draws": 192,
+     "edge": -0.06,
+     "chance": [
+      -0.26,
+      0.34
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -1350,6 +1545,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 11602,
+     "episodes": 111,
+     "draws": 100,
+     "edge": 0.1,
+     "chance": [
+      -0.29,
+      0.21
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 8518,
+     "episodes": 144,
+     "draws": 100,
+     "edge": 0.1,
+     "chance": [
+      -0.24,
+      0.15
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -1504,6 +1723,30 @@
      "chance": [
       -0.37,
       0.29
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 9940,
+     "episodes": 171,
+     "draws": 100,
+     "edge": 0.11,
+     "chance": [
+      -0.33,
+      0.25
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 9198,
+     "episodes": 105,
+     "draws": 100,
+     "edge": 0.1,
+     "chance": [
+      -0.22,
+      0.14
      ],
      "verdict": "none"
     }
@@ -1684,6 +1927,30 @@
      "chance": [
       -0.97,
       0.79
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 650,
+     "episodes": 323,
+     "draws": 384,
+     "edge": 0.33,
+     "chance": [
+      -0.61,
+      0.55
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 557,
+     "episodes": 272,
+     "draws": 448,
+     "edge": 0.33,
+     "chance": [
+      -0.61,
+      0.56
      ],
      "verdict": "none"
     }
@@ -1890,6 +2157,30 @@
       ]
      }
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 230,
+     "episodes": 65,
+     "draws": 500,
+     "edge": -3.14,
+     "chance": [
+      -3.32,
+      2.5
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 249,
+     "episodes": 59,
+     "draws": 500,
+     "edge": -0.51,
+     "chance": [
+      -2.24,
+      2
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -2044,6 +2335,53 @@
      "chance": [
       -3.89,
       4.57
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 250,
+     "episodes": 67,
+     "draws": 500,
+     "edge": 2.87,
+     "chance": [
+      -2.11,
+      2.27
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 14,
+       "start": "2024-12-01",
+       "end": "2025-03-09",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 229,
+     "episodes": 47,
+     "draws": 500,
+     "edge": 0.83,
+     "chance": [
+      -1.9,
+      2.11
      ],
      "verdict": "none"
     }
@@ -2250,6 +2588,53 @@
       ]
      }
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 2162,
+     "episodes": 32,
+     "draws": 115,
+     "edge": 2.2,
+     "chance": [
+      -2.02,
+      1.47
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 190,
+       "start": "2021-02-27",
+       "end": "2022-01-17",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 1259,
+     "episodes": 31,
+     "draws": 198,
+     "edge": -0.3,
+     "chance": [
+      -1.71,
+      2
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -2452,6 +2837,53 @@
        }
       ]
      }
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1375,
+     "episodes": 43,
+     "draws": 181,
+     "edge": 3.38,
+     "chance": [
+      -2.67,
+      2.77
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 54,
+       "start": "2021-11-13",
+       "end": "2022-01-19",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 1696,
+     "episodes": 32,
+     "draws": 147,
+     "edge": -0.22,
+     "chance": [
+      -1.27,
+      1.49
+     ],
+     "verdict": "none"
     }
    }
   },
@@ -2656,39 +3088,86 @@
       ]
      }
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 137,
+     "episodes": 62,
+     "draws": 500,
+     "edge": 5.16,
+     "chance": [
+      -3.09,
+      5.1
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 5,
+       "start": "2021-07-31",
+       "end": "2021-08-27",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 75,
+     "episodes": 41,
+     "draws": 500,
+     "edge": 2.87,
+     "chance": [
+      -3.65,
+      4.58
+     ],
+     "verdict": "none"
+    }
    }
   }
  ],
- "summary": "Not as a directional signal. On 1h and 4h, Momentum(10) crossing 0 did no better than a random candle on either side, pooled or on BTC, ETH and SOL. The one result above the luck band is Momentum(10) crossing up its 90th percentile on 1h. Price moved 0.19% more than after random candles, but this setting fires in volatile candles during a window that rose, so it is timing, not a call on direction.",
+ "summary": "Mostly no. On 1h and 4h, price did no better than after a random candle when Momentum(10) crossed 0 or stayed above or below 0. The one result that holds up is on 1h: after Momentum(10) crossed up its 90th percentile, price was 0.19% ahead of random entries 20 candles later. Those signals fire in volatile candles, and the gap came from downtrends.",
  "verdicts": [
   {
    "use": "Going long on a cross up through 0",
    "verdict": "none",
-   "text": "Inside the luck band on 1h and 4h, pooled and on each coin. On daily it did worse than random, but only because of one SOL stretch."
+   "text": "No better than random entries on 1h or 4h. On daily it looked worse than random, but only because of signals between Sep 5 and Oct 28, 2022, mostly on SOL."
   },
   {
    "use": "Shorting a cross down through 0",
    "verdict": "none",
-   "text": "No better than random entries on 1h, 4h or daily, pooled or on any single coin."
+   "text": "Inside the luck band on 1h, 4h and daily. On daily it beat random only in uptrends, and that gap came from one stretch."
   },
   {
-   "use": "Staying with the trend (above or below 0)",
+   "use": "Holding a side while Momentum stays above or below 0",
    "verdict": "fragile",
-   "text": "Inside the luck band on 1h and 4h. On daily both sides beat random, but each result came from one long stretch and fell back to chance without it."
+   "text": "Nothing on 1h or 4h. On daily both sides beat random, but each result rests on one long stretch and shows only in uptrends."
   },
   {
-   "use": "Chasing a momentum spike (cross up its 90th percentile)",
+   "use": "Chasing a spike (cross up its 90th percentile)",
    "verdict": "edge",
-   "text": "On 1h, price moved 0.19% more than after random candles over the next 20 candles, in a window that rose. The setting fires in volatile candles, so this is about when it fires, not a directional edge. On 4h and daily it is fragile."
+   "text": "On 1h, price moved 0.19% more than after random candles, 20 candles later. These candles are volatile, so the gap reflects when the signal fires, not which way price goes. It came from downtrends, and on 4h and daily the result is fragile."
   }
  ],
  "notes": [
-  "On 1h, Momentum(10) crossing up through 0 gave 12,560 entries in 2,494 separate moves. Twenty candles later they were 0.04% ahead of random entries, inside a luck band of -0.06% to 0.05%. The short on a cross down through 0 lands in the same place. On 4h the cross fires about a quarter as often and is also inside the band.",
-  "Momentum(10) crossing up its 90th percentile fires mostly in volatile candles. On 1h it gave 4,856 entries, and 20 candles later price was 0.19% further up than after random candles, above a band of -0.13% to 0.12%. The result held without its strongest stretch, Feb 17–19, 2021, and showed at 10 candles but not at 50 or 100. The random copies keep the signals' timing but not the volatility, so this measures price moving more after volatile candles in a window that rose.",
-  "By coin, the same 1h cross was above the band on SOL at 0.31%. On ETH it rests on signals on Feb 24–25, 2026, and on BTC it was inside the band. On 4h it beat random by 0.40% and on daily by 4.82%, but each result came from one stretch: between Aug 27, 2021 and Sep 2, 2021 on 4h, and between Jul 31, 2021 and Aug 27, 2021 on daily. Without that stretch, chance.",
-  "On daily, going long as Momentum(10) crossed up through 0 did 2.21% worse than random after 20 days. The gap comes from SOL signals between Sep 5, 2022 and Oct 28, 2022. SOL alone did 5.18% worse, and without that stretch the result is chance.",
-  "Staying long while daily Momentum(10) was above 0 beat random by 1.92%. Shorting while it was below 0 beat random by 2.07%. Both rest on one long stretch: 287 entries between Dec 18, 2020 and Apr 21, 2022 on the long side, and 198 entries between Jul 31, 2025 and Jul 2, 2026 on the short side. Neither result showed at 50 or 100 candles.",
-  "For a long DCA bot on 1h or 4h, the zero cross adds no timing, so the take profit and DCA orders do the work. Leave the daily zero cross out of a long start condition. The 1h cross of the 90th percentile marks candles after which price moved further, so test it as a filter beside other conditions and set TP and DCA steps against those bigger moves. Do not read it as a signal for direction."
+  "On 1h, Momentum(10) crossing up its 90th percentile gave 4,856 entries in 2,307 separate moves. Twenty candles later, price was 0.19% ahead of random entries, above a luck band that tops out at 0.12%. The gap holds without its strongest stretch, Feb 17–19, 2021, and at 10 candles, but not at 50 or 100. These signals fire mostly in volatile candles. Price moved more after them in a window that rose, which reflects their timing, not a pick of direction.",
+  "The 1h result comes from downtrends. With the pair below its 200-day SMA, the cross beat random by 0.28%. Above it, the gap was 0.06%, inside the band. By coin, SOL carried it at 0.31%, ETH reached 0.19% only because of signals on Feb 24–25, 2026, and BTC showed nothing.",
+  "On 4h the same cross beat random by 0.40%, just past the band's 0.39%, and the gap disappears without signals between Aug 27 and Sep 2, 2021. On daily it was 4.82% ahead, but only because of signals between Jul 31 and Aug 27, 2021. In daily uptrends the gap is the same and just as fragile. In daily downtrends it shows nothing.",
+  "The zero line shows nothing on 1h or 4h. On 1h, Momentum(10) crossing up 0 gave 12,560 entries and ended 0.04% ahead of random, inside the band. A bot that enters on every candle above 0 gets about six and a half times as many entries and lands in the same place. Both sides sit inside the band in both regimes.",
+  "Every daily result on the zero line comes from a single stretch. Crossing up 0 did 2.21% worse than random, all from signals between Sep 5 and Oct 28, 2022, and SOL alone was 5.18% worse. Staying above 0 beat random by 1.92% across only 30 moves, and one stretch between Dec 18, 2020 and Apr 21, 2022 held 287 of its entries. On the short side, staying below 0 beat random by 2.07% because of a stretch between Jul 31, 2025 and Jul 2, 2026. In daily downtrends, neither level showed anything.",
+  "For a long DCA bot, the zero line adds no timing on 1h or 4h, so you can leave it out. On 1h, price moved further after a cross up the 90th percentile, mostly in downtrends, and the gap is gone by 50 candles. If you use it, treat it as a filter beside a trend condition, and pair it with a take profit that can fill within about 20 candles, not DCA orders that wait. It breaks in uptrends, where it showed nothing."
  ],
  "summaryRefs": [
   {
@@ -2697,24 +3176,54 @@
    "scope": "pooled"
   },
   {
+   "tf": "4h",
+   "setting": "mom10-up0",
+   "scope": "pooled"
+  },
+  {
    "tf": "1h",
    "setting": "mom10-down0",
    "scope": "pooled"
   },
   {
    "tf": "4h",
-   "setting": "mom10-up0",
+   "setting": "mom10-down0",
+   "scope": "pooled"
+  },
+  {
+   "tf": "1h",
+   "setting": "mom10-gt0",
    "scope": "pooled"
   },
   {
    "tf": "4h",
-   "setting": "mom10-down0",
+   "setting": "mom10-gt0",
+   "scope": "pooled"
+  },
+  {
+   "tf": "1h",
+   "setting": "mom10-lt0",
+   "scope": "pooled"
+  },
+  {
+   "tf": "4h",
+   "setting": "mom10-lt0",
    "scope": "pooled"
   },
   {
    "tf": "1h",
    "setting": "mom10-up-p90",
    "scope": "pooled"
+  },
+  {
+   "tf": "1h",
+   "setting": "mom10-up-p90",
+   "scope": "up"
+  },
+  {
+   "tf": "1h",
+   "setting": "mom10-up-p90",
+   "scope": "down"
   }
  ],
  "verdictRefs": [
@@ -2745,6 +3254,11 @@
     "tf": "*",
     "setting": "mom10-down0",
     "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "mom10-down0",
+    "scope": "up"
    }
   ],
   [
@@ -2757,6 +3271,16 @@
     "tf": "*",
     "setting": "mom10-lt0",
     "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "mom10-gt0",
+    "scope": "up"
+   },
+   {
+    "tf": "1d",
+    "setting": "mom10-lt0",
+    "scope": "up"
    }
   ],
   [
@@ -2764,6 +3288,16 @@
     "tf": "1h",
     "setting": "mom10-up-p90",
     "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "mom10-up-p90",
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "mom10-up-p90",
+    "scope": "down"
    },
    {
     "tf": "4h",
@@ -2781,17 +3315,7 @@
   [
    {
     "tf": "1h",
-    "setting": "mom10-up0",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1h",
-    "setting": "mom10-down0",
-    "scope": "pooled"
-   },
-   {
-    "tf": "4h",
-    "setting": "mom10-up0",
+    "setting": "mom10-up-p90",
     "scope": "pooled"
    }
   ],
@@ -2799,10 +3323,13 @@
    {
     "tf": "1h",
     "setting": "mom10-up-p90",
-    "scope": "pooled"
-   }
-  ],
-  [
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "mom10-up-p90",
+    "scope": "down"
+   },
    {
     "tf": "1h",
     "setting": "mom10-up-p90",
@@ -2817,7 +3344,9 @@
     "tf": "1h",
     "setting": "mom10-up-p90",
     "scope": "BTC"
-   },
+   }
+  ],
+  [
    {
     "tf": "4h",
     "setting": "mom10-up-p90",
@@ -2826,6 +3355,58 @@
    {
     "tf": "1d",
     "setting": "mom10-up-p90",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "mom10-up-p90",
+    "scope": "up"
+   },
+   {
+    "tf": "1d",
+    "setting": "mom10-up-p90",
+    "scope": "down"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "mom10-up0",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "mom10-gt0",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "mom10-up0",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "mom10-down0",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "mom10-down0",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "mom10-gt0",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "mom10-lt0",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "mom10-lt0",
     "scope": "pooled"
    }
   ],
@@ -2839,9 +3420,7 @@
     "tf": "1d",
     "setting": "mom10-up0",
     "scope": "SOL"
-   }
-  ],
-  [
+   },
    {
     "tf": "1d",
     "setting": "mom10-gt0",
@@ -2851,9 +3430,34 @@
     "tf": "1d",
     "setting": "mom10-lt0",
     "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "mom10-gt0",
+    "scope": "down"
+   },
+   {
+    "tf": "1d",
+    "setting": "mom10-lt0",
+    "scope": "down"
    }
   ],
   [
+   {
+    "tf": "1h",
+    "setting": "mom10-up-p90",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "mom10-up-p90",
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "mom10-up-p90",
+    "scope": "down"
+   },
    {
     "tf": "1h",
     "setting": "mom10-up0",
@@ -2862,16 +3466,6 @@
    {
     "tf": "4h",
     "setting": "mom10-up0",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1d",
-    "setting": "mom10-up0",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1h",
-    "setting": "mom10-up-p90",
     "scope": "pooled"
    }
   ]

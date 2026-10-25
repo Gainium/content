@@ -19,6 +19,10 @@
   ],
   "from": "2020-09-01",
   "warmupFrom": "2020-06-01",
+  "regime": {
+   "by": "pair close vs its 200-day SMA",
+   "sma": 200
+  },
   "to": "2026-10-24",
   "engine": {
    "indicators": "56f63e97",
@@ -179,6 +183,30 @@
      "chance": [
       -0.13,
       0.11
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 5765,
+     "episodes": 1490,
+     "draws": 100,
+     "edge": -0.04,
+     "chance": [
+      -0.07,
+      0.09
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 4728,
+     "episodes": 1222,
+     "draws": 100,
+     "edge": 0.05,
+     "chance": [
+      -0.08,
+      0.08
      ],
      "verdict": "none"
     }
@@ -385,6 +413,30 @@
       ]
      }
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 49831,
+     "episodes": 389,
+     "draws": 100,
+     "edge": 0.06,
+     "chance": [
+      -0.08,
+      0.08
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 30474,
+     "episodes": 356,
+     "draws": 100,
+     "edge": 0.02,
+     "chance": [
+      -0.09,
+      0.09
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -542,6 +594,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1430,
+     "episodes": 631,
+     "draws": 174,
+     "edge": -0.15,
+     "chance": [
+      -0.22,
+      0.24
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 1237,
+     "episodes": 558,
+     "draws": 202,
+     "edge": 0.07,
+     "chance": [
+      -0.21,
+      0.23
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -696,6 +772,30 @@
      "chance": [
       -0.67,
       0.67
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 260,
+     "episodes": 257,
+     "draws": 500,
+     "edge": 0.12,
+     "chance": [
+      -0.41,
+      0.39
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 240,
+     "episodes": 237,
+     "draws": 500,
+     "edge": -0.06,
+     "chance": [
+      -0.42,
+      0.4
      ],
      "verdict": "none"
     }
@@ -902,6 +1002,53 @@
       ]
      }
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 278,
+     "episodes": 276,
+     "draws": 500,
+     "edge": 0.34,
+     "chance": [
+      -0.4,
+      0.39
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 225,
+     "episodes": 222,
+     "draws": 500,
+     "edge": 0.41,
+     "chance": [
+      -0.36,
+      0.39
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 2,
+       "start": "2025-04-06",
+       "end": "2025-04-06",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
    }
   },
   {
@@ -1056,6 +1203,30 @@
      "chance": [
       -0.74,
       0.72
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 237,
+     "episodes": 226,
+     "draws": 500,
+     "edge": 0.3,
+     "chance": [
+      -0.46,
+      0.43
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 230,
+     "episodes": 226,
+     "draws": 500,
+     "edge": -0.02,
+     "chance": [
+      -0.4,
+      0.39
      ],
      "verdict": "none"
     }
@@ -1215,6 +1386,53 @@
       0.5
      ],
      "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1331,
+     "episodes": 368,
+     "draws": 187,
+     "edge": -0.21,
+     "chance": [
+      -0.39,
+      0.35
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 1110,
+     "episodes": 319,
+     "draws": 225,
+     "edge": 0.31,
+     "chance": [
+      -0.41,
+      0.29
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 4,
+       "start": "2022-12-30",
+       "end": "2023-01-01",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
     }
    }
   },
@@ -1465,6 +1683,53 @@
       ]
      }
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 14036,
+     "episodes": 106,
+     "draws": 100,
+     "edge": 0.44,
+     "chance": [
+      -0.32,
+      0.4
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 350,
+       "start": "2021-07-29",
+       "end": "2021-09-27",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 5957,
+     "episodes": 94,
+     "draws": 100,
+     "edge": 0.33,
+     "chance": [
+      -0.57,
+      0.63
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -1619,6 +1884,53 @@
      "chance": [
       -1.52,
       1.74
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 292,
+     "episodes": 138,
+     "draws": 500,
+     "edge": -1.1,
+     "chance": [
+      -1,
+      1.04
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 3,
+       "start": "2021-02-24",
+       "end": "2021-02-25",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 272,
+     "episodes": 136,
+     "draws": 500,
+     "edge": 0.66,
+     "chance": [
+      -1.03,
+      0.99
      ],
      "verdict": "none"
     }
@@ -1779,6 +2091,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 49,
+     "episodes": 49,
+     "draws": 500,
+     "edge": -1.23,
+     "chance": [
+      -1.78,
+      2
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 61,
+     "episodes": 61,
+     "draws": 500,
+     "edge": 0.86,
+     "chance": [
+      -1.42,
+      1.62
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -1933,6 +2269,30 @@
      "chance": [
       -2.89,
       2.66
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 61,
+     "episodes": 61,
+     "draws": 500,
+     "edge": -0.51,
+     "chance": [
+      -1.6,
+      1.78
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 51,
+     "episodes": 50,
+     "draws": 500,
+     "edge": -0.21,
+     "chance": [
+      -1.84,
+      1.85
      ],
      "verdict": "none"
     }
@@ -2093,6 +2453,30 @@
      ],
      "verdict": "none"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 47,
+     "episodes": 47,
+     "draws": 500,
+     "edge": -1.26,
+     "chance": [
+      -1.85,
+      2.01
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 56,
+     "episodes": 55,
+     "draws": 500,
+     "edge": -0.37,
+     "chance": [
+      -1.6,
+      1.5
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -2247,6 +2631,30 @@
      "chance": [
       -4.09,
       4.72
+     ],
+     "verdict": "none"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 189,
+     "episodes": 67,
+     "draws": 500,
+     "edge": -2.22,
+     "chance": [
+      -3.13,
+      2.73
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 181,
+     "episodes": 62,
+     "draws": 500,
+     "edge": 2,
+     "chance": [
+      -2.62,
+      2.64
      ],
      "verdict": "none"
     }
@@ -2407,6 +2815,30 @@
      ],
      "verdict": "few"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 3264,
+     "episodes": 24,
+     "draws": 100,
+     "edge": -0.58,
+     "chance": [
+      -0.78,
+      0.71
+     ],
+     "verdict": "few"
+    },
+    "down": {
+     "entries": 63,
+     "episodes": 37,
+     "draws": 500,
+     "edge": 2.59,
+     "chance": [
+      -6.74,
+      8.58
+     ],
+     "verdict": "none"
+    }
    }
   },
   {
@@ -2563,6 +2995,30 @@
       14.72
      ],
      "verdict": "few"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 0,
+     "episodes": 0,
+     "draws": 0,
+     "edge": 0,
+     "chance": [
+      0,
+      0
+     ],
+     "verdict": "few"
+    },
+    "down": {
+     "entries": 63,
+     "episodes": 37,
+     "draws": 500,
+     "edge": 2.59,
+     "chance": [
+      -6.74,
+      8.58
+     ],
+     "verdict": "none"
     }
    }
   },
@@ -2721,6 +3177,48 @@
      ],
      "verdict": "few"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 17,
+     "episodes": 17,
+     "draws": 500,
+     "edge": 6.39,
+     "chance": [
+      -9.89,
+      12.07
+     ],
+     "verdict": "few"
+    },
+    "down": {
+     "entries": 1,
+     "episodes": 1,
+     "draws": 500,
+     "edge": 55.16,
+     "chance": [
+      -29.29,
+      39.47
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": null,
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
    }
   },
   {
@@ -2875,6 +3373,30 @@
      "chance": [
       -23.93,
       20.83
+     ],
+     "verdict": "few"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1,
+     "episodes": 1,
+     "draws": 500,
+     "edge": -17.95,
+     "chance": [
+      -33.85,
+      26.27
+     ],
+     "verdict": "few"
+    },
+    "down": {
+     "entries": 17,
+     "episodes": 17,
+     "draws": 500,
+     "edge": -1.1,
+     "chance": [
+      -9.35,
+      7.76
      ],
      "verdict": "few"
     }
@@ -3035,49 +3557,68 @@
      ],
      "verdict": "few"
     }
+   },
+   "regimes": {
+    "up": {
+     "entries": 11,
+     "episodes": 11,
+     "draws": 500,
+     "edge": 4.87,
+     "chance": [
+      -13.48,
+      15.76
+     ],
+     "verdict": "few"
+    },
+    "down": {
+     "entries": 2,
+     "episodes": 2,
+     "draws": 500,
+     "edge": 10.53,
+     "chance": [
+      -17.51,
+      17.9
+     ],
+     "verdict": "few"
+    }
    }
   }
  ],
- "summary": "Mostly no. Price crossing up through EMA 20 or SMA 200 did no better than random candles on 1h, 4h or daily, and neither did the golden cross on 1h or 4h. Two results hold up: on 4h, long entries while price was above SMA 200 beat random by 0.64%, and on 1h, price fell 0.42% more than random after a death cross.",
+ "summary": "Mostly no. On 1h, 4h and daily, entries when price crossed up through EMA 20 or SMA 200 did no better than random candles, and neither did golden crosses on 1h and 4h. Two results hold up, and both carry caveats. On 4h, long entries while price was above its SMA 200 beat random entries by 0.64%. On 1h, the short after a death cross beat random by 0.42%, mostly because of SOL.",
  "verdicts": [
   {
-   "use": "Trend filter (price above SMA 200), 4h",
+   "use": "Buying the reclaim (price crosses up EMA 20)",
+   "verdict": "none",
+   "text": "No better than random entries on 1h, 4h or daily. The result sat inside the luck band on all three timeframes."
+  },
+  {
+   "use": "Trend filter (price above SMA 200)",
    "verdict": "edge",
-   "text": "Beat random entries by 0.64% on 4h. The result holds without its strongest stretch and at 10, 20, 50 and 100 candles."
+   "text": "On 4h, price kept rising after these entries more than after random candles, at 10, 20, 50 and 100 candles. On 1h the gap came from one stretch, and daily has too few moves to judge."
   },
   {
-   "use": "Trend filter (price above SMA 200), 1h",
-   "verdict": "fragile",
-   "text": "Only 0.07% ahead of random on 1h, and gone without the stretch between Jul 22, 2021 and Aug 24, 2021."
+   "use": "Golden cross (SMA 50 or EMA 50 crosses up the 200)",
+   "verdict": "none",
+   "text": "Inside the luck band on 1h and 4h, for both the SMA and EMA versions. Daily has too few crosses to judge."
   },
   {
-   "use": "Shorting the death cross (SMA 50 down through SMA 200)",
+   "use": "Buying the breakout (price crosses up SMA 200)",
+   "verdict": "none",
+   "text": "No better than random entries on 1h, 4h or daily."
+  },
+  {
+   "use": "Shorting the death cross (SMA 50 crosses down SMA 200)",
    "verdict": "edge",
-   "text": "On 1h, price fell 0.42% more than after random candles, and the result holds at 50 and 100 candles. On 4h the same short sits inside the luck band."
-  },
-  {
-   "use": "Golden cross (SMA 50 up through SMA 200)",
-   "verdict": "none",
-   "text": "No better than random on 1h or 4h. On daily there are too few crosses to judge."
-  },
-  {
-   "use": "Price crossing up EMA 20 or SMA 200",
-   "verdict": "none",
-   "text": "Inside the luck band on 1h, 4h and daily for both crosses."
-  },
-  {
-   "use": "EMA 50 crossing up EMA 200",
-   "verdict": "none",
-   "text": "No better than random on 1h or 4h. On daily there are too few crosses to judge."
+   "text": "On 1h, price fell further after the cross than after random candles, but SOL carries most of the result. On 4h it showed nothing."
   }
  ],
  "notes": [
-  "Holding long while price was above SMA 200 on 4h gave 20,476 entries in 171 separate moves. Twenty candles later they were 0.64% ahead of random entries, above the luck band. The result holds without its strongest stretch, between Jan 1, 2021 and May 21, 2021, and it shows at 10, 20, 50 and 100 candles. Split by coin it is fragile: BTC, ETH and SOL each lose it without their own strongest stretch.",
-  "On 1h the same condition beat random by only 0.07%, just above the band. Its strongest stretch is on SOL, between Jul 22, 2021 and Aug 24, 2021, and without it the result is chance. At 100 candles it is chance as well. On daily it has 25 separate moves, under the 30 needed for a verdict.",
-  "After SMA 50 crossed down through SMA 200 on 1h, price fell 0.42% more than after random candles over 20 candles. The result holds without its strongest episode and at 50 and 100 candles, but at 10 candles it is chance. SOL alone shows it, at 0.87%, while BTC and ETH alone sit inside the band. On 4h the same short is inside the band.",
-  "The golden cross did no better than random: 0.07% on 1h and 0.03% on 4h, both inside the band. On daily it gave 18 crosses across the three pairs, too few to judge. EMA 50 crossing up EMA 200 lands inside the band on 1h and 4h too.",
-  "Price crossing up through EMA 20 gave 10,773 entries on 1h, about four times as many as on 4h. It did not beat random on either timeframe, or on daily. Price crossing up through SMA 200 was inside the band on all three timeframes as well.",
-  "For a long DCA bot, price above SMA 200 on 4h is the one condition here worth testing as a filter beside your own entry signal. Each coin alone loses it without its strongest stretch, so check it on your pair. The crosses add nothing to entry timing on these pairs, so the take profit and DCA orders do the work. After a 1h death cross, the extra drop did not show within 10 candles, so a short bot with a tight take profit would close before it."
+  "On 1h, price crossing up through EMA 20 gave 10,773 entries in 2,753 separate moves. Twenty candles later, these entries were 0.01% behind random entries, inside the luck band. The 1h cross fires about four times as often as the 4h one, and the 4h cross also lands inside the band, at 0.04%. In downtrends on 4h the cross ran 0.31% ahead, but only because of signals between Dec 30, 2022 and Jan 1, 2023. Without them, the result is chance.",
+  "On 4h, long entries while price was above its SMA 200 beat random entries by 0.64%. The gap holds without its strongest stretch, between Jan 1, 2021 and May 21, 2021, and it shows at 10, 20, 50 and 100 candles. On BTC, ETH and SOL taken one at a time, though, it is fragile: each pair loses the result without its strongest early stretch. The 4h condition holds for long runs, so its 20,476 entries come from only 171 separate moves.",
+  "The SMA 200 result splits by trend. While the pair was above its 200-day SMA, the 4h condition ran 0.44% ahead, but it vanishes without the stretch between Jul 29, 2021 and Sep 27, 2021. Below the 200-day SMA it was 0.33% ahead, inside the band. On 1h the same condition was 0.07% ahead, and that gap came from SOL's signals between Jul 22, 2021 and Aug 24, 2021.",
+  "Shorting the 1h death cross beat random short entries by 0.42% after 20 candles, over 509 separate moves. The result held without its strongest signal on May 20, 2021, and it shows at 20, 50 and 100 candles but not at 10. SOL carries it, at 0.87%, while BTC at 0.16% and ETH at 0.27% sit inside the band. Split by trend, neither side holds it: above the 200-day SMA it was 0.34%, inside the band. Below it was 0.41%, but that result is gone without the signals on Apr 6, 2025.",
+  "Golden crosses showed nothing. On 1h, SMA 50 crossing up SMA 200 was 0.07% ahead of random and the EMA version 0.15%, both inside the band. On 4h they were 0.03% ahead and 0.91% behind, also inside. On daily there were only 18 and 13 crosses, too few to judge. Price crossing up SMA 200 looked worse on 4h in uptrends, at 1.1% behind, but only because of signals on Feb 24–25, 2021.",
+  "For a long DCA bot, price above the 4h SMA 200 is a filter to test beside your own entry condition, not an entry on its own. Because each pair on its own needed one early stretch, check it on your pair before you rely on it. EMA 20 crosses and golden crosses added nothing to entry timing here, so the DCA orders and take profit do the work, and you lose nothing by leaving them out. A short bot that opens on the 1h death cross is mostly trading SOL's behaviour."
  ],
  "summaryRefs": [
   {
@@ -3109,32 +3650,35 @@
    "tf": "1h",
    "setting": "sma50-down-sma200-short",
    "scope": "pooled"
+  },
+  {
+   "tf": "1h",
+   "setting": "sma50-down-sma200-short",
+   "scope": "SOL"
   }
  ],
  "verdictRefs": [
   [
    {
+    "tf": "*",
+    "setting": "ema20-down-price",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
     "tf": "4h",
     "setting": "sma200-lt-price",
-    "scope": "pooled"
-   }
-  ],
-  [
-   {
-    "tf": "1h",
-    "setting": "sma200-lt-price",
-    "scope": "pooled"
-   }
-  ],
-  [
-   {
-    "tf": "1h",
-    "setting": "sma50-down-sma200-short",
     "scope": "pooled"
    },
    {
-    "tf": "4h",
-    "setting": "sma50-down-sma200-short",
+    "tf": "1h",
+    "setting": "sma200-lt-price",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "sma200-lt-price",
     "scope": "pooled"
    }
   ],
@@ -3153,14 +3697,24 @@
     "tf": "1d",
     "setting": "sma50-up-sma200",
     "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "ema50-up-ema200",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "ema50-up-ema200",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "ema50-up-ema200",
+    "scope": "pooled"
    }
   ],
   [
-   {
-    "tf": "*",
-    "setting": "ema20-down-price",
-    "scope": "pooled"
-   },
    {
     "tf": "*",
     "setting": "sma200-down-price",
@@ -3170,17 +3724,17 @@
   [
    {
     "tf": "1h",
-    "setting": "ema50-up-ema200",
+    "setting": "sma50-down-sma200-short",
     "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "sma50-down-sma200-short",
+    "scope": "SOL"
    },
    {
     "tf": "4h",
-    "setting": "ema50-up-ema200",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1d",
-    "setting": "ema50-up-ema200",
+    "setting": "sma50-down-sma200-short",
     "scope": "pooled"
    }
   ]
@@ -3188,6 +3742,23 @@
  "noteRefs": [
   [
    {
+    "tf": "1h",
+    "setting": "ema20-down-price",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "ema20-down-price",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "ema20-down-price",
+    "scope": "down"
+   }
+  ],
+  [
+   {
     "tf": "4h",
     "setting": "sma200-lt-price",
     "scope": "pooled"
@@ -3210,6 +3781,16 @@
   ],
   [
    {
+    "tf": "4h",
+    "setting": "sma200-lt-price",
+    "scope": "up"
+   },
+   {
+    "tf": "4h",
+    "setting": "sma200-lt-price",
+    "scope": "down"
+   },
+   {
     "tf": "1h",
     "setting": "sma200-lt-price",
     "scope": "pooled"
@@ -3218,11 +3799,6 @@
     "tf": "1h",
     "setting": "sma200-lt-price",
     "scope": "SOL"
-   },
-   {
-    "tf": "1d",
-    "setting": "sma200-lt-price",
-    "scope": "pooled"
    }
   ],
   [
@@ -3247,24 +3823,19 @@
     "scope": "ETH"
    },
    {
-    "tf": "4h",
+    "tf": "1h",
     "setting": "sma50-down-sma200-short",
-    "scope": "pooled"
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "sma50-down-sma200-short",
+    "scope": "down"
    }
   ],
   [
    {
     "tf": "1h",
-    "setting": "sma50-up-sma200",
-    "scope": "pooled"
-   },
-   {
-    "tf": "4h",
-    "setting": "sma50-up-sma200",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1d",
     "setting": "sma50-up-sma200",
     "scope": "pooled"
    },
@@ -3275,57 +3846,50 @@
    },
    {
     "tf": "4h",
-    "setting": "ema50-up-ema200",
-    "scope": "pooled"
-   }
-  ],
-  [
-   {
-    "tf": "1h",
-    "setting": "ema20-down-price",
+    "setting": "sma50-up-sma200",
     "scope": "pooled"
    },
    {
     "tf": "4h",
-    "setting": "ema20-down-price",
+    "setting": "ema50-up-ema200",
     "scope": "pooled"
    },
    {
     "tf": "1d",
+    "setting": "sma50-up-sma200",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "ema50-up-ema200",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "sma200-down-price",
+    "scope": "up"
+   }
+  ],
+  [
+   {
+    "tf": "4h",
+    "setting": "sma200-lt-price",
+    "scope": "pooled"
+   },
+   {
+    "tf": "*",
     "setting": "ema20-down-price",
     "scope": "pooled"
    },
    {
     "tf": "*",
-    "setting": "sma200-down-price",
+    "setting": "sma50-up-sma200",
     "scope": "pooled"
-   }
-  ],
-  [
-   {
-    "tf": "4h",
-    "setting": "sma200-lt-price",
-    "scope": "pooled"
-   },
-   {
-    "tf": "4h",
-    "setting": "sma200-lt-price",
-    "scope": "BTC"
-   },
-   {
-    "tf": "4h",
-    "setting": "sma200-lt-price",
-    "scope": "ETH"
-   },
-   {
-    "tf": "4h",
-    "setting": "sma200-lt-price",
-    "scope": "SOL"
    },
    {
     "tf": "1h",
     "setting": "sma50-down-sma200-short",
-    "scope": "pooled"
+    "scope": "SOL"
    }
   ]
  ]
