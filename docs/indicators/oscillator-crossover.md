@@ -6,7 +6,7 @@ description: >-
   Use Oscillator Crossovers in Gainium to automate trading strategies with RSI,
   MFI, and CCI, across different timeframes for accurate momentum signals.
 createdAt: '2024-10-06T07:49:29.870Z'
-updatedAt: '2026-02-24T07:44:20.578Z'
+updatedAt: '2026-10-25T00:00:00.000Z'
 publishedAt: '2024-10-06T08:03:08.923Z'
 locale: en
 categories:
@@ -15,11 +15,15 @@ difficulty: intermediate
 tags: []
 ingested: true
 ingestedAt: '2025-06-29T10:57:30.018Z'
+templateVersion: 2
 tldr: >-
-  The Oscillator Crossover indicator combines two oscillators (RSI, MFI, CCI) to
-  generate trading signals when one crosses above or below the other,
-  identifying momentum shifts and trend changes. It can be configured with
-  customizable lengths, timeframes, and crossover conditions.
+  Oscillator Crossover is a Gainium condition that fires when one oscillator
+  crosses another: RSI, MFI, CCI or the Volume Oscillator, each with its own
+  length and interval. The default compares RSI 7 with MFI 14 on 1-hour
+  candles, crossing down. Because RSI uses only price and MFI adds volume, the
+  cross shows when price momentum and money flow disagree. On BTC/USDT 1h,
+  RSI 7 crosses above MFI 14 on about one candle in ten, so most bots pair it
+  with a level filter.
 kind: native
 catalogKeys:
   - XO
@@ -28,95 +32,162 @@ aliases:
   - "Oscillator Crossover"
   - "Oscillator XO"
   - "XO"
+  - "RSI MFI crossover"
+faq:
+  - title: Which oscillators can I compare?
+    details: >-
+      RSI, MFI, CCI and the Volume Oscillator, in any pair, including the same
+      oscillator twice with different lengths or intervals. RSI and MFI share a
+      0 to 100 scale, so their cross is meaningful at any level. CCI and the
+      Volume Oscillator use other scales, so pair each with itself.
+  - title: Can I compare RSI on two timeframes?
+    details: >-
+      Yes. Pick RSI as both oscillators and give the secondary a longer
+      interval, for example RSI 14 on 1 hour crossing up RSI 14 on 4 hours.
+      On BTC/USDT that cross fires about two thirds as often as the default
+      pair on 1 hour, so it needs a filter just as much as the default does.
+  - title: Why does the default fire so often?
+    details: >-
+      RSI 7 and MFI 14 move around the same middle and cross whenever they
+      disagree by a little. On BTC/USDT the pair crosses up on about one
+      candle in ten, on 1-hour and 4-hour candles alike, so the 1-hour chart
+      gives about four times as many signals. Add an RSI or MFI
+      level condition to keep only the crosses near an extreme.
+  - title: Does the crossover look at closed candles?
+    details: >-
+      Yes. Each oscillator is read on the closed candles of its own interval.
+      When the secondary uses a longer interval, its value stays fixed until
+      its next candle closes.
+related:
+  - rsi
+  - mfi
+  - cci
+  - volume-oscillator
+sources:
+  - title: J. Welles Wilder Jr., RSI (1978), via StockCharts ChartSchool
+    url: https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/relative-strength-index-rsi
+  - title: StockCharts ChartSchool, Money Flow Index (MFI)
+    url: https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/money-flow-index-mfi
+  - title: Binance BTC/USDT 1h and 4h candles, computed with Gainium's indicator engine
 ---
 
-The Oscillator crossover is a powerful tool in technical analysis that combines two oscillators to generate trading signals. By comparing the relative movements of oscillators like RSI (Relative Strength Index), MFI (Money Flow Index), and CCI, traders can identify potential trend changes and overbought/oversold conditions. Oscillator crossovers are frequently used to spot shifts in momentum, helping traders make well-timed entry and exit decisions.
+Oscillator Crossover fires when one oscillator crosses another, for example RSI crossing above the Money Flow Index. Bots use it to time momentum turns: the default pair compares price momentum (RSI) with volume-weighted momentum (MFI), and a cross shows the moment the two disagree.
 
-This article will define the **Oscillator Crossover** indicator, explain how to use it in Gainium, and offer examples of trading strategies for incorporating it into bot trading, including detailed entry and exit rules. Additionally, we'll cover practical considerations for its effective use and conclude with a summary of its strengths in trading.
+## What is the Oscillator Crossover
 
-## What Are Oscillator Crossovers?
+It is a Gainium condition that compares two oscillators, each with its own length and interval. The primary oscillator is the one that "crosses"; the secondary is the reference. The four choices:
 
-Oscillator crossovers occur when one oscillator crosses above or below another oscillator. For example, in a bullish crossover, the RSI (Relative Strength Index) may cross above the Money Flow Index (MFI), signaling upward momentum. Similarly, a bearish crossover occurs when the RSI crosses below the MFI, indicating downward momentum.
+- **RSI (Relative Strength Index):** average gains against average losses over *n* closes, on a 0 to 100 scale. J. Welles Wilder Jr., 1978.
+- **MFI (Money Flow Index):** the same idea as RSI, but each candle's move is weighted by `typical price × volume`, where typical price is `(high + low + close) / 3`. Also 0 to 100.
+- **CCI (Commodity Channel Index):** distance of typical price from its average, in units of mean deviation. It has no fixed range; most readings fall between −200 and +200.
+- **VO (Volume Oscillator):** the percentage gap between a short and a long average of volume (5 and 10 by default).
 
-### Key Oscillators Used in Crossover Strategies:
-- [**RSI**](https://gainium.io/indicators/rsi)** (Relative Strength Index)**: Measures the speed and change of price movements to identify overbought or oversold conditions.- [**MFI**](https://gainium.io/indicators/mfi)** (Money Flow Index)**: A momentum indicator that uses price and volume data to indicate overbought or oversold conditions.- [**CCI**](https://gainium.io/indicators/cci)** (Commodity Channel Index)**: Identifies cyclical trends, typically used to detect overbought/oversold levels.
+How to read it:
 
-## **How to Use Oscillator Crossovers in Gainium**
+- **Crossing up:** the primary moved above the secondary on this candle. With RSI over MFI, price momentum turned up faster than money flow.
+- **Crossing down:** the reverse.
+- **Greater than / Lower than:** a state, true on every candle where the primary is above or below.
+- **Mixed scales:** RSI and MFI share a scale, so their cross means something at any level. CCI and VO do not share it with RSI or MFI; compare each with itself on two lengths or intervals.
 
-### **Step 1: Add the Oscillator Crossover Indicator**
-- **Access the Bot Settings**:Go to the bot configuration and choose **Oscillator Crossover** from the list of indicators.
-- **Select Oscillators**:Choose two oscillators to compare, such as **RSI** and **MFI**, or **RSI** and **CCI**.
-- **Configure Lengths and Intervals**:Set the length for each oscillator (e.g., 7 for RSI and 14 for MFI) and choose the timeframe (e.g., 1-hour interval) for the crossover signals.
-- You can also use the same Oscillator at different intervals to detect reversals and breakouts (for example, when the RSI 14 1H crosses up RSI 14 4H).
-- **Set Crossover Condition**:Depending on your trading strategy, choose the condition for when the crossover happens, such as **Crossing Down** or **Crossing Up**.
-- **Keep True Option**:Use the “Keep true” setting to define how long the condition remains valid after the crossover happens (default is 0, meaning the condition is reset immediately after the crossover).
+The default pair is busy. On BTC/USDT, RSI 7 crosses above MFI 14 on about one candle in ten, so on 1-hour candles it fires about four times as often as on 4-hour candles.
 
-![image.png](https://content.gainium.io/images/content/help/image_88e9c32848-f54330.webp)
-*Oscillator Crossover settings*
+![Gainium bot-form chart, BTC/USDT perpetual on a Bybit paper account, 4h: the Oscillator crossover pane shows RSI 7 in purple and MFI 14 in red, crossing every several candles](https://content.gainium.io/images/content/indicators/oscillator-crossover__chart.webp)
 
-### **Step 2: Interpret the Signals**
-- **Crossing Up**: Indicates the first oscillator (e.g., RSI) crosses above the second (e.g., MFI or CCI), signaling upward momentum.
-- **Crossing Down**: Indicates the first oscillator crosses below the second, signaling downward momentum.
+### Settings and tips
 
-## **Using Oscillator Crossovers in Bot Trading**
+| Setting | Default | What it does |
+| --- | --- | --- |
+| Primary oscillator | Relative Strength Index (RSI) | The line that crosses: RSI, MFI, CCI or the Volume Oscillator. |
+| Interval | 1 hour | Candle size of the primary oscillator, from 1 minute to 1 week. |
+| Primary length | 7 | Length of the primary oscillator. Hidden for the Volume Oscillator. |
+| Volume oscillator short length | 5 | Volume Oscillator as primary only: the short volume average. |
+| Volume oscillator long length | 10 | Volume Oscillator as primary only: the long volume average. |
+| Condition | Crossing down | Crossing up and Crossing down fire on the candle where the primary passes the secondary. Greater than and Lower than hold on every candle on that side. |
+| Secondary oscillator | Money Flow Index (MFI) | The reference line the primary is compared with. |
+| Secondary interval | 1 hour | Candle size of the secondary oscillator. It can differ from Interval. |
+| Secondary length | 14 | Length of the secondary oscillator. Hidden for the Volume Oscillator. |
+| Volume oscillator short length | 5 | Volume Oscillator as secondary only: the short volume average. |
+| Volume oscillator long length | 10 | Volume Oscillator as secondary only: the long volume average. |
+| Keep true | 0 | Extra candles the condition stays true after it fires, so it can meet a slower condition in the same group. |
 
-Here are two trading strategies that can be implemented using oscillator crossovers in Gainium.
+**Tip:** The default pair crosses often: on BTC/USDT 1h, RSI 7 crosses up through MFI 14 on about one candle in ten. **Primary length** 14 cuts that by about a quarter. Moving both intervals to 4 hours leaves about a quarter as many signals as on 1 hour, and under a fifth with Primary length 14.
 
-### **Strategy 1: Momentum Crossover Strategy**
+**Tip:** With a **Secondary interval** longer than Interval, each primary candle is compared with the secondary's value on its last closed candle, which changes only once per secondary candle. The bot-form chart draws the secondary line the same way, so you see both lines at the primary's interval, as the bot reads them.
 
-**Entry Rules**
+**Tip:** CCI and the Volume Oscillator do not share the 0 to 100 scale of RSI and MFI. RSI crossing CCI only says that CCI passed a number between 0 and 100. Cross CCI with CCI on two lengths instead.
 
-**Long Entry (Buy)**:
-- **RSI (7)** crosses **above** **MFI (14)** on a 1-hour timeframe, signaling increasing buying pressure.
-- **Short Entry (Sell)**:
-- **RSI** crosses **below** **MFI**, indicating weakening momentum.
+## Trading setups for bots
 
-**Exit Rules**
-- **Long Exit**: Exit when RSI crosses **below** MFI, signaling a momentum reversal.
-- **Short Exit**: Exit when RSI crosses **above** MFI, signaling bullish momentum.
+### Oversold turn with volume behind it
 
-**Implementation in Gainium**
-- **Configure the Indicator**:Add the **Oscillator Crossover** with **RSI** and **MFI** set to your preferred lengths and timeframes.
-- **Automate Entries/Exits**:Set your bot to execute long or short trades based on the crossover conditions and to exit when the opposite crossover occurs.
+- **Entry:** Oscillator Crossover, RSI length 7 crossing up MFI length 14, both on 4 hours. In the same group, AND: RSI (Length 7, 4 hours) Lower than 40, and MFI (Length 14, 4 hours) Lower than 40.
+- **Exit:** a 1.5% take profit, with DCA orders below.
+- **Settings:** RSI 7 and MFI 14, the defaults. The level conditions keep only the crosses from the lower part of the range.
+- **Timeframe:** 4 hours. On BTC/USDT the filtered setup fires about a quarter as often as the unfiltered 4-hour cross.
+- **When it fails:** in a steady decline, where the oscillators cross near 30 again and again. About two thirds (67%) of the filtered entries reached +1.5% within 18 bars. A buy on any 4h candle did that 64% of the time, so the filtered cross added only 3 points. In the example on the chart, it bought 81,190 and price fell 2.4% within six bars.
 
-### **Strategy 2: Trend Reversal Crossover Strategy**
+![Annotated Oscillator Crossover chart, BTC/USDT 4h: RSI 34 crosses above MFI 30 below the 40 line and the 1.5% take profit fills on the next bar; a later signal of the same kind is followed by a 2.4% drop](https://content.gainium.io/images/content/indicators/oscillator-crossover__oversold.webp)
 
-**Entry Rules**
-- **Long Entry (Buy)**:
-- **CCI** crosses **above** **RSI** when RSI is below 30 (indicating oversold conditions).
-- **Short Entry (Sell)**:
-- **CCI** crosses **below** **RSI** when RSI is above 70 (indicating overbought conditions).
+### Close when momentum rolls over
 
-**Exit Rules**
-- **Long Exit**: Exit when CCI crosses back below RSI, signaling a weakening bullish trend.
-- **Short Exit**: Exit when CCI crosses back above RSI, signaling a weakening bearish trend.
+Use the opposite cross as the exit of a long deal, but only from the upper part of the range.
 
-**Implementation in Gainium**
-- **Set Up the CCI and RSI Crossover**:Configure the bot to use **CCI** as Oscillator 1 and **RSI** as Oscillator 2, adjusting the lengths and intervals according to your strategy.
-- **Backtest**:Test this strategy on different assets using Gainium’s backtesting feature to confirm its effectiveness.
+- **Entry:** any start condition; the setup is an exit.
+- **Exit:** Take profit type Technical indicators: Oscillator Crossover, RSI 7 crossing down MFI 14 on 4 hours, AND RSI (Length 7, 4 hours) Greater than 60.
+- **Settings:** the defaults for both oscillators.
+- **Timeframe:** 4 hours, the same as the entry.
+- **When it fails:** when the two lines run side by side. In the example on the chart, they crossed six times in nine bars around 50, which is why the RSI 60 filter matters. Even with it, the cross is a weak sell signal: price was lower six bars later after only about half the filtered crosses. Set a percentage take profit as well, so the deal does not depend on the cross alone.
 
-## **Practical Considerations**
+![Annotated Oscillator Crossover chart, BTC/USDT 4h: RSI 65 crosses under MFI 69 above the 60 line and closes the deal near 83,670; later the lines cross six times in nine bars](https://content.gainium.io/images/content/indicators/oscillator-crossover__exit.webp)
 
-Here are a few key points to consider when using oscillator crossovers:
+## Using Oscillator Crossover in Gainium
 
-**1. Experiment with Timeframes**
+1. Create a DCA bot and switch the form to **Manual**.
+2. Set **Deal start condition** to **Indicators**, click **Edit**, then **Change indicator**, and search for **Crossover**.
+3. Pick **Oscillator Crossover**, set the fields, and click **Done**. Add the RSI and MFI level conditions to the same group with **+ Indicator**.
 
-Different timeframes can yield very different signals. For example, a 1-hour crossover may work well for short-term trades, while a 4-hour or daily crossover might be more effective for longer-term positions.
+![Gainium indicator picker searched for Crossover, with the Oscillator Crossover card ringed](https://content.gainium.io/images/content/indicators/oscillator-crossover__picker.webp)
 
-**2. Avoid False Signals**
+The fields and their defaults:
 
-Shorter timeframes or low lengths (e.g., 7-period RSI) can lead to frequent signals that may not be reliable. To minimize false signals, consider combining oscillator crossovers with additional filters like trend indicators (e.g., moving averages).
+- **Primary oscillator:** Relative Strength Index (RSI). Or MFI, CCI, Volume Oscillator (VO).
+- **Interval:** 1 hour, for the primary oscillator.
+- **Primary length:** 7. With VO, two fields replace it: **Volume oscillator short length** 5 and **long length** 10.
+- **Condition:** Crossing down. The options are Crossing down, Crossing up, Greater than and Lower than.
+- **Secondary oscillator:** Money Flow Index (MFI).
+- **Secondary interval:** 1 hour. It can differ from the primary's interval.
+- **Secondary length:** 14, or VO short 5 and long 10.
+- **Keep true:** 0 extra candles.
 
-**3. Combine with Other Indicators**
+The bot-form chart draws both lines on the primary's interval. With a longer Secondary interval, the secondary line holds each value until its next candle closes, the same value the bot reads.
 
-To increase accuracy, use oscillator crossovers with other indicators, such as Bollinger Bands or moving averages, to confirm trends or reversals.
+Oscillator Crossover works as a deal start, DCA, take profit or stop loss condition, and in the Bot Controller.
 
-**4. Backtest Thoroughly**
+Example configuration for the first setup: Primary oscillator RSI, Interval 4 hours, Primary length 7, Condition Crossing up, Secondary oscillator MFI, Secondary interval 4 hours, Secondary length 14, Keep true 0.
 
-Make sure to backtest any crossover strategy on historical data before deploying it live. This helps refine parameters and optimize for market conditions.
+![Gainium Oscillator Crossover settings card with RSI 7 on 4 hours crossing up MFI 14 on 4 hours](https://content.gainium.io/images/content/indicators/oscillator-crossover__example.webp)
 
-## **Conclusion**
+## Related indicators
 
-Oscillator crossovers provide a robust method for detecting shifts in market momentum. Traders can generate high-quality entry and exit signals by combining oscillators like RSI, MFI, and CCI across various timeframes. Gainium allows you to automate these crossovers in bot trading, making it easy to react to market changes quickly.
+- [RSI](https://gainium.io/indicators/rsi): the default primary oscillator, and the level filter for both setups.
+- [Money Flow Index (MFI)](https://gainium.io/indicators/mfi): the default secondary; RSI with volume weighting.
+- [Commodity Channel Index (CCI)](https://gainium.io/indicators/cci): an unbounded oscillator to cross with itself on two lengths.
+- [Volume Oscillator](https://gainium.io/indicators/volume-oscillator): the only volume-only choice, for crossing short-term volume against a longer window.
 
-Whether looking for short-term momentum shifts or long-term trend reversals, oscillator crossovers offer a flexible approach to improve your trading strategies. Remember to experiment with settings, backtest thoroughly, and combine with other indicators to enhance your results.
+## FAQ
+
+### Which oscillators can I compare?
+
+RSI, MFI, CCI and the Volume Oscillator, in any pair, including the same oscillator twice with different lengths or intervals. RSI and MFI share a 0 to 100 scale, so their cross is meaningful at any level. CCI and the Volume Oscillator use other scales, so pair each with itself.
+
+### Can I compare RSI on two timeframes?
+
+Yes. Pick RSI as both oscillators and give the secondary a longer interval, for example RSI 14 on 1 hour crossing up RSI 14 on 4 hours. On BTC/USDT that cross fires about two thirds as often as the default pair on 1 hour, so it needs a filter just as much as the default does.
+
+### Why does the default fire so often?
+
+RSI 7 and MFI 14 move around the same middle and cross whenever they disagree by a little. On BTC/USDT the pair crosses up on about one candle in ten, on 1-hour and 4-hour candles alike, so the 1-hour chart gives about four times as many signals. Add an RSI or MFI level condition to keep only the crosses near an extreme.
+
+### Does the crossover look at closed candles?
+
+Yes. Each oscillator is read on the closed candles of its own interval. When the secondary uses a longer interval, its value stays fixed until its next candle closes.

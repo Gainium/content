@@ -6,7 +6,7 @@ description: >-
   In this article, we explain what is the ADX indicator and how it can be used
   in bot trading.
 createdAt: '2023-04-05T14:48:28.247Z'
-updatedAt: '2026-10-12T00:00:00.000Z'
+updatedAt: '2026-10-25T00:00:00.000Z'
 publishedAt: '2023-04-12T04:57:26.585Z'
 locale: en
 categories:
@@ -16,12 +16,15 @@ tags: []
 optimized: true
 ingested: true
 ingestedAt: '2025-06-29T10:57:29.984Z'
+templateVersion: 2
 tldr: >-
-  The Average Directional Index (ADX) measures trend strength on a 0–100 scale
-  without indicating direction; values above 25 suggest a strong trend, below 20
-  a weak or ranging market. It can be used for trend-following, range trading,
-  divergence, or breakout strategies, and is best combined with directional
-  indicators like RSI.
+  The Average Directional Index (ADX) measures how strongly price is trending,
+  on a 0 to 100 scale, without saying in which direction. Readings over 25
+  mean a trend, readings under 20 mean a range. Gainium's ADX condition
+  defaults to Length 14 on 1-hour candles, crossing down 20, and tests only
+  the ADX line, so a bot needs a second condition for direction. On BTC/USDT
+  4h, ADX(14) sits above 25 on about half of the candles and below 20 on a
+  little over a quarter of them.
 kind: native
 catalogKeys:
   - ADX
@@ -31,67 +34,171 @@ aliases:
   - "Average Directional Index"
   - "DMI"
   - "Directional Movement Index"
+faq:
+  - title: What ADX value means a strong trend?
+    details: >-
+      Wilder's rule of thumb is above 25 for a trend and below 20 for no
+      trend. On BTC/USDT 4h, ADX(14) is above 25 on about half of candles and
+      below 20 on a little over a quarter. Readings over 50 are rare and come
+      late in a move: the rally from 64,000 to 78,000 shown on this page
+      pushed it to about 69, near the top of the run.
+  - title: Does ADX tell me if the trend is up or down?
+    details: >-
+      No. ADX rises in a strong sell-off exactly as it does in a strong rally.
+      Direction comes from the +DI and −DI lines, which Gainium's ADX
+      condition does not expose. Pair ADX with a direction condition such as
+      SuperTrend Up trend or price above a moving average.
+  - title: What ADX settings should a crypto bot use?
+    details: >-
+      Keep Length 14 and choose the Interval for the trades you want. On
+      BTC/USDT, ADX(14) crosses up 25 about four and a half times as often on
+      1-hour candles as on 4-hour, and about five times as often on 4-hour as
+      on daily candles. Shorter lengths react faster but cross 25 on single
+      wide candles.
+  - title: Why is my ADX falling while price keeps rising?
+    details: >-
+      ADX measures how one-sided recent candles are, not how far price has
+      gone. When a rally continues with smaller, overlapping candles, ADX
+      falls. Traders read that as a trend losing force, not as a sell signal.
+related:
+  - supertrend
+  - bb
+  - moving-averages
+  - atr
+sources:
+  - title: J. Welles Wilder Jr., New Concepts in Technical Trading Systems (1978), via StockCharts ChartSchool, Average Directional Index (ADX)
+    url: https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/average-directional-index-adx
+  - title: TradingView Pine Script reference, ta.dmi
+    url: https://www.tradingview.com/pine-script-reference/v5/
+  - title: Gainium, Indicator Percentiles
+    url: https://gainium.io/help/indicator-percentiles
+  - title: Gainium, Indicator Smoothing
+    url: https://gainium.io/help/indicator-smoothing
+  - title: Binance BTC/USDT 1h, 4h and 1d candles, computed with Gainium's indicator engine
 ---
 
-The cryptocurrency market has seen a surge of interest in trading automation, as traders seek to minimize human error and capitalize on market opportunities more efficiently. One powerful technical indicator that can enhance trading bot performance is the Average Directional Index (ADX). In this article, we'll delve into the effective use of ADX in your automated trading strategy, focusing on the BTC/USDT pair.
+The Average Directional Index (ADX) measures how strongly price is trending, on a 0 to 100 scale, and says nothing about the direction. Bots use it as a switch: trend logic when ADX is above 25, range logic when it is below 20.
 
-## Understanding the ADX Technical Indicator
+## What is ADX
 
-The ADX, developed by J. Welles Wilder Jr. in 1978, is a momentum-based technical indicator that measures the strength of a trend without considering its direction. The ADX ranges from 0 to 100, with higher values indicating a stronger trend. Typically, a value above 25 suggests a strong trend, while a value below 20 indicates a weak or non-trending market. The ADX is derived from two other Wilder's indicators, the Positive Directional Indicator (+DI) and the Negative Directional Indicator (-DI), which provide insight into the direction of the trend.
-| **ADX Value** | **Trend Strength** |
-|---|---|
-| 0-25 | Non-trending market or range-bound market |
-| 25-50 | Strong trend |
-| 50-75 | Very strong trend |
-| 75-100 | Extremely strong trend (rarely happens and can be considered unsustainable) |
-## Using the ADX indicator in Gainium
+J. Welles Wilder Jr. published the ADX in 1978, in *New Concepts in Technical Trading Systems*, as part of his Directional Movement System. It is built in four steps over *n* candles (Gainium's **Length**, 14 by default):
 
-To select it, set the deal start condition (or the take profit or stop loss type) to **Indicators**, click **Edit** on the indicator, then **Change indicator**, and choose **Average Directional Index (ADX)**.
-![Screenshot 2023-04-01 at 17.38.49.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_01_at_17_38_49_08a719285a-91c355.webp)
-*Deal Start*
+1. **Directional movement.** `+DM = high − previous high` and `−DM = previous low − low`. Only the larger of the two counts on each candle, and only if it is positive; the other is 0.
+2. **Smoothing.** `+DM`, `−DM` and the True Range are each smoothed with Wilder's moving average over *n* candles.
+3. **Directional indicators.** `+DI = 100 × smoothed +DM / smoothed TR` and `−DI = 100 × smoothed −DM / smoothed TR`.
+4. **ADX.** `DX = 100 × |+DI − −DI| / (+DI + −DI)`, and ADX is the Wilder average of DX over *n* candles.
 
-The Adx indicator in Gainium allows you to trade a trending market by selecting the value and the condition. When price action is supported by a crossover of a desired value of ADX, the more likely the move is going to continue in that direction. Meaning that ADX is a very good tool to support a real breakout.
-![Screenshot 2023-04-03 at 17.09.18.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_03_at_17_09_18_7db210263e-1dad6b.webp)
-*ADX Indicator in Gainium*
+Gainium uses one Length for both smoothings. TradingView's built-in ADX shows them as two inputs, "ADX Smoothing" and "DI Length", both 14, so the defaults give the same line.
 
-**Smoothing (optional):** set **Smoothing** to a moving average (SMA, EMA, WMA, DEMA, TEMA, HMA or RMA) and a **Smoothing length** to smooth the ADX line. With **Compare** set to *Smoothed line vs value*, the condition tests the smoothed line against your Value, which filters out short spikes. With *Line vs smoothed line*, it tests the ADX against its own moving average (crossing up or down, greater or lower than) and no Value is needed. The chart draws the smoothed line in orange. Leave Smoothing on **None** to use the ADX as usual. Learn more in [Indicator Smoothing](https://gainium.io/help/indicator-smoothing).
+How to read it:
 
-The most common ADX settings are a 14-period length, a high volatility threshold of 25, and a low volatility threshold of 20. In other words, a market is considered volatile when the ADX is greater than 25, and calm when it is less than 20.
+- **Under 20:** no trend. Candles overlap and +DI and −DI are close together.
+- **20 to 25:** undecided. A cross of 25 from below is the usual "trend started" signal.
+- **25 to 50:** a trend. On BTC/USDT 4h, ADX(14) spends about half its time above 25.
+- **Over 50:** a strong, late-stage move. The rally from 64,000 to 78,000 in the chart below pushed 4h ADX to about 69.
+- **Falling ADX** means the move is losing force, whichever way it is going.
 
-## Using ADX indicator in bot trading
+ADX lags. With Length 14 on 4-hour candles it needs about 6 to 12 one-sided candles before it crosses 25.
 
-Here are a few examples of how you can incorporate ADX in your bot strategy.
+![Average Directional Index (14) on BINANCE:BTCUSDT 4h, dark theme: ADX jumps from about 25 to 69 during a breakout and drops to about 10 in the range that follows](https://content.gainium.io/images/content/indicators/adx__chart.webp)
 
-### A. ADX Trend Following Strategy
+### Settings and tips
 
-In a trend-following strategy, your trading bot will enter a long position when the ADX value is above 25. This is an excellent time to enter a trade in the direction of the trend. For example, if the ADX is rising and above 30 while the asset is increasing in price, it could signal a good time to enter a long position (buy).
+| Setting | Default | What it does |
+| --- | --- | --- |
+| Use percentile | Off | Off: the condition tests the fixed Value. On: Value hides and ADX is compared with its own Percentile over the last Lookback candles. |
+| Lookback | 150 | Candles of the line's own history the percentile is taken from. Percentile mode only. |
+| Percentile | 80 | The rank in that history used as the level: 80 is a level that only 20% of readings exceeded. Percentile mode only. |
+| Length | 14 | The n of both the directional smoothing and the ADX average. TradingView splits it into DI Length and ADX Smoothing. |
+| Interval | 1 hour | Candle size the indicator is calculated on, from 1 minute to 1 week. It does not follow the chart you are looking at. |
+| Smoothing | None | A moving average put on the line. With smoothing on, the condition tests the smoothed line. |
+| Smoothing length | 14 | Candles in the smoothing average, 1 to 1,000. |
+| Compare | Smoothed line vs value | Smoothed line vs value tests the smoothed line against Value. Line vs smoothed line tests the raw line against its own average; Value hides and Between is never true. |
+| Condition | Crossing down | Crossing up and Crossing down fire on the one candle where the line passes Value. Greater than and Lower than hold on every candle on that side. Between holds while the line is inside Value and Upper value. |
+| Value | 20 | The ADX level, 0 to 100. Over 25 is a trend, under 20 a range. |
+| Upper value | — | Between only: the second bound. The line must be strictly between the two. |
+| Keep true | 0 | Extra candles the condition stays true after it fires, so it can meet a slower condition in the same group. |
 
-In the image below, you can see the price action in the chart BTC USDT when ADH is higher than 30, and the price keeps rising in the same direction.
-![Screenshot 2023-04-11 at 16.06.46.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_16_06_46_ba015bdaca-ebbcfc.webp)
-*ADX Crossing up 30*
+**Tip:** The default, **Condition** Crossing down with Value 20, fires when a trend fades into a range, often on BTC/USDT 1h. For breakouts, use Crossing up 25 on 4 hours, which fires about a quarter as often.
 
-### B. ADX Range Trading Strategy
+**Tip:** **Length** 7 doubles the breakout signals. On BTC/USDT 4h, ADX(7) gives about twice as many crosses up through 25 as Length 14, and Length 21 about half as many.
 
-In a range trading strategy, your bot will capitalize on the lack of a strong trend by buying low and selling high within a specified price range. Your bot can implement range trading tactics if the ADX value falls below 20, indicating a weak or non-trending market. Combining the ADX with other range-bound indicators, such as [Bollinger Bands](https://gainium.io/indicators/bb) or [Stochastic Oscillator](https://gainium.io/indicators/stoch), or [stoch RSI,](https://gainium.io/indicators/stochrsi) can further improve the accuracy of buy and sell signals.
+**Tip:** Between with **Value** 20 and **Upper value** 25 is true in the undecided zone. ADX(14) on 4h sits there on about a fifth of candles. The bounds are strict: a reading of exactly 20 or 25 is outside.
 
-For instance, when the ADX for the BTC/USDT pair drops below 20 and the price reaches the [lower Bollinger Band](https://gainium.io/indicators/bollinger-bands-b), the bot can initiate a long position, anticipating an upward price movement. Conversely, the bot can exit the position or create a short trade when the price reaches the upper Bollinger Band.
+## Trading setups for bots
 
-### C. ADX Divergence Trading Strategy
+### Trend breakout with a direction filter
 
-If the ADX is trending downward while the asset's price is trending upward, this is a divergence and could signal that the trend is weakening. It may be an excellent time to consider exiting the trade or taking profits. In the image below, the price is rising while ADX is decreasing.
-![Screenshot 2023-04-11 at 16.10.19.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_16_10_19_230d8a73b1-7c3bc0.webp)
-*Divergence*
+ADX confirms that a move has force. A second condition says which way.
 
-### D. ADX Breakout Strategy
+- **Entry:** ADX, Condition **Crossing up**, Value **25**, Interval 4 hours, AND SuperTrend **Up trend** on 4 hours, in one group with AND logic. For a short bot, use SuperTrend Down trend.
+- **Exit:** a take profit of 3–5%, or close the deal when SuperTrend flips From up to down.
+- **Settings:** Length 14. The cross of 25 is the default trigger; 20 fires earlier and more often.
+- **Timeframe:** 4 hours. On BTC/USDT, ADX(14) crosses up 25 about four and a half times as often on 1h as on 4h.
+- **When it fails:** without the direction filter. In the chart below, ADX crossed 25 twice while BTC was falling inside its range, so a long-only bot would have bought two down-moves. With the SuperTrend filter, both were skipped, and the later cross bought 68,550, with price 5% higher about six bars later.
 
-The breakout strategy aims to capitalize on significant price movements that follow periods of consolidation. When the ADX value rises from below 20 to above 25, it can signal a potential breakout.
+![Annotated ADX chart, BTC/USDT 4h: ADX crossing 25 with Supertrend up buys 68,550 during the breakout; two earlier crosses fire while price falls](https://content.gainium.io/images/content/indicators/adx__breakout.webp)
 
-## Practical considerations when trading with ADX
+### Range buying when ADX is low
 
-As mentioned before, ADX's weakness is that it cannot determine the direction of a trend, so it is not always beneficial by itself. It is often combined with other indicators, for example, with RSI. A buy signal could be placed when RSI rises and ADX rises and crosses up 30. In the example below, both RSI and the Volume indicators support the long entry as the price increases. You then can decide to take profit when RSI and /or volume start to decline.
-![Screenshot 2023-04-11 at 16.15.22.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_16_15_22_e80a4d60a6-d9138b.webp)
-*ADX with RSI and Volume*
+When ADX is under 20, price tends to swing between its bands instead of running away. That is the moment for a mean-reversion entry.
 
-## Conclusion
+- **Entry:** ADX **Lower than 20**, Interval 4 hours, AND Bollinger Bands (20, 2) **Crossing up** the **Lower** band, Interval 4 hours.
+- **Exit:** a 1.5% take profit. At the BTC/USDT entries measured for this setup, the middle band sat 0.4–1.0% above the entry, so the take profit needs a move just past it.
+- **Settings:** ADX Length 14; Bollinger Bands SMA 20 with 2 standard deviations.
+- **Timeframe:** 4 hours. The pair is rare on BTC/USDT 4h: ADX under 20 and a lower-band cross line up on only a handful of candles.
+- **When it fails:** a low ADX is also what a market looks like just before it breaks out. In the chart below, one entry bought 79,400 with ADX at 13.5. About 24 bars later ADX crossed 25 on the way down, and price fell 5.5% before the take profit filled. Add a stop loss or DCA orders sized for that move.
 
-The ADX indicator can be valuable for assessing trend strength and informing your crypto trading bot's decision-making process. As with any trading strategy, testing and refining the parameters to suit your risk tolerance and the prevailing market conditions is crucial. Incorporating the ADX with additional [technical indicators](https://gainium.io/help/category/technical-indicators) and fundamental analysis can help create a more robust and well-rounded trading bot strategy.
+![Annotated Bollinger Bands and ADX chart, BTC/USDT 4h: with ADX near 15, a close back above the lower band buys 83,370 for +1.5%; the same signal earlier is followed by a breakdown](https://content.gainium.io/images/content/indicators/adx__range.webp)
+
+## Using ADX in Gainium
+
+1. Create a DCA bot and switch the form to **Manual**.
+2. Set **Deal start condition** to **Indicators**, click **Edit**, then **Change indicator**, and search for **ADX**.
+3. Pick **Average Directional Index (ADX)**, set the fields, and click **Done**.
+
+![Gainium indicator picker searched for ADX, with the Average Directional Index card ringed](https://content.gainium.io/images/content/indicators/adx__picker.webp)
+
+The fields and their defaults:
+
+- **Use percentile:** off. When on, the condition compares ADX with its own percentile level instead of a fixed Value. **Lookback** 150 candles and **Percentile** 80 appear with it. See [indicator percentiles](https://gainium.io/help/indicator-percentiles).
+- **Length:** 14.
+- **Interval:** 1 hour.
+- **Smoothing:** None. Choose SMA, EMA, WMA, DEMA, TEMA, HMA or RMA to smooth the ADX line, then a **Smoothing length** (14). **Compare** decides whether the smoothed line is tested against Value, or the raw ADX against its smoothed line. See [indicator smoothing](https://gainium.io/help/indicator-smoothing).
+- **Condition:** Crossing down. The options are Crossing down, Crossing up, Greater than, Lower than and Between.
+- **Value:** 20. With Between, an **Upper value** field appears, and ADX must stay above Value and below Upper value.
+- **Keep true:** 0 extra candles.
+
+ADX works as a deal start, DCA, take profit or stop loss condition, and in the Bot Controller. In the Bot Controller you can stop a range bot when ADX crosses up 25 and start it again when ADX falls back under 20.
+
+Example configuration for the breakout setup, as the first condition of the group:
+
+- ADX: Use percentile off, Length 14, Interval 4 hours, Smoothing None, Condition Crossing up, Value 25, Keep true 0.
+- Second condition, same group, AND: SuperTrend, Condition Up trend, Interval 4 hours.
+
+![Gainium ADX settings card configured with Length 14, Interval 4 hours, Condition Crossing up and Value 25](https://content.gainium.io/images/content/indicators/adx__example.webp)
+
+## Related indicators
+
+- [Supertrend](https://gainium.io/indicators/supertrend): supplies the direction ADX lacks, as an Up trend or Down trend filter.
+- [Bollinger Bands](https://gainium.io/indicators/bb): the band touches for range entries while ADX is under 20.
+- [Moving Averages](https://gainium.io/indicators/moving-averages): price above a 50 or 200 average is a simpler direction filter for an ADX breakout.
+- [Average True Range (ATR)](https://gainium.io/indicators/atr): shares the True Range input; ATR says how big candles are, ADX how one-sided.
+
+## FAQ
+
+### What ADX value means a strong trend?
+
+Wilder's rule of thumb is above 25 for a trend and below 20 for no trend. On BTC/USDT 4h, ADX(14) is above 25 on about half of candles and below 20 on a little over a quarter. Readings over 50 are rare and come late in a move: the rally from 64,000 to 78,000 shown on this page pushed it to about 69, near the top of the run.
+
+### Does ADX tell me if the trend is up or down?
+
+No. ADX rises in a strong sell-off exactly as it does in a strong rally. Direction comes from the +DI and −DI lines, which Gainium's ADX condition does not expose. Pair ADX with a direction condition such as SuperTrend Up trend or price above a moving average.
+
+### What ADX settings should a crypto bot use?
+
+Keep Length 14 and choose the Interval for the trades you want. On BTC/USDT, ADX(14) crosses up 25 about four and a half times as often on 1-hour candles as on 4-hour, and about five times as often on 4-hour as on daily candles. Shorter lengths react faster but cross 25 on single wide candles.
+
+### Why is my ADX falling while price keeps rising?
+
+ADX measures how one-sided recent candles are, not how far price has gone. When a rally continues with smaller, overlapping candles, ADX falls. Traders read that as a trend losing force, not as a sell signal.

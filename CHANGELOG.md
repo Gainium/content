@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-10-25
+### Added
+- Writing style guide (`docs/STYLE.md`) and a style check (`npm run check:style`) that rejects
+  stock filler phrases and time-window claims in indicator pages.
+- Indicator page template v2: opening answer, definition and formula, settings and tips,
+  trading setups, using it in Gainium, related indicators and FAQ, validated by `check:indicators`.
+- Settings tables generated from the indicator catalog (`scripts/describe-native.ts`) and
+  checked against it, so documented defaults cannot drift.
+### Changed
+- All built-in indicator pages rewritten to template v2, with new charts and screenshots.
+
 ## [1.1.0] - 2026-10-24
 ### Added
 - Indicator library content type (`docs/indicators/`) and API:

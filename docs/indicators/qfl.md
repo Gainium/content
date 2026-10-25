@@ -9,7 +9,7 @@ description: >-
   Quickfingers Luc (QFL) trading strategy is among the most revered, providing a
   structure to the seemingly random world of cryptocurrency price movements.
 createdAt: '2023-01-07T06:50:03.182Z'
-updatedAt: '2026-02-24T07:44:20.579Z'
+updatedAt: '2026-10-25T00:00:00.000Z'
 publishedAt: '2023-01-07T07:06:46.161Z'
 locale: en
 categories:
@@ -19,11 +19,15 @@ tags: []
 optimized: true
 ingested: true
 ingestedAt: '2025-06-29T10:57:30.023Z'
+templateVersion: 2
 tldr: >-
-  The QuickFingers Luc (QFL) strategy identifies strong support "base levels"
-  and buys when the price drops significantly below them, profiting from the
-  subsequent rebound. In Gainium, QFL is implemented as a technical indicator
-  configurable with percentage thresholds.
+  QFL (Quickfingers Luc) is a dip-buying method: find a base, a low that
+  price bounced away from, and buy when a panic sell-off cracks below it.
+  Gainium's QFL Base Scanner takes the lowest low of the last 36 candles as a
+  base once it has held for 8 candles, and fires when price has bounced at
+  least 3% above the base and then trades 3% below it. All four numbers are
+  settings. It pairs with DCA orders placed further below and a take profit
+  near the base.
 kind: native
 catalogKeys:
   - QFL
@@ -34,76 +38,139 @@ aliases:
   - "QuickFingers Luc"
   - "QFL Base Scanner"
   - "Base Cracking"
+faq:
+  - title: What is a base in QFL?
+    details: >-
+      A low that price bounced away from. In Gainium it is the lowest low of
+      the last Base periods candles (36 by default) once no lower low has
+      printed for the next Pump periods candles (8). The base stays until a
+      newer one forms.
+  - title: When does the QFL indicator fire?
+    details: >-
+      On a candle whose low is more than Base crack (3%) below the base,
+      provided price rose more than Pump from base (3%) above the base after
+      it formed. It is true on every candle that meets both conditions, so
+      it can fire several bars in a row during a crash.
+  - title: What crack percentage should I use?
+    details: >-
+      It depends on the pair's volatility and the interval. On BTC/USDT 4h the
+      default 3% did not fire in the data behind this page: in the 4h chart
+      below, the deepest fall under a base is about 0.7%. On 1h, a 1% crack
+      does fire. For coins whose daily range is 5% or more, a crack of 5% or
+      more keeps every ordinary dip from firing.
+  - title: Who is Quickfingers Luc?
+    details: >-
+      A crypto trader who published the base-cracking method on his Steemit
+      blog. Gainium's implementation follows the "QFL base scanner"
+      TradingView script by rex_wolfe.
+related:
+  - support-resistance-indicator
+  - long-wick-detector
+  - ath-drawdown
+sources:
+  - title: Quickfingers Luc, Steemit blog
+    url: https://steemit.com/@quickfingersluc
+  - title: QFL methodology, compiled from Quickfingers Luc's posts
+    url: https://docs.google.com/document/d/13iqxT63UqdkbTMmt6VRMlWPL7hb5bp5sk6IqkQhBm8M/edit
+  - title: rex_wolfe, QFL base scanner, TradingView script
+    url: https://www.tradingview.com/script/PIFGdVsZ-QFL-base-scanner/
+  - title: Binance BTC/USDT 1h and 4h candles, computed with Gainium's indicator engine
 ---
 
-In the world of cryptocurrency trading, the pursuit of innovative strategies is a never-ending journey. One such approach that has gained popularity in recent years is the QuickFingers Luc (QFL) method. This trading technique emphasizes precision, patience, and a deep understanding of market structure. In this article, we'll delve into the key aspects of the QFL method and explore how you can harness its power to excel in crypto trading.
+QFL (Quickfingers Luc) is a dip-buying method: mark a base, a low that price bounced away from, and buy when a panic sell-off cracks below it. Bot traders run it on DCA bots, with the first order at the crack and safety orders further down.
 
-## Understanding the QFL (Quickfingers Luc) Trading Strategy
+## What is QFL
 
-The QFL trading method is based on the premise that market inefficiencies create profitable opportunities for patient and disciplined traders. Developed by a trader known as Luc, this strategy focuses on identifying support and resistance levels, waiting for significant drops in price, and then capitalizing on the subsequent rebounds.
+The method comes from the trader Quickfingers Luc, who described it on his Steemit blog. Its premise is that a base that held once is where buyers return, and a fast fall through it is panic selling that tends to bounce. Gainium's QFL Base Scanner follows rex_wolfe's "QFL base scanner" TradingView script:
 
-In other words, QFL looks for panic sales and tries to anticipate a dead cat bounce.
+- **Base:** the lowest low of the last **Base periods** candles (36), once no lower low has printed for **Pump periods** candles (8) after it. It stays until a newer base forms.
+- **Pump:** after the base forms, the highest high must rise more than **Pump from base** (3%) above it. A base that price never left is not a QFL base.
+- **Crack:** the signal fires on a candle whose low is more than **Base crack** (3%) below the base.
 
-For a detailed explanation of the QFL methodology, you can check out this [document](https://docs.google.com/document/d/13iqxT63UqdkbTMmt6VRMlWPL7hb5bp5sk6IqkQhBm8M/edit) compiled from[ Quickfingers Luc's Steemit blog](https://steemit.com/@quickfingersluc).
+The signal is true on every candle that meets both conditions, so in a crash that keeps going it fires several bars in a row.
 
-Support and resistance levels are the foundation of the QFL method. A support level is a price point where buying pressure is strong enough to prevent further declines, while resistance is a price level where selling pressure is strong enough to prevent further gains. By accurately identifying these levels, traders can predict potential price movements and plan their trades accordingly.
+On the bot chart the base is a blue line, with a dotted connector where it steps to a new base.
 
-A critical aspect of the QFL method is pinpointing "base levels," which are strong support or resistance levels that have been held multiple times in the past. Base levels often serve as a springboard for price rebounds, making them prime targets for entry points. To identify a base level, look for price areas where the asset has reversed multiple times, indicating strong buying or selling pressure.
+![Gainium bot chart, BTC/USDT 1h, QFL Base Scanner with defaults: the blue base line near 80,570, stepping up to about 80,790, then down to 80,450 and to 79,175 at the right edge](https://content.gainium.io/images/content/indicators/qfl__chart.webp)
 
-The QFL method relies on the principle of "buying the dip." After identifying a base level, traders wait for the price to drop significantly below that level before entering a long position. This approach ensures that traders buy low and maximize their profit potential when the price rebounds.
+### Settings and tips
 
-## Core Concepts of QFL Strategy
+| Setting | Default | What it does |
+| --- | --- | --- |
+| Base periods | 36 | Candles searched for the lowest low that can become a base. More periods give more significant bases and fewer entries. |
+| Pump periods | 8 | Candles a low must hold to become a base. A value at or above Base periods is cut to Base periods minus 1. |
+| Pump from base (%) | 3 | How far, in percent, the high must rise above the base after it forms. |
+| Base crack (%) | 3 | How far, in percent, a candle's low must fall below the base to fire. |
+| Interval | 1 hour | The candle size the indicator is calculated on, from 1 minute to 1 week. |
+| Keep true | 0 | Extra bars the condition stays true after it fires. 0 means only the bar that triggered it. |
 
-**Base Level (Support Level):** This is the lowest price point a cryptocurrency reaches before it starts climbing again. At this juncture, traders can often witness a strong buying reaction, indicating a potential reversal.
+**Tip:** the 3% defaults did not fire once on BTC/USDT 1h or 4h in the data behind this page. Base crack 1 fires on a few dips, about as many on 4h as on 1h. Pump from base 1 with Base crack 1 fires on nearly three times as many dips on 1h as Base crack 1 alone.
 
-**Rebound Level:** After touching the Base Level, a price increase signifies a rebound. It's the aftermath of the buying reaction where prices begin to climb.
+**Tip:** the signal stays true on every candle whose low is past the Base crack line, even with Keep true 0. In the Base crack 1 test above, each dip made about 4 true candles, so cap the bot's active deals or one crash opens several deals.
 
-**Resistance Level:** The peak price before a price drop, the Resistance Level is often where sellers begin to overpower buyers, leading to a price decline.
+## Trading setups for bots
 
-**Crack:** A sharp move away from the base level, leading to a new rebound level, creates a 'safe zone' for traders to consider entry.
+### Classic base crack on 4h
 
-## Practical considerations when using the QFL strategy
+- **Entry:** Deal start condition QFL Base Scanner with Base periods 36, Pump periods 8, Pump from base 3%, Base crack 3%, 4 hours.
+- **Exit:** take profit 3%, about back to the base. DCA orders at 2%, 4% and 6% below the start order catch a crack that keeps going.
+- **Settings:** Keep true 0. On coins whose daily range is 5% or more, raise Base crack to 5% or more.
+- **Timeframe:** 4h. The 36 candles of the base then cover four times as much of the chart as on 1h.
+- **When it fails:** in a trend change. A crack below a 4h base can be the start of a downtrend, and the DCA orders fill into it. In the chart below, the 3% crack never came: the deepest fall under the base was about 0.7%, so the bot stayed out.
 
-**Patience is a virtue**
+![Annotated Gainium bot chart, BTC/USDT 4h, QFL defaults on 4h: an earlier base at 80,350, the current base at 79,750, and the last low only 0.7% under it, short of the 3% crack at 77,357](https://content.gainium.io/images/content/indicators/qfl__base-crack-4h.webp)
 
-One of the key tenets of the QFL method is patience. Traders must resist the urge to enter positions prematurely and instead wait for the optimal entry point, which can sometimes take days or even weeks. By maintaining discipline and adhering to the strategy, traders can significantly improve their chances of success.
+### Tight crack on 1h for BTC
 
-**Risk Management and Stop-Loss Orders**
+- **Entry:** QFL Base Scanner with Pump from base **1%** and Base crack **1%**, 1 hour.
+- **Exit:** take profit 1.5%, with DCA orders at 1% steps.
+- **Settings:** Base periods 36, Pump periods 8, Keep true 0.
+- **Timeframe:** 1h, on BTC or ETH. On smaller coins 1% is noise.
+- **When it fails:** when the 1% crack is the start of a larger fall. In the chart below, the low reached 1.6% under the 80,450 base before turning up; a deeper fall would have filled every DCA order.
 
-Risk management is essential when using the QFL method, as with any trading strategy. To minimize potential losses, traders should set stop-loss orders below the base level. This ensures that if the price does not rebound as anticipated, the trader can exit the position with minimal damage to their portfolio.
+![Annotated Gainium bot chart, BTC/USDT 1h, QFL with Pump and Base crack at 1%: the 80,450 base, the 1% crack line at 79,646, and the last low 1.6% under the base](https://content.gainium.io/images/content/indicators/qfl__tight-crack-1h.webp)
 
-**Exiting the Trade**
+## Using QFL in Gainium
 
-Knowing when to exit a trade is as important as knowing when to enter. With the QFL method, traders typically target a predetermined profit level or wait for the price to reach the next resistance level.
+1. Create a DCA bot and switch the form to **Manual**.
+2. Set **Deal start condition** to **Indicators**.
+3. Click **Edit**, then **Change indicator**, and pick **QFL Base Scanner** from the Chart category.
 
-## Applying QFL in Trading with Gainium
+![QFL Base Scanner settings card in the Gainium bot form with Pump from base 3% and Base crack 3% ringed, Base periods 36, Pump periods 8, Interval 1 hour, Keep true 0](https://content.gainium.io/images/content/indicators/qfl__settings.webp)
 
-![QFL on Gainium.gif](https://content.gainium.io/images/content/help/QFL_on_Gainium_e764b3e666-9d4711.gif)
+The fields and their defaults:
 
-1. **Select Trading Pairs Wisely:** Gainium's smart terminal helps you identify cryptocurrencies with high volatility, presenting multiple entry points for QFL trading.
+- **Base periods:** 36, from 1 to 500. More periods give more significant bases and fewer entries.
+- **Pump periods:** 8, from 1 to 200. The candles a low must hold to become a base. If it is not below Base periods, it is set to Base periods minus 1.
+- **Pump from base (%):** 3. How far price must rise above the base after it forms.
+- **Base crack (%):** 3. How far a candle's low must fall below the base to fire.
+- **Interval:** 1 hour, from 1 minute to 1 week.
+- **Keep true:** 0 extra bars.
 
-2. **Identify Strong Bases:** Utilize Gainium's market screener to pinpoint strong bases with high potential for significant rebounds.
+QFL is one of the indicators a [Risk:Reward](https://gainium.io/help/risk-reward) bot can use to place its stop loss.
 
-3. **Monitor for Panic Sales:** Set up custom alerts using Gainium's tools to be notified when your target base levels are approaching, indicating potential panic sell-offs.
+**Example configuration** (the 4h base crack above): Deal start condition Indicators, QFL Base Scanner with Base periods 36, Pump periods 8, Pump from base 3%, Base crack 3%, Interval 4 hours, Keep true 0. Take profit 3%, DCA orders at 2%, 4% and 6% below the start.
 
-4. **Leverage Advanced Tools for Timely Execution:** Gainium's trading bots can be programmed with QFL signals to execute buys below the base level, ensuring you're always ready to capitalize on market dips.
+## Related indicators
 
-5. **Set and Forget Target Prices:** Establish your sell targets with Gainium's platform, and let our sophisticated bots automate the selling process during rebounds for optimal profits.
+- [Support and Resistance](https://gainium.io/indicators/support-resistance-indicator): the pivot version of a base; crossing down support is the same event read as a breakdown.
+- [Long Wick Detector](https://gainium.io/indicators/long-wick-detector): a long lower wick through a base is the panic QFL looks for.
+- [ATH Drawdown](https://gainium.io/indicators/ath-drawdown): keeps QFL bots out of a coin that is already 50% below its high.
 
-6. **Diversify Orders:** Spread out your buy and sell orders to reduce risk and maximize results. Gainium's platform allows for intricate order laddering to manage your positions effectively.
+## FAQ
 
-Gainium's implementation of QFL is based on this [TradingView script by rex_wolfe](https://www.tradingview.com/script/PIFGdVsZ-QFL-base-scanner/).
+### What is a base in QFL?
 
-Buys are marked when the price has bounced x% above the base and then fallen y% below the base.
-![gainium-qfl-settings.png](https://content.gainium.io/images/content/help/gainium_qfl_settings_9075aa1de1-a58c41.webp)
-*Gainium QFL settings*
+A low that price bounced away from. In Gainium it is the lowest low of the last Base periods candles (36 by default) once no lower low has printed for the next Pump periods candles (8). The base stays until a newer one forms.
 
-## Conclusion
+### When does the QFL indicator fire?
 
-By integrating the QFL strategy into your trading on Gainium, you can make the most out of the platform's sophisticated tools, from real-time screener analytics to automated trading bots. Whether you're a seasoned trader or just starting, Gainium's comprehensive toolkit enhances your trading experience, allowing you to execute the QFL strategy with precision and confidence.
+On a candle whose low is more than Base crack (3%) below the base, provided price rose more than Pump from base (3%) above the base after it formed. It is true on every candle that meets both conditions, so it can fire several bars in a row during a crash.
 
-## **FAQs**
+### What crack percentage should I use?
 
-**What is the essence of the QFL trading strategy?** QFL, or Quickfingers Luc, is a crypto trading strategy that centers around identifying and acting upon moments of panic selling to buy below the base level and sell during rebounds for profit.
+It depends on the pair's volatility and the interval. On BTC/USDT 4h the default 3% did not fire in the data behind this page: in the 4h chart below, the deepest fall under a base is about 0.7%. On 1h, a 1% crack does fire. For coins whose daily range is 5% or more, a crack of 5% or more keeps every ordinary dip from firing.
 
-**What is a Base Level in QFL?** The Base Level, or Support Level, is the lowest price point a cryptocurrency reaches before beginning to increase in value again. This level is critical in QFL as it represents a potential turning point for price movement.
+### Who is Quickfingers Luc?
+
+A crypto trader who published the base-cracking method on his Steemit blog. Gainium's implementation follows the "QFL base scanner" TradingView script by rex_wolfe.

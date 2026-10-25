@@ -7,7 +7,7 @@ description: >-
   detecting trends, reversals, and overbought/oversold conditions with detailed
   strategy examples.
 createdAt: '2024-10-06T12:15:15.080Z'
-updatedAt: '2026-10-12T00:00:00.000Z'
+updatedAt: '2026-10-25T00:00:00.000Z'
 publishedAt: '2024-10-06T12:22:36.175Z'
 locale: en
 categories:
@@ -16,11 +16,16 @@ difficulty: intermediate
 tags: []
 ingested: true
 ingestedAt: '2025-06-29T10:57:30.033Z'
+templateVersion: 2
 tldr: >-
-  Williams %R is a momentum oscillator ranging from 0 to -100 that identifies
-  overbought (above -20) and oversold (below -80) conditions. In Gainium, it can
-  be configured for automated reversal trading or trend-following strategies
-  using mid-range thresholds.
+  Williams %R shows where the close sits inside the high-low range of the last
+  14 bars, on an inverted scale from 0 (close at the high) to −100 (close at
+  the low). Readings above −20 are overbought and below −80 oversold. It is
+  the Stochastic's raw %K turned upside down, so it is fast: on BTC/USDT 1h it
+  reclaims −80 about twice as often as a 3-bar smoothed %R. Bots use the
+  reclaim of −80 for short long deals and the break above −20 as a momentum
+  entry. In Gainium the default is Length 14 with a Value of −40, and it
+  supports smoothing and percentiles.
 kind: native
 catalogKeys:
   - WR
@@ -30,96 +35,158 @@ aliases:
   - "Williams R"
   - "Williams Percent Range"
   - "%R"
+  - "WPR"
+faq:
+  - title: Why is Williams %R negative?
+    details: >-
+      Larry Williams measured how far the close is from the highest high,
+      and plotted that distance as a negative number. 0 means the close is at
+      the top of the range and −100 at the bottom. Enter negative values in
+      Gainium: −80 for oversold, −20 for overbought.
+  - title: How is Williams %R different from the Stochastic?
+    details: >-
+      Williams %R is the Stochastic's %K minus 100, with no smoothing and no
+      signal line. The two reach their extremes on the same bars. Use %R when
+      you want one line against a level; use the Stochastic when you want K
+      and D crosses and the Zone filter.
+  - title: Is −20 a sell signal?
+    details: >-
+      Not on its own. %R spends about a fifth of its time above −20 on
+      BTC/USDT 1h, 4h and daily. In a rally it stays there for many candles. On the
+      daily chart a cross up through −20 worked better as a buy signal for
+      trend deals than as a sell signal.
+  - title: What does the default Value of −40 mean?
+    details: >-
+      It is only a starting value. With the default Condition Crossing down,
+      the condition fires when %R falls through −40, which is the middle of
+      the range. Change it to −80 or −20 for the setups on this page.
+related:
+  - stoch
+  - rsi
+  - cci
+sources:
+  - title: StockCharts ChartSchool, Williams %R
+    url: https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/williams-r
+  - title: TradingView Help Center, Williams %R (%R)
+    url: https://www.tradingview.com/support/solutions/43000501985-williams-r-r/
+  - title: Gainium, Indicator Smoothing
+    url: https://gainium.io/help/indicator-smoothing
+  - title: Gainium, Indicator Percentiles
+    url: https://gainium.io/help/indicator-percentiles
+  - title: Binance BTC/USDT 1h, 4h and 1d candles, computed with Gainium's indicator engine
 ---
 
-The **Williams %R** indicator is a momentum-based oscillator that measures overbought and oversold market conditions. It ranges from **0** to **-100**, with values above **-20** signaling overbought conditions and values below **-80** indicating oversold conditions. This tool is handy for identifying potential reversals and momentum shifts in price movements.
+Williams %R shows where the latest close sits inside the high-low range of the last 14 bars, on an inverted scale from 0 at the high to −100 at the low. Traders buy when it climbs back above −80 after a dip, and some buy strength when it breaks above −20. It reacts on the next bar, so it suits short-term bots that take many small deals.
 
-In this article, we will define the **Williams %R** indicator, explain how to configure it in Gainium, and show how it can be used effectively in automated bot trading. We’ll also provide examples of trading strategies with detailed entry and exit rules, practical considerations, and a conclusion on using Williams %R in your trading strategies.
+## What is Williams %R
 
-## What is Williams %R?
+Larry Williams developed Williams %R. The formula:
 
-The **Williams %R** (Williams Percent Range) oscillator measures the current price relative to the high and low of a specific lookback period, typically 14. It is essentially a reversal of the [Stochastic Oscillator](https://gainium.io/indicators/stoch) and helps traders identify overbought or oversold conditions.
-- **Overbought Conditions**: When Williams %R is above **-20**.
-- **Oversold Conditions**: When Williams %R is below **-80**.
+**%R** = (Highest high − Close) / (Highest high − Lowest low) × −100
 
-### Key Features:
-- **Range**: 0 to -100, with overbought and oversold levels at -20 and -80, respectively.
-- **Momentum Indicator**: Helps identify market momentum shifts and potential trend reversals.
+- **Highest high** and **lowest low** are taken over the last *n* bars, including the current one. *n* is 14 by default.
+- **Close** is the current bar's close.
 
-## How to Configure Williams %R in Gainium
+The result runs from 0 (the close is the highest high) to −100 (the close is the lowest low). It is the fast Stochastic's %K minus 100, with no smoothing. TradingView's default is length 14 on the close. Gainium's default Length is also 14.
 
-Here’s how to configure the **Williams %R** indicator in Gainium.
+How to read it:
 
-### Step 1: Add the Williams %R Indicator
-- **Navigate to the Bot Settings**:Log in to Gainium, select your bot, and find **Williams %R** in the list of available indicators.
+- **Above −20 (overbought):** the close is in the top fifth of the range. **Below −80 (oversold):** in the bottom fifth. On BTC/USDT, %R spends about a fifth of its time above −20 and about as much below −80, on 1h, 4h and daily alike.
+- **A cross back through −80 or −20** is the trigger most traders use, rather than the reading itself.
+- **Pinned near 0 or −100:** each new bar closes at a new 14-bar extreme. That is a trend.
+- **−50** is the middle of the range.
 
-### Step 2: Configure the Indicator Settings
-- **Length**: Set the length to **14**, the standard period for calculating Williams %R. This defines how far back the price data is used to calculate the overbought or oversold levels.
-- **Interval**: Choose the time interval for each calculation. The image below is set to **1 day**, meaning the Williams %R will be calculated based on daily price movements. Shorter intervals (e.g., 1 hour) can provide more frequent signals, while longer intervals (e.g., daily) capture larger trends.
-- **Condition**: Select the condition to trigger trades. **Crossing Down** is chosen in this case, which means the bot will trigger an action when the Williams %R crosses below a certain value (in this example, -40).
-- **Value**: Set the value at which the bot should trigger trades. Here, it's set to **-40**, signaling the price is moving downward, but not yet in an oversold region.
-- **Keep True**: This setting determines how long the condition remains active after being triggered. A value of **0** means it resets immediately after the condition is met.
-![image.png](https://content.gainium.io/images/content/help/image_e18959360b-ffe68e.webp)
-*Williams %R Indicator Settings*
+![Williams %R(14) on BINANCE:BTCUSDT 4h, dark theme: the %R line runs between 0 and −100, with dashed bands at −20 and −80](https://content.gainium.io/images/content/indicators/williams-r__chart.webp)
 
-**Smoothing (optional):** set **Smoothing** to a moving average (SMA, EMA, WMA, DEMA, TEMA, HMA or RMA) and a **Smoothing length** to smooth the Williams %R line. With **Compare** set to *Smoothed line vs value*, the condition tests the smoothed line against your Value, which filters out short spikes. With *Line vs smoothed line*, it tests the Williams %R against its own moving average (crossing up or down, greater or lower than) and no Value is needed. The chart draws the smoothed line in orange. Leave Smoothing on **None** to use the Williams %R as usual. Learn more in [Indicator Smoothing](https://gainium.io/help/indicator-smoothing).
+### Settings and tips
 
-### Step 3: Positive and Negative Percent Changes
-- **Positive % Change**: Detects price increases. If the Williams %R rises above a specific level (e.g., -40 to -20), it indicates increasing bullish momentum.
-- **Negative % Change**: Detects price decreases. If the Williams %R falls below a certain level (e.g., -40 to -80), it signals bearish momentum.
+| Setting | Default | What it does |
+| --- | --- | --- |
+| Use percentile | Off | Off: the condition tests the fixed Value. On: Value hides and %R is compared with its own Percentile over the last Lookback candles. |
+| Lookback | 150 | Candles of the line's own history the percentile is taken from. Percentile mode only. |
+| Percentile | 80 | The rank in that history used as the level: 80 is a level that only 20% of readings exceeded. Percentile mode only. |
+| Length | 14 | Candles in the high-low range, including the current one. |
+| Interval | 1 hour | Candle size the indicator is calculated on, from 1 minute to 1 week. It does not follow the chart you are looking at. |
+| Smoothing | None | A moving average put on the line. With smoothing on, the condition tests the smoothed line. |
+| Smoothing length | 14 | Candles in the smoothing average, 1 to 1,000. |
+| Compare | Smoothed line vs value | Smoothed line vs value tests the smoothed line against Value. Line vs smoothed line tests the raw line against its own average; Value hides and Between is never true. |
+| Condition | Crossing down | Crossing up and Crossing down fire on the one candle where the line passes Value. Greater than and Lower than hold on every candle on that side. Between holds while the line is inside Value and Upper value. |
+| Value | -40 | The %R level, from 0 at the top of the range to −100 at the bottom. Enter negative numbers. |
+| Upper value | — | Between only: the second bound. The line must be strictly between the two. |
+| Keep true | 0 | Extra candles the condition stays true after it fires, so it can meet a slower condition in the same group. |
 
-## Using Williams %R in Bot Trading
+**Tip:** **Value** −40 with Crossing down is the middle of the range, and on BTC/USDT 1h it fires a little more often than the reclaim of −80. Enter −80 or −20 for the setups on this page. A positive Value is never reached.
 
-The **Williams %R** indicator can be effectively integrated into bot trading to identify reversal points and capitalize on market trends. Here are two example strategies that utilize the Williams %R in Gainium.
+**Tip:** **Smoothing** SMA with Smoothing length 3 roughly halves the reclaims of −80 on BTC/USDT 1h. The smoothed line is the slow stochastic's %K on the inverted %R scale.
 
-### Strategy 1: Reversal Trading Strategy
+**Tip:** **Length** 7 gives about 1.3× as many 1-hour crosses up through −80 as Length 14, and Length 28 about a quarter fewer.
 
-#### Entry Rules
-- **Long Entry (Buy)**:Enter a long position when Williams %R crosses **below -80** and then crosses back above **-80**, signaling oversold conditions and a potential upward reversal.
-- **Short Entry (Sell)**:Enter a short position when Williams %R crosses **above -20** and then crosses below **-20**, signaling overbought conditions and a potential downward reversal.
+## Trading setups for bots
 
-#### Exit Rules
-- **Long Exit**:Exit the long trade when Williams %R crosses back above **-20**, signaling that the price may be overbought and a reversal is likely.
-- **Short Exit**:Exit the short trade when Williams %R crosses back below **-80**, signaling that the price may be oversold and a reversal is likely.
+### Reclaim of −80 for short long deals
 
-#### Implementation in Gainium
-- **Configure the Williams %R Indicator**:Set the **Length** to 14 and the **Interval** to 1 day. Configure the bot to trigger when Williams %R crosses key overbought or oversold levels (-20 and -80).
-- **Automate Entries and Exits**:Program the bot to enter trades when Williams %R crosses into oversold or overbought conditions and exit trades when the opposite condition is triggered.
+- **Entry:** %R(14) crossing up through −80.
+- **Exit:** %R crossing up through −20 as the take profit condition, plus a stop loss.
+- **Settings:** Length 14, Interval 1 hour, Condition Crossing up, Value −80. Exit: Condition Crossing up, Value −20.
+- **Timeframe:** 1 hour. With one deal at a time it trades about 17 times as often as the daily setup below. About two thirds of the deals closed higher on BTC/USDT, usually by under 1%.
+- **When it fails:** in a slide, %R reclaims −80 and price makes new lows before %R ever reaches −20. The average deal was −0.15%, ignoring fees, because the worst lost 13%. In the second example on the chart it bought at 84,333. Price fell to 80,394 (−4.7%) before %R reached −20, and the deal closed at 82,428. Set a stop loss of 2 to 3%, or let small DCA orders handle the slide.
 
-### Strategy 2: Trend Following Strategy
+![Annotated BINANCE:BTCUSDT 1h chart with Williams %R(14): a reclaim of −80 at 83,567 that exits at −20 for +1.6%, and a later reclaim at 84,333 that falls 4.7% before %R reaches −20](https://content.gainium.io/images/content/indicators/williams-r__reclaim.webp)
 
-#### Entry Rules
-- **Long Entry (Buy)**:Enter a long position when Williams %R crosses **above -40** after rising from below, indicating a bullish trend.
-- **Short Entry (Sell)**:Enter a short position when Williams %R crosses **below -60** after falling from above, signaling a bearish trend.
+### Daily break above −20 for trend deals
 
-#### Exit Rules
-- **Long Exit**:Exit the trade when Williams %R crosses **below -60**, indicating the bullish momentum may be weakening.
-- **Short Exit**:Exit the trade when Williams %R crosses **above -40**, signaling the bearish trend may be reversing.
+- **Entry:** daily %R(14) crossing up through −20. The close has just reached the top fifth of the 14-day range.
+- **Exit:** %R crossing down through −50 as the take profit condition, so the deal holds while price stays in the upper half of the range.
+- **Settings:** Length 14, Interval 1 day, Condition Crossing up, Value −20. Exit: Condition Crossing down, Value −50.
+- **Timeframe:** 1 day. With one deal at a time it trades rarely, and half the deals closed higher on BTC/USDT. In the chart above, the best bought at 69,335 and closed at 79,112, +14.1%.
+- **When it fails:** a spike to the top of the range that reverses within a few bars. In the other example on the chart it bought at 72,667 and closed at 68,114 two bars later, −6.3%. Half the deals lost, the worst 5.4%; the setup depends on catching the occasional long run like the +14.1% one.
 
-#### Implementation in Gainium
-- **Set the Thresholds**:Configure the bot to enter trades when Williams %R crosses key thresholds, like **-40** for long trades and **-60** for short trades.
-- **Risk Management**:Incorporate stop-losses to protect against unexpected market movements and set profit targets to lock in gains when the market moves in your favor.
+![Annotated BINANCE:BTCUSDT daily chart with Williams %R(14): a break above −20 at 69,335 that held to 79,112, and a break at 72,667 that exits at 68,114](https://content.gainium.io/images/content/indicators/williams-r__breakout.webp)
 
-## Practical Considerations
+## Using Williams %R in Gainium
 
-Here are some key considerations when using the **Williams %R** indicator in your trading strategy:
+1. Create a DCA bot and switch the form to **Manual**.
+2. Set **Deal start condition** to **Indicators**. For the exits above, set the take profit type to **Indicators**.
+3. Click **Edit** on the condition, then **Change indicator**, and pick **Williams %R**.
 
-### 1. Sensitivity to Price Movements
-- Shorter lengths (e.g., 10 periods) will react more quickly to price changes but may produce more false signals. Longer lengths (e.g., 20 or 30 periods) smooth out the signals but might lag behind market trends.
+![The Select start indicator dialog in the Gainium bot form, searched for Williams, with Williams %R ringed](https://content.gainium.io/images/content/indicators/williams-r__picker.webp)
 
-### 2. Combining with Other Indicators
-- Combine Williams %R with other momentum or trend indicators like moving averages or RSI to confirm signals. This reduces the likelihood of false entries and improves overall trading performance.
+The fields and their defaults:
 
-### 3. Timeframe Adjustments
-- Using shorter intervals (e.g., 1 hour) will provide more frequent signals, while longer intervals (e.g., daily) help capture larger, more sustained price movements.
+- **Use percentile:** off. When on, the condition fires at a percentile of %R's last **Lookback** bars (default 150) instead of a fixed value; **Percentile** defaults to 80. See [Indicator Percentiles](https://gainium.io/help/indicator-percentiles).
+- **Length:** 14. The *n* of the formula.
+- **Interval:** 1 hour, from 1 minute to 1 week.
+- **Smoothing:** None. SMA, EMA, WMA, DEMA, TEMA, HMA or RMA smooth the %R line; **Smoothing length** defaults to 14. **Compare** chooses between *Smoothed line vs value* (default) and *Line vs smoothed line*. See [Indicator Smoothing](https://gainium.io/help/indicator-smoothing).
+- **Condition:** Crossing down. The options are Crossing up, Crossing down, Greater than, Lower than and Between.
+- **Value:** −40. Enter negative numbers: −80 for oversold, −20 for overbought. With Between, an **Upper value** appears.
+- **Keep true:** 0. Extra bars the condition stays true after it fires.
 
-### 4. Backtest Before Going Live
-- Always backtest your strategies using historical data before live trading. Gainium’s backtesting feature allows you to evaluate how well the Williams %R performs under different market conditions.
+![The Williams %R settings card in the Gainium bot form with its defaults: Use percentile off, Length 14, Interval 1 hour, Smoothing None, Condition Crossing down, Value −40, Keep true 0](https://content.gainium.io/images/content/indicators/williams-r__settings.webp)
 
-## Conclusion
+![The Gainium bot chart on BTC/USDT 1h with the Williams %R pane below price](https://content.gainium.io/images/content/indicators/williams-r__bot-chart.webp)
 
-The **Williams %R** indicator is a powerful tool for identifying overbought and oversold conditions and trend reversals. By configuring it in Gainium, you can automate entry and exit points for your trading strategies based on momentum shifts. Whether you’re employing a reversal strategy or a trend-following approach, Williams %R provides a flexible and effective way to capture market opportunities.
+**Example configuration** (the −80 reclaim): Deal start condition Indicators, Williams %R with Use percentile off, Length 14, Interval 1 hour, Smoothing None, Condition Crossing up, Value −80, Keep true 0. Take profit type Indicators, Williams %R with Length 14, Interval 1 hour, Condition Crossing up, Value −20. Stop loss 3%.
 
-With proper configuration, backtesting, and risk management, Williams %R can become a valuable part of your automated trading strategy in Gainium.
+## Related indicators
 
+- [Stochastic](https://gainium.io/indicators/stoch): the same calculation on a 0 to 100 scale, with a signal line and the Zone filter.
+- [Relative Strength Index (RSI)](https://gainium.io/indicators/rsi): a slower filter; RSI(14) under 40 in the same group keeps %R entries to real dips.
+- [Commodity Channel Index (CCI)](https://gainium.io/indicators/cci): another range-position oscillator, without a fixed floor or ceiling.
 
+## FAQ
+
+### Why is Williams %R negative?
+
+Larry Williams measured how far the close is from the highest high, and plotted that distance as a negative number. 0 means the close is at the top of the range and −100 at the bottom. Enter negative values in Gainium: −80 for oversold, −20 for overbought.
+
+### How is Williams %R different from the Stochastic?
+
+Williams %R is the Stochastic's %K minus 100, with no smoothing and no signal line. The two reach their extremes on the same bars. Use %R when you want one line against a level; use the [Stochastic](https://gainium.io/indicators/stoch) when you want K and D crosses and the Zone filter.
+
+### Is −20 a sell signal?
+
+Not on its own. %R spends about a fifth of its time above −20 on BTC/USDT 1h, 4h and daily. In a rally it stays there for many candles. On the daily chart a cross up through −20 worked better as a buy signal for trend deals than as a sell signal.
+
+### What does the default Value of −40 mean?
+
+It is only a starting value. With the default Condition Crossing down, the condition fires when %R falls through −40, which is the middle of the range. Change it to −80 or −20 for the setups on this page.

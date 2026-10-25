@@ -8,7 +8,7 @@ description: >-
   premium zones around the 0.5 equilibrium and the optimal trade entry (OTE)
   zone around 0.618–0.79.
 createdAt: '2026-10-24T12:00:00.000Z'
-updatedAt: '2026-10-24T12:00:00.000Z'
+updatedAt: '2026-10-25T00:00:00.000Z'
 publishedAt: '2026-10-24T12:00:00.000Z'
 locale: en
 categories:
@@ -20,12 +20,15 @@ tags:
   - fibonacci
 ingested: false
 ingestedAt: ''
+templateVersion: 2
 tldr: >-
   Discount/Premium OTE Levels finds the latest valid price leg between a swing
-  low and a swing high and splits it into Fibonacci retracement levels. Your
-  bot can act when the price crosses, or is above or below, one of those
-  levels — for example, buy when price falls into the OTE zone (0.705) of an
-  up-move.
+  low and a swing high and splits it into Fibonacci retracement levels: 0 at
+  the end of the leg, 0.5 at the midpoint (equilibrium), 1 at its origin, and
+  the optimal trade entry (OTE) zone between 0.618 and 0.79. Your bot acts
+  when the close crosses, or is above or below, one of those levels. The
+  default buys when price falls through 0.705 of a bullish leg on 1-hour
+  candles.
 kind: native
 catalogKeys:
   - OTE
@@ -35,127 +38,147 @@ aliases:
   - "OTE Levels"
   - "Optimal Trade Entry"
   - "Discount/Premium Zones"
+faq:
+  - title: What is the OTE zone?
+    details: >-
+      The retracement between 0.618 and 0.79 of the latest leg, with 0.705 at
+      its middle. In a bullish leg it is 61.8–79% of the way back down the
+      up-move, in the discount half. Gainium's default Level is 0.705.
+  - title: Why does a crossing not fire when the leg changes?
+    details: >-
+      A crossing only counts when both candles belong to the same leg. When a
+      new leg forms, every level moves at once, and that jump is not treated
+      as price crossing a level.
+  - title: What Minimum leg size should I use?
+    details: >-
+      1% picks up most tradable swings on a 1-hour BTC chart. On a daily
+      chart or a volatile altcoin, 3–10% keeps the levels on significant
+      moves. Too small and the leg changes constantly; too large and there
+      may be no valid leg at all.
+  - title: How is it different from the TradingView script?
+    details: >-
+      The original draws each leg with price labels and can show several
+      legs at once. Gainium draws the levels of the latest leg as continuous
+      lines from the moment it is confirmed. Minimum leg size is a percentage
+      of the leg's low rather than price points, so one setting works for any
+      pair.
+related:
+  - market-structure
+  - fair-value-gap
+  - support-resistance-indicator
+sources:
+  - title: Binance BTC/USDT 1h and 4h candles, computed with Gainium's indicator engine
 ---
 
-The **Discount/Premium OTE Levels** indicator measures the most recent meaningful price swing — a *leg* — and divides it into Fibonacci retracement levels. It comes from the "smart money" way of reading a chart: after a strong move, price often pulls back before continuing, and traders look to enter during that pullback rather than chasing the move.
+Discount/Premium OTE Levels measures the latest swing leg and splits it into Fibonacci retracement levels, from 0 at the end of the leg to 1 at its origin. Traders use it to buy a pullback into the optimal trade entry (OTE) zone of an up-move, between 0.618 and 0.79, instead of chasing the move.
 
-Three ideas sit at the core of it:
+## What is Discount/Premium OTE Levels
 
-- **Equilibrium (0.5)** — the midpoint of the leg.
-- **Discount and premium** — in an up-move, prices below the midpoint are at a *discount* (a better place to buy), prices above it at a *premium*. In a down-move it is the other way around: the upper half is where sellers get the better price.
-- **Optimal trade entry (OTE)** — the deep pullback zone between the **0.618** and **0.79** retracements, with **0.705** as its "sweet spot". Many traders treat this zone as the highest-probability place to join the trend.
+The indicator comes from the smart-money way of reading a chart, and Gainium's version follows the swing and leg logic of the "Discount/Premium OTE Levels" TradingView script. Three ideas sit at its core:
 
-The indicator is based on the popular "Discount/Premium OTE Levels" TradingView script and follows its swing and leg logic.
+- **Equilibrium (0.5):** the midpoint of the leg.
+- **Discount and premium:** in an up-move, prices below the midpoint are at a discount (the better place to buy) and prices above it at a premium. In a down-move it is the other way round: the upper half is where sellers get the better price.
+- **Optimal trade entry (OTE):** the deep pullback zone between 0.618 and 0.79, with 0.705 at its middle.
 
-![The indicator picker searched for "OTE": Discount/Premium OTE Levels in the Chart category](https://content.gainium.io/images/content/help/discount-premium-ote-levels__picker.webp)
+How the leg is built:
 
-## How the Indicator Works
+- **Swings:** a swing high is a candle whose high is the highest of at least **Swing sensitivity** candles to its left; a swing low is the lowest low over the same window. A swing is confirmed one candle after it prints.
+- **Legs:** a bullish leg runs from a swing low up to a later swing high, a bearish leg from a swing high down to a later swing low. Each time a swing is confirmed, the indicator looks back for the most recent opposite swing at least **Minimum leg size** percent of the leg's low away. Smaller wiggles are ignored.
+- **Breaks:** when price trades above the high or below the low of the latest leg, that leg is broken and rebuilt from the swings that are still valid.
 
-### Swings
-
-A **swing high** is a candle whose high is the highest of at least **Swing sensitivity** candles to its left; a **swing low** is the lowest low over the same window. A swing is confirmed one candle after it prints, once the next candle fails to exceed it.
-
-### Legs
-
-A **leg** connects a swing low and a swing high:
-
-- A **bullish leg** runs from a swing low **up** to a later swing high.
-- A **bearish leg** runs from a swing high **down** to a later swing low.
-
-Each time a new swing is confirmed, the indicator looks back for the most recent opposite swing that is far enough away — at least **Minimum leg size** percent of the leg's low. If it finds one, that becomes the new leg. Small wiggles that don't reach the minimum size are ignored.
-
-When price later trades **above the high** or **below the low** of the latest leg, that leg is broken. The indicator then rebuilds it from the swings that are still valid, the same way the original script does, so the levels always describe a leg that price has not yet run through.
-
-### Levels
-
-The leg is divided into retracement levels, measured from the **end** of the leg back towards its **origin**:
+The levels are measured from the end of the leg back towards its origin:
 
 | Level | Bullish leg (low → high) | Bearish leg (high → low) |
 |---|---|---|
-| **0** | the swing high (leg end) | the swing low (leg end) |
-| **0.5** | the midpoint — equilibrium | the midpoint — equilibrium |
-| **0.618 – 0.79** | OTE zone, in the discount half | OTE zone, in the premium half |
-| **1** | the swing low (leg origin) | the swing high (leg origin) |
+| 0 | the swing high (leg end) | the swing low (leg end) |
+| 0.5 | the midpoint, equilibrium | the midpoint, equilibrium |
+| 0.618–0.79 | OTE zone, in the discount half | OTE zone, in the premium half |
+| 1 | the swing low (leg origin) | the swing high (leg origin) |
 
-So a level of **0.705** in a bullish leg is the price 70.5% of the way back down the up-move — the classic place to look for a long entry.
+A level of 0.705 in a bullish leg is the price 70.5% of the way back down the up-move.
 
-## How to Configure the Indicator in Gainium
+On the bot chart the indicator draws one line per level of the latest leg. Grey lines are the ends (0 and 1) and equilibrium (0.5). Green lines are the discount side, where an entry in the direction of the leg gets the better price: the lower half of a bullish leg, the upper half of a bearish one. Red lines are the premium side. The lines start on the candle where the leg is confirmed and run until a new leg replaces it, with a one-candle gap at each change.
 
-### Step 1: Add the Indicator
+![Gainium bot chart, BTC/USDT 4h, OTE Levels with Leg Bearish: grey lines at each leg's 0, 0.5 and 1, green discount and red premium level lines, stepping to a new leg at each change](https://content.gainium.io/images/content/indicators/discount-premium-ote-levels__chart.webp)
 
-In your bot's settings, open the deal start (or another indicator section), choose **Indicators** as the condition, and pick **Discount/Premium OTE Levels** from the **Chart** category. Searching for "OTE" finds it quickly.
+### Settings and tips
 
-### Step 2: Configure the Settings
+| Setting | Default | What it does |
+| --- | --- | --- |
+| Interval | 1 hour | The candles the swings and legs are built on, from 1 minute to 1 week. |
+| Swing sensitivity | 10 | A swing high or low must be the highest or lowest point of at least this many bars to its left. It is confirmed one bar after it prints. |
+| Minimum leg size | 1 | A move between a swing low and a swing high counts as a leg only when it is at least this many percent of its low. |
+| Leg | Bullish | Bullish legs run from a swing low up to a swing high, bearish legs from a swing high down to a swing low. Only the latest leg is read. |
+| Condition | Price crossing down | Crossing compares the close with the level on two candles of the same leg; a new leg moving the level is not a crossing. |
+| Level | 0.705 | Retracement of the leg the price is compared with: 0 is the end of the leg, 1 its origin, 0.5 the equilibrium. 0.618–0.79 is the OTE zone. |
+| Keep true | 0 | Extra bars the condition stays true after it fires. 0 means only the bar that triggered it. |
 
-![Discount/Premium OTE Levels settings in the bot form: Interval 1 hour, Swing sensitivity 10 bars, Minimum leg size 1 %, Leg Bullish, Condition Price crossing down, Level 0.705](https://content.gainium.io/images/content/help/discount-premium-ote-levels__settings.webp)
+**Tip:** Swing sensitivity 20 keeps only the larger legs. On BTC/USDT 1h, Price crossing down 0.705 in a bullish leg fires nearly twice as often with 10 as with 20.
 
-- **Interval** — the candle timeframe the legs are built on (default: 1 hour).
-- **Swing sensitivity** — how many candles to the left a swing high or low must dominate (default **10**). Higher values find fewer, more significant swings; lower values react to smaller swings.
-- **Minimum leg size** — the smallest move, in percent of the leg's low, that counts as a leg (default **1%**). Raise it on higher timeframes or volatile coins so only meaningful moves create levels.
-- **Leg** — which leg direction the condition reads: **Bullish**, **Bearish** or **Any** (default Bullish). Only the latest leg is ever used; if it points the other way, the condition stays false.
-- **Condition** — how the price is compared with the level:
-  - **Price crossing down** (default) — the candle closes at or below the level after closing above it on the previous candle.
-  - **Price crossing up** — the candle closes at or above the level after closing below it.
-  - **Price greater than** / **Price lower than** — the close is above / below the level.
+**Tip:** Minimum leg size has most effect on short intervals. Raising it from 1% to 3% halves the same signal on BTC/USDT 1h, but cuts it by only about a third on 4h, where most legs are already larger than 3%.
 
-  A crossing only counts when both candles belong to the **same leg**. When a new leg forms, every level moves at once, and that jump is not treated as price crossing a level.
-- **Level** — the retracement level the price is compared with, from 0 (leg end) to 1 (leg origin). Default **0.705**, the OTE sweet spot. Use **0.618** or **0.79** for the edges of the OTE zone, or **0.5** for equilibrium.
-- **Keep true** — how many candles the signal stays valid after it fires, like on any other indicator.
+## Trading setups for bots
 
-## Reading the Indicator on the Chart
+### Buy the OTE pullback of an up-leg
 
-![BTC/USDT 1h chart with OTE Levels: horizontal level lines for each leg, discount levels in green, premium levels in red, the 0, 0.5 and 1 levels in grey](https://content.gainium.io/images/content/help/discount-premium-ote-levels__chart.webp)
+- **Entry:** Deal start condition OTE Levels, Leg **Bullish**, Level **0.705**, Condition **Price crossing down**, 1 hour. The deal opens on the close that falls through 0.705 after closing above it.
+- **Exit:** take profit 2%. From 0.705 the leg's high (level 0) is 70.5% of the leg away, about 2.8% on a 4% leg. Put the stop loss under the leg's origin (level 1): a close below it breaks the leg.
+- **Settings:** Swing sensitivity 10, Minimum leg size 1%. Add a trend filter, such as price above a 200-period moving average on 4h, so the bot only buys pullbacks in an uptrend. For short bots, mirror it: Leg Bearish, Price crossing up.
+- **Timeframe:** 1h entries. For a 4h or 1d leg, raise Minimum leg size to 3–5%.
+- **When it fails:** in a reversal. In the chart below, the close fell through 0.705 and a few bars later kept going under the leg's origin.
 
-On the bot's chart, the indicator draws one horizontal line per level of the **latest leg**:
+![Annotated Gainium bot chart, BTC/USDT 1h: the close below 0.705 of the up-leg where Price crossing down fires, and the close below level 1 a few bars later that breaks the leg](https://content.gainium.io/images/content/indicators/discount-premium-ote-levels__ote-pullback.webp)
 
-- **Grey** — the leg's ends (**0** and **1**) and the equilibrium (**0.5**).
-- **Green** — the discount side: the retracement levels beyond 0.5, where an entry in the direction of the leg gets the better price (the lower half of a bullish leg, the upper half of a bearish one).
-- **Red** — the premium side.
+### Only buy at a discount
 
-The lines start on the candle where the leg is confirmed and continue until a new leg replaces it, with a one-candle gap at each change, so you can see how the levels moved over time. The price scale shows the current leg's levels.
+- **Entry:** your usual entry indicator in an AND group with OTE Levels, Leg **Bullish**, Level **0.5**, Condition **Price lower than**. The bot only buys while price sits in the discount half of the latest up-leg.
+- **Exit:** the bot's normal take profit.
+- **Settings:** Swing sensitivity 10, Minimum leg size 3%, Interval 4 hours, so the leg is a major move.
+- **Timeframe:** 4h legs with 15m or 1h entry indicators.
+- **When it fails:** when the leg breaks. If the latest leg turns bearish, a Bullish condition stays false and the bot stops buying, even at prices that look cheap.
 
-> **How this differs from the TradingView script:** the original draws each leg as a set of lines across the leg itself, with price labels, and can show several legs at once. Gainium's chart draws the levels of the latest leg as continuous lines from the moment it is confirmed — the leg your bot is actually trading against. The **Minimum leg size** is a percentage rather than a number of price points, so one setting works for every pair whatever its price.
+![Annotated Gainium bot chart, BTC/USDT 4h: the box at the right edge where price is in the discount half of the 79,750 to 84,880 up-leg and Price lower than 0.5 is true](https://content.gainium.io/images/content/indicators/discount-premium-ote-levels__discount-filter.webp)
 
-## Using the Indicator in Bot Trading
+## Using Discount/Premium OTE Levels in Gainium
 
-### Strategy 1: Buy the OTE Pullback
+1. Create a DCA bot and switch the form to **Manual**.
+2. Set **Deal start condition** to **Indicators**, or another indicator section.
+3. Click **Edit**, then **Change indicator**, and pick **Discount/Premium OTE Levels** from the Chart category. Searching for "OTE" finds it.
 
-Enter long when price retraces into the OTE zone of an up-move.
+![Discount/Premium OTE Levels settings card in the Gainium bot form with Minimum leg size 1% and Level 0.705 ringed, Interval 1 hour, Swing sensitivity 10 bars, Leg Bullish, Condition Price crossing down, Keep true 0](https://content.gainium.io/images/content/indicators/discount-premium-ote-levels__settings.webp)
 
-- **Leg**: Bullish · **Level**: 0.705 · **Condition**: Price crossing down
-- Add a trend filter, such as price above a 200-period moving average on a higher timeframe, so the bot only buys pullbacks in an uptrend.
-- Use the leg's origin (level **1**) as a natural invalidation point: if price closes below it, the leg is broken.
+The fields and their defaults:
 
-### Strategy 2: Sell Rallies into Premium
+- **Interval:** 1 hour, the candles the legs are built on.
+- **Swing sensitivity:** 10 bars, from 1 to 500. Higher values find fewer, more significant swings.
+- **Minimum leg size:** 1%, from 0.01 to 100, as a percentage of the leg's low.
+- **Leg:** Bullish. Bearish or Any. Only the latest leg is read; if it points the other way, the condition stays false.
+- **Condition:** Price crossing down. Price crossing down fires when the close is at or below the level after closing above it on the previous candle. Price crossing up is the reverse. Price greater than and Price lower than test the latest close. A crossing counts only when both candles belong to the same leg.
+- **Level:** 0.705, from 0 (leg end) to 1 (leg origin). Use 0.618 or 0.79 for the edges of the OTE zone, 0.5 for equilibrium.
+- **Keep true:** 0 extra bars.
 
-For short bots, enter when price rallies into the OTE zone of a down-move.
+**Example configuration** (the OTE pullback above): Deal start condition Indicators, Discount/Premium OTE Levels with Interval 1 hour, Swing sensitivity 10, Minimum leg size 1%, Leg Bullish, Condition Price crossing down, Level 0.705, Keep true 0. Take profit 2%, stop loss under the leg's origin.
 
-- **Leg**: Bearish · **Level**: 0.705 · **Condition**: Price crossing up
+## Related indicators
 
-### Strategy 3: Only Buy at a Discount
+- [Market Structure](https://gainium.io/indicators/market-structure): a BOS extends the leg these levels are drawn on.
+- [Fair Value Gap](https://gainium.io/indicators/fair-value-gap): a gap inside the OTE zone narrows the entry.
+- [Support and Resistance](https://gainium.io/indicators/support-resistance-indicator): pivot levels to set the stop under instead of the leg's origin.
 
-Use the indicator as a filter rather than a trigger: combine it with your usual entry indicator in an **AND** group so the bot only buys when price is in the discount half of the latest up-move.
+## FAQ
 
-- **Leg**: Bullish · **Level**: 0.5 · **Condition**: Price lower than
+### What is the OTE zone?
 
-### Strategy 4: Higher-Timeframe Zones, Lower-Timeframe Entries
+The retracement between 0.618 and 0.79 of the latest leg, with 0.705 at its middle. In a bullish leg it is 61.8–79% of the way back down the up-move, in the discount half. Gainium's default Level is 0.705.
 
-Set the indicator on the **4h** or **1d** interval with a larger **Minimum leg size** (for example 3–5%) to find major legs, and time the entry with faster indicators — RSI, Stochastic or a moving-average cross — on the **15m** or **1h** interval.
+### Why does a crossing not fire when the leg changes?
 
-## Practical Considerations
+A crossing only counts when both candles belong to the same leg. When a new leg forms, every level moves at once, and that jump is not treated as price crossing a level.
 
-### 1. Tune the Minimum Leg Size to the Market
-The right minimum depends on the coin and the timeframe. On a 1-hour BTC chart, 1% picks up most tradable swings; on a daily chart or a volatile altcoin, 3–10% keeps the levels anchored to significant moves. Too small and the leg changes constantly; too large and there may be no valid leg at all.
+### What Minimum leg size should I use?
 
-### 2. Swing Sensitivity Controls the Rhythm
-A higher Swing sensitivity means swings need to stand out against more candles, which produces fewer, longer-lived legs. Lower values react faster but replace the leg more often.
+1% picks up most tradable swings on a 1-hour BTC chart. On a daily chart or a volatile altcoin, 3–10% keeps the levels on significant moves. Too small and the leg changes constantly; too large and there may be no valid leg at all.
 
-### 3. Levels Move When the Leg Changes
-The levels belong to one leg. A new swing or a broken leg moves them, which is why crossings are only counted within a leg. Backtest your settings to see how often the leg changes on your pair and timeframe.
+### How is it different from the TradingView script?
 
-### 4. Combine with Confirmation
-A retracement level is a place where price *may* react, not a guarantee that it will. Pair the indicator with trend, momentum or [market structure](https://gainium.io/indicators/market-structure) confirmation, and backtest across trending and ranging periods before going live.
-
-## Conclusion
-
-The **Discount/Premium OTE Levels** indicator turns a classic discretionary technique — waiting for a pullback into the optimal trade entry zone of the latest swing — into a rule your bot can follow. Choose the leg direction, the retracement level and how the price should interact with it, and combine it with a trend filter and sound risk management to trade pullbacks systematically.
+The original draws each leg with price labels and can show several legs at once. Gainium draws the levels of the latest leg as continuous lines from the moment it is confirmed. Minimum leg size is a percentage of the leg's low rather than price points, so one setting works for any pair.

@@ -1,0 +1,293 @@
+{
+  "alertConditions": "not applicable",
+  "chart": null,
+  "indicator": {
+    "author": "Gainium",
+    "kind": "native",
+    "openSource": null,
+    "overlay": null,
+    "scriptId": "XO",
+    "shortTitle": "Oscillator XO",
+    "title": "Oscillator Crossover",
+    "version": null
+  },
+  "inputs": [
+    {
+      "default": "RSI",
+      "defaultText": "Relative Strength Index (RSI)",
+      "group": null,
+      "id": "xOscillator1",
+      "kind": "logic",
+      "label": "Primary oscillator",
+      "optionLabels": [
+        "Relative Strength Index (RSI)",
+        "Money Flow Index (MFI)",
+        "Commodity Channel Index (CCI)",
+        "Volume Oscillator (VO)"
+      ],
+      "options": [
+        "RSI",
+        "MFI",
+        "CCI",
+        "VO"
+      ],
+      "type": "select"
+    },
+    {
+      "default": "1h",
+      "defaultText": "1 hour",
+      "group": null,
+      "id": "indicatorInterval",
+      "kind": "logic",
+      "label": "Interval",
+      "optionLabels": [
+        "1 minute",
+        "3 minutes",
+        "5 minutes",
+        "15 minutes",
+        "30 minutes",
+        "1 hour",
+        "2 hours",
+        "4 hours",
+        "8 hours",
+        "1 day",
+        "1 week"
+      ],
+      "options": [
+        "1m",
+        "3m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "4h",
+        "8h",
+        "1d",
+        "1w"
+      ],
+      "type": "interval"
+    },
+    {
+      "default": 7,
+      "defaultText": "7",
+      "group": null,
+      "hiddenWhen": [
+        {
+          "equals": "VO",
+          "field": "xOscillator1"
+        }
+      ],
+      "id": "indicatorLength",
+      "kind": "logic",
+      "label": "Primary length",
+      "step": 1,
+      "type": "number"
+    },
+    {
+      "default": 5,
+      "defaultText": "5",
+      "group": null,
+      "hiddenWhen": [
+        {
+          "equals": "RSI",
+          "field": "xOscillator1"
+        },
+        {
+          "equals": "MFI",
+          "field": "xOscillator1"
+        },
+        {
+          "equals": "CCI",
+          "field": "xOscillator1"
+        }
+      ],
+      "id": "voShort",
+      "kind": "logic",
+      "label": "Volume oscillator short length",
+      "step": 1,
+      "type": "number"
+    },
+    {
+      "default": 10,
+      "defaultText": "10",
+      "group": null,
+      "hiddenWhen": [
+        {
+          "equals": "RSI",
+          "field": "xOscillator1"
+        },
+        {
+          "equals": "MFI",
+          "field": "xOscillator1"
+        },
+        {
+          "equals": "CCI",
+          "field": "xOscillator1"
+        }
+      ],
+      "id": "voLong",
+      "kind": "logic",
+      "label": "Volume oscillator long length",
+      "step": 1,
+      "type": "number"
+    },
+    {
+      "default": "cd",
+      "defaultText": "Crossing down",
+      "group": null,
+      "id": "indicatorCondition",
+      "kind": "logic",
+      "label": "Condition",
+      "optionLabels": [
+        "Crossing down",
+        "Crossing up",
+        "Greater than",
+        "Lower than"
+      ],
+      "options": [
+        "cd",
+        "cu",
+        "gt",
+        "lt"
+      ],
+      "type": "select"
+    },
+    {
+      "default": "MFI",
+      "defaultText": "Money Flow Index (MFI)",
+      "group": null,
+      "id": "xOscillator2",
+      "kind": "logic",
+      "label": "Secondary oscillator",
+      "optionLabels": [
+        "Relative Strength Index (RSI)",
+        "Money Flow Index (MFI)",
+        "Commodity Channel Index (CCI)",
+        "Volume Oscillator (VO)"
+      ],
+      "options": [
+        "RSI",
+        "MFI",
+        "CCI",
+        "VO"
+      ],
+      "type": "select"
+    },
+    {
+      "default": "1h",
+      "defaultText": "1 hour",
+      "group": null,
+      "id": "xOscillator2Interval",
+      "kind": "logic",
+      "label": "Secondary interval",
+      "optionLabels": [
+        "1 minute",
+        "3 minutes",
+        "5 minutes",
+        "15 minutes",
+        "30 minutes",
+        "1 hour",
+        "2 hours",
+        "4 hours",
+        "8 hours",
+        "1 day",
+        "1 week"
+      ],
+      "options": [
+        "1m",
+        "3m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "4h",
+        "8h",
+        "1d",
+        "1w"
+      ],
+      "type": "interval"
+    },
+    {
+      "default": 14,
+      "defaultText": "14",
+      "group": null,
+      "hiddenWhen": [
+        {
+          "equals": "VO",
+          "field": "xOscillator2"
+        }
+      ],
+      "id": "xOscillator2length",
+      "kind": "logic",
+      "label": "Secondary length",
+      "step": 1,
+      "type": "number"
+    },
+    {
+      "default": 5,
+      "defaultText": "5",
+      "group": null,
+      "hiddenWhen": [
+        {
+          "equals": "RSI",
+          "field": "xOscillator2"
+        },
+        {
+          "equals": "MFI",
+          "field": "xOscillator2"
+        },
+        {
+          "equals": "CCI",
+          "field": "xOscillator2"
+        }
+      ],
+      "id": "xOscillator2voShort",
+      "kind": "logic",
+      "label": "Volume oscillator short length",
+      "step": 1,
+      "type": "number"
+    },
+    {
+      "default": 10,
+      "defaultText": "10",
+      "group": null,
+      "hiddenWhen": [
+        {
+          "equals": "RSI",
+          "field": "xOscillator2"
+        },
+        {
+          "equals": "MFI",
+          "field": "xOscillator2"
+        },
+        {
+          "equals": "CCI",
+          "field": "xOscillator2"
+        }
+      ],
+      "id": "xOscillator2voLong",
+      "kind": "logic",
+      "label": "Volume oscillator long length",
+      "step": 1,
+      "type": "number"
+    },
+    {
+      "default": 0,
+      "defaultText": "0",
+      "group": null,
+      "id": "keepConditionBars",
+      "kind": "logic",
+      "label": "Keep true",
+      "min": 0,
+      "step": 1,
+      "tooltip": "This condition will remain true for a number of extra bars. Default is 0, which means it will be true only on the bar that triggered the condition.",
+      "type": "number"
+    }
+  ],
+  "notes": [],
+  "plots": [],
+  "schema": "gainium.indicator-settings/1",
+  "source": "gainium-catalog"
+}

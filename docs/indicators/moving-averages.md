@@ -6,7 +6,7 @@ description: >-
   In this article, we explain what is the Moving Averages (SMA, EMA, HMA, etc.)
   indicators and how they can be used in bot trading.
 createdAt: '2023-04-05T15:46:39.260Z'
-updatedAt: '2026-10-12T00:00:00.000Z'
+updatedAt: '2026-10-25T00:00:00.000Z'
 publishedAt: '2023-04-14T06:55:36.772Z'
 locale: en
 categories:
@@ -16,11 +16,16 @@ tags: []
 optimized: true
 ingested: true
 ingestedAt: '2025-06-29T10:57:30.017Z'
+templateVersion: 2
 tldr: >-
-  Gainium supports multiple moving average types—SMA, EMA, WMA, DEMA, TEMA, HMA,
-  RMA, and VWMA—each with different responsiveness to price changes. Use them in
-  bots to identify trend direction, support/resistance levels, and generate
-  crossover signals.
+  A moving average is the average closing price of the last N candles,
+  redrawn on every candle. Gainium's Moving Averages condition offers eight
+  types (SMA, EMA, WMA, DEMA, TEMA, HMA, VWMA and RMA) and compares one of
+  them with the current price or with a second average, on any interval.
+  The default is EMA 20 on 1-hour candles crossing down the current price,
+  which fires when price closes back above the EMA. The golden cross, the
+  50-day SMA crossing above the 200-day SMA, is the rarest signal on this
+  page: on BTC/USDT the 1-hour default fires about 600 times for each one.
 kind: native
 catalogKeys:
   - MA
@@ -36,85 +41,164 @@ aliases:
   - "HMA"
   - "RMA"
   - "VWMA"
+faq:
+  - title: Which moving average type reacts fastest?
+    details: >-
+      HMA and TEMA. On BTC/USDT 1h, price crosses up through a 20-period HMA
+      or TEMA about 2.3 times as often as through a 20-period RMA. WMA gives
+      about 1.7 times as many crosses as RMA, EMA about 1.4 times and SMA
+      about 1.3 times. Faster means earlier signals and more false ones.
+  - title: How do I set up a golden cross in Gainium?
+    details: >-
+      Moving average SMA, Length 50, Interval 1 day, Condition Crossing up,
+      Compared to SMA, SMA length 200, SMA interval 1 day. The condition fires
+      on the daily close where the 50-day average moves above the 200-day.
+  - title: Why does Crossing down fire when price goes up?
+    details: >-
+      The condition reads as "the moving average is crossing down the
+      reference". With Compared to set to Current price, the average crossing
+      down the price is the same event as price crossing up through the
+      average. Use Crossing up for price falling through it.
+  - title: Can the two averages use different intervals?
+    details: >-
+      Yes. The comparison average has its own interval field, so you can
+      compare a 1-hour EMA with a 1-day SMA. The bot reads each average from
+      its own candles.
+related:
+  - moving-average-ratio
+  - macd
+  - supertrend
+  - bb
+sources:
+  - title: StockCharts ChartSchool, Moving Averages, Simple and Exponential
+    url: https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/moving-averages-simple-and-exponential
+  - title: StockCharts ChartSchool, Double Exponential Moving Average (Patrick Mulloy, 1994)
+    url: https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/double-exponential-moving-average-dema
+  - title: StockCharts ChartSchool, Triple Exponential Moving Average (Patrick Mulloy)
+    url: https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/triple-exponential-moving-average-tema
+  - title: StockCharts ChartSchool, Hull Moving Average (Alan Hull, 2005)
+    url: https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/hull-moving-average-hma
+  - title: Binance BTC/USDT 1h and 1d candles, computed with Gainium's indicator engine
 ---
 
-The digital currency market is an ever-evolving landscape, rife with opportunities for savvy investors to capitalize on the use of trading bots. By leveraging the power of algorithms, these bots can execute trades with precision and speed unmatched by human traders. One essential element in the development of an effective trading bot is the incorporation of moving averages. This article explores the various types of moving averages and how they can be utilized to optimize your crypto trading bot.
+A moving average is the average closing price of the last N candles, recalculated on every new candle, so it draws a smoothed line under or over price. Bots use it in two ways: price crossing the average as an entry, and one average crossing another, like the 50-day over the 200-day, as a trend switch.
 
-## Type of Moving Averages used in crypto trading
+## What is a moving average
 
-### Simple Moving Average (SMA)
+No one person invented the moving average; the simple and exponential versions are decades older than charting software. The newer types have named authors, listed below. Gainium offers eight types. For a length *n*:
 
-The Simple Moving Average (SMA) is calculated by averaging the closing prices of a specific number of periods. This basic method smooths out price fluctuations, revealing underlying trends. Although it's straightforward and easy to understand, the SMA tends to lag behind the actual price movement, making it less responsive to sudden changes. Traders use this indicator to find buy and sell signals for assets and identify support and resistance zones.
+- **SMA (simple):** the plain average of the last *n* closes. Every candle has the same weight, so the line lags price by about (*n* − 1) / 2 candles.
+- **EMA (exponential):** `EMA = close × α + previous EMA × (1 − α)`, with `α = 2 / (n + 1)`. Recent candles weigh more, so it turns sooner than an SMA of the same length.
+- **WMA (weighted):** the newest close has weight *n*, the one before *n* − 1, down to 1 for the oldest.
+- **DEMA (double exponential):** `2 × EMA − EMA(EMA)`. Patrick Mulloy introduced it in 1994 to cut the EMA's lag.
+- **TEMA (triple exponential):** `3 × EMA − 3 × EMA(EMA) + EMA(EMA(EMA))`, also by Mulloy.
+- **HMA (Hull):** `WMA(2 × WMA(n/2) − WMA(n), √n)`. Alan Hull published it in 2005 to get a smooth line with very little lag.
+- **RMA (Wilder's):** an EMA with `α = 1 / n`, the slowest of the group. RSI and ATR use it internally.
+- **VWMA (volume-weighted):** `Σ(close × volume) / Σ volume` over *n* candles. Candles with more volume pull the line harder.
 
-### Exponential Moving Average (EMA)
+How the type changes behaviour: on BTC/USDT 1h at Length 20, RMA gives the fewest crosses of price. SMA gives about 1.3 times as many, EMA about 1.4 times, WMA about 1.7 times, and TEMA and HMA about 2.3 times as many.
 
-The Exponential Moving Average (EMA) is a more advanced and responsive variation of the SMA. By applying more weight to recent prices, the EMA reacts more quicker to market fluctuations. This makes it a popular choice among traders who prefer a more dynamic approach to their automatic trading strategies. EMA is a more popular choice for crypto assets than SMA because the volatility of these assets requires a more responsive MA.
+How to read it:
 
-### Weighted Moving Average (WMA)
+- **Price above a rising average:** up trend at that length. Below a falling one: down trend.
+- **The 200-day SMA** is the line most traders watch. Price can stay on one side of it for most of a cycle: on the BTC/USDT daily chart, price closed above it on only about one candle in five.
+- **Two averages:** the shorter one above the longer one means the recent trend is up. The 50-day crossing above the 200-day is called a golden cross, the reverse a death cross.
 
-The Weighted Moving Average (WMA) assigns varying degrees of importance to different periods, with the most recent prices receiving the highest weight. This results in a moving average that is more sensitive to recent market changes, providing a clearer picture of current trends for your trading bot to act upon.
+![Moving Average Ribbon (SMA 20, 50, 100 and 200) on BINANCE:BTCUSDT 1D, dark theme: price below all four averages for most of the chart, then above all of them on the right](https://content.gainium.io/images/content/indicators/moving-averages__chart.webp)
 
-### Double Exponential Moving Average (DEMA)
+### Settings and tips
 
-The Double Exponential Moving Average (DEMA) is a refinement of the EMA, designed to further reduce lag time. By calculating two EMAs and combining them, the DEMA generates a moving average that is faster and more responsive than the standard EMA, making it an excellent choice for volatile markets like cryptocurrency.
+| Setting | Default | What it does |
+| --- | --- | --- |
+| Moving average | EMA | The average that is tested: SMA, EMA, WMA, DEMA, TEMA, HMA, VWMA or RMA. HMA and TEMA cross price most often, RMA least. |
+| Length | 20 | Candles in the average, 1 to 1,000. |
+| Interval | 1 hour | Candle size of the average, from 1 minute to 1 week. It does not follow the chart you are looking at. |
+| Condition | Crossing down | How the average is compared with the reference. Crossing down means the average drops below the reference: with Current price, that is price closing back above the average. |
+| Compared to | Current price | The reference: the candle's close, or a second average of any of the eight types. |
+| Comparison length | 20 | Length of the second average, 1 to 1,000. Hidden with Current price. |
+| Comparison interval | 1 hour | Candle size of the second average. It can differ from Interval. Hidden with Current price. |
+| Keep true | 0 | Extra candles the condition stays true after it fires, so it can meet a slower condition in the same group. |
 
-### Triple Exponential Moving Average (TEMA)
+**Tip:** Condition **Crossing down** with Compared to **Current price** is a buy-side signal: the average drops below the close when price closes back above it. With the defaults, EMA 20 on 1 hour, it fires on BTC/USDT about 1.4 times as often as the same cross of an RMA 20.
 
-The Triple Exponential Moving Average (TEMA) takes the concept of the DEMA one step further, combining three EMAs to achieve even greater responsiveness. TEMA excels at detecting trends in fast-moving markets, providing an edge for trading bots seeking to capitalize on swift price movements.
+**Tip:** The **Moving average** type sets how often the condition fires. At Length 20 on 1 hour, price crosses up through an HMA about 2.3 times as often as through an RMA. Use SMA or RMA when each cross should be rare.
 
-### Hull Moving Average (HMA)
+**Tip:** For a golden cross, set **Comparison interval** to 1 day as well as Interval. Both start at 1 hour, so changing only Interval compares a daily SMA 50 with an SMA 200 of hourly candles, which covers less history than the 50 daily candles of the "fast" average.
 
-Developed by Alan Hull, the Hull Moving Average (HMA) is designed to reduce lag and improve the smoothness of the average. By combining a weighted moving average with the square root of the chosen period, the HMA achieves a more responsive and accurate representation of market trends, making it ideal for crypto trading bots.
+## Trading setups for bots
 
-### Rolling Moving Average (RMA)
+### Trade only above the 200-day average
 
-The Rolling Moving Average (RMA) is a type of moving average that places more weight on recent data points and less on older data points. It is calculated by subtracting the weighted moving average of past data points from the current data points' average. The formula for RMA is: RMA = SMA(2 x n, X)
-- SMA(n, X), where SMA is the Simple Moving Average, n is the number of periods, and X is the data series.
+Use the 200-day SMA as an on/off switch for a long bot, and let a faster condition time the entries.
 
-EMA and RMA use a multiplier in their formula; however, EMA is faster as the multiplier is higher.
+- **Entry:** Moving Averages, SMA, Length 200, Interval 1 day, Condition **Lower than**, Compared to **Current price**. That reads "SMA 200 lower than price", so it is true while price is above the average. Put your entry condition, for example RSI, in the same group with AND logic.
+- **Exit:** the bot's take profit. For a full stop, add SMA 200 **Crossing up** Current price as a close condition: the average rises above price when price closes under it.
+- **Settings:** SMA 200 on 1 day. An EMA 200 sits closer to price and flips earlier.
+- **Timeframe:** 1 day for the filter, any interval for the entry.
+- **When it fails:** near the line. In the chart below, BTC closed above and below the 200-day SMA three times in five daily candles, so the filter switched on and off around one level. It then stayed off for most of the chart, until price closed above the average at 69,335.
 
-### Volume-Weighted Moving Average (VWMA)
+![Annotated BTC/USDT 1D chart with the 200-day SMA: three crosses of the average in five daily candles, and the later close above it at 69,335](https://content.gainium.io/images/content/indicators/moving-averages__trend-filter.webp)
 
-The Volume-Weighted Moving Average (VWMA) considers both price and trading volume, offering a more comprehensive view of market activity. By accounting for the impact of trading volume on price movement, the VWMA provides a unique perspective that can enhance the performance of your crypto trading bot.
+### Golden cross trend switch
 
-## Choosing a Moving Average for Your Trading Strategy
+- **Entry:** Moving Averages, SMA, Length 50, Interval 1 day, Condition **Crossing up**, Compared to **SMA**, SMA length 200, SMA interval 1 day.
+- **Exit:** the death cross: the same settings with Condition **Crossing down**, as a close condition.
+- **Settings:** SMA 50 and SMA 200. EMAs cross less often here: on BTC/USDT daily, the 50-day EMA stayed above the 200-day EMA through three dips that each gave the SMAs a death cross.
+- **Timeframe:** 1 day. On 4-hour candles the 50 and 200 cross far more often and stop meaning "trend".
+- **When it fails:** at the end of a trend, because both averages lag far behind price. On BTC/USDT daily, one golden cross bought BTC at 111,696 and the death cross after it sold at 94,261, a 15.6% loss. The three golden crosses before it returned 11.2%, 76.7% and 13.2% from cross to cross. In the chart below, the latest one fires at 78,456.
 
-Selecting the right moving average for your trading strategy is crucial for optimizing the performance of your crypto trading bot. Here are some key factors to consider when making your decision:
-- **Market Volatility**: Evaluate the volatility of the cryptocurrency market you're targeting. If it's highly volatile, you might opt for a more responsive moving average like the EMA, DEMA, or TEMA. On the other hand, a less volatile market may benefit from the use of the SMA or WMA.
-- **Trading Frequency**: Determine the frequency of your trading strategy. High-frequency traders may prefer the DEMA or TEMA, while lower-frequency traders can consider other types of moving averages that prioritize smoothness and trend identification.
-- **Trading Style**: Consider your overall trading style and objectives. Are you focused on short-term gains or long-term investments? A shorter-term strategy may benefit from the responsiveness of the EMA, HMA, or VWMA, while a longer-term approach might be better served by the SMA, or WMA.
-- **Volume Analysis**: Assess whether incorporating trading volume into your strategy would provide valuable insights. If so, the VWMA could offer a unique perspective that complements your existing approach.
-- **Experimentation**: Don't be afraid to experiment with various moving averages to find the best fit for your trading strategy. [Backtesting](https://gainium.io/help/backtesting-trading-bots) your bot with different moving averages can help identify which one is most effective for your specific objectives and market conditions.
-- **Combination**: You can also consider using a combination of moving averages to create a more robust trading strategy. For example, you might use a longer-term SMA to identify the general trend direction while employing a shorter-term EMA to generate entry and exit signals.
+![Annotated BTC/USDT 1D chart: a death cross, then the later golden cross where the 50-day SMA rises above the 200-day SMA at 78,456](https://content.gainium.io/images/content/indicators/moving-averages__golden-cross.webp)
 
-## Using Moving Average in Gainium
+## Using Moving Averages in Gainium
 
-To select it, set the deal start condition (or the take profit or stop loss type) to **Indicators**, click **Edit** on the indicator, then **Change indicator**, and choose **Moving Averages**.
-![Screenshot 2023-04-05 at 16.02.52.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_05_at_16_02_52_5492a98299-40e1bb.webp)
-*Moving Averages*
+1. Create a DCA bot and switch the form to **Manual**.
+2. Set **Deal start condition** to **Indicators**, click **Edit**, then **Change indicator**, and search for **Moving**.
+3. Pick **Moving Averages**, set the fields, and click **Done**.
 
+![Gainium indicator picker searched for Moving, with the Moving Averages card ringed](https://content.gainium.io/images/content/indicators/moving-averages__picker.webp)
 
-![Screenshot 2023-04-05 at 16.16.56.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_05_at_16_16_56_c22250fe6b-829798.webp)
-*MA type*
+The condition reads left to right: moving average, length, condition, then the reference in Compared to. It tests the first average against the reference, so "EMA 20 crossing down Current price" fires when price closes back above the EMA.
 
-## Using Moving Averages in Bot Trading
+The fields and their defaults:
 
-Examples of how to use Moving Averages in your bot trading strategy.
-- **Identify the direction of the trend**: One of the simplest ways to use moving averages is to identify the direction of the trend. Traders often use two moving averages, a shorter one and a longer one. If the shorter moving average is above the longer moving average, it indicates an uptrend, and if the shorter moving average is below the longer moving average, it indicates a downtrend. The 50 and the 200 MA are very popular to determine a trend. You can see in the image below that when the 50 is crossing up and staying above the 200, there is an uptrend.
-![Screenshot 2023-04-07 at 16.31.29.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_07_at_16_31_29_78d9c6a4d9-201cb3.webp)
-*50 SMA and 200 MA*
+- **Moving average:** EMA. The options are SMA, EMA, WMA, DEMA, TEMA, HMA, VWMA and RMA.
+- **Length:** 20, from 1 to 1,000.
+- **Interval:** 1 hour.
+- **Condition:** Crossing down. The options are Crossing down, Crossing up, Greater than and Lower than.
+- **Compared to:** Current price. Or a second average of any of the eight types.
+- **SMA length** (named after the type you compare with): 20, from 1 to 1,000. Shown only when Compared to is an average.
+- **SMA interval** (named the same way): 1 hour. The second average's own candles.
+- **Keep true:** 0 extra candles.
 
+![Gainium Moving Averages settings card with the defaults: EMA, Length 20, Interval 1 hour, Condition Crossing down, Compared to Current price, Keep true 0](https://content.gainium.io/images/content/indicators/moving-averages__settings.webp)
 
-- **Determine support and resistance levels**: Moving averages can also be used to determine support and resistance levels. When the price of an asset is approaching a moving average, it often acts as a support or resistance level. Traders can use this information to make trading decisions, such as entering a long position when the price bounces off a moving average, acting as support. The 200 MA is often used to identify these levels. As you can see in the example below, it created a strong resistance, and the price was rejected very strongly.
-![Screenshot 2023-04-07 at 16.34.54.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_07_at_16_34_54_ec97978c60-294baf.webp)
-*200 SMA support/resistance*
-- **Generate trading signals**: Moving averages can also be used to generate trading signals. For example, a trader may use a crossover strategy, where they enter a long position when the shorter moving average crosses above the longer moving average, and exit the position when the shorter moving average crosses below the longer moving average. In the example below a trader can enter a long when the 50 EMA crosses up the 200 EMA. EMA is faster than SMA so they are better suited to individuate entries and exits. The trader might want to close some of the whole position the moment the 50 EMA rouches again the 200. As volume is slowly decreasing, there is a higher chance the price might not be supported by the 200 EMA any longer.
-![Screenshot 2023-04-07 at 16.43.38.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_07_at_16_43_38_cc050b4de2-1071db.webp)
-*Entering and exiting a position*
-- **Use multiple timeframes**: Traders can also use multiple timeframes to confirm trends and generate trading signals. For example, if the shorter moving average is above the longer moving average on both the 15-minute and hourly charts, it indicates a strong uptrend and may be an excellent time to enter a long position. In the image below, the trader might decide to enter a long on the 16 of March once the 50 EMA bounces off the 200 EMA because in the 1-hour timeframe (image above) the 50 EMA is indicating there is still a strong uptrend.
-![Screenshot 2023-04-07 at 16.54.26.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_07_at_16_54_26_b3ce0a7aee-dbce68.webp)
-*Multiple time frames*
+Moving Averages works as a deal start, DCA, take profit or stop loss condition, and in the Bot Controller.
 
-## Conclusion
+Example configuration for the golden cross: Moving average SMA, Length 50, Interval 1 day, Condition Crossing up, Compared to SMA, SMA length 200, SMA interval 1 day, Keep true 0.
 
-Incorporating moving averages into your crypto trading bot's strategy can greatly improve its efficiency and effectiveness. By understanding the nuances of each type of moving average, you can tailor your bot's approach to best suit the dynamic and unpredictable world of digital currency trading. Harness the power of these advanced techniques to stay ahead of the competition and maximize your returns in the ever-evolving crypto market.
+![Gainium Moving Averages settings card configured as a golden cross: SMA 50 on 1 day crossing up SMA 200 on 1 day](https://content.gainium.io/images/content/indicators/moving-averages__example.webp)
+
+## Related indicators
+
+- [Moving Average Ratio (MAR)](https://gainium.io/indicators/moving-average-ratio): the same price-versus-average comparison as a number, so you can require price to be 2% above the average instead of just above it.
+- [MACD](https://gainium.io/indicators/macd): the gap between a 12 and a 26 EMA, with its own signal line.
+- [Supertrend](https://gainium.io/indicators/supertrend): a trailing line that flips sooner than a long average and gives an exit level.
+- [Bollinger Bands](https://gainium.io/indicators/bb): a 20-period SMA with volatility bands around it.
+
+## FAQ
+
+### Which moving average type reacts fastest?
+
+HMA and TEMA. On BTC/USDT 1h, price crosses up through a 20-period HMA or TEMA about 2.3 times as often as through a 20-period RMA. WMA gives about 1.7 times as many crosses as RMA, EMA about 1.4 times and SMA about 1.3 times. Faster means earlier signals and more false ones.
+
+### How do I set up a golden cross in Gainium?
+
+Moving average SMA, Length 50, Interval 1 day, Condition Crossing up, Compared to SMA, SMA length 200, SMA interval 1 day. The condition fires on the daily close where the 50-day average moves above the 200-day.
+
+### Why does Crossing down fire when price goes up?
+
+The condition reads as "the moving average is crossing down the reference". With Compared to set to Current price, the average crossing down the price is the same event as price crossing up through the average. Use Crossing up for price falling through it.
+
+### Can the two averages use different intervals?
+
+Yes. The comparison average has its own interval field, so you can compare a 1-hour EMA with a 1-day SMA. The bot reads each average from its own candles.

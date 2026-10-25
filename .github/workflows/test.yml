@@ -28,3 +28,6 @@ jobs:
 
       - name: Check indicator pages against the dashboard catalog
         run: npm run check:indicators
+
+      - name: Check article style (docs/STYLE.md)
+        run: npm run check:style

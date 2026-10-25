@@ -7,7 +7,7 @@ description: >-
   strategies, detecting breakouts, and identifying overbought/oversold
   conditions.
 createdAt: '2024-10-06T13:25:45.603Z'
-updatedAt: '2026-10-12T00:00:00.000Z'
+updatedAt: '2026-10-25T00:00:00.000Z'
 publishedAt: '2024-10-06T13:28:31.664Z'
 locale: en
 categories:
@@ -17,107 +17,189 @@ tags: []
 ingested: true
 ingestedAt: '2025-06-29T10:57:30.014Z'
 tldr: >-
-  Keltner Channel %B measures where price sits within the Keltner Channel bands
-  (0 = lower band, 0.5 = middle EMA, 1 = upper band), useful for detecting
-  overbought/oversold conditions and breakouts. Use it for mean reversion or
-  breakout strategies.
+  Keltner Channel %B says where the close sits inside the Keltner Channel: 0
+  at the lower band, 0.5 at the EMA, 1 at the upper band, below 0 or above 1
+  outside. It is Bollinger's %B formula applied to Keltner bands. Bots use it
+  to buy low in the channel and exit high in it, or to enter breakouts above
+  1. In Gainium it adds percentile mode, smoothing and Between to the Keltner
+  Channel. Its Value starts at 0, the lower band.
+templateVersion: 2
 kind: native
 catalogKeys:
   - KCPB
 category: momentum
 aliases:
-  - "KC %B"
-  - "KC%B"
-  - "Keltner Channel %B"
+  - KC %B
+  - KC%B
+  - Keltner Channel %B
+  - Keltner %B
+faq:
+  - title: Why does my KC %B condition never trigger?
+    details: >-
+      Check that the Value is on the %B scale. %B runs from about 0 to 1:
+      BTC/USDT 4h stays between about −0.3 and 1.7. A condition saved with a
+      Value such as 80, the old default, never fires. Set Value to a number on
+      that scale, such as 0.1 or 1.
+  - title: What is the difference between KC %B and BB %B?
+    details: >-
+      The formula is the same; the bands differ. KC %B uses ATR-based Keltner
+      bands around an EMA, BB %B uses standard-deviation bands around an SMA.
+      Keltner bands are smoother, so KC %B moves more steadily.
+  - title: Is KC %B crossing up 1 the same as price crossing the upper band?
+    details: >-
+      Yes, with the same channel settings. %B is useful when you want one Value
+      for many pairs, a level between the bands such as 0.1 or 0.9, percentile
+      mode or smoothing.
+  - title: What are the Gainium defaults?
+    details: >-
+      MA Type EMA, Range type ATR, Range length 20, Length 7, ATR Multiplier 2,
+      Interval 1 hour, Condition Crossing down, Value 0, Keep true 0. A 7-bar
+      EMA follows price more closely than the usual 20, so the channel reacts
+      faster.
+related:
+  - keltner-channel
+  - bollinger-bands-b
+  - atr
+sources:
+  - title: StockCharts ChartSchool, Keltner Channels (EMA and ATR form)
+    url: https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/keltner-channels
+  - title: TradingView Help Center, Bollinger Bands %b (the %B formula)
+    url: https://www.tradingview.com/support/solutions/43000501971-bollinger-bands-b-b/
+  - title: Gainium, Indicator Percentiles
+    url: https://gainium.io/help/indicator-percentiles
+  - title: Gainium, Indicator Smoothing
+    url: https://gainium.io/help/indicator-smoothing
+  - title: Binance BTC/USDT 1h and 4h candles, computed with Gainium's indicator engine
 ---
 
-The **Keltner Channel %B (KC%B)** is a technical indicator that measures where the price lies within the [Keltner Channel](https://gainium.io/indicators/keltner-channel)'s range. This indicator is especially useful for identifying potential overbought and oversold conditions based on price movements relative to the upper, middle, and lower bands of the Keltner Channel. The %B value tells you how close the price is to these bands, helping you make informed decisions about potential breakouts or reversals.
+Keltner Channel %B says where the close sits inside the Keltner Channel, as one number from about 0 at the lower band to 1 at the upper band. Bots use it to buy low in the channel and sell high in it, and to enter breakouts when it goes above 1.
 
-In this article, we will explain the **Keltner Channel %B** indicator, demonstrate how to configure it in Gainium, and show how to use it in bot trading with strategy examples, including entry and exit rules. We will also cover practical considerations and conclude with best practices for integrating the Keltner Channel %B into your trading strategy.
+## What is Keltner Channel %B
 
-## What Is Keltner Channel %B?
+Keltner Channel %B applies John Bollinger's %B formula to Keltner bands instead of Bollinger Bands:
 
-**Keltner Channel %B** measures the position of the price relative to the Keltner Channel's upper and lower bands, with a value typically ranging from 0 to 1:
-- **0**: Price is at or below the lower band.
-- **0.5**: Price is at the middle line (EMA).
-- **1**: Price is at or above the upper band.
+**KC %B = (Close − Lower band) / (Upper band − Lower band)**
 
-### Key Features:
-- **Overbought Condition**: If %B approaches or exceeds 1, it suggests that the price is nearing or exceeding the upper band, signaling overbought conditions.
-- **Oversold Condition**: If %B approaches or falls below 0, it indicates the price is nearing or below the lower band, signaling oversold conditions.
+- **Close** is the candle's closing price.
+- **Upper and lower bands** are the Keltner Channel: an EMA of the close plus and minus a multiple of ATR. See [Keltner Channel](https://gainium.io/indicators/keltner-channel).
 
-## How to Configure Keltner Channel %B in Gainium
+If the bands have no width, Gainium returns 0.5. In Gainium the channel defaults to Length 7, ATR Multiplier 2 and an ATR of 20 bars, so the middle line reacts faster than the usual 20-period EMA.
 
-Here’s how to set up and configure **Keltner Channel %B** in Gainium using the settings provided in the image.
+How to read it:
 
-### Step 1: Add the Keltner Channel %B Indicator
-- **Navigate to the Bot Settings**:Log into Gainium, select your bot, and find the **Keltner Channel %B (KC%B)** from the list of available indicators.
+- **0** is the lower band, **0.5** the EMA, **1** the upper band.
+- **Below 0 or above 1** means the close is outside the channel. BTC/USDT 4h %B (with a 20 EMA and ATR 10) stays between about −0.3 and 1.7.
+- **One scale for every pair.** A Value of 0.1 means "near the lower band" on BTC and on a small coin alike.
 
-### Step 2: Configure the Indicator Settings
-- **MA Type (EMA)**: This is the moving average type used for the Keltner Channel's middle line. In this example,** an Exponential Moving Average (EMA)** is chosen, which places more weight on recent price data than a Simple Moving Average (SMA).
-- **Range Type (ATR)**: The **Average True Range (ATR)** is used to calculate the width of the Keltner Channel bands. This helps adjust the bands based on market volatility.
-- **Range Length (10)**: The range length determines how far back the ATR is calculated. This example sets it to **10**, meaning the ATR is calculated based on the past 10 periods.
-- **Length (20)**: This setting defines the length of the EMA, which serves as the middle line of the Keltner Channel. A length of **20** is a common choice for smoothing out price fluctuations.
-- **Multiplier (2)**: The multiplier adjusts the width of the upper and lower bands relative to the middle line. In this case, it is set to **2**, meaning the bands are placed 2 times the ATR away from the EMA.
-- **Interval**: The interval refers to the time period for each candlestick in the chart. The attached settings set the interval to **1 day**, meaning the Keltner Channel %B is calculated based on daily price movements.
-- **Condition (Crossing Up)**: The condition defines when the bot will take action. In this case,** Crossing Up** is chosen, meaning the bot will trigger when the %B value crosses up through a specific value (0 in this case).
-- **Value (0)**: This value represents the threshold for triggering the condition. The bot will act when the price crosses above the lower band (a %B value of 0).
-- **Keep True (0)**: This setting determines how long the condition remains active after it is triggered. A value of **0** means the condition resets immediately after the trigger.
-![image.png](https://content.gainium.io/images/content/help/image_44b761e7d8-873102.webp)
-*Keltner Channel %B Settings*
+![The Gainium bot chart on BTC/USDT 1h (Bybit paper account) with the KC %B pane below price, using Gainium's defaults (EMA 7, multiplier 2, ATR 20) and a dashed line at 1: %B swings between about 0 and 1, touching 1.17 at its high and 0.01 at its low](https://content.gainium.io/images/content/indicators/keltner-channel-b__chart.webp)
 
-**Smoothing (optional):** set **Smoothing** to a moving average (SMA, EMA, WMA, DEMA, TEMA, HMA or RMA) and a **Smoothing length** to smooth the %B line. With **Compare** set to *Smoothed line vs value*, the condition tests the smoothed line against your Value, which filters out short spikes. With *Line vs smoothed line*, it tests the %B against its own moving average (crossing up or down, greater or lower than) and no Value is needed. The chart draws the smoothed line in orange. Leave Smoothing on **None** to use the %B as usual. Learn more in [Indicator Smoothing](https://gainium.io/help/indicator-smoothing).
+### Settings and tips
 
-## Using Keltner Channel %B in Bot Trading
+| Setting | Default | What it does |
+| --- | --- | --- |
+| Use percentile | Off | On: Value is hidden and the condition compares the line with its own percentile level over the last Lookback bars. |
+| Lookback | 150 | Bars the percentile level is taken from. Percentile mode only. |
+| Percentile | 80 | Which percentile of those bars is the level: 80 is higher than 80% of them, 20 lower than 80% of them. Percentile mode only. |
+| MA Type | EMA | The middle line: EMA or SMA. |
+| Range type | ATR | What sets the band width: ATR over Range length, True Range of the current bar alone, or Range, a smoothed average of high minus low over Length. |
+| Range length | 20 | The ATR period. Shown with Range type ATR only. |
+| Length | 7 | The period of the middle line's moving average. |
+| ATR Multiplier | 2 | How far each band sits from the middle line, in multiples of the range. From 0.1 to 10. |
+| Interval | 1 hour | The candle size %B is calculated on, from 1 minute to 1 week. |
+| Smoothing | None | Moving average applied to the indicator line. With smoothing on, the condition uses the smoothed line. |
+| Smoothing length | 14 | Bars in the smoothing average. Shown when Smoothing is on. |
+| Compare | Smoothed line vs value | Smoothed line vs value: the condition tests the smoothed line against Value. Line vs smoothed line: the condition tests the indicator against its own moving average, a momentum-turn signal. Percentile mode always compares against a value. |
+| Condition | Crossing down | How %B is compared with Value: Crossing up, Crossing down, Greater than, Lower than, or Between Value and Upper value. Percentile mode drops Between. |
+| Value | 0 | The threshold on the %B scale: 0 is the lower band, 1 the upper band. |
+| Upper value | — | Between: the value must stay above Value and below this. |
+| Keep true | 0 | Extra bars the condition stays true after it fires. 0 means only the bar that triggered it. |
 
-Here are two example trading strategies that incorporate the **Keltner Channel %B** into automated bot trading.
+**Tip:** the default Value 0 with Crossing down fires when the close drops below the lower band. Raise it to 0.1 to catch the dip a little earlier, inside the channel. Keep Value on the 0 to 1 scale: BTC/USDT 1h %B stays between about −0.2 and 2.2, so a Value such as 80 never fires.
 
-### Strategy 1: Mean Reversion Strategy
+**Tip:** the default Length 7 with Range length 20 keeps %B near the middle, because a 7-bar EMA follows price closely. On BTC/USDT 4h, 90% of readings sit between 0.24 and 0.86. With Length 20 and Range length 10, TradingView's Keltner defaults, crossing down 0.1 fires about five times as often.
 
-#### Entry Rules
-- **Long Entry (Buy)**:Enter a long position when the %B value crosses **up** from below **0.** This signals that the price is at or below the lower band and a potential upward reversal may occur.
-- **Short Entry (Sell)**:Enter a short position when the %B value crosses **down** from above **1**, signaling that the price is at or above the upper band and a potential downward reversal may occur.
+**Tip:** Use percentile adapts the level to whichever lengths you pick. With the default lengths and Percentile 90, %B crossing up its own 90th percentile fires about eight times as often on BTC/USDT 4h as crossing down a fixed 0.1. Percentile starts at 80; 90 picks a rarer level.
 
-#### Exit Rules
-- **Long Exit**:Exit the trade when the %B value crosses **above 0.5**, signaling the price is back at the middle of the channel and may be overbought.
-- **Short Exit**:Exit the trade when the %B value crosses **below 0.5**, signaling the price is back at the middle and could be oversold.
+## Trading setups for bots
 
-#### Implementation in Gainium
-- **Configure the Keltner Channel %B**: Set the **EMA** as the moving average type and **ATR** as the range type. Use a **10-period ATR** and a **20-period EMA** with a **2x multiplier**. Configure the bot to trigger long entries when %B crosses up from below 0, and short entries when %B crosses down from above 1.
-- **Automate Entries and Exits**: The bot can automatically enter long trades when the %B crosses up from the lower band and short trades when the %B crosses down from the upper band.
+The charts below use TradingView's Keltner Channels with a 20 EMA, multiplier 2 and ATR 10. Set the same Length and Range length in Gainium to reproduce them.
 
-### Strategy 2: Breakout Trading Strategy
+### Buy at %B 0.1, sell at 0.9
 
-#### Entry Rules
-- **Long Entry (Buy)**:Enter a long position when the %B value breaks **above 1**, signaling that the price is breaking out of the upper band and an upward trend may begin.
-- **Short Entry (Sell)**:Enter a short position when the %B value breaks **below 0**, signaling that the price is breaking below the lower band and a downward trend may start.
+A level inside the channel catches the dip before price closes outside it, which the Keltner Channel condition can't express.
 
-#### Exit Rules
-- **Long Exit**:Exit the long trade when the %B crosses back **below 1**, signaling that the upward momentum is weakening.
-- **Short Exit**:Exit the short trade when the %B crosses back **above 0**, signaling that the downward momentum is weakening.
+- **Entry:** %B crossing down 0.1.
+- **Exit:** %B crossing up 0.9, as an indicator take profit.
+- **Settings:** KC %B with MA Type EMA, Range type ATR, Range length 10, Length 20, ATR Multiplier 2, Interval 4 hours, Condition Crossing down, Value 0.1. Take profit type Indicators: KC %B, same settings, Condition Crossing up, Value 0.9. Two DCA orders 1.5% apart.
+- **Timeframe:** 4h. The exit at 0.9 needs a full swing across the channel, so trades last many bars.
+- **When it fails:** when the swing never comes. In one deal opened at 83,740, price dropped 4.7% and %B took about 80 bars to reach 0.9. The deal closed 1% up, but the capital was tied up the whole time.
 
-#### Implementation in Gainium
-- **Set Up Breakout Conditions**: Configure the bot to trigger long trades when the %B value breaks above 1 and short trades when it breaks below 0. This helps capture breakout opportunities.
-- **Risk Management**: Use stop-loss orders to protect against false breakouts in volatile market conditions.
+Example, in the chart below: %B crosses down 0.1 at 77,250. Price dips 1.6% more, then %B crosses up 0.9 at 78,982, 2.2% above the entry.
 
-## Practical Considerations
+![Annotated chart of Keltner Channels on BINANCE:BTCUSDT 4h: the close near the lower band at 77,250 where %B crosses down 0.1, and the close near the upper band at 78,982 where %B crosses up 0.9](https://content.gainium.io/images/content/indicators/keltner-channel-b__reentry.webp)
 
-Here are some important considerations when using **Keltner Channel %B** in your trading strategy:
+### Breakout above 1, exit at 0.5
 
-### 1. Timeframe Adjustments
-- Shorter timeframes (e.g., **1 hour**) will generate more frequent signals, while longer timeframes (e.g., **1 day**) will help capture major trends. Adjust based on your trading goals.
+%B above 1 is a close above the upper band; back under 0.5 is a close under the EMA.
 
-### 2. Combine with Other Indicators
-- To increase the reliability of your trades, consider combining the Keltner Channel %B with other indicators such as **RSI** or **Bollinger Bands** for additional confirmation of overbought or oversold conditions.
+- **Entry:** %B crossing up 1.
+- **Exit:** %B crossing down 0.5.
+- **Settings:** KC %B with EMA, ATR 10, Length 20, Multiplier 2, Interval 4 hours, Condition Crossing up, Value 1. Take profit type Indicators: KC %B, Condition Crossing down, Value 0.5. A 4% stop loss.
+- **Timeframe:** 4h or 1 day.
+- **When it fails:** in a range. On BTC/USDT 4h about two in three signals lost 1% to 3%, ignoring fees; the winners came in strong runs, like the one in the chart below.
 
-### 3. Watch for Market Conditions
-- In trending markets, the Keltner Channel %B can help identify breakout points, while it can help spot reversals in ranging markets. However, during low volatility or choppy periods, false signals may occur.
+In the chart below, %B crosses up 1 at 80,726 and falls back under 0.5 at 83,996, 4.1% higher. A bot that allows more than one deal would also have bought the second cross, at 84,887, and lost 1%.
 
-### 4. Backtesting
-- Always backtest your trading strategies before using them live. Gainium’s backtesting feature can help you refine your settings and determine which parameters work best under different market conditions.
+![Annotated chart of Keltner Channels on BINANCE:BTCUSDT 4h: the close above the upper band at 80,726, the second one at 84,887, and the close back under the EMA at 83,996](https://content.gainium.io/images/content/indicators/keltner-channel-b__breakout.webp)
 
-## Conclusion
+## Using Keltner Channel %B in Gainium
 
-The **Keltner Channel %B** is a powerful indicator for identifying overbought and oversold conditions, detecting breakouts, and spotting potential reversals. By configuring it in Gainium and incorporating it into your automated bot trading strategy, you can capitalize on price movements within the Keltner Channel and use the %B value to make more informed trading decisions.
+KC %B can start deals, place DCA orders (DCA type Indicators), close deals, and start or stop the bot from the Bot Controller.
 
-Whether you’re using the Keltner Channel %B for mean reversion or breakout strategies, combining it with other indicators and applying sound risk management practices can help you maximize your trading success.
+1. Create a DCA bot and switch the form to **Manual**. Quick mode has no indicator conditions.
+2. Set **Deal start condition** to **Indicators**. The bot adds an RSI condition. For an exit, set the take profit or stop loss type to **Indicators**.
+3. Click **Edit**, then **Change indicator**, and pick **Keltner Channel %B (KC%B)**.
+
+The settings card starts with these defaults:
+
+- **Use percentile:** off. When on, Value is replaced by %B's own percentile level over the last **Lookback** bars (default 150) at the **Percentile** you set (default 80). See [Indicator Percentiles](https://gainium.io/help/indicator-percentiles).
+- **MA Type:** EMA, or SMA.
+- **Range type:** ATR, True Range or Range, as in the Keltner Channel.
+- **Range length:** 20. The ATR period, shown only with Range type ATR.
+- **Length:** 7. The period of the middle line.
+- **ATR Multiplier:** 2, from 0.1 to 10.
+- **Interval:** 1 hour, from 1 minute to 1 week.
+- **Smoothing:** None. A moving average of the %B line (SMA, EMA, WMA, DEMA, TEMA, HMA or RMA), **Smoothing length** 14, and **Compare**. See [Indicator Smoothing](https://gainium.io/help/indicator-smoothing).
+- **Condition:** Crossing down. The options are Crossing up, Crossing down, Greater than, Lower than and Between.
+- **Value:** 0, the lower band. Crossing down 0 fires when the close drops out of the channel at the bottom. Values step by 0.01.
+- **Keep true:** 0. The number of extra bars the condition stays true after it fires.
+
+![The KC %B settings card in the Gainium bot form with its defaults: Use percentile off, MA Type EMA, Range type ATR, Range length 20, Length 7, ATR Multiplier 2, Interval 1 hour, Smoothing None, Condition Crossing down, Value 0 (ringed), Keep true 0](https://content.gainium.io/images/content/indicators/keltner-channel-b__settings.webp)
+
+When you click **Done**, the bot chart adds a KC %B pane with the Value drawn as a dashed line. If the pane scales far past 1 and the %B line sits flat at the bottom, the Value is off the %B scale and needs changing.
+
+**Example configuration** (the dip buy): Deal start condition Indicators, KC %B with Use percentile off, MA Type EMA, Range type ATR, Range length 10, Length 20, ATR Multiplier 2, Interval 4 hours, Smoothing None, Condition Crossing down, Value 0.1, Keep true 0. Take profit type Indicators, KC %B with the same settings, Condition Crossing up, Value 0.9. Two DCA orders 1.5% apart.
+
+## Related indicators
+
+- [Keltner Channel](https://gainium.io/indicators/keltner-channel): the channel itself, for conditions on one band.
+- [Bollinger Bands %B](https://gainium.io/indicators/bollinger-bands-b): the same formula on standard-deviation bands, which react faster to single wide candles.
+- [Average True Range (ATR)](https://gainium.io/indicators/atr): the width unit of the Keltner bands.
+
+## FAQ
+
+### Why does my KC %B condition never trigger?
+
+Check that the Value is on the %B scale. %B runs from about 0 to 1: BTC/USDT 4h stays between about −0.3 and 1.7. A condition saved with a Value such as 80, the old default, never fires. Set Value to a number on that scale, such as 0.1 or 1.
+
+### What is the difference between KC %B and BB %B?
+
+The formula is the same; the bands differ. KC %B uses ATR-based Keltner bands around an EMA, BB %B uses standard-deviation bands around an SMA. Keltner bands are smoother, so KC %B moves more steadily.
+
+### Is KC %B crossing up 1 the same as price crossing the upper band?
+
+Yes, with the same channel settings. %B is useful when you want one Value for many pairs, a level between the bands such as 0.1 or 0.9, percentile mode or smoothing.
+
+### What are the Gainium defaults?
+
+MA Type EMA, Range type ATR, Range length 20, Length 7, ATR Multiplier 2, Interval 1 hour, Condition Crossing down, Value 0, Keep true 0. A 7-bar EMA follows price more closely than the usual 20, so the channel reacts faster.

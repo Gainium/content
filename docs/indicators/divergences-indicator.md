@@ -7,7 +7,7 @@ description: >-
   detecting trend reversals, and momentum shifts with strategies and practical
   examples.
 createdAt: '2024-10-07T04:35:50.955Z'
-updatedAt: '2026-02-24T07:44:20.569Z'
+updatedAt: '2026-10-25T00:00:00.000Z'
 publishedAt: '2024-10-07T04:36:49.453Z'
 locale: en
 categories:
@@ -17,11 +17,16 @@ tags:
   - indicator
 ingested: true
 ingestedAt: '2025-06-29T10:57:30.008Z'
+templateVersion: 2
 tldr: >-
-  The Divergence Indicator detects when price action deviates from oscillators
-  (AO, MACD, RSI, MFI, etc.), signaling potential trend reversals or
-  continuations. Bullish divergences suggest upward reversals while bearish
-  divergences warn of downward moves.
+  A divergence is price and an oscillator disagreeing: price makes a lower
+  low while the oscillator makes a higher low (bullish), or the reverse at a
+  high (bearish). Gainium's Divergences condition checks up to nine
+  oscillators at once and fires when at least Min number of them show the
+  same type of divergence on the same candle. Defaults are 2 divergences, Any
+  Bearish, all nine oscillators, on 1-hour candles. On BTC/USDT daily, two or
+  more bearish divergences are rare, and price was lower six bars later after
+  about five in six of them.
 kind: native
 catalogKeys:
   - DIV
@@ -32,83 +37,162 @@ aliases:
   - "RSI Divergence"
   - "Bullish Divergence"
   - "Bearish Divergence"
+  - "Hidden Divergence"
+faq:
+  - title: What is the difference between regular and hidden divergence?
+    details: >-
+      Regular divergence points to a reversal: price makes a lower low and the
+      oscillator a higher low (bullish), or price a higher high and the
+      oscillator a lower high (bearish). Hidden divergence points to
+      continuation: price makes a higher low while the oscillator makes a
+      lower low (hidden bullish), or the mirror at highs.
+  - title: Can I trade RSI divergence only?
+    details: >-
+      Yes. Leave only Relative Strength Index (RSI) selected under
+      Oscillators and set Min number of divergences to 1. The condition then
+      fires on every RSI divergence of the chosen type.
+  - title: Why does the signal come one candle after the low?
+    details: >-
+      A low only counts as a pivot once the next candle closes higher on the
+      oscillator, so the condition can only see it one candle later. On
+      4-hour candles that is a four-hour delay from the actual low.
+  - title: What Min number of divergences should I use?
+    details: >-
+      It trades frequency for agreement. On BTC/USDT 4h, a regular bullish
+      divergence on at least one oscillator appears about three and a half
+      times as often as on at least two, and about eight times as often as on
+      at least three. More oscillators in agreement did not raise the win
+      rate, so use 2 and judge the setup by its exit.
+  - title: Which oscillator settings does the condition use?
+    details: >-
+      Fixed ones: RSI 14, MFI 14, the MACD histogram (12, 26, 9), Stochastic
+      %D (14, 3, 1), CCI 10, Awesome Oscillator (5, 34), Williams %R 14,
+      Ultimate Oscillator (7, 14, 28) and Momentum 10. You choose which ones
+      count, not their lengths.
+related:
+  - rsi
+  - macd
+  - awesome-oscillator
+  - oscillator-crossover
+sources:
+  - title: StockCharts ChartSchool, RSI divergences (J. Welles Wilder Jr.)
+    url: https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/relative-strength-index-rsi
+  - title: StockCharts ChartSchool, MACD divergences
+    url: https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/macd-moving-average-convergence-divergence-oscillator
+  - title: Binance BTC/USDT 1h, 4h and 1d candles, computed with Gainium's indicator engine
 ---
 
-The **Divergence Indicator** in Gainium is a powerful tool for detecting when an asset's price action deviates from the movement of an oscillator. Divergences are significant because they often signal potential trend reversals or momentum shifts. By comparing price action with multiple oscillators, traders can anticipate changes in market direction.
+A divergence is price and an oscillator disagreeing: price makes a new low, but RSI or MACD does not. Gainium's Divergences condition checks up to nine oscillators at once and fires when enough of them show the same divergence on the same candle. Bots use bullish divergences to time dip entries and bearish ones to close longs or pause a bot.
 
-In this article, we’ll explain the **Divergence Indicator**, how to configure it in Gainium, and how to use it in automated bot trading with practical examples. We’ll also cover practical considerations and conclude with tips on using it effectively in your trading strategy.
+## What is a divergence
 
-## What Is the Divergence Indicator?
+Divergence is one of the RSI signals in J. Welles Wilder Jr.'s 1978 book, and traders apply the same test to any oscillator. There are four types:
 
-The **Divergence Indicator** identifies discrepancies between an asset's price movement and oscillators like the **Awesome Oscillator (AO)**,** [MACD](https://gainium.io/indicators/macd)**, **RSI**, and others. Divergences can be either **bullish** (indicating potential upward movement) or **bearish** (indicating potential downward movement). Hidden divergences can also occur, signaling the continuation of the current trend.
+- **Regular bullish:** price makes a lower low, the oscillator makes a higher low. Selling is losing force.
+- **Regular bearish:** price makes a higher high, the oscillator makes a lower high. Buying is losing force.
+- **Hidden bullish:** price makes a higher low, the oscillator makes a lower low. Read as an up trend that continues.
+- **Hidden bearish:** price makes a lower high, the oscillator makes a higher high. Read as a down trend that continues.
 
-### Key Features:
-- **Bullish Divergence**: Price makes a lower low, but the oscillator makes a higher low. This indicates weakening downward momentum and potential for a reversal upward.
-- **Bearish Divergence**: Price makes a higher high, but the oscillator makes a lower high. This indicates weakening upward momentum and potential for a reversal downward.
-- **Hidden Divergence**: Indicates potential trend continuation, with the opposite behavior of regular divergence.
+How Gainium detects them, on every closed candle and for each selected oscillator:
 
-## How to Configure the Divergence Indicator in Gainium
+1. Find a **pivot** on the oscillator: a value lower (or higher) than the 3 candles before it and the 1 candle after it. The pivot is confirmed one candle after it forms.
+2. Compare it with the oscillator's previous pivot, which must be 1 to 60 candles earlier.
+3. Compare the price lows (or highs) at the same two candles.
+4. Count the oscillators that show each type on this candle. The condition is true when the count reaches **Min number of divergences**. "Any Bullish" means the regular count or the hidden count reaches it; the two are not added together.
 
-Here’s how to set up and configure the **Divergence Indicator** in Gainium based on the provided settings.
+The oscillators run with fixed settings: RSI 14, MFI 14, MACD histogram (12, 26, 9), Stochastic %D (14, 3, 1), CCI 10, Awesome Oscillator (5, 34), Williams %R 14, Ultimate Oscillator (7, 14, 28) and Momentum 10.
 
-### Step 1: Add the Divergence Indicator
-- **Navigate to the Bot Settings**:Log into Gainium, select your bot, and add the **Divergence** indicator from the list.
+How often they appear: on BTC/USDT 4h, two or more oscillators show any bearish divergence almost three times as often as two or more show a regular bullish one. On 1-hour candles the default, Any Bearish with 2, fires about four times as often as on 4 hours.
 
-### Step 2: Configure the Indicator Settings
-- **Min Number of Divergences (2)**: This setting specifies how many divergences must be detected before the indicator triggers an action. In this example, the minimum number is set to **2**, meaning the bot will wait for confirmation from two divergences before acting.
-- **Type of Divergence**: Choose **Any Bearish**, **Bearish**, **Hidden Bearish**, **Any Bullish**, **Bullish**, and **Hidden Bullish**. This determines whether the bot looks for bearish or bullish divergences. In this case, **Any Bearish** is selected, meaning the bot will trigger on any bearish divergence.
-- **Oscillators**: You can select the oscillators you want to compare with the price action. **Awesome Oscillator (AO)**,** [CCI](https://gainium.io/indicators/cci)**, **MACD**, and **MFI** are used in this example. Gainium supports multiple oscillators, including **RSI**, **Momentum**, **Stochastic Oscillator**, and more. The bot will look for divergences across all selected oscillators.
-- **Interval (1 day)**: This determines the timeframe for each candlestick used to calculate the divergence. In this example, the interval is set to **1 day**, meaning the bot will analyze daily price movements for divergences.
-- **Keep True (0)**: This setting defines how long the condition remains valid after being triggered. Setting this to **0** means the condition resets immediately after it is met.
-![image.png](https://content.gainium.io/images/content/help/image_915ac03347-293c56.webp)
-*Divergence Indicator Settings*
+![RSI (14) on BINANCE:BTCUSDT 4h, dark theme: a red arrow marks price making a lower low while a green arrow marks RSI making a higher low](https://content.gainium.io/images/content/indicators/divergences-indicator__chart.webp)
 
-## Using Divergence Indicator in Bot Trading
+### Settings and tips
 
-Here are two example strategies using the **Divergence Indicator** in automated bot trading.
+| Setting | Default | What it does |
+| --- | --- | --- |
+| Min number of divergences | 2 | How many of the selected oscillators must show the divergence on the same candle, 1 to 9. |
+| Type of divergence | Any Bearish | Regular (Bearish, Bullish), hidden, or Any. Any counts regular and hidden divergences separately and fires when either count reaches the minimum. |
+| Oscillators | AO,CCI,MACD,MFI,MOM,RSI,Stoch,UO,WR | The oscillators checked, all nine by default. Each runs with fixed settings, for example RSI 14 and MACD 12, 26, 9. |
+| Interval | 1 hour | Candle size of the oscillators and of price, from 1 minute to 1 week. |
+| Keep true | 0 | Extra candles the condition stays true after it fires. A divergence is true on one candle only. |
 
-### Strategy 1: Bearish Reversal Strategy
+**Tip:** **Min number of divergences** can never be met when it is higher than the number of selected Oscillators. With only RSI selected, set it to 1. The field stops at 9, one for each oscillator.
 
-#### Entry Rules
-- **Short Entry (Sell)**:Enter a short position when the **Any Bearish Divergence** is detected on at least **2 oscillators**, signaling a potential reversal from an uptrend to a downtrend.
+**Tip:** Each step of **Min number of divergences** cuts the signals by 60 to 70%. With Any Bullish on BTC/USDT 4h, a minimum of 2 fires on about a quarter as many candles as 1, and a minimum of 4 on about a twentieth.
 
-#### Exit Rules
-- **Short Exit**:Exit the short position when a **Bullish Divergence** is detected. This signals that the downward momentum may be weakening and that an upward reversal is possible.
+**Tip:** A pivot is confirmed one candle after it forms, and the condition is true on that candle only. Set **Keep true** to 2 or 3 when it shares a group with a condition that tends to fire a few candles later, such as RSI crossing up through 30.
 
-#### Implementation in Gainium
-- **Set the Divergence Type**: Configure the bot to detect **Any Bearish Divergence**. Ensure the minimum number of divergences is set to **2** for additional confirmation from multiple oscillators.
-- **Automate Entries and Exits**: The bot will automatically enter short trades when bearish divergences are detected and exit when bullish divergences are detected.
+## Trading setups for bots
 
-### Strategy 2: Bullish Continuation Using Hidden Divergence
+### Bullish divergence as a dip entry
 
-#### Entry Rules
-- **Long Entry (Buy)**:Enter a long position when a **hidden bullish divergence** is detected. This signals that the current uptrend may continue despite a short-term pullback.
+- **Entry:** Divergences, Min number of divergences **2**, Type **Any Bullish**, all nine oscillators, Interval 4 hours.
+- **Exit:** a 1.5% take profit, with DCA orders below. The signal marks a low; it does not say how far the bounce goes.
+- **Settings:** Min 2. With 1, regular divergences alone fire about three and a half times as often; with 3, under half as often, and no better.
+- **Timeframe:** 4 hours. Any Bullish with 2 fires about two and a half times as often as regular Bullish with 2, because hidden divergences count too.
+- **When it fails:** in a falling market, where every bounce shows a fresh divergence. About two thirds of the entries reached +1.5% within 18 bars, but a buy on any 4h candle did that almost as often. In the example on the chart, Momentum and the Ultimate Oscillator diverged at 79,420, and the take profit took about 66 bars and a 5.6% drawdown to fill. Size the DCA orders for that.
 
-#### Exit Rules
-- **Long Exit**:Exit the long trade when a **Bearish Divergence** is detected, signaling a potential end to the bullish momentum.
+![Annotated BTC/USDT 4h chart with RSI: RSI, CCI and Williams %R diverge and a buy at 78,306 reaches +1.5% about 12 bars later; an earlier divergence on Momentum and the Ultimate Oscillator at 79,420 is followed by a 5.6% drop](https://content.gainium.io/images/content/indicators/divergences-indicator__bullish.webp)
 
-#### Implementation in Gainium
-- **Set the Divergence Type**: Configure the bot to detect **Hidden Bullish Divergence** to signal trend continuation.
-- **Automate Entries and Exits**: The bot will enter long trades when hidden bullish divergences are detected and exit when regular bearish divergences are spotted.
+### Daily bearish divergence to stop a long bot
 
-## Practical Considerations
+On daily candles a bearish divergence is rare, and it has marked tops.
 
-When using the **Divergence Indicator** in your trading strategy, consider the following:
+- **Entry:** none; this setup protects open longs. Divergences, Min **2**, Type **Any Bearish**, all oscillators, Interval **1 day**, used as a take profit condition (close the deal) or in the Bot Controller to stop the bot.
+- **Exit:** restart the bot by hand, or with a second Bot Controller condition such as Divergences Any Bullish on 1 day.
+- **Settings:** Min 2 on 1 day. On 4-hour candles the same condition fires about twelve times as often and stops being a warning.
+- **Timeframe:** 1 day. It is the rarest signal on this page, and the signal days come in short clusters.
+- **When it fails:** in a strong up trend, where the oscillators flatten while price keeps climbing. In the chart above, one signal fired at 75,150 and price was 4% higher six bars later. Across all signal days, price was lower six bars later after about five in six, and fell 12.8% in the 14 bars after the signal at 95,600.
 
-### 1. Use Multiple Oscillators for Confirmation
-- Select at least two or more oscillators, such as **RSI**, **MACD**, and **MFI**, for more reliable signals. This helps reduce the chance of false signals from any single oscillator.
+![Annotated BTC/USDT 1D chart with RSI: bearish divergences before a 12.8% drop, before a longer decline, and before a 5.9% drop; one signal is followed by a 4% rise](https://content.gainium.io/images/content/indicators/divergences-indicator__bearish-1d.webp)
 
-### 2. Adjust Timeframe for Different Market Conditions
-- Shorter timeframes (e.g., **1 hour**) can generate more frequent signals but may also produce more noise. Longer timeframes (e.g., **1 day**) provide more significant signals but fewer opportunities.
+## Using Divergences in Gainium
 
-### 3. Combine with Other Indicators
-- Use the Divergence Indicator alongside other indicators like **moving averages** or **Bollinger Bands** to confirm trend direction and filter out weak divergence signals.
+1. Create a DCA bot and switch the form to **Manual**.
+2. Set **Deal start condition** to **Indicators**, click **Edit**, then **Change indicator**, and search for **Divergences**.
+3. Pick **Divergences**, set the fields, and click **Done**.
 
-### 4. Backtest Your Strategy
-- Backtest your divergence-based strategy using historical data in Gainium’s backtesting environment. Adjust your oscillator selection, divergence type, and timeframes to optimize performance.
+![Gainium indicator picker searched for Divergences, with the Divergences card ringed](https://content.gainium.io/images/content/indicators/divergences-indicator__picker.webp)
 
-## Conclusion
+The fields and their defaults:
 
-The **Divergence Indicator** is a powerful tool for detecting potential trend reversals and momentum shifts by comparing price action with oscillators. By configuring it correctly in Gainium, you can automate entries and exits based on divergence signals. Whether you’re looking for trend reversals or continuations, the Divergence Indicator can provide valuable insights into market momentum.
+- **Min number of divergences:** 2, from 1 to 9. How many of the selected oscillators must show the divergence on the same candle.
+- **Type of divergence:** Any Bearish. The options are Any Bearish, Bearish, Hidden Bearish, Any Bullish, Bullish and Hidden Bullish.
+- **Oscillators:** all nine selected: Awesome Oscillator, CCI, MACD, MFI, Momentum, RSI, Stochastic, Ultimate Oscillator and Williams %R.
+- **Interval:** 1 hour.
+- **Keep true:** 0 extra candles. A divergence is true on one candle only, so Keep true 1 or 2 lets it meet a second condition that fires a little later.
 
-Combining the Divergence Indicator with other technical tools and proper risk management can further enhance your trading strategy.
+Divergences works as a deal start, DCA, take profit or stop loss condition, and in the Bot Controller.
+
+Example configuration for the first setup: Min number of divergences 2, Type of divergence Any Bullish, all oscillators, Interval 4 hours, Keep true 0.
+
+![Gainium Divergences settings card with Min number of divergences 2, Type of divergence Any Bullish and Interval 4 hours](https://content.gainium.io/images/content/indicators/divergences-indicator__example.webp)
+
+## Related indicators
+
+- [RSI](https://gainium.io/indicators/rsi): the oscillator most traders read divergences on; select it alone for RSI-only divergences.
+- [MACD](https://gainium.io/indicators/macd): its histogram is one of the nine oscillators; the MACD condition itself cannot test divergence.
+- [Awesome Oscillator](https://gainium.io/indicators/awesome-oscillator): another of the nine, built from 5 and 34-period averages of the candle midpoint.
+- [Oscillator Crossover](https://gainium.io/indicators/oscillator-crossover): a faster momentum turn to combine with a divergence using Keep true.
+
+## FAQ
+
+### What is the difference between regular and hidden divergence?
+
+Regular divergence points to a reversal: price makes a lower low and the oscillator a higher low (bullish), or price a higher high and the oscillator a lower high (bearish). Hidden divergence points to continuation: price makes a higher low while the oscillator makes a lower low (hidden bullish), or the mirror at highs.
+
+### Can I trade RSI divergence only?
+
+Yes. Leave only Relative Strength Index (RSI) selected under Oscillators and set Min number of divergences to 1. The condition then fires on every RSI divergence of the chosen type.
+
+### Why does the signal come one candle after the low?
+
+A low only counts as a pivot once the next candle closes higher on the oscillator, so the condition can only see it one candle later. On 4-hour candles that is a four-hour delay from the actual low.
+
+### What Min number of divergences should I use?
+
+It trades frequency for agreement. On BTC/USDT 4h, a regular bullish divergence on at least one oscillator appears about three and a half times as often as on at least two, and about eight times as often as on at least three. More oscillators in agreement did not raise the win rate, so use 2 and judge the setup by its exit.
+
+### Which oscillator settings does the condition use?
+
+Fixed ones: RSI 14, MFI 14, the MACD histogram (12, 26, 9), Stochastic %D (14, 3, 1), CCI 10, Awesome Oscillator (5, 34), Williams %R 14, Ultimate Oscillator (7, 14, 28) and Momentum 10. You choose which ones count, not their lengths.

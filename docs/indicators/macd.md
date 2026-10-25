@@ -6,7 +6,7 @@ description: >-
   In this article, we explain what is the Moving Average Convergence Divergence
   (MACD) indicator and how it can be used in bot trading.
 createdAt: '2023-04-11T16:19:50.322Z'
-updatedAt: '2026-02-24T07:44:20.575Z'
+updatedAt: '2026-10-25T00:00:00.000Z'
 publishedAt: '2023-04-12T04:03:57.721Z'
 locale: en
 categories:
@@ -16,11 +16,15 @@ tags: []
 optimized: true
 ingested: true
 ingestedAt: '2025-06-29T10:57:30.014Z'
+templateVersion: 2
 tldr: >-
-  The MACD indicator tracks the relationship between a 12-period and 26-period
-  EMA with a 9-period signal line, generating signals via crossovers, histogram
-  shifts, and divergences. Use it in Gainium bots for trend reversal,
-  continuation, or divergence strategies.
+  MACD is the gap between a 12-period and a 26-period EMA, with a 9-period
+  EMA of that gap as its signal line. The histogram is MACD minus the signal
+  line. Gainium's MACD condition tests the histogram: crossing up 0 is the
+  moment MACD crosses above its signal line. Defaults are 12, 26 and 9 on
+  1-hour candles, crossing down 0. On BTC/USDT 4h, buying each cross up and
+  selling the next cross down won a little over a third of the trades and
+  made 3.9% in total, ignoring fees.
 kind: native
 catalogKeys:
   - MACD
@@ -28,60 +32,173 @@ category: momentum
 aliases:
   - "MACD"
   - "Moving Average Convergence Divergence"
+  - "MACD histogram"
+  - "MACD crossover"
+faq:
+  - title: Which MACD line does the Gainium condition test?
+    details: >-
+      The histogram, which is the MACD line minus the signal line. Crossing up
+      0 is the same event as the MACD line crossing above the signal line, and
+      crossing down 0 is the cross below. The condition does not test the MACD
+      line against zero.
+  - title: What are the best MACD settings for crypto?
+    details: >-
+      Most traders keep 12, 26 and 9 with EMA for both averages; TradingView
+      uses the same defaults. Change the Interval rather than the lengths: on
+      BTC/USDT the histogram crosses up 0 about four times as often on 1-hour
+      candles as on 4-hour, and about five times as often on 4-hour as on
+      daily candles.
+  - title: Can I use a Value other than 0?
+    details: >-
+      Yes, but the histogram is in price units, so a level that fits BTC
+      means nothing for a $0.10 coin. On BTC/USDT 4h the histogram swings
+      between about −500 and +830 in the chart on this page. To use one
+      threshold across pairs, switch on Use percentile instead.
+  - title: How reliable is a MACD crossover on its own?
+    details: >-
+      No better than a coin flip over six bars. On BTC/USDT 4h, price was
+      higher six bars later after about half the cross-ups. A crossover
+      system makes money from the few long trends it stays in, not from its
+      hit rate.
+related:
+  - moving-averages
+  - divergences-indicator
+  - oscillator-crossover
+  - rsi
+sources:
+  - title: StockCharts ChartSchool, MACD (Gerald Appel, late 1970s; formula and defaults)
+    url: https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/macd-moving-average-convergence-divergence-oscillator
+  - title: StockCharts ChartSchool, MACD-Histogram (Thomas Aspray)
+    url: https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/macd-histogram
+  - title: Gainium, DCA mode
+    url: https://gainium.io/help/dca-mode
+  - title: Gainium, Indicator Percentiles
+    url: https://gainium.io/help/indicator-percentiles
+  - title: Binance BTC/USDT 1h, 4h and 1d candles, computed with Gainium's indicator engine
 ---
 
-As the cryptocurrency market continues flourishing, so does the interest in trading automation. Trading bots have revolutionized how investors approach digital currencies by minimizing the human factor and reducing the effects of market volatility. One essential tool that can optimize trading bot performance is the Moving Average Convergence Divergence (MACD) indicator. This article will explore how to utilize MACD effectively in your automated trading strategy.
+MACD (Moving Average Convergence Divergence) measures the gap between a fast and a slow exponential moving average, and compares that gap with its own average. Traders use its crossovers as momentum entries and exits. In Gainium the condition reads the MACD histogram, so "crossing up 0" means the MACD line crossed above its signal line.
 
-## What is the MACD indicator?
+## What is MACD
 
-The MACD is a momentum-based technical indicator that tracks the relationship between two moving averages of a digital asset's price. Developed by Gerald Appel in the 1970s, this indicator aims to reveal changes in a trend's strength, direction, and duration. The MACD consists of two components:
+Gerald Appel developed MACD in the late 1970s. Thomas Aspray later added the histogram to show the distance between MACD and its signal line. The three parts:
 
-**a. MACD Line**: The difference between a short-term (typically 12-day) and a long-term (usually 26-day) Exponential Moving Average (EMA).**b. Signal Line**: A 9-day EMA of the MACD Line.
+- **MACD line** = EMA(close, **Fast length**) − EMA(close, **Slow length**). Defaults 12 and 26.
+- **Signal line** = EMA of the MACD line over **Signal length**. Default 9.
+- **Histogram** = MACD line − signal line.
 
-The MACD Line and Signal Line interaction generates trading signals that can help identify potential entry and exit points.
+All three are in price units. On BTC/USDT 4h the histogram ranges from about −500 to +830 in the chart below, while the MACD line peaked near 3,500; on a $1 coin the same chart shows fractions of a cent.
 
-## Using the MACD in Gainium
+Gainium's defaults match TradingView's built-in MACD: 12, 26, 9, with EMA for both the oscillator and the signal line. Either can be switched to SMA.
 
-The MACD indicator is available in your bot settings' “Deal Start” section. Select “Technical Indicators” from the “Deal start condition” drop-down menu first, then “MACD” in the “Indicator” Section.
-![Screenshot 2023-04-11 at 16.42.02.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_16_42_02_bdcff2e4b6-08edae.webp)
-*MACD*
+How to read it:
 
-In Gainium, you can see the histogram (red and green wave) by default in the chart as soon as you select the indicator. However, to be able to see the EMA line crossing that sometimes helps better visualize your entry, you need to tick “MACD” and “Signal” in the “Style” tab in the indicator settings.
-![Screenshot 2023-04-11 at 16.49.39.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_16_49_39_84463f5691-1bdd7d.webp)
-*Style Settings*
+- **Histogram crosses above 0:** the MACD line crossed above the signal line. Short-term momentum turned up.
+- **Histogram crosses below 0:** the opposite.
+- **Histogram shrinking toward 0:** the move is slowing before the cross.
+- **MACD line above or below 0:** the fast EMA is above or below the slow EMA. Gainium's condition does not test this line, only the histogram.
+- **Divergence:** price makes a lower low while the histogram makes a higher low. Gainium detects that in the separate [Divergences indicator](https://gainium.io/indicators/divergences-indicator), with MACD as one of its oscillators.
 
-## Implementing MACD in Your Trading Bot Strategy
+On BTC/USDT the 1-hour histogram crosses up through 0 about four times as often as the 4-hour one, and the 4-hour one about five times as often as the daily.
 
-Here are a few examples of how to use the MACD indicator in your trading bots.
+![MACD (12, 26, 9) on BINANCE:BTCUSDT 4h, dark theme: the MACD and signal lines spike during a rally, with the histogram below them](https://content.gainium.io/images/content/indicators/macd__chart.webp)
 
-### A. Trend reversal (MACD Crossover) Strategy
+### Settings and tips
 
-In the [crossover strategy](https://gainium.io/indicators/oscillator-crossover), your trading bot will initiate a long position when the MACD Line crosses above the Signal Line, indicating a bullish trend. Conversely, the bot will exit the position or enter a short trade when the MACD Line crosses below the Signal Line, signaling a bearish trend.
+| Setting | Default | What it does |
+| --- | --- | --- |
+| Use percentile | Off | Off: the condition tests the fixed Value. On: Value hides and the histogram is compared with its own Percentile over the last Lookback candles, one threshold for any pair. |
+| Lookback | 150 | Candles of the line's own history the percentile is taken from. Percentile mode only. |
+| Percentile | 80 | The rank in that history used as the level: 80 is a level that only 20% of readings exceeded. Percentile mode only. |
+| Signal length | 9 | Candles in the signal line, the average of the MACD line, 1 to 200. |
+| Fast length | 12 | Candles in the fast average of the close, 1 to 200. |
+| Slow length | 26 | Candles in the slow average of the close, 1 to 200. |
+| Oscillator MA Type | EMA | Average type for the fast and slow lines: EMA or SMA. |
+| Signal Line MA type | EMA | Average type for the signal line: EMA or SMA. |
+| Interval | 1 hour | Candle size the indicator is calculated on, from 1 minute to 1 week. It does not follow the chart you are looking at. |
+| Condition | Crossing down | Tested on the histogram, MACD line minus signal line. Crossing up and Crossing down fire on the cross candle; Greater than and Lower than hold on every candle on that side. |
+| Value | 0 | The histogram level, in the pair's price units. 0 is the signal-line cross. |
+| Keep true | 0 | Extra candles the condition stays true after it fires, so it can meet a slower condition in the same group. |
 
-For example, your bot will initiate a long position if the BTC/USDT pair demonstrates a bullish crossover with the MACD Line rising above the Signal Line. The bot will then hold onto the position until a bearish crossover occurs, prompting an exit or a short trade.
-![Screenshot 2023-04-11 at 17.03.41.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_17_03_41_00a59824d2-f37f22.webp)
-*MACD crossover strategy*
+**Tip:** **Value** is a histogram level in price units, not a level of the MACD line. Keep it at 0 for signal-line crosses. On BTC/USDT 4h the histogram stays between about −500 and +830 in the chart above, so a Value of 100 means something there and is never reached on a $1 coin.
 
-### B. Trend continuation Strategy
+**Tip:** **Signal length** sets the trade count. On BTC/USDT 4h, Signal length 5 gives about 1.3 times as many crosses up through 0 as 9, and 14 about 10% fewer than 9.
 
-The MACD histogram displays the difference between the MACD Line and the Signal Line, visually representing their interaction. A trading bot can use the histogram to identify potential trend reversals by monitoring changes in the histogram's slope and height.
+## Trading setups for bots
 
-For instance, if the BTC/USDT MACD histogram shifts from negative to positive territory, it suggests a potential bullish trend, prompting your bot to initiate a long position. On the other hand, if the histogram moves from
+### Signal-line crossover, in and out
 
- positive to negative territory, it signals a possible bearish trend, leading the bot to exit the position or enter a short trade.
+- **Entry:** MACD, Condition **Crossing up**, Value **0**, Interval 4 hours.
+- **Exit:** a MACD close condition, **Crossing down** 0 on the same interval.
+- **Settings:** 12, 26, 9, EMA and EMA.
+- **Timeframe:** 4 hours or 1 day. The 1-hour histogram crosses up 0 about four times as often as the 4-hour one.
+- **When it fails:** in flat markets, where the histogram hugs 0. In the chart below it crosses four times in four bars, and each pair of crosses is a small loss plus fees. In the data behind this page, a long bot that bought every 4h cross up and sold the next cross down won a little over a third of its trades. The median trade lost 0.7%, one trade made 22.7%, and the total was +3.9%, ignoring fees, while BTC itself fell 27%.
 
-In this strategy, it is helpful to bring up the EMA lines, as you can see from the image below. The fast 12 EMA is bouncing on the slower 26 EMA, confirming the continuation of the trend.
-![Screenshot 2023-04-11 at 17.08.36.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_17_08_36_0d5b1a4314-312794.webp)
-*MACD trend continuation strategy*
+![Annotated MACD chart, BTC/USDT 4h: the histogram crosses up 0 at 63,075 and down at 77,418 for +22.7%; later it crosses four times in four bars](https://content.gainium.io/images/content/indicators/macd__cross.webp)
 
-### C. MACD Divergence Strategy
+### MACD turn as the DCA trigger
 
-Divergence occurs when the price movement of a digital asset and the MACD indicator deviate from one another. Positive divergence happens when the price hits a lower low, but the MACD forms a higher low, suggesting a potential bullish reversal. Negative divergence transpires when the price reaches a higher high, while the MACD forms a lower high, indicating a possible bearish reversal.
+A DCA bot normally adds orders at fixed price steps. With the DCA mode set to **Indicators**, each order waits for the condition instead, so the bot adds when momentum turns rather than while price is still falling.
 
-Using the BTC/USDT pair as an example, if the price reaches a new low while the MACD forms a higher low, your bot can initiate a long position, anticipating a bullish trend. Conversely, if the price creates a new high and the MACD forms a lower high, the bot can exit the position or enter a short trade.
-![Screenshot 2023-04-11 at 17.15.51.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_17_15_51_7eeea484dc-9d4a1d.webp)
-*MACD divergence*
+- **Entry:** the deal starts on your usual condition. DCA mode **Indicators**, with MACD **Crossing up** 0 on 4 hours as the DCA condition and a minimum step of 1% between orders.
+- **Exit:** the bot's take profit on the averaged entry, for example 2%.
+- **Settings:** MACD 12, 26, 9. The minimum step keeps two turns at the same price from filling two orders.
+- **Timeframe:** 4 hours for the DCA condition, whatever the start condition uses.
+- **When it fails:** in a slow, steady decline. In the chart below, the 4h histogram turned up five times while BTC slid from about 83,900 to 81,500, and each turn would add an order. Cap the number of DCA orders. In the earlier dip on the chart it worked as intended: orders at 77,268 and 76,463, about six bars after the 74,968 low, instead of fixed steps all the way down.
 
-## Conclusion
+![Annotated MACD chart, BTC/USDT 4h: DCA orders fill on histogram turns at 77,268 and 76,463 in a dip; later the histogram turns up five times in a slow decline](https://content.gainium.io/images/content/indicators/macd__dca.webp)
 
-The MACD indicator can provide valuable insights into your crypto trading bot's market trends and potential trading opportunities. As with any trading strategy, testing and fine-tuning the parameters to suit your risk tolerance and market conditions is essential. Combining the MACD with other [technical indicators](https://gainium.io/help/category/technical-indicators) and fundamental analysis can further improve the effectiveness of your trading bot and contribute to a well-rounded investment approach.
+## Using MACD in Gainium
+
+1. Create a DCA bot and switch the form to **Manual**.
+2. Set **Deal start condition** to **Indicators**, click **Edit**, then **Change indicator**, and search for **MACD**. For the DCA setup, set the DCA mode to **Indicators** and add MACD there.
+3. Pick **Moving Average Convergence Divergence (MACD)**, set the fields, and click **Done**.
+
+![Gainium indicator picker searched for MACD, with the Moving Average Convergence Divergence card ringed](https://content.gainium.io/images/content/indicators/macd__picker.webp)
+
+The fields and their defaults:
+
+- **Use percentile:** off. When on, the histogram is compared with its own percentile level over **Lookback** (150 candles) at **Percentile** (80), and the Value field hides. This is the way to use one threshold across pairs with different prices.
+- **Signal length:** 9, from 1 to 200.
+- **Fast length:** 12, from 1 to 200.
+- **Slow length:** 26, from 1 to 200.
+- **Oscillator MA Type:** EMA. SMA is the other option.
+- **Signal Line MA type:** EMA. SMA is the other option.
+- **Interval:** 1 hour.
+- **Condition:** Crossing down. The options are Crossing down, Crossing up, Greater than and Lower than.
+- **Value:** 0. The histogram level the condition compares with.
+- **Keep true:** 0 extra candles.
+
+MACD works as a deal start, DCA, take profit or stop loss condition, and in the Bot Controller.
+
+Example configuration for the crossover setup:
+
+- Deal start: MACD, Use percentile off, 9 / 12 / 26, EMA / EMA, Interval 4 hours, Condition Crossing up, Value 0, Keep true 0.
+- Take profit type Technical indicators: MACD with the same settings and Condition Crossing down, Value 0.
+
+![Gainium MACD settings card with Signal length 9, Fast length 12, Slow length 26, Interval 4 hours, Condition Crossing up and Value 0](https://content.gainium.io/images/content/indicators/macd__example.webp)
+
+## Related indicators
+
+- [Moving Averages](https://gainium.io/indicators/moving-averages): MACD is built from two EMAs; an EMA cross condition gives the slower version of the same signal.
+- [Divergences](https://gainium.io/indicators/divergences-indicator): detects MACD divergences, which the MACD condition itself cannot test.
+- [Oscillator Crossover](https://gainium.io/indicators/oscillator-crossover): crosses between two oscillators, for the same kind of momentum turn on RSI, MFI or CCI.
+- [RSI](https://gainium.io/indicators/rsi): a bounded 0 to 100 momentum reading, which avoids MACD's price-unit problem across pairs.
+
+## FAQ
+
+### Which MACD line does the Gainium condition test?
+
+The histogram, which is the MACD line minus the signal line. Crossing up 0 is the same event as the MACD line crossing above the signal line, and crossing down 0 is the cross below. The condition does not test the MACD line against zero.
+
+### What are the best MACD settings for crypto?
+
+Most traders keep 12, 26 and 9 with EMA for both averages; TradingView uses the same defaults. Change the Interval rather than the lengths: on BTC/USDT the histogram crosses up 0 about four times as often on 1-hour candles as on 4-hour, and about five times as often on 4-hour as on daily candles.
+
+### Can I use a Value other than 0?
+
+Yes, but the histogram is in price units, so a level that fits BTC means nothing for a $0.10 coin. On BTC/USDT 4h the histogram swings between about −500 and +830 in the chart on this page. To use one threshold across pairs, switch on Use percentile instead.
+
+### How reliable is a MACD crossover on its own?
+
+No better than a coin flip over six bars. On BTC/USDT 4h, price was higher six bars later after about half the cross-ups. A crossover system makes money from the few long trends it stays in, not from its hit rate.

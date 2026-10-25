@@ -7,7 +7,7 @@ description: >-
   trading, leveraging Smart Money Concepts to identify institutional price
   imbalances and build effective bot trading strategies.
 createdAt: '2025-10-10T12:55:00.000Z'
-updatedAt: '2026-02-24T07:44:20.571Z'
+updatedAt: '2026-10-25T00:00:00.000Z'
 publishedAt: '2025-10-10T12:55:00.000Z'
 locale: en
 categories:
@@ -18,12 +18,16 @@ tags:
   - smart-money-concepts
 ingested: false
 ingestedAt: ''
+templateVersion: 2
 tldr: >-
-  The Fair Value Gap (FVG) indicator identifies three-candle price
-  inefficiencies where institutional orders created gaps, which act as magnets
-  drawing price back. Bullish FVGs serve as support and bearish FVGs as
-  resistance; combine with Market Structure analysis for high-probability
-  entries.
+  A fair value gap (FVG) is a three-candle pattern where the third candle's
+  low stays above the first candle's high (bullish) or its high stays below
+  the first candle's low (bearish), leaving a price range the middle candle
+  crossed without overlap. Gainium only counts a gap when the middle candle's
+  body is more than twice the average body of the last 1,000 candles, and it
+  keeps each gap active for 10 bars. A bot condition compares the close with
+  the gap's high, low or middle; the default is Bullish, Middle, Crossing
+  down, on 1-hour candles.
 kind: native
 catalogKeys:
   - OBFVG
@@ -33,221 +37,140 @@ aliases:
   - "Fair Value Gap"
   - "Fair Value Gaps"
   - "Imbalance"
+faq:
+  - title: How does Gainium detect a fair value gap?
+    details: >-
+      On three candles. For a bullish gap, the third candle's low is above the
+      first candle's high, the middle candle closed above that high, and the
+      middle candle's body is more than twice the average body size of the
+      last 1,000 candles. The gap runs from the first candle's high to the
+      third candle's low. Bearish gaps are the mirror image.
+  - title: How long does a gap stay on the chart?
+    details: >-
+      10 bars after it forms. After that the gap is cleared whether price
+      came back to it or not, and the condition has no level to compare. No
+      new gap is recorded while one is active.
+  - title: Which value should I trade, high, low or middle?
+    details: >-
+      Middle for pullback entries: it is reached more often than the far edge
+      and less often than the near edge. In a bullish gap, High is the top
+      edge (the third candle's low) and Low is the bottom edge (the first
+      candle's high).
+  - title: Why did my FVG condition never fire?
+    details: >-
+      Usually because price did not reach the level within the 10 bars the
+      gap is active, or because no candle passed the body-size filter. Strong
+      trends leave gaps that price never revisits. A lower interval finds more
+      gaps but each lasts 10 shorter bars.
+related:
+  - market-structure
+  - discount-premium-ote-levels
+  - long-wick-detector
+sources:
+  - title: Babypips, Fair Value Gaps
+    url: https://www.babypips.com/learn/forex/fair-value-gaps
+  - title: LuxAlgo, Smart Money Concepts (SMC), TradingView script (fair value gaps with an auto threshold)
+    url: https://www.tradingview.com/script/CnB3fSph-Smart-Money-Concepts-SMC-LuxAlgo/
+  - title: Binance BTC/USDT 1h and 4h candles, computed with Gainium's indicator engine
 ---
 
-The **Fair Value Gap (FVG)** indicator is a powerful tool rooted in Smart Money Concepts (SMC) that identifies areas of price inefficiency where institutional orders have left gaps in the market. These gaps represent imbalances between buying and selling pressure and often act as "magnets" for price, drawing it back to fill these inefficiencies. Understanding and trading Fair Value Gaps can provide high-probability entry and exit points when combined with market structure analysis.
+A fair value gap (FVG) is the price range a fast candle leaves when the candles on either side of it do not overlap. Traders buy the pullback into a bullish gap and sell the rally into a bearish one, expecting price to react at the gap and continue in the direction that created it.
 
-In this article, we'll define the Fair Value Gap indicator, explain how to configure it in Gainium, and provide detailed trading strategies with entry and exit rules. We'll also explore how FVGs relate to [Market Structure](https://gainium.io/indicators/market-structure) and discuss practical considerations for incorporating them into your automated trading strategies.
+## What is a Fair Value Gap
 
-## What is a Fair Value Gap (FVG)?
+The fair value gap comes from smart money concepts (SMC), where it is read as an imbalance: one side traded so hard that the middle candle skipped a range of prices. Gainium reads it on three closed candles:
 
-A **Fair Value Gap** occurs when there is a three-candle pattern where the middle candle creates a gap that isn't filled by the wicks of the candles on either side. This gap represents an area where price moved so quickly that very little trading occurred, creating an imbalance.
+- **Bullish FVG:** the third candle's low is above the first candle's high, and the middle candle closed above that high. The gap runs from the first candle's high (**Low**) to the third candle's low (**High**).
+- **Bearish FVG:** the third candle's high is below the first candle's low, and the middle candle closed below it. The gap runs from the third candle's high (**Low**) to the first candle's low (**High**).
+- **Middle:** halfway between High and Low.
 
-### Types of Fair Value Gaps:
-- **Bullish FVG**: Forms during upward price movement when the high of the first candle doesn't touch the low of the third candle. This gap often acts as support when price returns to it.
-- **Bearish FVG**: Forms during downward price movement when the low of the first candle doesn't touch the high of the third candle. This gap typically acts as resistance when price revisits it.
+Two rules filter the gaps:
 
-### Key Characteristics:
-- **Price Magnets**: FVGs act as magnets, attracting price back to fill the inefficiency before continuing in the original direction or reversing.
-- **[Support/Resistance Zones](https://gainium.io/indicators/support-resistance-indicator)**: Bullish FVGs become support zones, while bearish FVGs become resistance zones.
-- **Institutional Footprints**: FVGs often mark areas where smart money (institutional traders) entered the market aggressively, leaving behind these imbalances.
+- **Size:** the middle candle's body, as a percentage of its open, must be more than twice the average absolute body of the last 1,000 candles. Small gaps in quiet markets do not count.
+- **Life:** a gap stays active for 10 bars, then it is cleared. While one gap is active, no new gap is recorded.
 
-![image.png](https://content.gainium.io/images/content/help/image_fvg_example.webp)
-*Example of Bullish and Bearish Fair Value Gaps*
+On the bot chart a gap is drawn as two solid lines at High and Low and a dotted line at Middle, for its 10 bars. The condition compares the candle close with the chosen line, so it can only fire inside that window.
 
-## How FVGs Relate to Market Structure
+![Gainium bot chart, BTC/USDT 4h, with Fair Value Gaps: three short purple gap lines, each with a dotted middle line, lasting 10 bars](https://content.gainium.io/images/content/indicators/fair-value-gap__chart.webp)
 
-Fair Value Gaps work exceptionally well when combined with [Market Structure](https://gainium.io/indicators/market-structure) analysis. Market structure identifies the overall trend direction through breaks of structure (BOS) and changes of character (CHoCH), while FVGs provide precise entry zones within that structure.
+### Settings and tips
 
-### Integration with Market Structure:
-- **Trend Continuation**: After a break of structure (BOS) in a trending market, FVGs in the direction of the trend offer high-probability entry points.
-- **Reversal Zones**: When a change of character (CHoCH) occurs, FVGs from the previous trend can act as reversal zones.
-- **Confluence**: The strongest setups occur when FVGs align with key market structure levels like swing highs/lows or pivot points.
+| Setting | Default | What it does |
+| --- | --- | --- |
+| Interval | 1 hour | The candle size the indicator is calculated on, from 1 minute to 1 week. |
+| Condition | Crossing down | How the close is compared with the gap line. A crossing needs the gap active on both candles; Greater than and Lower than read the latest close. |
+| Section | Bullish | Which gaps are read: Bullish, Bearish or Any. |
+| Value | Middle | The gap line: High (top edge), Middle or Low (bottom edge). |
+| Keep true | 0 | Extra bars the condition stays true after it fires. 0 means only the bar that triggered it. |
 
-For more information on identifying market structure, see our [Market Structure Indicator](https://gainium.io/indicators/market-structure) guide.
+**Tip:** there is no size setting. A gap counts only when the middle candle's body is more than twice the average body of the last 1,000 candles, and it stays active for 10 bars. On BTC/USDT, 1h candles find about four times as many gaps as 4h. A little over half of the 1h gaps are bullish, and a little under half of the 4h ones.
 
-## How to Configure the Fair Value Gap Indicator in Gainium
+**Tip:** Value decides how deep the pullback must go. On BTC/USDT 1h, a bullish gap with Crossing down fires nearly twice as often at High as at Low, with Middle in between.
 
-Here's how to set up the **Fair Value Gap** indicator in Gainium to detect these powerful price zones.
+**Tip:** Greater than and Lower than are false whenever no gap is active. On BTC/USDT 1h a gap is active on about 38% of candles, so as a filter the condition blocks most bars.
 
-### Step 1: Add the Fair Value Gap Indicator
-- **Navigate to Bot Settings**: Log into Gainium, select your bot, and add the **Fair Value Gap** indicator from the available indicators list.
-![image.png](https://content.gainium.io/images/content/help/fvg_settings_a.webp)
+## Trading setups for bots
 
-### Step 2: Configure the Indicator Settings
+### Buy the dip to the middle of a bullish gap
 
-#### FVG Type
-Choose the type of Fair Value Gap you want to detect:
-- **Bullish**: Detects only bullish (upward) Fair Value Gaps that may act as support.
-- **Bearish**: Detects only bearish (downward) Fair Value Gaps that may act as resistance.
-- **Any**: Detects both bullish and bearish FVGs, useful for strategies that trade in both directions.
-![image.png](https://content.gainium.io/images/content/help/fvg_settings_b.webp)
-*Fair Value Gap Indicator Settings*
-#### Condition
-Select how price should interact with the FVG:
-- **Crossing Up**: Triggers when price crosses upward through the specified FVG line (useful for confirming bullish reactions).
-- **Crossing Down**: Triggers when price crosses downward through the specified FVG line (useful for confirming bearish reactions).
-- **Greater Than**: Triggers when price is above the specified FVG line (useful for confirmation that price has filled the gap).
-- **Lower Than**: Triggers when price is below the specified FVG line (useful for bearish confirmation).
+- **Entry:** Deal start condition Fair Value Gaps (FVG), Section **Bullish**, Value **Middle**, Condition **Crossing down**, 4 hours. The deal opens on the close that dips through the middle of a fresh gap.
+- **Exit:** take profit 1.5% and a stop loss of 1%. A close under the gap's Low means the gap failed.
+- **Settings:** Keep true 0. Pair it in an AND group with [Market Structure](https://gainium.io/indicators/market-structure) on Market Based, Bullish Market Structure, so it only buys gaps in an uptrend.
+- **Timeframe:** 4h. Both intervals keep a gap for 10 bars, so a 4h gap waits four times longer for the pullback than a 1h gap.
+- **When it fails:** when the next move is down. At the second gap in the chart below, price closed straight through the middle and kept falling.
 
-#### FVG Line Reference
-Choose which part of the FVG to use as the reference:
-- **High**: The upper boundary of the Fair Value Gap (bottom of the candle that created the gap's upper bound).
-- **Low**: The lower boundary of the Fair Value Gap (top of the candle that created the gap's lower bound).
-- **Middle Line**: The midpoint of the Fair Value Gap, often the most significant level for price reactions.
+![Annotated Gainium bot chart, BTC/USDT 4h: a bullish gap where price dips to the middle and holds, then rises about 1.5%, and a later gap that price closes through](https://content.gainium.io/images/content/indicators/fair-value-gap__middle-retest.webp)
 
-#### Additional Settings
-- **Interval**: Set the timeframe for FVG detection (e.g., 1 hour, 4 hours, 1 day). Higher timeframes generally produce more significant FVGs.
-- **Keep True**: Specify how long the condition remains true after it triggers (0 means it resets immediately).
+### Above a fresh bullish gap as a trend filter
 
-## Using Fair Value Gaps in Bot Trading
+- **Entry:** your usual entry indicator in an AND group with Fair Value Gaps (FVG), Section **Bullish**, Value **High**, Condition **Greater than**, 1 hour. The filter is true while price holds above the top of a gap that formed in the last 10 bars.
+- **Exit:** the bot's normal take profit.
+- **Settings:** Keep true 0. Raise Keep true to 2–3 if the other indicator needs a few bars to agree.
+- **Timeframe:** 1h, so the filter is a 10-bar window after a strong up-candle.
+- **When it fails:** after a blow-off. A strong candle at the end of a rally also makes a bullish gap, and the filter says yes at the top.
 
-Fair Value Gaps offer multiple trading opportunities when used correctly. Here are three comprehensive strategies for incorporating FVGs into your automated trading.
+![Annotated Gainium bot chart, BTC/USDT 1h: a fresh bullish gap and the candles that close above its High while it is active, where Greater than High is true](https://content.gainium.io/images/content/indicators/fair-value-gap__above-gap.webp)
 
-### Strategy 1: FVG Fill and Rejection Strategy (Mean Reversion)
+## Using Fair Value Gap in Gainium
 
-This strategy capitalizes on price returning to fill an FVG and then reacting from it, continuing in the original direction.
+1. Create a DCA bot and switch the form to **Manual**.
+2. Set **Deal start condition** to **Indicators**, or the take profit or stop loss type for an exit.
+3. Click **Edit**, then **Change indicator**, and pick **Fair Value Gaps (FVG)** from the Chart category.
 
-#### Entry Rules
-- **Long Entry (Buy)**:
-  1. Identify a **Bullish FVG** that formed during an upward move.
-  2. Wait for price to retrace and enter the FVG zone (price crossing down into the FVG).
-  3. Enter when price shows rejection from the FVG middle line, crossing back up.
-  4. Confirm with bullish market structure (no change of character).
+![Fair Value Gaps (FVG) settings card in the Gainium bot form with Section Bullish and Value Middle ringed, Interval 1 hour, Condition Crossing down, Keep true 0](https://content.gainium.io/images/content/indicators/fair-value-gap__settings.webp)
 
-- **Short Entry (Sell)**:
-  1. Identify a **Bearish FVG** that formed during a downward move.
-  2. Wait for price to retrace and enter the FVG zone (price crossing up into the FVG).
-  3. Enter when price shows rejection from the FVG middle line, crossing back down.
-  4. Confirm with bearish market structure (no change of character).
+The fields and their defaults:
 
-#### Exit Rules
-- **Long Exit**:
-  - Exit when price reaches the next higher timeframe resistance or Fair Value Gap.
-  - Or when price breaks below the FVG low, indicating the gap failed to hold as support.
+- **Interval:** 1 hour, from 1 minute to 1 week.
+- **Condition:** Crossing down. Crossing down fires when the close goes from above the line to at or below it; Crossing up is the reverse. Greater than and Lower than test the latest close only.
+- **Section:** Bullish. Bearish reads bearish gaps; Any reads whichever gap is active.
+- **Value:** Middle. High is the gap's top edge, Low its bottom edge.
+- **Keep true:** 0 extra bars.
 
-- **Short Exit**:
-  - Exit when price reaches the next higher timeframe support or Fair Value Gap.
-  - Or when price breaks above the FVG high, indicating the gap failed to hold as resistance.
+To use two timeframes, add two Fair Value Gaps conditions in one AND group, for example a 4h gap with Lower than High (price inside or under the 4h gap) and a 15m gap with Crossing up Middle.
 
-#### Implementation in Gainium
-- **Set FVG Type**: Configure to detect "Bullish" FVGs for long setups or "Bearish" FVGs for short setups.
-- **Condition 1**: Set to "Crossing Down" the "Middle Line" for initial entry into the gap (for longs).
-- **Condition 2**: Add a second trigger for "Crossing Up" the "Middle Line" for the rejection confirmation.
-- **Combine with Market Structure**: Use the [Market Structure Indicator](https://gainium.io/indicators/market-structure) to confirm the trend hasn't changed.
+**Example configuration** (the dip-buy above): Deal start condition Indicators, Fair Value Gaps (FVG) with Interval 4 hours, Condition Crossing down, Section Bullish, Value Middle, Keep true 0. Take profit 1.5%, stop loss 1%.
 
-### Strategy 2: FVG Breakout Strategy
+## Related indicators
 
-This strategy trades the continuation after an FVG has been filled, anticipating strong momentum in the original direction.
+- [Market Structure](https://gainium.io/indicators/market-structure): a BOS often leaves a gap behind it; the structure says which gaps to trade.
+- [Discount/Premium OTE Levels](https://gainium.io/indicators/discount-premium-ote-levels): a gap inside the OTE zone of the leg is a tighter entry.
+- [Long Wick Detector](https://gainium.io/indicators/long-wick-detector): another single-candle footprint, from rejection wicks rather than fast bodies.
 
-#### Entry Rules
-- **Long Entry (Buy)**:
-  1. Identify a **Bullish FVG** in an uptrend.
-  2. Wait for price to fill the FVG (price crosses down to the low of the FVG).
-  3. Enter when price breaks back above the FVG high, confirming the gap has been filled and buying pressure resumes.
+## FAQ
 
-- **Short Entry (Sell)**:
-  1. Identify a **Bearish FVG** in a downtrend.
-  2. Wait for price to fill the FVG (price crosses up to the high of the FVG).
-  3. Enter when price breaks back below the FVG low, confirming the gap has been filled and selling pressure resumes.
+### How does Gainium detect a fair value gap?
 
-#### Exit Rules
-- **Long Exit**:
-  - Exit at the next significant resistance level or when a bearish FVG forms.
-  - Use a trailing stop to capture extended moves.
+On three candles. For a bullish gap, the third candle's low is above the first candle's high, the middle candle closed above that high, and the middle candle's body is more than twice the average body size of the last 1,000 candles. The gap runs from the first candle's high to the third candle's low. Bearish gaps are the mirror image.
 
-- **Short Exit**:
-  - Exit at the next significant support level or when a bullish FVG forms.
-  - Use a trailing stop to capture extended moves.
+### How long does a gap stay on the chart?
 
-#### Implementation in Gainium
-- **Set FVG Type**: Use "Any" to detect both types of FVGs.
-- **Entry Condition**: "Greater Than" the "High" for bullish breakouts, "Lower Than" the "Low" for bearish breakouts.
-- **Stop Loss**: Place stops just inside the FVG to minimize risk if the breakout fails.
+10 bars after it forms. After that the gap is cleared whether price came back to it or not, and the condition has no level to compare. No new gap is recorded while one is active.
 
-### Strategy 3: Multi-Timeframe FVG Confluence Strategy
+### Which value should I trade, high, low or middle?
 
-This advanced strategy uses FVGs from multiple timeframes to identify high-probability zones where institutional orders are likely concentrated.
+Middle for pullback entries: it is reached more often than the far edge and less often than the near edge. In a bullish gap, High is the top edge (the third candle's low) and Low is the bottom edge (the first candle's high).
 
-#### Entry Rules
-- **Long Entry (Buy)**:
-  1. Identify a **Bullish FVG** on a higher timeframe (e.g., daily or 4-hour).
-  2. Wait for price to enter this FVG zone.
-  3. Look for a **Bullish FVG** on a lower timeframe (e.g., 1-hour or 15-minute) within the higher timeframe FVG.
-  4. Enter when price reacts from the lower timeframe FVG, crossing up through its middle line.
-  5. Confirm with bullish market structure on both timeframes.
+### Why did my FVG condition never fire?
 
-- **Short Entry (Sell)**:
-  1. Identify a **Bearish FVG** on a higher timeframe.
-  2. Wait for price to enter this FVG zone.
-  3. Look for a **Bearish FVG** on a lower timeframe within the higher timeframe FVG.
-  4. Enter when price reacts from the lower timeframe FVG, crossing down through its middle line.
-  5. Confirm with bearish market structure on both timeframes.
-
-#### Exit Rules
-- **Long Exit**:
-  - Primary target: Opposite side of the higher timeframe FVG.
-  - Secondary target: Next higher timeframe resistance or bearish FVG.
-
-- **Short Exit**:
-  - Primary target: Opposite side of the higher timeframe FVG.
-  - Secondary target: Next higher timeframe support or bullish FVG.
-
-#### Implementation in Gainium
-- **Multiple Indicator Instances**: Add two FVG indicators with different intervals (one for higher timeframe, one for lower).
-- **Complex Conditions**: Use Gainium's condition builder to require both FVG triggers to align.
-- **Risk-Reward**: This setup typically offers excellent risk-reward ratios (3:1 or better).
-
-## Practical Considerations
-
-When implementing Fair Value Gap strategies in your automated trading, consider these important factors:
-
-### 1. Not All FVGs Are Equal
-- **Context Matters**: FVGs that form at key market structure levels (swing highs/lows, break of structure points) are more significant than those in ranging markets.
-- **Timeframe Hierarchy**: Higher timeframe FVGs (daily, 4-hour) are more reliable than lower timeframe gaps (5-minute, 15-minute).
-- **Volume Profile**: FVGs that form on high volume moves are more likely to act as strong support/resistance.
-
-### 2. FVG Lifecycle
-- **Fresh FVGs**: Newly formed gaps often provide the best reactions on first touch.
-- **Partially Filled**: FVGs that have been partially filled but respected still hold significance.
-- **Fully Filled**: Once an FVG is completely filled, it loses its magnetic effect, though it may still act as a support/resistance zone.
-
-### 3. Market Conditions
-- **Trending Markets**: FVGs work best in trending markets where they align with the overall market structure.
-- **Ranging Markets**: In choppy conditions, FVGs may give false signals as price oscillates without clear direction.
-- **High Impact News**: Be cautious around major news events that can cause price to blast through FVGs without respect.
-
-### 4. Risk Management
-- **Stop Placement**: Place stops beyond the opposite end of the FVG with some buffer for volatility.
-- **Position Sizing**: Reduce position size in volatile markets where FVGs may be less reliable.
-- **Partial Profits**: Consider taking partial profits at the FVG midpoint in mean reversion trades.
-
-### 5. Combining with Other SMC Tools
-- **Order Blocks**: FVGs often form near order blocks; the confluence strengthens the setup.
-- **Liquidity Zones**: Price may sweep liquidity before returning to fill an FVG.
-- **Market Structure**: Always confirm FVG setups with the broader market structure context using the [Market Structure Indicator](https://gainium.io/indicators/market-structure).
-
-### 6. Backtesting and Optimization
-- **Historical Performance**: Backtest your FVG strategy across different market conditions and timeframes.
-- **Parameter Tuning**: Experiment with different FVG line references (high, low, middle) to find what works best for your chosen assets.
-- **False Signal Filtering**: Add confluence requirements (e.g., RSI, volume) to reduce false signals.
-
-## Advanced Tips
-
-### FVG Clustering
-When multiple FVGs cluster in the same price zone across different timeframes, it creates a "premium" or "discount" zone that institutional traders are likely targeting. These zones offer exceptional trading opportunities.
-
-### FVG Mitigation vs. Fill
-- **Mitigation**: Price touches the FVG zone but doesn't fully fill it, often resulting in strong reactions.
-- **Full Fill**: Price completely fills the gap, which can lead to either reversal or continuation depending on market structure.
-
-### Session-Based FVGs
-FVGs that form during specific trading sessions (London open, New York open) often carry more weight as they reflect institutional order flow from major financial centers.
-
-## Conclusion
-
-The **Fair Value Gap indicator** is an essential tool for traders looking to leverage Smart Money Concepts in their automated trading strategies. By identifying areas of price inefficiency where institutional traders have left their footprint, FVGs provide high-probability entry zones when used in conjunction with proper market structure analysis.
-
-Whether you're trading FVG rejections for mean reversion, breakouts for trend continuation, or multi-timeframe confluence setups, understanding how these gaps act as price magnets will significantly enhance your trading edge. Remember to always confirm FVG setups with the broader [Market Structure](https://gainium.io/indicators/market-structure) context and maintain proper risk management.
-
-Experiment with different FVG configurations in Gainium, backtest thoroughly across various market conditions, and integrate these powerful Smart Money Concepts into your automated trading arsenal for more informed and profitable trading decisions.
+Usually because price did not reach the level within the 10 bars the gap is active, or because no candle passed the body-size filter. Strong trends leave gaps that price never revisits. A lower interval finds more gaps but each lasts 10 shorter bars.

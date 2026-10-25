@@ -1,0 +1,150 @@
+{
+  "adr": {
+    "name": "Average Daily Range (ADR)",
+    "description": "Use the ADR indicator in Gainium to track daily volatility, set realistic price targets, and manage risk with strategies tailored for each asset's volatility."
+  },
+  "adx": {
+    "name": "Average Directional Index (ADX)",
+    "description": "In this article, we explain what is the ADX indicator and how it can be used in bot trading."
+  },
+  "ath-drawdown": {
+    "name": "All Time High (ATH) Drawdown Indicator",
+    "description": "Use ATH Drawdown in Gainium to avoid long trades near all-time highs and short trades when the price is too low. Learn to configure it with effective strategies."
+  },
+  "atr": {
+    "name": "Average True Range (ATR)",
+    "description": "Use the ATR indicator in Gainium for automated trading, volatility detection, and risk management with detailed strategies and practical examples."
+  },
+  "avp": {
+    "name": "Average Position Price (AVP) Indicator",
+    "description": "Use the Average Position Price (AVP) indicator in Gainium to optimize bot trading strategies with effective entry and exit conditions."
+  },
+  "awesome-oscillator": {
+    "name": "Awesome Oscillator",
+    "description": "Learn how to use the Awesome Oscillator in Gainium for automated trading, detecting trend reversals, and capturing market momentum with detailed strategy examples."
+  },
+  "bb": {
+    "name": "Bollinger Bands (BB)",
+    "description": "In this article, we explain what is the Bollinger Bands indicator and how it can be used in bot trading."
+  },
+  "bbw": {
+    "name": "Bollinger Band Width (BBW)",
+    "description": "In this article, we explain what is BBW indicator and how it can be used in bot trading."
+  },
+  "bollinger-bands-b": {
+    "name": "Bollinger Bands %B (BB %B)",
+    "description": "Learn how to use Bollinger Bands %B in Gainium for automated trading, capturing overbought/oversold conditions, and building effective bot trading strategies."
+  },
+  "cci": {
+    "name": "Commodity Channel Index (CCI)",
+    "description": "Learn how to use the Commodity Channel Index (CCI) in Gainium to automate trading strategies, detect trends, and identify overbought/oversold conditions."
+  },
+  "discount-premium-ote-levels": {
+    "name": "Discount/Premium OTE Levels Indicator",
+    "description": "Learn how to use the Discount/Premium OTE Levels indicator in Gainium to trade Fibonacci retracements of the latest swing leg: the discount and premium zones around the 0.5 equilibrium and the optimal trade entry (OTE) zone around 0.618–0.79."
+  },
+  "divergences-indicator": {
+    "name": "Divergences Indicator",
+    "description": "Learn how to use the Divergence Indicator in Gainium for automated trading, detecting trend reversals, and momentum shifts with strategies and practical examples."
+  },
+  "engulfing-candle": {
+    "name": "Engulfing Candle Indicator",
+    "description": "Learn how to use the Engulfing Candle indicator in Gainium for automated trading, detect bullish and bearish reversals, and configure your strategy for maximum effectiveness."
+  },
+  "fair-value-gap": {
+    "name": "Fair Value Gap (FVG) Indicator",
+    "description": "Learn how to use the Fair Value Gap indicator in Gainium for automated trading, leveraging Smart Money Concepts to identify institutional price imbalances and build effective bot trading strategies."
+  },
+  "keltner-channel": {
+    "name": "Keltner Channel",
+    "description": "Learn how to use the Keltner Channel in Gainium for automated trading, identifying trend reversals and breakouts, with detailed strategy examples and configurations."
+  },
+  "keltner-channel-b": {
+    "name": "Keltner Channel %B",
+    "description": "Learn how to use the Keltner Channel %B in Gainium for automated trading strategies, detecting breakouts, and identifying overbought/oversold conditions."
+  },
+  "long-wick-detector": {
+    "name": "Long Wick Detector Indicator",
+    "description": "Learn how to use the Long Wick Detector indicator in Gainium for automated trading, identifying candles with unusually long wicks relative to ATR and tracking wick levels until mitigation or expiry."
+  },
+  "macd": {
+    "name": "Moving Average Convergence Divergence (MACD)",
+    "description": "In this article, we explain what is the Moving Average Convergence Divergence (MACD) indicator and how it can be used in bot trading."
+  },
+  "market-structure": {
+    "name": "Market Structure Indicator",
+    "description": "Learn how to use the Market Structure Indicator in Gainium for automated trading, detecting trend reversals, breakouts, and market shifts with event, market, or price triggers."
+  },
+  "mfi": {
+    "name": "Money Flow Index (MFI)",
+    "description": "In this article, we explain what is the Money Flow Index (MFI) indicator and how it can be used in bot trading."
+  },
+  "momentum": {
+    "name": "Momentum",
+    "description": "Learn how to use Gainium’s Momentum Oscillator for automated trading strategies, identifying trend strength, reversals, and overbought/oversold conditions."
+  },
+  "moving-average-ratio": {
+    "name": "Moving Average Ratio (MAR)",
+    "description": "Learn how to use the Moving Average Ratio (MAR) in Gainium for flexible bot trading with advanced trend detection and customizable entry/exit rules."
+  },
+  "moving-averages": {
+    "name": "Moving Averages (MA)",
+    "description": "In this article, we explain what is the Moving Averages (SMA, EMA, HMA, etc.) indicators and how they can be used in bot trading."
+  },
+  "oscillator-crossover": {
+    "name": "Oscillator Crossover",
+    "description": "Use Oscillator Crossovers in Gainium to automate trading strategies with RSI, MFI, and CCI, across different timeframes for accurate momentum signals."
+  },
+  "price-change-indicator": {
+    "name": "Price % Change",
+    "description": "Learn how to use the Price % Change indicator in Gainium for automated trading strategies, detecting breakouts, trends, and reversals using percentage-based signals."
+  },
+  "psar": {
+    "name": "Parabolic SAR Indicator (PSAR)",
+    "description": "In this article, we explain what is the Parabolic SAR Indicator (PSAR) indicator and how it can be used in bot trading."
+  },
+  "qfl": {
+    "name": "Quickfingers Luc (QFL)",
+    "description": "Navigating the volatile crypto market requires not just intuition but a solid, well-defined strategy. Gainium understands that and is committed to empowering traders with robust methodologies for informed decision-making. The Quickfingers Luc (QFL) trading strategy is among the most revered, providing a structure to the seemingly random world of cryptocurrency price movements."
+  },
+  "rsi": {
+    "name": "Relative Strength Index (RSI)",
+    "description": "In this article, we explain what is the RSI indicator and how it can be used in bot trading."
+  },
+  "sessions": {
+    "name": "Sessions Indicator",
+    "description": "Learn how to use the Sessions indicator in Gainium to filter bot trading signals by day of the week and time of day, and to trade the previous session's high, low, midpoint, open or close with the Price levels rule."
+  },
+  "stoch": {
+    "name": "Stochastic",
+    "description": "In this article, we explain what is the Stochastic indicator and how it can be used in bot trading."
+  },
+  "stochrsi": {
+    "name": "Stochastic RSI",
+    "description": "In this article, we explain what is the Stoch RSI indicator and how it can be used in bot trading."
+  },
+  "supertrend": {
+    "name": "Supertrend Indicator",
+    "description": "Learn how to use the Supertrend indicator in Gainium, create bot trading strategies, and optimize your trading performance effectively."
+  },
+  "support-resistance-indicator": {
+    "name": "Support and Resistance Indicator",
+    "description": "In this article, we explain what is the Support Resistance indicator and how it can be used in bot trading."
+  },
+  "tradingview-technical-ratings": {
+    "name": "Combined Ratings (CR)",
+    "description": "In this article, we explain what is the Tradingview Technical Ratings indicator and how it can be used in bot trading."
+  },
+  "ultimate-oscillator": {
+    "name": "Ultimate Oscillator",
+    "description": "Learn how to use the Ultimate Oscillator in Gainium for automated trading, detecting overbought/oversold conditions, and effectively trading momentum divergences."
+  },
+  "volume-oscillator": {
+    "name": "Volume Oscillator",
+    "description": "Learn how to use the Volume Oscillator in Gainium for automated trading, detecting trend reversals, and confirming market momentum with volume-based strategies."
+  },
+  "williams-r": {
+    "name": "Williams Percent Range ",
+    "description": "Learn how to use the Williams %R indicator in Gainium for automated trading, detecting trends, reversals, and overbought/oversold conditions with detailed strategy examples."
+  }
+}

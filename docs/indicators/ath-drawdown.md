@@ -7,7 +7,7 @@ description: >-
   trades when the price is too low. Learn to configure it with effective
   strategies.
 createdAt: '2024-10-07T03:57:14.882Z'
-updatedAt: '2026-02-24T07:44:20.562Z'
+updatedAt: '2026-10-25T00:00:00.000Z'
 publishedAt: '2024-10-07T03:57:16.632Z'
 locale: en
 categories:
@@ -17,11 +17,15 @@ tags:
   - indicator
 ingested: true
 ingestedAt: '2025-06-29T10:57:29.989Z'
+templateVersion: 2
 tldr: >-
-  The ATH Drawdown indicator measures how far the current price has dropped (as
-  a percentage) from the all-time high within a defined lookback period. It
-  helps avoid entering long positions near the ATH or shorting when the price is
-  already heavily discounted, supporting safer entry points.
+  ATH Drawdown is how far the current candle's low sits below the highest high
+  of the last Lookback candles, in percent: 0 at the high, -25 when price is
+  25% under it. In Gainium you type the Value as a positive number, so Lower
+  than 10 means more than 10% below the high and Greater than 10 means within
+  10% of it. The defaults are Lookback 100, 1-hour candles, Crossing down,
+  Value 10. Long bots use it to skip entries near the top; short bots use it
+  to skip entries after a deep fall.
 kind: native
 catalogKeys:
   - ATH
@@ -30,89 +34,141 @@ aliases:
   - "ATH Drawdown"
   - "All Time High Drawdown"
   - "ATH DD"
+faq:
+  - title: Is it the real all-time high?
+    details: >-
+      No. It is the highest high of the last Lookback candles: 100 by default.
+      On 1-day candles that is the highest high of the last 100 daily candles.
+      For a longer memory, raise Lookback or use a longer interval.
+  - title: Why is the drawdown negative but the Value positive?
+    details: >-
+      The indicator plots 0 at the high and negative numbers below it. The
+      Value field takes the distance as a positive percentage, and the engine
+      compares the drawdown with minus that number. Value 10 is the -10 line.
+      With Between, Upper value is read the same way.
+  - title: What do Lower than and Greater than mean here?
+    details: >-
+      Lower than 10 is true when the low is more than 10% below the high.
+      Greater than 10 is true when it is within 10% of the high. Crossing
+      down 10 fires when price falls through the 10% line, crossing up when
+      it climbs back above it.
+  - title: Does it use the close or the low?
+    details: >-
+      The current candle's low, divided by the highest high of the lookback.
+      A long lower wick can make the condition true for one candle even if
+      the close is back above the line.
+related:
+  - qfl
+  - price-change-indicator
+  - moving-averages
+sources:
+  - title: Investopedia, Drawdown
+    url: https://www.investopedia.com/terms/d/drawdown.asp
+  - title: Binance BTC/USDT 1h and 1d candles, computed with Gainium's indicator engine
 ---
 
-The **All-Time High (ATH) Drawdown** indicator measures the percentage decline of the current price from the highest price (ATH) within a defined period. It is a valuable tool for traders looking to avoid entering long positions near an all-time high or going short when the price is too low relative to its peak. This indicator helps ensure that trades are entered when the market is more likely to offer favorable conditions rather than at extremes.
+ATH Drawdown is how far the current price sits below the highest high of the last Lookback candles, in percent. Traders use it as a filter: long bots skip entries within a few percent of the high, and short bots skip entries after price has already fallen far.
 
-In this article, we will explain the **ATH Drawdown** indicator, how to configure and use it in Gainium, and provide examples of how to use it effectively in bot trading. We’ll also cover practical considerations and conclude with tips on integrating the indicator into your trading strategies.
+## What is ATH Drawdown
 
-## What Is ATH Drawdown?
+Drawdown is the fall from a peak. Gainium's ATH Drawdown measures it from a rolling high, not the coin's lifetime high:
 
-The **ATH Drawdown** measures how much the current price has declined from the **All-Time High (ATH)** over a specified lookback period. It is calculated as a percentage and can signal whether the price is close to its ATH or has dropped from it.
-- **Drawdown %**: The percentage by which the price has dropped from the ATH.
-- **Lookback Period**: The number of periods (candlesticks) used to calculate the highest price (ATH) within that window.
+**Drawdown = (current low ÷ highest high of the last Lookback candles − 1) × 100**
 
-### Key Features:
-- **Helps Avoid Long Entries Near ATH**: Prevents buying into potential market tops.
-- **Avoids Short Entries When Price is Too Low**: Stops shorting when the price is already heavily discounted, preventing potential reversals.
-- **Risk Management**: Supports safer entry points by identifying whether the market is overextended.
+- **Current low:** the low of the latest candle.
+- **Highest high:** the highest high of the last **Lookback** candles, 100 by default, including the current one.
 
-## How to Configure ATH Drawdown in Gainium
+The result is 0 when the low touches the high and negative below it: -25 means the low is 25% under the 100-candle high. Lookback counts candles of the chosen interval, so 100 candles on 1h cover a far shorter stretch of the chart than 100 candles on 1 day.
 
-Here’s how to configure the **ATH Drawdown** indicator using the attached settings in Gainium.
+You type **Value** as a positive number. The engine compares the drawdown with minus that number, so Value 10 is the -10 line:
 
-### Step 1: Add the ATH Drawdown Indicator
-- **Navigate to the Bot Settings**:Log into Gainium, go to your bot, and select **ATH Drawdown** from the list of indicators.
+- **Lower than 10:** more than 10% below the high.
+- **Greater than 10:** within 10% of the high.
+- **Crossing down 10:** price falls through the 10% line.
+- **Crossing up 10:** price climbs back within 10% of the high.
 
-### Step 2: Configure the Indicator Settings
-- **Lookback (100)**: The lookback period determines how far back the indicator should search for the highest price (ATH). In this example, the lookback is set to **100**, meaning the ATH is calculated using the highest price from the last 100 periods.
-- **Interval (1 day)**: This setting defines the time interval used for each candlestick in the lookback period. In the provided settings, it's set to **1 day**, meaning the ATH is calculated based on the daily highest prices over the past 100 days.
-- **Condition (Lower than)**: The condition tells the bot when to trigger an action.
+On the bot chart, ATH Drawdown has its own pane from 0 down to -100, with a dotted line at the condition's level.
 
-**Lower than** is selected in this case, meaning the bot will act when the drawdown percentage is below a certain threshold.
-- **Value (10)**: This represents the trigger point. The bot will act when the drawdown percentage falls **below 10%**. This means the bot won't open positions within 10% of the ATH, thus preventing entering long positions near the ATH.
-- **Keep True (0)**: This defines how long the condition remains active after being triggered. Setting this to **0** means the condition resets immediately after the trigger.
-![image.png](https://content.gainium.io/images/content/help/image_c8c80e3610-c801bb.webp)
-*All Time High (ATH) Drawdown Settings*
+![Gainium bot chart, BTC/USDT 1-day, with ATH Drawdown 100: price rising from 62,000 to 87,000 above, and the drawdown pane below moving from about -23 at the left to between 0 and about -10 for the rest of the chart](https://content.gainium.io/images/content/indicators/ath-drawdown__chart.webp)
 
+### Settings and tips
 
+| Setting | Default | What it does |
+| --- | --- | --- |
+| Lookback | 100 | Candles the highest high is taken from, the current one included. |
+| Interval | 1 hour | The candle size the indicator is calculated on, from 1 minute to 1 week. |
+| Condition | Crossing down | How the drawdown is compared with the level: Crossing down, Crossing up, Greater than, Lower than, or Between Value and Upper value. |
+| Value | 10 | Percent below the high, typed as a positive number. The engine compares the drawdown with minus this number. |
+| Upper value | — | Between: the other end of the range, also typed as a positive percentage below the high. |
+| Keep true | 0 | Extra bars the condition stays true after it fires. 0 means only the bar that triggered it. |
 
-## Using ATH Drawdown in Bot Trading
+**Tip:** the engine compares the drawdown with minus Value, so Value 10 and Value −10 are the same −10 line. On BTC/USDT 1d with Lookback 100, Lower than 10 was true on about a third of the candles in the chart above.
 
-Here are two examples of how to use the **ATH Drawdown** in automated bot trading.
+**Tip:** with Between, type both bounds as percentages below the high. Value 10 and Upper value 20 is true while the low sits 10% to 20% under the high. The order of the two numbers does not matter, and a minus sign on either one is ignored, so Upper value −20 gives the same range.
 
-### Strategy 1: Avoid Long Positions Near ATH
+**Tip:** Lookback counts candles, so a 1 hour Interval needs a far larger Lookback to see the same high as 1 day. In the BTC/USDT data behind this page, the 1h low never sat more than 7.6% under its 100-candle high, so Lower than 10 on 1 hour was never true. On 1 day, Lookback 30 was never true either, while Lookback 100 was true on about a third of the candles.
 
-#### Entry Rules
-- **Long Entry (Buy)**:Enter a long position when the drawdown is lower than **10%**, meaning the price has dropped from the ATH and is more reasonably positioned for a potential rebound.
+## Trading setups for bots
 
-#### Exit Rules
-- **Long Exit**:Exit the long trade when the drawdown percentage crosses above **5%**. This indicates that the price is getting close to the ATH again, which may signal a potential top.
+### Long only after a 10% pullback
 
-#### Implementation in Gainium
-- **Configure the Drawdown Threshold**: Set the bot to enter long trades only when the drawdown percentage is lower than 10%, signaling that the price has dropped from its ATH and is less risky.
-- **Automate Entries/Exits**: The bot will automatically enter trades when the price is sufficiently discounted from its ATH and exit when it’s too close to the ATH.
+- **Entry:** your usual entry indicator in an AND group with ATH Drawdown, Lookback **100**, **1 day**, Condition **Lower than**, Value **10**. The bot only buys when the low is more than 10% under the 100-candle high.
+- **Exit:** the bot's normal take profit.
+- **Settings:** Keep true 0.
+- **Timeframe:** 1d for the filter, any interval for the entry indicator.
+- **When it fails:** in a strong uptrend. In the chart below, once BTC came back within about 10% of its 100-candle high it stayed there for the rest of the chart, so a bot with this filter opened almost no deals in that stretch.
 
-### Strategy 2: Avoid Short Positions When Price is Too Low
+![Annotated Gainium bot chart, BTC/USDT 1-day: the early stretch where the drawdown sat near -23% and Lower than 10 was true, and the candle where price came back within 10% of the high and the filter turned false](https://content.gainium.io/images/content/indicators/ath-drawdown__pullback-filter.webp)
 
-#### Entry Rules
-- **Short Entry (Sell)**:Enter a short position when the drawdown cross up **10%**, meaning the price is near its ATH and potentially overextended.
+### Short only near the high
 
-#### Exit Rules
-- **Short Exit**:Exit the short trade when the drawdown is under **20%**, signaling that the price has dropped significantly from the ATH and could be oversold.
+- **Entry:** a short bot whose entry indicator sits in an AND group with ATH Drawdown, Lookback **100**, **1 day**, Condition **Greater than**, Value **5**. The bot only shorts within 5% of the 100-candle high.
+- **Exit:** take profit 4–5%, about back to the -10 line.
+- **Settings:** Keep true 0.
+- **Timeframe:** 1d filter.
+- **When it fails:** in a breakout. Within 5% of the high is also where a new high starts; in the chart below, price jumped from about 80,000 to 86,000 in one daily candle and held near the top for more than a dozen candles after it.
 
-#### Implementation in Gainium
-- **Set Short Thresholds**: Configure the bot to enter short trades only when the drawdown percentage crosses up 10%, indicating the price is near the ATH and may reverse downward.
-- **Manage Exits**: Set the bot to exit the short trade when the drawdown exceeds 15%, signaling that the price has dropped too far and may soon reverse upward.
+![Annotated Gainium bot chart, BTC/USDT 1-day: the drawdown pane within about 5% of the 100-candle high at the right of the chart, and the range price held at the top after the breakout candle](https://content.gainium.io/images/content/indicators/ath-drawdown__near-high.webp)
 
-## Practical Considerations
+## Using ATH Drawdown in Gainium
 
-Here are a few practical tips when using the **ATH Drawdown** indicator:
+1. Create a DCA bot and switch the form to **Manual**.
+2. Set **Deal start condition** to **Indicators**, or the take profit or stop loss type for an exit.
+3. Click **Edit**, then **Change indicator**, and pick **ATH Drawdown** from the Volatility category.
 
-### 1. Adjust Lookback Periods Based on Asset Volatility
-- More volatile assets may require a shorter lookback period (e.g., 50 periods) to capture more recent ATHs, while less volatile assets may benefit from a longer lookback (e.g., 200 periods).
+![ATH Drawdown settings card in the Gainium bot form with Condition Lower than and Value 10 ringed, Lookback 100, Interval 1 day, Keep true 0](https://content.gainium.io/images/content/indicators/ath-drawdown__settings.webp)
 
-### 2. Combine with Other Indicators
-- Combine the ATH Drawdown with trend-following indicators such as **moving averages** or **Bollinger Bands** to confirm entry and exit signals for better results.
+The fields and their defaults:
 
-### 3. Avoid Extreme Conditions
-- Use the ATH Drawdown to avoid extreme conditions (e.g., entering long near the ATH or shorting when the price has dropped significantly). This helps protect against potential reversals and unfavorable entry points.
+- **Lookback:** 100 candles for the highest high.
+- **Interval:** 1 hour, from 1 minute to 1 week.
+- **Condition:** Crossing down. Also Crossing up, Greater than, Lower than and Between.
+- **Value:** 10, as a positive percentage below the high. A condition saved without a Value also runs with 10.
+- **Upper value:** shown only with Between, typed the same way as Value.
+- **Keep true:** 0 extra bars.
 
-### 4. Backtest Your Strategy
-- Always backtest your strategy using Gainium’s backtesting feature to ensure that your drawdown thresholds work well under different market conditions. Adjust the lookback period and drawdown values based on the asset’s behavior.
+**Example configuration** (the pullback filter above): Deal start condition Indicators, RSI(14) on 1 hour Crossing up 30, AND ATH Drawdown with Lookback 100, Interval 1 day, Condition Lower than, Value 10, Keep true 0.
 
-## Conclusion
+## Related indicators
 
-The **ATH Drawdown** is a powerful tool for avoiding risky trades near an asset's all-time high or when the price has dropped too much. By configuring it correctly in Gainium, you can ensure that your bot avoids entering trades at market extremes and instead waits for more favorable conditions.
+- [QFL](https://gainium.io/indicators/qfl): dip buying from a base; ATH Drawdown keeps it out of coins already far below their high.
+- [Price Change](https://gainium.io/indicators/price-change-indicator): the size of the latest move, where ATH Drawdown is the distance from the peak.
+- [Moving Averages](https://gainium.io/indicators/moving-averages): a trend filter that does not stay closed through a steady uptrend.
 
-Whether you’re using the ATH Drawdown to avoid long trades near the ATH or short trades when the price is too low, combining this indicator with other technical tools and proper risk management can help you build a more robust trading strategy.
+## FAQ
+
+### Is it the real all-time high?
+
+No. It is the highest high of the last Lookback candles: 100 by default. On 1-day candles that is the highest high of the last 100 daily candles. For a longer memory, raise Lookback or use a longer interval.
+
+### Why is the drawdown negative but the Value positive?
+
+The indicator plots 0 at the high and negative numbers below it. The Value field takes the distance as a positive percentage, and the engine compares the drawdown with minus that number. Value 10 is the -10 line. With Between, Upper value is read the same way.
+
+### What do Lower than and Greater than mean here?
+
+Lower than 10 is true when the low is more than 10% below the high. Greater than 10 is true when it is within 10% of the high. Crossing down 10 fires when price falls through the 10% line, crossing up when it climbs back above it.
+
+### Does it use the close or the low?
+
+The current candle's low, divided by the highest high of the lookback. A long lower wick can make the condition true for one candle even if the close is back above the line.

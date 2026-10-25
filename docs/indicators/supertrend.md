@@ -6,7 +6,7 @@ description: >-
   Learn how to use the Supertrend indicator in Gainium, create bot trading
   strategies, and optimize your trading performance effectively.
 createdAt: '2024-10-05T11:32:00.136Z'
-updatedAt: '2026-02-24T07:44:20.582Z'
+updatedAt: '2026-10-25T00:00:00.000Z'
 publishedAt: '2024-10-05T11:32:02.834Z'
 locale: en
 categories:
@@ -16,11 +16,15 @@ tags:
   - indicator
 ingested: true
 ingestedAt: '2025-06-29T10:57:30.026Z'
+templateVersion: 2
 tldr: >-
-  The Supertrend indicator uses Average True Range (ATR) and a multiplier factor
-  to identify market trends—green line below price signals bullish, red line
-  above signals bearish. It works best in trending markets and can be combined
-  with RSI or moving averages.
+  Supertrend is a line that trails price at Multiplier × ATR: under the
+  candles in an up trend, over them in a down trend. It flips when a candle
+  closes through it. Gainium's SuperTrend condition defaults to Multiplier 3,
+  ATR Length 10 on 1-hour candles and can test the trend state (Up trend,
+  Down trend) or the flip itself (From down to up, From up to down). On
+  BTC/USDT 4h, Multiplier 2 flips about 1.6 times as often as the default 3,
+  and Multiplier 4 a little over half as often.
 kind: native
 catalogKeys:
   - ST
@@ -29,132 +33,166 @@ aliases:
   - "Supertrend"
   - "SuperTrend"
   - "Super Trend"
+  - "Supertrend indicator"
+faq:
+  - title: What are the best Supertrend settings for a crypto bot?
+    details: >-
+      Start with the defaults, Multiplier 3 and ATR Length 10, on 4-hour
+      candles. On BTC/USDT, Multiplier 4 gives about 40% fewer up-flips and
+      keeps a typical trend open for 56 bars instead of 30. On 1-hour candles
+      the default flips up nearly four times as often as on 4-hour, which is
+      too many for a flip-to-flip bot.
+  - title: Does Supertrend repaint?
+    details: >-
+      Not on closed candles. While a candle is still open, price can cross the
+      line and come back, so the colour can change and change back. Gainium
+      evaluates the condition on closed candles of the Interval you set, so a
+      flip that reverses before the close never reaches the bot.
+  - title: What is the difference between Up trend and From down to up?
+    details: >-
+      Up trend is true on every closed candle while the line is under price,
+      so it suits a filter. From down to up is true only on the candle where
+      the line flips, so it suits an entry that should fire once per trend.
+      Keep true stretches either one over extra candles.
+  - title: Why does the bot's Supertrend differ from my TradingView chart?
+    details: >-
+      The formula and the defaults are the same as TradingView's built-in
+      Supertrend. Differences come from the inputs: the bot reads candles of
+      its own Interval field and of the bot's exchange, while your chart may
+      show another timeframe or another exchange's BTC/USDT.
+related:
+  - atr
+  - psar
+  - adx
+  - moving-averages
+sources:
+  - title: TradingView Help Center, Supertrend (history and formula)
+    url: https://www.tradingview.com/support/solutions/43000634738-supertrend/
+  - title: TradingView Pine Script reference, ta.supertrend
+    url: https://www.tradingview.com/pine-script-reference/v5/
+  - title: StockCharts ChartSchool, Average True Range (ATR)
+    url: https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/average-true-range-atr-and-average-true-range-percent-atrp
+  - title: Binance BTC/USDT 1h and 4h candles, computed with Gainium's indicator engine
 ---
 
-## Introduction
+Supertrend is a single line that trails price at a distance of a few ATRs: under the candles in an up trend, over them in a down trend. It flips to the other side when a candle closes through it. Bots use the flip as a trend entry or exit, and the up or down state as a filter for other conditions.
 
-The Supertrend indicator has gained popularity among traders for its simplicity and effectiveness in identifying market trends. This article will delve into what the Supertrend indicator is, how to use it within the Gainium platform, ways to incorporate it into bot trading with detailed strategies, practical considerations, and concluding thoughts to help you make the most of this powerful indicator.
+## What is Supertrend
 
-## What Is the Supertrend Indicator?
+Supertrend was created by the French trader Olivier Seban. It is built from the Average True Range (ATR), so its distance from price grows when candles get bigger and shrinks when they get smaller.
 
-The Supertrend is a dynamic volatility-based indicator that helps traders identify the prevailing market trend. It overlays the price chart and provides clear signals for potential entry and exit points. The Supertrend is calculated using the Average True Range (ATR), which measures market volatility, making it responsive to price movements.
+The calculation, on every closed candle:
 
-### Key Components
-- **Average True Range (ATR):** A measure of market volatility that influences the distance of the Supertrend line from the price.
-- **Factor:** A multiplier applied to the ATR to adjust the indicator's sensitivity.
+- `hl2 = (high + low) / 2`, the candle's midpoint.
+- `ATR` is the Average True Range over **ATR Length** candles, smoothed with Wilder's moving average (RMA).
+- `basic upper = hl2 + Multiplier × ATR` and `basic lower = hl2 − Multiplier × ATR`.
+- The lower band only moves up. It keeps its previous value unless the new basic lower band is higher, or the previous close fell below it. The upper band only moves down, by the mirror rule.
+- The trend turns up when the close ends above the previous upper band. It turns down when the close ends below the previous lower band.
+- The Supertrend line is the lower band in an up trend and the upper band in a down trend.
 
-### How It Works
-- **Bullish Signal:** When the price closes above the Supertrend line, the indicator turns **green**, signaling an uptrend.
-- **Bearish Signal:** When the price closes below the Supertrend line, the indicator turns **red**, indicating a downtrend.
+The defaults are **Multiplier 3** and **ATR Length 10**, both in Gainium and in TradingView's built-in Supertrend.
 
-The Supertrend shifts its position based on price movements and volatility, allowing traders to ride trends efficiently.
+How to read it:
 
-## How to Use the Supertrend Indicator in Gainium
+- **Green line under the candles:** up trend. The line rises with price and never moves down while the trend lasts, so it works as a trailing stop.
+- **Red line over the candles:** down trend, the mirror image.
+- **Distance:** three ATRs from the candle midpoint. At the right edge of the chart below, ATR(10) on BTC/USDT 4h is about $790, so the line sits roughly $2,400 from the midpoint.
+- **Trend length:** on BTC/USDT 4h a typical trend of the default line lasts about 30 candles.
 
-Gainium provides a user-friendly platform to leverage the Supertrend indicator in your trading analysis. Here's a step-by-step guide to using it within Gainium:
+![Supertrend (10, 3) on BINANCE:BTCUSDT 4h, dark theme: a green line under price during a rally and red lines over price in the range that follows](https://content.gainium.io/images/content/indicators/supertrend__chart.webp)
 
-### Step 1: Create a new bot
-- Log in to your Gainium account.
-- Navigate to the **Trading bot** section from the dashboard.
+### Settings and tips
 
-### Step 2: Select Your Trading Pair
-- Choose the exchange and cryptocurrency pair(s) you wish to trade from the list of available options.
+| Setting | Default | What it does |
+| --- | --- | --- |
+| Multiplier | 3 | ATRs between the candle midpoint and the line. A higher value sits further from price and flips less. |
+| ATR Length | 10 | Candles in the ATR, smoothed with Wilder's average, 1 to 200. |
+| Condition | Up trend | Up trend and Down trend are true on every candle of the trend. From down to up and From up to down are true only on the flip candle. |
+| Interval | 1 hour | Candle size the line is calculated on, from 1 minute to 1 week. |
+| Keep true | 0 | Extra candles the condition stays true after it fires, so it can meet a slower condition in the same group. |
 
-### Step 3: Add the Supertrend Indicator
-- The Supertrend indicator can be used as a start condition, [DCA rule](https://gainium.io/help/dca-bot-set-up-walkthrough), and TP or SL condition. In this example, we will use it as a Start Condition.
-- In the search bar, type **"Supertrend"**.
-- Select the Supertrend indicator from the dropdown list, and it will be automatically added to the chart.
-![image.png](https://content.gainium.io/images/content/help/image_3dfeb8d331-456b39.webp)
-*Supertrend indicator options*
+**Tip:** **Multiplier** sets the number of trades. On BTC/USDT 4h, Multiplier 2 flips up about 1.6 times as often as 3, and 4 a little over half as often as 3.
 
-### Step 4: Customize the Parameters
-- **Period (ATR Period):** Default is often 10. This determines how many periods are used to calculate the ATR.
-- **Multiplier:** Default is usually 3. This adjusts the distance of the Supertrend line from the price.
-- Modify these settings based on your trading strategy and the asset's volatility.
+![Supertrend Multiplier 3 vs 4 on BINANCE:BTCUSDT 4h: with Multiplier 4 the line sits further from the candles and switches between green and red fewer times](https://content.gainium.io/images/content/indicators/supertrend__tip-multiplier.webp)
 
-### Step 5: Interpret the Signals
-- **Green Line Below Price:** Indicates a bullish trend. Consider looking for buying opportunities.
-- **Red Line Above Price:** Signals a bearish trend. Consider looking for selling or shorting opportunities.
-![image.png](https://content.gainium.io/images/content/help/image_c1f50315e6-e91195.webp)
-*The Supertrend indicator in action*
+*Supertrend Multiplier 3 vs 4, BTC/USDT 4h: Multiplier 4 flips up a little over half as often as 3 on this chart.*
 
-## Incorporating the Supertrend into Bot Trading
+**Tip:** **ATR Length** barely changes the flip count: on the same 4h chart, Length 5 gives about 10% more up-flips than 10, and 20 about the same as 10. To trade less, raise the Multiplier instead.
 
-Automating your trading strategies using bots on Gainium can enhance efficiency and consistency. Here's how to incorporate the Supertrend indicator into your bot trading, along with examples of trading strategies and detailed entry and exit rules. Note that even though the Supertrend indicator can be used alone, it is often used on top of other indicators to confirm the trend before starting the trade.
+**Tip:** Condition **Up trend** as the only start condition is true on every candle of the trend, so the bot can open a new deal right after each take profit until the line flips. Use **From down to up** for one deal per trend.
 
-### Strategy 1: Supertrend Trend-Following Bot
+## Trading setups for bots
 
-#### Entry Rules
-- **Long Entry (Buy):**The Supertrend indicator turns green.
-- Price closes above the Supertrend line.
-- **Short Entry (Sell):**The Supertrend indicator turns red.
-- Price closes below the Supertrend line.
+### Flip-to-flip trend follower
 
-#### Exit Rules
-- **Long Exit:**The Supertrend indicator turns red.
-- Price closes below the Supertrend line.
-- **Short Exit:**The Supertrend indicator turns green.
-- Price closes above the Supertrend line.
+Enter when the line flips under price, close when it flips back over. A short bot on futures does the mirror: enter on From up to down, close on From down to up.
 
-### Strategy 2: Supertrend with RSI Confirmation Bot
+- **Entry:** SuperTrend, Condition **From down to up**, Interval 4 hours.
+- **Exit:** a SuperTrend close condition set to **From up to down** on the same interval. The flip happens at the line, so the exit gives back roughly three ATRs from the high.
+- **Settings:** Multiplier 3, ATR Length 10. Multiplier 4 trades about 40% less on BTC/USDT 4h, with a typical trend of 56 candles instead of 30.
+- **Timeframe:** 4 hours or 1 day. On 1-hour candles the default flips up nearly four times as often, and most of those trends last under 48 candles.
+- **When it fails:** in a range. In one stretch where BTC fell from about 111,500 to 80,900, the long flip-to-flip trades on 4h won about a third of the time and lost 25% in total, ignoring fees. Multiplier 4 won about 30% of its trades and lost 9.6%. The setup only pays when a few long trends cover the many small losses, like the rally in the chart below.
 
-#### Entry Rules
-- **Long Entry (Buy):**Supertrend turns green.
-- RSI (14) is below 30 (oversold condition).
-- **Short Entry (Sell):**Supertrend turns red.
-- RSI (14) is above 70 (overbought condition).
+![Annotated Supertrend chart, BTC/USDT 4h: a flip up opens a deal at 64,200, the flip down closes it at 76,800 for +19.7%, and two short-lived flips after it are each a losing deal](https://content.gainium.io/images/content/indicators/supertrend__flip.webp)
 
-#### Exit Rules
-- **Long Exit:**RSI crosses above 50.
-- Or Supertrend turns red.
-- **Short Exit:**RSI crosses below 50.
-- Or Supertrend turns green.
+### Buy dips only while the trend is up
 
-### Strategy 3: Supertrend and Moving Average Crossover Bot
+Use the trend state as a filter and let a second indicator time the entry. Both conditions sit in one group with AND logic, so the deal starts only when both are true on the same candle.
 
-#### Entry Rules
-- **Long Entry (Buy):**Supertrend turns green.- 50-day EMA crosses above the 200-day EMA (Golden Cross).
-- **Short Entry (Sell):**Supertrend turns red.- 50-day EMA crosses below the 200-day EMA (Death Cross).
+- **Entry:** SuperTrend, Condition **Up trend**, Interval 4 hours, AND RSI (Length 14, 4 hours) crossing up 45.
+- **Exit:** a 2% take profit, with DCA orders below the entry.
+- **Settings:** SuperTrend at its defaults. On BTC/USDT 4h the pair fires about as often as the default line flips up. RSI(14) never crossed up 30 while Supertrend was up, so use 45, not 30.
+- **Timeframe:** 4 hours for both conditions. The filter and the trigger should read the same candles.
+- **When it fails:** late in a trend. Up trend stays true until the very candle of the flip, so the filter cannot tell a fresh trend from an old one. In the second entry on the chart below, this setup bought at 79,400, the line flipped down about 18 bars later, and price fell 5.5% before the take profit filled. Size the DCA orders for a drop of that depth.
 
-#### Exit Rules
-- **Long Exit:**50-day EMA crosses below the 200-day EMA.
-- Or Supertrend turns red.
-- **Short Exit:**50-day EMA crosses above the 200-day EMA.
-- Or Supertrend turns green.
+![Annotated Supertrend and RSI chart, BTC/USDT 4h: entry 1 buys 77,900 in an up trend when RSI crosses 45 and hits a 2% take profit; entry 2 buys 79,400 just before the line flips down](https://content.gainium.io/images/content/indicators/supertrend__dip-filter.webp)
 
-## Practical Considerations
+## Using SuperTrend in Gainium
 
-When using the Supertrend indicator and incorporating it into bot trading, consider the following practical aspects:
+1. Create a DCA bot and switch the form to **Manual**. Quick mode has no indicator conditions.
+2. Set **Deal start condition** to **Indicators**. Gainium adds an RSI condition; click **Edit**, then **Change indicator**, and search for **SuperTrend**.
+3. Set the fields and click **Done**. The bot form's chart draws the line on the pair you trade.
 
-### 1. Parameter Optimization
-- **Testing Different Settings:** Experiment with different ATR periods and multipliers to suit the asset's volatility.
-- **Asset-Specific Parameters:** Customize parameters for different trading pairs, as one size does not fit all.
+![Gainium indicator picker searched for SuperTrend, with the SuperTrend card ringed](https://content.gainium.io/images/content/indicators/supertrend__picker.webp)
 
-### 2. Backtesting
-- **Historical Data Analysis:** Utilize Gainium's backtesting feature to evaluate how your strategy would have performed in the past.
-- **Refinement:** Adjust your strategy based on backtesting results to improve performance.
+The fields and their defaults:
 
-### 3. Risk Management
-- **Position Sizing:** Use a consistent method for determining how much capital to allocate per trade.
-- **Stop-Loss Orders:** Always set stop-loss levels to protect against unforeseen market movements.
-- **Diversification:** Avoid overexposure to a single asset or strategy.
+- **Multiplier:** 3. The number of ATRs between the candle midpoint and the line.
+- **ATR Length:** 10, from 1 to 200. The ATR lookback in candles.
+- **Condition:** Up trend. The other options are Down trend, From down to up and From up to down. The two trend states are true on every candle of the trend; the two "From" options are true only on the flip candle.
+- **Interval:** 1 hour. The candles the condition reads, independent of the chart you look at.
+- **Keep true:** 0. Keeps the condition true for that many extra candles after it fires, so it can meet a second condition a few candles later.
 
-### 4. Market Conditions
-- **Trending vs. Ranging Markets:** The Supertrend works best in trending markets and may give false signals in sideways markets.
-- **Volatility Considerations:** Be cautious during highly volatile periods, as the indicator may produce whipsaws.
+The same condition works for starting deals, for DCA orders, as a take profit or stop loss close condition, and in the Bot Controller to start or stop a bot.
 
-### 5. Combining Indicators
-- **Confirmation Tools:** Use additional indicators like RSI, MACD, or volume to confirm Supertrend signals.
-- **Avoid Overcomplication:** While combining indicators can improve accuracy, too many can lead to analysis paralysis.
+Example configuration for the first setup, a long BTC/USDT bot:
 
-### 6. Regular Monitoring
-- **Performance Reviews:** Regularly assess your bot's performance and make necessary adjustments.
-- **Staying Informed:** Keep abreast of market news and events affecting your trading assets.
+- Deal start: SuperTrend, Multiplier 3, ATR Length 10, Condition From down to up, Interval 4 hours, Keep true 0.
+- Take profit type Technical indicators: SuperTrend, same settings, Condition From up to down.
 
-## Conclusion
+![Gainium SuperTrend settings card configured with Multiplier 3, ATR Length 10, Condition From down to up and Interval 4 hours](https://content.gainium.io/images/content/indicators/supertrend__example.webp)
 
-The Supertrend indicator is valuable for traders seeking to identify and capitalize on market trends. Within the Gainium platform, it becomes even more powerful when combined with automated bot trading. You can enhance your trading performance by understanding how to configure the Supertrend indicator, developing detailed trading strategies, and considering practical aspects like risk management and market conditions.
+## Related indicators
 
-Remember, no indicator is foolproof. Continuous learning, testing, and adaptation are key to long-term success in trading. Use the Supertrend indicator as part of a well-rounded trading plan, and leverage Gainium's robust features to stay ahead in the markets.
+- [Average True Range (ATR)](https://gainium.io/indicators/atr): the volatility input of Supertrend; read it to judge how far the line will sit from price.
+- [Parabolic SAR](https://gainium.io/indicators/psar): another stop-and-reverse trailing line, which tightens with time instead of with volatility and flips about three times as often on 4h.
+- [Average Directional Index (ADX)](https://gainium.io/indicators/adx): ADX above 25 filters out the ranges where Supertrend whipsaws.
+- [Moving Averages](https://gainium.io/indicators/moving-averages): a 200-period average gives the higher-timeframe direction for a Supertrend entry.
 
-Happy Trading!
+## FAQ
+
+### What are the best Supertrend settings for a crypto bot?
+
+Start with the defaults, Multiplier 3 and ATR Length 10, on 4-hour candles. On BTC/USDT, Multiplier 4 gives about 40% fewer up-flips and keeps a typical trend open for 56 bars instead of 30. On 1-hour candles the default flips up nearly four times as often as on 4-hour, which is too many for a flip-to-flip bot.
+
+### Does Supertrend repaint?
+
+Not on closed candles. While a candle is still open, price can cross the line and come back, so the colour can change and change back. Gainium evaluates the condition on closed candles of the Interval you set, so a flip that reverses before the close never reaches the bot.
+
+### What is the difference between Up trend and From down to up?
+
+Up trend is true on every closed candle while the line is under price, so it suits a filter. From down to up is true only on the candle where the line flips, so it suits an entry that should fire once per trend. Keep true stretches either one over extra candles.
+
+### Why does the bot's Supertrend differ from my TradingView chart?
+
+The formula and the defaults are the same as TradingView's built-in Supertrend. Differences come from the inputs: the bot reads candles of its own Interval field and of the bot's exchange, while your chart may show another timeframe or another exchange's BTC/USDT.

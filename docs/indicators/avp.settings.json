@@ -1,0 +1,48 @@
+{
+  "alertConditions": "not applicable",
+  "chart": null,
+  "indicator": {
+    "author": "Gainium",
+    "kind": "native",
+    "openSource": null,
+    "overlay": null,
+    "scriptId": "UNPNL",
+    "shortTitle": "AVP",
+    "title": "Average position price (AVP)",
+    "version": null
+  },
+  "inputs": [
+    {
+      "default": "gt",
+      "defaultText": "Greater than",
+      "group": null,
+      "id": "unpnlCondition",
+      "kind": "logic",
+      "label": "Condition",
+      "optionLabels": [
+        "Greater than",
+        "Lower than"
+      ],
+      "options": [
+        "gt",
+        "lt"
+      ],
+      "type": "select"
+    },
+    {
+      "default": 2,
+      "defaultText": "2",
+      "group": null,
+      "id": "unpnlValue",
+      "kind": "logic",
+      "label": "Unrealized PnL %",
+      "step": 1,
+      "suffix": "%",
+      "type": "number"
+    }
+  ],
+  "notes": [],
+  "plots": [],
+  "schema": "gainium.indicator-settings/1",
+  "source": "gainium-catalog"
+}

@@ -7,7 +7,7 @@ description: >-
   trading, detecting trend reversals, breakouts, and market shifts with event,
   market, or price triggers.
 createdAt: '2024-10-07T04:22:04.612Z'
-updatedAt: '2026-02-24T07:44:20.575Z'
+updatedAt: '2026-10-25T00:00:00.000Z'
 publishedAt: '2024-10-07T04:22:07.958Z'
 locale: en
 categories:
@@ -17,11 +17,16 @@ tags:
   - indicator
 ingested: true
 ingestedAt: '2025-06-29T10:57:30.015Z'
+templateVersion: 2
 tldr: >-
-  The Market Structure Indicator identifies breaks of structure (BOS), changes
-  of character (CHoCH), and key pivot levels to detect trend reversals and
-  shifts. It works best when combined with Fair Value Gaps for Smart Money
-  Concepts trading setups.
+  Market Structure labels swing highs and lows and fires when the close breaks
+  one. A break in the direction of the trend is a break of structure (BOS); a
+  break against it is a change of character (CHoCH). Gainium tracks swing
+  structure on 50-bar swings and internal structure on 5-bar swings, and
+  offers three trigger types: Event Based (BOS or CHoCH on the bar it
+  happens), Market Based (bullish or bearish since the last swing CHoCH) and
+  Price Based (the close crossing the latest pivot high or low). The default
+  is Price Based, Any Pivot Low, Crossing down, on 1-hour candles.
 kind: native
 catalogKeys:
   - PP
@@ -33,108 +38,174 @@ aliases:
   - "Break of Structure"
   - "Change of Character"
   - "Pivot Points"
+faq:
+  - title: What is the difference between BOS and CHoCH?
+    details: >-
+      Both are the close crossing the latest swing high or low. A BOS goes the
+      same way as the current trend, for example a new high in an uptrend. A
+      CHoCH goes against it: the first close above a swing high after a
+      downtrend, or below a swing low after an uptrend.
+  - title: What is the difference between swing and internal structure?
+    details: >-
+      Swing structure is built from 50-bar swings, so a swing high needs 50
+      lower highs after it before it counts. Internal structure uses 5-bar
+      swings and reacts to much smaller moves. On BTC/USDT 1h, internal
+      structure prints several signals for each swing-structure CHoCH.
+  - title: Does the Market Structure indicator repaint?
+    details: >-
+      No. A swing point is only used once the bars to its right have closed,
+      and the BOS or CHoCH fires on the bar whose close breaks it. The price
+      for that delay is lag: a swing high is confirmed 50 bars late on swing
+      structure and 5 bars late on internal structure.
+  - title: Can I set the swing length?
+    details: >-
+      Not for Event Based and Market Based triggers: they use 50-bar swings
+      and 5-bar swings, fixed. Price Based triggers use pivots, and there you
+      set the left and right bars of pivot highs and lows, 5 each by default.
+  - title: What does the Multiplier do?
+    details: >-
+      It only applies to Price Based triggers. The engine multiplies the pivot
+      price by it before comparing it with the close, so the default of 1
+      compares the close with the pivot itself. Leave it at 1 unless you want
+      the level moved by a fixed factor.
+related:
+  - fair-value-gap
+  - discount-premium-ote-levels
+  - support-resistance-indicator
+sources:
+  - title: LuxAlgo, Smart Money Concepts (SMC), TradingView script (swing and internal structure, BOS and CHoCH)
+    url: https://www.tradingview.com/script/CnB3fSph-Smart-Money-Concepts-SMC-LuxAlgo/
+  - title: Gainium, Risk:Reward
+    url: https://gainium.io/help/risk-reward
+  - title: Binance BTC/USDT 1h and 4h candles, computed with Gainium's indicator engine
 ---
 
-The **Market Structure Indicator** is a tool used to identify critical structural patterns in the market, including price trends, reversals, and significant levels such as highs, lows, and breakouts. It offers valuable insights into how price action evolves, which can help traders make more informed decisions. In Gainium, the Market Structure Indicator comes with various trigger types and conditions that can be tailored for different trading strategies, whether event-based, market-based, or price-based.
+Market Structure marks swing highs and lows on the chart and fires when a candle closes beyond one. A close through a swing high in an uptrend is a break of structure (BOS); the first close against the trend is a change of character (CHoCH). Bot traders use a CHoCH to time a reversal entry, a BOS to add to a trend, and the bullish or bearish state as a filter.
 
-Market Structure is a fundamental component of Smart Money Concepts (SMC) and works exceptionally well when combined with other SMC tools like [Fair Value Gaps](https://gainium.io/indicators/fair-value-gap), which identify institutional price imbalances that act as precise entry zones within the broader market structure.
+## What is Market Structure
 
-In this article, we will define the **Market Structure Indicator**, explain its use in Gainium, and provide examples of trading strategies using this indicator with entry and exit rules. We'll also cover practical considerations and conclude with tips on integrating them into your trading strategy.
+Market structure is the price-action way of reading trend: an uptrend makes higher highs (HH) and higher lows (HL), a downtrend makes lower highs (LH) and lower lows (LL). The BOS and CHoCH vocabulary comes from smart money concepts (SMC). Gainium's version follows the swing logic of LuxAlgo's open-source Smart Money Concepts script.
 
-## What Is the Market Structure Indicator?
+Gainium tracks structure on two scales:
 
-The **Market Structure Indicator** helps traders identify price movements and shifts in market dynamics, such as **breaks of structure** and **changes of character**. It detects the formation of higher highs, lower lows, and other key price patterns that indicate bullish or bearish shifts.
+- **Swing structure** uses 50-bar swings. A bar's high is a swing high when it is above every high of the 50 bars that follow it, so a swing is confirmed 50 bars after it prints.
+- **Internal structure** uses 5-bar swings, found the same way, and reacts to moves a tenth that size.
 
-### Key Features:
-- **Event-Based Triggers**: Detect significant structural changes in price (e.g., break of structure, change of character).
-- **Market-Based Triggers**: Identify overall market trends (e.g., bullish or bearish market structure).
-- **Price-Based Triggers**: Identify price movements related to pivots (higher highs, lower lows, etc.) with fine-tuning options using the **multiplier** setting.
+On each scale the rules are:
 
-## How to Configure the Market Structure Indicator in Gainium
+- **Bullish BOS:** the close crosses above the latest swing high while the trend is up (or not yet set).
+- **Bullish CHoCH:** the close crosses above the latest swing high while the trend is down. The trend flips to up.
+- **Bearish BOS and CHoCH:** the same with the close crossing below the latest swing low.
 
-Here’s how to configure the **Market Structure Indicator** in Gainium based on the attached settings.
+A level fires once: after a break, the next signal needs a new swing. **Bullish Market Structure** holds from a swing bullish CHoCH until the next swing bearish CHoCH, and the reverse for bearish. Before the first swing CHoCH on the chart there is no market state, so both Market Based options are false.
 
-### Step 1: Add the Market Structure Indicator
-- **Navigate to the Bot Settings**:Log into Gainium, select your bot, and add the **Market Structure** indicator from the list.
+Price Based triggers use a second set of points: pivots with 5 bars on each side by default. A pivot high is labelled HH if it is above the previous pivot high and LH if it is below; pivot lows are HL or LL. The latest pivot of each kind stays as a level until a new pivot replaces it.
 
-### Step 2: Configure the Indicator Settings
-- **Interval (1 day)**: This setting determines the timeframe for the indicator’s calculations. The provided example is set to **1 day**, meaning that the indicator will analyze daily price movements to detect structural changes.
-- **Trigger Type**: There are three trigger types available:**Event-Based**: Detects specific market events like a **Break of Structure** or **Change of Character**. This can be used to signal reversals or new trends.
-- **Market-Based**: Detects overall market conditions, such as a **Bullish Market Structure** or **Bearish Market Structure**. It’s helpful in identifying the general trend direction.
-- **Price-Based**: Detects movements around key price levels, such as pivot highs, pivot lows, and their respective changes. The **multiplier** setting allows you to fine-tune the sensitivity of the condition.
-- **Condition**:For **Event-Based Triggers**, you can choose **Swing Bullish Change of Character** or **Swing Bearish Break of Structure**. These conditions help identify significant shifts in market sentiment.
-- For **Market-Based Triggers**, you can select **a Bullish** or **Bearish Market Structure** to signal the overall market direction.
-- For **Price-Based Triggers**, conditions like **Price Crossing Down Any Pivot Low** allow you to detect when the price crosses significant [support or resistance levels](https://gainium.io/indicators/support-resistance-indicator).
-- **Multiplier** (For Price-Based Only): The multiplier allows you to adjust the condition's sensitivity. A larger multiplier means the trigger will require a more substantial price movement before firing.
-- **Keep True (0)**: This setting defines how long the condition remains true after it’s triggered. Setting it to **0** means the condition resets immediately after it’s met.
-![image.png](https://content.gainium.io/images/content/help/image_e16381735e-6943e4.webp)
-*Market Structure Indicator Settings*
+![Gainium bot chart, BTC/USDT 1h, with Market Structure on Price Based defaults: green HL and red LL labels under the pivot lows and dotted lines at each pivot level](https://content.gainium.io/images/content/indicators/market-structure__chart.webp)
 
-## Combining Market Structure with Fair Value Gaps
+### Settings and tips
 
-Market Structure becomes even more powerful when combined with [Fair Value Gaps (FVGs)](https://gainium.io/indicators/fair-value-gap). While Market Structure identifies the overall trend direction and key reversal points, FVGs pinpoint precise entry zones where institutional orders have created price inefficiencies.
+| Setting | Default | What it does |
+| --- | --- | --- |
+| Trigger type | Price Based | Event Based fires on a break of structure or change of character; Market Based is true while the swing structure is bullish or bearish; Price Based compares the close with the latest pivot. |
+| Structure signal | Any Pivot Low | The event, market state or pivot the condition reads. The list depends on Trigger type. |
+| High left bars | 5 | Bars before a pivot high that must have lower highs. Price Based only. |
+| High right bars | 5 | Bars after a pivot high that must have lower highs; the pivot is confirmed this many bars late. Price Based only. |
+| Low left bars | 5 | Bars before a pivot low that must have higher lows. Price Based only. |
+| Low right bars | 5 | Bars after a pivot low that must have higher lows; the pivot is confirmed this many bars late. Price Based only. |
+| Multiplier | 1 | Scales the pivot price before the comparison: 0.99 puts the level 1% under the pivot. Price Based only. |
+| Condition | Crossing down | How the close is compared with the pivot level: Crossing down, Crossing up, Greater than or Lower than. Price Based only. |
+| Interval | 1 hour | The candle size the indicator is calculated on, from 1 minute to 1 week. |
+| Keep true | 0 | Extra bars the condition stays true after it fires. 0 means only the bar that triggered it. |
 
-### Key Synergies:
-- **Trend Confirmation**: Use Market Structure to identify the trend direction, then look for FVGs in that direction for optimal entry points.
-- **Reversal Zones**: When a Change of Character (CHoCH) occurs, FVGs from the previous trend often mark exact reversal areas.
-- **Break of Structure + FVG**: After a Break of Structure (BOS), waiting for price to return to an FVG in the new trend direction provides high-probability entries.
-- **Confluence Setups**: The strongest trading setups occur when FVGs align with key market structure levels like swing highs, swing lows, or pivot points.
+**Tip:** the left and right bars only change Price Based signals. Event Based and Market Based use fixed 5-bar internal and 50-bar swing pivots: Internal Bullish Change of Character fires exactly as often on BTC/USDT 1h with 5 bars as with 20.
 
-For detailed strategies on trading Fair Value Gaps, see our [Fair Value Gap Indicator](https://gainium.io/indicators/fair-value-gap) guide.
+**Tip:** in Price Based mode, more bars mean fewer, older levels. On BTC/USDT 1h, Any Pivot Low with Crossing down fires about a fifth less often with 10 left and right bars than with 5, and about half as often with 20.
 
-## Using Market Structure in Bot Trading
+**Tip:** Multiplier 0.99 waits for a close 1% under the pivot low instead of any close under it. On BTC/USDT 1h that cut Any Pivot Low crossings to about a third; 1.01 roughly doubled them.
 
-Here are two trading strategies that use the **Market Structure Indicator** in automated bot trading.
+## Trading setups for bots
 
-### Strategy 1: Trend Reversal Strategy Using Event-Based Triggers
+### Internal bullish CHoCH entry on 4h
 
-#### Entry Rules
-- **Long Entry (Buy)**:Enter a long position when the **Swing Bullish Change of Character** is detected, signaling that the market is transitioning from a bearish trend to a bullish one.
-- **Short Entry (Sell)**:Enter a short position when the **Swing Bearish Change of Character** is detected, signaling a transition from bullish to bearish.
+- **Entry:** Deal start condition Market Structure, Event Based, **Internal Bullish Change of Character**, 4 hours.
+- **Exit:** take profit 2.5%, or a second condition on **Internal Bearish Change of Character** set as the close condition.
+- **Settings:** Keep true 0. Add a stop loss of about 3%, below the internal swing low the CHoCH came from.
+- **Timeframe:** 4h. On 1h the 5-bar internal swings are small and the signal reverses more often.
+- **When it fails:** in a range. In the chart below, the first CHoCH fired near 83,000; price stalled under 84,000 and then fell about 4%.
 
-#### Exit Rules
-- **Long Exit**:Exit the long trade when a **Swing Bearish Change of Character** is detected, indicating a potential reversal back to bearish territory.
-- **Short Exit**:Exit the short trade when a **Swing Bullish Change of Character** is detected, signaling a possible return to bullish territory.
+![Annotated Gainium bot chart, BTC/USDT 4h, internal structure: a first bullish CHoCH that failed, then a bullish CHoCH near 81,900 that led to a BOS near 83,300 and a high of 84,880](https://content.gainium.io/images/content/indicators/market-structure__internal-choch.webp)
 
-#### Implementation in Gainium
-- **Set the Event-Based Triggers**: Use the **Swing Bullish Change of Character** for long entries and **Swing Bearish Change of Character** for short entries.
-- **Automate Entries and Exits**: The bot will enter or exit trades based on key shifts in the market structure, ensuring that trades are executed at significant turning points.
+### Internal bearish CHoCH as the exit
 
-### Strategy 2: Breakout Strategy Using Price-Based Triggers
+- **Entry:** any long entry, for example the 4h CHoCH above.
+- **Exit:** close condition Market Structure, Event Based, **Internal Bearish Change of Character**, 1 hour.
+- **Settings:** take profit off or wide (5% or more), so the structure condition closes the deal. Keep true 0.
+- **Timeframe:** exit one step below the entry timeframe: 1h exits for 4h entries.
+- **When it fails:** in a fast drop. The internal swing low is up to 5 bars old, so the exit can land 2–4% under the top, as in the chart below.
 
-#### Entry Rules
-- **Long Entry (Buy)**:Enter a long position when the price **crosses up any pivot low**, signaling that the price has broken past a significant support level and may continue upward.
-- **Short Entry (Sell)**:Enter a short position when the price **crosses down any pivot high**, indicating that the price has fallen below a key resistance level and may continue downward.
+![Annotated Gainium bot chart, BTC/USDT 1h, internal structure: the top at 84,800 and the internal bearish CHoCH near 82,200 that closes the long about 3% lower](https://content.gainium.io/images/content/indicators/market-structure__internal-bearish-exit.webp)
 
-#### Exit Rules
-- **Long Exit**:Exit the long trade when the price **crosses down any pivot low**, signaling that the bullish momentum has weakened and the price may reverse downward.
-- **Short Exit**:Exit the short trade when the price **crosses up any pivot high**, signaling that the bearish momentum has faded and the price may reverse upward.
+### Bullish market structure as a filter
 
-#### Implementation in Gainium
-- **Set the Price-Based Triggers**: Configure the bot to enter long trades when the price crosses up any pivot low and enter short trades when the price crosses down any pivot high.
-- **Use the Multiplier**: Adjust the **multiplier** to control the sensitivity of the price trigger, allowing for fine-tuning based on the asset's volatility.
+- **Entry:** your usual entry indicator (an RSI dip, for example) in an AND group with Market Structure, **Market Based**, **Bullish Market Structure**, 1 hour.
+- **Exit:** the bot's normal take profit. The filter only blocks new deals.
+- **Settings:** Market Based ignores the pivot bars and the Multiplier.
+- **Timeframe:** 1h or 4h. The filter changes only on a swing CHoCH, so on BTC/USDT 1h it flips far less often than internal structure signals fire.
+- **When it fails:** at the turn. The state flips only on a swing CHoCH, which needs a 50-bar swing low to break. Below, the filter stayed bullish through a 4.5% drop from 84,800.
 
-## Practical Considerations
+![Annotated Gainium bot chart, BTC/USDT 1h, Market Based trigger: the green shaded Bullish Market Structure period from a swing bullish CHoCH to a swing bearish CHoCH, through a 4.5% drop](https://content.gainium.io/images/content/indicators/market-structure__bullish-market-filter.webp)
 
-Here are some practical tips when using the **Market Structure Indicator** in your trading strategy:
+## Using Market Structure in Gainium
 
-### 1. Adjust Trigger Types Based on Market Conditions
-- **Event-Based** triggers work best in markets with strong trends or clear reversals.
-- **Market-Based** triggers are useful for determining the overall trend direction and staying aligned with it.
-- **Price-Based** triggers are best for detecting support and resistance breakouts or retests.
+1. Create a DCA bot and switch the form to **Manual**.
+2. Set **Deal start condition** to **Indicators**, or the take profit or stop loss type for an exit.
+3. Click **Edit**, then **Change indicator**, and pick **Market Structure** from the Chart category.
 
-### 2. Use the Multiplier for Fine-Tuning
-- For **Price-Based** triggers, the multiplier allows you to adjust the amount of price movement required to trigger a condition. This is helpful in volatile markets where small price fluctuations may create false signals.
+![Market Structure settings card in the Gainium bot form with Trigger type Event Based and Structure signal Internal Bullish Change of Character ringed, Interval 4 hours, Keep true 0](https://content.gainium.io/images/content/indicators/market-structure__settings.webp)
 
-### 3. Combine with Other Indicators
-- To improve the accuracy of the Market Structure Indicator, combine it with other indicators like **RSI**, **moving averages**, or **[volume](https://gainium.io/indicators/volume-oscillator)** to confirm signals and avoid false positives.
-- For Smart Money Concepts trading, combine Market Structure with [Fair Value Gaps](https://gainium.io/indicators/fair-value-gap) to identify both the trend direction and precise institutional entry zones.
+The fields and their defaults:
 
-### 4. Backtest Thoroughly
-- Backtest your strategy using Gainium’s backtesting feature to ensure the Market Structure settings work well under different market conditions. Fine-tune the lookback period, intervals, and conditions as needed.
+- **Trigger type:** Price Based. The options are Event Based, Market Based and Price Based.
+- **Structure signal:** Any Pivot Low. The list depends on the trigger type:
+  - Event Based: Swing or Internal, Bullish or Bearish, Break of Structure or Change of Character, plus Swing Any Bullish/Bearish, Internal Any Bullish/Bearish, and Any Bullish/Bearish Break of Structure or Change of Character (swing or internal).
+  - Market Based: Bullish Market Structure, Bearish Market Structure.
+  - Price Based: Higher High, Lower High, Higher Low, Lower Low, Any Pivot High, Any Pivot Low.
+- **High left bars / High right bars:** 5 each. Shown for pivot-high signals.
+- **Low left bars / Low right bars:** 5 each. Shown for pivot-low signals. A pivot is confirmed after its right bars close.
+- **Multiplier:** 1. Price Based only. The pivot price is multiplied by it before the comparison.
+- **Condition:** Crossing down. Price Based only: Crossing down, Crossing up, Greater than, Lower than, comparing the close with the pivot level.
+- **Interval:** 1 hour, from 1 minute to 1 week.
+- **Keep true:** 0 extra bars.
 
-## Conclusion
+Market Structure can also place the stop loss of a [Risk:Reward](https://gainium.io/help/risk-reward) bot at a structure low.
 
-The **Market Structure Indicator** is a versatile and powerful tool that helps traders identify key price patterns, reversals, and market trends. By configuring the indicator correctly in Gainium and incorporating it into your bot trading strategies, you can take advantage of changes in market dynamics and execute trades at more opportune moments.
+**Example configuration** (the first setup): Deal start condition Indicators, Market Structure with Trigger type Event Based, Structure signal Internal Bullish Change of Character, Interval 4 hours, Keep true 0. Take profit 2.5%, stop loss 3%.
 
-Whether you're using **event-based** triggers for trend reversals or **price-based** triggers for breakout strategies, combining the Market Structure Indicator with other Smart Money Concepts tools like [Fair Value Gaps](https://gainium.io/indicators/fair-value-gap) and careful risk management can help enhance your trading results. Together, these tools provide a comprehensive framework for understanding institutional order flow and making more informed trading decisions.
+## Related indicators
+
+- [Fair Value Gap](https://gainium.io/indicators/fair-value-gap): the gaps a BOS leaves behind are where pullback entries go.
+- [Discount/Premium OTE Levels](https://gainium.io/indicators/discount-premium-ote-levels): measures the pullback into the leg that a BOS extended.
+- [Support and Resistance](https://gainium.io/indicators/support-resistance-indicator): the same pivot idea with 15-bar pivots and a plain level cross.
+
+## FAQ
+
+### What is the difference between BOS and CHoCH?
+
+Both are the close crossing the latest swing high or low. A BOS goes the same way as the current trend, for example a new high in an uptrend. A CHoCH goes against it: the first close above a swing high after a downtrend, or below a swing low after an uptrend.
+
+### What is the difference between swing and internal structure?
+
+Swing structure is built from 50-bar swings, so a swing high needs 50 lower highs after it before it counts. Internal structure uses 5-bar swings and reacts to much smaller moves. On BTC/USDT 1h, internal structure prints several signals for each swing-structure CHoCH.
+
+### Does the Market Structure indicator repaint?
+
+No. A swing point is only used once the bars to its right have closed, and the BOS or CHoCH fires on the bar whose close breaks it. The price for that delay is lag: a swing high is confirmed 50 bars late on swing structure and 5 bars late on internal structure.
+
+### Can I set the swing length?
+
+Not for Event Based and Market Based triggers: they use 50-bar swings and 5-bar swings, fixed. Price Based triggers use pivots, and there you set the left and right bars of pivot highs and lows, 5 each by default.
+
+### What does the Multiplier do?
+
+It only applies to Price Based triggers. The engine multiplies the pivot price by it before comparing it with the close, so the default of 1 compares the close with the pivot itself. Leave it at 1 unless you want the level moved by a fixed factor.

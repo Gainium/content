@@ -6,7 +6,7 @@ description: >-
   In this article, we explain what is the Support Resistance indicator and how
   it can be used in bot trading.
 createdAt: '2023-04-14T16:14:20.777Z'
-updatedAt: '2026-10-12T00:00:00.000Z'
+updatedAt: '2026-10-25T00:00:00.000Z'
 publishedAt: '2023-04-15T03:56:43.227Z'
 locale: en
 categories:
@@ -17,11 +17,14 @@ tags:
 optimized: true
 ingested: true
 ingestedAt: '2025-06-29T10:57:30.026Z'
+templateVersion: 2
 tldr: >-
-  The Support and Resistance indicator plots key price levels where buying or
-  selling pressure has historically caused reversals or breakouts. In Gainium,
-  it can be used for breakout trading or range trading (buying at support,
-  selling at resistance).
+  The Support & Resistance indicator draws the latest pivot high as resistance
+  and the latest pivot low as support. A pivot needs 15 bars on each side by
+  default, so a level appears 15 bars after the turn and stays until a newer
+  pivot replaces it. A bot condition fires when the close crosses up or down
+  through either level: crossing up resistance for breakout entries, crossing
+  down support for exits and stop losses.
 kind: native
 catalogKeys:
   - SR
@@ -30,54 +33,136 @@ aliases:
   - "S/R"
   - "Support and Resistance"
   - "Support & Resistance"
+faq:
+  - title: How does Gainium calculate support and resistance?
+    details: >-
+      From pivots. Resistance is the latest bar whose high is above the highs
+      of the 15 bars before it and the 15 bars after it. Support is the latest
+      bar whose low is below the lows of the same window. Each level stays
+      until a newer pivot replaces it.
+  - title: Why does a level appear late on the chart?
+    details: >-
+      A pivot is only confirmed once its right bars have closed. With Right
+      bars 15, a new level appears 15 bars after the high or low that made it,
+      on any interval. Lower Right bars to see levels sooner; they will be
+      weaker turns.
+  - title: Which condition should I use for a breakout?
+    details: >-
+      Price crossing up with Value Resistance. It fires on the candle whose
+      close moves from at or below the resistance level to above it. For a
+      breakdown, use Price crossing down with Value Support.
+  - title: Can I use support as a stop loss?
+    details: >-
+      Yes, two ways. Set the stop loss type to Indicators with Price crossing
+      down Support, or use Support & Resistance in a Risk:Reward bot, which
+      places the stop at the support level and sizes the position from it.
+related:
+  - market-structure
+  - long-wick-detector
+  - qfl
+sources:
+  - title: LuxAlgo, Support and Resistance Levels with Breaks, TradingView script (pivot levels with 15 left and right bars)
+    url: https://www.tradingview.com/script/JDFoWQbL-Support-and-Resistance-Levels-with-Breaks-LuxAlgo/
+  - title: Gainium, Risk:Reward
+    url: https://gainium.io/help/risk-reward
+  - title: Binance BTC/USDT 1h and 4h candles, computed with Gainium's indicator engine
 ---
 
-Understanding the core concepts of market analysis is crucial for your success as a trader. Among the most fundamental concepts are support and resistance, which can help traders identify potential entry and exit points, manage risk, and develop profitable strategies. This article will explore the nature of support and resistance, their significance in crypto trading, and how traders can leverage these concepts to create automated trading strategies.
+The Support & Resistance indicator draws the latest pivot high as resistance and the latest pivot low as support. Traders use it to start a deal when the close breaks above resistance, and to close one when the close breaks below support.
 
-## Understanding Support and Resistance
+## What is Support and Resistance
 
-Support and resistance levels are price points at which supply and demand interact, creating a temporary balance between buyers and sellers. These levels act as psychological barriers in the market, often resulting in significant price reactions.
+Support is a price where falling price turned up; resistance is a price where rising price turned down. Gainium finds them with pivots, the method of LuxAlgo's open-source "Support and Resistance Levels with Breaks" script:
 
-Support is a price level where buying pressure is strong enough to prevent further price declines. It represents a point at which demand for the asset is substantial enough to halt the downward trend and potentially reverse it. On the other hand, resistance is a price level where selling pressure is strong enough to prevent further price increases. It indicates a point at which the supply of the asset is significant enough to stop the upward trend and potentially reverse it.
+- **Resistance:** the latest bar whose high is above the highs of the **Left bars** before it and the **Right bars** after it.
+- **Support:** the latest bar whose low is below the lows of the same window.
 
-## The Significance of Support and Resistance in Crypto Trading
+Both windows are 15 bars by default. A pivot is confirmed only after its right bars close, so a level appears 15 bars after the turn. Each level holds its price until a newer pivot of the same kind replaces it. The chart shows the step: a dotted connector joins the old level to the new one.
 
-Support and resistance levels play a crucial role in crypto trading. They can help traders make informed decisions about market entry and exit points, stop-loss placements, and overall risk management. Traders can use support and resistance to:
-- Predict potential price reactions and reversals- Identify optimal entry and exit points for trades- Manage risk through strategic stop-loss placements- Develop effective trading strategies based on market structure
+The bot condition compares the candle close with a level. **Price crossing up** fires when the close goes from at or below the level to above it. **Price crossing down** fires on the reverse. Raising both bar counts to 30 keeps only turns that held for 30 bars each side; lowering them to 5 adds a level at most small swings.
 
-## Identifying Support and Resistance Levels
+![Gainium bot chart, BTC/USDT 4h, with Support & Resistance 15/15: the red resistance line stepping from 87,200 to 84,400 to 84,880 and the blue support line stepping between 82,400 and 79,750](https://content.gainium.io/images/content/indicators/support-resistance-indicator__chart.webp)
 
-There are several methods for identifying support and resistance levels in crypto trading, including:
-- **Historical Price Data**: By examining an asset's price history, traders can identify price levels where the asset has previously reversed or experienced significant price reactions. These levels may continue to act as support or resistance in the future.
-- **Psychological Levels**: Round numbers and key price milestones often act as psychological support and resistance levels. For example, prices like $10,000, $20,000, or $50,000 may attract increased buying or selling pressure due to their psychological significance.
-- **Technical Analysis Tools**: Various technical analysis tools, such as trend lines, Fibonacci retracement levels, and moving averages, can help traders identify potential support and resistance levels.
+### Settings and tips
 
-## Understanding the Support and Resistance Technical Indicator
+| Setting | Default | What it does |
+| --- | --- | --- |
+| Interval | 1 hour | The candle size the indicator is calculated on, from 1 minute to 1 week. |
+| Condition | Price crossing down | Price crossing up: the previous close at or below the level and the latest close above it. Price crossing down is the reverse. |
+| Value | Resistance | The level: Resistance, the latest pivot high, or Support, the latest pivot low. |
+| Left bars | 15 | Bars before a pivot that it must stand out from. From 1 to 200. |
+| Right bars | 15 | Bars after a pivot that it must stand out from. A new level appears this many bars late. From 1 to 200. |
+| Keep true | 0 | Extra bars the condition stays true after it fires. 0 means only the bar that triggered it. |
 
-The support and resistance indicator is a custom indicator that plots support and resistance levels with breaks on the price chart. It helps users visualize key price levels where price reversals or breakouts might occur. This indicator is implemented using [this script](https://www.tradingview.com/script/JDFoWQbL-Support-and-Resistance-Levels-with-Breaks-LuxAlgo/), which takes advantage of the pivothigh and pivotlow functions applied to several left and right bars to determine at which price level the asset reverted.
+**Tip:** Left and Right bars set how many levels you get. On BTC/USDT 1h, Price crossing up Resistance fires about twice as often with 5 bars on each side as with 15, and 30 bars halves it again. On 4h, 5 bars gives nearly three times as many breakouts as 15, and 30 gives slightly fewer than 15.
 
-## Using the Support Resistance indicator in Gainium
+**Tip:** Right bars alone sets the delay. Left bars 15 with Right bars 5 confirms a level 5 bars after the turn instead of 15, and gives about 40% more breakouts on BTC/USDT 1h.
 
-To select it, set the deal start condition (or the take profit or stop loss type) to **Indicators**, click **Edit** on the indicator, then **Change indicator**, and choose **Support & Resistance**.
-![Screenshot 2023-04-14 at 16.52.04.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_14_at_16_52_04_8a96f0f886-fc8415.webp)
-*Support Resistance Indicator*
+**Tip:** the default pair, Price crossing down Resistance, is not a breakout: it fires when price falls back under the latest high. On BTC/USDT 1h it fires about three quarters as often as the crossing up breakout.
 
-The Support Resistance indicator in Gainium allows you to identify buying and selling pressure levels by selecting the condition and value within a specified timeframe. When price action is crossing down the support, the more likely the move is going to continue in that direction. This indicator is a perfect tool to spot a change in market behavior. On the contrary, when the price crosses up the resistance, it indicates a bullish sentiment.The support and resistance indicator is a visual tool that you can use to identify key levels of support and resistance on a price chart based on past price action. You can change the support and resistance levels by increasing the number of “Left bars” and “Right bars,” making the levels more conservative as the tool will have more candles to calculate the prices to generate support and resistance. If you decrease them, the levels will be less strong (fewer candles in the calculation). The default is set to 15 on a 1-hour timeframe.
+## Trading setups for bots
 
-## Implementing Support Resistance in Your Trading Bot Strategy
+### Resistance breakout on 1h
 
-### Breakout Trading
+- **Entry:** Deal start condition Support & Resistance, **Price crossing up**, Value **Resistance**, 1 hour.
+- **Exit:** take profit 1.5%, with a stop loss of 1.5–2% under the entry.
+- **Settings:** Left bars 15, Right bars 15, Keep true 0.
+- **Timeframe:** 1h. On 15m the 15-bar pivots are a quarter as wide as on 1h and catch small swings.
+- **When it fails:** when the breakout reverses soon after. In the chart below, the close above 83,350 ran 1.7% to 84,880 and then gave all of it back.
 
-One popular trading strategy that uses support and resistance levels is breakout trading. Traders look for instances where the price breaks through a key support or resistance level and then enters a new trend. For example, if the price has been trading in a range for an extended period and then breaks through a strong support level, a trader may consider entering a short position because the asset's price is likely to continue higher. In the image below, you might want to start a short bot when the support is broken (red arrow).You can also use support and resistance levels to identify potential trade exit points. In the same example below, if you have previously entered a short position and the price approaches a strong resistance level, you may consider taking profits or exiting the trade altogether.
-![Screenshot 2023-04-14 at 17.42.46.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_14_at_17_42_46_bd91e31a99-0463d3.webp)
-*Breakout*
+![Annotated Gainium bot chart, BTC/USDT 1h: the close above the red resistance near 83,350 that starts the deal, and the top 1.7% higher at 84,880](https://content.gainium.io/images/content/indicators/support-resistance-indicator__breakout.webp)
 
-### Range Trading and risk management
+### Support break as the exit
 
-Another trading strategy that uses support and resistance levels is range trading. Traders look for instances where the price trades within a defined range between two key support and resistance levels. Traders may enter long positions when the price approaches the support level and short positions when the price approaches the resistance level. In the example below, you can open a long and short position whenever the price hits the support and resistance level ( yellow line). However, eventually, the price will break up or down (yellow cross), so you must have a stop loss in place for your risk management. You can use support and resistance levels themselves to manage risk. For example, if you have entered a long position and the price approaches a strong resistance level, they may use this level to set a stop-loss order to protect against potential losses.
-![Screenshot 2023-04-14 at 17.47.36.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_14_at_17_47_36_0574788df0-76cb5b.webp)
-*Range Trading*
+- **Entry:** any long entry.
+- **Exit:** close condition (or stop loss type Indicators) Support & Resistance, **Price crossing down**, Value **Support**, 4 hours.
+- **Settings:** Left bars 15, Right bars 15. On 4h the support is a low that held for 15 bars on each side, four times wider than the same setting on 1h.
+- **Timeframe:** 4h exits for 1h or 4h entries.
+- **When it fails:** on a wick through support. The condition reads closes, but a long-wick candle can close under the level and recover on the next bar, as at the right edge of the chart below.
 
-## Conclusion
+![Annotated Gainium bot chart, BTC/USDT 4h: the 4h close below the blue support near 82,450 that closes the deal, and the same signal later at 80,600 before price recovered](https://content.gainium.io/images/content/indicators/support-resistance-indicator__support-break.webp)
 
-The support and resistance indicator can be a powerful tool for traders to identify potential trading opportunities and manage risk. However, traders should use multiple sources of information and confirm the validity of support and resistance levels before making trading decisions. [Backtesting](https://gainium.io/crypto-backtesting) is essential to fine-tune your strategy.
+## Using Support and Resistance in Gainium
+
+1. Create a DCA bot and switch the form to **Manual**.
+2. Set **Deal start condition** to **Indicators**, or the take profit or stop loss type for an exit.
+3. Click **Edit**, then **Change indicator**, and pick **Support & Resistance** from the Chart category.
+
+![Support & Resistance settings card in the Gainium bot form with Condition Price crossing up and Value Resistance ringed, Interval 4 hours, Left bars 15, Right bars 15, Keep true 0](https://content.gainium.io/images/content/indicators/support-resistance-indicator__settings.webp)
+
+The fields and their defaults:
+
+- **Interval:** 1 hour, from 1 minute to 1 week.
+- **Condition:** Price crossing down. The other option is Price crossing up.
+- **Value:** Resistance. The other option is Support. The default pair, crossing down resistance, fires when price falls back under a high; for a breakout, change it to crossing up.
+- **Left bars:** 15, from 1 to 200.
+- **Right bars:** 15, from 1 to 200. This is also how many bars late a new level appears.
+- **Keep true:** 0 extra bars.
+
+Support & Resistance is one of the indicators a [Risk:Reward](https://gainium.io/help/risk-reward) bot can use to place its stop loss at a support level and size the position from it.
+
+**Example configuration** (the breakout above): Deal start condition Indicators, Support & Resistance with Interval 1 hour, Condition Price crossing up, Value Resistance, Left bars 15, Right bars 15, Keep true 0. Take profit 1.5%, stop loss 2%.
+
+## Related indicators
+
+- [Market Structure](https://gainium.io/indicators/market-structure): the same pivot levels, labelled HH/HL/LH/LL, plus BOS and CHoCH events.
+- [Long Wick Detector](https://gainium.io/indicators/long-wick-detector): levels from rejection wicks instead of pivots, removed once a body closes through them.
+- [QFL](https://gainium.io/indicators/qfl): buys a fall below a support base instead of selling it.
+
+## FAQ
+
+### How does Gainium calculate support and resistance?
+
+From pivots. Resistance is the latest bar whose high is above the highs of the 15 bars before it and the 15 bars after it. Support is the latest bar whose low is below the lows of the same window. Each level stays until a newer pivot replaces it.
+
+### Why does a level appear late on the chart?
+
+A pivot is only confirmed once its right bars have closed. With Right bars 15, a new level appears 15 bars after the high or low that made it, on any interval. Lower Right bars to see levels sooner; they will be weaker turns.
+
+### Which condition should I use for a breakout?
+
+Price crossing up with Value Resistance. It fires on the candle whose close moves from at or below the resistance level to above it. For a breakdown, use Price crossing down with Value Support.
+
+### Can I use support as a stop loss?
+
+Yes, two ways. Set the stop loss type to Indicators with Price crossing down Support, or use Support & Resistance in a Risk:Reward bot, which places the stop at the support level and sizes the position from it.

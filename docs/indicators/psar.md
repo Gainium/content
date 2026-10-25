@@ -6,7 +6,7 @@ description: >-
   In this article, we explain what is the Parabolic SAR Indicator (PSAR)
   indicator and how it can be used in bot trading.
 createdAt: '2023-08-09T15:12:27.329Z'
-updatedAt: '2026-10-12T00:00:00.000Z'
+updatedAt: '2026-10-25T00:00:00.000Z'
 publishedAt: '2023-08-13T17:28:56.645Z'
 locale: en
 categories:
@@ -16,11 +16,16 @@ tags:
   - indicator
 ingested: true
 ingestedAt: '2025-06-29T10:57:30.022Z'
+templateVersion: 2
 tldr: >-
-  The Parabolic SAR (Stop and Reverse) indicator identifies potential trend
-  reversals by plotting dots above or below price bars. In Gainium, it can be
-  used for trend-following strategies, setting dynamic stop-loss levels, or
-  combined with MACD for reversal confirmation.
+  The Parabolic SAR (stop and reverse) plots one dot per candle: under price
+  in an up trend, over price in a down trend. The dots speed up toward price
+  as the trend extends, so the SAR works as a trailing stop that tightens with
+  time. Gainium's Parabolic SAR condition compares the close with the SAR,
+  with Start 0.02, Increment 0.02 and Maximum 0.2 on 1-hour candles by
+  default. On BTC/USDT the close crosses the SAR nearly four times as often
+  on 1-hour candles as on 4-hour, and about six times as often on 4-hour as
+  on daily candles.
 kind: native
 catalogKeys:
   - PSAR
@@ -29,66 +34,157 @@ aliases:
   - "PSAR"
   - "Parabolic SAR"
   - "Parabolic Stop and Reverse"
+  - "SAR"
+faq:
+  - title: What do Start, Increment and Maximum do?
+    details: >-
+      They set the acceleration factor. It begins at Start (0.02), grows by
+      Increment (0.02) each time the trend makes a new extreme, and stops at
+      Maximum (0.2). A higher Start or Increment pulls the dots toward price
+      faster, which means earlier exits and more flips.
+  - title: Is the Parabolic SAR good for entries?
+    details: >-
+      Mostly for exits. As an entry, it flips in every range: on BTC/USDT 4h,
+      buying each close above the SAR and selling the next close below it won
+      a little over a third of the trades and lost 31.8% in total, ignoring fees. As a
+      trailing exit for a deal that another condition opened, it locks in
+      gains within a few bars of the turn.
+  - title: Why does the bot's SAR flip at a different candle than my chart?
+    details: >-
+      Gainium's condition compares the candle's close with the SAR. Charts
+      flip the dots when a candle's high or low touches the SAR, even if it
+      closes back on the other side. Use the close-based reading when you
+      compare the two.
+  - title: Which timeframe suits the Parabolic SAR?
+    details: >-
+      On BTC/USDT the close crosses the SAR nearly four times as often on
+      1-hour candles as on 4-hour candles, and about six times as often on
+      4-hour as on daily candles. The median trend lasted 11 to 12 candles on
+      every one of those intervals.
+related:
+  - supertrend
+  - adx
+  - atr
+  - macd
+sources:
+  - title: J. Welles Wilder Jr., New Concepts in Technical Trading Systems (1978), via StockCharts ChartSchool, Parabolic SAR
+    url: https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/parabolic-sar
+  - title: TradingView Pine Script reference, ta.sar
+    url: https://www.tradingview.com/pine-script-reference/v5/
+  - title: Binance BTC/USDT 1h, 4h and 1d candles, computed with Gainium's indicator engine
 ---
 
-Indicators are important in bot trading because they assist bots in identifying probable buy and sell signals in the market based on past price and volume data. Indicators such as the Parabolic SAR Indicator (PSAR) assist traders and investors in understanding the asset's underlying trend and momentum. In this post, we'll look at how to use the PSAR indicator effectively in your automated trading system.
+The Parabolic SAR (stop and reverse) draws a dot for every candle, under price in an up trend and over price in a down trend. The dots move toward price faster the longer a trend runs, which makes the SAR a trailing stop that tightens with time. Bots use it mainly to exit, and sometimes to enter, when the close crosses the dots.
 
-## The Parabolic SAR Indicator
+## What is the Parabolic SAR
 
-The Parabolic SAR (Stop and Reverse) is a technical analysis indicator used by traders to help identify potential trend reversals in the price of an asset, such as stocks, commodities, or currencies. The indicator was developed by J. Welles Wilder and introduced in his book "New Concepts in Technical Trading Systems" in 1978.
+J. Welles Wilder Jr. introduced it in 1978, in *New Concepts in Technical Trading Systems*, as the "Parabolic Time/Price System". On each candle:
 
-The Parabolic SAR indicator comprises a sequence of dots shown on a chart above or below the price bars, depending on the trend. The main purpose of the Parabolic SAR is to provide traders with potential entry and exit points and help them set trailing stop-loss orders.
+`SAR(next) = SAR + AF × (EP − SAR)`
 
-### How the Parabolic SAR works:
-- **Uptrend (Bullish Trend):** When the Parabolic SAR dots are plotted below the price bars, it suggests an uptrend. The dots gradually move upward and get closer to the price bars as the trend continues.
-- **Downtrend (Bearish Trend):** When the Parabolic SAR dots are plotted above the price bars, it suggests a downtrend. The dots gradually move downward and get closer to the price bars as the trend continues.
+- **SAR** is the current stop level.
+- **EP** (extreme point) is the highest high of the current up trend, or the lowest low of the current down trend.
+- **AF** (acceleration factor) starts at **Start**, rises by **Increment** every time the trend sets a new EP, and is capped at **Maximum**.
+- In an up trend the SAR may not rise above the lows of the last two candles; in a down trend it may not fall below their highs.
+- When price crosses the SAR, the trend reverses: the new SAR starts at the old EP, and AF resets to Start.
 
-The acceleration factor (AF) and the extreme point (EP) are the two fundamental components of the Parabolic SAR calculations. The acceleration factor starts at a certain value and then increases over time, accelerating the rate at which the dots move closer to the price bars. The extreme point represents the current trend's highest or lowest low.
+Defaults are **Start 0.02, Increment 0.02, Maximum 0.2**, in Gainium and in TradingView's built-in Parabolic SAR. With those, AF reaches its cap after nine new extremes.
 
-The formula for calculating the Parabolic SAR dots is as follows:
-- **Initial SAR = Previous SAR + (Previous AF × (Previous EP - Previous SAR))**  -** Acceleration Factor (AF):** Typically begins at 0.02 and rises by 0.02 every time a new extreme point is reached, with a maximum limit.
-- **Extreme Point (EP):** For an uptrend, it's the highest high of the current trend. For a downtrend, it's the lowest low of the current trend.
+How to read it:
 
-## Using The Parabolic SAR Indicator in Gainium
+- **Dots under the candles:** up trend. Dots over the candles: down trend.
+- **Dots closing in on price:** the trend is old or slowing. The SAR keeps moving toward price even when price goes sideways, so a pause alone can trigger the flip.
+- **Trend length:** on BTC/USDT 4h the median trend lasts 12 candles, so the SAR flips about three times as often as Supertrend's default line.
 
-To select it, set the deal start condition (or the take profit or stop loss type) to **Indicators**, click **Edit** on the indicator, then **Change indicator**, and choose **Parabolic SAR**.
-![](https://content.gainium.io/images/content/help/Screenshot_2023_08_09_at_21_31_21_ac55c4e9c5-132b97.webp)
-*PSAR indicator*
+![Parabolic SAR (0.02, 0.02, 0.2) on BINANCE:BTCUSDT 4h, dark theme: blue dots switching above and below price every few candles in a range between 79,000 and 87,000](https://content.gainium.io/images/content/indicators/psar__chart.webp)
 
-Gainium uses the default settings of 0.02 for both AF and EP.
+### Settings and tips
 
-Depending on your trading strategy, you might want to adjust these values. For example, the Parabolic SAR settings for scalping will almost certainly require more frequent reversals than a long-term trading approach; therefore, a scalper may prefer a greater AF. Wilder discovered that the default value of 0.02 worked best for him but that any value between 0.018 and 0.021 would suffice.
+| Setting | Default | What it does |
+| --- | --- | --- |
+| Start | 0.02 | The acceleration factor at the start of each trend, in steps of 0.001. A lower Start leaves the first dots further from price. |
+| Increment | 0.02 | Added to the factor each time the trend makes a new extreme, in steps of 0.001. |
+| Maximum | 0.2 | The cap on the factor, in steps of 0.01. With the defaults it is reached after nine new extremes. |
+| Interval | 1 hour | Candle size the SAR is calculated on, from 1 minute to 1 week. |
+| Condition | Price crossing down | Compares the candle's close with the SAR. The crossing options fire on the flip candle; Price greater than and Price lower than hold for the whole trend. |
+| Keep true | 0 | Extra candles the condition stays true after it fires, so it can meet a slower condition in the same group. |
 
-By increasing the Acceleration Factor, the indicator will track the price more closely, leaving less space between the indication and the price. This means that the chart will show more trading indications and reversals. When the Acceleration Factor is reduced, the indicator moves slower, leaving greater space between the price and the indicator. There will be fewer reversals. Maximum Acceleration functions similarly, albeit to a much lesser extent. During a significant price move, the MA limits how quickly the indicator can accelerate. Changes to this setting will have less impact than changes to the AF.
+**Tip:** **Increment** does more than Start to slow the SAR down. On BTC/USDT 4h, Increment 0.01 cuts the close's crosses of the SAR by about 30%. Start 0.01 alone cuts them by only about 15%.
 
-## Implementing PSAR in Your Trading Bot Strategy
+**Tip:** **Maximum** only caps the factor late in a trend. At 0.1, which the factor reaches after four new extremes, the 4h crosses fall by only about 10%.
 
-### Double PSAR  strategy
+**Tip:** The default Condition, **Price crossing down**, is an exit signal. For a long entry, switch it to Price crossing up. On 1 hour that fires nearly four times as often as on 4 hours.
 
-The Parabolic SAR can be used for trading strategies like trend following and reversal. Traders frequently use it with other technical indicators and chart patterns to confirm signals. As you can see from the image below, when PSAR crosses from above not always indicates a reversal of price and vice versa.
+## Trading setups for bots
 
-![](https://content.gainium.io/images/content/help/Screenshot_2023_08_09_at_21_50_56_b1e89ffbad-bc8e38.webp)
+### Flip-to-flip trend follower
 
-A double parabolic SAR technique employs two periods. A higher timeframe first indicates the trend direction based on the direction of the parabolic SAR. After determining the long-term trend direction, trades are entered in a shorter timeframe but only in the direction of the longer-term trend. The hourly chart of BTC (image below), with a parabolic SAR connected, reveals that the price is currently in an uptrend. As of August 1, the price is above the indication in the image below.
-![](https://content.gainium.io/images/content/help/Screenshot_2023_08_09_at_22_23_01_fa33ea545c-370d2a.webp)
-*1 hour TF*
+- **Entry:** Parabolic SAR, Condition **Price crossing up**, Interval 4 hours.
+- **Exit:** a Parabolic SAR close condition, **Price crossing down**, same interval.
+- **Settings:** Start 0.02, Increment 0.02, Maximum 0.2. A Start of 0.01 leaves more room and flips less.
+- **Timeframe:** 4 hours or 1 day. On 1-hour candles the close crosses the SAR nearly four times as often as on 4-hour.
+- **When it fails:** in a range, which is most of the time. In the chart below, BTC moved inside a 3,000-dollar range and the SAR flipped five times before the breakout. In the data behind this page, a long bot buying every 4h close above the SAR and selling the next close below won a little over a third of its trades and lost 31.8% in total, ignoring fees, while BTC fell 27%. Its best trade was the breakout in the chart: in at 68,554, out at 77,289, +12.7%.
 
-By adding a second PSAR on a different TF as a deal start condition, you can find a lot of different and more frequent entries for scalping as long as the higher timeframe indicates the continuation of the trend. A 5 min TF helps identify several entries and exits in the image below.
-![](https://content.gainium.io/images/content/help/Screenshot_2023_08_09_at_22_27_55_f02f7633c3-657205.webp)
-*5 min TF*
+![Annotated Parabolic SAR chart, BTC/USDT 4h: five flips in a range, then a close above the SAR at 68,554 and a close below it at 77,289 for +12.7%](https://content.gainium.io/images/content/indicators/psar__flip.webp)
 
-### The Parabolic Sar Breakout as a Stop Loss
+### Trailing exit for a deal another condition opened
 
-To use parabolic SAR to set stop-loss levels, place your stop-loss order at the level of the most recent dot on the opposite side of the trend. If you are long, for example, you can set your stop-loss order at the level of the most recent dot below the price. This can be easily done using the SL feature in Gainium. See the image below.
-![](https://content.gainium.io/images/content/help/Screenshot_2023_08_10_at_21_57_21_3a8090f7da-dd21ff.webp)
-*PSAR SL*
+The SAR is built as a stop. Let a trend or breakout condition open the deal, and let the SAR close it.
 
-### PSAR and MACD crossover
+- **Entry:** any start condition, for example ADX crossing up 25 with SuperTrend Up trend (see the ADX page).
+- **Exit:** Parabolic SAR **Price crossing down**, Interval 4 hours, as the take profit condition (Take profit type: Technical indicators). Keep a fixed stop loss below the entry as well.
+- **Settings:** the defaults. AF grows with each new high, so the stop tightens fastest in the strongest part of a move.
+- **Timeframe:** the same interval as the entry condition.
+- **When it fails:** when the deal opens inside a range. In the chart below, a deal opened at 64,200 was closed at 64,296, two bars before the breakout, because the SAR was still sitting just under the range. A deal opened on the breakout at 68,554 rode the SAR up from 64,166 to 75,885 and closed at 77,289, +12.7%, well before Supertrend's own exit.
 
-A stronger reversal can be identified using MACD indicator crossover as an additional deal start condition. In the example below, the price crossing above PSAR indicates a possible buy-long entry. By adding to the same chart the [MACD](https://gainium.io/indicators/macd) crossing up, we have an additional confirmation for a long entry.
-![](https://content.gainium.io/images/content/help/Screenshot_2023_08_10_at_22_11_04_7c06dfc9fe-3e1522.webp)
-*PSAR and MACD*
+![Annotated Parabolic SAR chart, BTC/USDT 4h: deal 1 opened at 64,200 is closed at 64,296 just before the breakout; deal 2 opened at 68,554 trails the rising SAR and closes at 77,289 for +12.7%](https://content.gainium.io/images/content/indicators/psar__trailing.webp)
 
-## Conclusion
+## Using Parabolic SAR in Gainium
 
-The Parabolic SAR (Stop and Reverse) indicator is a valuable tool for traders seeking to identify potential trend reversals and set trailing stop-loss orders. Its simple visual representation, with dots plotted above or below price bars, helps traders gauge the direction of a trend - upward or downward. However, like any tool, the Parabolic SAR is most effective with other indicators and analysis methods, as no single indicator guarantees success. Traders must combine the Parabolic SAR with a comprehensive trading strategy and risk management techniques for more accurate and well-rounded trading outcomes.
+1. Create a DCA bot and switch the form to **Manual**.
+2. Set **Deal start condition** to **Indicators**, click **Edit**, then **Change indicator**, and search for **Parabolic**. For the trailing exit, set **Take profit type** to **Technical indicators** and add it there instead.
+3. Pick **Parabolic SAR**, set the fields, and click **Done**.
+
+![Gainium indicator picker searched for Parabolic, with the Parabolic SAR card ringed](https://content.gainium.io/images/content/indicators/psar__picker.webp)
+
+The fields and their defaults:
+
+- **Start:** 0.02, in steps of 0.001.
+- **Increment:** 0.02, in steps of 0.001.
+- **Maximum:** 0.2, in steps of 0.01.
+- **Interval:** 1 hour.
+- **Condition:** Price crossing down. The options are Price crossing down, Price crossing up, Price greater than and Price lower than. "Price" is the candle's close, compared with the SAR.
+- **Keep true:** 0 extra candles.
+
+Price greater than is true on every candle of an up trend, so it works as a filter; the crossing options fire once per flip.
+
+Parabolic SAR works as a deal start, DCA, take profit or stop loss condition, and in the Bot Controller.
+
+Example configuration for the flip-to-flip setup: Start 0.02, Increment 0.02, Maximum 0.2, Interval 4 hours, Condition Price crossing up, Keep true 0, with the same settings and Price crossing down as the take profit condition.
+
+![Gainium Parabolic SAR settings card with Start 0.02, Increment 0.02, Maximum 0.2, Interval 4 hours and Condition Price crossing up](https://content.gainium.io/images/content/indicators/psar__example.webp)
+
+## Related indicators
+
+- [Supertrend](https://gainium.io/indicators/supertrend): a trailing line set by volatility rather than time; on BTC/USDT 4h it flipped about a third as often as the SAR.
+- [Average Directional Index (ADX)](https://gainium.io/indicators/adx): ADX under 20 marks the ranges where SAR entries whipsaw.
+- [Average True Range (ATR)](https://gainium.io/indicators/atr): a volatility stop to compare with the SAR's time-based one.
+- [MACD](https://gainium.io/indicators/macd): a momentum condition that traders pair with a SAR flip for entries.
+
+## FAQ
+
+### What do Start, Increment and Maximum do?
+
+They set the acceleration factor. It begins at Start (0.02), grows by Increment (0.02) each time the trend makes a new extreme, and stops at Maximum (0.2). A higher Start or Increment pulls the dots toward price faster, which means earlier exits and more flips.
+
+### Is the Parabolic SAR good for entries?
+
+Mostly for exits. As an entry, it flips in every range: on BTC/USDT 4h, buying each close above the SAR and selling the next close below it won a little over a third of the trades and lost 31.8% in total, ignoring fees. As a trailing exit for a deal that another condition opened, it locks in gains within a few bars of the turn.
+
+### Why does the bot's SAR flip at a different candle than my chart?
+
+Gainium's condition compares the candle's close with the SAR. Charts flip the dots when a candle's high or low touches the SAR, even if it closes back on the other side. Use the close-based reading when you compare the two.
+
+### Which timeframe suits the Parabolic SAR?
+
+On BTC/USDT the close crosses the SAR nearly four times as often on 1-hour candles as on 4-hour candles, and about six times as often on 4-hour as on daily candles. The median trend lasted 11 to 12 candles on every one of those intervals.

@@ -155,11 +155,15 @@ export function parseBlogPostSource(
  */
 export function parseIndicatorSource(
   rawContent: string,
-): ParseResult<ParsedIndicator> & { data: Record<string, unknown> } {
+): ParseResult<ParsedIndicator> & {
+  data: Record<string, unknown>
+  content: string
+} {
   const parsed = parseMarkdown(rawContent)
   const errors = validateIndicatorFrontmatter(parsed.data)
   return {
     data: parsed.data,
+    content: parsed.content,
     doc:
       errors.length === 0
         ? {

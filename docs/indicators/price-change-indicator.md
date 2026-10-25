@@ -7,7 +7,7 @@ description: >-
   strategies, detecting breakouts, trends, and reversals using percentage-based
   signals.
 createdAt: '2024-10-06T09:26:02.444Z'
-updatedAt: '2026-02-24T07:44:20.578Z'
+updatedAt: '2026-10-25T00:00:00.000Z'
 publishedAt: '2024-10-06T09:32:09.504Z'
 locale: en
 categories:
@@ -18,101 +18,161 @@ tags:
 ingested: true
 ingestedAt: '2025-06-29T10:57:30.019Z'
 tldr: >-
-  The Price % Change indicator calculates the percentage price change over a set
-  time interval, helping detect breakouts, trends, and reversals. Configure a
-  threshold and interval in Gainium to trigger automated actions when price
-  moves exceed the defined percentage.
+  Price % Change is a Gainium condition that fires when a single candle moves
+  more than a set percentage from its open: up to its high for a positive
+  value, down to its low for a negative one. The default is 5% on 1-hour
+  candles. It reacts to wicks, not closes, so it catches flushes and spikes
+  as they print. Bots use a negative value to buy sharp dips and a positive
+  value to join momentum candles.
+templateVersion: 2
 kind: native
 catalogKeys:
   - PC
 category: momentum
 aliases:
-  - "Price Change"
-  - "Price % Change"
-  - "Price Percent Change"
+  - Price Change
+  - Price % Change
+  - Price Percent Change
+  - Candle percent change
+faq:
+  - title: Does Price % Change compare the close with the previous close?
+    details: >-
+      No. It measures one candle from its open to its high (for a positive
+      value) or to its low (for a negative value). A candle that drops 3% and
+      closes back at its open still counts as a 3% drop.
+  - title: How do I detect a drop instead of a rise?
+    details: >-
+      Type a negative number in % change, such as −2. A positive number
+      watches the move up from the open; a negative one watches the move down.
+  - title: Is 5% on 1 hour a good default for BTC?
+    details: >-
+      It is rare. A BTC/USDT 1h candle almost never moves 5% from its open, and
+      drops that size are rarer than rises. For BTC 1h, values between 1.5% and
+      3% fire about ten times as often or more.
+  - title: Can Price % Change stop my bot during a crash?
+    details: >-
+      Yes. In the Bot Controller, a Price % Change condition with a negative
+      value, such as −4 on 1 hour, can stop the bot when a candle falls that
+      far.
+related:
+  - atr
+  - adr
+  - volume-oscillator
+sources:
+  - title: Gainium, Bot Controller
+    url: https://gainium.io/help/bot-controller
+  - title: Gainium, DCA Mode
+    url: https://gainium.io/help/dca-mode
+  - title: Binance BTC/USDT 15m, 1h and 4h candles, computed with Gainium's indicator engine
 ---
 
-The **Price % Change** indicator is a simple but highly effective tool for detecting significant price movements over a specific period. It calculates the percentage change in price over a set time interval and helps traders identify trends, breakouts, and price reversals. Tracking positive and negative price changes allows traders to act on bullish and bearish signals in real-time.
+Price % Change is a Gainium condition that fires when a single candle moves more than a set percentage from its open. Traders use a negative value to buy sharp flushes and a positive one to follow momentum candles.
 
-In this article, we’ll define the **Price % Change** indicator, explain how to configure and use it in Gainium, and provide examples of how it can be utilized in automated bot trading with detailed entry and exit rules. We'll also discuss practical considerations and conclude with how to optimize this indicator for your trading strategy.
+## What is Price % Change
 
-## What is the Price % Change Indicator?
+Price % Change is Gainium's own condition, not a classic charting indicator. It looks at one candle on the chosen interval and measures how far it travelled from its open:
 
-The **Price % Change** indicator calculates the percentage difference between the current and close prices from the previous period. A positive percentage signals an upward price movement, while a negative percentage signals a downward price movement. This simple indicator is commonly used to detect breakouts, strong trends, and price reversals.
+- **Positive value:** fires when **(High − Open) / Open × 100** is greater than the value.
+- **Negative value:** fires when **(Open − Low) / Open × 100** is greater than the value without its sign.
 
-### Key Features:
-- **Positive %**: Detects upward price movements (bullish).
-- **Negative %**: Detects downward price movements (bearish).
-- **Configurable Interval**: Set the time interval at which the price change is measured.
+**Open**, **High** and **Low** are the candle's prices. The condition reads the latest candle of its interval.
 
-## How to Configure Price % Change in Gainium
+How to read it:
 
-Here’s how to set up the **Price % Change** indicator in Gainium.
+- **It measures the wick, not the close.** In the chart below, one BTC/USDT 1h candle opened at 82,704, dropped to 80,914 and closed at 81,038. That is a 2.2% drop for this condition, whatever the close did.
+- **It is not close-to-close.** A 3% move spread over three candles never triggers a 2% condition on 1 hour.
+- **Scale it to the interval.** On BTC/USDT 1h, candles that fall more than 1.5% from their open are about two and a half times as common as those that fall more than 2%, and a fall of more than 5% almost never happens.
 
-### Step 1: Add the Price % Change Indicator
-- **Navigate to Bot Settings**:Log into Gainium, open the bot you want to configure, and select **Price % Change** from the list of indicators.
+TradingView has no built-in that measures a candle from its open to its extreme. The chart below marks that flush on the candles, with TradingView's ATR(14) below for scale: the 1,790 drop was almost four times the hourly ATR of about 470 before it.
 
-### Step 2: Configure the Indicator Settings
-- **% Change**: Define the percentage change threshold that will trigger an action. In the example provided, a **3% change** is set. You can set this to any value depending on the magnitude of price movements you want to capture.
-- **Interval**: Set the time interval over which the price change is measured. In this case, it is set to **4 hours**. You can choose shorter intervals (e.g., 1 hour) for more frequent signals, or longer intervals for larger price swings.
-- **Keep True**: This defines how long the condition remains active after triggering the signal. Setting it to **0** means the condition is reset immediately after the signal.
-![image.png](https://content.gainium.io/images/content/help/image_a2831cbde5-7e7936.webp)
-*Price Change % Settings*
+![BINANCE:BTCUSDT 1h candles, dark theme, with ATR(14) below: one candle is marked from its open at 82,704 to its low at 80,914, a 2.2% drop from the open](https://content.gainium.io/images/content/indicators/price-change-indicator__chart.webp)
 
-### Step 3: Detecting Positive and Negative Price Changes
-- **Positive % Change**: Detects an upward price movement. Set the threshold to a positive value (e.g., 3%) to trigger when the price rises by this percentage within the specified time interval.
-- **Negative % Change**: Detects a downward price movement. Set the threshold to a negative value (e.g., -3%) to trigger when the price falls by this percentage within the specified time interval.
+### Settings and tips
 
-## Using Price % Change in Bot Trading
+| Setting | Default | What it does |
+| --- | --- | --- |
+| % change | 5 | The move from the candle's open that fires the condition. A positive number measures open to high; a negative number measures open to low. |
+| Interval | 1 hour | The candle size the indicator is calculated on, from 1 minute to 1 week. |
+| Keep true | 0 | Extra bars the condition stays true after it fires. 0 means only the bar that triggered it. |
 
-Here are two trading strategies that utilize the **Price % Change** indicator in automated bot trading.
+**Tip:** the default of 5 almost never fires on BTC, on 1h or on 4h. A value of 2 fires several times as often as 5 on BTC/USDT 1h, and about twice as often again on 4h. −2 fires a little less often than 2.
 
-### Strategy 1: Breakout Strategy
+**Tip:** never leave % change at 0. The engine reads 0 as a drop of more than 0% from the open, which almost every candle has: it was true on about 97% of BTC/USDT 1h candles.
 
-#### Entry Rules
-- **Long Entry (Buy)**:Trigger a buy order when the price increases by **3%** or more in a 4-hour interval, signaling a bullish breakout.
-- **Short Entry (Sell)**:Trigger a short order when the price decreases by**-3%** or more in a 4-hour interval, signaling a bearish breakdown.
+**Tip:** the comparison is strictly greater than. A candle whose low is exactly 2.00% under its open does not fire a −2 setting.
 
-#### Exit Rules
-- **Long Exit**:Exit the trade when the price change percentage turns negative (e.g., -2%), indicating a potential reversal.
-- **Short Exit**:Exit the trade when the price change percentage turns positive (e.g., 2%), signaling that the downtrend is losing strength.
+## Trading setups for bots
 
-#### Implementation in Gainium
-- **Set the Price % Change**: Configure the **% Change** setting to 3% for both long and short entries. Set it to trigger for exits based on a reversal in the opposite direction (e.g., -2% for long exits).
-- **Automate the Bot**: Set the bot to execute trades automatically when the price change conditions are met.
+### Buy a 2% flush on the hourly
 
-### Strategy 2: Trend-Following Strategy
+A single hourly candle that drops 2% from its open on BTC is a liquidation-style flush. Price usually gives some of it back.
 
-#### Entry Rules
-- **Long Entry (Buy)**:Enter a long position when the price increases by **5%** over a 6-hour interval, signaling strong bullish momentum.
-- **Short Entry (Sell)**:Enter a short position when the price decreases by**-5%** over a 6-hour interval, signaling strong bearish momentum.
+- **Entry:** Price % Change −2 on 1 hour.
+- **Exit:** take profit 1% above the average price.
+- **Settings:** Price Change with % change −2, Interval 1 hour, Keep true 0. Two DCA orders, 1.5% and 3% below the entry.
+- **Timeframe:** 1 hour. On 15 minutes, −1.5 fires about as often as −2 does on 1 hour.
+- **When it fails:** flushes come in clusters. In one cluster, a flush at 77,911 was followed by another soon after; both needed a DCA fill before the take profit.
 
-#### Exit Rules
-- **Long Exit**:Exit the trade when the price declines by **-2%**, indicating that the upward trend may be reversing.
-- **Short Exit**:Exit the trade when the price rises by **2%**, signaling that the downward trend is weakening.
+On BTC/USDT 1h, every deal this signal opened reached the 1% take profit, in 5 to 59 bars; half needed one DCA fill. In the chart below, the flush closed at 81,038 and hit the take profit five bars later.
 
-#### Implementation in Gainium
-- **Set the Price % Change Thresholds**: Set the entry thresholds to **5%** for both long and short positions and the exit thresholds to**-2%** for long and **2%** for short exits.
-- **Risk Management**: Use stop-losses or trailing stops to limit losses if the trend changes unexpectedly.
+![Annotated chart of BINANCE:BTCUSDT 1h: the candle that dropped 2.2% from its open, the entry at its close of 81,038, and the 1% take profit at 81,848 reached five bars later](https://content.gainium.io/images/content/indicators/price-change-indicator__flush.webp)
 
-## Practical Considerations
+### Follow a 2% hourly rally
 
-When using the **Price % Change** indicator, keep the following in mind:
+A 1h candle that rises 2% from its open on BTC often starts a run.
 
-### 1. Adjust the % Change Threshold Based on Volatility
-- You may want to set a higher % change threshold in highly volatile markets to avoid false signals. For example, a **3-5%** threshold works well in more volatile cryptocurrencies, while **1-2%** may be appropriate for more stable ones.
+- **Entry:** Price % Change 2 on 1 hour.
+- **Exit:** take profit 2%, with a 2% stop loss.
+- **Settings:** Price Change with % change 2, Interval 1 hour, Keep true 0. No DCA orders.
+- **Timeframe:** 1 hour. On 4 hours, 3 fires about as often as 2 does on 1 hour.
+- **When it fails:** at the top of a run. In one run a 4.2% candle closed at 79,258, the high of the move; price was 4% lower about 48 bars later.
 
-### 2. Combine with Other Indicators
-- While the **Price % Change** indicator is simple and effective on its own, combining it with other technical indicators (such as RSI, MACD, or Bollinger Bands) can provide additional confirmation and reduce the risk of false signals.
+On BTC/USDT 1h, three in four candles that rose more than 2% from their open reached a 2% take profit within 12 bars. In the chart below, a 3.2% candle closed at 80,073 and a later 3% candle closed at 83,760. Both reached +2% within 24 bars.
 
-### 3. Backtest Before Deploying
-- Always backtest your strategy using historical data to ensure it performs well across market conditions. Gainium's backtesting feature allows you to optimize your settings for better performance.
+![Annotated chart of BINANCE:BTCUSDT 1h: a candle up 3.2% from its open and a later candle up 3%, each followed by a 2% take profit within 24 bars](https://content.gainium.io/images/content/indicators/price-change-indicator__momentum.webp)
 
-### 4. Timeframe Adjustments
-- Shorter timeframes (e.g., 1 hour) may generate more frequent signals, but could also lead to more false positives. Longer timeframes (e.g., 4 hours or daily) offer more stable signals for larger price swings.
+## Using Price % Change in Gainium
 
-## Conclusion
+Price % Change can start deals, place DCA orders (DCA type Indicators), close deals, and start or stop the bot from the Bot Controller.
 
-The **Price % Change** indicator is a powerful tool for traders looking to detect breakouts, trends, and reversals with minimal complexity. Tracking the percentage change in price over a specified interval helps traders capitalize on both upward and downward movements. In Gainium, you can easily configure this indicator to work in automated bot trading, allowing you to execute data-driven strategies precisely.
+1. Create a DCA bot and switch the form to **Manual**. Quick mode has no indicator conditions.
+2. Set **Deal start condition** to **Indicators**. The bot adds an RSI condition. For an exit, set the take profit or stop loss type to **Indicators**.
+3. Click **Edit**, then **Change indicator**, and pick **Price Change**.
 
-With proper configuration and backtesting, the **Price % Change** indicator can help you catch significant price movements, enabling you to build more robust trading strategies.
+The settings card has three fields:
+
+- **% change:** 5. Positive watches the rise from the candle's open to its high, negative the drop to its low.
+- **Interval:** 1 hour, from 1 minute to 1 week.
+- **Keep true:** 0. The number of extra bars the condition stays true after it fires. Raise it to 2 or 3 when Price % Change shares a group with a slower condition.
+
+![The Price Change settings card in the Gainium bot form with its defaults: % change 5 (ringed), Interval 1 hour, Keep true 0](https://content.gainium.io/images/content/indicators/price-change-indicator__settings.webp)
+
+There is no Condition field. The sign of % change decides the direction, and the condition is true whenever the candle's move exceeds it.
+
+As a safety switch, the Bot Controller can stop a dip-buying bot with Price % Change −4 on 1 hour. A BTC/USDT 1h candle that falls 4% from its open is very rare, so it only fires in a real crash.
+
+**Example configuration** (the flush buy): Deal start condition Indicators, Price Change with % change −2, Interval 1 hour, Keep true 0. Take profit 1%. Two DCA orders at 1.5% and 3% below the entry.
+
+## Related indicators
+
+- [Average True Range (ATR)](https://gainium.io/indicators/atr): the average candle size, to judge what a "big" candle is on your pair.
+- [Average Daily Range (ADR)](https://gainium.io/indicators/adr): a normal day's range, to scale the % change on daily candles.
+- [Volume Oscillator](https://gainium.io/indicators/volume-oscillator): confirms the flush came on heavy volume.
+
+## FAQ
+
+### Does Price % Change compare the close with the previous close?
+
+No. It measures one candle from its open to its high (for a positive value) or to its low (for a negative value). A candle that drops 3% and closes back at its open still counts as a 3% drop.
+
+### How do I detect a drop instead of a rise?
+
+Type a negative number in % change, such as −2. A positive number watches the move up from the open; a negative one watches the move down.
+
+### Is 5% on 1 hour a good default for BTC?
+
+It is rare. A BTC/USDT 1h candle almost never moves 5% from its open, and drops that size are rarer than rises. For BTC 1h, values between 1.5% and 3% fire about ten times as often or more.
+
+### Can Price % Change stop my bot during a crash?
+
+Yes. In the Bot Controller, a Price % Change condition with a negative value, such as −4 on 1 hour, can stop the bot when a candle falls that far.

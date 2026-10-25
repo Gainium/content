@@ -1,0 +1,150 @@
+{
+  "alertConditions": "not applicable",
+  "chart": null,
+  "indicator": {
+    "author": "Gainium",
+    "kind": "native",
+    "openSource": null,
+    "overlay": null,
+    "scriptId": "OTE",
+    "shortTitle": "OTE Levels",
+    "title": "Discount/Premium OTE Levels",
+    "version": null
+  },
+  "inputs": [
+    {
+      "default": "1h",
+      "defaultText": "1 hour",
+      "group": null,
+      "id": "indicatorInterval",
+      "kind": "logic",
+      "label": "Interval",
+      "optionLabels": [
+        "1 minute",
+        "3 minutes",
+        "5 minutes",
+        "15 minutes",
+        "30 minutes",
+        "1 hour",
+        "2 hours",
+        "4 hours",
+        "8 hours",
+        "1 day",
+        "1 week"
+      ],
+      "options": [
+        "1m",
+        "3m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "4h",
+        "8h",
+        "1d",
+        "1w"
+      ],
+      "type": "interval"
+    },
+    {
+      "default": 10,
+      "defaultText": "10",
+      "group": null,
+      "id": "oteLeftBars",
+      "kind": "logic",
+      "label": "Swing sensitivity",
+      "max": 500,
+      "min": 1,
+      "step": 1,
+      "suffix": "bars",
+      "tooltip": "A swing high or low must be the highest or lowest point of at least this many bars to its left. It is confirmed one bar after it prints.",
+      "type": "number"
+    },
+    {
+      "default": 1,
+      "defaultText": "1",
+      "group": null,
+      "id": "oteMinLegSize",
+      "kind": "logic",
+      "label": "Minimum leg size",
+      "max": 100,
+      "min": 0.01,
+      "step": 0.1,
+      "suffix": "%",
+      "tooltip": "A move between a swing low and a swing high counts as a leg only when it is at least this many percent of its low.",
+      "type": "number"
+    },
+    {
+      "default": "bullish",
+      "defaultText": "Bullish",
+      "group": null,
+      "id": "oteLeg",
+      "kind": "logic",
+      "label": "Leg",
+      "optionLabels": [
+        "Bullish",
+        "Bearish",
+        "Any"
+      ],
+      "options": [
+        "bullish",
+        "bearish",
+        "any"
+      ],
+      "tooltip": "Bullish legs run from a swing low up to a swing high, bearish legs from a swing high down to a swing low. Only the latest leg is read.",
+      "type": "select"
+    },
+    {
+      "default": "cd",
+      "defaultText": "Price crossing down",
+      "group": null,
+      "id": "indicatorCondition",
+      "kind": "logic",
+      "label": "Condition",
+      "optionLabels": [
+        "Price crossing down",
+        "Price crossing up",
+        "Price greater than",
+        "Price lower than"
+      ],
+      "options": [
+        "cd",
+        "cu",
+        "gt",
+        "lt"
+      ],
+      "tooltip": "Crossing compares the close with the level on two candles of the same leg; a new leg moving the level is not a crossing.",
+      "type": "select"
+    },
+    {
+      "default": 0.705,
+      "defaultText": "0.705",
+      "group": null,
+      "id": "oteLevel",
+      "kind": "logic",
+      "label": "Level",
+      "max": 1,
+      "min": 0,
+      "step": 0.001,
+      "tooltip": "Retracement of the leg the price is compared with: 0 is the end of the leg, 1 its origin, 0.5 the equilibrium. 0.618–0.79 is the OTE zone; above 0.5 is discount in a bullish leg and premium in a bearish one.",
+      "type": "number"
+    },
+    {
+      "default": 0,
+      "defaultText": "0",
+      "group": null,
+      "id": "keepConditionBars",
+      "kind": "logic",
+      "label": "Keep true",
+      "min": 0,
+      "step": 1,
+      "tooltip": "This condition will remain true for a number of extra bars. Default is 0, which means it will be true only on the bar that triggered the condition.",
+      "type": "number"
+    }
+  ],
+  "notes": [],
+  "plots": [],
+  "schema": "gainium.indicator-settings/1",
+  "source": "gainium-catalog"
+}

@@ -6,7 +6,7 @@ description: >-
   Learn how to use the Moving Average Ratio (MAR) in Gainium for flexible bot
   trading with advanced trend detection and customizable entry/exit rules.
 createdAt: '2024-10-05T11:55:03.576Z'
-updatedAt: '2026-10-12T00:00:00.000Z'
+updatedAt: '2026-10-25T00:00:00.000Z'
 publishedAt: '2024-10-05T12:19:52.638Z'
 locale: en
 categories:
@@ -15,11 +15,16 @@ difficulty: intermediate
 tags: []
 ingested: true
 ingestedAt: '2025-06-29T10:57:30.017Z'
+templateVersion: 2
 tldr: >-
-  The Moving Average Ratio (MAR) measures the ratio between two moving averages,
-  offering more flexibility than traditional crossovers by letting you set
-  specific separation thresholds. It supports trend filtering with lookback
-  conditions and percentile mode.
+  The Moving Average Ratio (MAR) divides the current price, or a fast moving
+  average, by a slower moving average. A reading of 1.00 means both are equal,
+  0.97 means price is 3% below the average, 1.02 means 2% above. Gainium's
+  default is price divided by EMA 20 on 1-hour candles, crossing down 0.99. An
+  optional trend filter also requires the ratio to have risen or fallen by a
+  set percentage over the last candles. On BTC/USDT, buying when price falls
+  3% under its 4-hour EMA 20 fires about a sixth as often as the default
+  1-hour condition.
 kind: native
 catalogKeys:
   - MAR
@@ -27,114 +32,172 @@ category: trend
 aliases:
   - "MAR"
   - "Moving Average Ratio"
+  - "Price to moving average ratio"
+faq:
+  - title: How is MAR different from a moving average crossover?
+    details: >-
+      A crossover only tells you when two lines meet, which is MAR crossing
+      1.00. MAR also tells you how far apart they are, so you can require
+      price to be 2% above the average (1.02) or 3% below it (0.97) before the
+      bot acts.
+  - title: What Value should I use?
+    details: >-
+      Read the range of your pair first, because it depends on the interval
+      and the length. On BTC/USDT, price divided by EMA 20 stayed between 0.984 and 1.014 on 90% of 1-hour candles, between
+      0.966 and 1.027 on 4-hour candles, and price divided by EMA 50 on 4-hour
+      candles between 0.943 and 1.042.
+  - title: What does the trend filter check?
+    details: >-
+      It compares the ratio now with the ratio Trend filter lookback candles
+      ago. Higher or equal to 2 means it rose by at least 2% of its own value;
+      Lower or equal to means it fell by that much; Between values means it
+      moved less than that either way. The filter must be true on the same
+      candle as the condition.
+  - title: Is MAR a TradingView indicator?
+    details: >-
+      No, it is Gainium's own condition. The bot-form chart draws it in a
+      pane under price, with the Value as a dashed line and the trend filter
+      as green shading.
+related:
+  - moving-averages
+  - bollinger-bands-b
+  - macd
+  - rsi
+sources:
+  - title: StockCharts ChartSchool, Moving Averages, Simple and Exponential
+    url: https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/moving-averages-simple-and-exponential
+  - title: Gainium, Indicator Percentiles
+    url: https://gainium.io/help/indicator-percentiles
+  - title: Gainium, Indicator Smoothing
+    url: https://gainium.io/help/indicator-smoothing
+  - title: Binance BTC/USDT 1h and 4h candles, computed with Gainium's indicator engine
 ---
 
-The Moving Average Ratio (MAR) is a versatile indicator that provides more control and flexibility than traditional moving average crossovers. In this article, we’ll define the Moving Average Ratio indicator, explain how to use it on the Gainium platform, and demonstrate how to incorporate it into automated bot trading with detailed strategy examples. We'll also discuss practical considerations when using MAR and conclude with tips for maximizing its potential in your trading.
+The Moving Average Ratio (MAR) divides the current price, or a fast moving average, by a slower moving average, so 1.00 means they are equal and 0.97 means price is 3% below the average. Bots use it to act on distance from an average instead of on a bare cross: buy when price is stretched 3% under its EMA, or only when it is 1% above and rising.
 
-## What Is the Moving Average Ratio (MAR)?
+## What is the Moving Average Ratio
 
-The Moving Average Ratio (MAR) is an advanced indicator that measures the ratio between two moving averages over a specified period. Unlike traditional moving average crossovers, where a signal is generated based solely on the point of crossing, MAR allows traders to set a specific separation threshold between the two averages, giving more flexibility in identifying trend strength.
+MAR is a Gainium condition, not a classic indicator with a published author. The formula:
 
-### Key Features of MAR:
-- **Customizable Separation:** Define when the moving averages cross and how far apart they must be for the signal to trigger. For example, a crossover happens when the indicator value changes from less than 1 to more than 1 (when the ratio is 1, both indicators have the same value). You can also trigger a signal when they cross and diverge a certain amount by setting the indicator to trigger when the value is 1.05 (the moving average value is 5% bigger than the second).
-- **Flexible Moving Averages:** MAR supports all types of [moving averages](https://gainium.io/indicators/moving-averages) available in Gainium, such as Simple Moving Average (SMA), Exponential Moving Average (EMA), and more.
-- **Percentile Use:** MAR can be applied in [percentile mode](https://gainium.io/help/indicator-percentiles) to fine-tune trend identification, taking into account recent market conditions.
-- **Trend Detection with Lookback and Conditions:** For more refined trend filtering, you can specify a lookback period and set a condition (e.g., the MAR must be greater than 2% over the last 10 bars). This can help avoid entering a long trade when the fast-moving average is getting closer to the slow-moving average (price is trending down).
-- **Visual Trend Detection:** When the trend filter is activated, the indicator's chart background is colored green when the conditions are met, offering a visual aid for real-time trend monitoring.
+`MAR = Reference / Relative to`
 
-## How to Use the MAR Indicator in Gainium
+- **Relative to** is the base moving average, the denominator: a type (EMA by default) and a length (20).
+- **Reference** is the numerator: the current close by default, or a second moving average with its own type and length.
+- Both averages use closes, except VWMA, which also uses volume. All eight Gainium types are available: SMA, EMA, WMA, DEMA, TEMA, HMA, VWMA and RMA.
 
-### Step 1: Create a new bot
-- Log in to Gainium and head to the **Trading Bots** section.
-- Select the exchange and trading pair you wish to trade.
+How to read it:
 
-### Step 2: Add the MAR Indicator
-- The MAR indicator can be used as a start condition, [DCA rule](https://gainium.io/help/dca-bot-set-up-walkthrough), and TP or SL condition. In this example, we will use it as a Start Condition.
-- In the search bar, type **"MAR"**.
-- Select the MAR indicator from the dropdown list, which will automatically be added to the chart.
+- **1.00:** price (or the fast average) equals the base average. MAR crossing 1.00 is the same event as a moving average crossover.
+- **Above 1.00:** the reference is above the base, by (MAR − 1) × 100%. 1.02 is 2% above.
+- **Below 1.00:** the reference is below the base. 0.97 is 3% below.
+- **The range depends on interval and length.** On BTC/USDT, price / EMA 20 stayed between 0.984 and 1.014 on 90% of 1-hour candles, and between 0.966 and 1.027 on 4-hour candles. With EMA 50 on 4-hour candles the range widened to 0.943 to 1.042.
 
-### Step 3: Customize the Indicator
-- **Moving Averages:** Choose which type of moving averages to use (e.g., SMA, EMA).
-- **Separation Threshold:** Set the minimum percentage or point difference between the two moving averages for generating a signal.
-- **Lookback Period:** Define how far back the indicator should look when analyzing trends.
-- **Trend Condition:** To fine-tune trend detection, set a condition like "MAR must be greater than or equal to 2% over the last 10 bars."-** Trend Filter Activation:** Enable this to color the background green when the trend matches your rules.
-![image.png](https://content.gainium.io/images/content/help/image_54a307f207-344a72.webp)
-*MAR Indicator Options*
+The default Value, 0.99, sits near the 11th percentile of the 1-hour range: BTC closed 1% or more below its 1-hour EMA 20 on 11% of candles.
 
-**Smoothing (optional):** set **Smoothing** to a moving average (SMA, EMA, WMA, DEMA, TEMA, HMA or RMA) and a **Smoothing length** to smooth the MAR line. With **Compare** set to *Smoothed line vs value*, the condition tests the smoothed line against your Value, which filters out short spikes. With *Line vs smoothed line*, it tests the MAR against its own moving average (crossing up or down, greater or lower than) and no Value is needed. The chart draws the smoothed line in orange. Leave Smoothing on **None** to use the MAR as usual. Learn more in [Indicator Smoothing](https://gainium.io/help/indicator-smoothing).
+![Gainium bot-form chart, BTC/USDT perpetual on a Bybit paper account, 4h: the MAR pane shows price divided by EMA 20 moving between about 0.966 and 1.022, with the 0.99 Value as a dashed line](https://content.gainium.io/images/content/indicators/moving-average-ratio__chart.webp)
 
-### Step 4: Interpret the Indicator
-- The indicator values range from close to 0 to infinity, typically in the 0.5 to 1.5 range. Visually, it is similar to oscillators like RSI.
-- Additionally, when using the trend filter:**Green Background:** Indicates that the trend detection condition matches your rules.
-- **No Background Color:** No trend condition is met, so the market may be in consolidation or ranging.
+### Settings and tips
 
-![image.png](https://content.gainium.io/images/content/help/image_6273c33904-aeea11.webp)
-*MAR indicator in action*
+| Setting | Default | What it does |
+| --- | --- | --- |
+| Use percentile | Off | Off: the condition tests the fixed Value. On: Value hides and MAR is compared with its own Percentile over the last Lookback candles. |
+| Lookback | 150 | Candles of the line's own history the percentile is taken from. Percentile mode only. |
+| Percentile | 80 | The rank in that history used as the level: 80 is a level that only 20% of readings exceeded. Percentile mode only. |
+| Reference | Current price | The numerator: the candle's close, or a moving average of any of the eight types. |
+| Comparison MA length | 20 | Length of the Reference average, 1 to 500. Hidden with Current price. |
+| Relative to | EMA | The type of the base average, the denominator. |
+| Base MA length | 20 | Length of the base average, 1 to 500. |
+| Interval | 1 hour | Candle size of both averages, from 1 minute to 1 week. |
+| Smoothing | None | A moving average put on the MAR line. With smoothing on, the condition tests the smoothed line. |
+| Smoothing length | 14 | Candles in the smoothing average, 1 to 1,000. |
+| Compare | Smoothed line vs value | Smoothed line vs value tests the smoothed line against Value. Line vs smoothed line tests the raw line against its own average; Value hides and Between is never true. |
+| Condition | Crossing down | Crossing up and Crossing down fire on the one candle where the line passes Value. Greater than and Lower than hold on every candle on that side. Between holds while the line is inside Value and Upper value. |
+| Value | 0.99 | The ratio level: 0.99 is 1% below the base average, 1.02 is 2% above it. The arrows step by 0.01; type more decimals, such as 0.985, by hand. |
+| Upper value | — | Between only: the second bound. The line must be strictly between the two. |
+| Keep true | 0 | Extra candles the condition stays true after it fires, so it can meet a slower condition in the same group. |
+| Use Trend Filter | Off | On: the condition also needs MAR to have moved by Value, % over the last Trend filter lookback candles. It works with or without percentile mode. |
+| Trend filter lookback | 10 | How many candles back the filter compares MAR with, 1 to 1,000. |
+| Operator | Lower or equal to | Lower or equal to: MAR fell by at least Value, %. Higher or equal to: it rose by at least that much. Between values: it moved less than that either way. |
+| Value, % | 2 | The move the filter needs, as a percentage of MAR itself. |
 
-## Using MAR in Bot Trading: Strategies and Rules
+**Tip:** The default **Value** of 0.99 with Crossing down on 1 hour fires often on BTC/USDT. For a deeper stretch, use Interval 4 hours with 0.97, which fires about a sixth as often.
 
-Leveraging MAR in automated trading bots can help you navigate your trades with precise entry and exit rules. Here are some strategies with examples of how to set them up.
+**Tip:** **Use Trend Filter** with its defaults (Operator Lower or equal to, Trend filter lookback 10, Value, % set to 2) cuts the default 1-hour condition to about one signal in seven. MAR must also have fallen 2% in 10 candles, so only fast drops through 0.99 count.
 
-### Strategy 1: Moving Average Ratio Crossover Strategy
+**Tip:** **Reference** EMA 20 with **Relative to** EMA 50 turns MAR into an EMA crossover at 1.00. On 4 hours that ratio crosses up through 1.00 about a quarter as often as price divided by EMA 50.
 
-#### Entry Rules
-- **Long Entry (Buy):**MAR crosses above 1.05 (indicating a strong bullish trend).
-- Trend filter is activated with the condition that the MAR value 10 bars ago is more than 2%.
-- **Short Entry (Sell):**MAR crosses below 0.95 (indicating a strong bearish trend).
+## Trading setups for bots
 
-#### Exit Rules
-- **Long Exit:**MAR crosses below 1.00 (neutral trend).
-- **Short Exit:**MAR crosses above 1.00.
+### Buy a 3% stretch below the average
 
-### Strategy 2: Trend Following with MAR and RSI
+- **Entry:** MAR, Reference Current price, Relative to EMA, EMA Length 20, Interval 4 hours, Condition **Crossing down**, Value **0.97**.
+- **Exit:** a 1.5% take profit, with DCA orders below.
+- **Settings:** EMA 20 on 4 hours. On 1-hour candles use about 0.985 for a similar stretch: type it in, because the arrows move in steps of 0.01.
+- **Timeframe:** 4 hours. On BTC/USDT it fires about a sixth as often as the default 1-hour condition.
+- **When it fails:** in a sell-off, where 3% under the average is only the start. About four entries in five reached a 1.5% gain within 18 bars, against about two in three for a buy on any 4h candle. The stretch helped, but about one entry in five did not recover in 18 bars. The default 1-hour version, crossing down 0.99, was no better than a coin flip: price was higher 24 bars later after about half its signals.
 
-#### Entry Rules
-- **Long Entry (Buy):**MAR is above 1.00.
-- RSI (14) is below 30 (indicating an oversold market).
-- Trend filter to confirm a bullish trend such as higher than 2% with lookback 10.
-- **Short Entry (Sell):**MAR is below 1.00.
-- RSI is above 70 (indicating an overbought market).
-- Trend filter to confirm a bullish trend such as lower than 2% with lookback 10.
+![Annotated Gainium MAR chart, BTC/USDT 4h: MAR drops under the 0.97 line; the bot buys at about 81,040 and the 1.5% take profit fills three bars later](https://content.gainium.io/images/content/indicators/moving-average-ratio__dip-setup.webp)
 
-#### Exit Rules
-- **Long Exit:**RSI crosses above 50, indicating a loss of momentum.
-- **Short Exit:**RSI crosses below 50, signaling bearish momentum is weakening.
+### Join a move only while it accelerates
 
-### Strategy 3: Multi-Timeframe MAR with Moving Average Strategy
+Use the trend filter to require that price is above the average and pulling away from it.
 
-#### Entry Rules
-- **Long Entry (Buy):**MAR is above 1.00 on both the 1-hour and 4-hour timeframes.- 50 EMA crosses above the 200 EMA (Golden Cross) on the 1-hour chart.
-- **Short Entry (Sell):**MAR is below 1.00 on both timeframes.- 50 EMA crosses below 200 EMA (Death Cross) on the 1-hour chart.
+- **Entry:** MAR, Reference Current price, Relative to EMA, EMA Length 50, Interval 4 hours, Condition **Greater than**, Value **1.01**. **Use Trend Filter** on, Trend filter lookback 10, Operator **Higher or equal to**, Value 2%.
+- **Exit:** a 1.5% take profit, or close the deal when MAR crosses down 1.00.
+- **Settings:** EMA 50 on 4 hours, so the ratio measures distance from a 50-candle trend.
+- **Timeframe:** 4 hours. On BTC/USDT it switches on almost twice as often as the 3% stretch setup above, and about 70% of its entries reached +1.5% within 18 bars.
+- **When it fails:** at the end of a short rally, because the filter is true exactly when the move is most extended. In the example on the chart, it bought 84,540 at the top of the rally; price fell to 79,220 and had not recovered 1.5% by the right edge of the chart. An earlier entry at 86,425 went the same way.
 
-#### Exit Rules
-- **Long Exit:**MAR on the 1-hour chart crosses below 1.00.
-- **Short Exit:**MAR on the 1-hour chart crosses above 1.00.
+![Annotated Gainium MAR chart with the trend filter, BTC/USDT 4h: the ratio is above 1.01 inside the green trend-filter zone, and the entry at 84,540 is the top of the move](https://content.gainium.io/images/content/indicators/moving-average-ratio__momentum-setup.webp)
 
-## Practical Considerations
+## Using Moving Average Ratio in Gainium
 
-When using the Moving Average Ratio in bot trading, here are some practical tips to keep in mind:
+1. Create a DCA bot and switch the form to **Manual**.
+2. Set **Deal start condition** to **Indicators**, click **Edit**, then **Change indicator**, and search for **Ratio**. MAR also works as a DCA condition: the [DCA mode](https://gainium.io/help/dca-mode) Indicators tab lists it.
+3. Pick **Moving Average Ratio (MAR)**, set the fields, and click **Done**. The chart draws the ratio in its own pane.
 
-### 1. Parameter Customization
-- **Fine-tuning the Threshold:** Adjust the separation threshold between moving averages based on the asset’s volatility.
-- **Lookback Period:** Experiment with different lookback periods and trend conditions to find what works best for your strategy.
+![Gainium indicator picker searched for Ratio, with the Moving Average Ratio (MAR) card ringed](https://content.gainium.io/images/content/indicators/moving-average-ratio__picker.webp)
 
-### 2. Combining Indicators
-- **Use Confirmation Tools:** Consider adding indicators like RSI, [MACD](https://gainium.io/indicators/macd), or Bollinger Bands to confirm MAR signals further.
-- **Avoid Overcomplication:** Adding too many indicators can lead to conflicting signals, so keep it simple and effective.
+The fields and their defaults:
 
-### 3. Backtesting
-- **Test Your Strategy:** Before going live, use Gainium’s backtesting tools to validate your bot’s performance over historical data.
-- **Adjust Based on Results:** If the strategy isn’t performing as expected, tweak the MAR settings or risk management parameters.
+- **Use percentile:** off. When on, MAR is compared with its own percentile level over **Lookback** (150 candles) at **Percentile** (80), and Value hides.
+- **Reference:** Current price. Or any of the eight average types; a **Length** field (20, from 1 to 500) appears, named after the type.
+- **Relative to:** EMA, the base average.
+- **EMA Length:** 20, from 1 to 500. The label follows the type you pick.
+- **Interval:** 1 hour.
+- **Smoothing:** None. An average of the MAR line, with **Smoothing length** 14 and **Compare** (Smoothed line vs value, or Line vs smoothed line). See [indicator smoothing](https://gainium.io/help/indicator-smoothing).
+- **Condition:** Crossing down. The options are Crossing down, Crossing up, Greater than, Lower than and Between.
+- **Value:** 0.99, in steps of 0.01. With Between, an **Upper value** field appears.
+- **Keep true:** 0 extra candles.
+- **Use Trend Filter:** off. When on: **Trend filter lookback** 10 candles (1 to 1,000), **Operator** Lower or equal to (or Higher or equal to, or Between values), and **Value, %** 2.
 
-### 4. Real-Time Trend Sensitivity
-- **Monitor Trend Sensitivity:** The trend filter’s real-time background coloring provides immediate feedback on market conditions, allowing you to adjust your bot’s behavior if necessary.
+MAR works as a deal start, DCA, take profit or stop loss condition, and in the Bot Controller.
 
-### 5. Risk Management
-- **Set Appropriate Stop-Losses:** Avoid large drawdowns by setting stop-losses and trailing stops to protect your positions.
-- **Use Position Sizing:** Allocate a small percentage of your capital per trade to avoid overexposure.
+Example configuration for the second setup: Reference Current price, Relative to EMA, EMA Length 50, Interval 4 hours, Smoothing None, Condition Greater than, Value 1.01, Keep true 0, Use Trend Filter on, lookback 10, Higher or equal to, 2%.
 
-## Conclusion
+![Gainium MAR settings card configured with EMA Length 50, Interval 4 hours, Condition Greater than, Value 1.01 and the trend filter on with Higher or equal to 2%](https://content.gainium.io/images/content/indicators/moving-average-ratio__example.webp)
 
-The Moving Average Ratio (MAR) offers traders a highly customizable and flexible way to monitor trends and precisely enter trades. Allowing you to specify the separation between moving averages gives you more control than traditional crossovers. The ability to combine it with other indicators, use percentile modes, and implement real-time trend detection further enhances its utility.
+## Related indicators
 
-Whether using it to identify strong trends or as part of a more complex bot trading strategy, MAR is a powerful tool to add to your trading arsenal. Use Gainium’s features like backtesting and real-time charting to perfect your MAR strategy, and don’t forget the importance of risk management and regular optimization.
+- [Moving Averages](https://gainium.io/indicators/moving-averages): the plain cross that MAR measures as a distance.
+- [Bollinger Bands %B](https://gainium.io/indicators/bollinger-bands-b): distance from a 20-period average in units of volatility instead of percent.
+- [MACD](https://gainium.io/indicators/macd): the gap between two EMAs in price units, where MAR gives it as a ratio.
+- [RSI](https://gainium.io/indicators/rsi): a bounded momentum reading to pair with a MAR stretch before buying.
+
+## FAQ
+
+### How is MAR different from a moving average crossover?
+
+A crossover only tells you when two lines meet, which is MAR crossing 1.00. MAR also tells you how far apart they are, so you can require price to be 2% above the average (1.02) or 3% below it (0.97) before the bot acts.
+
+### What Value should I use?
+
+Read the range of your pair first, because it depends on the interval and the length. On BTC/USDT, price divided by EMA 20 stayed between 0.984 and 1.014 on 90% of 1-hour candles, between 0.966 and 1.027 on 4-hour candles, and price divided by EMA 50 on 4-hour candles between 0.943 and 1.042.
+
+### What does the trend filter check?
+
+It compares the ratio now with the ratio Trend filter lookback candles ago. Higher or equal to 2 means it rose by at least 2% of its own value; Lower or equal to means it fell by that much; Between values means it moved less than that either way. The filter must be true on the same candle as the condition.
+
+### Is MAR a TradingView indicator?
+
+No, it is Gainium's own condition. The bot-form chart draws it in a pane under price, with the Value as a dashed line and the trend filter as green shading.

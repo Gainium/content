@@ -5,6 +5,9 @@
  *
  * Validates every docs/indicators/*.md against its `kind`, and checks the
  * native pages against the dashboard's indicator catalog in both directions.
+ * Pages with `templateVersion: 2` are also checked against the article
+ * template (src/indicators/templateCheck.ts), and the pages moved from /help
+ * must keep their frozen `name` and `description`.
  *
  * Catalog source, in order:
  *   - INDICATOR_CATALOG_PATH: a local indicatorCatalog.ts. The enum file is
@@ -22,6 +25,10 @@ import {
   checkIndicatorPages,
   parseCatalog,
 } from '../src/indicators/catalogCheck'
+import {
+  checkIndicatorTemplates,
+  checkMovedPageMeta,
+} from '../src/indicators/templateCheck'
 import {
   parseHelpDocSource,
   parseIndicatorSource,
@@ -75,10 +82,30 @@ async function main() {
   const relative = (file: string, dir: string) =>
     path.relative(process.cwd(), path.join(DOCS_DIR, dir, file))
   const indicatorDir = await readMarkdownDir(path.join(DOCS_DIR, 'indicators'))
-  const pages = indicatorDir.files.map(({ file, raw }) => ({
-    file: relative(file, 'indicators'),
-    data: parseIndicatorSource(raw).data,
-  }))
+  const pages = indicatorDir.files.map(({ file, raw }) => {
+    const { data, content } = parseIndicatorSource(raw)
+    return {
+      file: relative(file, 'indicators'),
+      data,
+      body: content,
+      settings: undefined as unknown,
+    }
+  })
+  // A page's describe JSON (<slug>.settings.json beside it): what its
+  // "Settings and tips" table is held to. Unparseable → null (an error there).
+  for (const page of pages) {
+    const json = path.join(
+      DOCS_DIR,
+      'indicators',
+      path.basename(page.file).replace(/\.md$/, '.settings.json'),
+    )
+    try {
+      page.settings = JSON.parse(await fs.readFile(json, 'utf-8'))
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code !== 'ENOENT')
+        page.settings = null
+    }
+  }
   const helpDir = await readMarkdownDir(path.join(DOCS_DIR, 'help'))
   const helpParsed = helpDir.files.map(({ file, raw }) => ({
     file: relative(file, 'help'),
@@ -90,6 +117,9 @@ async function main() {
       .map(({ doc }) => doc?.metadata.slug)
       .filter((slug): slug is string => Boolean(slug)),
   })
+  const template = checkIndicatorTemplates(pages)
+  errors.push(...template.errors, ...checkMovedPageMeta(pages))
+  template.warnings.forEach((warning) => console.warn(`warning: ${warning}`))
   // A help doc declaring `kind` is never served; fail so it gets moved.
   // Other help-doc problems are reported but are not this check's concern.
   for (const { file, errors: helpErrors } of helpParsed) {
@@ -105,12 +135,13 @@ async function main() {
     return acc
   }, {})
   console.log(`Catalog: ${from}`)
+  const v2 = pages.filter(({ data }) => data.templateVersion === 2).length
   console.log(
     `Catalog entries: ${parsed.entries.size} · indicator pages: ${pages.length} (${Object.entries(
       counts,
     )
       .map(([kind, n]) => `${kind} ${n}`)
-      .join(', ')})`,
+      .join(', ')}) · template v2: ${v2}`,
   )
 
   notices.forEach((notice) => console.log(`notice: ${notice}`))

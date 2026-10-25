@@ -96,6 +96,8 @@ export interface IndicatorFrontmatter {
   faq?: Array<{ title: string; details: string }>
   related?: string[]
   sources?: Array<string | { title?: string; url: string }>
+  /** `2`: the body follows the article template (docs/STYLE.md); CI checks it. */
+  templateVersion?: 2
   // Fields kept from the help-article format
   id?: number
   createdAt?: string

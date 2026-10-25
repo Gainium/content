@@ -6,7 +6,7 @@ description: >-
   In this article, we explain what is the Bollinger Bands indicator and how it
   can be used in bot trading.
 createdAt: '2023-04-05T14:51:39.550Z'
-updatedAt: '2026-10-12T00:00:00.000Z'
+updatedAt: '2026-10-25T00:00:00.000Z'
 publishedAt: '2023-04-12T06:03:51.322Z'
 locale: en
 categories:
@@ -17,72 +17,181 @@ optimized: true
 ingested: true
 ingestedAt: '2025-06-29T10:57:29.996Z'
 tldr: >-
-  Bollinger Bands (BB) consist of a Simple Moving Average with upper and lower
-  bands at 2 standard deviations, helping identify overbought/oversold
-  conditions and volatility. In Gainium bots, they can be used for breakout
-  strategies, mean reversion (buying at lower band, selling at upper), and
-  squeeze strategies.
+  Bollinger Bands are a 20-period moving average with bands 2 standard
+  deviations above and below it, published by John Bollinger in the 1980s.
+  The bands widen when price swings and narrow when it goes quiet. Bots use
+  them two ways: buy when price closes back above the lower band (mean
+  reversion), or buy when it closes above the upper band after a squeeze
+  (breakout). In Gainium a BB condition compares price with the lower, middle
+  or upper band.
+templateVersion: 2
 kind: native
 catalogKeys:
   - BB
 category: volatility
 aliases:
-  - "BB"
-  - "Bollinger Bands"
+  - BB
+  - Bollinger Bands
+  - Bollinger Band
+  - BBands
+faq:
+  - title: What are the default Bollinger Bands settings?
+    details: >-
+      A 20-period simple moving average of the close and bands 2 standard
+      deviations away, on 20 closes. Gainium uses the same defaults: MA type
+      SMA, SMA Length 20, Length 20, Standard Deviations 2.
+  - title: Is touching the upper band a sell signal?
+    details: >-
+      Not by itself. In a strong trend price walks along the upper band for
+      many bars: in the breakout example on this page, half of the BTC/USDT 4h
+      candles closed above it while price rose from 63,400 to 76,300. Wait for
+      a close back inside, or use a trend filter.
+  - title: What is the difference between SMA Length and Length in Gainium?
+    details: >-
+      SMA Length is the period of the middle line, the moving average. Length
+      is the number of closes the standard deviation is measured over. Both
+      start at 20, as in Bollinger's original.
+  - title: Can I use Bollinger Bands for a stop loss?
+    details: >-
+      Yes. Set the stop loss type to Indicators and close the deal when price
+      crosses down the lower or middle band. Risk:Reward can also use a band
+      as its stop price.
+related:
+  - bbw
+  - bollinger-bands-b
+  - keltner-channel
+  - rsi
+sources:
+  - title: John Bollinger, Bollinger Bands, BollingerBands.com
+    url: https://www.bollingerbands.com/bollinger-bands
+  - title: StockCharts ChartSchool, Bollinger Bands
+    url: https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/bollinger-bands
+  - title: TradingView Help Center, Bollinger Bands (BB)
+    url: https://www.tradingview.com/support/solutions/43000501840-bollinger-bands-bb/
+  - title: Gainium, Risk:Reward
+    url: https://gainium.io/help/risk-reward
+  - title: Binance BTC/USDT 1h and 4h candles, computed with Gainium's indicator engine
 ---
 
-The rise of cryptocurrency trading has led to a surge in the adoption of trading automation. Trading bots have become an invaluable tool for investors to minimize human error and capitalize on market opportunities more efficiently. One popular technical indicator that can significantly enhance your trading bot's performance is the Bollinger Bands (BB). In this article, we'll discuss how to effectively use the Bollinger Bands indicator in your automated trading strategy.
+Bollinger Bands are a moving average with a band two standard deviations above it and another below. Bots use them to buy when price closes back inside the lower band after a drop, or to buy when price breaks above the upper band after a quiet stretch.
 
-## Understanding the Bollinger Bands Indicator
+## What is Bollinger Bands (BB)
 
-The Bollinger Bands, developed by John Bollinger in the 1980s, is a volatility-based technical indicator that consists of three lines: a Simple Moving Average (SMA), an upper band, and a lower band. The upper and lower bands are plotted at a specified number of standard deviations (typically 2) above and below the SMA. Bollinger Bands help traders identify potential price reversals and gauge market volatility by measuring the relative width of the bands (see also the [Bollinger Bands Width](https://gainium.io/indicators/bbw)).
+John Bollinger developed the bands in the early 1980s. They have three lines:
 
-Bollinger Bands is one of the most popular indicators used for bot trading (together with [RSI](https://gainium.io/indicators/rsi)) because of its straightforward setup.
+- **Middle band = SMA(close, n)**, a simple moving average of the last *n* closes.
+- **Upper band = middle + k × σ**
+- **Lower band = middle − k × σ**
 
-The bands expand when the price is volatile and contract when the price lacks volatility. When the price touches the upper Bollinger Band, it can indicate an overbought or sell signal, and if the price touches the lower band, it can mean an oversold or buy signal.
+**σ** is the standard deviation of the last *n* closes: how far, on average, those closes sit from their mean. **k** is the number of standard deviations. Bollinger's defaults are *n* = 20 and *k* = 2, and TradingView and Gainium use the same.
 
-As mentioned in the BBW indicator, when the Upper and Lower bands are very close, the volatility decreases there is a higher chance of a substantial increase in price volatility. Traders call this trading opportunity the “Squeeze.”
+How to read them:
 
-## Using the Bollinger Bands Indicator in Gainium
+- **Most closes land inside.** About 86% of BTC/USDT 4h closes land between the bands.
+- **Width tracks volatility.** The bands widen in a sharp move and pinch in a quiet market. In the chart below they pinch to 1% of price apart on BTC/USDT 4h, the narrowest on the chart, and soon after price breaks out from 64,000 toward 77,000. Bollinger calls the narrow stretch the Squeeze; [Bollinger Band Width](https://gainium.io/indicators/bbw) measures it.
+- **A close outside the band is not a reversal signal on its own.** In a trend price walks along the band.
 
-To select it, set the deal start condition (or the take profit or stop loss type) to **Indicators**, click **Edit** on the indicator, then **Change indicator**, and choose **Bollinger Bands (BB)**.
-![Screenshot 2023-04-03 at 18.22.47.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_03_at_18_22_47_fdabbde9ea-54154a.webp)
-*Bollinger Bands*
+![Bollinger Bands (20, SMA, 2) on BINANCE:BTCUSDT 4h, dark theme: the bands pinch before the breakout, widen sharply during the run from 64,000 to 77,000, and read 83,260 / 81,470 / 79,680 at the end](https://content.gainium.io/images/content/indicators/bb__chart.webp)
 
-## Examples of BBW Strategies for bot trading
+### Settings and tips
 
-A. Bollinger Bands Breakout Strategy
+| Setting | Default | What it does |
+| --- | --- | --- |
+| MA type | SMA | The moving average of the middle band: SMA, EMA, WMA, DEMA, TEMA, HMA, VWMA or RMA. |
+| SMA Length | 20 | The period of the middle band's moving average. |
+| Length | 20 | The number of closes the standard deviation is measured over. |
+| Standard Deviations | 2 | How far the upper and lower bands sit from the middle band, in standard deviations. |
+| Interval | 1 hour | The candle size the bands are calculated on, from 1 minute to 1 week. |
+| Condition | Crossing up | How the close is compared with the band in Value: Crossing up, Crossing down, Greater than or Lower than. |
+| Value | Lower | The band the close is compared with: Lower, Upper or Middle. |
+| Keep true | 0 | Extra bars the condition stays true after it fires. 0 means only the bar that triggered it. |
 
-In a breakout strategy, your trading bot will capitalize on significant price movements following periods of consolidation. When the price breaks above the upper Bollinger Band, it can signal a bullish breakout, prompting your bot to initiate a long position. Conversely, when the price breaks below the lower Bollinger Band, it can signal a bearish breakout, leading the bot to enter a short position.
+**Tip:** Standard Deviations 2.5 keeps only the deeper flushes. On BTC/USDT 4h, the lower-band reclaim fires about a third as often with 2.5 as with 2, and about a third more often with 1.5 than with 2, so 1.5 gives almost four times as many reclaims as 2.5. The field steps by 1, so type 2.5 by hand.
 
-For example, if the BTC/USDT pair's price breaks under the lower Bollinger Band, your bot will initiate a short position, anticipating a bearish trend. The bot will then hold the position until the price reverses or reaches a predetermined profit target.
-![Screenshot 2023-04-03 at 18.55.47.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_03_at_18_55_47_c29714995f-b656fb.webp)
-*Bollinger Bands buy and sell signals*
+![Bollinger Bands Standard Deviations 2 vs 2.5 on BINANCE:BTCUSDT 4h: the same candles in both panels; with 2.5 the bands sit wider and far fewer candles close outside the lower band](https://content.gainium.io/images/content/indicators/bb__tip-standard-deviations.webp)
 
-B. Bollinger Bands Mean Reversion Strategy
+*Standard Deviations 2 (top) vs 2.5 (bottom), BTC/USDT 4h: with 2.5 the close crosses back above the lower band about a third as often.*
 
-In a mean reversion strategy, your trading bot will take advantage of price fluctuations by buying low and selling high within the Bollinger Bands. When the price touches the lower Bollinger Band, your bot can initiate a long position, expecting the price to revert to the mean (SMA). Conversely, when the price touches the upper Bollinger Band, the bot can exit the position or initiate a short trade.
+**Tip:** SMA Length and Length are separate in Gainium, while TradingView's Bollinger Bands use one length for both. Change both together to match a TradingView chart; SMA Length 50 with Length 20 is a different indicator.
 
-For instance, when the BTC/USDT pair's price reaches the lower Bollinger Band, the bot can initiate a long position, anticipating an upward price movement toward the SMA. The bot can exit the position or enter a short trade when the price reaches the upper Bollinger Band.
-![Screenshot 2023-04-07 at 17.09.28.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_07_at_17_09_28_d21fd06410-e8815a.webp)
-*Trend reversal*
+**Tip:** the default Interval of 1 hour fires about four times as often as 4 hours: on BTC/USDT, the lower-band reclaim gives about four 1h signals for each 4h one.
 
-C. Bollinger Bands Squeeze Strategy
+## Trading setups for bots
 
-The squeeze strategy aims to identify potential price breakouts following periods of consolidation. When the Bollinger Bands contract and the bands' width narrows, it can signal a potential breakout in either direction. Your trading bot can monitor additional technical indicators, such as a spike in trading volume or a break of a trendline, to confirm the breakout direction before initiating a trade.
+### Buy the close back above the lower band
 
-Using the BTC/USDT pair as an example, if the Bollinger Bands contract and the width narrows, your bot can monitor additional confirmation signals, such as a significant increase in trading volume. If the price breaks above the upper Bollinger Band and trading volume surges, the bot can initiate a long position, anticipating a bullish breakout. The bot will then hold the position until the price reverses or reaches a predetermined profit target.
-![Screenshot 2023-04-07 at 17.12.18.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_07_at_17_12_18_74ef6d3bca-6085c6.webp)
-*The Squeeze*
+A close below the lower band is a stretch. The close that brings price back inside is the entry.
 
-## Practical considerations when using Bollinger Bands in Bot Trading
+- **Entry:** price crossing up the lower band.
+- **Exit:** price crossing up the upper band, or a fixed 1.5% take profit.
+- **Settings:** BB with MA type SMA, SMA Length 20, Length 20, Standard Deviations 2, Interval 4 hours, Condition Crossing up, Value Lower. The exit is a second BB condition with Condition Crossing up, Value Upper.
+- **Timeframe:** 4h for BTC and other large pairs. On 15m and 1h, a sell-off produces several reclaims in a row; add DCA orders below the entry.
+- **When it fails:** in a slide, price reclaims the band and loses it again. On BTC/USDT 4h in the chart below, the first two reclaims, at 79,366 and 78,904, were followed by a drop to 76,700.
 
-Traders can also use Bollinger Bands across multiple timeframes to confirm trends and generate trading signals. For example, if the price is above the lower Bollinger Band on the daily chart and the 1-hour chart there is a squeeze, which indicates a strong uptrend, it may be an excellent time to enter a long position. In the example below, the price finds support on the daily timeframe, indicating that the squeeze occurring in a 1-hour timeframe might lead to an upward move.
-![Screenshot 2023-04-07 at 17.18.49.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_07_at_17_18_49_23bf886de7-46f030.webp)
-*Price support on daily on the lower band*
-![Screenshot 2023-04-07 at 17.19.34.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_07_at_17_19_34_1ceabad37b-74c8e9.webp)
-*Squeeze in 1 hour*
+In the chart below the condition fires four times. The two in the slide lost. The reclaims at 76,892 and 75,824 reached the upper band at 77,892 (+1.3%) and 77,798 (+2.6%).
 
-## Conclusion
+![Annotated chart of Bollinger Bands on BINANCE:BTCUSDT 4h: a lower-band reclaim at 78,904 that fell another 2.8%, and the two later reclaims that reached the upper band for +1.3% and +2.6%](https://content.gainium.io/images/content/indicators/bb__mean-reversion.webp)
 
-The Bollinger Bands indicator can provide valuable insights into market volatility and potential trading opportunities for your crypto trading bot. As with any trading strategy, testing and fine-tuning the parameters to suit your risk tolerance and market conditions is essential. Combining the Bollinger Bands with other [technical indicators](https://gainium.io/help/category/technical-indicators) and fundamental analysis can further improve the effectiveness of your trading bot and contribute to a well-rounded investment approach.
+### Buy the upper-band breakout after a squeeze
+
+After the bands pinch, the first close above the upper band can start a trend.
+
+- **Entry:** price crossing up the upper band.
+- **Exit:** price crossing down the middle band.
+- **Settings:** BB 20 / 2 on 4 hours, Condition Crossing up, Value Upper, for the start. A take profit condition with Condition Crossing down, Value Middle.
+- **Timeframe:** 4h. On 1h the upper band is crossed far more often, mostly by noise.
+- **When it fails:** most breakouts don't run. On BTC/USDT 4h about two in three of these trades closed at a loss, mostly 1% to 3% ignoring fees, when price fell back under the middle band. Nearly all the gain came from two trends, one of them in the chart below.
+
+The best of them, in the chart below: a cross at 63,429, with the bands at their narrowest on the chart. Price did not close below the middle band again until 78,012, 23% higher.
+
+![Annotated chart of Bollinger Bands on BINANCE:BTCUSDT 4h: the narrowest bands on the chart, the close above the upper band at 63,429, the walk along the upper band, and the exit when price closed below the middle band at 78,012](https://content.gainium.io/images/content/indicators/bb__breakout.webp)
+
+## Using Bollinger Bands (BB) in Gainium
+
+A BB condition can start deals, place DCA orders (DCA type Indicators), close deals, set the stop for Risk:Reward, and start or stop the bot.
+
+1. Create a DCA bot and switch the form to **Manual**. Quick mode has no indicator conditions.
+2. Set **Deal start condition** to **Indicators**. The bot adds an RSI condition. For an exit, set the take profit or stop loss type to **Indicators**.
+3. Click **Edit**, then **Change indicator**, and pick **Bollinger Bands (BB)**.
+
+The settings card starts with these defaults:
+
+- **MA type:** SMA. The middle line can also be EMA, WMA, DEMA, TEMA, HMA, VWMA or RMA.
+- **SMA Length:** 20. The period of the middle line.
+- **Length:** 20. The number of closes the standard deviation is measured over.
+- **Standard Deviations:** 2. The *k* of the formula.
+- **Interval:** 1 hour, from 1 minute to 1 week.
+- **Condition:** Crossing up. The options are Crossing up, Crossing down, Greater than and Lower than. Each compares price with the band you pick in Value.
+- **Value:** Lower. The band price is compared with: Lower, Upper or Middle.
+- **Keep true:** 0. The number of extra bars the condition stays true after it fires.
+
+![The Bollinger Bands settings card in the Gainium bot form with its defaults: MA type SMA, SMA Length 20, Length 20, Standard Deviations 2, Interval 1 hour, Condition Crossing up, Value Lower (ringed), Keep true 0](https://content.gainium.io/images/content/indicators/bb__settings.webp)
+
+The defaults are already the lower-band reclaim from the first setup, on 1 hour. For Risk:Reward, the stop goes at the band you pick in Value at the moment the deal opens; see [Risk:Reward](https://gainium.io/help/risk-reward).
+
+**Example configuration** (the lower-band reclaim): Deal start condition Indicators, BB with MA type SMA, SMA Length 20, Length 20, Standard Deviations 2, Interval 4 hours, Condition Crossing up, Value Lower, Keep true 0. Take profit type Indicators, BB with the same settings, Condition Crossing up, Value Upper. Three DCA orders 1.5% apart.
+
+## Related indicators
+
+- [Bollinger Band Width (BBW)](https://gainium.io/indicators/bbw): the distance between the bands as a ratio, to find the squeeze before a breakout.
+- [Bollinger Bands %B](https://gainium.io/indicators/bollinger-bands-b): where price sits inside the bands, as one number.
+- [Keltner Channel](https://gainium.io/indicators/keltner-channel): bands built from ATR instead of standard deviation, which react less to a single wide candle.
+- [RSI](https://gainium.io/indicators/rsi): a momentum check for lower-band entries, to skip reclaims while RSI is still falling.
+
+## FAQ
+
+### What are the default Bollinger Bands settings?
+
+A 20-period simple moving average of the close and bands 2 standard deviations away, on 20 closes. Gainium uses the same defaults: MA type SMA, SMA Length 20, Length 20, Standard Deviations 2.
+
+### Is touching the upper band a sell signal?
+
+Not by itself. In a strong trend price walks along the upper band for many bars: in the breakout example on this page, half of the BTC/USDT 4h candles closed above it while price rose from 63,400 to 76,300. Wait for a close back inside, or use a trend filter.
+
+### What is the difference between SMA Length and Length in Gainium?
+
+SMA Length is the period of the middle line, the moving average. Length is the number of closes the standard deviation is measured over. Both start at 20, as in Bollinger's original.
+
+### Can I use Bollinger Bands for a stop loss?
+
+Yes. Set the stop loss type to Indicators and close the deal when price crosses down the lower or middle band. Risk:Reward can also use a band as its stop price.

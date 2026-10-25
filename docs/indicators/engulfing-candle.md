@@ -7,7 +7,7 @@ description: >-
   trading, detect bullish and bearish reversals, and configure your strategy for
   maximum effectiveness.
 createdAt: '2024-10-06T11:54:40.955Z'
-updatedAt: '2026-02-24T07:44:20.570Z'
+updatedAt: '2026-10-25T00:00:00.000Z'
 publishedAt: '2024-10-06T12:03:06.893Z'
 locale: en
 categories:
@@ -17,11 +17,15 @@ tags:
   - indicator
 ingested: true
 ingestedAt: '2025-06-29T10:57:30.008Z'
+templateVersion: 2
 tldr: >-
-  The Engulfing Candle indicator identifies bullish and bearish reversal
-  candlestick patterns where one candle completely engulfs the previous one.
-  Configure it in Gainium by selecting the trigger type, interval, and use it
-  for reversal or trend confirmation strategies.
+  An engulfing candle is a two-candle reversal pattern: the second candle's
+  body opens beyond the first candle's body and closes past its open. A
+  bullish engulfing marks buyers taking over after a down candle; a bearish
+  engulfing marks the reverse. Gainium checks every closed candle on the
+  interval you pick and fires on the candle that completes the pattern. It
+  has no trend filter of its own, so it fires on about one candle in five;
+  use it at a level or with a second indicator.
 kind: native
 catalogKeys:
   - ECD
@@ -31,90 +35,128 @@ aliases:
   - "Engulfing Pattern"
   - "Bullish Engulfing"
   - "Bearish Engulfing"
+faq:
+  - title: What exact rule does Gainium use for a bullish engulfing candle?
+    details: >-
+      The candle opens at or below the previous candle's close, opens below
+      the previous candle's open, and closes above the previous candle's
+      open. Only the bodies count; wicks are ignored. A bearish engulfing is
+      the mirror: open at or above the previous close, above the previous
+      open, and a close below the previous open.
+  - title: Does the indicator check the trend before the pattern?
+    details: >-
+      No. It fires on any candle that matches the rule, in a trend or in a
+      range. Add the trend or the level yourself, for example with a support
+      level or an RSI condition in the same AND group.
+  - title: How often does it fire?
+    details: >-
+      Often. On BTC/USDT it marks about one candle in five, on 1h and on 4h
+      alike, so 1h gives about four times as many signals as 4h over the same
+      stretch of chart.
+  - title: Can I use it to close a deal?
+    details: >-
+      Yes. Set the take profit or stop loss type to Indicators and pick
+      Engulfing Candle with Trigger candle Bearish for a long bot. It closes
+      the deal on the first bearish engulfing candle after the entry.
+related:
+  - long-wick-detector
+  - support-resistance-indicator
+  - rsi
+sources:
+  - title: Steve Nison, Japanese Candlestick Charting Techniques (1991), via Investopedia, Engulfing Pattern
+    url: https://www.investopedia.com/terms/e/engulfingpattern.asp
+  - title: Fidelity, Technical Indicator Guide, Engulfing Pattern
+    url: https://www.fidelity.com/learning-center/trading-investing/technical-analysis/technical-indicator-guide/engulfing-pattern
+  - title: Binance BTC/USDT 1h and 4h candles, computed with Gainium's indicator engine
 ---
 
-The **Engulfing Candle** pattern is a powerful reversal indicator used in technical analysis to identify potential trend reversals in the market. It is a candlestick pattern where one candle completely engulfs the previous one, signaling a possible shift in market sentiment. There are two types of engulfing patterns:
-- **Bullish Engulfing**: Indicates a reversal from a downtrend to an uptrend.
-- **Bearish Engulfing**: Indicates a reversal from an uptrend to a downtrend.
+The Engulfing Candle indicator marks a candle whose body opens beyond the previous candle's body and closes past its open, swallowing it. Traders use a bullish engulfing at a low to start a deal and a bearish engulfing under a high to close one.
 
-In this article, we’ll explore the **Engulfing Candle** indicator, configure it in Gainium, and demonstrate how to use it effectively in bot trading. We will also cover examples of trading strategies, practical considerations, and conclude with tips on maximizing its effectiveness.
+## What is an Engulfing Candle
 
-## What Is an Engulfing Candle?
+The engulfing pattern is one of the Japanese candlestick reversal patterns that Steve Nison brought to Western traders in 1991. A bullish engulfing is a down candle followed by an up candle whose body covers it; a bearish engulfing is the reverse.
 
-An **Engulfing Candle** occurs when a larger candle completely engulfs the previous smaller candle’s body. This pattern indicates that the market's momentum has shifted, and it’s commonly used to predict trend reversals.
+Gainium's rule, checked on each closed candle against the one before it:
 
-### Types of Engulfing Candles:
-- **Bullish Engulfing**: This pattern forms when a small bearish candle is followed by a large bullish candle that fully engulfs the bearish candle's body. It signals a potential upward reversal in a downtrend.
-- **Bearish Engulfing**: This pattern forms when a small bullish candle is followed by a large bearish candle that fully engulfs the bullish candle's body. It signals a potential downward reversal in an uptrend.
-![image.png](https://content.gainium.io/images/content/help/image_3371e60896-19575f.webp)
-*Engulfing Candle Indicator in action*
+- **Bullish engulfing:** open ≤ previous close, open < previous open, and close > previous open.
+- **Bearish engulfing:** open ≥ previous close, open > previous open, and close < previous open.
 
-## How to Configure the Engulfing Candle Indicator in Gainium
+Only the open and close are compared, so wicks and volume play no part. The rule also has no trend check: a bullish engulfing in the middle of a range fires the same as one at a low. The signal is true on the candle that completes the pattern.
 
-Here’s how to configure the **Engulfing Candle** indicator using the settings provided in the attached image:
+On the bot chart, bullish engulfing candles are painted blue and bearish engulfing candles purple.
 
-### Step 1: Add the Engulfing Candle Indicator
-- **Navigate to the Bot Settings**:Log into Gainium, go to your bot, and select **Engulfing Candle** from the list of available indicators.
+![Gainium bot chart, BTC/USDT 4h, with the Engulfing candle detector: bullish engulfing candles painted blue and bearish engulfing candles painted purple among the normal green and red candles](https://content.gainium.io/images/content/indicators/engulfing-candle__chart.webp)
 
-### Step 2: Configure the Indicator Settings
-- **Interval**: Choose the time interval for the candle formation. In the example provided, the interval is set to **4 hours**, meaning the bot will look for engulfing patterns on the 4-hour chart.
-- **Trigger Candle**: Choose the type of engulfing pattern to trigger the bot's action. You can select either **Bullish,** **Bearish,** or**Both**.**Bullish Engulfing**: This will trigger when a bullish engulfing pattern is detected, signaling a potential upward reversal.
-- **Bearish Engulfing**: This will trigger when a bearish engulfing pattern is detected, signaling a potential downward reversal.
-- **Keep True**: This setting defines how long the condition remains valid after it is triggered. Setting it to **0** means the condition will reset immediately after identifying the engulfing candle.
-![image.png](https://content.gainium.io/images/content/help/image_b993620050-ea99fc.webp)
-*Engulfing candle settings*
+### Settings and tips
 
-## Using Engulfing Candle in Bot Trading
+| Setting | Default | What it does |
+| --- | --- | --- |
+| Trigger candle | Both | Which pattern fires: Bullish, Bearish or Both. |
+| Interval | 1 hour | The candle size the indicator is calculated on, from 1 minute to 1 week. |
+| Keep true | 0 | Extra bars the condition stays true after it fires. 0 means only the bar that triggered it. |
 
-The **Engulfing Candle** indicator can be effectively used in automated bot trading to identify reversal opportunities and capture market swings. Below are two example strategies that incorporate the Engulfing Candle pattern.
+**Tip:** Trigger candle Both fires on about one candle in five. On BTC/USDT it is true on about 20% of 1h candles and of 4h candles alike, so use it with a filter, not alone.
 
-### Strategy 1: Reversal Trading Strategy
+**Tip:** pick one side for an entry. Bullish alone fires on about half of those, roughly one 4h candle in ten.
 
-#### Entry Rules
-- **Long Entry (Buy)**:Detect a **Bullish Engulfing** pattern on a 4-hour interval, signaling the potential end of a downtrend and a shift toward an uptrend.
-- **Short Entry (Sell)**:Detect a **Bearish Engulfing** pattern on a 4-hour interval, signaling the potential end of an uptrend and a shift toward a downtrend.
+## Trading setups for bots
 
-#### Exit Rules
-- **Long Exit**:Exit when a **Bearish Engulfing** pattern forms after entering a long position, indicating that the uptrend may be reversing.
-- **Short Exit**:Exit when a **Bullish Engulfing** pattern forms after entering a short position, signaling a potential upward reversal.
+### Bullish engulfing at a 4h low
 
-#### Implementation in Gainium
-- **Configure the Engulfing Candle Indicator**:Set the **interval** to 4 hours and select the **Bullish** or **Bearish** engulfing pattern based on the trend you’re trying to capture.
-- **Automate Entries and Exits**:Program the bot to enter long trades on bullish engulfing patterns and short trades on bearish engulfing patterns. Use the opposite engulfing pattern as a signal for exit.
+- **Entry:** Deal start condition Engulfing Candle, Trigger candle **Bullish**, 4 hours, in an AND group with RSI(14) on 4 hours **Lower than 40** and Keep true 2. The RSI condition keeps the pattern to dips.
+- **Exit:** take profit 2%, stop loss under the engulfing candle's low, about 1.5–2% on BTC 4h.
+- **Settings:** Engulfing Keep true 0; the RSI's Keep true 2 lets the RSI dip happen up to two bars before the pattern.
+- **Timeframe:** 4h. On 1h the pattern prints about four times as often over the same stretch of chart, and most of those mean nothing.
+- **When it fails:** in a downtrend. At the second marked candle in the chart below, a bullish engulfing came after a 4% fall, and price traded under the candle's low within about 18 bars.
 
-### Strategy 2: Confirmation Strategy
+![Annotated Gainium bot chart, BTC/USDT 4h: a bullish engulfing at the low followed by about 2.5% over the next 18 bars, and a later one with little follow-through](https://content.gainium.io/images/content/indicators/engulfing-candle__bullish-at-low.webp)
 
-#### Entry Rules
-- **Long Entry (Buy)**:Use the **Bullish Engulfing** pattern as a confirmation of an existing upward trend. Enter a long position when the bullish engulfing candle confirms an existing support level.
-- **Short Entry (Sell)**:Use the **Bearish Engulfing** pattern to confirm a downward trend. Enter a short position when the bearish engulfing candle confirms resistance.
+### Bearish engulfing as the exit
 
-#### Exit Rules
-- **Long Exit**:Exit the position when the price breaks below a key support level or when a **Bearish Engulfing** pattern forms, signaling a trend reversal.
-- **Short Exit**:Exit the position when the price breaks above a key resistance level or when a **Bullish Engulfing** pattern forms.
+- **Entry:** any long entry.
+- **Exit:** close condition Engulfing Candle, Trigger candle **Bearish**, 1 hour.
+- **Settings:** Keep true 0. Leave the take profit at 3% or wider so the pattern does the exit.
+- **Timeframe:** 1h exits on a 1h or 4h long.
+- **When it fails:** in a steady uptrend. One-bar pullbacks print bearish engulfing candles, and the bot exits early. On 1h bars the pattern is true on about one candle in five.
 
-#### Implementation in Gainium
-- **Combine Indicators**:Combine the Engulfing Candle pattern with support/resistance levels to confirm the signal and increase the reliability of the entry.
-- **Set Conditions**:Use the **Bullish Engulfing** pattern as confirmation in a long trade and the **Bearish Engulfing** pattern for short trades. Set the bot to exit when the opposite engulfing pattern forms.
+![Annotated Gainium bot chart, BTC/USDT 1h: a purple bearish engulfing candle under the 84,800 top that closes the long, with many other blue and purple engulfing candles on the same chart](https://content.gainium.io/images/content/indicators/engulfing-candle__bearish-exit.webp)
 
-## Practical Considerations
+## Using Engulfing Candle in Gainium
 
-When using the **Engulfing Candle** indicator in your trading strategy, here are some key factors to consider:
+1. Create a DCA bot and switch the form to **Manual**.
+2. Set **Deal start condition** to **Indicators**, or the take profit or stop loss type for an exit.
+3. Click **Edit**, then **Change indicator**, and pick **Engulfing Candle** from the Chart category.
 
-### 1. Timeframe Selection
-- **Shorter Timeframes**: Using short intervals (e.g., 15 minutes or 1 hour) may produce more frequent signals but can also result in more false positives.
-- **Longer Timeframes**: Using longer intervals (e.g., 4 hours or daily) can help identify stronger trends but may produce fewer signals.
+![Engulfing Candle settings card in the Gainium bot form with Trigger candle Bullish ringed, Interval 4 hours, Keep true 0](https://content.gainium.io/images/content/indicators/engulfing-candle__settings.webp)
 
-### 2. Combine with Other Indicators
-- The Engulfing Candle pattern can generate more reliable signals when used in combination with other technical indicators, such as moving averages, RSI, or Bollinger Bands. These indicators can help confirm the trend reversal and reduce the risk of false signals.
+The fields and their defaults:
 
-### 3. Backtest Before Going Live
-- Before deploying your bot with the Engulfing Candle indicator, always backtest your strategy using historical data to ensure it performs well under different market conditions.
+- **Trigger candle:** Both. Bullish fires only on bullish engulfing candles, Bearish only on bearish ones.
+- **Interval:** 1 hour, from 1 minute to 1 week.
+- **Keep true:** 0 extra bars. Raise it to 1–3 when the pattern shares an AND group with a slower condition.
 
-### 4. Risk Management
-- Incorporate risk management strategies such as stop-losses to protect your trades from unexpected market movements. Setting stop-losses at key support or resistance levels can minimize potential losses.
+**Example configuration** (the 4h low above): Deal start condition Indicators, Engulfing Candle with Trigger candle Bullish, Interval 4 hours, Keep true 0, AND RSI with Length 14, Interval 4 hours, Condition Lower than, Value 40, Keep true 2. Take profit 2%, stop loss 2%.
 
-## Conclusion
+## Related indicators
 
-The **Engulfing Candle** indicator is a powerful tool for identifying trend reversals and capturing profitable market swings. By configuring the indicator in Gainium and integrating it into your automated bot trading strategy, you can leverage market momentum and take advantage of both bullish and bearish reversals.
+- [Long Wick Detector](https://gainium.io/indicators/long-wick-detector): the other single-candle rejection signal, measured against ATR.
+- [Support and Resistance](https://gainium.io/indicators/support-resistance-indicator): gives the pattern a level to form at.
+- [RSI](https://gainium.io/indicators/rsi): keeps bullish engulfing entries to oversold dips.
 
-Whether used for reversal trading or as a confirmation of trends, the Engulfing Candle's flexibility makes it a valuable addition to any trading strategy. By combining it with other indicators and using sound risk management techniques, you can increase the effectiveness of your strategy and achieve consistent results.
+## FAQ
+
+### What exact rule does Gainium use for a bullish engulfing candle?
+
+The candle opens at or below the previous candle's close, opens below the previous candle's open, and closes above the previous candle's open. Only the bodies count; wicks are ignored. A bearish engulfing is the mirror: open at or above the previous close, above the previous open, and a close below the previous open.
+
+### Does the indicator check the trend before the pattern?
+
+No. It fires on any candle that matches the rule, in a trend or in a range. Add the trend or the level yourself, for example with a support level or an RSI condition in the same AND group.
+
+### How often does it fire?
+
+Often. On BTC/USDT it marks about one candle in five, on 1h and on 4h alike, so 1h gives about four times as many signals as 4h over the same stretch of chart.
+
+### Can I use it to close a deal?
+
+Yes. Set the take profit or stop loss type to Indicators and pick Engulfing Candle with Trigger candle Bearish for a long bot. It closes the deal on the first bearish engulfing candle after the entry.

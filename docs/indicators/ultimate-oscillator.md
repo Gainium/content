@@ -7,7 +7,7 @@ description: >-
   detecting overbought/oversold conditions, and effectively trading momentum
   divergences.
 createdAt: '2024-10-06T12:51:51.641Z'
-updatedAt: '2026-10-12T00:00:00.000Z'
+updatedAt: '2026-10-25T00:00:00.000Z'
 publishedAt: '2024-10-06T12:51:54.365Z'
 locale: en
 categories:
@@ -16,11 +16,16 @@ difficulty: beginner
 tags: []
 ingested: true
 ingestedAt: '2025-06-29T10:57:30.029Z'
+templateVersion: 2
 tldr: >-
-  The Ultimate Oscillator combines short (7), medium (14), and long-term (28)
-  periods into one momentum indicator to reduce false signals. Values above 70
-  indicate overbought and below 30 indicate oversold, useful for reversal and
-  divergence trading.
+  The Ultimate Oscillator (UO) measures buying pressure against the true range
+  over 7, 14 and 28 bars and blends the three, weighting the shortest most. It
+  runs from 0 to 100, with 30 and 70 as the classic levels. Because it averages
+  three lookbacks it rarely reaches them: on BTC/USDT 4h, RSI(14) spends
+  about 13 times as long under 30. Larry Williams' buy signal is a bullish
+  divergence with its low under 30, confirmed by a break of the high between
+  the two lows. In Gainium you combine the Divergences indicator with a UO
+  level to automate it.
 kind: native
 catalogKeys:
   - UO
@@ -28,90 +33,161 @@ category: momentum
 aliases:
   - "UO"
   - "Ultimate Oscillator"
+  - "Williams Ultimate Oscillator"
+faq:
+  - title: Why does the Ultimate Oscillator rarely reach 30 or 70?
+    details: >-
+      It averages three lookbacks, and a 28-bar average moves slowly. On
+      BTC/USDT 4h it spends well under 1% of its time under 30, and about
+      three times as long over 70. Use 35 to 40 and 60 to 65 when you want
+      more signals: on 4h, a cross up through 35 fires about five times as
+      often as one through 30.
+  - title: What are the default Ultimate Oscillator settings?
+    details: >-
+      7, 14 and 28 bars, with weights of 4, 2 and 1. Gainium's Fast, Middle
+      and Slow lengths default to the same 7, 14 and 28. Keep the 1:2:4 ratio
+      if you change them, for example 5, 10 and 20.
+  - title: Can Gainium detect Ultimate Oscillator divergences?
+    details: >-
+      Yes, with the Divergences indicator. Select only the Ultimate Oscillator
+      under Oscillators, set Type of divergence to Bullish and Min number of
+      divergences to 1. On the BTC/USDT daily chart bullish UO divergences
+      are rare, so expect few signals per pair.
+  - title: Is the Ultimate Oscillator better than RSI?
+    details: >-
+      It is smoother, because it blends three lookbacks and uses the true
+      range, which counts gaps and wicks. That means fewer false extremes and
+      fewer signals. On BTC/USDT 4h, RSI(14) spends about 13 times as long
+      under 30 as UO does.
+related:
+  - divergences-indicator
+  - rsi
+  - williams-r
+sources:
+  - title: Larry Williams (1976), via StockCharts ChartSchool, Ultimate Oscillator
+    url: https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-indicators/ultimate-oscillator
+  - title: TradingView Help Center, Ultimate Oscillator (UO)
+    url: https://www.tradingview.com/support/solutions/43000502328-ultimate-oscillator-uo/
+  - title: Gainium, Indicator Smoothing
+    url: https://gainium.io/help/indicator-smoothing
+  - title: Gainium, Indicator Percentiles
+    url: https://gainium.io/help/indicator-percentiles
+  - title: Binance BTC/USDT 1h, 4h and 1d candles, computed with Gainium's indicator engine
 ---
 
-The **Ultimate Oscillator** is a momentum indicator that combines short, medium, and long-term price action into one oscillator. By using three different timeframes, the Ultimate Oscillator aims to minimize false signals and provide a more accurate reading of market momentum, making it especially useful for detecting overbought and oversold conditions.
+The Ultimate Oscillator (UO) measures how much of each bar's true range the buyers took, over 7, 14 and 28 bars, and blends the three into one line from 0 to 100. Traders use it for oversold entries and, as Larry Williams intended, for bullish divergences confirmed by a breakout of the oscillator. It reaches 30 and 70 far less often than RSI, so each signal is rare.
 
-In this article, we will define the **Ultimate Oscillator**, explain how to configure it in Gainium, and show how it can be used in automated bot trading. We’ll also include examples of trading strategies with entry and exit rules, discuss practical considerations, and conclude with tips for maximizing its effectiveness.
+## What is the Ultimate Oscillator
 
-## What Is the Ultimate Oscillator?
+Larry Williams developed the Ultimate Oscillator in 1976. It was published in *Stocks & Commodities* magazine in 1985. The formula, per bar:
 
-The **Ultimate Oscillator** is designed to track momentum across three different periods. It combines a **short-term**, **medium-term**, and **long-term** average to provide a more balanced view of momentum, reducing the chances of false signals that often occur with single-period oscillators.
+1. **Buying pressure (BP)** = close − the lower of (low, previous close).
+2. **True range (TR)** = the higher of (high, previous close) − the lower of (low, previous close).
+3. **Average7** = sum of BP over 7 bars / sum of TR over 7 bars. **Average14** and **Average28** are the same over 14 and 28 bars.
+4. **UO** = 100 × (4 × Average7 + 2 × Average14 + Average28) / 7.
 
-### Key Features:
-- **Overbought Level**: Values above 70 indicate overbought conditions, suggesting a potential downward reversal.
-- **Oversold Level**: Values below 30 indicate oversold conditions, signaling a potential upward reversal.
-- **Multiple Timeframes**: Combines short, medium, and long timeframes to reduce noise and capture larger trends.
+The shortest window gets four times the weight of the longest. TradingView's defaults are 7, 14 and 28; so are Gainium's.
 
-## How to Configure the Ultimate Oscillator in Gainium
+How to read it:
 
-### Step 1: Add the Ultimate Oscillator Indicator
-- **Navigate to the Bot Settings**:Log into Gainium, select your bot, and add the **Ultimate Oscillator** from the list of indicators.
+- **Under 30:** sellers held price near the bottom of each bar's range across all three windows. On BTC/USDT 4h that happens on well under 1% of candles; on 1 hour, about two and a half times as often.
+- **Over 70:** the opposite, about three times as often as under 30 on 4h.
+- **Williams' buy signal**, in three steps: a bullish divergence (lower low in price, higher low in UO), with the first low under 30, then UO rising above the high it made between the two lows.
+- **The sell signal** mirrors it: a bearish divergence with the high over 70, then a drop under the low between the two highs.
 
-### Step 2: Configure the Indicator Settings
-- **Fast Period (7)**: This represents the oscillator's short-term period, typically set to **7**. It provides a quick view of the most recent price action.
-- **Middle Period (14)**: This is the medium-term period, set to **14** by default. It smooths out some of the noise captured by the fast period.
-- **Slow Period (28)**: This is the long-term period, set to **28**. It provides a broader view of price momentum and helps filter out short-term fluctuations.
-- **Interval**: Set the indicator's time interval. In the example image, the interval is set to **1 day**, meaning the oscillator will be calculated based on daily price data.
-- **Condition**: Choose the condition that triggers an action. In this case, **Crossing Down** is selected, meaning the bot will trigger when the Ultimate Oscillator crosses below a certain value.
-- **Value (70)**: This is the trigger point for the condition. The bot will act when the oscillator crosses **below 70**, signaling a potential exit from overbought territory.
-- **Keep True (0)**: This setting defines how long the condition remains active after it is triggered. Setting it to **0** means the condition resets immediately after the signal.
-![image.png](https://content.gainium.io/images/content/help/image_8656eba5b8-a5c6f5.webp)
-*Ultimate Oscillator Settings*
+![Ultimate Oscillator (7, 14, 28) on BINANCE:BTCUSDT 4h, dark theme: the red UO line stays between about 30 and 78, mostly between 40 and 65](https://content.gainium.io/images/content/indicators/ultimate-oscillator__chart.webp)
 
-**Smoothing (optional):** set **Smoothing** to a moving average (SMA, EMA, WMA, DEMA, TEMA, HMA or RMA) and a **Smoothing length** to smooth the Ultimate Oscillator line. With **Compare** set to *Smoothed line vs value*, the condition tests the smoothed line against your Value, which filters out short spikes. With *Line vs smoothed line*, it tests the Ultimate Oscillator against its own moving average (crossing up or down, greater or lower than) and no Value is needed. The chart draws the smoothed line in orange. Leave Smoothing on **None** to use the Ultimate Oscillator as usual. Learn more in [Indicator Smoothing](https://gainium.io/help/indicator-smoothing).
+### Settings and tips
 
-## Using the Ultimate Oscillator in Bot Trading
+| Setting | Default | What it does |
+| --- | --- | --- |
+| Use percentile | Off | Off: the condition tests the fixed Level. On: Level hides and UO is compared with its own Percentile over the last Lookback candles. |
+| Lookback | 150 | Candles of the line's own history the percentile is taken from. Percentile mode only. |
+| Percentile | 80 | The rank in that history used as the level: 80 is a level that only 20% of readings exceeded. Percentile mode only. |
+| Fast length | 7 | The shortest window, weighted 4 in the average. |
+| Middle length | 14 | The middle window, weighted 2. |
+| Slow length | 28 | The longest window, weighted 1. |
+| Interval | 1 hour | Candle size the indicator is calculated on, from 1 minute to 1 week. It does not follow the chart you are looking at. |
+| Smoothing | None | A moving average put on the line. With smoothing on, the condition tests the smoothed line. |
+| Smoothing length | 14 | Candles in the smoothing average, 1 to 1,000. |
+| Compare | Smoothed line vs value | Smoothed line vs value tests the smoothed line against Value. Line vs smoothed line tests the raw line against its own average; Value hides and Between is never true. |
+| Condition | Crossing down | Crossing up and Crossing down fire on the one candle where UO passes Level. Greater than and Lower than hold on every candle on that side. Between holds while UO is inside Level and Upper value. |
+| Level | 70 | The UO level, 0 to 100. With Between, the lower bound. |
+| Upper value | — | Between only: the upper bound. UO must stay above Level and below this. |
+| Keep true | 0 | Extra candles the condition stays true after it fires, so it can meet a slower condition in the same group. |
 
-The **Ultimate Oscillator** can be used in various trading strategies, including trend-following and reversal. Below are two examples of how to use it in automated bot trading.
+**Tip:** UO rarely reaches the classic levels. On BTC/USDT 4h, crossing up through **Level** 35 fires about five times as often as 30, and 40 about three times as often as 35.
 
-### Strategy 1: Overbought/Oversold Reversal Strategy
+**Tip:** **Fast length**, **Middle length** and **Slow length** of 4, 8 and 16 make UO reach the extremes far more often: on 4h they give about seven times as many crosses up through 30 as 7, 14 and 28. The weights stay 4, 2 and 1 whatever lengths you set.
 
-#### Entry Rules
-- **Long Entry (Buy)**:Enter a long position when the Ultimate Oscillator crosses **below 30**, indicating that the asset is in oversold territory and may soon reverse upwards.
-- **Short Entry (Sell)**:Enter a short position when the Ultimate Oscillator crosses **above 70**, signaling that the asset is in overbought territory and may soon reverse downwards.
+**Tip:** With Condition Between, **Level** 40 and **Upper value** 60, the condition holds while UO stays strictly between them, a middle band it sits in most of the time on 4h. **Upper value** appears only with Between.
 
-#### Exit Rules
-- **Long Exit**:Exit the trade when the Ultimate Oscillator crosses **above 50**, indicating that the upward momentum is fading.
-- **Short Exit**:Exit the trade when the Ultimate Oscillator crosses **below 50**, signaling that the downward momentum is weakening.
+## Trading setups for bots
 
-#### Implementation in Gainium
-- **Configure the Indicator**:Set the fast, middle, and slow periods to **7**, **14**, and **28** respectively, and use a **1-day** interval.
-- Program the bot to trigger long entries when the oscillator crosses below 30 and short entries when it crosses above 70.
-- **Automate Entries/Exits**:Set the bot to exit the position when the momentum weakens (e.g., when the oscillator crosses above 50 for long trades and below 50 for short trades).
+### Deep oversold entry on 4 hours
 
-### Strategy 2: Divergence Trading Strategy
+- **Entry:** UO crossing up through 30.
+- **Exit:** UO crossing up through 50 as the take profit condition. That is the middle of the scale, reached within 24 bars after every signal on BTC/USDT 4h.
+- **Settings:** Fast length 7, Middle length 14, Slow length 28, Interval 4 hours, Condition Crossing up, Level 30. Exit: Condition Crossing up, Level 50.
+- **Timeframe:** 4 hours. It is the rarest setup on this page. With one deal at a time most deals closed higher on BTC/USDT, by +5.0% in the example on the chart and by up to +10.0%.
+- **When it fails:** a crash that keeps going after the bounce. One deal bought at 71,595 and closed at 62,730, −12.4%. It also misses lows by a few points: at the low on the chart UO stopped at 31.7, so the bot never bought. Raise the level to 35 for about five times as many deals.
 
-#### Entry Rules
-- **Long Entry (Buy)**:Enter a long position when there is a **bullish divergence** between the price and the Ultimate Oscillator (price makes a lower low, but the oscillator makes a higher low), signaling that downward momentum is weakening and an upward reversal is likely.
-- **Short Entry (Sell)**:Enter a short position when there is a **[bearish divergence](https://gainium.io/indicators/divergences-indicator)** (price makes a higher high, but the oscillator makes a lower high), indicating that upward momentum is weakening and a downward reversal is likely.
+![Annotated BINANCE:BTCUSDT 4h chart with the Ultimate Oscillator: a cross up through 30 at 86,550 that exits at 50 about six bars later for +5.0%, and an earlier low where UO bottomed at 31.7 and no signal fired](https://content.gainium.io/images/content/indicators/ultimate-oscillator__oversold.webp)
 
-#### Exit Rules
-- **Long Exit**:Exit the position when the Ultimate Oscillator crosses **above 70**, signaling that the price has reached an overbought condition.
-- **Short Exit**:Exit the position when the Ultimate Oscillator crosses **below 30**, signaling that the price has reached an oversold condition.
+### Williams' bullish divergence on the daily chart
 
-#### Implementation in Gainium
-- **Set Divergence Conditions**: Configure the bot to detect divergence between price action and the Ultimate Oscillator.
-- **Risk Management**: Use trailing stops or fixed stop-losses to protect against sudden reversals in price.
+- **Entry:** two conditions in the same group. The **Divergences** indicator with only Ultimate Oscillator selected, Type of divergence Bullish, Min number of divergences 1, Interval 1 day and Keep true 10. And UO crossing up through 50 on 1 day. The deal starts when UO climbs back over 50 within 10 daily bars of a flagged divergence.
+- **Exit:** take profit 6 to 8%, or UO crossing up through 70.
+- **Settings:** Divergences: Oscillators Ultimate Oscillator, Type of divergence Bullish, Min number of divergences 1, Interval 1 day, Keep true 10. UO: Fast length 7, Middle length 14, Slow length 28, Interval 1 day, Condition Crossing up, Level 50.
+- **Timeframe:** 1 day. Bullish UO divergences are rare on the daily chart. On their own, only about a third were higher 10 bars later on BTC/USDT. With the UO 50 confirmation, about two thirds of entries were higher 20 bars later. In the chart above it bought at 61,560, and price reached 66,956 within 21 bars.
+- **When it fails:** the divergence forms halfway down a larger fall. In the other example on the chart both conditions held at 76,752, and price fell 23% within 20 bars. Williams also required the first low to be under 30, which the Divergences indicator does not check, so keep a stop loss.
 
-## Practical Considerations
+![Annotated BINANCE:BTCUSDT daily chart with the Ultimate Oscillator: a lower low in price against a higher UO low, the cross over 50 at 61,560 that followed, and an earlier entry at 76,752 that fell 23%](https://content.gainium.io/images/content/indicators/ultimate-oscillator__divergence.webp)
 
-Here are some important considerations when using the Ultimate Oscillator in your trading strategy:
+## Using the Ultimate Oscillator in Gainium
 
-### 1. Fine-Tuning the Periods
-- Adjust the **Fast**, **Middle**, and **Slow** periods to suit your trading style. For short-term trading, you might want to shorten the periods (e.g., 5, 10, and 20), while lengthening them (e.g., 10, 20, and 40) could be beneficial for long-term strategies.
+1. Create a DCA bot and switch the form to **Manual**.
+2. Set **Deal start condition** to **Indicators**. For the exits above, set the take profit type to **Indicators**.
+3. Click **Edit** on the condition, then **Change indicator**, and pick **Ultimate Oscillator**.
 
-### 2. Combining with Other Indicators
-- Combine the Ultimate Oscillator with other technical indicators such as moving averages, Bollinger Bands, or RSI to confirm trends and reversals for more reliable signals.
+![The Select start indicator dialog in the Gainium bot form, searched for Ultimate, with Ultimate Oscillator ringed](https://content.gainium.io/images/content/indicators/ultimate-oscillator__picker.webp)
 
-### 3. Avoiding False Signals
-- In choppy or sideways markets, the Ultimate Oscillator might generate false signals. Consider using other indicators or filters to avoid trading during these conditions.
+The fields and their defaults:
 
-### 4. Backtesting Your Strategy
-- Always backtest your strategy using historical data before going live. Gainium’s backtesting feature allows you to optimize your settings and evaluate the Ultimate Oscillator's performance across different market conditions.
+- **Use percentile:** off. When on, the condition fires at a percentile of UO's last **Lookback** bars (default 150) instead of a fixed level; **Percentile** defaults to 80. Useful here, because UO rarely reaches 30 or 70. See [Indicator Percentiles](https://gainium.io/help/indicator-percentiles).
+- **Fast length:** 7. **Middle length:** 14. **Slow length:** 28. The three windows of the formula.
+- **Interval:** 1 hour, from 1 minute to 1 week.
+- **Smoothing:** None. SMA, EMA, WMA, DEMA, TEMA, HMA or RMA smooth the UO line; **Smoothing length** defaults to 14. **Compare** chooses between *Smoothed line vs value* (default) and *Line vs smoothed line*. See [Indicator Smoothing](https://gainium.io/help/indicator-smoothing).
+- **Condition:** Crossing down. The options are Crossing up, Crossing down, Greater than, Lower than and Between.
+- **Level:** 70. With Between, an **Upper value** field appears for the upper bound, and UO must stay above Level and below it.
+- **Keep true:** 0. Extra bars the condition stays true after it fires.
 
-## Conclusion
+![The Ultimate Oscillator settings card in the Gainium bot form with its defaults: Use percentile off, Fast length 7, Middle length 14, Slow length 28, Interval 1 hour, Smoothing None, Condition Crossing down, Level 70, Keep true 0](https://content.gainium.io/images/content/indicators/ultimate-oscillator__settings.webp)
 
-The **Ultimate Oscillator** is a versatile and powerful momentum indicator that combines multiple timeframes to provide a more balanced view of market momentum. By configuring it correctly in Gainium, you can use it to detect overbought and oversold conditions or identify divergences between price and momentum, which are often strong reversal signals.
+![The Gainium bot chart on BTC/USDT 1h with the Ultimate Oscillator pane below price](https://content.gainium.io/images/content/indicators/ultimate-oscillator__bot-chart.webp)
 
-Whether using the Ultimate Oscillator to follow trends or capture reversals, combining it with other indicators and applying sound risk management can significantly enhance your trading strategy.
+**Example configuration** (the oversold setup): Deal start condition Indicators, Ultimate Oscillator with Use percentile off, Fast length 7, Middle length 14, Slow length 28, Interval 4 hours, Smoothing None, Condition Crossing up, Level 30, Keep true 0. Take profit type Indicators, Ultimate Oscillator with the same lengths, Interval 4 hours, Condition Crossing up, Level 50. Stop loss 10%.
+
+## Related indicators
+
+- [Divergences](https://gainium.io/indicators/divergences-indicator): finds the UO divergences Williams built his signals on.
+- [Relative Strength Index (RSI)](https://gainium.io/indicators/rsi): one lookback instead of three, reaching 30 and 70 about ten times as often.
+- [Williams %R](https://gainium.io/indicators/williams-r): Larry Williams' faster oscillator, one 14-bar window with no averaging.
+
+## FAQ
+
+### Why does the Ultimate Oscillator rarely reach 30 or 70?
+
+It averages three lookbacks, and a 28-bar average moves slowly. On BTC/USDT 4h it spends well under 1% of its time under 30, and about three times as long over 70. Use 35 to 40 and 60 to 65 when you want more signals: on 4h, a cross up through 35 fires about five times as often as one through 30.
+
+### What are the default Ultimate Oscillator settings?
+
+7, 14 and 28 bars, with weights of 4, 2 and 1. Gainium's Fast, Middle and Slow lengths default to the same 7, 14 and 28. Keep the 1:2:4 ratio if you change them, for example 5, 10 and 20.
+
+### Can Gainium detect Ultimate Oscillator divergences?
+
+Yes, with the [Divergences](https://gainium.io/indicators/divergences-indicator) indicator. Select only the Ultimate Oscillator under Oscillators, set Type of divergence to Bullish and Min number of divergences to 1. On the BTC/USDT daily chart bullish UO divergences are rare, so expect few signals per pair.
+
+### Is the Ultimate Oscillator better than RSI?
+
+It is smoother, because it blends three lookbacks and uses the true range, which counts gaps and wicks. That means fewer false extremes and fewer signals. On BTC/USDT 4h, RSI(14) spends about 13 times as long under 30 as UO does.

@@ -1,0 +1,309 @@
+{
+  "alertConditions": "not applicable",
+  "chart": null,
+  "indicator": {
+    "author": "Gainium",
+    "kind": "native",
+    "openSource": null,
+    "overlay": null,
+    "scriptId": "SESSION",
+    "shortTitle": "Session",
+    "title": "Session Selector",
+    "version": null
+  },
+  "inputs": [
+    {
+      "default": null,
+      "defaultText": "—",
+      "group": null,
+      "id": "sessionPreset",
+      "kind": "logic",
+      "label": "Session",
+      "optionLabels": [
+        "All day",
+        "Sydney 07:00–16:00",
+        "Tokyo 09:00–18:00",
+        "London 08:00–17:00",
+        "New York 08:00–17:00",
+        "US stock market 09:30–16:00",
+        "Custom"
+      ],
+      "options": [
+        "allDay",
+        "sydney",
+        "tokyo",
+        "london",
+        "newYork",
+        "usStocks",
+        "custom"
+      ],
+      "tooltip": "Fills the hours and time zone of a market session on its local clock, so daylight saving moves it with that market. Edit the hours to make it your own.",
+      "type": "select"
+    },
+    {
+      "default": null,
+      "defaultText": "—",
+      "group": null,
+      "id": "sessionStart",
+      "kind": "logic",
+      "label": "Start",
+      "tooltip": "Local time the session opens. Leave Start and End empty for the whole day.",
+      "type": "time"
+    },
+    {
+      "default": null,
+      "defaultText": "—",
+      "group": null,
+      "id": "sessionEnd",
+      "kind": "logic",
+      "label": "End",
+      "tooltip": "Local time the session closes. An End before Start runs overnight and belongs to the day it opens.",
+      "type": "time"
+    },
+    {
+      "default": "UTC",
+      "defaultText": "UTC",
+      "group": null,
+      "id": "sessionTimezone",
+      "kind": "logic",
+      "label": "Time zone",
+      "optionLabels": [
+        "UTC",
+        "New York",
+        "Chicago",
+        "Los Angeles",
+        "São Paulo",
+        "London",
+        "Frankfurt",
+        "Zurich",
+        "Dubai",
+        "Mumbai",
+        "Singapore",
+        "Hong Kong",
+        "Shanghai",
+        "Seoul",
+        "Tokyo",
+        "Sydney"
+      ],
+      "options": [
+        "UTC",
+        "America/New_York",
+        "America/Chicago",
+        "America/Los_Angeles",
+        "America/Sao_Paulo",
+        "Europe/London",
+        "Europe/Berlin",
+        "Europe/Zurich",
+        "Asia/Dubai",
+        "Asia/Kolkata",
+        "Asia/Singapore",
+        "Asia/Hong_Kong",
+        "Asia/Shanghai",
+        "Asia/Seoul",
+        "Asia/Tokyo",
+        "Australia/Sydney"
+      ],
+      "tooltip": "Session days and hours are read on this clock.",
+      "type": "select"
+    },
+    {
+      "default": "in",
+      "defaultText": "In session",
+      "group": null,
+      "id": "sessionRule",
+      "kind": "logic",
+      "label": "Rule",
+      "optionLabels": [
+        "In session",
+        "Out of session",
+        "Price levels"
+      ],
+      "options": [
+        "in",
+        "out",
+        "levels"
+      ],
+      "tooltip": "In or out of session filters by time. Price levels compares two session prices and is true only during the session.",
+      "type": "select"
+    },
+    {
+      "default": "15m",
+      "defaultText": "15 minutes",
+      "group": null,
+      "id": "indicatorInterval",
+      "kind": "logic",
+      "label": "Interval",
+      "optionLabels": [
+        "1 minute",
+        "3 minutes",
+        "5 minutes",
+        "15 minutes",
+        "30 minutes",
+        "1 hour",
+        "2 hours",
+        "4 hours",
+        "8 hours",
+        "1 day",
+        "1 week"
+      ],
+      "options": [
+        "1m",
+        "3m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "4h",
+        "8h",
+        "1d",
+        "1w"
+      ],
+      "shownWhen": [
+        {
+          "equals": "levels",
+          "field": "sessionRule"
+        }
+      ],
+      "tooltip": "Candles the session prices are read from.",
+      "type": "interval"
+    },
+    {
+      "default": "price",
+      "defaultText": "Price",
+      "group": null,
+      "id": "sessionLevelA",
+      "kind": "logic",
+      "label": "Compare",
+      "optionLabels": [
+        "Price",
+        "Previous session open",
+        "Previous session high",
+        "Previous session midpoint",
+        "Previous session low",
+        "Previous session close",
+        "Current session open",
+        "Current session midpoint"
+      ],
+      "options": [
+        "price",
+        "prevOpen",
+        "prevHigh",
+        "prevMid",
+        "prevLow",
+        "prevClose",
+        "curOpen",
+        "curMid"
+      ],
+      "shownWhen": [
+        {
+          "equals": "levels",
+          "field": "sessionRule"
+        }
+      ],
+      "tooltip": "Price is the close of the latest candle. Previous session values come from the last session that has ended. Current session open and midpoint have no value outside a session; the midpoint is halfway between the session high and low so far.",
+      "type": "select"
+    },
+    {
+      "default": "cu",
+      "defaultText": "Crossing up",
+      "group": null,
+      "id": "indicatorCondition",
+      "kind": "logic",
+      "label": "Condition",
+      "optionLabels": [
+        "Crossing down",
+        "Crossing up",
+        "Greater than",
+        "Lower than"
+      ],
+      "options": [
+        "cd",
+        "cu",
+        "gt",
+        "lt"
+      ],
+      "shownWhen": [
+        {
+          "equals": "levels",
+          "field": "sessionRule"
+        }
+      ],
+      "tooltip": "Crossing compares two candles of the same session; a new session moving the levels is not a crossing. Nothing triggers before a whole session has ended.",
+      "type": "select"
+    },
+    {
+      "default": "prevHigh",
+      "defaultText": "Previous session high",
+      "group": null,
+      "id": "sessionLevelB",
+      "kind": "logic",
+      "label": "With",
+      "optionLabels": [
+        "Price",
+        "Previous session open",
+        "Previous session high",
+        "Previous session midpoint",
+        "Previous session low",
+        "Previous session close",
+        "Current session open",
+        "Current session midpoint"
+      ],
+      "options": [
+        "price",
+        "prevOpen",
+        "prevHigh",
+        "prevMid",
+        "prevLow",
+        "prevClose",
+        "curOpen",
+        "curMid"
+      ],
+      "shownWhen": [
+        {
+          "equals": "levels",
+          "field": "sessionRule"
+        }
+      ],
+      "tooltip": "The value Compare is tested against.",
+      "type": "select"
+    },
+    {
+      "default": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "defaultText": "1,2,3,4,5",
+      "group": null,
+      "id": "sessionDays",
+      "kind": "logic",
+      "label": "Session Days",
+      "optionLabels": [
+        "Sun",
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "options": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "type": "select"
+    }
+  ],
+  "notes": [],
+  "plots": [],
+  "schema": "gainium.indicator-settings/1",
+  "source": "gainium-catalog"
+}

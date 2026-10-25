@@ -6,7 +6,7 @@ description: >-
   In this article, we explain what is the Tradingview Technical Ratings
   indicator and how it can be used in bot trading.
 createdAt: '2023-04-11T17:54:14.611Z'
-updatedAt: '2026-10-12T00:00:00.000Z'
+updatedAt: '2026-10-25T00:00:00.000Z'
 publishedAt: '2023-04-14T07:56:21.020Z'
 locale: en
 categories:
@@ -18,11 +18,16 @@ tags:
 optimized: true
 ingested: true
 ingestedAt: '2025-06-29T10:57:30.028Z'
+templateVersion: 2
 tldr: >-
-  Combined Technical Ratings aggregate multiple indicators (moving averages,
-  oscillators, pivot points) into a single rating from "Strong Sell" to "Strong
-  Buy." They should be used alongside other analysis tools for trend following,
-  contrarian trading, and asset comparison.
+  Combined Ratings is Gainium's version of TradingView's Technical Ratings:
+  28 indicators each vote +1, 0 or −1, and the sum, from −28 to +28, becomes
+  Strong Buy, Buy, Neutral, Sell or Strong Sell. Check level (15 by default)
+  sets the score for the Strong ratings. The bot computes it from candles of
+  its own Interval; nothing is fetched from TradingView. Defaults are Strong
+  Buy, On entry signal, 1-hour candles. On BTC/USDT daily, the bars after a
+  Sell rating lost about four times what the bars after a Buy rating gained,
+  ignoring fees, so the daily rating works as an on/off switch.
 kind: native
 catalogKeys:
   - TV
@@ -33,77 +38,154 @@ aliases:
   - "TradingView Technical Ratings"
   - "TV Rating"
   - "Technical Ratings"
+faq:
+  - title: Is this the same rating TradingView shows?
+    details: >-
+      It is built the same way, from moving averages and oscillators, but it
+      is scored differently. TradingView averages two groups into a value
+      from −1 to +1 and calls ±0.5 strong. Gainium adds 28 votes into a score
+      from −28 to +28 and calls Check level (15) strong. The two can
+      disagree on the same candle, so judge the bot by its own condition, not
+      by TradingView's widget.
+  - title: What is the difference between On entry signal and On every signal?
+    details: >-
+      On every signal is true on every candle that has the chosen rating. On
+      entry signal is true only on the candle where the score arrives at that
+      rating from zero or the other side: from 0 or below to Buy, for
+      example. For Strong Buy it needs a jump from 0 or below to the Check
+      level within one candle, which is rare: on BTC/USDT 4h a fresh Buy
+      happens about six times as often.
+  - title: What does Check level change?
+    details: >-
+      The score needed for Strong Buy or Strong Sell. With 15, Strong Buy
+      needs 15 of the 28 votes net positive; on BTC/USDT 4h the score is at
+      15 or more on about 13% of candles. A lower level makes
+      Strong ratings more frequent and Buy and Sell rarer.
+  - title: Which timeframe works best?
+    details: >-
+      The rating is built from averages up to 200 periods, so it describes
+      trend more than timing. On BTC/USDT, a fresh Buy rating on 4-hour
+      candles comes nearly three times as often as the daily rating
+      switches side, so use 1 day for a switch and 4 hours for entries.
+related:
+  - moving-averages
+  - rsi
+  - adx
+  - macd
+sources:
+  - title: TradingView Help Center, Technical Ratings
+    url: https://www.tradingview.com/support/solutions/43000614331-technical-ratings/
+  - title: Binance BTC/USDT 4h and 1d candles, computed with Gainium's indicator engine
 ---
 
-In the fast-paced world of cryptocurrency trading, having access to the right tools and strategies can make all the difference. In this article, we'll explore the basics of the Combined Technical Ratings Indicator and example bot-trading strategies to help you maximize profits.
+Combined Ratings scores the market with 28 indicators at once and reports one word: Strong Buy, Buy, Neutral, Sell or Strong Sell. Gainium modelled it on TradingView's Technical Ratings and computes it inside the bot. Bots use a fresh Buy rating as an entry, and the daily rating as an on/off switch.
 
-## Combined Technical Ratings Indicator: An Overview
+## What is Combined Ratings
 
-Combined Technical Ratings, previously known as TradingView Analysis, are designed to help traders quickly evaluate the technical strength of a particular asset or instrument. These ratings are based on a combination of popular technical indicators, such as moving averages, oscillators, and pivot points. The ratings range from "Strong Sell" to "Strong Buy," and can provide traders with a quick visual representation of the technical health of an asset. You can find a detailed explanation of each indicator used [here](https://www.tradingview.com/support/solutions/43000614331-technical-ratings/).
+TradingView's Technical Ratings combine moving-average and oscillator signals into one recommendation. Gainium's Combined Ratings follow the same idea with their own scoring: every closed candle, 28 votes of +1, 0 or −1 are added up.
 
-It's essential to remember that Technical Ratings should not be used in isolation as a basis for trading decisions. Instead, they should be used with other technical analysis tools, such as chart patterns, support and resistance levels, and market trends, to make informed trading decisions.
+The 28 votes:
 
-## Using Tradingview Techincal Ratings in Gainium
+- **14 moving averages:** +1 if the close is above, −1 if below, for SMA and EMA of 5, 10, 20, 30, 50, 100 and 200 periods.
+- **3 more trend lines:** close against VWMA 20, HMA 9 and the Ichimoku base line (9, 26, 52).
+- **RSI 14:** −1 above 70, +1 below 30, else 0.
+- **Stochastic %K (14, 3, 3)** and **Stochastic RSI %K (14, 14, 3, 3):** −1 above 80, +1 below 20.
+- **CCI 20:** −1 above 100, +1 below −100.
+- **Williams %R 14:** −1 above −20, +1 below −80.
+- **ADX 14:** with ADX above 20, +1 when +DI crosses above −DI, −1 when it crosses below.
+- **Awesome Oscillator (5, 34):** +1 above 0 and rising, −1 below 0 and falling.
+- **Momentum 10:** +1 rising, −1 falling.
+- **MACD histogram (12, 26, 9):** +1 rising, −1 otherwise.
+- **Bull/Bear Power 30:** +1 above 0, −1 otherwise.
+- **Ultimate Oscillator (7, 14, 28):** +1 above 70, −1 below 30.
 
-To select it, set the deal start condition (or the take profit or stop loss type) to **Indicators**, click **Edit** on the indicator, then **Change indicator**, and choose **Combined Ratings (TradingView)**.
-![Screenshot 2023-04-11 at 18.51.59.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_18_51_59_09012eb084-69f064.webp)
-*Tradingview Analysis*
+The score runs from −28 to +28. With **Check level** *L* (15 by default): Strong Buy at *L* or more, Buy from 1 to *L* − 1, Neutral at exactly 0, Sell from −1 to −(*L* − 1), Strong Sell at −*L* or less.
 
+How to read it: half the votes are moving averages, so the rating mostly says where price sits against averages up to 200 periods. It reacts slowly and stays on one side for many candles. On BTC/USDT 4h the score is Strong Buy on about 13% of candles, Buy on 33%, Sell on 34% and Strong Sell on 17%.
 
+![TradingView's own Technical Ratings on BINANCE:BTCUSDT 1D, dark theme: red bars through most of the decline to 60,000 and blue bars from the breakout that followed; Gainium's Combined Ratings use the same building blocks with a different score](https://content.gainium.io/images/content/indicators/tradingview-technical-ratings__tv.webp)
 
-## Utilizing Combined Technical Ratings in Crypto Trading
+### Settings and tips
 
-The Technical Ratings Indicator can be an invaluable tool for crypto traders, providing a quick and easy way to gauge an asset's technical health. Thanks to this indicator, traders can make more informed decisions regarding entry and exit points, risk management, and overall market analysis.
+| Setting | Default | What it does |
+| --- | --- | --- |
+| Signal | Strong Buy | The rating that makes the condition true. Both Buy accepts Buy and Strong Buy; Both Sell accepts Sell and Strong Sell. |
+| Trigger | On entry signal | On entry signal: true only when the rating crosses over from the other side, from a score of 0 or below for buy ratings and 0 or above for sell ratings. On every signal: true on every candle with that rating. |
+| Check level | 15 | The score, out of ±28, at which Buy becomes Strong Buy and Sell becomes Strong Sell. The field accepts 1 to 28. |
+| Interval | 1 hour | Candle size of all 28 votes, from 1 minute to 1 week. |
+| Keep true | 0 | Extra candles the condition stays true after it fires, so it can meet a slower condition in the same group. |
 
-### Following the Technical Ratings
+**Tip:** With **Trigger** On entry signal, Strong Buy needs the score to jump from 0 or below to Check level or more within one candle. On BTC/USDT 4h, Check level 10 gives about 2.3 times as many of those jumps as 15, and 8 about three times as many.
 
-Suppose you're interested in trading ETH and already bullish on the token's fundamentals. You want to confirm the current bullish trend in the asset using technical analysis. You can check the Technical Ratings for ETH on TradingView and see that it's currently rated as "Strong Buy" or “Buy.” This confirms your bullish outlook as the Buy is also on a very high timeframe (daily in the image below) and gives you additional confidence to enter a long position on ETH.Here's how you can find them:
-- Search for the asset or instrument you're interested in trading on TradingView.
-- Select the Technical Ratings tab on the left-hand side of the chart.
-- Take a look at the Technical Ratings to get an idea of the overall sentiment for the asset.
-- Check out the specific indicators that are being used to generate the ratings. These can be found by hovering over the rating itself.
-- Use the ratings as a starting point to assess the technical strength of the asset. In the example below the overall summary indicates that is an uptrend “Buy” on the 1-day timeframe- Combine the Technical Ratings with other technical analysis tools, such as support and resistance levels and chart patterns, to make informed trading decisions.
-![Screenshot 2023-04-11 at 19.26.57.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_19_26_57_ad0ed441cf-5cbf9b.webp)
-*Eth Technical Ratings in Treadingview*
+**Tip:** **Check level** goes up to 28, the highest score the 28 votes can give. At 28, Strong Buy needs every vote positive. At 1, every positive score counts as Strong Buy and Buy never fires.
 
-### Combining Technical Ratings with Key Levels
+## Trading setups for bots
 
-Another strategy combines the Technical Ratings Indicator with critical support and resistance levels. In this approach, traders can use the overall rating to gauge the market's direction while utilizing support and resistance levels to identify optimal entry and exit points.
+### Fresh Strong Buy as a momentum entry
 
-For example, a trader might consider opening a long position if the Technical Ratings Indicator rates BTC/USDT as a "Buy" and the price is approaching a strong support level. On the other hand, if the rating is a "Sell" and the price is nearing a significant resistance level, a short position might be more appropriate.
+- **Entry:** Combined Ratings, Signal **Strong Buy**, Trigger **On entry signal**, Check level 15, Interval 4 hours. It fires only when the score jumps from 0 or below to 15 or more within one candle.
+- **Exit:** a 1.5% take profit, with DCA orders below.
+- **Settings:** Check level 15. Signal **Buy** with the same trigger fires far more often, about six times as often as Strong Buy.
+- **Timeframe:** 4 hours.
+- **When it fails:** at the end of a rally, which is where a jump to Strong Buy happens. On BTC/USDT 4h, about half (55%) of the Strong Buy entries reached +1.5% within 18 bars; a buy on any 4h candle did that 64% of the time. The fresh Buy entry did slightly better, about two thirds (67%). In the chart above, Strong Buy showed near 84,000 about 12 bars before price fell to 79,200.
 
-### Divergence and Confluence
+![Annotated Gainium bot-form chart with Combined Ratings, BTC/USDT 4h on a Bybit paper account: Strong Buy labels near 83,500 and, later, near 84,000, each followed by a drop](https://content.gainium.io/images/content/indicators/tradingview-technical-ratings__strong-buy.webp)
 
-Incorporating the Technical Ratings Indicator into a divergence and confluence strategy can also be highly effective. Traders can monitor the indicator for signs of divergence between the overall rating and the price action, signaling a potential trend reversal.
+### Daily rating as an on/off switch
 
-For example, if the Technical Ratings Indicator rates BTC/USDT as a "Strong Buy" while the price is forming lower lows, this bullish divergence could indicate that a trend reversal is imminent. Conversely, if the rating is a "Strong Sell" while the price is forming higher highs, a bearish divergence may suggest an upcoming trend reversal.
+Run a long bot only while the daily rating is on the buy side.
 
-### Contrarian trading
+- **Entry:** in the Bot Controller, start the bot on Combined Ratings, Signal **Both Buy**, Trigger **On every signal**, Interval **1 day**; stop it on **Both Sell** with the same settings. The bot's own start condition times the deals.
+- **Exit:** the stop condition stops new deals; close open deals with your take profit or a stop loss.
+- **Settings:** Check level 15. Both Buy and Both Sell ignore the Strong/normal split, so the switch reads only which side of 0 the score is on.
+- **Timeframe:** 1 day.
+- **When it fails:** in ranges, where the score hovers near 0 and the switch flips back and forth. It still separates the market: on BTC/USDT the daily bars after a Sell or Strong Sell rating lost about four times what the bars after a Buy or Strong Buy rating gained, ignoring fees. The two long Sell runs in the chart covered drops from 92,600 to 68,800 and from 79,100 to 62,600.
 
-Let's say you're interested in contrarian trading, which involves taking positions opposite the prevailing market sentiment. You can use Technical Ratings to identify currently overbought or oversold assets. For example, you might see that Apecoin (APE) is rated as a "Strong Buy," but it has been in a strong uptrend for a while. You might consider taking a short position on APE, anticipating that the trend is due for a correction.
+![Annotated BTC/USDT 1D chart with TradingView's Technical Ratings below: boxes mark two long Gainium Combined Ratings Sell periods and a later Buy period](https://content.gainium.io/images/content/indicators/tradingview-technical-ratings__daily-switch.webp)
 
-Technical Ratings are primarily based on lagging indicators, so by the time you see “Strong Buy,” it might be the right time to short, especially if you are looking at the ratings on a very small timeframe. The images below show that Tradingview ratings printed 'Strong Buy" in the 1-minute timeframe. However, zooming out, you can see that APE has been on a strong run for quite a while and it might not be a good idea to take a Long Position, even if just for a quick scalp when the RSI is about to top the 70ies again.
-![Screenshot 2023-04-11 at 19.37.39.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_19_37_39_a8c0fefade-289e6d.webp)
-*Strong Buy on 1 minute*
-![Screenshot 2023-04-11 at 19.38.06.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_19_38_06_b5b5e7c835-dbc3ea.webp)
-*1-hour timeframe*
+## Using Combined Ratings in Gainium
 
-### Combining other indicators
+1. Create a DCA bot and switch the form to **Manual**.
+2. Set **Deal start condition** to **Indicators**, click **Edit**, then **Change indicator**, and search for **Combined**. For the switch, add it in the Bot Controller instead.
+3. Pick **Combined Ratings (TradingView)**, set the fields, and click **Done**.
 
-The examples of the previous scenario already highlight how useful it is to use other indicators before entering a trade. As a general rule relying only on TradingView analysis for bot trading is quite risky, and you might want to use other indicators to filter out bad entries. In the example above, you might want to add an RSI filter not to enter any long position when the value is above 70 on a higher timeframe.
+![Gainium indicator picker searched for Combined, with the Combined Ratings (TradingView) card ringed](https://content.gainium.io/images/content/indicators/tradingview-technical-ratings__picker.webp)
 
-The same principle can be applied to short bot entries. You might want not to enter any short position when “Sell” and/or “Strong Sell” occur on a low timeframe if the RSI on a 1-hour timeframe is below 30. In the example below, you would rather ignore entering a short position on the 9th of April when the indicator prints “Strong Sell” on the 5 min chart. If you zoom out and check the RSI in a 1-hour timeframe, the asset is already oversold, and it's unlikely it will continue dropping further.
-![Screenshot 2023-04-11 at 19.55.54.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_19_55_54_44ff429dcb-88fc97.webp)
-*Strong Sell on 5 minute*
-![Screenshot 2023-04-11 at 19.56.23.png](https://content.gainium.io/images/content/help/Screenshot_2023_04_11_at_19_56_23_79430420a3-b0161a.webp)
-*1-hour timeframe*
+The fields and their defaults:
 
-### Asset comparison
+- **Signal:** Strong Buy. The options are Strong Buy, Buy, Both Buy, Strong Sell, Sell and Both Sell. "Both" accepts the strong and the normal rating.
+- **Trigger:** On entry signal. The other option is On every signal.
+- **Check level:** 15, from 1 to 28. The score for the Strong ratings, out of 28.
+- **Interval:** 1 hour.
+- **Keep true:** 0 extra candles.
 
-If you're trying to decide between two assets to invest in the long term, you can compare their Technical Ratings on TradingView. For example, let's say you're trying to choose between BTC and ETH. You can look at the Technical Ratings for each asset and see that BTC is rated as "Neutral" while ETH is rated as a "Strong Buy". This may influence your decision to invest in ETH instead of BTC.
+Combined Ratings works as a deal start, DCA, take profit or stop loss condition, and in the Bot Controller.
 
-## Conclusion
+Example configuration for the first setup: Signal Strong Buy, Trigger On entry signal, Check level 15, Interval 4 hours, Keep true 0.
 
-TradingView's Technical Ratings Indicator is a powerful tool that can provide crypto traders with valuable insights and help them make more informed decisions. Remember, always combine the Technical Ratings Indicator with other technical and fundamental analysis tools to gain a more comprehensive understanding of the market and ensure a well-rounded approach to your trading. As with any strategy, proper risk management and discipline are crucial for maximizing profitability and protecting your portfolio.
+![Gainium Combined Ratings settings card with Signal Strong Buy, Trigger On entry signal, Check level 15 and Interval 4 hours](https://content.gainium.io/images/content/indicators/tradingview-technical-ratings__example.webp)
 
+## Related indicators
 
+- [Moving Averages](https://gainium.io/indicators/moving-averages): 17 of the 28 votes are price against an average; one 200-period average gives a similar trend switch with fewer flips.
+- [RSI](https://gainium.io/indicators/rsi): one of the votes, and a timing condition to pair with the daily switch.
+- [ADX](https://gainium.io/indicators/adx): another vote; on its own it tells you whether the trend the rating describes has force.
+- [MACD](https://gainium.io/indicators/macd): the histogram vote, available as its own condition with a Value.
+
+## FAQ
+
+### Is this the same rating TradingView shows?
+
+It is built the same way, from moving averages and oscillators, but it is scored differently. TradingView averages two groups into a value from −1 to +1 and calls ±0.5 strong. Gainium adds 28 votes into a score from −28 to +28 and calls Check level (15) strong. The two can disagree on the same candle, so judge the bot by its own condition, not by TradingView's widget.
+
+### What is the difference between On entry signal and On every signal?
+
+On every signal is true on every candle that has the chosen rating. On entry signal is true only on the candle where the score arrives at that rating from zero or the other side: from 0 or below to Buy, for example. For Strong Buy it needs a jump from 0 or below to the Check level within one candle, which is rare: on BTC/USDT 4h a fresh Buy happens about six times as often.
+
+### What does Check level change?
+
+The score needed for Strong Buy or Strong Sell. With 15, Strong Buy needs 15 of the 28 votes net positive; on BTC/USDT 4h the score is at 15 or more on about 13% of candles. A lower level makes Strong ratings more frequent and Buy and Sell rarer.
+
+### Which timeframe works best?
+
+The rating is built from averages up to 200 periods, so it describes trend more than timing. On BTC/USDT, a fresh Buy rating on 4-hour candles comes nearly three times as often as the daily rating switches side, so use 1 day for a switch and 4 hours for entries.
