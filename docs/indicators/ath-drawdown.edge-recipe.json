@@ -1,0 +1,104 @@
+{
+  "indicator": "ath-drawdown",
+  "defaultTf": "1h",
+  "featured": [
+    "ath100-lt10",
+    "ath100-down10",
+    "ath100-gt5-short"
+  ],
+  "settings": [
+    {
+      "id": "ath100-lt10",
+      "label": "More than 10% under the 100-bar high",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "ATH",
+        "args": [
+          100
+        ],
+        "input": "candle"
+      },
+      "output": null,
+      "condition": {
+        "op": "lt",
+        "against": -10
+      }
+    },
+    {
+      "id": "ath100-down10",
+      "label": "Drawdown crosses down 10%",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "ATH",
+        "args": [
+          100
+        ],
+        "input": "candle"
+      },
+      "output": null,
+      "condition": {
+        "op": "crossDown",
+        "against": -10
+      }
+    },
+    {
+      "id": "ath100-bw10-20",
+      "label": "10% to 20% under the 100-bar high",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "ATH",
+        "args": [
+          100
+        ],
+        "input": "candle"
+      },
+      "output": null,
+      "condition": {
+        "op": "between",
+        "against": [
+          -20,
+          -10
+        ]
+      }
+    },
+    {
+      "id": "ath100-lt20",
+      "label": "More than 20% under the 100-bar high",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "ATH",
+        "args": [
+          100
+        ],
+        "input": "candle"
+      },
+      "output": null,
+      "condition": {
+        "op": "lt",
+        "against": -20
+      }
+    },
+    {
+      "id": "ath100-gt5-short",
+      "label": "Within 5% of the 100-bar high, short",
+      "side": "short",
+      "featured": true,
+      "indicator": {
+        "class": "ATH",
+        "args": [
+          100
+        ],
+        "input": "candle"
+      },
+      "output": null,
+      "condition": {
+        "op": "gt",
+        "against": -5
+      }
+    }
+  ]
+}

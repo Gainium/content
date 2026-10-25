@@ -1,0 +1,104 @@
+{
+  "indicator": "long-wick-detector",
+  "defaultTf": "1h",
+  "featured": [
+    "bottom-start-t1",
+    "bottom-during-t2-200",
+    "top-start-t1"
+  ],
+  "settings": [
+    {
+      "id": "bottom-start-t1",
+      "label": "Bottom wick, signal start, threshold 1",
+      "side": "long",
+      "volatility": true,
+      "featured": true,
+      "indicator": {
+        "class": "LongWick",
+        "args": [
+          1,
+          1000
+        ],
+        "input": "candle"
+      },
+      "output": "bear",
+      "condition": {
+        "op": "appears"
+      }
+    },
+    {
+      "id": "bottom-start-t2",
+      "label": "Bottom wick, signal start, threshold 2",
+      "side": "long",
+      "volatility": true,
+      "featured": false,
+      "indicator": {
+        "class": "LongWick",
+        "args": [
+          2,
+          1000
+        ],
+        "input": "candle"
+      },
+      "output": "bear",
+      "condition": {
+        "op": "appears"
+      }
+    },
+    {
+      "id": "bottom-during-t2-200",
+      "label": "Bottom wick level holds, threshold 2, 200 bars",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "LongWick",
+        "args": [
+          2,
+          200
+        ],
+        "input": "candle"
+      },
+      "output": "bear",
+      "condition": {
+        "op": "present"
+      }
+    },
+    {
+      "id": "top-start-t1",
+      "label": "Top wick, signal start, threshold 1",
+      "side": "short",
+      "volatility": true,
+      "featured": true,
+      "indicator": {
+        "class": "LongWick",
+        "args": [
+          1,
+          1000
+        ],
+        "input": "candle"
+      },
+      "output": "bull",
+      "condition": {
+        "op": "appears"
+      }
+    },
+    {
+      "id": "top-during-t2-200",
+      "label": "Top wick level holds, threshold 2, 200 bars",
+      "side": "short",
+      "featured": false,
+      "indicator": {
+        "class": "LongWick",
+        "args": [
+          2,
+          200
+        ],
+        "input": "candle"
+      },
+      "output": "bull",
+      "condition": {
+        "op": "present"
+      }
+    }
+  ]
+}

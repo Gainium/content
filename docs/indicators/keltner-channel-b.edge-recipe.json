@@ -1,0 +1,153 @@
+{
+  "indicator": "keltner-channel-b",
+  "defaultTf": "1h",
+  "featured": [
+    "kcpb20-down01",
+    "kcpb20-up1",
+    "kcpb7-down0"
+  ],
+  "settings": [
+    {
+      "id": "kcpb20-down01",
+      "label": "KC %B crosses down 0.1",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "createIndicator",
+        "args": [
+          {
+            "type": "KCPB",
+            "interval": 20,
+            "ma": "ema",
+            "multiplier": 2,
+            "range": "ATR",
+            "rangeLength": 10,
+            "percentile": false,
+            "percentileLookback": 150,
+            "percentilePercentage": 80
+          }
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossDown",
+        "against": 0.1
+      }
+    },
+    {
+      "id": "kcpb20-lt0",
+      "label": "KC %B below 0",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "createIndicator",
+        "args": [
+          {
+            "type": "KCPB",
+            "interval": 20,
+            "ma": "ema",
+            "multiplier": 2,
+            "range": "ATR",
+            "rangeLength": 10,
+            "percentile": false,
+            "percentileLookback": 150,
+            "percentilePercentage": 80
+          }
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "lt",
+        "against": 0
+      }
+    },
+    {
+      "id": "kcpb20-up1",
+      "label": "KC %B crosses up 1",
+      "side": "long",
+      "volatility": true,
+      "featured": true,
+      "indicator": {
+        "class": "createIndicator",
+        "args": [
+          {
+            "type": "KCPB",
+            "interval": 20,
+            "ma": "ema",
+            "multiplier": 2,
+            "range": "ATR",
+            "rangeLength": 10,
+            "percentile": false,
+            "percentileLookback": 150,
+            "percentilePercentage": 80
+          }
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossUp",
+        "against": 1
+      }
+    },
+    {
+      "id": "kcpb7-down0",
+      "label": "KC %B crosses down 0 (Length 7, Range length 20)",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "createIndicator",
+        "args": [
+          {
+            "type": "KCPB",
+            "interval": 7,
+            "ma": "ema",
+            "multiplier": 2,
+            "range": "ATR",
+            "rangeLength": 20,
+            "percentile": false,
+            "percentileLookback": 150,
+            "percentilePercentage": 80
+          }
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossDown",
+        "against": 0
+      }
+    },
+    {
+      "id": "kcpb20-gt1-short",
+      "label": "KC %B above 1, short",
+      "side": "short",
+      "volatility": true,
+      "featured": false,
+      "indicator": {
+        "class": "createIndicator",
+        "args": [
+          {
+            "type": "KCPB",
+            "interval": 20,
+            "ma": "ema",
+            "multiplier": 2,
+            "range": "ATR",
+            "rangeLength": 10,
+            "percentile": false,
+            "percentileLookback": 150,
+            "percentilePercentage": 80
+          }
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "gt",
+        "against": 1
+      }
+    }
+  ]
+}

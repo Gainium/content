@@ -1,0 +1,151 @@
+{
+  "indicator": "macd",
+  "defaultTf": "1h",
+  "featured": [
+    "macd-up",
+    "macd-down",
+    "macd-gt"
+  ],
+  "settings": [
+    {
+      "id": "macd-up",
+      "label": "MACD line crosses up signal",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "createIndicator",
+        "args": [
+          {
+            "type": "MACD",
+            "shortInterval": 12,
+            "longInterval": 26,
+            "signalInterval": 9,
+            "percentile": false,
+            "percentileLookback": 150,
+            "percentilePercentage": 80,
+            "maSignal": "ema",
+            "maSource": "ema"
+          }
+        ],
+        "input": "close"
+      },
+      "output": "histogram",
+      "condition": {
+        "op": "crossUp",
+        "against": 0
+      }
+    },
+    {
+      "id": "macd-down",
+      "label": "MACD line crosses down signal",
+      "side": "short",
+      "featured": true,
+      "indicator": {
+        "class": "createIndicator",
+        "args": [
+          {
+            "type": "MACD",
+            "shortInterval": 12,
+            "longInterval": 26,
+            "signalInterval": 9,
+            "percentile": false,
+            "percentileLookback": 150,
+            "percentilePercentage": 80,
+            "maSignal": "ema",
+            "maSource": "ema"
+          }
+        ],
+        "input": "close"
+      },
+      "output": "histogram",
+      "condition": {
+        "op": "crossDown",
+        "against": 0
+      }
+    },
+    {
+      "id": "macd-gt",
+      "label": "MACD line above signal",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "createIndicator",
+        "args": [
+          {
+            "type": "MACD",
+            "shortInterval": 12,
+            "longInterval": 26,
+            "signalInterval": 9,
+            "percentile": false,
+            "percentileLookback": 150,
+            "percentilePercentage": 80,
+            "maSignal": "ema",
+            "maSource": "ema"
+          }
+        ],
+        "input": "close"
+      },
+      "output": "histogram",
+      "condition": {
+        "op": "gt",
+        "against": 0
+      }
+    },
+    {
+      "id": "macd-lt",
+      "label": "MACD line below signal",
+      "side": "short",
+      "featured": false,
+      "indicator": {
+        "class": "createIndicator",
+        "args": [
+          {
+            "type": "MACD",
+            "shortInterval": 12,
+            "longInterval": 26,
+            "signalInterval": 9,
+            "percentile": false,
+            "percentileLookback": 150,
+            "percentilePercentage": 80,
+            "maSignal": "ema",
+            "maSource": "ema"
+          }
+        ],
+        "input": "close"
+      },
+      "output": "histogram",
+      "condition": {
+        "op": "lt",
+        "against": 0
+      }
+    },
+    {
+      "id": "macd-s5-up",
+      "label": "MACD(12,26,5) line crosses up signal",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "createIndicator",
+        "args": [
+          {
+            "type": "MACD",
+            "shortInterval": 12,
+            "longInterval": 26,
+            "signalInterval": 5,
+            "percentile": false,
+            "percentileLookback": 150,
+            "percentilePercentage": 80,
+            "maSignal": "ema",
+            "maSource": "ema"
+          }
+        ],
+        "input": "close"
+      },
+      "output": "histogram",
+      "condition": {
+        "op": "crossUp",
+        "against": 0
+      }
+    }
+  ]
+}

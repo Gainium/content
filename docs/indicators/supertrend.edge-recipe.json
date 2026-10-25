@@ -1,0 +1,129 @@
+{
+  "indicator": "supertrend",
+  "defaultTf": "1h",
+  "featured": [
+    "st3-flip-up",
+    "st3-flip-down-short",
+    "st3-up"
+  ],
+  "settings": [
+    {
+      "id": "st3-flip-up",
+      "label": "SuperTrend(10, 3) flips up",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "SuperTrend",
+        "args": [
+          3,
+          10
+        ],
+        "input": "candle"
+      },
+      "output": "direction",
+      "condition": {
+        "op": "changes",
+        "from": 1,
+        "to": -1
+      }
+    },
+    {
+      "id": "st3-flip-down-short",
+      "label": "SuperTrend(10, 3) flips down, short",
+      "side": "short",
+      "featured": true,
+      "indicator": {
+        "class": "SuperTrend",
+        "args": [
+          3,
+          10
+        ],
+        "input": "candle"
+      },
+      "output": "direction",
+      "condition": {
+        "op": "changes",
+        "from": -1,
+        "to": 1
+      }
+    },
+    {
+      "id": "st3-up",
+      "label": "SuperTrend(10, 3) in an up trend",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "SuperTrend",
+        "args": [
+          3,
+          10
+        ],
+        "input": "candle"
+      },
+      "output": "direction",
+      "condition": {
+        "op": "eq",
+        "against": -1
+      }
+    },
+    {
+      "id": "st2-flip-up",
+      "label": "SuperTrend(10, 2) flips up",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "SuperTrend",
+        "args": [
+          2,
+          10
+        ],
+        "input": "candle"
+      },
+      "output": "direction",
+      "condition": {
+        "op": "changes",
+        "from": 1,
+        "to": -1
+      }
+    },
+    {
+      "id": "st4-flip-up",
+      "label": "SuperTrend(10, 4) flips up",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "SuperTrend",
+        "args": [
+          4,
+          10
+        ],
+        "input": "candle"
+      },
+      "output": "direction",
+      "condition": {
+        "op": "changes",
+        "from": 1,
+        "to": -1
+      }
+    },
+    {
+      "id": "st3-down-short",
+      "label": "SuperTrend(10, 3) in a down trend, short",
+      "side": "short",
+      "featured": false,
+      "indicator": {
+        "class": "SuperTrend",
+        "args": [
+          3,
+          10
+        ],
+        "input": "candle"
+      },
+      "output": "direction",
+      "condition": {
+        "op": "eq",
+        "against": 1
+      }
+    }
+  ]
+}

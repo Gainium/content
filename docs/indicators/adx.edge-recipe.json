@@ -1,0 +1,116 @@
+{
+  "indicator": "adx",
+  "defaultTf": "1h",
+  "featured": [
+    "adx14-up25",
+    "adx14-gt25",
+    "adx14-lt20"
+  ],
+  "settings": [
+    {
+      "id": "adx14-up25",
+      "label": "ADX(14) crosses up 25",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "ADX",
+        "args": [
+          14,
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossUp",
+        "against": 25
+      }
+    },
+    {
+      "id": "adx14-gt25",
+      "label": "ADX(14) above 25",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "ADX",
+        "args": [
+          14,
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "gt",
+        "against": 25
+      }
+    },
+    {
+      "id": "adx14-lt20",
+      "label": "ADX(14) below 20",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "ADX",
+        "args": [
+          14,
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "lt",
+        "against": 20
+      }
+    },
+    {
+      "id": "adx14-down20",
+      "label": "ADX(14) crosses down 20",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "ADX",
+        "args": [
+          14,
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossDown",
+        "against": 20
+      }
+    },
+    {
+      "id": "adx14-gt40",
+      "label": "ADX(14) above 40",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "ADX",
+        "args": [
+          14,
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "gt",
+        "against": 40
+      }
+    }
+  ]
+}

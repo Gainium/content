@@ -1,0 +1,144 @@
+{
+  "indicator": "moving-average-ratio",
+  "defaultTf": "1h",
+  "featured": [
+    "mar-ema20-down099",
+    "mar-ema20-down097",
+    "mar-ema50-gt101-trend"
+  ],
+  "settings": [
+    {
+      "id": "mar-ema20-down099",
+      "label": "Price / EMA 20 crosses down 0.99",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "MAR",
+        "args": [
+          "ema",
+          20,
+          "price",
+          20,
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossDown",
+        "against": 0.99
+      }
+    },
+    {
+      "id": "mar-ema20-down097",
+      "label": "Price / EMA 20 crosses down 0.97",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "MAR",
+        "args": [
+          "ema",
+          20,
+          "price",
+          20,
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossDown",
+        "against": 0.97
+      }
+    },
+    {
+      "id": "mar-ema50-gt101-trend",
+      "label": "Price / EMA 50 above 1.01, rising 2% in 10 bars",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "MAR",
+        "args": [
+          "ema",
+          50,
+          "price",
+          20,
+          false,
+          150,
+          80,
+          true,
+          10,
+          2,
+          "higher"
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "all": [
+          {
+            "op": "gt",
+            "against": 1.01
+          },
+          {
+            "op": "eq",
+            "output": "trend",
+            "against": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "mar-ema20-ema50-up1",
+      "label": "EMA 20 / EMA 50 crosses up 1",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "MAR",
+        "args": [
+          "ema",
+          50,
+          "ema",
+          20,
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossUp",
+        "against": 1
+      }
+    },
+    {
+      "id": "mar-ema20-up103-short",
+      "label": "Price / EMA 20 crosses up 1.03, short",
+      "side": "short",
+      "featured": false,
+      "indicator": {
+        "class": "MAR",
+        "args": [
+          "ema",
+          20,
+          "price",
+          20,
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossUp",
+        "against": 1.03
+      }
+    }
+  ]
+}

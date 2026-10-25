@@ -1,0 +1,177 @@
+{
+  "indicator": "stoch",
+  "defaultTf": "1h",
+  "featured": [
+    "stoch-kd-up-lower",
+    "stoch-kd-down-upper",
+    "stoch-k-lt20"
+  ],
+  "settings": [
+    {
+      "id": "stoch-kd-up-lower",
+      "label": "Stoch(14,1,3) %K crosses up %D below 20",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "StochasticOscillator",
+        "args": [
+          14,
+          1,
+          3
+        ],
+        "input": "candle"
+      },
+      "output": "stochK",
+      "condition": {
+        "all": [
+          {
+            "op": "crossUp",
+            "output": "stochK",
+            "against": {
+              "output": "stochD"
+            }
+          },
+          {
+            "op": "lt",
+            "output": "stochK",
+            "against": 20,
+            "raw": true
+          },
+          {
+            "op": "lt",
+            "output": "stochD",
+            "against": 20,
+            "raw": true
+          },
+          {
+            "op": "lt",
+            "output": "stochK",
+            "against": 20,
+            "raw": true,
+            "at": "prev"
+          },
+          {
+            "op": "lt",
+            "output": "stochD",
+            "against": 20,
+            "raw": true,
+            "at": "prev"
+          }
+        ]
+      }
+    },
+    {
+      "id": "stoch-kd-down-upper",
+      "label": "Stoch(14,1,3) %K crosses down %D above 80",
+      "side": "short",
+      "featured": true,
+      "indicator": {
+        "class": "StochasticOscillator",
+        "args": [
+          14,
+          1,
+          3
+        ],
+        "input": "candle"
+      },
+      "output": "stochK",
+      "condition": {
+        "all": [
+          {
+            "op": "crossDown",
+            "output": "stochK",
+            "against": {
+              "output": "stochD"
+            }
+          },
+          {
+            "op": "gt",
+            "output": "stochK",
+            "against": 80,
+            "raw": true
+          },
+          {
+            "op": "gt",
+            "output": "stochD",
+            "against": 80,
+            "raw": true
+          },
+          {
+            "op": "gt",
+            "output": "stochK",
+            "against": 80,
+            "raw": true,
+            "at": "prev"
+          },
+          {
+            "op": "gt",
+            "output": "stochD",
+            "against": 80,
+            "raw": true,
+            "at": "prev"
+          }
+        ]
+      }
+    },
+    {
+      "id": "stoch-k-lt20",
+      "label": "Stoch(14,1,3) %K below 20",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "StochasticOscillator",
+        "args": [
+          14,
+          1,
+          3
+        ],
+        "input": "candle"
+      },
+      "output": "stochK",
+      "condition": {
+        "op": "lt",
+        "against": 20
+      }
+    },
+    {
+      "id": "stoch-k-up20",
+      "label": "Stoch(14,1,3) %K crosses up 20",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "StochasticOscillator",
+        "args": [
+          14,
+          1,
+          3
+        ],
+        "input": "candle"
+      },
+      "output": "stochK",
+      "condition": {
+        "op": "crossUp",
+        "against": 20
+      }
+    },
+    {
+      "id": "stoch-k-gt80",
+      "label": "Stoch(14,1,3) %K above 80",
+      "side": "short",
+      "featured": false,
+      "indicator": {
+        "class": "StochasticOscillator",
+        "args": [
+          14,
+          1,
+          3
+        ],
+        "input": "candle"
+      },
+      "output": "stochK",
+      "condition": {
+        "op": "gt",
+        "against": 80
+      }
+    }
+  ]
+}

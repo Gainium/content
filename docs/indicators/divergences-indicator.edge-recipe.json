@@ -1,0 +1,254 @@
+{
+  "indicator": "divergences-indicator",
+  "defaultTf": "1h",
+  "featured": [
+    "abull-2",
+    "rsi-bull",
+    "abear-2"
+  ],
+  "settings": [
+    {
+      "id": "abull-2",
+      "label": "Any bullish, 2+ oscillators",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "DIV",
+        "args": [
+          [
+            "ao",
+            "cci",
+            "macd",
+            "mfi",
+            "mom",
+            "rsi",
+            "stoch",
+            "uo",
+            "wr"
+          ],
+          3,
+          1,
+          1,
+          60
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "any": [
+          {
+            "op": "gte",
+            "raw": true,
+            "output": "posdivergence",
+            "against": 2
+          },
+          {
+            "op": "gte",
+            "raw": true,
+            "output": "posdivergencehidden",
+            "against": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "bull-1",
+      "label": "Bullish, 1+ oscillator",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "DIV",
+        "args": [
+          [
+            "ao",
+            "cci",
+            "macd",
+            "mfi",
+            "mom",
+            "rsi",
+            "stoch",
+            "uo",
+            "wr"
+          ],
+          3,
+          1,
+          1,
+          60
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "gte",
+        "raw": true,
+        "output": "posdivergence",
+        "against": 1
+      }
+    },
+    {
+      "id": "bull-2",
+      "label": "Bullish, 2+ oscillators",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "DIV",
+        "args": [
+          [
+            "ao",
+            "cci",
+            "macd",
+            "mfi",
+            "mom",
+            "rsi",
+            "stoch",
+            "uo",
+            "wr"
+          ],
+          3,
+          1,
+          1,
+          60
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "gte",
+        "raw": true,
+        "output": "posdivergence",
+        "against": 2
+      }
+    },
+    {
+      "id": "bull-3",
+      "label": "Bullish, 3+ oscillators",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "DIV",
+        "args": [
+          [
+            "ao",
+            "cci",
+            "macd",
+            "mfi",
+            "mom",
+            "rsi",
+            "stoch",
+            "uo",
+            "wr"
+          ],
+          3,
+          1,
+          1,
+          60
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "gte",
+        "raw": true,
+        "output": "posdivergence",
+        "against": 3
+      }
+    },
+    {
+      "id": "hbull-2",
+      "label": "Hidden bullish, 2+ oscillators",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "DIV",
+        "args": [
+          [
+            "ao",
+            "cci",
+            "macd",
+            "mfi",
+            "mom",
+            "rsi",
+            "stoch",
+            "uo",
+            "wr"
+          ],
+          3,
+          1,
+          1,
+          60
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "gte",
+        "raw": true,
+        "output": "posdivergencehidden",
+        "against": 2
+      }
+    },
+    {
+      "id": "rsi-bull",
+      "label": "RSI bullish divergence",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "DIV",
+        "args": [
+          [
+            "rsi"
+          ],
+          3,
+          1,
+          1,
+          60
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "gte",
+        "raw": true,
+        "output": "posdivergence",
+        "against": 1
+      }
+    },
+    {
+      "id": "abear-2",
+      "label": "Any bearish, 2+ oscillators",
+      "side": "short",
+      "featured": true,
+      "indicator": {
+        "class": "DIV",
+        "args": [
+          [
+            "ao",
+            "cci",
+            "macd",
+            "mfi",
+            "mom",
+            "rsi",
+            "stoch",
+            "uo",
+            "wr"
+          ],
+          3,
+          1,
+          1,
+          60
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "any": [
+          {
+            "op": "gte",
+            "raw": true,
+            "output": "negdivergence",
+            "against": 2
+          },
+          {
+            "op": "gte",
+            "raw": true,
+            "output": "negdivergencehidden",
+            "against": 2
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "indicator": "stochrsi",
+  "defaultTf": "1h",
+  "featured": [
+    "stochrsi-kd-up-lower",
+    "stochrsi-kd-down-upper",
+    "stochrsi-k-lt20"
+  ],
+  "settings": [
+    {
+      "id": "stochrsi-kd-up-lower",
+      "label": "StochRSI(14,14,3,3) %K crosses up %D below 20",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "StochasticRSI",
+        "args": [
+          14,
+          14,
+          3,
+          3
+        ],
+        "input": "candle"
+      },
+      "output": "stochK",
+      "condition": {
+        "all": [
+          {
+            "op": "crossUp",
+            "output": "stochK",
+            "against": {
+              "output": "stochD"
+            }
+          },
+          {
+            "op": "lt",
+            "output": "stochK",
+            "against": 20,
+            "raw": true
+          },
+          {
+            "op": "lt",
+            "output": "stochD",
+            "against": 20,
+            "raw": true
+          },
+          {
+            "op": "lt",
+            "output": "stochK",
+            "against": 20,
+            "raw": true,
+            "at": "prev"
+          },
+          {
+            "op": "lt",
+            "output": "stochD",
+            "against": 20,
+            "raw": true,
+            "at": "prev"
+          }
+        ]
+      }
+    },
+    {
+      "id": "stochrsi-kd-down-upper",
+      "label": "StochRSI(14,14,3,3) %K crosses down %D above 80",
+      "side": "short",
+      "featured": true,
+      "indicator": {
+        "class": "StochasticRSI",
+        "args": [
+          14,
+          14,
+          3,
+          3
+        ],
+        "input": "candle"
+      },
+      "output": "stochK",
+      "condition": {
+        "all": [
+          {
+            "op": "crossDown",
+            "output": "stochK",
+            "against": {
+              "output": "stochD"
+            }
+          },
+          {
+            "op": "gt",
+            "output": "stochK",
+            "against": 80,
+            "raw": true
+          },
+          {
+            "op": "gt",
+            "output": "stochD",
+            "against": 80,
+            "raw": true
+          },
+          {
+            "op": "gt",
+            "output": "stochK",
+            "against": 80,
+            "raw": true,
+            "at": "prev"
+          },
+          {
+            "op": "gt",
+            "output": "stochD",
+            "against": 80,
+            "raw": true,
+            "at": "prev"
+          }
+        ]
+      }
+    },
+    {
+      "id": "stochrsi-k-lt20",
+      "label": "StochRSI(14,14,3,3) %K below 20",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "StochasticRSI",
+        "args": [
+          14,
+          14,
+          3,
+          3
+        ],
+        "input": "candle"
+      },
+      "output": "stochK",
+      "condition": {
+        "op": "lt",
+        "against": 20
+      }
+    },
+    {
+      "id": "stochrsi-k-up20",
+      "label": "StochRSI(14,14,3,3) %K crosses up 20",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "StochasticRSI",
+        "args": [
+          14,
+          14,
+          3,
+          3
+        ],
+        "input": "candle"
+      },
+      "output": "stochK",
+      "condition": {
+        "op": "crossUp",
+        "against": 20
+      }
+    },
+    {
+      "id": "stochrsi-k-gt80",
+      "label": "StochRSI(14,14,3,3) %K above 80",
+      "side": "short",
+      "featured": false,
+      "indicator": {
+        "class": "StochasticRSI",
+        "args": [
+          14,
+          14,
+          3,
+          3
+        ],
+        "input": "candle"
+      },
+      "output": "stochK",
+      "condition": {
+        "op": "gt",
+        "against": 80
+      }
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "indicator": "market-structure",
+  "defaultTf": "1h",
+  "featured": [
+    "ibull-choch",
+    "ibear-choch",
+    "bull-market"
+  ],
+  "settings": [
+    {
+      "id": "ibull-choch",
+      "label": "Internal bullish CHoCH",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "PriorPivot",
+        "args": [
+          5,
+          5,
+          5,
+          5,
+          1
+        ],
+        "input": "candle"
+      },
+      "output": "iBullCHoCH",
+      "condition": {
+        "op": "true"
+      }
+    },
+    {
+      "id": "ibull-bos",
+      "label": "Internal bullish BoS",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "PriorPivot",
+        "args": [
+          5,
+          5,
+          5,
+          5,
+          1
+        ],
+        "input": "candle"
+      },
+      "output": "iBullBoS",
+      "condition": {
+        "op": "true"
+      }
+    },
+    {
+      "id": "sbull-bos",
+      "label": "Swing bullish BoS",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "PriorPivot",
+        "args": [
+          5,
+          5,
+          5,
+          5,
+          1
+        ],
+        "input": "candle"
+      },
+      "output": "sBullBoS",
+      "condition": {
+        "op": "true"
+      }
+    },
+    {
+      "id": "ibear-choch",
+      "label": "Internal bearish CHoCH",
+      "side": "short",
+      "featured": true,
+      "indicator": {
+        "class": "PriorPivot",
+        "args": [
+          5,
+          5,
+          5,
+          5,
+          1
+        ],
+        "input": "candle"
+      },
+      "output": "iBearCHoCH",
+      "condition": {
+        "op": "true"
+      }
+    },
+    {
+      "id": "bull-market",
+      "label": "Bullish market structure",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "PriorPivot",
+        "args": [
+          5,
+          5,
+          5,
+          5,
+          1
+        ],
+        "input": "candle"
+      },
+      "output": "market",
+      "condition": {
+        "op": "eq",
+        "against": "bull"
+      }
+    },
+    {
+      "id": "anyh-cu",
+      "label": "Price crosses up any high",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "PriorPivot",
+        "args": [
+          5,
+          5,
+          5,
+          5,
+          1
+        ],
+        "input": "candle"
+      },
+      "output": "price",
+      "condition": {
+        "op": "crossUp",
+        "against": {
+          "output": [
+            "hh",
+            "lh"
+          ]
+        }
+      }
+    },
+    {
+      "id": "anyl-cd",
+      "label": "Price crosses down any low",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "PriorPivot",
+        "args": [
+          5,
+          5,
+          5,
+          5,
+          1
+        ],
+        "input": "candle"
+      },
+      "output": "price",
+      "condition": {
+        "op": "crossDown",
+        "against": {
+          "output": [
+            "ll",
+            "hl"
+          ]
+        }
+      }
+    }
+  ]
+}

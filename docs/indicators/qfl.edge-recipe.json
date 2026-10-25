@@ -1,0 +1,111 @@
+{
+  "indicator": "qfl",
+  "defaultTf": "1h",
+  "featured": [
+    "b36-p3-c3",
+    "b36-p1-c1",
+    "b36-p3-c5"
+  ],
+  "settings": [
+    {
+      "id": "b36-p3-c3",
+      "label": "Base 36, pump 3%, crack 3%",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "QFL",
+        "args": [
+          36,
+          8,
+          0.03,
+          0.03
+        ],
+        "input": "candle"
+      },
+      "output": "action",
+      "condition": {
+        "op": "true"
+      }
+    },
+    {
+      "id": "b36-p1-c1",
+      "label": "Base 36, pump 1%, crack 1%",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "QFL",
+        "args": [
+          36,
+          8,
+          0.01,
+          0.01
+        ],
+        "input": "candle"
+      },
+      "output": "action",
+      "condition": {
+        "op": "true"
+      }
+    },
+    {
+      "id": "b36-p3-c5",
+      "label": "Base 36, pump 3%, crack 5%",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "QFL",
+        "args": [
+          36,
+          8,
+          0.03,
+          0.05
+        ],
+        "input": "candle"
+      },
+      "output": "action",
+      "condition": {
+        "op": "true"
+      }
+    },
+    {
+      "id": "b72-p3-c3",
+      "label": "Base 72, pump 3%, crack 3%",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "QFL",
+        "args": [
+          72,
+          8,
+          0.03,
+          0.03
+        ],
+        "input": "candle"
+      },
+      "output": "action",
+      "condition": {
+        "op": "true"
+      }
+    },
+    {
+      "id": "b36-p5-c3",
+      "label": "Base 36, pump 5%, crack 3%",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "QFL",
+        "args": [
+          36,
+          8,
+          0.05,
+          0.03
+        ],
+        "input": "candle"
+      },
+      "output": "action",
+      "condition": {
+        "op": "true"
+      }
+    }
+  ]
+}

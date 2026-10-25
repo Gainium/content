@@ -1,0 +1,139 @@
+{
+  "indicator": "bb",
+  "defaultTf": "1h",
+  "featured": [
+    "bb20-up-lower",
+    "bb20-up-upper",
+    "bb20-down-upper-short"
+  ],
+  "settings": [
+    {
+      "id": "bb20-up-lower",
+      "label": "Price crosses up the lower band",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "BollingerBands",
+        "args": [
+          20,
+          2,
+          "sma",
+          20
+        ],
+        "input": "candle"
+      },
+      "output": "lower",
+      "condition": {
+        "op": "crossDown",
+        "against": "close"
+      }
+    },
+    {
+      "id": "bb20-lt-lower",
+      "label": "Price below the lower band",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "BollingerBands",
+        "args": [
+          20,
+          2,
+          "sma",
+          20
+        ],
+        "input": "candle"
+      },
+      "output": "lower",
+      "condition": {
+        "op": "gt",
+        "against": "close"
+      }
+    },
+    {
+      "id": "bb20-25-up-lower",
+      "label": "Price crosses up the lower band (2.5 SD)",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "BollingerBands",
+        "args": [
+          20,
+          2.5,
+          "sma",
+          20
+        ],
+        "input": "candle"
+      },
+      "output": "lower",
+      "condition": {
+        "op": "crossDown",
+        "against": "close"
+      }
+    },
+    {
+      "id": "bb20-up-middle",
+      "label": "Price crosses up the middle band",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "BollingerBands",
+        "args": [
+          20,
+          2,
+          "sma",
+          20
+        ],
+        "input": "candle"
+      },
+      "output": "middle",
+      "condition": {
+        "op": "crossDown",
+        "against": "close"
+      }
+    },
+    {
+      "id": "bb20-up-upper",
+      "label": "Price crosses up the upper band",
+      "side": "long",
+      "volatility": true,
+      "featured": true,
+      "indicator": {
+        "class": "BollingerBands",
+        "args": [
+          20,
+          2,
+          "sma",
+          20
+        ],
+        "input": "candle"
+      },
+      "output": "upper",
+      "condition": {
+        "op": "crossDown",
+        "against": "close"
+      }
+    },
+    {
+      "id": "bb20-down-upper-short",
+      "label": "Price crosses down the upper band, short",
+      "side": "short",
+      "volatility": true,
+      "featured": true,
+      "indicator": {
+        "class": "BollingerBands",
+        "args": [
+          20,
+          2,
+          "sma",
+          20
+        ],
+        "input": "candle"
+      },
+      "output": "upper",
+      "condition": {
+        "op": "crossUp",
+        "against": "close"
+      }
+    }
+  ]
+}

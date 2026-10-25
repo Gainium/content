@@ -1,0 +1,152 @@
+{
+  "indicator": "bbw",
+  "defaultTf": "1h",
+  "featured": [
+    "bbw-lt002",
+    "bbw-lt-p10",
+    "bbw-gt-p90"
+  ],
+  "settings": [
+    {
+      "id": "bbw-lt002",
+      "label": "BBW below 0.02 (squeeze), long",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "createIndicator",
+        "args": [
+          {
+            "type": "BBW",
+            "interval": 20,
+            "bbwMa": "sma",
+            "bbwMaLength": 20,
+            "bbwMult": 2,
+            "percentile": false,
+            "percentileLookback": 150,
+            "percentilePercentage": 80
+          }
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "lt",
+        "against": 0.02
+      }
+    },
+    {
+      "id": "bbw-down005",
+      "label": "BBW crosses down 0.05, long",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "createIndicator",
+        "args": [
+          {
+            "type": "BBW",
+            "interval": 20,
+            "bbwMa": "sma",
+            "bbwMaLength": 20,
+            "bbwMult": 2,
+            "percentile": false,
+            "percentileLookback": 150,
+            "percentilePercentage": 80
+          }
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossDown",
+        "against": 0.05
+      }
+    },
+    {
+      "id": "bbw-lt-p10",
+      "label": "BBW below its 10th percentile (150 bars), long",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "createIndicator",
+        "args": [
+          {
+            "type": "BBW",
+            "interval": 20,
+            "bbwMa": "sma",
+            "bbwMaLength": 20,
+            "bbwMult": 2,
+            "percentile": true,
+            "percentileLookback": 150,
+            "percentilePercentage": 10
+          }
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "lt",
+        "against": {
+          "output": "percentile"
+        }
+      }
+    },
+    {
+      "id": "bbw-up010",
+      "label": "BBW crosses up 0.10, long",
+      "side": "long",
+      "volatility": true,
+      "featured": false,
+      "indicator": {
+        "class": "createIndicator",
+        "args": [
+          {
+            "type": "BBW",
+            "interval": 20,
+            "bbwMa": "sma",
+            "bbwMaLength": 20,
+            "bbwMult": 2,
+            "percentile": false,
+            "percentileLookback": 150,
+            "percentilePercentage": 80
+          }
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossUp",
+        "against": 0.1
+      }
+    },
+    {
+      "id": "bbw-gt-p90",
+      "label": "BBW above its 90th percentile (150 bars), long",
+      "side": "long",
+      "volatility": true,
+      "featured": true,
+      "indicator": {
+        "class": "createIndicator",
+        "args": [
+          {
+            "type": "BBW",
+            "interval": 20,
+            "bbwMa": "sma",
+            "bbwMaLength": 20,
+            "bbwMult": 2,
+            "percentile": true,
+            "percentileLookback": 150,
+            "percentilePercentage": 90
+          }
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "gt",
+        "against": {
+          "output": "percentile"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "indicator": "rsi",
+  "defaultTf": "1h",
+  "featured": [
+    "rsi14-lt30",
+    "rsi14-gt70",
+    "rsi14-gt50"
+  ],
+  "settings": [
+    {
+      "id": "rsi7-lt30",
+      "label": "RSI(7) below 30",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "RSI",
+        "args": [
+          7
+        ],
+        "input": "close"
+      },
+      "output": "value",
+      "condition": {
+        "op": "lt",
+        "against": 30
+      }
+    },
+    {
+      "id": "rsi14-lt30",
+      "label": "RSI(14) below 30",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "RSI",
+        "args": [
+          14
+        ],
+        "input": "close"
+      },
+      "output": "value",
+      "condition": {
+        "op": "lt",
+        "against": 30
+      }
+    },
+    {
+      "id": "rsi7-up30",
+      "label": "RSI(7) crosses up 30",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "RSI",
+        "args": [
+          7
+        ],
+        "input": "close"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossUp",
+        "against": 30
+      }
+    },
+    {
+      "id": "rsi14-up30",
+      "label": "RSI(14) crosses up 30",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "RSI",
+        "args": [
+          14
+        ],
+        "input": "close"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossUp",
+        "against": 30
+      }
+    },
+    {
+      "id": "rsi14-gt70",
+      "label": "RSI(14) above 70",
+      "side": "short",
+      "featured": true,
+      "indicator": {
+        "class": "RSI",
+        "args": [
+          14
+        ],
+        "input": "close"
+      },
+      "output": "value",
+      "condition": {
+        "op": "gt",
+        "against": 70
+      }
+    },
+    {
+      "id": "rsi14-down70",
+      "label": "RSI(14) crosses down 70",
+      "side": "short",
+      "featured": false,
+      "indicator": {
+        "class": "RSI",
+        "args": [
+          14
+        ],
+        "input": "close"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossDown",
+        "against": 70
+      }
+    },
+    {
+      "id": "rsi14-gt50",
+      "label": "RSI(14) above 50",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "RSI",
+        "args": [
+          14
+        ],
+        "input": "close"
+      },
+      "output": "value",
+      "condition": {
+        "op": "gt",
+        "against": 50
+      }
+    }
+  ]
+}

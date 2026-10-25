@@ -1,0 +1,136 @@
+{
+  "indicator": "awesome-oscillator",
+  "defaultTf": "1h",
+  "featured": [
+    "ao-up0",
+    "ao-down0",
+    "ao-turn-below0"
+  ],
+  "settings": [
+    {
+      "id": "ao-up0",
+      "label": "AO crosses up 0",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "AO",
+        "args": [
+          5,
+          34,
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossUp",
+        "against": 0
+      }
+    },
+    {
+      "id": "ao-down0",
+      "label": "AO crosses down 0",
+      "side": "short",
+      "featured": true,
+      "indicator": {
+        "class": "AO",
+        "args": [
+          5,
+          34,
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossDown",
+        "against": 0
+      }
+    },
+    {
+      "id": "ao-gt0",
+      "label": "AO above 0",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "AO",
+        "args": [
+          5,
+          34,
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "gt",
+        "against": 0
+      }
+    },
+    {
+      "id": "ao-lt0",
+      "label": "AO below 0",
+      "side": "short",
+      "featured": false,
+      "indicator": {
+        "class": "AO",
+        "args": [
+          5,
+          34,
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "lt",
+        "against": 0
+      }
+    },
+    {
+      "id": "ao-turn-below0",
+      "label": "AO crosses up its 5-bar SMA below 0",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "createIndicator",
+        "args": [
+          {
+            "type": "AO",
+            "percentile": false,
+            "percentileLookback": 150,
+            "percentilePercentage": 80,
+            "smoothing": "sma",
+            "smoothingLength": 5
+          }
+        ],
+        "input": "candle"
+      },
+      "output": "raw",
+      "condition": {
+        "all": [
+          {
+            "op": "crossUp",
+            "output": "raw",
+            "against": {
+              "output": "value"
+            }
+          },
+          {
+            "op": "lt",
+            "output": "raw",
+            "against": 0
+          }
+        ]
+      }
+    }
+  ]
+}

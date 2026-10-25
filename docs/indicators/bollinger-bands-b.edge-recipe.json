@@ -1,0 +1,151 @@
+{
+  "indicator": "bollinger-bands-b",
+  "defaultTf": "1h",
+  "featured": [
+    "bbpb-down005",
+    "bbpb-lt0",
+    "bbpb-down1-short"
+  ],
+  "settings": [
+    {
+      "id": "bbpb-down005",
+      "label": "%B crosses down 0.05",
+      "side": "long",
+      "volatility": true,
+      "featured": true,
+      "indicator": {
+        "class": "createIndicator",
+        "args": [
+          {
+            "type": "BBPB",
+            "interval": 20,
+            "bbwMa": "sma",
+            "bbwMaLength": 20,
+            "bbwMult": 2,
+            "percentile": false,
+            "percentileLookback": 150,
+            "percentilePercentage": 80
+          }
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossDown",
+        "against": 0.05
+      }
+    },
+    {
+      "id": "bbpb-lt0",
+      "label": "%B below 0",
+      "side": "long",
+      "volatility": true,
+      "featured": true,
+      "indicator": {
+        "class": "createIndicator",
+        "args": [
+          {
+            "type": "BBPB",
+            "interval": 20,
+            "bbwMa": "sma",
+            "bbwMaLength": 20,
+            "bbwMult": 2,
+            "percentile": false,
+            "percentileLookback": 150,
+            "percentilePercentage": 80
+          }
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "lt",
+        "against": 0
+      }
+    },
+    {
+      "id": "bbpb-up0",
+      "label": "%B crosses up 0",
+      "side": "long",
+      "volatility": true,
+      "featured": false,
+      "indicator": {
+        "class": "createIndicator",
+        "args": [
+          {
+            "type": "BBPB",
+            "interval": 20,
+            "bbwMa": "sma",
+            "bbwMaLength": 20,
+            "bbwMult": 2,
+            "percentile": false,
+            "percentileLookback": 150,
+            "percentilePercentage": 80
+          }
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossUp",
+        "against": 0
+      }
+    },
+    {
+      "id": "bbpb-gt1-short",
+      "label": "%B above 1, short",
+      "side": "short",
+      "volatility": true,
+      "featured": false,
+      "indicator": {
+        "class": "createIndicator",
+        "args": [
+          {
+            "type": "BBPB",
+            "interval": 20,
+            "bbwMa": "sma",
+            "bbwMaLength": 20,
+            "bbwMult": 2,
+            "percentile": false,
+            "percentileLookback": 150,
+            "percentilePercentage": 80
+          }
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "gt",
+        "against": 1
+      }
+    },
+    {
+      "id": "bbpb-down1-short",
+      "label": "%B crosses down 1, short",
+      "side": "short",
+      "volatility": true,
+      "featured": true,
+      "indicator": {
+        "class": "createIndicator",
+        "args": [
+          {
+            "type": "BBPB",
+            "interval": 20,
+            "bbwMa": "sma",
+            "bbwMaLength": 20,
+            "bbwMult": 2,
+            "percentile": false,
+            "percentileLookback": 150,
+            "percentilePercentage": 80
+          }
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossDown",
+        "against": 1
+      }
+    }
+  ]
+}

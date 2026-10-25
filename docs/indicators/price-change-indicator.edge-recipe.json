@@ -1,0 +1,125 @@
+{
+  "indicator": "price-change-indicator",
+  "defaultTf": "1h",
+  "featured": [
+    "pc-minus2",
+    "pc-plus2",
+    "pc-plus5"
+  ],
+  "settings": [
+    {
+      "id": "pc-minus2",
+      "label": "Low 2% under the open, long",
+      "side": "long",
+      "volatility": true,
+      "featured": true,
+      "indicator": {
+        "class": "PC",
+        "args": [
+          2,
+          2
+        ],
+        "input": "candle"
+      },
+      "output": "down",
+      "condition": {
+        "op": "true"
+      }
+    },
+    {
+      "id": "pc-plus2",
+      "label": "High 2% over the open, long",
+      "side": "long",
+      "volatility": true,
+      "featured": true,
+      "indicator": {
+        "class": "PC",
+        "args": [
+          2,
+          2
+        ],
+        "input": "candle"
+      },
+      "output": "up",
+      "condition": {
+        "op": "true"
+      }
+    },
+    {
+      "id": "pc-minus3",
+      "label": "Low 3% under the open, long",
+      "side": "long",
+      "volatility": true,
+      "featured": false,
+      "indicator": {
+        "class": "PC",
+        "args": [
+          3,
+          3
+        ],
+        "input": "candle"
+      },
+      "output": "down",
+      "condition": {
+        "op": "true"
+      }
+    },
+    {
+      "id": "pc-plus3",
+      "label": "High 3% over the open, long",
+      "side": "long",
+      "volatility": true,
+      "featured": false,
+      "indicator": {
+        "class": "PC",
+        "args": [
+          3,
+          3
+        ],
+        "input": "candle"
+      },
+      "output": "up",
+      "condition": {
+        "op": "true"
+      }
+    },
+    {
+      "id": "pc-minus5",
+      "label": "Low 5% under the open, long",
+      "side": "long",
+      "volatility": true,
+      "featured": false,
+      "indicator": {
+        "class": "PC",
+        "args": [
+          5,
+          5
+        ],
+        "input": "candle"
+      },
+      "output": "down",
+      "condition": {
+        "op": "true"
+      }
+    },
+    {
+      "id": "pc-plus5",
+      "label": "High 5% over the open, long",
+      "side": "long",
+      "volatility": true,
+      "featured": true,
+      "indicator": {
+        "class": "PC",
+        "args": [
+          5,
+          5
+        ],
+        "input": "candle"
+      },
+      "output": "up",
+      "condition": {
+        "op": "true"
+      }
+    }
+  ]
+}

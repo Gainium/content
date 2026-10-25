@@ -1,0 +1,242 @@
+{
+  "indicator": "sessions",
+  "defaultTf": "1h",
+  "featured": [
+    "london-cd-prevlow",
+    "london-cu-prevhigh",
+    "day-cu-prevhigh"
+  ],
+  "settings": [
+    {
+      "id": "london-cd-prevlow",
+      "label": "London: price crosses down previous low",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "SessionLevels",
+        "args": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          {
+            "start": "08:00",
+            "end": "17:00",
+            "timezone": "Europe/London"
+          }
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "fn",
+        "fn": "sessionLevelsCondition",
+        "options": {
+          "a": "price",
+          "b": "prevLow",
+          "condition": "cd"
+        }
+      }
+    },
+    {
+      "id": "london-cu-prevhigh",
+      "label": "London: price crosses up previous high",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "SessionLevels",
+        "args": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          {
+            "start": "08:00",
+            "end": "17:00",
+            "timezone": "Europe/London"
+          }
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "fn",
+        "fn": "sessionLevelsCondition",
+        "options": {
+          "a": "price",
+          "b": "prevHigh",
+          "condition": "cu"
+        }
+      }
+    },
+    {
+      "id": "london-gt-prevmid",
+      "label": "London: price above previous midpoint",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "SessionLevels",
+        "args": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          {
+            "start": "08:00",
+            "end": "17:00",
+            "timezone": "Europe/London"
+          }
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "fn",
+        "fn": "sessionLevelsCondition",
+        "options": {
+          "a": "price",
+          "b": "prevMid",
+          "condition": "gt"
+        }
+      }
+    },
+    {
+      "id": "ny-cu-prevhigh",
+      "label": "New York: price crosses up previous high",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "SessionLevels",
+        "args": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          {
+            "start": "08:00",
+            "end": "17:00",
+            "timezone": "America/New_York"
+          }
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "fn",
+        "fn": "sessionLevelsCondition",
+        "options": {
+          "a": "price",
+          "b": "prevHigh",
+          "condition": "cu"
+        }
+      }
+    },
+    {
+      "id": "day-cu-prevhigh",
+      "label": "Weekdays: price crosses up previous day's high",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "SessionLevels",
+        "args": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          {
+            "start": "",
+            "end": "",
+            "timezone": "UTC"
+          }
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "fn",
+        "fn": "sessionLevelsCondition",
+        "options": {
+          "a": "price",
+          "b": "prevHigh",
+          "condition": "cu"
+        }
+      }
+    },
+    {
+      "id": "day-gt-prevhigh",
+      "label": "Weekdays: price above previous day's high",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "SessionLevels",
+        "args": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          {
+            "start": "",
+            "end": "",
+            "timezone": "UTC"
+          }
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "fn",
+        "fn": "sessionLevelsCondition",
+        "options": {
+          "a": "price",
+          "b": "prevHigh",
+          "condition": "gt"
+        }
+      }
+    },
+    {
+      "id": "day-cd-prevlow",
+      "label": "Weekdays: price crosses down previous day's low",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "SessionLevels",
+        "args": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          {
+            "start": "",
+            "end": "",
+            "timezone": "UTC"
+          }
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "fn",
+        "fn": "sessionLevelsCondition",
+        "options": {
+          "a": "price",
+          "b": "prevLow",
+          "condition": "cd"
+        }
+      }
+    }
+  ]
+}

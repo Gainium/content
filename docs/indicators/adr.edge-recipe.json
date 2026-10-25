@@ -1,0 +1,5 @@
+{
+  "indicator": "adr",
+  "defaultTf": "1h",
+  "skip": "ADR is read on daily candles whatever the bot interval, and its Value is in the pair's price units. The engine tests each setting on 1h, 4h and 1d candles of BTC, ETH and SOL together, so it can neither reproduce the bot's daily reading on 1h/4h nor share one price-unit level across three coins."
+}

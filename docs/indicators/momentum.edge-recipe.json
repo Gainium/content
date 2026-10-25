@@ -1,0 +1,124 @@
+{
+  "indicator": "momentum",
+  "defaultTf": "1h",
+  "featured": [
+    "mom10-up0",
+    "mom10-down0",
+    "mom10-up-p90"
+  ],
+  "settings": [
+    {
+      "id": "mom10-up0",
+      "label": "Momentum(10) crosses up 0",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "MOM",
+        "args": [
+          10,
+          "close",
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossUp",
+        "against": 0
+      }
+    },
+    {
+      "id": "mom10-down0",
+      "label": "Momentum(10) crosses down 0",
+      "side": "short",
+      "featured": true,
+      "indicator": {
+        "class": "MOM",
+        "args": [
+          10,
+          "close",
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossDown",
+        "against": 0
+      }
+    },
+    {
+      "id": "mom10-gt0",
+      "label": "Momentum(10) above 0",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "MOM",
+        "args": [
+          10,
+          "close",
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "gt",
+        "against": 0
+      }
+    },
+    {
+      "id": "mom10-lt0",
+      "label": "Momentum(10) below 0",
+      "side": "short",
+      "featured": false,
+      "indicator": {
+        "class": "MOM",
+        "args": [
+          10,
+          "close",
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "lt",
+        "against": 0
+      }
+    },
+    {
+      "id": "mom10-up-p90",
+      "label": "Momentum(10) crosses up its 90th percentile",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "MOM",
+        "args": [
+          10,
+          "close",
+          true,
+          150,
+          90
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossUp",
+        "against": {
+          "output": "percentile"
+        }
+      },
+      "volatility": true
+    }
+  ]
+}

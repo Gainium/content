@@ -1,0 +1,149 @@
+{
+  "indicator": "discount-premium-ote-levels",
+  "defaultTf": "1h",
+  "featured": [
+    "bull-cd-705",
+    "bull-lt-05-leg3",
+    "bear-cu-705"
+  ],
+  "settings": [
+    {
+      "id": "bull-cd-705",
+      "label": "Up-leg: price crosses down 0.705",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "OTELevels",
+        "args": [
+          10,
+          1
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "fn",
+        "fn": "oteCondition",
+        "options": {
+          "level": 0.705,
+          "leg": "bullish",
+          "condition": "cd"
+        }
+      }
+    },
+    {
+      "id": "bull-cd-618",
+      "label": "Up-leg: price crosses down 0.618",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "OTELevels",
+        "args": [
+          10,
+          1
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "fn",
+        "fn": "oteCondition",
+        "options": {
+          "level": 0.618,
+          "leg": "bullish",
+          "condition": "cd"
+        }
+      }
+    },
+    {
+      "id": "bull-cd-705-leg3",
+      "label": "Up-leg of 3%+: price crosses down 0.705",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "OTELevels",
+        "args": [
+          10,
+          3
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "fn",
+        "fn": "oteCondition",
+        "options": {
+          "level": 0.705,
+          "leg": "bullish",
+          "condition": "cd"
+        }
+      }
+    },
+    {
+      "id": "bull-lt-05-leg3",
+      "label": "Up-leg of 3%+: price in discount (below 0.5)",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "OTELevels",
+        "args": [
+          10,
+          3
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "fn",
+        "fn": "oteCondition",
+        "options": {
+          "level": 0.5,
+          "leg": "bullish",
+          "condition": "lt"
+        }
+      }
+    },
+    {
+      "id": "bear-cu-705",
+      "label": "Down-leg: price crosses up 0.705",
+      "side": "short",
+      "featured": true,
+      "indicator": {
+        "class": "OTELevels",
+        "args": [
+          10,
+          1
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "fn",
+        "fn": "oteCondition",
+        "options": {
+          "level": 0.705,
+          "leg": "bearish",
+          "condition": "cu"
+        }
+      }
+    },
+    {
+      "id": "bear-gt-05-leg3",
+      "label": "Down-leg of 3%+: price in premium (above 0.5)",
+      "side": "short",
+      "featured": false,
+      "indicator": {
+        "class": "OTELevels",
+        "args": [
+          10,
+          3
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "fn",
+        "fn": "oteCondition",
+        "options": {
+          "level": 0.5,
+          "leg": "bearish",
+          "condition": "gt"
+        }
+      }
+    }
+  ]
+}

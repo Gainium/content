@@ -1,0 +1,74 @@
+{
+  "indicator": "engulfing-candle",
+  "defaultTf": "1h",
+  "featured": [
+    "bullish",
+    "bearish",
+    "both-long"
+  ],
+  "settings": [
+    {
+      "id": "bullish",
+      "label": "Bullish engulfing",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "ECD",
+        "args": [],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "eq",
+        "against": 2
+      }
+    },
+    {
+      "id": "bearish",
+      "label": "Bearish engulfing",
+      "side": "short",
+      "featured": true,
+      "indicator": {
+        "class": "ECD",
+        "args": [],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "eq",
+        "against": 1
+      }
+    },
+    {
+      "id": "both-long",
+      "label": "Either engulfing (default), long",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "ECD",
+        "args": [],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "eq",
+        "against": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "id": "bearish-long",
+      "label": "Bearish engulfing, long",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "ECD",
+        "args": [],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "eq",
+        "against": 1
+      }
+    }
+  ]
+}

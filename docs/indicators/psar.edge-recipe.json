@@ -1,0 +1,111 @@
+{
+  "indicator": "psar",
+  "defaultTf": "1h",
+  "featured": [
+    "psar-up",
+    "psar-down-short",
+    "psar-above"
+  ],
+  "settings": [
+    {
+      "id": "psar-up",
+      "label": "Price crosses up the SAR",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "PSAR",
+        "args": [
+          0.02,
+          0.02,
+          0.2
+        ],
+        "input": "candle"
+      },
+      "output": null,
+      "condition": {
+        "op": "crossDown",
+        "against": "close"
+      }
+    },
+    {
+      "id": "psar-down-short",
+      "label": "Price crosses down the SAR, short",
+      "side": "short",
+      "featured": true,
+      "indicator": {
+        "class": "PSAR",
+        "args": [
+          0.02,
+          0.02,
+          0.2
+        ],
+        "input": "candle"
+      },
+      "output": null,
+      "condition": {
+        "op": "crossUp",
+        "against": "close"
+      }
+    },
+    {
+      "id": "psar-above",
+      "label": "Price above the SAR",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "PSAR",
+        "args": [
+          0.02,
+          0.02,
+          0.2
+        ],
+        "input": "candle"
+      },
+      "output": null,
+      "condition": {
+        "op": "lt",
+        "against": "close"
+      }
+    },
+    {
+      "id": "psar001-up",
+      "label": "Price crosses up the SAR (Start 0.01, Increment 0.01)",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "PSAR",
+        "args": [
+          0.01,
+          0.01,
+          0.2
+        ],
+        "input": "candle"
+      },
+      "output": null,
+      "condition": {
+        "op": "crossDown",
+        "against": "close"
+      }
+    },
+    {
+      "id": "psar-below-short",
+      "label": "Price below the SAR, short",
+      "side": "short",
+      "featured": false,
+      "indicator": {
+        "class": "PSAR",
+        "args": [
+          0.02,
+          0.02,
+          0.2
+        ],
+        "input": "candle"
+      },
+      "output": null,
+      "condition": {
+        "op": "gt",
+        "against": "close"
+      }
+    }
+  ]
+}

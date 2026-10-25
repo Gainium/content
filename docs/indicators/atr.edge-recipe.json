@@ -1,0 +1,144 @@
+{
+  "indicator": "atr",
+  "defaultTf": "1h",
+  "featured": [
+    "atr14-gt-atr100",
+    "atr14-lt-atr100",
+    "atr14-up-atr100"
+  ],
+  "settings": [
+    {
+      "id": "atr14-gt-atr100",
+      "label": "ATR(14) above ATR(100), long",
+      "side": "long",
+      "volatility": true,
+      "featured": true,
+      "indicator": {
+        "class": "ATR",
+        "args": [
+          14
+        ],
+        "input": "candle"
+      },
+      "output": null,
+      "condition": {
+        "op": "gt",
+        "against": {
+          "indicator": {
+            "class": "ATR",
+            "args": [
+              100
+            ],
+            "input": "candle"
+          }
+        }
+      }
+    },
+    {
+      "id": "atr14-lt-atr100",
+      "label": "ATR(14) below ATR(100), long",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "ATR",
+        "args": [
+          14
+        ],
+        "input": "candle"
+      },
+      "output": null,
+      "condition": {
+        "op": "lt",
+        "against": {
+          "indicator": {
+            "class": "ATR",
+            "args": [
+              100
+            ],
+            "input": "candle"
+          }
+        }
+      }
+    },
+    {
+      "id": "atr14-up-atr100",
+      "label": "ATR(14) crosses up ATR(100), long",
+      "side": "long",
+      "volatility": true,
+      "featured": true,
+      "indicator": {
+        "class": "ATR",
+        "args": [
+          14
+        ],
+        "input": "candle"
+      },
+      "output": null,
+      "condition": {
+        "op": "crossUp",
+        "against": {
+          "indicator": {
+            "class": "ATR",
+            "args": [
+              100
+            ],
+            "input": "candle"
+          }
+        }
+      }
+    },
+    {
+      "id": "atr14-down-atr100",
+      "label": "ATR(14) crosses down ATR(100), long",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "ATR",
+        "args": [
+          14
+        ],
+        "input": "candle"
+      },
+      "output": null,
+      "condition": {
+        "op": "crossDown",
+        "against": {
+          "indicator": {
+            "class": "ATR",
+            "args": [
+              100
+            ],
+            "input": "candle"
+          }
+        }
+      }
+    },
+    {
+      "id": "atr7-up-atr28",
+      "label": "ATR(7) crosses up ATR(28), long",
+      "side": "long",
+      "volatility": true,
+      "featured": false,
+      "indicator": {
+        "class": "ATR",
+        "args": [
+          7
+        ],
+        "input": "candle"
+      },
+      "output": null,
+      "condition": {
+        "op": "crossUp",
+        "against": {
+          "indicator": {
+            "class": "ATR",
+            "args": [
+              28
+            ],
+            "input": "candle"
+          }
+        }
+      }
+    }
+  ]
+}

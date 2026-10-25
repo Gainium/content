@@ -1,0 +1,121 @@
+{
+  "indicator": "cci",
+  "defaultTf": "1h",
+  "featured": [
+    "cci20-up-100",
+    "cci20-lt-100",
+    "cci20-up100"
+  ],
+  "settings": [
+    {
+      "id": "cci20-up-100",
+      "label": "CCI(20) crosses up −100",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "CCI",
+        "args": [
+          20,
+          "hlc3",
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossUp",
+        "against": -100
+      }
+    },
+    {
+      "id": "cci20-lt-100",
+      "label": "CCI(20) below −100",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "CCI",
+        "args": [
+          20,
+          "hlc3",
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "lt",
+        "against": -100
+      }
+    },
+    {
+      "id": "cci20-up100",
+      "label": "CCI(20) crosses up +100",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "CCI",
+        "args": [
+          20,
+          "hlc3",
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossUp",
+        "against": 100
+      }
+    },
+    {
+      "id": "cci20-gt100",
+      "label": "CCI(20) above +100",
+      "side": "short",
+      "featured": false,
+      "indicator": {
+        "class": "CCI",
+        "args": [
+          20,
+          "hlc3",
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "gt",
+        "against": 100
+      }
+    },
+    {
+      "id": "cci20-down100",
+      "label": "CCI(20) crosses down +100",
+      "side": "short",
+      "featured": false,
+      "indicator": {
+        "class": "CCI",
+        "args": [
+          20,
+          "hlc3",
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossDown",
+        "against": 100
+      }
+    }
+  ]
+}

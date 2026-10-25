@@ -1,0 +1,123 @@
+{
+  "indicator": "fair-value-gap",
+  "defaultTf": "1h",
+  "featured": [
+    "bull-mid-cd",
+    "bull-high-gt",
+    "bear-mid-cu"
+  ],
+  "settings": [
+    {
+      "id": "bull-mid-cd",
+      "label": "Price crosses down bullish gap middle",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "OBFVG",
+        "args": [],
+        "input": "candle"
+      },
+      "output": "price",
+      "condition": {
+        "op": "crossDown",
+        "touch": true,
+        "against": {
+          "output": "bullishFVGMiddle"
+        }
+      }
+    },
+    {
+      "id": "bull-high-cd",
+      "label": "Price crosses down bullish gap high",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "OBFVG",
+        "args": [],
+        "input": "candle"
+      },
+      "output": "price",
+      "condition": {
+        "op": "crossDown",
+        "touch": true,
+        "against": {
+          "output": "bullishFVGHigh"
+        }
+      }
+    },
+    {
+      "id": "bull-high-gt",
+      "label": "Price above bullish gap high",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "OBFVG",
+        "args": [],
+        "input": "candle"
+      },
+      "output": "price",
+      "condition": {
+        "op": "gt",
+        "against": {
+          "output": "bullishFVGHigh"
+        }
+      }
+    },
+    {
+      "id": "bull-low-cd",
+      "label": "Price crosses down bullish gap low",
+      "side": "short",
+      "featured": false,
+      "indicator": {
+        "class": "OBFVG",
+        "args": [],
+        "input": "candle"
+      },
+      "output": "price",
+      "condition": {
+        "op": "crossDown",
+        "touch": true,
+        "against": {
+          "output": "bullishFVGLow"
+        }
+      }
+    },
+    {
+      "id": "bear-mid-cu",
+      "label": "Price crosses up bearish gap middle",
+      "side": "short",
+      "featured": true,
+      "indicator": {
+        "class": "OBFVG",
+        "args": [],
+        "input": "candle"
+      },
+      "output": "price",
+      "condition": {
+        "op": "crossUp",
+        "touch": true,
+        "against": {
+          "output": "bearishFVGMiddle"
+        }
+      }
+    },
+    {
+      "id": "bear-low-lt",
+      "label": "Price below bearish gap low",
+      "side": "short",
+      "featured": false,
+      "indicator": {
+        "class": "OBFVG",
+        "args": [],
+        "input": "candle"
+      },
+      "output": "price",
+      "condition": {
+        "op": "lt",
+        "against": {
+          "output": "bearishFVGLow"
+        }
+      }
+    }
+  ]
+}

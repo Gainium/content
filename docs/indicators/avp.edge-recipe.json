@@ -1,0 +1,4 @@
+{
+  "indicator": "avp",
+  "skip": "AVP reads the open deal's own unrealized P&L from its average price, so it has no value without a position and cannot fire as an entry on a candle."
+}

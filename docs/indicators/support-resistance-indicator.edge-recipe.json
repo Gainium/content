@@ -1,0 +1,143 @@
+{
+  "indicator": "support-resistance-indicator",
+  "defaultTf": "1h",
+  "featured": [
+    "res-cu",
+    "sup-cu",
+    "sup-cd"
+  ],
+  "settings": [
+    {
+      "id": "res-cu",
+      "label": "Price crosses up resistance",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "SupportResistance",
+        "args": [
+          15,
+          15
+        ],
+        "input": "candle"
+      },
+      "output": "price",
+      "condition": {
+        "op": "crossUp",
+        "levelNow": true,
+        "against": {
+          "output": "high"
+        }
+      }
+    },
+    {
+      "id": "res-cd",
+      "label": "Price crosses down resistance",
+      "side": "short",
+      "featured": false,
+      "indicator": {
+        "class": "SupportResistance",
+        "args": [
+          15,
+          15
+        ],
+        "input": "candle"
+      },
+      "output": "price",
+      "condition": {
+        "op": "crossDown",
+        "levelNow": true,
+        "against": {
+          "output": "high"
+        }
+      }
+    },
+    {
+      "id": "sup-cu",
+      "label": "Price crosses up support",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "SupportResistance",
+        "args": [
+          15,
+          15
+        ],
+        "input": "candle"
+      },
+      "output": "price",
+      "condition": {
+        "op": "crossUp",
+        "levelNow": true,
+        "against": {
+          "output": "low"
+        }
+      }
+    },
+    {
+      "id": "sup-cd",
+      "label": "Price crosses down support",
+      "side": "short",
+      "featured": true,
+      "indicator": {
+        "class": "SupportResistance",
+        "args": [
+          15,
+          15
+        ],
+        "input": "candle"
+      },
+      "output": "price",
+      "condition": {
+        "op": "crossDown",
+        "levelNow": true,
+        "against": {
+          "output": "low"
+        }
+      }
+    },
+    {
+      "id": "res-cu-5",
+      "label": "Price crosses up resistance, 5 bars",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "SupportResistance",
+        "args": [
+          5,
+          5
+        ],
+        "input": "candle"
+      },
+      "output": "price",
+      "condition": {
+        "op": "crossUp",
+        "levelNow": true,
+        "against": {
+          "output": "high"
+        }
+      }
+    },
+    {
+      "id": "sup-cu-5",
+      "label": "Price crosses up support, 5 bars",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "SupportResistance",
+        "args": [
+          5,
+          5
+        ],
+        "input": "candle"
+      },
+      "output": "price",
+      "condition": {
+        "op": "crossUp",
+        "levelNow": true,
+        "against": {
+          "output": "low"
+        }
+      }
+    }
+  ]
+}

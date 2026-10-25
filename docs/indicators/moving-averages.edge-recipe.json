@@ -1,0 +1,143 @@
+{
+  "indicator": "moving-averages",
+  "defaultTf": "1h",
+  "featured": [
+    "ema20-down-price",
+    "sma200-lt-price",
+    "sma50-up-sma200"
+  ],
+  "settings": [
+    {
+      "id": "ema20-down-price",
+      "label": "Price crosses up EMA 20",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "EMA",
+        "args": [
+          20
+        ],
+        "input": "close"
+      },
+      "output": null,
+      "condition": {
+        "op": "crossDown",
+        "against": "close"
+      }
+    },
+    {
+      "id": "sma200-lt-price",
+      "label": "Price above SMA 200",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "SMA",
+        "args": [
+          200
+        ],
+        "input": "close"
+      },
+      "output": null,
+      "condition": {
+        "op": "lt",
+        "against": "close"
+      }
+    },
+    {
+      "id": "sma200-down-price",
+      "label": "Price crosses up SMA 200",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "SMA",
+        "args": [
+          200
+        ],
+        "input": "close"
+      },
+      "output": null,
+      "condition": {
+        "op": "crossDown",
+        "against": "close"
+      }
+    },
+    {
+      "id": "sma50-up-sma200",
+      "label": "SMA 50 crosses up SMA 200 (golden cross)",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "SMA",
+        "args": [
+          50
+        ],
+        "input": "close"
+      },
+      "output": null,
+      "condition": {
+        "op": "crossUp",
+        "against": {
+          "indicator": {
+            "class": "SMA",
+            "args": [
+              200
+            ],
+            "input": "close"
+          }
+        }
+      }
+    },
+    {
+      "id": "sma50-down-sma200-short",
+      "label": "SMA 50 crosses down SMA 200 (death cross), short",
+      "side": "short",
+      "featured": false,
+      "indicator": {
+        "class": "SMA",
+        "args": [
+          50
+        ],
+        "input": "close"
+      },
+      "output": null,
+      "condition": {
+        "op": "crossDown",
+        "against": {
+          "indicator": {
+            "class": "SMA",
+            "args": [
+              200
+            ],
+            "input": "close"
+          }
+        }
+      }
+    },
+    {
+      "id": "ema50-up-ema200",
+      "label": "EMA 50 crosses up EMA 200",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "EMA",
+        "args": [
+          50
+        ],
+        "input": "close"
+      },
+      "output": null,
+      "condition": {
+        "op": "crossUp",
+        "against": {
+          "indicator": {
+            "class": "EMA",
+            "args": [
+              200
+            ],
+            "input": "close"
+          }
+        }
+      }
+    }
+  ]
+}

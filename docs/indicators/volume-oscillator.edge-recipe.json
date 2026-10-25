@@ -1,0 +1,124 @@
+{
+  "indicator": "volume-oscillator",
+  "defaultTf": "1h",
+  "featured": [
+    "vo-gt0",
+    "vo-up20",
+    "vo-gt20"
+  ],
+  "settings": [
+    {
+      "id": "vo-gt0",
+      "label": "VO(5,10) above 0",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "VO",
+        "args": [
+          5,
+          10,
+          false,
+          150,
+          80
+        ],
+        "input": "volume"
+      },
+      "output": "value",
+      "condition": {
+        "op": "gt",
+        "against": 0
+      },
+      "volatility": true
+    },
+    {
+      "id": "vo-up0",
+      "label": "VO(5,10) crosses up 0",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "VO",
+        "args": [
+          5,
+          10,
+          false,
+          150,
+          80
+        ],
+        "input": "volume"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossUp",
+        "against": 0
+      }
+    },
+    {
+      "id": "vo-up20",
+      "label": "VO(5,10) crosses up 20",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "VO",
+        "args": [
+          5,
+          10,
+          false,
+          150,
+          80
+        ],
+        "input": "volume"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossUp",
+        "against": 20
+      },
+      "volatility": true
+    },
+    {
+      "id": "vo-gt20",
+      "label": "VO(5,10) above 20",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "VO",
+        "args": [
+          5,
+          10,
+          false,
+          150,
+          80
+        ],
+        "input": "volume"
+      },
+      "output": "value",
+      "condition": {
+        "op": "gt",
+        "against": 20
+      },
+      "volatility": true
+    },
+    {
+      "id": "vo-down0",
+      "label": "VO(5,10) crosses down 0",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "VO",
+        "args": [
+          5,
+          10,
+          false,
+          150,
+          80
+        ],
+        "input": "volume"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossDown",
+        "against": 0
+      }
+    }
+  ]
+}

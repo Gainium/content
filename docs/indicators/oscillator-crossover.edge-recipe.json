@@ -1,0 +1,162 @@
+{
+  "indicator": "oscillator-crossover",
+  "defaultTf": "1h",
+  "featured": [
+    "xo-rsi7-up-mfi14",
+    "xo-rsi7-down-mfi14",
+    "xo-rsi7-up-mfi14-lt40"
+  ],
+  "settings": [
+    {
+      "id": "xo-rsi7-up-mfi14",
+      "label": "RSI(7) crosses up MFI(14)",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "RSI",
+        "args": [
+          7
+        ],
+        "input": "close"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossUp",
+        "against": {
+          "indicator": {
+            "class": "MFI",
+            "args": [
+              14
+            ],
+            "input": "candle"
+          },
+          "output": "value"
+        }
+      }
+    },
+    {
+      "id": "xo-rsi7-down-mfi14",
+      "label": "RSI(7) crosses down MFI(14)",
+      "side": "short",
+      "featured": true,
+      "indicator": {
+        "class": "RSI",
+        "args": [
+          7
+        ],
+        "input": "close"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossDown",
+        "against": {
+          "indicator": {
+            "class": "MFI",
+            "args": [
+              14
+            ],
+            "input": "candle"
+          },
+          "output": "value"
+        }
+      }
+    },
+    {
+      "id": "xo-rsi7-up-mfi14-lt40",
+      "label": "RSI(7) crosses up MFI(14), both below 40",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "RSI",
+        "args": [
+          7
+        ],
+        "input": "close"
+      },
+      "output": "value",
+      "condition": {
+        "all": [
+          {
+            "op": "crossUp",
+            "against": {
+              "indicator": {
+                "class": "MFI",
+                "args": [
+                  14
+                ],
+                "input": "candle"
+              },
+              "output": "value"
+            }
+          },
+          {
+            "op": "lt",
+            "against": 40
+          }
+        ]
+      }
+    },
+    {
+      "id": "xo-rsi7-down-mfi14-gt60",
+      "label": "RSI(7) crosses down MFI(14), both above 60",
+      "side": "short",
+      "featured": false,
+      "indicator": {
+        "class": "RSI",
+        "args": [
+          7
+        ],
+        "input": "close"
+      },
+      "output": "value",
+      "condition": {
+        "all": [
+          {
+            "op": "crossDown",
+            "against": {
+              "indicator": {
+                "class": "MFI",
+                "args": [
+                  14
+                ],
+                "input": "candle"
+              },
+              "output": "value"
+            }
+          },
+          {
+            "op": "gt",
+            "against": 60
+          }
+        ]
+      }
+    },
+    {
+      "id": "xo-rsi7-gt-mfi14",
+      "label": "RSI(7) above MFI(14)",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "RSI",
+        "args": [
+          7
+        ],
+        "input": "close"
+      },
+      "output": "value",
+      "condition": {
+        "op": "gt",
+        "against": {
+          "indicator": {
+            "class": "MFI",
+            "args": [
+              14
+            ],
+            "input": "candle"
+          },
+          "output": "value"
+        }
+      }
+    }
+  ]
+}

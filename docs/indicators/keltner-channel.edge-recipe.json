@@ -1,0 +1,145 @@
+{
+  "indicator": "keltner-channel",
+  "defaultTf": "1h",
+  "featured": [
+    "kc20-up-upper",
+    "kc20-up-lower",
+    "kc20-down-lower-short"
+  ],
+  "settings": [
+    {
+      "id": "kc20-up-upper",
+      "label": "Price crosses up the upper band",
+      "side": "long",
+      "volatility": true,
+      "featured": true,
+      "indicator": {
+        "class": "KeltnerChannel",
+        "args": [
+          20,
+          2,
+          "ema",
+          "ATR",
+          10
+        ],
+        "input": "candle"
+      },
+      "output": "upper",
+      "condition": {
+        "op": "crossDown",
+        "against": "close"
+      }
+    },
+    {
+      "id": "kc20-gt-upper",
+      "label": "Price above the upper band",
+      "side": "long",
+      "volatility": true,
+      "featured": false,
+      "indicator": {
+        "class": "KeltnerChannel",
+        "args": [
+          20,
+          2,
+          "ema",
+          "ATR",
+          10
+        ],
+        "input": "candle"
+      },
+      "output": "upper",
+      "condition": {
+        "op": "lt",
+        "against": "close"
+      }
+    },
+    {
+      "id": "kc20-up-lower",
+      "label": "Price crosses up the lower band",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "KeltnerChannel",
+        "args": [
+          20,
+          2,
+          "ema",
+          "ATR",
+          10
+        ],
+        "input": "candle"
+      },
+      "output": "lower",
+      "condition": {
+        "op": "crossDown",
+        "against": "close"
+      }
+    },
+    {
+      "id": "kc20-r20-up-lower",
+      "label": "Price crosses up the lower band (Range length 20)",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "KeltnerChannel",
+        "args": [
+          20,
+          2,
+          "ema",
+          "ATR",
+          20
+        ],
+        "input": "candle"
+      },
+      "output": "lower",
+      "condition": {
+        "op": "crossDown",
+        "against": "close"
+      }
+    },
+    {
+      "id": "kc20-lt-lower",
+      "label": "Price below the lower band",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "KeltnerChannel",
+        "args": [
+          20,
+          2,
+          "ema",
+          "ATR",
+          10
+        ],
+        "input": "candle"
+      },
+      "output": "lower",
+      "condition": {
+        "op": "gt",
+        "against": "close"
+      }
+    },
+    {
+      "id": "kc20-down-lower-short",
+      "label": "Price crosses down the lower band, short",
+      "side": "short",
+      "featured": true,
+      "indicator": {
+        "class": "KeltnerChannel",
+        "args": [
+          20,
+          2,
+          "ema",
+          "ATR",
+          10
+        ],
+        "input": "candle"
+      },
+      "output": "lower",
+      "condition": {
+        "op": "crossUp",
+        "against": "close"
+      }
+    }
+  ]
+}

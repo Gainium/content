@@ -1,0 +1,125 @@
+{
+  "indicator": "tradingview-technical-ratings",
+  "defaultTf": "1h",
+  "featured": [
+    "sbuy-entry",
+    "bothbuy-every",
+    "bothsell-every"
+  ],
+  "settings": [
+    {
+      "id": "sbuy-entry",
+      "label": "Fresh Strong Buy",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "TVTA",
+        "args": [
+          15,
+          true
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "eq",
+        "against": 2
+      }
+    },
+    {
+      "id": "buy-entry",
+      "label": "Fresh Buy",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "TVTA",
+        "args": [
+          15,
+          true
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "eq",
+        "against": 1
+      }
+    },
+    {
+      "id": "sbuy-every",
+      "label": "Strong Buy, every candle",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "TVTA",
+        "args": [
+          15,
+          false
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "eq",
+        "against": 2
+      }
+    },
+    {
+      "id": "bothbuy-every",
+      "label": "Buy or Strong Buy, every candle",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "TVTA",
+        "args": [
+          15,
+          false
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "eq",
+        "against": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "id": "ssell-entry",
+      "label": "Fresh Strong Sell",
+      "side": "short",
+      "featured": false,
+      "indicator": {
+        "class": "TVTA",
+        "args": [
+          15,
+          true
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "eq",
+        "against": 4
+      }
+    },
+    {
+      "id": "bothsell-every",
+      "label": "Sell or Strong Sell, every candle",
+      "side": "short",
+      "featured": true,
+      "indicator": {
+        "class": "TVTA",
+        "args": [
+          15,
+          false
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "eq",
+        "against": [
+          3,
+          4
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "indicator": "ultimate-oscillator",
+  "defaultTf": "1h",
+  "featured": [
+    "uo-up30",
+    "uo-lt30",
+    "uo-gt70"
+  ],
+  "settings": [
+    {
+      "id": "uo-up30",
+      "label": "UO(7,14,28) crosses up 30",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "UltimateOscillator",
+        "args": [
+          7,
+          14,
+          28,
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossUp",
+        "against": 30
+      }
+    },
+    {
+      "id": "uo-up35",
+      "label": "UO(7,14,28) crosses up 35",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "UltimateOscillator",
+        "args": [
+          7,
+          14,
+          28,
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossUp",
+        "against": 35
+      }
+    },
+    {
+      "id": "uo-lt30",
+      "label": "UO(7,14,28) below 30",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "UltimateOscillator",
+        "args": [
+          7,
+          14,
+          28,
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "lt",
+        "against": 30
+      }
+    },
+    {
+      "id": "uo-up50",
+      "label": "UO(7,14,28) crosses up 50",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "UltimateOscillator",
+        "args": [
+          7,
+          14,
+          28,
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossUp",
+        "against": 50
+      }
+    },
+    {
+      "id": "uo-gt70",
+      "label": "UO(7,14,28) above 70",
+      "side": "short",
+      "featured": true,
+      "indicator": {
+        "class": "UltimateOscillator",
+        "args": [
+          7,
+          14,
+          28,
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "gt",
+        "against": 70
+      }
+    },
+    {
+      "id": "uo-down70",
+      "label": "UO(7,14,28) crosses down 70",
+      "side": "short",
+      "featured": false,
+      "indicator": {
+        "class": "UltimateOscillator",
+        "args": [
+          7,
+          14,
+          28,
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossDown",
+        "against": 70
+      }
+    }
+  ]
+}
