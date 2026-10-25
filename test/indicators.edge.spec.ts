@@ -273,6 +273,80 @@ describe('indicator edge data (spec 054)', () => {
     })
   })
 
+  describe('regimes (market-regime split, optional)', () => {
+    const cell = (over: object = {}) => ({
+      entries: 570,
+      episodes: 44,
+      draws: 438,
+      edge: -8.36,
+      chance: [-7.04, 5.33],
+      verdict: 'worse',
+      robustness: { fragile: false },
+      ...over,
+    })
+    const withRegimes = (up: object, down: object) => {
+      const data = fixture()
+      data.method.regime = { by: 'pair close vs its 200-day SMA', sma: 200 }
+      setting(data, '1d', 'rsi14-gt70').regimes = { up, down }
+      return data
+    }
+
+    it('passes a file without regimes and one with valid regimes', () => {
+      expect(check(fixture())).to.deep.equal([])
+      expect(
+        check(
+          withRegimes(
+            cell(),
+            cell({ entries: 65, episodes: 17, edge: -0.46, verdict: 'few' }),
+          ),
+        ),
+      ).to.deep.equal([])
+    })
+
+    it('holds regime cells to the verdict, few and fragile rules, ties included', () => {
+      only(
+        check(withRegimes(cell({ edge: 0 }), cell())),
+        '054.verdict-matches-numbers',
+      )
+      only(
+        check(withRegimes(cell(), cell({ episodes: 17 }))),
+        '054.no-verdict-on-few',
+      )
+      only(
+        check(withRegimes(cell({ robustness: { fragile: true } }), cell())),
+        '054.no-unflagged-fragile',
+      )
+      // a rounding tie at the band's bottom is still "worse"
+      expect(check(withRegimes(cell({ edge: -7.04 }), cell()))).to.deep.equal(
+        [],
+      )
+    })
+
+    it('fails a malformed split or method.regime', () => {
+      const data = withRegimes(cell(), cell())
+      delete setting(data, '1d', 'rsi14-gt70').regimes.down
+      expect(check(data).join()).to.include('must hold exactly up and down')
+      const bad = withRegimes(cell(), cell())
+      bad.method.regime.sma = 0
+      expect(check(bad).join()).to.include('method.regime')
+    })
+
+    it('checks regime numbers against the up / down cell a ref names', () => {
+      const data = withRegimes(
+        cell(),
+        cell({ entries: 65, episodes: 17, edge: -0.46, verdict: 'few' }),
+      )
+      const note = (scope: string) => {
+        const d = structuredClone(data)
+        d.notes.push('In uptrends it was 8.36% worse.')
+        d.noteRefs.push([{ tf: '1d', setting: 'rsi14-gt70', scope }])
+        return check(d)
+      }
+      expect(note('up')).to.deep.equal([])
+      only(note('down'), '054.numbers-in-text-match-data')
+    })
+  })
+
   describe('054.dated', () => {
     it('fails missing dates', () => {
       const data = fixture()

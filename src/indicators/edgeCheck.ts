@@ -189,7 +189,8 @@ const COMMENTARY_KEYS = new Set([
 /**
  * A cell a text cites: `{ tf, setting, scope }`, where `tf` and `setting` may
  * be "*" (every timeframe / every setting) and `scope` is "pooled" or a coin
- * of `method.pairs`. Each text carries a list of them: `summaryRefs`,
+ * of `method.pairs`, or "up" / "down" for the setting's regime cells
+ * (`regimes`). Each text carries a list of them: `summaryRefs`,
  * `verdictRefs[i]` (for verdict i's use and text) and `noteRefs[i]`.
  */
 interface EdgeRef {
@@ -248,6 +249,8 @@ function resolveRefs(
     ...(Array.isArray(method.pairs) ? method.pairs : []).map(
       (p) => String(p).split('/')[0],
     ),
+    'up',
+    'down',
   ]
   const settings = Array.isArray(data.settings) ? data.settings : []
   const cells: RefCell[] = []
@@ -273,9 +276,13 @@ function resolveRefs(
       const cell =
         scope === 'pooled'
           ? setting.pooled
-          : isObj(setting.coins)
-            ? setting.coins[scope]
-            : undefined
+          : scope === 'up' || scope === 'down'
+            ? isObj(setting.regimes)
+              ? setting.regimes[scope]
+              : undefined
+            : isObj(setting.coins)
+              ? setting.coins[scope]
+              : undefined
       if (!isObj(cell)) return
       found++
       cells.push({ setting, index, scope, cell })
@@ -568,6 +575,14 @@ export function checkEdgeFile(
     )
       errors.push('method.pairs: must be a list like ["BTC/USDT"]')
     if (
+      method.regime !== undefined &&
+      (!isObj(method.regime) ||
+        !isStr(method.regime.by) ||
+        !Number.isInteger(method.regime.sma) ||
+        (method.regime.sma as number) <= 0)
+    )
+      errors.push('method.regime: must be { by, sma } with a whole sma > 0')
+    if (
       !isObj(method.engine) ||
       !isStr(method.engine.indicators) ||
       !isStr(method.engine.analysisMath)
@@ -644,6 +659,23 @@ export function checkEdgeFile(
           )
         for (const [coin, cell] of Object.entries(setting.coins))
           cells.push([`${where}.coins.${coin}`, cell])
+      }
+      // the market-regime split (optional): an `up` and a `down` cell, each
+      // held to the same rules as a coin cell
+      if (setting.regimes !== undefined) {
+        if (!isObj(setting.regimes))
+          errors.push(`${where}.regimes: must be { up, down }`)
+        else {
+          const names = Object.keys(setting.regimes).sort().join()
+          if (names !== 'down,up')
+            errors.push(`${where}.regimes: must hold exactly up and down`)
+          for (const regime of ['up', 'down'])
+            if (setting.regimes[regime] !== undefined)
+              cells.push([
+                `${where}.regimes.${regime}`,
+                setting.regimes[regime],
+              ])
+        }
       }
 
       for (const [cellWhere, cell] of cells) {
