@@ -1,0 +1,40 @@
+{
+  "indicator": "rsi",
+  "settings": [
+    {
+      "id": "rsi7-lt30",
+      "label": "RSI(7) below 30",
+      "side": "long"
+    },
+    {
+      "id": "rsi14-lt30",
+      "label": "RSI(14) below 30",
+      "side": "long"
+    },
+    {
+      "id": "rsi7-up30",
+      "label": "RSI(7) crosses up 30",
+      "side": "long"
+    },
+    {
+      "id": "rsi14-up30",
+      "label": "RSI(14) crosses up 30",
+      "side": "long"
+    },
+    {
+      "id": "rsi14-gt70",
+      "label": "RSI(14) above 70",
+      "side": "short"
+    },
+    {
+      "id": "rsi14-down70",
+      "label": "RSI(14) crosses down 70",
+      "side": "short"
+    },
+    {
+      "id": "rsi14-gt50",
+      "label": "RSI(14) above 50",
+      "side": "long"
+    }
+  ]
+}

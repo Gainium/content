@@ -115,6 +115,11 @@ export interface ParsedIndicator {
   metadata: IndicatorFrontmatter
   content: string
   rawContent: string
+  /**
+   * `<slug>.edge.json` beside the page, parsed (spec 054 §3), when it exists.
+   * Served as is; its shape and invariants are held by `check:indicators`.
+   */
+  edge?: Record<string, unknown>
 }
 
 /** One item of `GET /indicators`. */

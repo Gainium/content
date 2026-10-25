@@ -22,7 +22,7 @@ import logger from './utils/logger'
 const DOCS_DIR = path.join(process.cwd(), 'docs')
 // Bump when the cached shape or the parse rules change, so an old cache is
 // never served.
-const CACHE_VERSION = 3
+const CACHE_VERSION = 4
 const TEMP_DIR = path.join(process.cwd(), 'temp')
 const CACHE_FILE = path.join(TEMP_DIR, 'content-cache.json')
 
@@ -226,6 +226,7 @@ export class ContentLoader {
     const helpDocs = await this.loadDir('help', parseHelpDocSource)
     const blogPosts = await this.loadDir('blog', parseBlogPostSource)
     const indicators = await this.loadDir('indicators', parseIndicatorSource)
+    await this.attachEdgeData(indicators)
 
     const helpSlugs = new Set(helpDocs.map((doc) => doc.metadata.slug))
     indicators.forEach(({ metadata }) => {
@@ -280,6 +281,38 @@ export class ContentLoader {
       logger.error(`Error loading ${dir}:`, error)
     }
     return Array.from(docs.values())
+  }
+
+  /**
+   * Attach each page's `<slug>.edge.json` (spec 054), read beside the page
+   * at load time and cached with it. A missing file means no edge section;
+   * an unreadable one is logged and left out, never served half-parsed.
+   */
+  private async attachEdgeData(indicators: ParsedIndicator[]): Promise<void> {
+    const dir = path.join(this.docsDir, 'indicators')
+    await Promise.all(
+      indicators.map(async (doc) => {
+        const file = path.join(dir, `${doc.metadata.slug}.edge.json`)
+        let raw: string
+        try {
+          raw = await fs.readFile(file, 'utf-8')
+        } catch (error) {
+          if ((error as NodeJS.ErrnoException).code !== 'ENOENT')
+            logger.error(`Error reading ${file}:`, error)
+          return
+        }
+        try {
+          const edge = JSON.parse(raw)
+          if (typeof edge !== 'object' || edge === null || Array.isArray(edge))
+            throw new Error('not a JSON object')
+          doc.edge = edge
+        } catch (error) {
+          logger.error(
+            `Skipping ${path.relative(process.cwd(), file)}: ${(error as Error).message}`,
+          )
+        }
+      }),
+    )
   }
 
   private async saveToCache(): Promise<void> {

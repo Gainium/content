@@ -1,5 +1,6 @@
 import { describe, it, before, after } from 'mocha'
 import { expect } from 'chai'
+import fs from 'fs'
 import path from 'path'
 import { AddressInfo } from 'net'
 import { Server } from 'http'
@@ -15,6 +16,10 @@ import { createServer } from '../src/server'
  * Every suite runs in both INDICATORS_HELP_COMPAT modes.
  */
 const FIXTURES = path.join(__dirname, 'fixtures', 'docs')
+// rsi has an edge file beside it (spec 054); native-extra-oscillator has none
+const RSI_EDGE = JSON.parse(
+  fs.readFileSync(path.join(FIXTURES, 'indicators', 'rsi.edge.json'), 'utf-8'),
+)
 
 // Strings that only occur in the non-native fixtures.
 const NON_NATIVE_MARKERS = [
@@ -300,13 +305,46 @@ describe('indicator content API (spec 053)', () => {
 
       describe('GET /indicators/:slug', () => {
         it('returns a native page in the help-doc shape', async () => {
-          const { status, json } = await get('/indicators/rsi')
+          const { status, json } = await get(
+            '/indicators/native-extra-oscillator',
+          )
           expect(status).to.equal(200)
           expect(Object.keys(json).sort()).to.deep.equal([
             'content',
             'metadata',
           ])
+          expect(json.metadata).to.include({
+            slug: 'native-extra-oscillator',
+            kind: 'native',
+          })
+        })
+
+        it('adds edge, the parsed <slug>.edge.json, when the page has one (spec 054)', async () => {
+          const { status, json } = await get('/indicators/rsi')
+          expect(status).to.equal(200)
+          expect(Object.keys(json).sort()).to.deep.equal([
+            'content',
+            'edge',
+            'metadata',
+          ])
           expect(json.metadata).to.include({ slug: 'rsi', kind: 'native' })
+          expect(json.edge).to.deep.equal(RSI_EDGE)
+        })
+
+        it('serves edge data nowhere else (spec 054)', async () => {
+          for (const route of [
+            '/indicators',
+            '/indicators/manifest',
+            '/help/rsi',
+            '/help/full',
+            '/search/full?q=rsi',
+          ]) {
+            const { text } = await get(route)
+            expect(text, route).not.to.include('"edge"')
+            expect(text, route).not.to.include('FTX collapse')
+          }
+          // the edge commentary is not searchable page text
+          expect((await get('/search?q=FTX')).json.data).to.deep.equal([])
         })
 
         it('404s a non-native slug without include=all', async () => {

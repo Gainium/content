@@ -42,7 +42,8 @@ router.get('/', (req: Request, res: Response) => {
   res.json({ data: data.map(toListItem), pagination })
 })
 
-// GET /indicators/:slug[?include=all] — same shape as GET /help/:id
+// GET /indicators/:slug[?include=all] — same shape as GET /help/:id, plus
+// `edge` (spec 054) when the page has a <slug>.edge.json
 router.get('/:slug', (req: Request, res: Response) => {
   const doc = contentLoader.getIndicatorBySlug(req.params.slug, includeAll(req))
 
@@ -55,6 +56,7 @@ router.get('/:slug', (req: Request, res: Response) => {
   res.json({
     metadata: doc.metadata,
     content: doc.content,
+    ...(doc.edge ? { edge: doc.edge } : {}),
   })
 })
 

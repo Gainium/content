@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2026-10-25
+### Added
+- Indicator edge data: `docs/indicators/<slug>.edge.json` holds the price behaviour of an
+  indicator's common settings against random entries, and `<slug>.edge-recipe.json` the
+  settings to test.
+- `GET /indicators/:slug` includes `edge`, the parsed `<slug>.edge.json`, when the page has
+  one. The response is otherwise unchanged.
+- `npm run check:indicators` validates every edge data file: its shape; no verdict on too few
+  moves; no edge or worse-than-random label where the robustness check found it fragile; every
+  label consistent with its edge and luck band; every number in the commentary present in the
+  data; dated, and no more than 45 days old; and the style rules. Recipes are checked for their
+  required keys.
+
 ## [1.2.1] - 2026-10-25
 ### Added
 - `npm run images:check`: lists every image under `docs/images` that is not optimized and

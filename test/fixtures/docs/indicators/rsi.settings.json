@@ -1,0 +1,263 @@
+{
+  "alertConditions": "not applicable",
+  "chart": null,
+  "indicator": {
+    "author": "Gainium",
+    "kind": "native",
+    "openSource": null,
+    "overlay": null,
+    "scriptId": "RSI",
+    "shortTitle": "RSI",
+    "title": "Relative Strength Index (RSI)",
+    "version": null
+  },
+  "inputs": [
+    {
+      "default": false,
+      "defaultText": "Off",
+      "group": null,
+      "id": "percentile",
+      "kind": "logic",
+      "label": "Use percentile",
+      "tooltip": "Enable percentile mode.",
+      "type": "boolean"
+    },
+    {
+      "default": 150,
+      "defaultText": "150",
+      "group": null,
+      "hiddenWhen": [
+        {
+          "equals": false,
+          "field": "percentile"
+        }
+      ],
+      "id": "percentileLookback",
+      "kind": "logic",
+      "label": "Lookback",
+      "step": 1,
+      "type": "number"
+    },
+    {
+      "default": 80,
+      "defaultText": "80",
+      "group": null,
+      "hiddenWhen": [
+        {
+          "equals": false,
+          "field": "percentile"
+        }
+      ],
+      "id": "percentilePercentage",
+      "kind": "logic",
+      "label": "Percentile",
+      "step": 1,
+      "type": "number"
+    },
+    {
+      "default": 7,
+      "defaultText": "7",
+      "group": null,
+      "id": "indicatorLength",
+      "kind": "logic",
+      "label": "Length",
+      "max": 1000,
+      "min": 1,
+      "step": 1,
+      "type": "number"
+    },
+    {
+      "default": "1h",
+      "defaultText": "1 hour",
+      "group": null,
+      "id": "indicatorInterval",
+      "kind": "logic",
+      "label": "Interval",
+      "optionLabels": [
+        "1 minute",
+        "3 minutes",
+        "5 minutes",
+        "15 minutes",
+        "30 minutes",
+        "1 hour",
+        "2 hours",
+        "4 hours",
+        "8 hours",
+        "1 day",
+        "1 week"
+      ],
+      "options": [
+        "1m",
+        "3m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "4h",
+        "8h",
+        "1d",
+        "1w"
+      ],
+      "type": "interval"
+    },
+    {
+      "default": "none",
+      "defaultText": "None",
+      "group": null,
+      "id": "smoothing",
+      "kind": "logic",
+      "label": "Smoothing",
+      "optionLabels": [
+        "None",
+        "SMA",
+        "EMA",
+        "WMA",
+        "DEMA",
+        "TEMA",
+        "HMA",
+        "RMA"
+      ],
+      "options": [
+        "none",
+        "sma",
+        "ema",
+        "wma",
+        "dema",
+        "tema",
+        "hma",
+        "rma"
+      ],
+      "tooltip": "Moving average applied to the indicator line. With smoothing on, the condition uses the smoothed line.",
+      "type": "select"
+    },
+    {
+      "default": 14,
+      "defaultText": "14",
+      "group": null,
+      "hiddenWhen": [
+        {
+          "equals": "none",
+          "field": "smoothing"
+        }
+      ],
+      "id": "smoothingLength",
+      "kind": "logic",
+      "label": "Smoothing length",
+      "max": 1000,
+      "min": 1,
+      "step": 1,
+      "type": "number"
+    },
+    {
+      "default": "value",
+      "defaultText": "Smoothed line vs value",
+      "group": null,
+      "hiddenWhen": [
+        {
+          "equals": "none",
+          "field": "smoothing"
+        },
+        {
+          "equals": true,
+          "field": "percentile"
+        }
+      ],
+      "id": "smoothingCompare",
+      "kind": "logic",
+      "label": "Compare",
+      "optionLabels": [
+        "Smoothed line vs value",
+        "Line vs smoothed line"
+      ],
+      "options": [
+        "value",
+        "line"
+      ],
+      "tooltip": "Smoothed line vs value: the condition tests the smoothed line against Value. Line vs smoothed line: the condition tests the indicator against its own moving average, a momentum-turn signal. Percentile mode always compares against a value.",
+      "type": "select"
+    },
+    {
+      "default": "cd",
+      "defaultText": "Crossing down",
+      "group": null,
+      "id": "indicatorCondition",
+      "kind": "logic",
+      "label": "Condition",
+      "optionLabels": [
+        "Crossing down",
+        "Crossing up",
+        "Greater than",
+        "Lower than",
+        "Between"
+      ],
+      "options": [
+        "cd",
+        "cu",
+        "gt",
+        "lt",
+        "bw"
+      ],
+      "type": "select"
+    },
+    {
+      "default": 70,
+      "defaultText": "70",
+      "group": null,
+      "hiddenWhen": [
+        {
+          "equals": true,
+          "field": "percentile"
+        }
+      ],
+      "id": "indicatorValue",
+      "kind": "logic",
+      "label": "Value",
+      "max": 100,
+      "min": 0,
+      "step": 1,
+      "type": "number"
+    },
+    {
+      "default": null,
+      "defaultText": "—",
+      "group": null,
+      "hiddenWhen": [
+        {
+          "equals": true,
+          "field": "percentile"
+        }
+      ],
+      "id": "indicatorValue2",
+      "kind": "logic",
+      "label": "Upper value",
+      "max": 100,
+      "min": 0,
+      "shownWhen": [
+        {
+          "equals": "bw",
+          "field": "indicatorCondition"
+        }
+      ],
+      "step": 1,
+      "tooltip": "Between: the value must stay above Value and below this.",
+      "type": "number"
+    },
+    {
+      "default": 0,
+      "defaultText": "0",
+      "group": null,
+      "id": "keepConditionBars",
+      "kind": "logic",
+      "label": "Keep true",
+      "min": 0,
+      "step": 1,
+      "tooltip": "This condition will remain true for a number of extra bars. Default is 0, which means it will be true only on the bar that triggered the condition.",
+      "type": "number"
+    }
+  ],
+  "notes": [],
+  "plots": [],
+  "schema": "gainium.indicator-settings/1",
+  "source": "gainium-catalog"
+}

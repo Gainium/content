@@ -11,7 +11,8 @@ import type { StyleRule } from './aiGiveaways'
  * prose fields are), and URLs are blanked, so dated image paths are fine.
  */
 
-const MONTH =
+/** A month name, capitalised (so "may" the verb is not a month). */
+export const MONTH =
   '(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|June?|July?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)'
 const NUM =
   '(?:\\d+|a few|few|several|a couple of|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|fifteen|eighteen|twenty|thirty|sixty|ninety|hundred)'

@@ -9,6 +9,10 @@
  * template (src/indicators/templateCheck.ts), and the pages moved from /help
  * must keep their frozen `name` and `description`.
  *
+ * Edge data and recipes (`<slug>.edge.json`, `<slug>.edge-recipe.json`,
+ * spec 054) are checked against their shape and invariants
+ * (src/indicators/edgeCheck.ts).
+ *
  * Catalog source, in order:
  *   - INDICATOR_CATALOG_PATH: a local indicatorCatalog.ts. The enum file is
  *     INDICATOR_ENUM_PATH, or `../index.ts` relative to the catalog
@@ -29,6 +33,7 @@ import {
   checkIndicatorTemplates,
   checkMovedPageMeta,
 } from '../src/indicators/templateCheck'
+import { checkEdgeDir } from '../src/indicators/edgeCheck'
 import {
   parseHelpDocSource,
   parseIndicatorSource,
@@ -129,6 +134,12 @@ async function main() {
     }
   }
 
+  const edge = await checkEdgeDir(path.join(DOCS_DIR, 'indicators'), {
+    pageSlugs: pages.map(({ file }) => path.basename(file, '.md')),
+    label: (file) => relative(file, 'indicators'),
+  })
+  errors.push(...edge.errors)
+
   const counts = pages.reduce<Record<string, number>>((acc, { data }) => {
     const kind = String(data.kind)
     acc[kind] = (acc[kind] ?? 0) + 1
@@ -143,6 +154,8 @@ async function main() {
       .map(([kind, n]) => `${kind} ${n}`)
       .join(', ')}) · template v2: ${v2}`,
   )
+
+  console.log(`Edge data: ${edge.dataFiles} file(s) · recipes: ${edge.recipes}`)
 
   notices.forEach((notice) => console.log(`notice: ${notice}`))
 
