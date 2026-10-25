@@ -1,0 +1,2806 @@
+{
+ "indicator": "bbw",
+ "defaultTf": "1h",
+ "method": {
+  "horizon": 20,
+  "horizons": [
+   10,
+   20,
+   50,
+   100
+  ],
+  "randomDraws": 500,
+  "minEpisodes": 30,
+  "source": "Binance spot",
+  "pairs": [
+   "BTC/USDT",
+   "ETH/USDT",
+   "SOL/USDT"
+  ],
+  "from": "2020-09-01",
+  "warmupFrom": "2020-06-01",
+  "to": "2026-10-24",
+  "engine": {
+   "indicators": "56f63e97",
+   "analysisMath": "cab0ed99"
+  }
+ },
+ "updatedAt": "2026-10-25",
+ "settings": [
+  {
+   "id": "bbw-lt002",
+   "tf": "1h",
+   "label": "BBW below 0.02 (squeeze), long",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 34735,
+    "episodes": 1268,
+    "draws": 100,
+    "edge": -0.13,
+    "chance": [
+     -0.17,
+     0.11
+    ],
+    "verdict": "none",
+    "path": [
+     -0.01,
+     -0.018,
+     -0.024,
+     -0.03,
+     -0.035,
+     -0.039,
+     -0.043,
+     -0.046,
+     -0.051,
+     -0.057,
+     -0.067,
+     -0.076,
+     -0.084,
+     -0.092,
+     -0.1,
+     -0.108,
+     -0.115,
+     -0.12,
+     -0.127,
+     -0.132
+    ],
+    "band": [
+     [
+      -0.01,
+      0.006
+     ],
+     [
+      -0.02,
+      0.011
+     ],
+     [
+      -0.031,
+      0.016
+     ],
+     [
+      -0.042,
+      0.018
+     ],
+     [
+      -0.051,
+      0.024
+     ],
+     [
+      -0.058,
+      0.027
+     ],
+     [
+      -0.067,
+      0.03
+     ],
+     [
+      -0.076,
+      0.036
+     ],
+     [
+      -0.083,
+      0.041
+     ],
+     [
+      -0.092,
+      0.048
+     ],
+     [
+      -0.102,
+      0.054
+     ],
+     [
+      -0.111,
+      0.06
+     ],
+     [
+      -0.118,
+      0.068
+     ],
+     [
+      -0.124,
+      0.074
+     ],
+     [
+      -0.128,
+      0.078
+     ],
+     [
+      -0.139,
+      0.083
+     ],
+     [
+      -0.145,
+      0.089
+     ],
+     [
+      -0.152,
+      0.093
+     ],
+     [
+      -0.161,
+      0.1
+     ],
+     [
+      -0.17,
+      0.105
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 19265,
+     "episodes": 515,
+     "draws": 100,
+     "edge": -0.07,
+     "chance": [
+      -0.11,
+      0.09
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 11616,
+     "episodes": 474,
+     "draws": 100,
+     "edge": -0.1,
+     "chance": [
+      -0.17,
+      0.14
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 3854,
+     "episodes": 279,
+     "draws": 100,
+     "edge": -0.22,
+     "chance": [
+      -0.5,
+      0.62
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "bbw-down005",
+   "tf": "1h",
+   "label": "BBW crosses down 0.05, long",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 2680,
+    "episodes": 2164,
+    "draws": 100,
+    "edge": -0.18,
+    "chance": [
+     -0.14,
+     0.2
+    ],
+    "verdict": "worse",
+    "robustness": {
+     "fragile": false,
+     "strongest": {
+      "deals": 2,
+      "start": "2020-09-04",
+      "end": "2020-09-04",
+      "without": "worse"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "worse"
+      },
+      {
+       "horizon": 50,
+       "state": "chance"
+      },
+      {
+       "horizon": 100,
+       "state": "worse"
+      }
+     ]
+    },
+    "path": [
+     -0.038,
+     -0.056,
+     -0.042,
+     -0.028,
+     -0.035,
+     -0.053,
+     -0.094,
+     -0.112,
+     -0.101,
+     -0.138,
+     -0.109,
+     -0.13,
+     -0.133,
+     -0.126,
+     -0.099,
+     -0.09,
+     -0.105,
+     -0.136,
+     -0.177,
+     -0.179
+    ],
+    "band": [
+     [
+      -0.027,
+      0.037
+     ],
+     [
+      -0.039,
+      0.061
+     ],
+     [
+      -0.045,
+      0.065
+     ],
+     [
+      -0.063,
+      0.072
+     ],
+     [
+      -0.053,
+      0.088
+     ],
+     [
+      -0.067,
+      0.102
+     ],
+     [
+      -0.083,
+      0.109
+     ],
+     [
+      -0.1,
+      0.117
+     ],
+     [
+      -0.107,
+      0.117
+     ],
+     [
+      -0.088,
+      0.13
+     ],
+     [
+      -0.096,
+      0.161
+     ],
+     [
+      -0.099,
+      0.163
+     ],
+     [
+      -0.113,
+      0.162
+     ],
+     [
+      -0.116,
+      0.156
+     ],
+     [
+      -0.115,
+      0.164
+     ],
+     [
+      -0.107,
+      0.155
+     ],
+     [
+      -0.125,
+      0.16
+     ],
+     [
+      -0.129,
+      0.175
+     ],
+     [
+      -0.133,
+      0.175
+     ],
+     [
+      -0.137,
+      0.199
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 646,
+     "episodes": 545,
+     "draws": 386,
+     "edge": -0.18,
+     "chance": [
+      -0.18,
+      0.19
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 1,
+       "start": "2022-06-12",
+       "end": "2022-06-12",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 924,
+     "episodes": 760,
+     "draws": 270,
+     "edge": -0.08,
+     "chance": [
+      -0.18,
+      0.19
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 1110,
+     "episodes": 859,
+     "draws": 225,
+     "edge": -0.29,
+     "chance": [
+      -0.27,
+      0.29
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 2,
+       "start": "2026-02-04",
+       "end": "2026-02-05",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "worse"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "bbw-lt-p10",
+   "tf": "1h",
+   "label": "BBW below its 10th percentile (150 bars), long",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 20313,
+    "episodes": 1636,
+    "draws": 100,
+    "edge": -0.18,
+    "chance": [
+     -0.15,
+     0.17
+    ],
+    "verdict": "worse",
+    "robustness": {
+     "fragile": false,
+     "strongest": {
+      "deals": 27,
+      "start": "2021-05-26",
+      "end": "2021-05-28",
+      "without": "worse"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "worse"
+      },
+      {
+       "horizon": 50,
+       "state": "chance"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     -0.015,
+     -0.03,
+     -0.046,
+     -0.061,
+     -0.074,
+     -0.083,
+     -0.086,
+     -0.088,
+     -0.089,
+     -0.093,
+     -0.1,
+     -0.111,
+     -0.122,
+     -0.133,
+     -0.144,
+     -0.158,
+     -0.17,
+     -0.177,
+     -0.181,
+     -0.183
+    ],
+    "band": [
+     [
+      -0.01,
+      0.014
+     ],
+     [
+      -0.021,
+      0.026
+     ],
+     [
+      -0.031,
+      0.037
+     ],
+     [
+      -0.041,
+      0.049
+     ],
+     [
+      -0.048,
+      0.063
+     ],
+     [
+      -0.055,
+      0.071
+     ],
+     [
+      -0.064,
+      0.077
+     ],
+     [
+      -0.076,
+      0.087
+     ],
+     [
+      -0.086,
+      0.095
+     ],
+     [
+      -0.096,
+      0.099
+     ],
+     [
+      -0.104,
+      0.105
+     ],
+     [
+      -0.104,
+      0.115
+     ],
+     [
+      -0.11,
+      0.124
+     ],
+     [
+      -0.115,
+      0.134
+     ],
+     [
+      -0.126,
+      0.142
+     ],
+     [
+      -0.132,
+      0.153
+     ],
+     [
+      -0.138,
+      0.159
+     ],
+     [
+      -0.145,
+      0.167
+     ],
+     [
+      -0.147,
+      0.171
+     ],
+     [
+      -0.15,
+      0.174
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 6810,
+     "episodes": 515,
+     "draws": 100,
+     "edge": -0.15,
+     "chance": [
+      -0.17,
+      0.16
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 6751,
+     "episodes": 541,
+     "draws": 100,
+     "edge": 0,
+     "chance": [
+      -0.16,
+      0.25
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 6752,
+     "episodes": 580,
+     "draws": 100,
+     "edge": -0.4,
+     "chance": [
+      -0.24,
+      0.32
+     ],
+     "verdict": "worse",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 27,
+       "start": "2021-05-26",
+       "end": "2021-05-28",
+       "without": "worse"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "bbw-up010",
+   "tf": "1h",
+   "label": "BBW crosses up 0.10, long",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 1130,
+    "episodes": 967,
+    "draws": 221,
+    "edge": 0.55,
+    "chance": [
+     -0.18,
+     0.31
+    ],
+    "verdict": "edge",
+    "robustness": {
+     "fragile": false,
+     "strongest": {
+      "deals": 1,
+      "start": "2020-09-09",
+      "end": "2020-09-09",
+      "without": "edge"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "edge"
+      },
+      {
+       "horizon": 100,
+       "state": "edge"
+      }
+     ]
+    },
+    "path": [
+     0.012,
+     0.044,
+     0.04,
+     0.114,
+     0.096,
+     0.083,
+     0.15,
+     0.197,
+     0.187,
+     0.207,
+     0.209,
+     0.212,
+     0.208,
+     0.311,
+     0.425,
+     0.461,
+     0.445,
+     0.48,
+     0.514,
+     0.547
+    ],
+    "band": [
+     [
+      -0.046,
+      0.056
+     ],
+     [
+      -0.065,
+      0.074
+     ],
+     [
+      -0.087,
+      0.092
+     ],
+     [
+      -0.115,
+      0.119
+     ],
+     [
+      -0.119,
+      0.13
+     ],
+     [
+      -0.126,
+      0.147
+     ],
+     [
+      -0.121,
+      0.143
+     ],
+     [
+      -0.138,
+      0.163
+     ],
+     [
+      -0.134,
+      0.161
+     ],
+     [
+      -0.153,
+      0.181
+     ],
+     [
+      -0.163,
+      0.187
+     ],
+     [
+      -0.172,
+      0.208
+     ],
+     [
+      -0.166,
+      0.218
+     ],
+     [
+      -0.172,
+      0.243
+     ],
+     [
+      -0.168,
+      0.255
+     ],
+     [
+      -0.193,
+      0.269
+     ],
+     [
+      -0.197,
+      0.288
+     ],
+     [
+      -0.173,
+      0.301
+     ],
+     [
+      -0.185,
+      0.308
+     ],
+     [
+      -0.177,
+      0.309
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 162,
+     "episodes": 147,
+     "draws": 500,
+     "edge": 0.34,
+     "chance": [
+      -0.32,
+      0.34
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 2,
+       "start": "2021-01-13",
+       "end": "2021-01-13",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 320,
+     "episodes": 289,
+     "draws": 500,
+     "edge": 0.36,
+     "chance": [
+      -0.31,
+      0.31
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 2,
+       "start": "2021-01-02",
+       "end": "2021-01-03",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 648,
+     "episodes": 531,
+     "draws": 385,
+     "edge": 0.63,
+     "chance": [
+      -0.32,
+      0.32
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 1,
+       "start": "2020-09-09",
+       "end": "2020-09-09",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "bbw-gt-p90",
+   "tf": "1h",
+   "label": "BBW above its 90th percentile (150 bars), long",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 18306,
+    "episodes": 1354,
+    "draws": 100,
+    "edge": 0.17,
+    "chance": [
+     -0.15,
+     0.16
+    ],
+    "verdict": "fragile",
+    "robustness": {
+     "fragile": true,
+     "strongest": {
+      "deals": 38,
+      "start": "2020-11-06",
+      "end": "2020-11-07",
+      "without": "chance"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "chance"
+      },
+      {
+       "horizon": 50,
+       "state": "chance"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     0.009,
+     0.018,
+     0.026,
+     0.034,
+     0.041,
+     0.052,
+     0.065,
+     0.079,
+     0.093,
+     0.108,
+     0.119,
+     0.124,
+     0.122,
+     0.128,
+     0.138,
+     0.146,
+     0.151,
+     0.16,
+     0.166,
+     0.173
+    ],
+    "band": [
+     [
+      -0.015,
+      0.013
+     ],
+     [
+      -0.03,
+      0.025
+     ],
+     [
+      -0.041,
+      0.037
+     ],
+     [
+      -0.049,
+      0.047
+     ],
+     [
+      -0.06,
+      0.058
+     ],
+     [
+      -0.066,
+      0.068
+     ],
+     [
+      -0.07,
+      0.076
+     ],
+     [
+      -0.08,
+      0.088
+     ],
+     [
+      -0.091,
+      0.1
+     ],
+     [
+      -0.091,
+      0.107
+     ],
+     [
+      -0.092,
+      0.114
+     ],
+     [
+      -0.098,
+      0.122
+     ],
+     [
+      -0.104,
+      0.127
+     ],
+     [
+      -0.111,
+      0.132
+     ],
+     [
+      -0.12,
+      0.138
+     ],
+     [
+      -0.119,
+      0.148
+     ],
+     [
+      -0.123,
+      0.151
+     ],
+     [
+      -0.127,
+      0.154
+     ],
+     [
+      -0.142,
+      0.156
+     ],
+     [
+      -0.151,
+      0.162
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 6305,
+     "episodes": 458,
+     "draws": 100,
+     "edge": 0.04,
+     "chance": [
+      -0.12,
+      0.15
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 6041,
+     "episodes": 442,
+     "draws": 100,
+     "edge": 0.11,
+     "chance": [
+      -0.18,
+      0.19
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 5960,
+     "episodes": 454,
+     "draws": 100,
+     "edge": 0.39,
+     "chance": [
+      -0.32,
+      0.27
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 38,
+       "start": "2020-11-06",
+       "end": "2020-11-07",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "bbw-lt002",
+   "tf": "4h",
+   "label": "BBW below 0.02 (squeeze), long",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 1031,
+    "episodes": 118,
+    "draws": 242,
+    "edge": 0.13,
+    "chance": [
+     -1.37,
+     1.34
+    ],
+    "verdict": "none",
+    "path": [
+     -0.03,
+     -0.057,
+     -0.084,
+     -0.101,
+     -0.128,
+     -0.15,
+     -0.166,
+     -0.175,
+     -0.186,
+     -0.194,
+     -0.179,
+     -0.132,
+     -0.105,
+     -0.078,
+     -0.043,
+     -0.019,
+     0.005,
+     0.048,
+     0.097,
+     0.129
+    ],
+    "band": [
+     [
+      -0.091,
+      0.073
+     ],
+     [
+      -0.167,
+      0.142
+     ],
+     [
+      -0.239,
+      0.208
+     ],
+     [
+      -0.322,
+      0.272
+     ],
+     [
+      -0.41,
+      0.346
+     ],
+     [
+      -0.489,
+      0.416
+     ],
+     [
+      -0.562,
+      0.495
+     ],
+     [
+      -0.641,
+      0.556
+     ],
+     [
+      -0.743,
+      0.59
+     ],
+     [
+      -0.834,
+      0.628
+     ],
+     [
+      -0.89,
+      0.721
+     ],
+     [
+      -0.947,
+      0.817
+     ],
+     [
+      -1.024,
+      0.872
+     ],
+     [
+      -1.058,
+      0.956
+     ],
+     [
+      -1.136,
+      1.007
+     ],
+     [
+      -1.212,
+      1.107
+     ],
+     [
+      -1.26,
+      1.216
+     ],
+     [
+      -1.311,
+      1.276
+     ],
+     [
+      -1.361,
+      1.31
+     ],
+     [
+      -1.37,
+      1.338
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 650,
+     "episodes": 74,
+     "draws": 384,
+     "edge": 0.34,
+     "chance": [
+      -1.26,
+      1.27
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 341,
+     "episodes": 38,
+     "draws": 500,
+     "edge": -0.37,
+     "chance": [
+      -2.08,
+      2.17
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 40,
+     "episodes": 6,
+     "draws": 500,
+     "edge": 5.65,
+     "chance": [
+      -7.2,
+      10.08
+     ],
+     "verdict": "few"
+    }
+   }
+  },
+  {
+   "id": "bbw-down005",
+   "tf": "4h",
+   "label": "BBW crosses down 0.05, long",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 668,
+    "episodes": 533,
+    "draws": 374,
+    "edge": -0.44,
+    "chance": [
+     -0.64,
+     0.52
+    ],
+    "verdict": "none",
+    "path": [
+     -0.047,
+     -0.079,
+     -0.082,
+     -0.134,
+     -0.078,
+     -0.149,
+     -0.157,
+     -0.241,
+     -0.321,
+     -0.385,
+     -0.46,
+     -0.444,
+     -0.459,
+     -0.434,
+     -0.431,
+     -0.41,
+     -0.422,
+     -0.498,
+     -0.441,
+     -0.439
+    ],
+    "band": [
+     [
+      -0.109,
+      0.109
+     ],
+     [
+      -0.154,
+      0.171
+     ],
+     [
+      -0.212,
+      0.185
+     ],
+     [
+      -0.263,
+      0.225
+     ],
+     [
+      -0.274,
+      0.24
+     ],
+     [
+      -0.31,
+      0.239
+     ],
+     [
+      -0.339,
+      0.256
+     ],
+     [
+      -0.368,
+      0.297
+     ],
+     [
+      -0.354,
+      0.334
+     ],
+     [
+      -0.423,
+      0.381
+     ],
+     [
+      -0.439,
+      0.379
+     ],
+     [
+      -0.452,
+      0.386
+     ],
+     [
+      -0.493,
+      0.367
+     ],
+     [
+      -0.508,
+      0.384
+     ],
+     [
+      -0.514,
+      0.418
+     ],
+     [
+      -0.514,
+      0.445
+     ],
+     [
+      -0.549,
+      0.444
+     ],
+     [
+      -0.612,
+      0.497
+     ],
+     [
+      -0.632,
+      0.496
+     ],
+     [
+      -0.643,
+      0.515
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 278,
+     "episodes": 221,
+     "draws": 500,
+     "edge": -0.54,
+     "chance": [
+      -0.43,
+      0.46
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 2,
+       "start": "2022-01-19",
+       "end": "2022-01-19",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "worse"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 249,
+     "episodes": 202,
+     "draws": 500,
+     "edge": -0.34,
+     "chance": [
+      -0.66,
+      0.64
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 141,
+     "episodes": 110,
+     "draws": 500,
+     "edge": -0.08,
+     "chance": [
+      -1.49,
+      1.48
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "bbw-lt-p10",
+   "tf": "4h",
+   "label": "BBW below its 10th percentile (150 bars), long",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 4729,
+    "episodes": 485,
+    "draws": 100,
+    "edge": -0.28,
+    "chance": [
+     -0.6,
+     0.54
+    ],
+    "verdict": "none",
+    "path": [
+     -0.057,
+     -0.103,
+     -0.14,
+     -0.202,
+     -0.255,
+     -0.301,
+     -0.356,
+     -0.407,
+     -0.432,
+     -0.45,
+     -0.46,
+     -0.468,
+     -0.462,
+     -0.439,
+     -0.413,
+     -0.386,
+     -0.373,
+     -0.339,
+     -0.295,
+     -0.277
+    ],
+    "band": [
+     [
+      -0.052,
+      0.04
+     ],
+     [
+      -0.095,
+      0.073
+     ],
+     [
+      -0.133,
+      0.108
+     ],
+     [
+      -0.166,
+      0.146
+     ],
+     [
+      -0.201,
+      0.181
+     ],
+     [
+      -0.251,
+      0.228
+     ],
+     [
+      -0.283,
+      0.266
+     ],
+     [
+      -0.313,
+      0.312
+     ],
+     [
+      -0.353,
+      0.325
+     ],
+     [
+      -0.379,
+      0.362
+     ],
+     [
+      -0.403,
+      0.402
+     ],
+     [
+      -0.431,
+      0.424
+     ],
+     [
+      -0.442,
+      0.446
+     ],
+     [
+      -0.476,
+      0.457
+     ],
+     [
+      -0.507,
+      0.471
+     ],
+     [
+      -0.521,
+      0.458
+     ],
+     [
+      -0.506,
+      0.45
+     ],
+     [
+      -0.541,
+      0.482
+     ],
+     [
+      -0.585,
+      0.536
+     ],
+     [
+      -0.599,
+      0.54
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 1531,
+     "episodes": 167,
+     "draws": 163,
+     "edge": -0.47,
+     "chance": [
+      -0.68,
+      0.59
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 1589,
+     "episodes": 161,
+     "draws": 157,
+     "edge": -0.09,
+     "chance": [
+      -0.72,
+      0.66
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 1609,
+     "episodes": 157,
+     "draws": 155,
+     "edge": -0.29,
+     "chance": [
+      -1.07,
+      1.06
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "bbw-up010",
+   "tf": "4h",
+   "label": "BBW crosses up 0.10, long",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 726,
+    "episodes": 592,
+    "draws": 344,
+    "edge": -0.3,
+    "chance": [
+     -0.54,
+     0.53
+    ],
+    "verdict": "none",
+    "path": [
+     0.099,
+     0.099,
+     0.032,
+     -0.154,
+     -0.07,
+     -0.126,
+     -0.207,
+     -0.15,
+     -0.149,
+     -0.289,
+     -0.234,
+     -0.182,
+     -0.047,
+     -0.179,
+     -0.267,
+     -0.228,
+     -0.177,
+     -0.289,
+     -0.328,
+     -0.3
+    ],
+    "band": [
+     [
+      -0.125,
+      0.102
+     ],
+     [
+      -0.174,
+      0.169
+     ],
+     [
+      -0.207,
+      0.221
+     ],
+     [
+      -0.23,
+      0.256
+     ],
+     [
+      -0.278,
+      0.279
+     ],
+     [
+      -0.295,
+      0.324
+     ],
+     [
+      -0.318,
+      0.355
+     ],
+     [
+      -0.315,
+      0.371
+     ],
+     [
+      -0.339,
+      0.375
+     ],
+     [
+      -0.397,
+      0.395
+     ],
+     [
+      -0.407,
+      0.433
+     ],
+     [
+      -0.404,
+      0.455
+     ],
+     [
+      -0.467,
+      0.457
+     ],
+     [
+      -0.455,
+      0.438
+     ],
+     [
+      -0.451,
+      0.465
+     ],
+     [
+      -0.49,
+      0.465
+     ],
+     [
+      -0.485,
+      0.467
+     ],
+     [
+      -0.515,
+      0.522
+     ],
+     [
+      -0.507,
+      0.536
+     ],
+     [
+      -0.538,
+      0.526
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 184,
+     "episodes": 157,
+     "draws": 500,
+     "edge": 0.71,
+     "chance": [
+      -0.63,
+      0.65
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 3,
+       "start": "2021-02-03",
+       "end": "2021-02-08",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 259,
+     "episodes": 211,
+     "draws": 500,
+     "edge": -0.15,
+     "chance": [
+      -0.67,
+      0.72
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 283,
+     "episodes": 224,
+     "draws": 500,
+     "edge": -1.18,
+     "chance": [
+      -0.99,
+      0.94
+     ],
+     "verdict": "worse",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 2,
+       "start": "2022-01-18",
+       "end": "2022-01-21",
+       "without": "worse"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "worse"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "bbw-gt-p90",
+   "tf": "4h",
+   "label": "BBW above its 90th percentile (150 bars), long",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 4623,
+    "episodes": 355,
+    "draws": 100,
+    "edge": -0.29,
+    "chance": [
+     -0.74,
+     0.67
+    ],
+    "verdict": "none",
+    "path": [
+     0.009,
+     0.012,
+     0.012,
+     0.003,
+     -0.03,
+     -0.073,
+     -0.127,
+     -0.181,
+     -0.226,
+     -0.256,
+     -0.264,
+     -0.273,
+     -0.271,
+     -0.266,
+     -0.26,
+     -0.248,
+     -0.239,
+     -0.248,
+     -0.273,
+     -0.293
+    ],
+    "band": [
+     [
+      -0.054,
+      0.057
+     ],
+     [
+      -0.102,
+      0.108
+     ],
+     [
+      -0.143,
+      0.155
+     ],
+     [
+      -0.17,
+      0.201
+     ],
+     [
+      -0.217,
+      0.259
+     ],
+     [
+      -0.268,
+      0.312
+     ],
+     [
+      -0.299,
+      0.359
+     ],
+     [
+      -0.361,
+      0.397
+     ],
+     [
+      -0.392,
+      0.432
+     ],
+     [
+      -0.424,
+      0.465
+     ],
+     [
+      -0.463,
+      0.468
+     ],
+     [
+      -0.502,
+      0.495
+     ],
+     [
+      -0.529,
+      0.531
+     ],
+     [
+      -0.547,
+      0.562
+     ],
+     [
+      -0.584,
+      0.584
+     ],
+     [
+      -0.634,
+      0.595
+     ],
+     [
+      -0.658,
+      0.602
+     ],
+     [
+      -0.686,
+      0.605
+     ],
+     [
+      -0.727,
+      0.61
+     ],
+     [
+      -0.735,
+      0.666
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 1466,
+     "episodes": 110,
+     "draws": 170,
+     "edge": -0.08,
+     "chance": [
+      -0.61,
+      0.55
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 1564,
+     "episodes": 123,
+     "draws": 159,
+     "edge": -0.37,
+     "chance": [
+      -1,
+      0.89
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 1593,
+     "episodes": 122,
+     "draws": 156,
+     "edge": -0.43,
+     "chance": [
+      -1.31,
+      1.31
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "bbw-down005",
+   "tf": "1d",
+   "label": "BBW crosses down 0.05, long",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 10,
+    "episodes": 10,
+    "draws": 500,
+    "edge": -0.36,
+    "chance": [
+     -10.69,
+     9.29
+    ],
+    "verdict": "few",
+    "path": [
+     -0.53,
+     -0.614,
+     -0.838,
+     0.757,
+     0.902,
+     1.524,
+     2.166,
+     1.444,
+     2.873,
+     3.478,
+     5.212,
+     3.951,
+     3.04,
+     1.961,
+     0.822,
+     1.105,
+     1.263,
+     0.408,
+     0.158,
+     -0.357
+    ],
+    "band": [
+     [
+      -1.757,
+      1.808
+     ],
+     [
+      -2.649,
+      2.43
+     ],
+     [
+      -3.175,
+      2.782
+     ],
+     [
+      -3.942,
+      3.298
+     ],
+     [
+      -4.753,
+      3.837
+     ],
+     [
+      -4.725,
+      4.206
+     ],
+     [
+      -5.048,
+      4.508
+     ],
+     [
+      -5.761,
+      4.736
+     ],
+     [
+      -6.156,
+      5.293
+     ],
+     [
+      -6.639,
+      5.427
+     ],
+     [
+      -6.895,
+      6.212
+     ],
+     [
+      -7.441,
+      6.34
+     ],
+     [
+      -7.814,
+      7.203
+     ],
+     [
+      -8.169,
+      6.751
+     ],
+     [
+      -8.801,
+      7.638
+     ],
+     [
+      -8.922,
+      7.865
+     ],
+     [
+      -9.752,
+      8.548
+     ],
+     [
+      -9.928,
+      8.96
+     ],
+     [
+      -10.781,
+      9.081
+     ],
+     [
+      -10.687,
+      9.294
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 7,
+     "episodes": 7,
+     "draws": 500,
+     "edge": 1.67,
+     "chance": [
+      -8.69,
+      10.47
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 3,
+     "episodes": 3,
+     "draws": 500,
+     "edge": 0.47,
+     "chance": [
+      -16.18,
+      21.92
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 0,
+     "episodes": 0,
+     "draws": 0,
+     "edge": 0,
+     "chance": [
+      0,
+      0
+     ],
+     "verdict": "few"
+    }
+   }
+  },
+  {
+   "id": "bbw-lt-p10",
+   "tf": "1d",
+   "label": "BBW below its 10th percentile (150 bars), long",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 801,
+    "episodes": 73,
+    "draws": 312,
+    "edge": -5.08,
+    "chance": [
+     -5.1,
+     4.84
+    ],
+    "verdict": "none",
+    "path": [
+     -0.154,
+     -0.398,
+     -0.569,
+     -0.802,
+     -1.142,
+     -1.447,
+     -1.654,
+     -1.878,
+     -2.073,
+     -2.327,
+     -2.521,
+     -2.789,
+     -3.156,
+     -3.46,
+     -3.818,
+     -4.075,
+     -4.219,
+     -4.448,
+     -4.705,
+     -5.085
+    ],
+    "band": [
+     [
+      -0.284,
+      0.317
+     ],
+     [
+      -0.582,
+      0.605
+     ],
+     [
+      -0.839,
+      0.856
+     ],
+     [
+      -1.112,
+      1.144
+     ],
+     [
+      -1.321,
+      1.311
+     ],
+     [
+      -1.522,
+      1.552
+     ],
+     [
+      -1.784,
+      1.87
+     ],
+     [
+      -2.05,
+      2.083
+     ],
+     [
+      -2.257,
+      2.384
+     ],
+     [
+      -2.496,
+      2.697
+     ],
+     [
+      -2.782,
+      3.011
+     ],
+     [
+      -2.965,
+      3.311
+     ],
+     [
+      -3.134,
+      3.566
+     ],
+     [
+      -3.365,
+      3.72
+     ],
+     [
+      -3.619,
+      3.712
+     ],
+     [
+      -3.911,
+      3.903
+     ],
+     [
+      -4.211,
+      4.214
+     ],
+     [
+      -4.541,
+      4.428
+     ],
+     [
+      -4.783,
+      4.691
+     ],
+     [
+      -5.103,
+      4.836
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 280,
+     "episodes": 26,
+     "draws": 500,
+     "edge": -3.6,
+     "chance": [
+      -4.03,
+      4.03
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 235,
+     "episodes": 21,
+     "draws": 500,
+     "edge": -5.72,
+     "chance": [
+      -5.11,
+      6.26
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 39,
+       "start": "2021-10-19",
+       "end": "2022-01-03",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "worse"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 286,
+     "episodes": 26,
+     "draws": 500,
+     "edge": -6.28,
+     "chance": [
+      -8.29,
+      11.16
+     ],
+     "verdict": "few"
+    }
+   }
+  },
+  {
+   "id": "bbw-up010",
+   "tf": "1d",
+   "label": "BBW crosses up 0.10, long",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 70,
+    "episodes": 62,
+    "draws": 500,
+    "edge": -3.72,
+    "chance": [
+     -5.96,
+     4.04
+    ],
+    "verdict": "none",
+    "path": [
+     0.703,
+     0.808,
+     1.317,
+     0.911,
+     1.046,
+     1.312,
+     0.898,
+     0.388,
+     0.16,
+     0.004,
+     -0.034,
+     -0.896,
+     -1.142,
+     -1.931,
+     -2.301,
+     -2.662,
+     -2.889,
+     -3.196,
+     -3.497,
+     -3.725
+    ],
+    "band": [
+     [
+      -0.764,
+      0.759
+     ],
+     [
+      -1.214,
+      1.053
+     ],
+     [
+      -1.494,
+      1.24
+     ],
+     [
+      -1.742,
+      1.475
+     ],
+     [
+      -2.06,
+      1.85
+     ],
+     [
+      -2.326,
+      1.873
+     ],
+     [
+      -2.645,
+      2.124
+     ],
+     [
+      -2.89,
+      2.277
+     ],
+     [
+      -3.166,
+      2.488
+     ],
+     [
+      -3.315,
+      2.5
+     ],
+     [
+      -3.59,
+      2.877
+     ],
+     [
+      -3.91,
+      3.028
+     ],
+     [
+      -4.096,
+      3.085
+     ],
+     [
+      -4.263,
+      3.088
+     ],
+     [
+      -4.553,
+      3.237
+     ],
+     [
+      -4.822,
+      3.381
+     ],
+     [
+      -5.01,
+      3.578
+     ],
+     [
+      -5.369,
+      3.685
+     ],
+     [
+      -5.515,
+      3.741
+     ],
+     [
+      -5.958,
+      4.041
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 39,
+     "episodes": 35,
+     "draws": 500,
+     "edge": -2.03,
+     "chance": [
+      -3.22,
+      3.5
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 22,
+     "episodes": 19,
+     "draws": 500,
+     "edge": -3.46,
+     "chance": [
+      -6.82,
+      7.17
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 9,
+     "episodes": 8,
+     "draws": 500,
+     "edge": -3.78,
+     "chance": [
+      -20.18,
+      25.51
+     ],
+     "verdict": "few"
+    }
+   }
+  },
+  {
+   "id": "bbw-gt-p90",
+   "tf": "1d",
+   "label": "BBW above its 90th percentile (150 bars), long",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 726,
+    "episodes": 59,
+    "draws": 344,
+    "edge": 0.88,
+    "chance": [
+     -4.87,
+     5.34
+    ],
+    "verdict": "none",
+    "path": [
+     0.223,
+     0.409,
+     0.524,
+     0.657,
+     0.849,
+     0.873,
+     0.865,
+     0.936,
+     1.026,
+     1.079,
+     1.129,
+     1.164,
+     1.267,
+     1.244,
+     1.361,
+     1.425,
+     1.354,
+     1.26,
+     1.058,
+     0.882
+    ],
+    "band": [
+     [
+      -0.29,
+      0.27
+     ],
+     [
+      -0.56,
+      0.569
+     ],
+     [
+      -0.822,
+      0.873
+     ],
+     [
+      -1.115,
+      1.167
+     ],
+     [
+      -1.419,
+      1.419
+     ],
+     [
+      -1.668,
+      1.728
+     ],
+     [
+      -1.808,
+      1.995
+     ],
+     [
+      -1.905,
+      2.156
+     ],
+     [
+      -2.2,
+      2.407
+     ],
+     [
+      -2.509,
+      2.614
+     ],
+     [
+      -2.677,
+      2.877
+     ],
+     [
+      -2.896,
+      3.166
+     ],
+     [
+      -3.147,
+      3.269
+     ],
+     [
+      -3.3,
+      3.649
+     ],
+     [
+      -3.596,
+      3.869
+     ],
+     [
+      -3.888,
+      4.35
+     ],
+     [
+      -4.21,
+      4.786
+     ],
+     [
+      -4.508,
+      5.05
+     ],
+     [
+      -4.702,
+      5.227
+     ],
+     [
+      -4.869,
+      5.337
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 274,
+     "episodes": 23,
+     "draws": 500,
+     "edge": 1.33,
+     "chance": [
+      -4.09,
+      3.53
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 232,
+     "episodes": 19,
+     "draws": 500,
+     "edge": -0.9,
+     "chance": [
+      -5.88,
+      6.24
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 220,
+     "episodes": 17,
+     "draws": 500,
+     "edge": 2.72,
+     "chance": [
+      -11.6,
+      12.97
+     ],
+     "verdict": "few"
+    }
+   }
+  }
+ ],
+ "summary": "Mostly no. On 4h and daily, no BBW setting did better or worse than random candles. The one result that holds is on 1h: after BBW crossed up through 0.10, price was 0.55% ahead of random entries 20 candles later, but those crosses fire in volatile candles in a window that rose, so this is timing, not direction.",
+ "verdicts": [
+  {
+   "use": "Buying the squeeze (below 0.02 or its 10th percentile)",
+   "verdict": "worse",
+   "text": "BBW below 0.02 matched random entries on 1h and 4h. Below its own 10th percentile it did worse than random on 1h, and SOL carried most of that."
+  },
+  {
+   "use": "Going long as volatility expands (cross up through 0.10)",
+   "verdict": "edge",
+   "text": "Beat random entries on 1h at every horizon. The crosses land in volatile candles in a window that rose, so price moved more after them. That does not show BBW picking direction. On 4h, chance."
+  },
+  {
+   "use": "Going long in high volatility (above its 90th percentile)",
+   "verdict": "fragile",
+   "text": "Just above the luck band on 1h, but only because of one stretch on Nov 6–7, 2020. Without it, chance. On 4h and daily, chance."
+  },
+  {
+   "use": "Going long as the bands contract (cross down through 0.05)",
+   "verdict": "worse",
+   "text": "Worse than random on 1h, and it holds without its strongest stretch. On 4h it sits inside the luck band."
+  }
+ ],
+ "notes": [
+  "On 1h, BBW below 0.02 gave 34,735 entries in 1,268 separate moves. Twenty candles later they were 0.13% behind random entries, inside the luck band. BBW below its 10th percentile of the last 150 bars did 0.18% worse than random, just below the band. That holds without its strongest stretch (May 26–28, 2021) and at 10 candles, but not at 50 or 100. SOL alone was 0.4% behind random, and BTC and ETH were inside their bands.",
+  "After BBW crossed up through 0.10 on 1h, price was 0.55% ahead of random entries after 20 candles, against a band that tops out at 0.31%. It holds without its strongest stretch and at 10, 20, 50 and 100 candles. These crosses come in volatile candles, and the random copies keep their timing but not the volatility. In a window where price rose, a long that enters as volatility jumps will tend to show bigger gains, so read it as price moving more after the cross, not as a call on direction.",
+  "The per-coin split of that 1h cross is thin. SOL was 0.63% ahead and holds at every horizon. BTC at 0.34% and ETH at 0.36% each vanish once a single stretch is left out, on Jan 13, 2021 for BTC and Jan 2–3, 2021 for ETH. On 4h the same cross is inside the luck band pooled, and on SOL it did 1.18% worse than random.",
+  "BBW above its 90th percentile on 1h beat random by 0.17%, barely over the band edge of 0.16%. The result comes from 38 entries on Nov 6–7, 2020, and without them it is chance. It is also chance at 10, 50 and 100 candles. These are volatile candles too, so any gain reflects when they fire, in a window that rose. On 4h and daily it is inside the band.",
+  "BBW crossing down through 0.05 on 1h did 0.18% worse than random. That holds without its strongest stretch and at 10 and 100 candles, but not at 50. On 4h it is inside the band, and on daily it fired too rarely to judge, with 10 entries. On daily, BBW below its 10th percentile gave only 73 moves and landed inside the band.",
+  "For a long DCA bot on 1h, a squeeze start condition gave entries no better than random, and the 10th-percentile version slightly worse. The take profit and DCA orders still do the work there. BBW crossing up through 0.10 is better used as a volatility condition beside a directional filter, with the take profit and DCA step sized for bigger moves. In a falling market the same burst of volatility moves price down just as hard, so it is no reason to go long on its own."
+ ],
+ "summaryRefs": [
+  {
+   "tf": "4h",
+   "setting": "*",
+   "scope": "pooled"
+  },
+  {
+   "tf": "1d",
+   "setting": "*",
+   "scope": "pooled"
+  },
+  {
+   "tf": "1h",
+   "setting": "bbw-up010",
+   "scope": "pooled"
+  }
+ ],
+ "verdictRefs": [
+  [
+   {
+    "tf": "1h",
+    "setting": "bbw-lt002",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "bbw-lt002",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "bbw-lt-p10",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "bbw-lt-p10",
+    "scope": "SOL"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "bbw-up010",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "bbw-up010",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "bbw-gt-p90",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "bbw-gt-p90",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "bbw-gt-p90",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "bbw-down005",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "bbw-down005",
+    "scope": "pooled"
+   }
+  ]
+ ],
+ "noteRefs": [
+  [
+   {
+    "tf": "1h",
+    "setting": "bbw-lt002",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "bbw-lt-p10",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "bbw-lt-p10",
+    "scope": "SOL"
+   },
+   {
+    "tf": "1h",
+    "setting": "bbw-lt-p10",
+    "scope": "BTC"
+   },
+   {
+    "tf": "1h",
+    "setting": "bbw-lt-p10",
+    "scope": "ETH"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "bbw-up010",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "bbw-up010",
+    "scope": "SOL"
+   },
+   {
+    "tf": "1h",
+    "setting": "bbw-up010",
+    "scope": "BTC"
+   },
+   {
+    "tf": "1h",
+    "setting": "bbw-up010",
+    "scope": "ETH"
+   },
+   {
+    "tf": "4h",
+    "setting": "bbw-up010",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "bbw-up010",
+    "scope": "SOL"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "bbw-gt-p90",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "bbw-gt-p90",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "bbw-gt-p90",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "bbw-down005",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "bbw-down005",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "bbw-down005",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "bbw-lt-p10",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "bbw-lt002",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "bbw-lt-p10",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "bbw-up010",
+    "scope": "pooled"
+   }
+  ]
+ ]
+}

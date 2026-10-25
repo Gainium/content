@@ -1,0 +1,2830 @@
+{
+ "indicator": "sessions",
+ "defaultTf": "1h",
+ "method": {
+  "horizon": 20,
+  "horizons": [
+   10,
+   20,
+   50,
+   100
+  ],
+  "randomDraws": 500,
+  "minEpisodes": 30,
+  "source": "Binance spot",
+  "pairs": [
+   "BTC/USDT",
+   "ETH/USDT",
+   "SOL/USDT"
+  ],
+  "from": "2020-09-01",
+  "warmupFrom": "2020-06-01",
+  "to": "2026-10-24",
+  "engine": {
+   "indicators": "56f63e97",
+   "analysisMath": "cab0ed99"
+  }
+ },
+ "updatedAt": "2026-10-25",
+ "settings": [
+  {
+   "id": "london-cd-prevlow",
+   "tf": "1h",
+   "label": "London: price crosses down previous low",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 1140,
+    "episodes": 931,
+    "draws": 219,
+    "edge": -0.14,
+    "chance": [
+     -0.23,
+     0.24
+    ],
+    "verdict": "none",
+    "path": [
+     -0.01,
+     -0.021,
+     -0.06,
+     -0.025,
+     -0.024,
+     -0.05,
+     -0.039,
+     -0.038,
+     -0.044,
+     -0.071,
+     -0.078,
+     -0.08,
+     -0.098,
+     -0.074,
+     -0.082,
+     -0.109,
+     -0.145,
+     -0.135,
+     -0.154,
+     -0.142
+    ],
+    "band": [
+     [
+      -0.055,
+      0.048
+     ],
+     [
+      -0.079,
+      0.062
+     ],
+     [
+      -0.096,
+      0.08
+     ],
+     [
+      -0.117,
+      0.09
+     ],
+     [
+      -0.126,
+      0.117
+     ],
+     [
+      -0.149,
+      0.121
+     ],
+     [
+      -0.155,
+      0.124
+     ],
+     [
+      -0.165,
+      0.145
+     ],
+     [
+      -0.167,
+      0.172
+     ],
+     [
+      -0.179,
+      0.186
+     ],
+     [
+      -0.176,
+      0.183
+     ],
+     [
+      -0.19,
+      0.194
+     ],
+     [
+      -0.211,
+      0.199
+     ],
+     [
+      -0.208,
+      0.209
+     ],
+     [
+      -0.206,
+      0.216
+     ],
+     [
+      -0.224,
+      0.205
+     ],
+     [
+      -0.227,
+      0.242
+     ],
+     [
+      -0.229,
+      0.224
+     ],
+     [
+      -0.228,
+      0.232
+     ],
+     [
+      -0.233,
+      0.245
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 381,
+     "episodes": 306,
+     "draws": 500,
+     "edge": -0.23,
+     "chance": [
+      -0.26,
+      0.25
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 372,
+     "episodes": 307,
+     "draws": 500,
+     "edge": -0.08,
+     "chance": [
+      -0.31,
+      0.3
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 387,
+     "episodes": 318,
+     "draws": 500,
+     "edge": -0.11,
+     "chance": [
+      -0.5,
+      0.48
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "london-cu-prevhigh",
+   "tf": "1h",
+   "label": "London: price crosses up previous high",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 1105,
+    "episodes": 890,
+    "draws": 226,
+    "edge": 0.09,
+    "chance": [
+     -0.25,
+     0.25
+    ],
+    "verdict": "none",
+    "path": [
+     0.072,
+     0.068,
+     0.076,
+     0.068,
+     0.052,
+     0.034,
+     -0.003,
+     0.017,
+     0.058,
+     0.066,
+     0.071,
+     0.027,
+     -0.002,
+     0.028,
+     -0.008,
+     0.022,
+     0.008,
+     0.054,
+     0.064,
+     0.086
+    ],
+    "band": [
+     [
+      -0.052,
+      0.054
+     ],
+     [
+      -0.068,
+      0.073
+     ],
+     [
+      -0.094,
+      0.099
+     ],
+     [
+      -0.096,
+      0.118
+     ],
+     [
+      -0.118,
+      0.12
+     ],
+     [
+      -0.128,
+      0.126
+     ],
+     [
+      -0.143,
+      0.14
+     ],
+     [
+      -0.151,
+      0.166
+     ],
+     [
+      -0.153,
+      0.172
+     ],
+     [
+      -0.156,
+      0.185
+     ],
+     [
+      -0.173,
+      0.193
+     ],
+     [
+      -0.181,
+      0.199
+     ],
+     [
+      -0.186,
+      0.223
+     ],
+     [
+      -0.196,
+      0.229
+     ],
+     [
+      -0.204,
+      0.225
+     ],
+     [
+      -0.192,
+      0.216
+     ],
+     [
+      -0.203,
+      0.206
+     ],
+     [
+      -0.203,
+      0.23
+     ],
+     [
+      -0.23,
+      0.248
+     ],
+     [
+      -0.245,
+      0.254
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 372,
+     "episodes": 302,
+     "draws": 500,
+     "edge": -0.09,
+     "chance": [
+      -0.22,
+      0.25
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 355,
+     "episodes": 283,
+     "draws": 500,
+     "edge": 0.11,
+     "chance": [
+      -0.34,
+      0.37
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 378,
+     "episodes": 305,
+     "draws": 500,
+     "edge": 0.24,
+     "chance": [
+      -0.45,
+      0.51
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "london-gt-prevmid",
+   "tf": "1h",
+   "label": "London: price above previous midpoint",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 21981,
+    "episodes": 1730,
+    "draws": 100,
+    "edge": 0.03,
+    "chance": [
+     -0.12,
+     0.11
+    ],
+    "verdict": "none",
+    "path": [
+     0.008,
+     0.011,
+     0.006,
+     0.005,
+     -0.007,
+     -0.008,
+     -0.005,
+     0.001,
+     0.007,
+     0.012,
+     0.012,
+     0.012,
+     0.016,
+     0.023,
+     0.018,
+     0.013,
+     0.01,
+     0.012,
+     0.016,
+     0.028
+    ],
+    "band": [
+     [
+      -0.014,
+      0.016
+     ],
+     [
+      -0.026,
+      0.025
+     ],
+     [
+      -0.034,
+      0.032
+     ],
+     [
+      -0.043,
+      0.039
+     ],
+     [
+      -0.046,
+      0.046
+     ],
+     [
+      -0.048,
+      0.055
+     ],
+     [
+      -0.056,
+      0.059
+     ],
+     [
+      -0.055,
+      0.062
+     ],
+     [
+      -0.06,
+      0.062
+     ],
+     [
+      -0.057,
+      0.069
+     ],
+     [
+      -0.063,
+      0.073
+     ],
+     [
+      -0.07,
+      0.079
+     ],
+     [
+      -0.076,
+      0.082
+     ],
+     [
+      -0.079,
+      0.09
+     ],
+     [
+      -0.086,
+      0.093
+     ],
+     [
+      -0.091,
+      0.096
+     ],
+     [
+      -0.101,
+      0.101
+     ],
+     [
+      -0.113,
+      0.106
+     ],
+     [
+      -0.118,
+      0.11
+     ],
+     [
+      -0.12,
+      0.113
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 7486,
+     "episodes": 582,
+     "draws": 100,
+     "edge": 0,
+     "chance": [
+      -0.1,
+      0.1
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 7417,
+     "episodes": 573,
+     "draws": 100,
+     "edge": 0.09,
+     "chance": [
+      -0.13,
+      0.13
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 7078,
+     "episodes": 575,
+     "draws": 100,
+     "edge": 0.01,
+     "chance": [
+      -0.23,
+      0.19
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "ny-cu-prevhigh",
+   "tf": "1h",
+   "label": "New York: price crosses up previous high",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 1103,
+    "episodes": 899,
+    "draws": 226,
+    "edge": -0.01,
+    "chance": [
+     -0.28,
+     0.22
+    ],
+    "verdict": "none",
+    "path": [
+     -0.015,
+     0.005,
+     0.005,
+     0.019,
+     -0.031,
+     -0.023,
+     -0.037,
+     -0.023,
+     0.017,
+     0.068,
+     0.045,
+     0.035,
+     0.038,
+     0.059,
+     0.027,
+     0.087,
+     0.04,
+     0.029,
+     0.016,
+     -0.012
+    ],
+    "band": [
+     [
+      -0.055,
+      0.052
+     ],
+     [
+      -0.068,
+      0.072
+     ],
+     [
+      -0.089,
+      0.089
+     ],
+     [
+      -0.104,
+      0.09
+     ],
+     [
+      -0.123,
+      0.111
+     ],
+     [
+      -0.123,
+      0.127
+     ],
+     [
+      -0.142,
+      0.139
+     ],
+     [
+      -0.166,
+      0.15
+     ],
+     [
+      -0.173,
+      0.151
+     ],
+     [
+      -0.195,
+      0.177
+     ],
+     [
+      -0.202,
+      0.182
+     ],
+     [
+      -0.207,
+      0.187
+     ],
+     [
+      -0.212,
+      0.186
+     ],
+     [
+      -0.222,
+      0.191
+     ],
+     [
+      -0.242,
+      0.215
+     ],
+     [
+      -0.253,
+      0.208
+     ],
+     [
+      -0.257,
+      0.212
+     ],
+     [
+      -0.255,
+      0.201
+     ],
+     [
+      -0.266,
+      0.23
+     ],
+     [
+      -0.28,
+      0.222
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 383,
+     "episodes": 314,
+     "draws": 500,
+     "edge": -0.1,
+     "chance": [
+      -0.24,
+      0.24
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 340,
+     "episodes": 285,
+     "draws": 500,
+     "edge": -0.25,
+     "chance": [
+      -0.37,
+      0.37
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 380,
+     "episodes": 300,
+     "draws": 500,
+     "edge": 0.28,
+     "chance": [
+      -0.52,
+      0.48
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "day-cu-prevhigh",
+   "tf": "1h",
+   "label": "Weekdays: price crosses up previous day's high",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 2533,
+    "episodes": 1340,
+    "draws": 100,
+    "edge": 0.13,
+    "chance": [
+     -0.16,
+     0.17
+    ],
+    "verdict": "none",
+    "path": [
+     0.023,
+     -0.015,
+     0.039,
+     0.012,
+     -0.018,
+     -0.006,
+     0.015,
+     0.033,
+     0.069,
+     0.066,
+     0.067,
+     0.075,
+     0.097,
+     0.101,
+     0.105,
+     0.131,
+     0.144,
+     0.16,
+     0.138,
+     0.128
+    ],
+    "band": [
+     [
+      -0.032,
+      0.037
+     ],
+     [
+      -0.044,
+      0.054
+     ],
+     [
+      -0.044,
+      0.055
+     ],
+     [
+      -0.06,
+      0.074
+     ],
+     [
+      -0.057,
+      0.089
+     ],
+     [
+      -0.072,
+      0.082
+     ],
+     [
+      -0.076,
+      0.109
+     ],
+     [
+      -0.09,
+      0.117
+     ],
+     [
+      -0.094,
+      0.115
+     ],
+     [
+      -0.106,
+      0.122
+     ],
+     [
+      -0.11,
+      0.132
+     ],
+     [
+      -0.135,
+      0.13
+     ],
+     [
+      -0.12,
+      0.129
+     ],
+     [
+      -0.14,
+      0.136
+     ],
+     [
+      -0.151,
+      0.145
+     ],
+     [
+      -0.139,
+      0.14
+     ],
+     [
+      -0.15,
+      0.128
+     ],
+     [
+      -0.154,
+      0.148
+     ],
+     [
+      -0.169,
+      0.153
+     ],
+     [
+      -0.164,
+      0.169
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 827,
+     "episodes": 445,
+     "draws": 302,
+     "edge": 0.2,
+     "chance": [
+      -0.17,
+      0.18
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 6,
+       "start": "2021-01-05",
+       "end": "2021-01-07",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 813,
+     "episodes": 459,
+     "draws": 307,
+     "edge": 0.05,
+     "chance": [
+      -0.25,
+      0.25
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 893,
+     "episodes": 436,
+     "draws": 279,
+     "edge": 0.13,
+     "chance": [
+      -0.35,
+      0.41
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "day-gt-prevhigh",
+   "tf": "1h",
+   "label": "Weekdays: price above previous day's high",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 21418,
+    "episodes": 1332,
+    "draws": 100,
+    "edge": 0.12,
+    "chance": [
+     -0.18,
+     0.14
+    ],
+    "verdict": "none",
+    "path": [
+     0.012,
+     0.024,
+     0.039,
+     0.047,
+     0.053,
+     0.061,
+     0.068,
+     0.072,
+     0.079,
+     0.083,
+     0.087,
+     0.096,
+     0.105,
+     0.113,
+     0.117,
+     0.119,
+     0.121,
+     0.123,
+     0.12,
+     0.121
+    ],
+    "band": [
+     [
+      -0.011,
+      0.009
+     ],
+     [
+      -0.021,
+      0.019
+     ],
+     [
+      -0.031,
+      0.03
+     ],
+     [
+      -0.045,
+      0.04
+     ],
+     [
+      -0.055,
+      0.047
+     ],
+     [
+      -0.062,
+      0.051
+     ],
+     [
+      -0.072,
+      0.053
+     ],
+     [
+      -0.08,
+      0.06
+     ],
+     [
+      -0.089,
+      0.069
+     ],
+     [
+      -0.099,
+      0.08
+     ],
+     [
+      -0.111,
+      0.089
+     ],
+     [
+      -0.123,
+      0.099
+     ],
+     [
+      -0.128,
+      0.112
+     ],
+     [
+      -0.132,
+      0.117
+     ],
+     [
+      -0.134,
+      0.126
+     ],
+     [
+      -0.142,
+      0.13
+     ],
+     [
+      -0.156,
+      0.133
+     ],
+     [
+      -0.164,
+      0.133
+     ],
+     [
+      -0.171,
+      0.137
+     ],
+     [
+      -0.18,
+      0.139
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 6912,
+     "episodes": 443,
+     "draws": 100,
+     "edge": 0.11,
+     "chance": [
+      -0.14,
+      0.16
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 7123,
+     "episodes": 448,
+     "draws": 100,
+     "edge": 0.04,
+     "chance": [
+      -0.22,
+      0.2
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 7383,
+     "episodes": 441,
+     "draws": 100,
+     "edge": 0.21,
+     "chance": [
+      -0.31,
+      0.28
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "day-cd-prevlow",
+   "tf": "1h",
+   "label": "Weekdays: price crosses down previous day's low",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 2520,
+    "episodes": 1327,
+    "draws": 100,
+    "edge": 0.04,
+    "chance": [
+     -0.22,
+     0.17
+    ],
+    "verdict": "none",
+    "path": [
+     -0.02,
+     0.027,
+     -0.014,
+     0.02,
+     0.014,
+     0.003,
+     0.041,
+     0.015,
+     0.037,
+     0.011,
+     0.022,
+     0.019,
+     0.027,
+     0.041,
+     0.042,
+     0.022,
+     0.042,
+     0.011,
+     0.018,
+     0.041
+    ],
+    "band": [
+     [
+      -0.029,
+      0.037
+     ],
+     [
+      -0.039,
+      0.057
+     ],
+     [
+      -0.063,
+      0.07
+     ],
+     [
+      -0.065,
+      0.067
+     ],
+     [
+      -0.071,
+      0.071
+     ],
+     [
+      -0.077,
+      0.069
+     ],
+     [
+      -0.086,
+      0.085
+     ],
+     [
+      -0.083,
+      0.098
+     ],
+     [
+      -0.096,
+      0.096
+     ],
+     [
+      -0.088,
+      0.119
+     ],
+     [
+      -0.096,
+      0.134
+     ],
+     [
+      -0.119,
+      0.135
+     ],
+     [
+      -0.132,
+      0.141
+     ],
+     [
+      -0.138,
+      0.134
+     ],
+     [
+      -0.155,
+      0.142
+     ],
+     [
+      -0.182,
+      0.154
+     ],
+     [
+      -0.206,
+      0.166
+     ],
+     [
+      -0.21,
+      0.155
+     ],
+     [
+      -0.234,
+      0.157
+     ],
+     [
+      -0.222,
+      0.17
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 780,
+     "episodes": 433,
+     "draws": 320,
+     "edge": 0.03,
+     "chance": [
+      -0.18,
+      0.17
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 796,
+     "episodes": 433,
+     "draws": 314,
+     "edge": 0.07,
+     "chance": [
+      -0.26,
+      0.23
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 944,
+     "episodes": 461,
+     "draws": 264,
+     "edge": 0.01,
+     "chance": [
+      -0.37,
+      0.33
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "london-cd-prevlow",
+   "tf": "4h",
+   "label": "London: price crosses down previous low",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 532,
+    "episodes": 404,
+    "draws": 469,
+    "edge": -0.75,
+    "chance": [
+     -0.7,
+     0.84
+    ],
+    "verdict": "fragile-worse",
+    "robustness": {
+     "fragile": true,
+     "strongest": {
+      "deals": 2,
+      "start": "2024-04-10",
+      "end": "2024-04-12",
+      "without": "chance"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "chance"
+      },
+      {
+       "horizon": 50,
+       "state": "worse"
+      },
+      {
+       "horizon": 100,
+       "state": "worse"
+      }
+     ]
+    },
+    "path": [
+     -0.062,
+     -0.125,
+     -0.062,
+     -0.204,
+     -0.218,
+     -0.066,
+     -0.385,
+     -0.418,
+     -0.441,
+     -0.437,
+     -0.541,
+     -0.673,
+     -0.755,
+     -0.739,
+     -0.848,
+     -0.767,
+     -0.782,
+     -0.696,
+     -0.734,
+     -0.747
+    ],
+    "band": [
+     [
+      -0.162,
+      0.176
+     ],
+     [
+      -0.212,
+      0.237
+     ],
+     [
+      -0.252,
+      0.277
+     ],
+     [
+      -0.299,
+      0.341
+     ],
+     [
+      -0.328,
+      0.368
+     ],
+     [
+      -0.355,
+      0.375
+     ],
+     [
+      -0.367,
+      0.444
+     ],
+     [
+      -0.412,
+      0.43
+     ],
+     [
+      -0.422,
+      0.487
+     ],
+     [
+      -0.488,
+      0.538
+     ],
+     [
+      -0.518,
+      0.564
+     ],
+     [
+      -0.546,
+      0.57
+     ],
+     [
+      -0.585,
+      0.6
+     ],
+     [
+      -0.599,
+      0.637
+     ],
+     [
+      -0.663,
+      0.692
+     ],
+     [
+      -0.619,
+      0.713
+     ],
+     [
+      -0.673,
+      0.717
+     ],
+     [
+      -0.659,
+      0.798
+     ],
+     [
+      -0.73,
+      0.812
+     ],
+     [
+      -0.705,
+      0.835
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 166,
+     "episodes": 125,
+     "draws": 500,
+     "edge": -0.62,
+     "chance": [
+      -0.7,
+      0.81
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 186,
+     "episodes": 141,
+     "draws": 500,
+     "edge": -0.56,
+     "chance": [
+      -0.87,
+      0.93
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 180,
+     "episodes": 138,
+     "draws": 500,
+     "edge": -1.06,
+     "chance": [
+      -1.27,
+      1.28
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "london-cu-prevhigh",
+   "tf": "4h",
+   "label": "London: price crosses up previous high",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 486,
+    "episodes": 406,
+    "draws": 500,
+    "edge": 0.45,
+    "chance": [
+     -0.65,
+     0.71
+    ],
+    "verdict": "none",
+    "path": [
+     -0.074,
+     -0.059,
+     0.094,
+     0.242,
+     0.365,
+     0.035,
+     0.097,
+     0.227,
+     0.29,
+     0.3,
+     0.373,
+     0.471,
+     0.343,
+     0.306,
+     0.349,
+     0.417,
+     0.519,
+     0.409,
+     0.327,
+     0.454
+    ],
+    "band": [
+     [
+      -0.161,
+      0.171
+     ],
+     [
+      -0.224,
+      0.231
+     ],
+     [
+      -0.238,
+      0.266
+     ],
+     [
+      -0.273,
+      0.301
+     ],
+     [
+      -0.327,
+      0.343
+     ],
+     [
+      -0.357,
+      0.373
+     ],
+     [
+      -0.394,
+      0.425
+     ],
+     [
+      -0.428,
+      0.461
+     ],
+     [
+      -0.464,
+      0.447
+     ],
+     [
+      -0.448,
+      0.525
+     ],
+     [
+      -0.474,
+      0.519
+     ],
+     [
+      -0.485,
+      0.571
+     ],
+     [
+      -0.518,
+      0.533
+     ],
+     [
+      -0.544,
+      0.588
+     ],
+     [
+      -0.552,
+      0.612
+     ],
+     [
+      -0.567,
+      0.616
+     ],
+     [
+      -0.561,
+      0.626
+     ],
+     [
+      -0.6,
+      0.647
+     ],
+     [
+      -0.625,
+      0.657
+     ],
+     [
+      -0.649,
+      0.712
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 167,
+     "episodes": 137,
+     "draws": 500,
+     "edge": 0.55,
+     "chance": [
+      -0.62,
+      0.7
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 160,
+     "episodes": 136,
+     "draws": 500,
+     "edge": 0.09,
+     "chance": [
+      -0.83,
+      0.96
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 159,
+     "episodes": 133,
+     "draws": 500,
+     "edge": 0.73,
+     "chance": [
+      -1.31,
+      1.38
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "london-gt-prevmid",
+   "tf": "4h",
+   "label": "London: price above previous midpoint",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 5903,
+    "episodes": 634,
+    "draws": 100,
+    "edge": 0.09,
+    "chance": [
+     -0.3,
+     0.22
+    ],
+    "verdict": "none",
+    "path": [
+     -0.007,
+     -0.02,
+     -0.021,
+     0.012,
+     0.041,
+     0.036,
+     0.049,
+     0.065,
+     0.063,
+     0.058,
+     0.069,
+     0.083,
+     0.041,
+     0.002,
+     0.003,
+     0.027,
+     0.065,
+     0.054,
+     0.084,
+     0.09
+    ],
+    "band": [
+     [
+      -0.054,
+      0.061
+     ],
+     [
+      -0.091,
+      0.081
+     ],
+     [
+      -0.095,
+      0.1
+     ],
+     [
+      -0.093,
+      0.113
+     ],
+     [
+      -0.109,
+      0.121
+     ],
+     [
+      -0.126,
+      0.121
+     ],
+     [
+      -0.158,
+      0.157
+     ],
+     [
+      -0.183,
+      0.157
+     ],
+     [
+      -0.172,
+      0.181
+     ],
+     [
+      -0.155,
+      0.18
+     ],
+     [
+      -0.173,
+      0.178
+     ],
+     [
+      -0.192,
+      0.188
+     ],
+     [
+      -0.219,
+      0.207
+     ],
+     [
+      -0.239,
+      0.202
+     ],
+     [
+      -0.242,
+      0.223
+     ],
+     [
+      -0.269,
+      0.219
+     ],
+     [
+      -0.278,
+      0.229
+     ],
+     [
+      -0.27,
+      0.22
+     ],
+     [
+      -0.292,
+      0.227
+     ],
+     [
+      -0.303,
+      0.219
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 2011,
+     "episodes": 210,
+     "draws": 124,
+     "edge": 0.06,
+     "chance": [
+      -0.29,
+      0.26
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 1983,
+     "episodes": 215,
+     "draws": 126,
+     "edge": -0.13,
+     "chance": [
+      -0.36,
+      0.26
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 1909,
+     "episodes": 209,
+     "draws": 130,
+     "edge": 0.38,
+     "chance": [
+      -0.41,
+      0.34
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 56,
+       "start": "2021-07-21",
+       "end": "2021-09-09",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "ny-cu-prevhigh",
+   "tf": "4h",
+   "label": "New York: price crosses up previous high",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 361,
+    "episodes": 302,
+    "draws": 500,
+    "edge": 0.13,
+    "chance": [
+     -0.74,
+     0.77
+    ],
+    "verdict": "none",
+    "path": [
+     -0.064,
+     -0.081,
+     0.033,
+     -0.023,
+     0.012,
+     0.061,
+     0.078,
+     0.141,
+     0.146,
+     0.11,
+     0.033,
+     0.026,
+     0.14,
+     -0.058,
+     -0.004,
+     0.096,
+     0.246,
+     0.135,
+     0.047,
+     0.132
+    ],
+    "band": [
+     [
+      -0.169,
+      0.182
+     ],
+     [
+      -0.235,
+      0.271
+     ],
+     [
+      -0.313,
+      0.328
+     ],
+     [
+      -0.383,
+      0.348
+     ],
+     [
+      -0.401,
+      0.405
+     ],
+     [
+      -0.432,
+      0.44
+     ],
+     [
+      -0.488,
+      0.468
+     ],
+     [
+      -0.515,
+      0.496
+     ],
+     [
+      -0.515,
+      0.543
+     ],
+     [
+      -0.537,
+      0.539
+     ],
+     [
+      -0.555,
+      0.578
+     ],
+     [
+      -0.513,
+      0.624
+     ],
+     [
+      -0.554,
+      0.623
+     ],
+     [
+      -0.583,
+      0.631
+     ],
+     [
+      -0.639,
+      0.681
+     ],
+     [
+      -0.676,
+      0.688
+     ],
+     [
+      -0.685,
+      0.698
+     ],
+     [
+      -0.684,
+      0.71
+     ],
+     [
+      -0.687,
+      0.734
+     ],
+     [
+      -0.74,
+      0.768
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 121,
+     "episodes": 101,
+     "draws": 500,
+     "edge": -0.07,
+     "chance": [
+      -0.73,
+      0.92
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 123,
+     "episodes": 100,
+     "draws": 500,
+     "edge": 0.84,
+     "chance": [
+      -0.96,
+      1.07
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 117,
+     "episodes": 101,
+     "draws": 500,
+     "edge": -0.39,
+     "chance": [
+      -1.43,
+      1.49
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "day-cu-prevhigh",
+   "tf": "4h",
+   "label": "Weekdays: price crosses up previous day's high",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 1265,
+    "episodes": 674,
+    "draws": 197,
+    "edge": 0.36,
+    "chance": [
+     -0.53,
+     0.41
+    ],
+    "verdict": "none",
+    "path": [
+     0.005,
+     -0.028,
+     0.113,
+     0.156,
+     0.176,
+     0.193,
+     0.23,
+     0.223,
+     0.267,
+     0.218,
+     0.319,
+     0.329,
+     0.327,
+     0.294,
+     0.31,
+     0.367,
+     0.48,
+     0.414,
+     0.329,
+     0.362
+    ],
+    "band": [
+     [
+      -0.097,
+      0.097
+     ],
+     [
+      -0.137,
+      0.133
+     ],
+     [
+      -0.202,
+      0.166
+     ],
+     [
+      -0.2,
+      0.179
+     ],
+     [
+      -0.234,
+      0.206
+     ],
+     [
+      -0.233,
+      0.248
+     ],
+     [
+      -0.272,
+      0.242
+     ],
+     [
+      -0.303,
+      0.255
+     ],
+     [
+      -0.316,
+      0.285
+     ],
+     [
+      -0.333,
+      0.315
+     ],
+     [
+      -0.338,
+      0.315
+     ],
+     [
+      -0.369,
+      0.344
+     ],
+     [
+      -0.403,
+      0.342
+     ],
+     [
+      -0.428,
+      0.398
+     ],
+     [
+      -0.458,
+      0.391
+     ],
+     [
+      -0.465,
+      0.4
+     ],
+     [
+      -0.504,
+      0.423
+     ],
+     [
+      -0.518,
+      0.433
+     ],
+     [
+      -0.523,
+      0.441
+     ],
+     [
+      -0.533,
+      0.408
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 419,
+     "episodes": 226,
+     "draws": 500,
+     "edge": 0.26,
+     "chance": [
+      -0.47,
+      0.44
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 423,
+     "episodes": 220,
+     "draws": 500,
+     "edge": 0.08,
+     "chance": [
+      -0.68,
+      0.58
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 423,
+     "episodes": 228,
+     "draws": 500,
+     "edge": 0.74,
+     "chance": [
+      -0.83,
+      0.87
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "day-gt-prevhigh",
+   "tf": "4h",
+   "label": "Weekdays: price above previous day's high",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 5623,
+    "episodes": 685,
+    "draws": 100,
+    "edge": 0.51,
+    "chance": [
+     -0.41,
+     0.36
+    ],
+    "verdict": "edge",
+    "robustness": {
+     "fragile": false,
+     "strongest": {
+      "deals": 68,
+      "start": "2021-08-10",
+      "end": "2021-09-09",
+      "without": "edge"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "chance"
+      },
+      {
+       "horizon": 100,
+       "state": "edge"
+      }
+     ]
+    },
+    "path": [
+     0.021,
+     0.043,
+     0.102,
+     0.106,
+     0.129,
+     0.152,
+     0.189,
+     0.218,
+     0.245,
+     0.275,
+     0.305,
+     0.291,
+     0.3,
+     0.325,
+     0.35,
+     0.374,
+     0.41,
+     0.432,
+     0.471,
+     0.511
+    ],
+    "band": [
+     [
+      -0.048,
+      0.04
+     ],
+     [
+      -0.079,
+      0.079
+     ],
+     [
+      -0.099,
+      0.116
+     ],
+     [
+      -0.121,
+      0.15
+     ],
+     [
+      -0.133,
+      0.182
+     ],
+     [
+      -0.154,
+      0.185
+     ],
+     [
+      -0.173,
+      0.217
+     ],
+     [
+      -0.187,
+      0.242
+     ],
+     [
+      -0.201,
+      0.269
+     ],
+     [
+      -0.205,
+      0.249
+     ],
+     [
+      -0.218,
+      0.261
+     ],
+     [
+      -0.239,
+      0.265
+     ],
+     [
+      -0.25,
+      0.261
+     ],
+     [
+      -0.293,
+      0.266
+     ],
+     [
+      -0.317,
+      0.283
+     ],
+     [
+      -0.344,
+      0.29
+     ],
+     [
+      -0.363,
+      0.288
+     ],
+     [
+      -0.356,
+      0.308
+     ],
+     [
+      -0.392,
+      0.329
+     ],
+     [
+      -0.407,
+      0.358
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 1813,
+     "episodes": 230,
+     "draws": 137,
+     "edge": 0.43,
+     "chance": [
+      -0.36,
+      0.34
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 42,
+       "start": "2020-12-25",
+       "end": "2021-01-08",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 1877,
+     "episodes": 236,
+     "draws": 133,
+     "edge": 0.1,
+     "chance": [
+      -0.56,
+      0.4
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 1933,
+     "episodes": 219,
+     "draws": 129,
+     "edge": 0.97,
+     "chance": [
+      -0.68,
+      0.55
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 68,
+       "start": "2021-08-10",
+       "end": "2021-09-09",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "day-cd-prevlow",
+   "tf": "4h",
+   "label": "Weekdays: price crosses down previous day's low",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 1273,
+    "episodes": 682,
+    "draws": 196,
+    "edge": -0.11,
+    "chance": [
+     -0.43,
+     0.47
+    ],
+    "verdict": "none",
+    "path": [
+     0.089,
+     0.021,
+     -0.006,
+     0.01,
+     0.062,
+     0.126,
+     0.054,
+     0.015,
+     -0.087,
+     -0.096,
+     -0.165,
+     -0.096,
+     -0.101,
+     -0.075,
+     -0.077,
+     -0.08,
+     -0.113,
+     -0.055,
+     -0.035,
+     -0.111
+    ],
+    "band": [
+     [
+      -0.107,
+      0.1
+     ],
+     [
+      -0.153,
+      0.144
+     ],
+     [
+      -0.159,
+      0.176
+     ],
+     [
+      -0.203,
+      0.197
+     ],
+     [
+      -0.224,
+      0.223
+     ],
+     [
+      -0.236,
+      0.242
+     ],
+     [
+      -0.24,
+      0.262
+     ],
+     [
+      -0.286,
+      0.293
+     ],
+     [
+      -0.29,
+      0.279
+     ],
+     [
+      -0.322,
+      0.314
+     ],
+     [
+      -0.38,
+      0.368
+     ],
+     [
+      -0.374,
+      0.38
+     ],
+     [
+      -0.371,
+      0.387
+     ],
+     [
+      -0.365,
+      0.43
+     ],
+     [
+      -0.394,
+      0.427
+     ],
+     [
+      -0.37,
+      0.435
+     ],
+     [
+      -0.372,
+      0.462
+     ],
+     [
+      -0.398,
+      0.485
+     ],
+     [
+      -0.443,
+      0.47
+     ],
+     [
+      -0.43,
+      0.473
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 401,
+     "episodes": 224,
+     "draws": 500,
+     "edge": 0,
+     "chance": [
+      -0.41,
+      0.43
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 406,
+     "episodes": 224,
+     "draws": 500,
+     "edge": -0.09,
+     "chance": [
+      -0.64,
+      0.64
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 466,
+     "episodes": 234,
+     "draws": 500,
+     "edge": -0.28,
+     "chance": [
+      -0.78,
+      0.84
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "day-gt-prevhigh",
+   "tf": "1d",
+   "label": "Weekdays: price above previous day's high",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 1170,
+    "episodes": 28,
+    "draws": 213,
+    "edge": 2.56,
+    "chance": [
+     -1.49,
+     1.66
+    ],
+    "verdict": "few",
+    "robustness": {
+     "fragile": true,
+     "strongest": {
+      "deals": 80,
+      "start": "2020-12-14",
+      "end": "2021-11-04",
+      "without": "chance"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "edge"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     0.189,
+     0.201,
+     0.461,
+     0.565,
+     0.582,
+     0.694,
+     0.576,
+     0.681,
+     0.86,
+     1.132,
+     1.216,
+     1.339,
+     1.711,
+     1.874,
+     2.046,
+     2.274,
+     2.348,
+     2.477,
+     2.559,
+     2.561
+    ],
+    "band": [
+     [
+      -0.235,
+      0.229
+     ],
+     [
+      -0.415,
+      0.342
+     ],
+     [
+      -0.471,
+      0.434
+     ],
+     [
+      -0.559,
+      0.502
+     ],
+     [
+      -0.611,
+      0.597
+     ],
+     [
+      -0.686,
+      0.659
+     ],
+     [
+      -0.708,
+      0.744
+     ],
+     [
+      -0.814,
+      0.933
+     ],
+     [
+      -0.851,
+      0.896
+     ],
+     [
+      -0.95,
+      0.967
+     ],
+     [
+      -0.957,
+      1.064
+     ],
+     [
+      -1.081,
+      1.047
+     ],
+     [
+      -1.107,
+      1.118
+     ],
+     [
+      -1.088,
+      1.214
+     ],
+     [
+      -1.217,
+      1.239
+     ],
+     [
+      -1.233,
+      1.273
+     ],
+     [
+      -1.339,
+      1.434
+     ],
+     [
+      -1.331,
+      1.503
+     ],
+     [
+      -1.41,
+      1.528
+     ],
+     [
+      -1.494,
+      1.664
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 385,
+     "episodes": 10,
+     "draws": 500,
+     "edge": 0.77,
+     "chance": [
+      -1.12,
+      1.36
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 395,
+     "episodes": 5,
+     "draws": 500,
+     "edge": 1.68,
+     "chance": [
+      -1.67,
+      1.63
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 137,
+       "start": "2020-09-10",
+       "end": "2022-05-04",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 390,
+     "episodes": 13,
+     "draws": 500,
+     "edge": 5.21,
+     "chance": [
+      -2.82,
+      2.64
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 80,
+       "start": "2020-12-14",
+       "end": "2021-11-04",
+       "without": "worse"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   }
+  }
+ ],
+ "summary": "Mostly no. Breaks of the London, New York and previous-day levels left price no better off than a random candle on 1h and 4h. The one result that holds: on 4h, while price stayed above the previous day's high, long entries were 0.51% ahead of random entries after 20 candles, and the gap also shows at 10 and 100 candles.",
+ "verdicts": [
+  {
+   "use": "Buying a breakout above the previous high",
+   "verdict": "none",
+   "text": "Inside the luck band on 1h and 4h for London, New York and the previous day's high. After the break, price moved as it did after a random candle."
+  },
+  {
+   "use": "Staying long above the previous day's high",
+   "verdict": "edge",
+   "text": "On 4h, long entries were 0.51% ahead of random entries after 20 candles. The gap holds without its strongest stretch, but no single pair shows it alone."
+  },
+  {
+   "use": "Buying a break below the previous low",
+   "verdict": "fragile-worse",
+   "text": "Inside the band on 1h and for the previous day's low. London on 4h looked worse than random, but only because of two entries on Apr 10–12, 2024."
+  },
+  {
+   "use": "Staying long above the London previous midpoint",
+   "verdict": "none",
+   "text": "No better than random entries on 1h or 4h across the three pairs."
+  }
+ ],
+ "notes": [
+  "On 1h, price crossing up through the London previous high gave 1,105 entries in 890 separate moves. Twenty candles later they were 0.09% ahead of random entries, inside a band of -0.25% to 0.25%. The New York version landed at -0.01%. The cross up through the previous day's high fires a bit more than twice as often as the London one and also stayed inside the band, at 0.13%.",
+  "On 4h, being long while price stayed above the previous day's high gave 5,623 entries in 685 moves. They were 0.51% ahead of random entries after 20 candles, above a band that tops out at 0.36%. The gap holds without its strongest stretch, between Aug 10 and Sep 9, 2021, and shows at 10 and 100 candles, but not at 50. On 1h the same condition was 0.12% ahead, inside the band.",
+  "The 4h result does not hold on any one pair. On SOL it was 0.97% ahead, but only because of the run between Aug 10 and Sep 9, 2021. On BTC it was 0.43% ahead, and that depends on signals between Dec 25, 2020 and Jan 8, 2021. ETH was 0.1% ahead, inside the band. On daily candles the condition has 28 moves, under the minimum of 30, so it is not judged.",
+  "Price crossing down through the London previous low on 4h was 0.75% behind random entries, just past the band's lower edge of -0.7%. Two entries on Apr 10–12, 2024 explain it, and without them the result is chance. It stays worse at 50 and 100 candles, but no single pair is outside its own band. On 1h the same cross was -0.14%, inside the band.",
+  "Two other results come from a single stretch. On BTC 1h, the cross up through the previous day's high was 0.2% ahead, but six entries on Jan 5–7, 2021 carry it. On SOL 4h, staying above the London previous midpoint was 0.38% ahead, but this depends on signals between Jul 21, 2021 and Sep 9, 2021, and it is chance at every other horizon.",
+  "For a long DCA bot, session-level breaks add no timing on these pairs, so the DCA orders and take profit do the work. Holding above the previous day's high on 4h is the one condition worth testing as a filter beside your other start conditions. It holds on about four and a half times as many candles as the cross over that high, so it narrows entries without pinning them to one candle. It showed nothing on ETH alone, so check it on your own pair first."
+ ],
+ "summaryRefs": [
+  {
+   "tf": "*",
+   "setting": "london-cu-prevhigh",
+   "scope": "pooled"
+  },
+  {
+   "tf": "*",
+   "setting": "ny-cu-prevhigh",
+   "scope": "pooled"
+  },
+  {
+   "tf": "*",
+   "setting": "day-cu-prevhigh",
+   "scope": "pooled"
+  },
+  {
+   "tf": "*",
+   "setting": "london-cd-prevlow",
+   "scope": "pooled"
+  },
+  {
+   "tf": "*",
+   "setting": "day-cd-prevlow",
+   "scope": "pooled"
+  },
+  {
+   "tf": "4h",
+   "setting": "day-gt-prevhigh",
+   "scope": "pooled"
+  }
+ ],
+ "verdictRefs": [
+  [
+   {
+    "tf": "*",
+    "setting": "london-cu-prevhigh",
+    "scope": "pooled"
+   },
+   {
+    "tf": "*",
+    "setting": "ny-cu-prevhigh",
+    "scope": "pooled"
+   },
+   {
+    "tf": "*",
+    "setting": "day-cu-prevhigh",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "4h",
+    "setting": "day-gt-prevhigh",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "day-gt-prevhigh",
+    "scope": "BTC"
+   },
+   {
+    "tf": "4h",
+    "setting": "day-gt-prevhigh",
+    "scope": "ETH"
+   },
+   {
+    "tf": "4h",
+    "setting": "day-gt-prevhigh",
+    "scope": "SOL"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "london-cd-prevlow",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "london-cd-prevlow",
+    "scope": "pooled"
+   },
+   {
+    "tf": "*",
+    "setting": "day-cd-prevlow",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "*",
+    "setting": "london-gt-prevmid",
+    "scope": "pooled"
+   }
+  ]
+ ],
+ "noteRefs": [
+  [
+   {
+    "tf": "1h",
+    "setting": "london-cu-prevhigh",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "ny-cu-prevhigh",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "day-cu-prevhigh",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "4h",
+    "setting": "day-gt-prevhigh",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "day-gt-prevhigh",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "4h",
+    "setting": "day-gt-prevhigh",
+    "scope": "SOL"
+   },
+   {
+    "tf": "4h",
+    "setting": "day-gt-prevhigh",
+    "scope": "BTC"
+   },
+   {
+    "tf": "4h",
+    "setting": "day-gt-prevhigh",
+    "scope": "ETH"
+   },
+   {
+    "tf": "1d",
+    "setting": "day-gt-prevhigh",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "4h",
+    "setting": "london-cd-prevlow",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "london-cd-prevlow",
+    "scope": "BTC"
+   },
+   {
+    "tf": "4h",
+    "setting": "london-cd-prevlow",
+    "scope": "ETH"
+   },
+   {
+    "tf": "4h",
+    "setting": "london-cd-prevlow",
+    "scope": "SOL"
+   },
+   {
+    "tf": "1h",
+    "setting": "london-cd-prevlow",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "day-cu-prevhigh",
+    "scope": "BTC"
+   },
+   {
+    "tf": "4h",
+    "setting": "london-gt-prevmid",
+    "scope": "SOL"
+   }
+  ],
+  [
+   {
+    "tf": "4h",
+    "setting": "day-gt-prevhigh",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "day-cu-prevhigh",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "day-gt-prevhigh",
+    "scope": "ETH"
+   }
+  ]
+ ]
+}
