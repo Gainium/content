@@ -20,6 +20,12 @@
       "condition": {
         "op": "eq",
         "against": 2
+      },
+      "bot": {
+        "type": "ECD",
+        "params": {
+          "ecdTrigger": "bullish"
+        }
       }
     },
     {
@@ -35,6 +41,12 @@
       "condition": {
         "op": "eq",
         "against": 1
+      },
+      "bot": {
+        "type": "ECD",
+        "params": {
+          "ecdTrigger": "bearish"
+        }
       }
     },
     {
@@ -53,6 +65,12 @@
           1,
           2
         ]
+      },
+      "bot": {
+        "type": "ECD",
+        "params": {
+          "ecdTrigger": "both"
+        }
       }
     },
     {
@@ -68,6 +86,12 @@
       "condition": {
         "op": "eq",
         "against": 1
+      },
+      "bot": {
+        "type": "ECD",
+        "params": {
+          "ecdTrigger": "bearish"
+        }
       }
     }
   ]

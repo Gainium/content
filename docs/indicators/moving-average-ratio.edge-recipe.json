@@ -29,6 +29,13 @@
       "condition": {
         "op": "crossDown",
         "against": 0.99
+      },
+      "bot": {
+        "type": "MAR",
+        "params": {
+          "indicatorCondition": "cd",
+          "indicatorValue": 0.99
+        }
       }
     },
     {
@@ -53,6 +60,13 @@
       "condition": {
         "op": "crossDown",
         "against": 0.97
+      },
+      "bot": {
+        "type": "MAR",
+        "params": {
+          "indicatorCondition": "cd",
+          "indicatorValue": 0.97
+        }
       }
     },
     {
@@ -90,6 +104,16 @@
             "against": 2
           }
         ]
+      },
+      "bot": {
+        "type": "MAR",
+        "params": {
+          "mar1length": 50,
+          "indicatorCondition": "gt",
+          "indicatorValue": 1.01,
+          "trendFilter": true,
+          "trendFilterType": "higher"
+        }
       }
     },
     {
@@ -114,6 +138,15 @@
       "condition": {
         "op": "crossUp",
         "against": 1
+      },
+      "bot": {
+        "type": "MAR",
+        "params": {
+          "mar1length": 50,
+          "mar2type": "ema",
+          "indicatorCondition": "cu",
+          "indicatorValue": 1
+        }
       }
     },
     {
@@ -138,6 +171,13 @@
       "condition": {
         "op": "crossUp",
         "against": 1.03
+      },
+      "bot": {
+        "type": "MAR",
+        "params": {
+          "indicatorCondition": "cu",
+          "indicatorValue": 1.03
+        }
       }
     }
   ]

@@ -10,7 +10,8 @@
  * must keep their frozen `name` and `description`.
  *
  * Edge data and recipes (`<slug>.edge.json`, `<slug>.edge-recipe.json`,
- * spec 054) are checked against their shape and invariants
+ * spec 054) are checked against their shape and invariants, and each recipe
+ * setting's bot-form config against the same catalog
  * (src/indicators/edgeCheck.ts).
  *
  * Catalog source, in order:
@@ -33,7 +34,8 @@ import {
   checkIndicatorTemplates,
   checkMovedPageMeta,
 } from '../src/indicators/templateCheck'
-import { checkEdgeDir } from '../src/indicators/edgeCheck'
+import { checkEdgeDir, loadBotCatalog } from '../src/indicators/edgeCheck'
+import { CATALOG_MODULE, ENUM_MODULE } from '../src/indicators/describeNative'
 import {
   parseHelpDocSource,
   parseIndicatorSource,
@@ -134,9 +136,20 @@ async function main() {
     }
   }
 
+  // The recipes' bot-form configs are held to the same catalog, evaluated
+  // statically from the two sources above (imports it needs beyond them stay
+  // unresolved, and their option lists unchecked).
+  const botCatalog = await loadBotCatalog({
+    read: async (module) => {
+      if (module === CATALOG_MODULE) return catalog
+      if (module === ENUM_MODULE) return enumSource
+      throw new Error(`${module} is not loaded by this check`)
+    },
+  })
   const edge = await checkEdgeDir(path.join(DOCS_DIR, 'indicators'), {
     pageSlugs: pages.map(({ file }) => path.basename(file, '.md')),
     label: (file) => relative(file, 'indicators'),
+    catalog: botCatalog,
   })
   errors.push(...edge.errors)
 

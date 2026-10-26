@@ -4,37 +4,119 @@
     {
       "id": "rsi7-lt30",
       "label": "RSI(7) below 30",
-      "side": "long"
+      "side": "long",
+      "condition": {
+        "op": "lt",
+        "against": 30
+      },
+      "bot": {
+        "type": "RSI",
+        "params": {
+          "indicatorCondition": "lt",
+          "indicatorValue": 30
+        }
+      }
     },
     {
       "id": "rsi14-lt30",
       "label": "RSI(14) below 30",
-      "side": "long"
+      "side": "long",
+      "condition": {
+        "op": "lt",
+        "against": 30
+      },
+      "bot": {
+        "type": "RSI",
+        "params": {
+          "indicatorLength": 14,
+          "indicatorCondition": "lt",
+          "indicatorValue": 30
+        }
+      }
     },
     {
       "id": "rsi7-up30",
       "label": "RSI(7) crosses up 30",
-      "side": "long"
+      "side": "long",
+      "condition": {
+        "op": "crossUp",
+        "against": 30
+      },
+      "bot": {
+        "type": "RSI",
+        "params": {
+          "indicatorCondition": "cu",
+          "indicatorValue": 30
+        }
+      }
     },
     {
       "id": "rsi14-up30",
       "label": "RSI(14) crosses up 30",
-      "side": "long"
+      "side": "long",
+      "condition": {
+        "op": "crossUp",
+        "against": 30
+      },
+      "bot": {
+        "type": "RSI",
+        "params": {
+          "indicatorLength": 14,
+          "indicatorCondition": "cu",
+          "indicatorValue": 30
+        }
+      }
     },
     {
       "id": "rsi14-gt70",
       "label": "RSI(14) above 70",
-      "side": "short"
+      "side": "short",
+      "condition": {
+        "op": "gt",
+        "against": 70
+      },
+      "bot": {
+        "type": "RSI",
+        "params": {
+          "indicatorLength": 14,
+          "indicatorCondition": "gt",
+          "indicatorValue": 70
+        }
+      }
     },
     {
       "id": "rsi14-down70",
       "label": "RSI(14) crosses down 70",
-      "side": "short"
+      "side": "short",
+      "condition": {
+        "op": "crossDown",
+        "against": 70
+      },
+      "bot": {
+        "type": "RSI",
+        "params": {
+          "indicatorLength": 14,
+          "indicatorCondition": "cd",
+          "indicatorValue": 70
+        }
+      }
     },
     {
       "id": "rsi14-gt50",
       "label": "RSI(14) above 50",
-      "side": "long"
+      "side": "long",
+      "condition": {
+        "op": "gt",
+        "against": 50
+      },
+      "bot": {
+        "type": "RSI",
+        "params": {
+          "indicatorLength": 14,
+          "indicatorCondition": "gt",
+          "indicatorValue": 50
+        }
+      }
     }
   ]
 }

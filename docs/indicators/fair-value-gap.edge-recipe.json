@@ -24,6 +24,14 @@
         "against": {
           "output": "bullishFVGMiddle"
         }
+      },
+      "bot": {
+        "type": "OBFVG",
+        "params": {
+          "indicatorCondition": "cd",
+          "obfvgValue": "bullish",
+          "obfvgRef": "middle"
+        }
       }
     },
     {
@@ -43,6 +51,14 @@
         "against": {
           "output": "bullishFVGHigh"
         }
+      },
+      "bot": {
+        "type": "OBFVG",
+        "params": {
+          "indicatorCondition": "cd",
+          "obfvgValue": "bullish",
+          "obfvgRef": "high"
+        }
       }
     },
     {
@@ -60,6 +76,14 @@
         "op": "gt",
         "against": {
           "output": "bullishFVGHigh"
+        }
+      },
+      "bot": {
+        "type": "OBFVG",
+        "params": {
+          "indicatorCondition": "gt",
+          "obfvgValue": "bullish",
+          "obfvgRef": "high"
         }
       }
     },
@@ -80,6 +104,14 @@
         "against": {
           "output": "bullishFVGLow"
         }
+      },
+      "bot": {
+        "type": "OBFVG",
+        "params": {
+          "indicatorCondition": "cd",
+          "obfvgValue": "bullish",
+          "obfvgRef": "low"
+        }
       }
     },
     {
@@ -99,6 +131,14 @@
         "against": {
           "output": "bearishFVGMiddle"
         }
+      },
+      "bot": {
+        "type": "OBFVG",
+        "params": {
+          "indicatorCondition": "cu",
+          "obfvgValue": "bearish",
+          "obfvgRef": "middle"
+        }
       }
     },
     {
@@ -116,6 +156,14 @@
         "op": "lt",
         "against": {
           "output": "bearishFVGLow"
+        }
+      },
+      "bot": {
+        "type": "OBFVG",
+        "params": {
+          "indicatorCondition": "lt",
+          "obfvgValue": "bearish",
+          "obfvgRef": "low"
         }
       }
     }

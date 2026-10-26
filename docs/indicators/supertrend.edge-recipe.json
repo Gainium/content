@@ -25,6 +25,12 @@
         "op": "changes",
         "from": 1,
         "to": -1
+      },
+      "bot": {
+        "type": "ST",
+        "params": {
+          "stCondition": "downToUp"
+        }
       }
     },
     {
@@ -45,6 +51,12 @@
         "op": "changes",
         "from": -1,
         "to": 1
+      },
+      "bot": {
+        "type": "ST",
+        "params": {
+          "stCondition": "upToDown"
+        }
       }
     },
     {
@@ -64,6 +76,12 @@
       "condition": {
         "op": "eq",
         "against": -1
+      },
+      "bot": {
+        "type": "ST",
+        "params": {
+          "stCondition": "up"
+        }
       }
     },
     {
@@ -84,6 +102,13 @@
         "op": "changes",
         "from": 1,
         "to": -1
+      },
+      "bot": {
+        "type": "ST",
+        "params": {
+          "factor": 2,
+          "stCondition": "downToUp"
+        }
       }
     },
     {
@@ -104,6 +129,13 @@
         "op": "changes",
         "from": 1,
         "to": -1
+      },
+      "bot": {
+        "type": "ST",
+        "params": {
+          "factor": 4,
+          "stCondition": "downToUp"
+        }
       }
     },
     {
@@ -123,6 +155,12 @@
       "condition": {
         "op": "eq",
         "against": 1
+      },
+      "bot": {
+        "type": "ST",
+        "params": {
+          "stCondition": "down"
+        }
       }
     }
   ]

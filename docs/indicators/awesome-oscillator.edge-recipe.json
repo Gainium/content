@@ -27,6 +27,13 @@
       "condition": {
         "op": "crossUp",
         "against": 0
+      },
+      "bot": {
+        "type": "AO",
+        "params": {
+          "indicatorCondition": "cu",
+          "indicatorValue": 0
+        }
       }
     },
     {
@@ -49,6 +56,13 @@
       "condition": {
         "op": "crossDown",
         "against": 0
+      },
+      "bot": {
+        "type": "AO",
+        "params": {
+          "indicatorCondition": "cd",
+          "indicatorValue": 0
+        }
       }
     },
     {
@@ -71,6 +85,13 @@
       "condition": {
         "op": "gt",
         "against": 0
+      },
+      "bot": {
+        "type": "AO",
+        "params": {
+          "indicatorCondition": "gt",
+          "indicatorValue": 0
+        }
       }
     },
     {
@@ -93,6 +114,13 @@
       "condition": {
         "op": "lt",
         "against": 0
+      },
+      "bot": {
+        "type": "AO",
+        "params": {
+          "indicatorCondition": "lt",
+          "indicatorValue": 0
+        }
       }
     },
     {
@@ -130,7 +158,9 @@
             "against": 0
           }
         ]
-      }
+      },
+      "bot": null,
+      "botWhyNot": "Two tests in one: AO crossing its smoothed line and AO below 0. A bot-form condition makes one comparison; use two conditions."
     }
   ]
 }

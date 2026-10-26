@@ -26,6 +26,13 @@
       "output": "iBullCHoCH",
       "condition": {
         "op": "true"
+      },
+      "bot": {
+        "type": "PP",
+        "params": {
+          "ppType": "Event Based",
+          "ppValue": "IBullCHoCH"
+        }
       }
     },
     {
@@ -47,6 +54,13 @@
       "output": "iBullBoS",
       "condition": {
         "op": "true"
+      },
+      "bot": {
+        "type": "PP",
+        "params": {
+          "ppType": "Event Based",
+          "ppValue": "IBullBoS"
+        }
       }
     },
     {
@@ -68,6 +82,13 @@
       "output": "sBullBoS",
       "condition": {
         "op": "true"
+      },
+      "bot": {
+        "type": "PP",
+        "params": {
+          "ppType": "Event Based",
+          "ppValue": "SBullBoS"
+        }
       }
     },
     {
@@ -89,6 +110,13 @@
       "output": "iBearCHoCH",
       "condition": {
         "op": "true"
+      },
+      "bot": {
+        "type": "PP",
+        "params": {
+          "ppType": "Event Based",
+          "ppValue": "IBearCHoCH"
+        }
       }
     },
     {
@@ -111,6 +139,13 @@
       "condition": {
         "op": "eq",
         "against": "bull"
+      },
+      "bot": {
+        "type": "PP",
+        "params": {
+          "ppType": "Market Based",
+          "ppValue": "BullM"
+        }
       }
     },
     {
@@ -138,6 +173,14 @@
             "lh"
           ]
         }
+      },
+      "bot": {
+        "type": "PP",
+        "params": {
+          "ppType": "Price Based",
+          "ppValue": "Any High",
+          "indicatorCondition": "cu"
+        }
       }
     },
     {
@@ -164,6 +207,14 @@
             "ll",
             "hl"
           ]
+        }
+      },
+      "bot": {
+        "type": "PP",
+        "params": {
+          "ppType": "Price Based",
+          "ppValue": "Any Low",
+          "indicatorCondition": "cd"
         }
       }
     }

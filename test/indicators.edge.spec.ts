@@ -1,13 +1,16 @@
-import { describe, it } from 'mocha'
+import { before, describe, it } from 'mocha'
 import { expect } from 'chai'
 import fs from 'fs'
 import os from 'os'
 import path from 'path'
 import {
+  type BotCatalog,
   checkEdgeDir,
   checkEdgeFile,
   checkEdgeRecipe,
+  loadBotCatalog,
 } from '../src/indicators/edgeCheck'
+import { CATALOG_MODULE, ENUM_MODULE } from '../src/indicators/describeNative'
 import { readMarkdownDir } from '../src/contentParser'
 import { ContentLoader } from '../src/contentLoader'
 
@@ -429,6 +432,496 @@ describe('indicator edge recipe (spec 054)', () => {
       'indicator: must be "rsi" (the file name)',
       'settings[0]: must be an object with an id',
     ])
+  })
+})
+
+// A small catalog in the dashboard's shape: the helpers, shared field lists,
+// option lists with spreads, optionsWhen / keyWhen, a derive-only control and
+// a multi-select, as indicatorCatalog.ts writes them.
+const BOT_ENUM_SOURCE = `
+export enum IndicatorEnum { rsi = 'RSI', bb = 'BB', ma = 'MA', ath = 'ATH', pp = 'PP', stoch = 'Stoch', session = 'SESSION', div = 'DIV', wip = 'WIP' }
+export enum IndicatorStartConditionEnum { cd = 'cd', cu = 'cu', gt = 'gt', lt = 'lt', bw = 'bw' }
+export enum MAEnum { sma = 'sma', ema = 'ema', price = 'price' }
+export enum ExchangeIntervals { oneH = '1h', fourH = '4h' }
+`
+const BOT_CATALOG_SOURCE = `
+import { IndicatorEnum, IndicatorStartConditionEnum, MAEnum, ExchangeIntervals } from '..';
+import { SESSION_PRESETS } from '@/utils/indicators/sessionWindow';
+const makeNumberField = (def) => ({ type: 'number', ...def });
+const makeSelectField = (def) => ({ type: 'select', ...def });
+const makeBooleanField = (def) => ({ type: 'boolean', ...def });
+const makeTimeField = (def) => ({ type: 'time', ...def });
+const makeIntervalField = (def) => ({ type: 'interval', ...def, options: def.options ?? INTERVAL_OPTIONS });
+const INTERVAL_OPTIONS = [{ value: ExchangeIntervals.oneH, label: '1h' }, { value: ExchangeIntervals.fourH, label: '4h' }];
+const INDICATOR_CONDITION_OPTIONS = [
+  { value: IndicatorStartConditionEnum.cd, label: 'Crossing down' },
+  { value: IndicatorStartConditionEnum.cu, label: 'Crossing up' },
+  { value: IndicatorStartConditionEnum.gt, label: 'Greater than' },
+  { value: IndicatorStartConditionEnum.lt, label: 'Lower than' },
+];
+const VALUE_CONDITION_OPTIONS = [...INDICATOR_CONDITION_OPTIONS, { value: IndicatorStartConditionEnum.bw, label: 'Between' }];
+const MA_TYPE_OPTIONS = [{ value: MAEnum.sma, label: 'SMA' }, { value: MAEnum.ema, label: 'EMA' }];
+const percentileFields = [
+  makeBooleanField({ key: 'percentile', label: 'Percentile', defaultValue: false }),
+  makeNumberField({ key: 'percentilePercentage', label: 'Threshold', defaultValue: 80 }),
+];
+const conditionField = makeSelectField({
+  key: 'indicatorCondition', label: 'Condition', defaultValue: IndicatorStartConditionEnum.cd, options: VALUE_CONDITION_OPTIONS,
+  optionsWhen: [{ field: 'percentile', equals: true, options: INDICATOR_CONDITION_OPTIONS }],
+});
+const BASE_INDICATOR_CATALOG: Record<IndicatorEnum, IndicatorDefinition> = {
+  [IndicatorEnum.rsi]: {
+    type: IndicatorEnum.rsi,
+    fields: [
+      ...percentileFields,
+      makeNumberField({ key: 'indicatorLength', label: 'Length', defaultValue: 7 }),
+      makeIntervalField({ key: 'indicatorInterval', label: 'Interval', defaultValue: ExchangeIntervals.oneH }),
+      makeBooleanField({ key: 'smoothingEnabled', label: 'Smoothing', derive: { get: (p) => 'false', set: (v) => ({}) } }),
+      conditionField,
+      makeNumberField({ key: 'indicatorValue', label: 'Value', defaultValue: 70 }),
+      makeNumberField({ key: 'indicatorValue2', label: 'Upper value' }),
+    ],
+  },
+  [IndicatorEnum.bb]: {
+    type: IndicatorEnum.bb,
+    fields: [
+      makeNumberField({ key: 'bbwMult', label: 'Standard Deviations', defaultValue: 2 }),
+      makeSelectField({ key: 'indicatorCondition', label: 'Condition', defaultValue: 'cu', options: INDICATOR_CONDITION_OPTIONS }),
+      makeSelectField({ key: 'bbCrossingValue', label: 'Value', defaultValue: 'lower', options: [{ value: 'lower', label: 'Lower' }, { value: 'upper', label: 'Upper' }] }),
+    ],
+  },
+  [IndicatorEnum.ma]: {
+    type: IndicatorEnum.ma,
+    fields: [
+      makeSelectField({ key: 'maType', label: 'Moving average', defaultValue: MAEnum.ema, options: MA_TYPE_OPTIONS }),
+      makeSelectField({ key: 'indicatorCondition', label: 'Condition', defaultValue: 'cd', options: INDICATOR_CONDITION_OPTIONS }),
+      makeSelectField({ key: 'maCrossingValue', label: 'Compared to', defaultValue: MAEnum.price, options: [{ value: MAEnum.price, label: 'Current price' }, ...MA_TYPE_OPTIONS] }),
+      makeIntervalField({ key: 'maCrossingInterval', label: 'Comparison interval', defaultValue: ExchangeIntervals.oneH }),
+    ],
+  },
+  [IndicatorEnum.ath]: {
+    type: IndicatorEnum.ath,
+    fields: [
+      makeSelectField({ key: 'indicatorCondition', label: 'Condition', defaultValue: 'cd', options: VALUE_CONDITION_OPTIONS }),
+      makeNumberField({ key: 'indicatorValue', label: 'Value', defaultValue: 10 }),
+      makeNumberField({ key: 'indicatorValue2', label: 'Upper value' }),
+    ],
+  },
+  [IndicatorEnum.pp]: {
+    type: IndicatorEnum.pp,
+    fields: [
+      makeSelectField({ key: 'ppType', label: 'Type', defaultValue: 'Price Based', options: [{ value: 'Event Based', label: 'Event' }, { value: 'Price Based', label: 'Price' }] }),
+      makeSelectField({
+        key: 'ppValue', label: 'Value', defaultValue: 'Any Low', options: [{ value: 'Any Low', label: 'Any Low' }],
+        optionsWhen: [{ field: 'ppType', equals: 'Event Based', options: [{ value: 'IBullBoS', label: 'Internal Bullish BoS' }] }],
+      }),
+    ],
+  },
+  [IndicatorEnum.stoch]: {
+    type: IndicatorEnum.stoch,
+    fields: [
+      makeSelectField({ key: 'rsiValue2', label: 'Second Variable', defaultValue: 'd', options: [{ value: 'd', label: 'D' }, { value: 'custom', label: 'Custom' }] }),
+      makeNumberField({ key: 'valueInsteadof', label: 'Enter Value', defaultValue: 1 }),
+      makeSelectField({ key: 'indicatorCondition', label: 'Condition', defaultValue: 'cd', options: INDICATOR_CONDITION_OPTIONS }),
+      makeNumberField({ key: 'stochLower', label: 'Lower band', defaultValue: '20', keyWhen: ['lower'].map((equals) => ({ field: 'stochRange', equals, key: 'stochUpper', defaultValue: '20' })) }),
+    ],
+  },
+  [IndicatorEnum.session]: {
+    type: IndicatorEnum.session,
+    fields: [
+      makeSelectField({ key: 'sessionPreset', label: 'Session', options: [...SESSION_PRESETS], derive: { get: resolvePreset, set: presetParams } }),
+      makeTimeField({ key: 'sessionStart', label: 'Start' }),
+      makeSelectField({ key: 'sessionTimezone', label: 'Time zone', defaultValue: 'UTC', options: [...SESSION_PRESETS, { value: 'UTC', label: 'UTC' }] }),
+      makeSelectField({ key: 'sessionDays', label: 'Days', multiple: true, defaultValue: [1, 2], options: [{ value: 1, label: 'Mon' }, { value: 2, label: 'Tue' }] }),
+    ],
+  },
+  [IndicatorEnum.div]: {
+    type: IndicatorEnum.div,
+    fields: [
+      makeSelectField({ key: 'divOscillators', label: 'Oscillators', defaultValue: ['RSI'].map((v) => v), options: [{ value: 'RSI', label: 'RSI' }, { value: 'MFI', label: 'MFI' }] }),
+    ],
+  },
+  [IndicatorEnum.wip]: { type: IndicatorEnum.wip, pendingPort: true, fields: [makeNumberField({ key: 'x', label: 'X' })] },
+};
+`
+const botReader = {
+  read: async (module: string) => {
+    if (module === CATALOG_MODULE) return BOT_CATALOG_SOURCE
+    if (module === ENUM_MODULE) return BOT_ENUM_SOURCE
+    throw new Error(`not served: ${module}`)
+  },
+}
+
+describe('indicator edge recipe bot-form configs (spec 054)', () => {
+  let catalog: BotCatalog
+  before(async () => {
+    catalog = await loadBotCatalog(botReader)
+  })
+  /** One setting: its tested condition and its bot. */
+  const one = (condition: unknown, bot: unknown, extra: object = {}) => ({
+    indicator: 'x',
+    settings: [{ id: 's', condition, bot, ...extra }],
+  })
+  const errorsOf = (condition: unknown, bot: unknown, extra?: object) =>
+    checkEdgeRecipe(one(condition, bot, extra), 'x', catalog)
+  const lt30 = { op: 'lt', against: 30 }
+  const rsi = (params: object) => ({ type: 'RSI', params })
+
+  it('reads the catalog statically: fields, keyWhen keys, stored controls, static options', () => {
+    const rsiType = catalog.get('RSI')
+    expect(rsiType?.fields.get('indicatorInterval')?.type).to.equal('interval')
+    expect(rsiType?.fields.get('smoothingEnabled')?.stored).to.equal(false)
+    expect(rsiType?.fields.get('indicatorCondition')?.options).to.deep.equal([
+      'cd',
+      'cu',
+      'gt',
+      'lt',
+      'bw',
+    ])
+    expect(catalog.get('Stoch')?.fields.get('stochUpper')?.key).to.equal(
+      'stochUpper',
+    )
+    // a list spread from an import is not static: not checked
+    expect(
+      catalog.get('SESSION')?.fields.get('sessionTimezone')?.options,
+    ).to.equal(undefined)
+    expect(catalog.get('DIV')?.fields.get('divOscillators')?.multiple).to.equal(
+      true,
+    )
+    expect(catalog.get('WIP')?.pendingPort).to.equal(true)
+  })
+
+  it('passes the fixture recipe and valid configs of every kind', () => {
+    const recipe = JSON.parse(
+      fs.readFileSync(path.join(INDICATORS, 'rsi.edge-recipe.json'), 'utf-8'),
+    )
+    expect(checkEdgeRecipe(recipe, 'rsi', catalog)).to.deep.equal([])
+    expect(
+      errorsOf(
+        lt30,
+        rsi({
+          indicatorLength: 14,
+          indicatorCondition: 'lt',
+          indicatorValue: 30,
+        }),
+      ),
+    ).to.deep.equal([])
+    expect(
+      errorsOf(lt30, null, { botWhyNot: 'two tests in one' }),
+    ).to.deep.equal([])
+    expect(
+      errorsOf(
+        { op: 'gt', against: { output: 'percentile' } },
+        rsi({
+          indicatorCondition: 'gt',
+          percentile: true,
+          percentilePercentage: 90,
+        }),
+      ),
+    ).to.deep.equal([])
+    expect(
+      errorsOf(
+        { op: 'true' },
+        { type: 'PP', params: { ppType: 'Event Based', ppValue: 'IBullBoS' } },
+      ),
+    ).to.deep.equal([])
+    expect(
+      errorsOf(
+        { op: 'fn', fn: 'x', options: {} },
+        {
+          type: 'SESSION',
+          params: {
+            sessionStart: '08:00',
+            sessionTimezone: 'Europe/London',
+            sessionDays: [1],
+          },
+        },
+      ),
+    ).to.deep.equal([])
+    expect(
+      errorsOf(
+        { op: 'gte', against: 1 },
+        { type: 'DIV', params: { divOscillators: ['RSI', 'MFI'] } },
+      ),
+    ).to.deep.equal([])
+  })
+
+  it('requires bot on every setting, and a reason with null', () => {
+    expect(
+      checkEdgeRecipe({ indicator: 'x', settings: [{ id: 's' }] }, 'x').join(),
+    ).to.include('bot is required')
+    expect(errorsOf(lt30, null).join()).to.include('botWhyNot: required')
+    expect(
+      errorsOf(lt30, rsi({ indicatorCondition: 'lt', indicatorValue: 30 }), {
+        botWhyNot: 'x',
+      }).join(),
+    ).to.include('only with "bot": null')
+    expect(errorsOf(lt30, { type: 'RSI' }).join()).to.include(
+      'must be { type, params } or null',
+    )
+    expect(
+      errorsOf(lt30, {
+        ...rsi({ indicatorCondition: 'lt', indicatorValue: 30 }),
+        tf: '1h',
+      }).join(),
+    ).to.include('bot.tf: unknown key')
+  })
+
+  it('fails a type the catalog does not have or cannot build', () => {
+    expect(errorsOf(lt30, { type: 'RSX', params: {} }).join()).to.include(
+      '"RSX" is not in the indicator catalog',
+    )
+    expect(
+      errorsOf({ op: 'true' }, { type: 'WIP', params: {} }).join(),
+    ).to.include('pendingPort')
+  })
+
+  it('fails keys the type does not store: unknown, interval, derive-only', () => {
+    const errors = errorsOf(
+      lt30,
+      rsi({
+        indicatorCondition: 'lt',
+        indicatorValue: 30,
+        macdFast: 12,
+        indicatorInterval: '4h',
+        smoothingEnabled: true,
+      }),
+    )
+    expect(errors).to.have.length(3)
+    expect(errors[0]).to.include('macdFast: not a field of RSI')
+    expect(errors[1]).to.include(
+      'indicatorInterval: an interval; the dashboard sets it',
+    )
+    expect(errors[2]).to.include(
+      'smoothingEnabled: a control that stores nothing',
+    )
+    expect(
+      errorsOf(
+        { op: 'crossUp', against: { indicator: {} } },
+        {
+          type: 'MA',
+          params: {
+            indicatorCondition: 'cu',
+            maCrossingValue: 'sma',
+            maCrossingInterval: '4h',
+          },
+        },
+      ).join(),
+    ).to.include('maCrossingInterval: an interval')
+  })
+
+  it('fails values of the wrong kind or outside the options', () => {
+    const errors = errorsOf(
+      lt30,
+      rsi({
+        indicatorCondition: 'lt',
+        indicatorValue: '30',
+        percentile: 'no',
+        indicatorLength: 14,
+      }),
+    )
+    expect(errors.join('\n')).to.include(
+      'indicatorValue: must be a number, got "30"',
+    )
+    expect(errors.join('\n')).to.include('percentile: must be true or false')
+    expect(
+      errorsOf(
+        lt30,
+        rsi({ indicatorCondition: 'below', indicatorValue: 30 }),
+      ).join(),
+    ).to.include('"below" is not an option (cd, cu, gt, lt, bw)')
+    expect(
+      errorsOf(
+        { op: 'fn', fn: 'x', options: {} },
+        { type: 'SESSION', params: { sessionStart: '8:00', sessionDays: 1 } },
+      ).join('\n'),
+    )
+      .to.include('sessionStart: must be a time HH:MM')
+      .and.include('sessionDays: must be a list of options')
+    expect(
+      errorsOf(
+        { op: 'gte', against: 1 },
+        { type: 'DIV', params: { divOscillators: ['RSI', 'WR'] } },
+      ).join(),
+    ).to.include('"WR" is not an option')
+  })
+
+  it("reads optionsWhen from the params, or the controlling field's default", () => {
+    // ppType defaults to price, whose list has no event values
+    expect(
+      errorsOf(
+        { op: 'true' },
+        { type: 'PP', params: { ppValue: 'IBullBoS' } },
+      ).join(),
+    ).to.include('"IBullBoS" is not an option (Any Low)')
+    // percentile on: no Between
+    expect(
+      errorsOf(
+        { op: 'between', against: [30, 70] },
+        rsi({
+          percentile: true,
+          indicatorCondition: 'bw',
+          indicatorValue: 30,
+          indicatorValue2: 70,
+        }),
+      ).join(),
+    ).to.include('"bw" is not an option (cd, cu, gt, lt)')
+  })
+
+  it('holds a single comparison to indicatorCondition and indicatorValue', () => {
+    expect(
+      errorsOf(
+        lt30,
+        rsi({ indicatorCondition: 'gt', indicatorValue: 30 }),
+      ).join(),
+    ).to.include('the tested condition is lt, i.e. "lt"')
+    expect(
+      errorsOf(
+        { op: 'crossUp', against: 30 },
+        rsi({ indicatorValue: 30 }),
+      ).join(),
+    ).to.include('indicatorCondition: undefined')
+    expect(
+      errorsOf(
+        lt30,
+        rsi({ indicatorCondition: 'lt', indicatorValue: 31 }),
+      ).join(),
+    ).to.include('indicatorValue: 31, but the tested level is 30')
+    expect(
+      errorsOf(
+        { op: 'between', against: [30, 70] },
+        rsi({
+          indicatorCondition: 'bw',
+          indicatorValue: 70,
+          indicatorValue2: 30,
+        }),
+      ),
+    ).to.deep.equal([])
+    expect(
+      errorsOf(
+        { op: 'between', against: [30, 70] },
+        rsi({
+          indicatorCondition: 'bw',
+          indicatorValue: 30,
+          indicatorValue2: 60,
+        }),
+      ).join(),
+    ).to.include('the tested range is [30, 70]')
+    expect(
+      errorsOf(
+        { op: 'lt', against: { output: 'percentile' } },
+        rsi({ indicatorCondition: 'lt' }),
+      ).join(),
+    ).to.include('percentile: must be true')
+    // a compound is the engine's to describe: not compared
+    expect(
+      errorsOf(
+        { all: [lt30, { op: 'gt', against: 10 }] },
+        rsi({ indicatorCondition: 'cu' }),
+      ),
+    ).to.deep.equal([])
+  })
+
+  it("flips a condition against the close to price's side, except for an MA", () => {
+    // "the lower band crosses down the close" is "Price crossing up" the band
+    const bb = (indicatorCondition: string) => ({
+      type: 'BB',
+      params: { indicatorCondition, bbCrossingValue: 'lower' },
+    })
+    expect(
+      errorsOf({ op: 'crossDown', against: 'close' }, bb('cu')),
+    ).to.deep.equal([])
+    expect(
+      errorsOf({ op: 'crossDown', against: 'close' }, bb('cd')).join(),
+    ).to.include('(crossUp from price\'s side), i.e. "cu"')
+    expect(errorsOf({ op: 'gt', against: 'close' }, bb('lt'))).to.deep.equal([])
+    const ma = (indicatorCondition: string) => ({
+      type: 'MA',
+      params: { indicatorCondition, maCrossingValue: 'price' },
+    })
+    expect(
+      errorsOf({ op: 'crossDown', against: 'close' }, ma('cd')),
+    ).to.deep.equal([])
+    expect(
+      errorsOf({ op: 'crossDown', against: 'close' }, ma('cu')).join(),
+    ).to.include('i.e. "cd"')
+  })
+
+  it('reads the drawdown level as -|Value| and a Stochastic custom line as valueInsteadof', () => {
+    const ath = (params: object) => ({ type: 'ATH', params })
+    expect(
+      errorsOf(
+        { op: 'lt', against: -10 },
+        ath({ indicatorCondition: 'lt', indicatorValue: 10 }),
+      ),
+    ).to.deep.equal([])
+    expect(
+      errorsOf(
+        { op: 'between', against: [-20, -10] },
+        ath({
+          indicatorCondition: 'bw',
+          indicatorValue: 10,
+          indicatorValue2: 20,
+        }),
+      ),
+    ).to.deep.equal([])
+    expect(
+      errorsOf(
+        { op: 'lt', against: -10 },
+        ath({ indicatorCondition: 'lt', indicatorValue: 20 }),
+      ).join(),
+    ).to.include('-|indicatorValue|')
+    const stoch = (valueInsteadof: number) => ({
+      type: 'Stoch',
+      params: { indicatorCondition: 'lt', rsiValue2: 'custom', valueInsteadof },
+    })
+    expect(errorsOf({ op: 'lt', against: 20 }, stoch(20))).to.deep.equal([])
+    expect(errorsOf({ op: 'lt', against: 20 }, stoch(25)).join()).to.include(
+      'valueInsteadof: 25, but the tested level is 20',
+    )
+  })
+
+  it('holds a library-helper condition to its options.condition', () => {
+    expect(
+      errorsOf(
+        { op: 'fn', fn: 'x', options: { condition: 'cd' } },
+        { type: 'BB', params: { indicatorCondition: 'cu' } },
+      ).join(),
+    ).to.include('the tested condition is "cd"')
+  })
+
+  it('fails the directory check on a bot the catalog rejects', async () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'edge-bot-'))
+    fs.writeFileSync(
+      path.join(dir, 'rsi.edge-recipe.json'),
+      JSON.stringify(
+        one(
+          lt30,
+          rsi({ indicatorCondition: 'lt', indicatorValue: 30, nope: 1 }),
+        ),
+        null,
+        2,
+      ).replace('"x"', '"rsi"'),
+    )
+    const { errors } = await checkEdgeDir(dir, {
+      pageSlugs: ['rsi'],
+      now: NOW,
+      catalog,
+    })
+    fs.rmSync(dir, { recursive: true })
+    expect(errors).to.deep.equal([
+      'rsi.edge-recipe.json: settings[0] (s).bot.params.nope: not a field of RSI',
+    ])
+  })
+
+  it('throws when the catalog cannot be read', async () => {
+    let failed: unknown
+    await loadBotCatalog({ read: async () => 'const nothing = {}' }).catch(
+      (e) => (failed = e),
+    )
+    expect(String(failed)).to.include(
+      'BASE_INDICATOR_CATALOG could not be evaluated',
+    )
   })
 })
 

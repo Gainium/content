@@ -27,6 +27,13 @@
       "condition": {
         "op": "crossUp",
         "against": 0
+      },
+      "bot": {
+        "type": "MOM",
+        "params": {
+          "indicatorCondition": "cu",
+          "indicatorValue": 0
+        }
       }
     },
     {
@@ -49,6 +56,13 @@
       "condition": {
         "op": "crossDown",
         "against": 0
+      },
+      "bot": {
+        "type": "MOM",
+        "params": {
+          "indicatorCondition": "cd",
+          "indicatorValue": 0
+        }
       }
     },
     {
@@ -71,6 +85,13 @@
       "condition": {
         "op": "gt",
         "against": 0
+      },
+      "bot": {
+        "type": "MOM",
+        "params": {
+          "indicatorCondition": "gt",
+          "indicatorValue": 0
+        }
       }
     },
     {
@@ -93,6 +114,13 @@
       "condition": {
         "op": "lt",
         "against": 0
+      },
+      "bot": {
+        "type": "MOM",
+        "params": {
+          "indicatorCondition": "lt",
+          "indicatorValue": 0
+        }
       }
     },
     {
@@ -118,7 +146,15 @@
           "output": "percentile"
         }
       },
-      "volatility": true
+      "volatility": true,
+      "bot": {
+        "type": "MOM",
+        "params": {
+          "indicatorCondition": "cu",
+          "percentile": true,
+          "percentilePercentage": 90
+        }
+      }
     }
   ]
 }

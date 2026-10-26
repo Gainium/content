@@ -28,6 +28,14 @@
           "leg": "bullish",
           "condition": "cd"
         }
+      },
+      "bot": {
+        "type": "OTE",
+        "params": {
+          "oteLeg": "bullish",
+          "indicatorCondition": "cd",
+          "oteLevel": 0.705
+        }
       }
     },
     {
@@ -50,6 +58,14 @@
           "level": 0.618,
           "leg": "bullish",
           "condition": "cd"
+        }
+      },
+      "bot": {
+        "type": "OTE",
+        "params": {
+          "oteLeg": "bullish",
+          "indicatorCondition": "cd",
+          "oteLevel": 0.618
         }
       }
     },
@@ -74,6 +90,15 @@
           "leg": "bullish",
           "condition": "cd"
         }
+      },
+      "bot": {
+        "type": "OTE",
+        "params": {
+          "oteMinLegSize": 3,
+          "oteLeg": "bullish",
+          "indicatorCondition": "cd",
+          "oteLevel": 0.705
+        }
       }
     },
     {
@@ -96,6 +121,15 @@
           "level": 0.5,
           "leg": "bullish",
           "condition": "lt"
+        }
+      },
+      "bot": {
+        "type": "OTE",
+        "params": {
+          "oteMinLegSize": 3,
+          "oteLeg": "bullish",
+          "indicatorCondition": "lt",
+          "oteLevel": 0.5
         }
       }
     },
@@ -120,6 +154,14 @@
           "leg": "bearish",
           "condition": "cu"
         }
+      },
+      "bot": {
+        "type": "OTE",
+        "params": {
+          "oteLeg": "bearish",
+          "indicatorCondition": "cu",
+          "oteLevel": 0.705
+        }
       }
     },
     {
@@ -142,6 +184,15 @@
           "level": 0.5,
           "leg": "bearish",
           "condition": "gt"
+        }
+      },
+      "bot": {
+        "type": "OTE",
+        "params": {
+          "oteMinLegSize": 3,
+          "oteLeg": "bearish",
+          "indicatorCondition": "gt",
+          "oteLevel": 0.5
         }
       }
     }

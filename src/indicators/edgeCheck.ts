@@ -2,6 +2,11 @@ import fs from 'fs/promises'
 import path from 'path'
 import { lintMarkdown } from '../style/aiGiveaways'
 import { extraBannedFor, MONTH } from '../style/timePeriods'
+import {
+  CATALOG_MODULE,
+  CatalogEvaluator,
+  type ModuleReader,
+} from './describeNative'
 
 /**
  * Indicator edge data (spec 054 §3): `docs/indicators/<slug>.edge.json`, the
@@ -24,7 +29,9 @@ import { extraBannedFor, MONTH } from '../style/timePeriods'
  * here; otherwise the engine's own validator is the only place it can be.
  *
  * The recipe is checked loosely (required keys only): its format belongs to
- * the engine, and unknown keys are accepted.
+ * the engine, and unknown keys are accepted. The exception is each setting's
+ * `bot`, the bot-form condition the dashboard applies with one click: it is
+ * required, and held to the dashboard's indicator catalog (checkRecipeBots).
  */
 
 export const EDGE_VERDICTS = [
@@ -796,9 +803,14 @@ export function checkEdgeFile(
 /**
  * Required keys of `<slug>.edge-recipe.json` only: `indicator`, and either
  * `skip` (why the indicator cannot be evaluated this way) or a non-empty
- * `settings` list whose items carry an `id`. Anything else is the engine's.
+ * `settings` list whose items carry an `id` and a `bot`. Anything else is the
+ * engine's. With the catalog, each `bot` is also held to it (checkRecipeBots).
  */
-export function checkEdgeRecipe(data: unknown, slug: string): string[] {
+export function checkEdgeRecipe(
+  data: unknown,
+  slug: string,
+  catalog?: BotCatalog,
+): string[] {
   if (!isObj(data)) return ['the file must be a JSON object']
   const errors: string[] = []
   if (data.indicator !== slug)
@@ -821,6 +833,371 @@ export function checkEdgeRecipe(data: unknown, slug: string): string[] {
       errors.push(`settings[${i}]: duplicate id "${setting.id}"`)
     ids.add(setting.id)
   })
+  errors.push(...checkRecipeBots(data.settings, catalog))
+  return errors
+}
+
+// --- a setting's bot-form config ---------------------------------------------
+
+/**
+ * One field of a catalog type, as the bot check reads it (statically, from the
+ * dashboard's indicator catalog; see loadBotCatalog).
+ */
+export interface BotCatalogField {
+  key: string
+  /** number | select | boolean | interval | string | time */
+  type: string
+  /** The select's option values; undefined when they are not static. */
+  options?: unknown[]
+  /** Another option list while another field has a value (first match wins). */
+  optionsWhen: Array<{ field: string; equals: unknown; options?: unknown[] }>
+  defaultValue?: unknown
+  multiple: boolean
+  /** False for a control that stores nothing of its own (a `derive` without a default). */
+  stored: boolean
+}
+
+export interface BotCatalogType {
+  pendingPort: boolean
+  /** By every key the type stores, including the keys a field switches to (`keyWhen`). */
+  fields: Map<string, BotCatalogField>
+}
+
+/** Catalog types by IndicatorEnum value. */
+export type BotCatalog = Map<string, BotCatalogType>
+
+const optionValues = (raw: unknown): unknown[] | undefined => {
+  if (!Array.isArray(raw) || raw.length === 0) return undefined
+  const values = raw.map((o) => (isObj(o) ? o.value : undefined))
+  return values.every(
+    (v) =>
+      typeof v === 'string' || typeof v === 'number' || typeof v === 'boolean',
+  )
+    ? values
+    : undefined
+}
+
+/**
+ * The bot-check view of the dashboard catalog (`BASE_INDICATOR_CATALOG`),
+ * evaluated statically by describeNative's evaluator: no dashboard code is
+ * imported or run. Option lists the evaluator cannot fold (imported presets,
+ * a filter over an imported list) are left undefined, so their values are
+ * not checked. Throws when the catalog cannot be read at all.
+ */
+export async function loadBotCatalog(
+  reader: ModuleReader,
+): Promise<BotCatalog> {
+  const ev = new CatalogEvaluator(reader)
+  const raw = await ev.lookup(
+    await ev.load(CATALOG_MODULE),
+    'BASE_INDICATOR_CATALOG',
+  )
+  if (!isObj(raw))
+    throw new Error(
+      'BASE_INDICATOR_CATALOG could not be evaluated for the bot check; update loadBotCatalog',
+    )
+  const catalog: BotCatalog = new Map()
+  for (const [type, def] of Object.entries(raw)) {
+    if (!isObj(def)) continue
+    const list = [
+      ...(Array.isArray(def.fields) ? def.fields : []),
+      ...(Array.isArray(def.advancedFields) ? def.advancedFields : []),
+    ].filter(
+      (f): f is Obj =>
+        isObj(f) && typeof f.key === 'string' && typeof f.type === 'string',
+    )
+    if (list.length === 0)
+      throw new Error(
+        `BASE_INDICATOR_CATALOG.${type}: no fields could be read; update loadBotCatalog`,
+      )
+    const fields = new Map<string, BotCatalogField>()
+    const aliases: Array<[string, BotCatalogField]> = []
+    for (const f of list) {
+      const field: BotCatalogField = {
+        key: f.key as string,
+        type: f.type as string,
+        options: optionValues(f.options),
+        optionsWhen: (Array.isArray(f.optionsWhen) ? f.optionsWhen : [])
+          .filter(isObj)
+          .map((w) => ({
+            field: String(w.field),
+            equals: w.equals,
+            options: optionValues(w.options),
+          })),
+        defaultValue: f.defaultValue,
+        // a list default makes a select multi-valued too (Divergence's oscillators)
+        multiple: f.multiple === true || Array.isArray(f.defaultValue),
+        stored: !(f.derive !== undefined && f.defaultValue === undefined),
+      }
+      fields.set(field.key, field)
+      for (const k of Array.isArray(f.keyWhen) ? f.keyWhen : [])
+        if (isObj(k) && typeof k.key === 'string')
+          aliases.push([
+            k.key,
+            { ...field, key: k.key, defaultValue: k.defaultValue },
+          ])
+    }
+    for (const [key, field] of aliases)
+      if (!fields.has(key)) fields.set(key, field)
+    catalog.set(type, { pendingPort: def.pendingPort === true, fields })
+  }
+  return catalog
+}
+
+/** A recipe leaf's comparison → the form's `indicatorCondition`. */
+const FORM_CONDITION: Record<string, string> = {
+  lt: 'lt',
+  gt: 'gt',
+  crossUp: 'cu',
+  crossDown: 'cd',
+  between: 'bw',
+}
+const FLIPPED: Record<string, string> = {
+  lt: 'gt',
+  gt: 'lt',
+  crossUp: 'crossDown',
+  crossDown: 'crossUp',
+}
+/**
+ * A recipe leaf whose level is the close ("the band crosses down the close")
+ * tests the move from the line's side, while the form names it from price's
+ * side ("Price crossing up" the band): the condition flips. Except here, where
+ * the form reads "<MA> <condition> <Compared to: price>" and the line is its
+ * subject too.
+ */
+const LINE_IS_SUBJECT = new Set(['MA'])
+/** Types whose Value the bot reads as a drawdown: it compares with -|Value|. */
+const NEGATED_VALUE = new Set(['ATH'])
+const TIME = /^(?:|(?:[01]\d|2[0-3]):[0-5]\d)$/
+
+/**
+ * Every setting's `bot`: the bot-form condition that reproduces exactly what
+ * the engine tested, `{ type, params }` (params merged over the catalog
+ * defaults by the dashboard), or `null` with `botWhyNot` where the form
+ * cannot express it. With the catalog:
+ *   - `type` is a catalog type the form can build (not pendingPort);
+ *   - every param key is a field the type stores, never an interval (the
+ *     dashboard sets those from the timeframe tab) or a control that stores
+ *     nothing;
+ *   - numbers are numbers, booleans booleans, times HH:MM, and a select's
+ *     value is one of its options (the `optionsWhen` list when the controlling
+ *     field, from the params or its default, selects one);
+ *   - on a single-comparison condition, `indicatorCondition` is the tested
+ *     op (lt/gt/crossUp/crossDown/between ↔ lt/gt/cu/cd/bw, flipped against
+ *     the close, see LINE_IS_SUBJECT), a numeric level is `indicatorValue`
+ *     (`valueInsteadof` for a Stochastic custom line; -|Value| for ATH), and
+ *     a level that is the indicator's own percentile needs `percentile`.
+ */
+export function checkRecipeBots(
+  settings: unknown[],
+  catalog?: BotCatalog,
+): string[] {
+  const errors: string[] = []
+  settings.forEach((setting, i) => {
+    // a setting without an id is already reported
+    if (!isObj(setting) || !isStr(setting.id)) return
+    const at = `settings[${i}] (${setting.id})`
+    if (!('bot' in setting)) {
+      errors.push(
+        `${at}: bot is required: the bot-form config { type, params }, or null with botWhyNot`,
+      )
+      return
+    }
+    const { bot, botWhyNot } = setting
+    if (bot === null) {
+      if (!isStr(botWhyNot))
+        errors.push(
+          `${at}.botWhyNot: required with "bot": null (why the form cannot reproduce it)`,
+        )
+      return
+    }
+    if (botWhyNot !== undefined)
+      errors.push(`${at}.botWhyNot: only with "bot": null`)
+    if (!isObj(bot) || !isStr(bot.type) || !isObj(bot.params)) {
+      errors.push(`${at}.bot: must be { type, params } or null`)
+      return
+    }
+    for (const k of Object.keys(bot))
+      if (k !== 'type' && k !== 'params')
+        errors.push(`${at}.bot.${k}: unknown key`)
+    if (!catalog) return
+    const entry = catalog.get(bot.type)
+    if (!entry) {
+      errors.push(
+        `${at}.bot.type: "${bot.type}" is not in the indicator catalog`,
+      )
+      return
+    }
+    if (entry.pendingPort)
+      errors.push(
+        `${at}.bot.type: "${bot.type}" is pendingPort, so the form cannot build it`,
+      )
+    const params = bot.params
+    for (const [key, value] of Object.entries(params)) {
+      const where = `${at}.bot.params.${key}`
+      const field = entry.fields.get(key)
+      if (!field) {
+        errors.push(`${where}: not a field of ${bot.type}`)
+        continue
+      }
+      if (field.type === 'interval') {
+        errors.push(
+          `${where}: an interval; the dashboard sets it from the timeframe tab`,
+        )
+        continue
+      }
+      if (!field.stored) {
+        errors.push(
+          `${where}: a control that stores nothing of its own; set the fields it writes`,
+        )
+        continue
+      }
+      errors.push(...botValueErrors(where, field, value, entry, params))
+    }
+    errors.push(
+      ...botConditionErrors(
+        `${at}.bot.params`,
+        setting.condition,
+        bot.type,
+        entry,
+        params,
+      ),
+    )
+  })
+  return errors
+}
+
+function botValueErrors(
+  where: string,
+  field: BotCatalogField,
+  value: unknown,
+  entry: BotCatalogType,
+  params: Obj,
+): string[] {
+  const show = JSON.stringify(value)
+  switch (field.type) {
+    case 'number':
+      return isNum(value) ? [] : [`${where}: must be a number, got ${show}`]
+    case 'boolean':
+      return typeof value === 'boolean'
+        ? []
+        : [`${where}: must be true or false, got ${show}`]
+    case 'time':
+      return typeof value === 'string' && TIME.test(value)
+        ? []
+        : [`${where}: must be a time HH:MM (or ""), got ${show}`]
+    case 'string':
+      return typeof value === 'string'
+        ? []
+        : [`${where}: must be a string, got ${show}`]
+    case 'select': {
+      let options = field.options
+      for (const w of field.optionsWhen) {
+        const control =
+          w.field in params
+            ? params[w.field]
+            : entry.fields.get(w.field)?.defaultValue
+        if (control === w.equals) {
+          options = w.options
+          break
+        }
+      }
+      const values = field.multiple ? value : [value]
+      if (!Array.isArray(values) || (field.multiple && !Array.isArray(value)))
+        return [`${where}: must be a list of options, got ${show}`]
+      const bad = values.filter(
+        (v) =>
+          !(
+            typeof v === 'string' ||
+            typeof v === 'number' ||
+            typeof v === 'boolean'
+          ) ||
+          (options !== undefined && !options.includes(v)),
+      )
+      return bad.length
+        ? [
+            `${where}: ${bad.map((v) => JSON.stringify(v)).join(', ')} is not an option${options ? ` (${options.join(', ')})` : ''}`,
+          ]
+        : []
+    }
+    default:
+      return []
+  }
+}
+
+/** The single-comparison consistency rules of checkRecipeBots. */
+function botConditionErrors(
+  where: string,
+  condition: unknown,
+  type: string,
+  entry: BotCatalogType,
+  params: Obj,
+): string[] {
+  if (!isObj(condition) || 'any' in condition || 'all' in condition) return []
+  const errors: string[] = []
+  const { op, against } = condition
+  const hasCondition = entry.fields.has('indicatorCondition')
+  if (op === 'fn') {
+    const fnCondition = isObj(condition.options)
+      ? condition.options.condition
+      : undefined
+    if (
+      hasCondition &&
+      typeof fnCondition === 'string' &&
+      params.indicatorCondition !== fnCondition
+    )
+      errors.push(
+        `${where}.indicatorCondition: ${JSON.stringify(params.indicatorCondition)}, but the tested condition is "${fnCondition}"`,
+      )
+    return errors
+  }
+  if (typeof op !== 'string' || !(op in FORM_CONDITION)) return errors
+  if (hasCondition) {
+    const formOp =
+      against === 'close' && !LINE_IS_SUBJECT.has(type)
+        ? (FLIPPED[op] ?? op)
+        : op
+    const expected = FORM_CONDITION[formOp]
+    if (params.indicatorCondition !== expected)
+      errors.push(
+        `${where}.indicatorCondition: ${JSON.stringify(params.indicatorCondition)}, but the tested condition is ${op}${formOp !== op ? ` (${formOp} from price's side)` : ''}, i.e. "${expected}"`,
+      )
+  }
+  const valueKey = entry.fields.has('indicatorValue')
+    ? 'indicatorValue'
+    : params.rsiValue2 === 'custom' && entry.fields.has('valueInsteadof')
+      ? 'valueInsteadof'
+      : null
+  const level = (v: unknown) =>
+    isNum(v) ? (NEGATED_VALUE.has(type) ? -Math.abs(v) : v) : NaN
+  if (isNum(against) && valueKey) {
+    if (level(params[valueKey]) !== against)
+      errors.push(
+        `${where}.${valueKey}: ${JSON.stringify(params[valueKey])}, but the tested level is ${against}${NEGATED_VALUE.has(type) ? ` (the bot compares with -|${valueKey}|)` : ''}`,
+      )
+  } else if (
+    op === 'between' &&
+    isRange(against) &&
+    valueKey === 'indicatorValue'
+  ) {
+    const got = [
+      level(params.indicatorValue),
+      level(params.indicatorValue2),
+    ].sort((a, b) => a - b)
+    if (got[0] !== against[0] || got[1] !== against[1])
+      errors.push(
+        `${where}: indicatorValue / indicatorValue2 ${JSON.stringify([params.indicatorValue, params.indicatorValue2])}, but the tested range is [${against.join(', ')}]`,
+      )
+  } else if (
+    isObj(against) &&
+    against.output === 'percentile' &&
+    against.indicator === undefined
+  ) {
+    if (params.percentile !== true)
+      errors.push(
+        `${where}.percentile: must be true; the tested level is the indicator's own percentile`,
+      )
+  }
   return errors
 }
 
@@ -843,6 +1220,8 @@ export async function checkEdgeDir(
     now?: Date
     /** How a file is named in errors (default: its file name). */
     label?: (file: string) => string
+    /** The dashboard catalog the recipes' `bot` configs are held to (loadBotCatalog). */
+    catalog?: BotCatalog
   },
 ): Promise<EdgeDirResult> {
   const names = (await fs.readdir(dir).catch(() => [] as string[])).sort()
@@ -878,7 +1257,7 @@ export async function checkEdgeDir(
     const found =
       suffix === EDGE_SUFFIX
         ? checkEdgeFile(data, { slug, now: options.now })
-        : checkEdgeRecipe(data, slug)
+        : checkEdgeRecipe(data, slug, options.catalog)
     errors.push(...found.map((error) => `${name}: ${error}`))
     if (suffix === EDGE_RECIPE_SUFFIX && isObj(data) && data.skip !== undefined)
       skipped.add(slug)

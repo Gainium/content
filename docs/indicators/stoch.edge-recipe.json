@@ -58,6 +58,16 @@
             "at": "prev"
           }
         ]
+      },
+      "bot": {
+        "type": "Stoch",
+        "params": {
+          "rsiValue": "k",
+          "indicatorCondition": "cu",
+          "rsiValue2": "d",
+          "stochRange": "lower",
+          "stochUpper": 20
+        }
       }
     },
     {
@@ -111,6 +121,16 @@
             "at": "prev"
           }
         ]
+      },
+      "bot": {
+        "type": "Stoch",
+        "params": {
+          "rsiValue": "k",
+          "indicatorCondition": "cd",
+          "rsiValue2": "d",
+          "stochRange": "upper",
+          "stochLower": 80
+        }
       }
     },
     {
@@ -131,6 +151,15 @@
       "condition": {
         "op": "lt",
         "against": 20
+      },
+      "bot": {
+        "type": "Stoch",
+        "params": {
+          "rsiValue": "k",
+          "indicatorCondition": "lt",
+          "rsiValue2": "custom",
+          "valueInsteadof": 20
+        }
       }
     },
     {
@@ -151,6 +180,15 @@
       "condition": {
         "op": "crossUp",
         "against": 20
+      },
+      "bot": {
+        "type": "Stoch",
+        "params": {
+          "rsiValue": "k",
+          "indicatorCondition": "cu",
+          "rsiValue2": "custom",
+          "valueInsteadof": 20
+        }
       }
     },
     {
@@ -171,6 +209,15 @@
       "condition": {
         "op": "gt",
         "against": 80
+      },
+      "bot": {
+        "type": "Stoch",
+        "params": {
+          "rsiValue": "k",
+          "indicatorCondition": "gt",
+          "rsiValue2": "custom",
+          "valueInsteadof": 80
+        }
       }
     }
   ]

@@ -32,6 +32,14 @@
           },
           "output": "value"
         }
+      },
+      "bot": {
+        "type": "XO",
+        "params": {
+          "xOscillator1": "RSI",
+          "indicatorCondition": "cu",
+          "xOscillator2": "MFI"
+        }
       }
     },
     {
@@ -58,6 +66,14 @@
             "input": "candle"
           },
           "output": "value"
+        }
+      },
+      "bot": {
+        "type": "XO",
+        "params": {
+          "xOscillator1": "RSI",
+          "indicatorCondition": "cd",
+          "xOscillator2": "MFI"
         }
       }
     },
@@ -94,7 +110,9 @@
             "against": 40
           }
         ]
-      }
+      },
+      "bot": null,
+      "botWhyNot": "Two tests in one: the oscillator cross and a level on both lines. A bot-form condition makes one comparison; use two conditions."
     },
     {
       "id": "xo-rsi7-down-mfi14-gt60",
@@ -129,7 +147,9 @@
             "against": 60
           }
         ]
-      }
+      },
+      "bot": null,
+      "botWhyNot": "Two tests in one: the oscillator cross and a level on both lines. A bot-form condition makes one comparison; use two conditions."
     },
     {
       "id": "xo-rsi7-gt-mfi14",
@@ -155,6 +175,14 @@
             "input": "candle"
           },
           "output": "value"
+        }
+      },
+      "bot": {
+        "type": "XO",
+        "params": {
+          "xOscillator1": "RSI",
+          "indicatorCondition": "gt",
+          "xOscillator2": "MFI"
         }
       }
     }

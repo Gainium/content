@@ -23,6 +23,13 @@
       "condition": {
         "op": "eq",
         "against": 2
+      },
+      "bot": {
+        "type": "TV",
+        "params": {
+          "signal": "strongBuy",
+          "condition": "entry"
+        }
       }
     },
     {
@@ -41,6 +48,13 @@
       "condition": {
         "op": "eq",
         "against": 1
+      },
+      "bot": {
+        "type": "TV",
+        "params": {
+          "signal": "buy",
+          "condition": "entry"
+        }
       }
     },
     {
@@ -59,6 +73,13 @@
       "condition": {
         "op": "eq",
         "against": 2
+      },
+      "bot": {
+        "type": "TV",
+        "params": {
+          "signal": "strongBuy",
+          "condition": "every"
+        }
       }
     },
     {
@@ -80,6 +101,13 @@
           1,
           2
         ]
+      },
+      "bot": {
+        "type": "TV",
+        "params": {
+          "signal": "bothBuy",
+          "condition": "every"
+        }
       }
     },
     {
@@ -98,6 +126,13 @@
       "condition": {
         "op": "eq",
         "against": 4
+      },
+      "bot": {
+        "type": "TV",
+        "params": {
+          "signal": "strongSell",
+          "condition": "entry"
+        }
       }
     },
     {
@@ -119,6 +154,13 @@
           3,
           4
         ]
+      },
+      "bot": {
+        "type": "TV",
+        "params": {
+          "signal": "bothSell",
+          "condition": "every"
+        }
       }
     }
   ]

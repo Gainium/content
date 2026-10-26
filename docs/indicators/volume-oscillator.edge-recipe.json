@@ -28,7 +28,14 @@
         "op": "gt",
         "against": 0
       },
-      "volatility": true
+      "volatility": true,
+      "bot": {
+        "type": "VO",
+        "params": {
+          "indicatorCondition": "gt",
+          "indicatorValue": 0
+        }
+      }
     },
     {
       "id": "vo-up0",
@@ -50,6 +57,13 @@
       "condition": {
         "op": "crossUp",
         "against": 0
+      },
+      "bot": {
+        "type": "VO",
+        "params": {
+          "indicatorCondition": "cu",
+          "indicatorValue": 0
+        }
       }
     },
     {
@@ -73,7 +87,14 @@
         "op": "crossUp",
         "against": 20
       },
-      "volatility": true
+      "volatility": true,
+      "bot": {
+        "type": "VO",
+        "params": {
+          "indicatorCondition": "cu",
+          "indicatorValue": 20
+        }
+      }
     },
     {
       "id": "vo-gt20",
@@ -96,7 +117,14 @@
         "op": "gt",
         "against": 20
       },
-      "volatility": true
+      "volatility": true,
+      "bot": {
+        "type": "VO",
+        "params": {
+          "indicatorCondition": "gt",
+          "indicatorValue": 20
+        }
+      }
     },
     {
       "id": "vo-down0",
@@ -118,6 +146,13 @@
       "condition": {
         "op": "crossDown",
         "against": 0
+      },
+      "bot": {
+        "type": "VO",
+        "params": {
+          "indicatorCondition": "cd",
+          "indicatorValue": 0
+        }
       }
     }
   ]

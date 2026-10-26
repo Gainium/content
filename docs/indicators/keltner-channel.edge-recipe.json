@@ -28,6 +28,14 @@
       "condition": {
         "op": "crossDown",
         "against": "close"
+      },
+      "bot": {
+        "type": "KC",
+        "params": {
+          "kcRangeLength": 10,
+          "indicatorCondition": "cu",
+          "bbCrossingValue": "upper"
+        }
       }
     },
     {
@@ -51,6 +59,14 @@
       "condition": {
         "op": "lt",
         "against": "close"
+      },
+      "bot": {
+        "type": "KC",
+        "params": {
+          "kcRangeLength": 10,
+          "indicatorCondition": "gt",
+          "bbCrossingValue": "upper"
+        }
       }
     },
     {
@@ -73,6 +89,14 @@
       "condition": {
         "op": "crossDown",
         "against": "close"
+      },
+      "bot": {
+        "type": "KC",
+        "params": {
+          "kcRangeLength": 10,
+          "indicatorCondition": "cu",
+          "bbCrossingValue": "lower"
+        }
       }
     },
     {
@@ -95,6 +119,13 @@
       "condition": {
         "op": "crossDown",
         "against": "close"
+      },
+      "bot": {
+        "type": "KC",
+        "params": {
+          "indicatorCondition": "cu",
+          "bbCrossingValue": "lower"
+        }
       }
     },
     {
@@ -117,6 +148,14 @@
       "condition": {
         "op": "gt",
         "against": "close"
+      },
+      "bot": {
+        "type": "KC",
+        "params": {
+          "kcRangeLength": 10,
+          "indicatorCondition": "lt",
+          "bbCrossingValue": "lower"
+        }
       }
     },
     {
@@ -139,6 +178,14 @@
       "condition": {
         "op": "crossUp",
         "against": "close"
+      },
+      "bot": {
+        "type": "KC",
+        "params": {
+          "kcRangeLength": 10,
+          "indicatorCondition": "cd",
+          "bbCrossingValue": "lower"
+        }
       }
     }
   ]

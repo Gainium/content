@@ -27,6 +27,13 @@
         "against": {
           "output": "high"
         }
+      },
+      "bot": {
+        "type": "SR",
+        "params": {
+          "indicatorCondition": "cu",
+          "srCrossingValue": "resistance"
+        }
       }
     },
     {
@@ -48,6 +55,13 @@
         "levelNow": true,
         "against": {
           "output": "high"
+        }
+      },
+      "bot": {
+        "type": "SR",
+        "params": {
+          "indicatorCondition": "cd",
+          "srCrossingValue": "resistance"
         }
       }
     },
@@ -71,6 +85,13 @@
         "against": {
           "output": "low"
         }
+      },
+      "bot": {
+        "type": "SR",
+        "params": {
+          "indicatorCondition": "cu",
+          "srCrossingValue": "support"
+        }
       }
     },
     {
@@ -92,6 +113,13 @@
         "levelNow": true,
         "against": {
           "output": "low"
+        }
+      },
+      "bot": {
+        "type": "SR",
+        "params": {
+          "indicatorCondition": "cd",
+          "srCrossingValue": "support"
         }
       }
     },
@@ -115,6 +143,15 @@
         "against": {
           "output": "high"
         }
+      },
+      "bot": {
+        "type": "SR",
+        "params": {
+          "leftBars": 5,
+          "rightBars": 5,
+          "indicatorCondition": "cu",
+          "srCrossingValue": "resistance"
+        }
       }
     },
     {
@@ -136,6 +173,15 @@
         "levelNow": true,
         "against": {
           "output": "low"
+        }
+      },
+      "bot": {
+        "type": "SR",
+        "params": {
+          "leftBars": 5,
+          "rightBars": 5,
+          "indicatorCondition": "cu",
+          "srCrossingValue": "support"
         }
       }
     }

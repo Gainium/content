@@ -23,6 +23,13 @@
       "condition": {
         "op": "lt",
         "against": 30
+      },
+      "bot": {
+        "type": "RSI",
+        "params": {
+          "indicatorCondition": "lt",
+          "indicatorValue": 30
+        }
       }
     },
     {
@@ -41,6 +48,14 @@
       "condition": {
         "op": "lt",
         "against": 30
+      },
+      "bot": {
+        "type": "RSI",
+        "params": {
+          "indicatorLength": 14,
+          "indicatorCondition": "lt",
+          "indicatorValue": 30
+        }
       }
     },
     {
@@ -59,6 +74,13 @@
       "condition": {
         "op": "crossUp",
         "against": 30
+      },
+      "bot": {
+        "type": "RSI",
+        "params": {
+          "indicatorCondition": "cu",
+          "indicatorValue": 30
+        }
       }
     },
     {
@@ -77,6 +99,14 @@
       "condition": {
         "op": "crossUp",
         "against": 30
+      },
+      "bot": {
+        "type": "RSI",
+        "params": {
+          "indicatorLength": 14,
+          "indicatorCondition": "cu",
+          "indicatorValue": 30
+        }
       }
     },
     {
@@ -95,6 +125,14 @@
       "condition": {
         "op": "gt",
         "against": 70
+      },
+      "bot": {
+        "type": "RSI",
+        "params": {
+          "indicatorLength": 14,
+          "indicatorCondition": "gt",
+          "indicatorValue": 70
+        }
       }
     },
     {
@@ -113,6 +151,14 @@
       "condition": {
         "op": "crossDown",
         "against": 70
+      },
+      "bot": {
+        "type": "RSI",
+        "params": {
+          "indicatorLength": 14,
+          "indicatorCondition": "cd",
+          "indicatorValue": 70
+        }
       }
     },
     {
@@ -131,6 +177,14 @@
       "condition": {
         "op": "gt",
         "against": 50
+      },
+      "bot": {
+        "type": "RSI",
+        "params": {
+          "indicatorLength": 14,
+          "indicatorCondition": "gt",
+          "indicatorValue": 50
+        }
       }
     }
   ]

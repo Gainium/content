@@ -24,6 +24,12 @@
       "output": "down",
       "condition": {
         "op": "true"
+      },
+      "bot": {
+        "type": "PC",
+        "params": {
+          "pcValue": -2
+        }
       }
     },
     {
@@ -43,6 +49,12 @@
       "output": "up",
       "condition": {
         "op": "true"
+      },
+      "bot": {
+        "type": "PC",
+        "params": {
+          "pcValue": 2
+        }
       }
     },
     {
@@ -62,6 +74,12 @@
       "output": "down",
       "condition": {
         "op": "true"
+      },
+      "bot": {
+        "type": "PC",
+        "params": {
+          "pcValue": -3
+        }
       }
     },
     {
@@ -81,6 +99,12 @@
       "output": "up",
       "condition": {
         "op": "true"
+      },
+      "bot": {
+        "type": "PC",
+        "params": {
+          "pcValue": 3
+        }
       }
     },
     {
@@ -100,6 +124,12 @@
       "output": "down",
       "condition": {
         "op": "true"
+      },
+      "bot": {
+        "type": "PC",
+        "params": {
+          "pcValue": -5
+        }
       }
     },
     {
@@ -119,6 +149,12 @@
       "output": "up",
       "condition": {
         "op": "true"
+      },
+      "bot": {
+        "type": "PC",
+        "params": {
+          "pcValue": 5
+        }
       }
     }
   ]

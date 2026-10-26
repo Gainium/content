@@ -33,6 +33,15 @@
       "condition": {
         "op": "crossDown",
         "against": 0.1
+      },
+      "bot": {
+        "type": "KCPB",
+        "params": {
+          "indicatorLength": 20,
+          "kcRangeLength": 10,
+          "indicatorCondition": "cd",
+          "indicatorValue": 0.1
+        }
       }
     },
     {
@@ -61,6 +70,15 @@
       "condition": {
         "op": "lt",
         "against": 0
+      },
+      "bot": {
+        "type": "KCPB",
+        "params": {
+          "indicatorLength": 20,
+          "kcRangeLength": 10,
+          "indicatorCondition": "lt",
+          "indicatorValue": 0
+        }
       }
     },
     {
@@ -90,6 +108,15 @@
       "condition": {
         "op": "crossUp",
         "against": 1
+      },
+      "bot": {
+        "type": "KCPB",
+        "params": {
+          "indicatorLength": 20,
+          "kcRangeLength": 10,
+          "indicatorCondition": "cu",
+          "indicatorValue": 1
+        }
       }
     },
     {
@@ -118,6 +145,13 @@
       "condition": {
         "op": "crossDown",
         "against": 0
+      },
+      "bot": {
+        "type": "KCPB",
+        "params": {
+          "indicatorCondition": "cd",
+          "indicatorValue": 0
+        }
       }
     },
     {
@@ -147,6 +181,15 @@
       "condition": {
         "op": "gt",
         "against": 1
+      },
+      "bot": {
+        "type": "KCPB",
+        "params": {
+          "indicatorLength": 20,
+          "kcRangeLength": 10,
+          "indicatorCondition": "gt",
+          "indicatorValue": 1
+        }
       }
     }
   ]
