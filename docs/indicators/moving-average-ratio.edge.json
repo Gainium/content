@@ -29,7 +29,7 @@
    "analysisMath": "cab0ed99"
   }
  },
- "updatedAt": "2026-10-25",
+ "updatedAt": "2026-10-26",
  "settings": [
   {
    "id": "mar-ema20-down099",
@@ -208,6 +208,13 @@
       0.16
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "MAR",
+    "params": {
+     "indicatorCondition": "cd",
+     "indicatorValue": 0.99
     }
    },
    "regimes": {
@@ -483,6 +490,13 @@
      }
     }
    },
+   "bot": {
+    "type": "MAR",
+    "params": {
+     "indicatorCondition": "cd",
+     "indicatorValue": 0.97
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1077,
@@ -756,6 +770,16 @@
      }
     }
    },
+   "bot": {
+    "type": "MAR",
+    "params": {
+     "mar1length": 50,
+     "indicatorCondition": "gt",
+     "indicatorValue": 1.01,
+     "trendFilter": true,
+     "trendFilterType": "higher"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 7432,
@@ -981,6 +1005,15 @@
       0.42
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "MAR",
+    "params": {
+     "mar1length": 50,
+     "mar2type": "ema",
+     "indicatorCondition": "cu",
+     "indicatorValue": 1
     }
    },
    "regimes": {
@@ -1279,6 +1312,13 @@
      }
     }
    },
+   "bot": {
+    "type": "MAR",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": 1.03
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1203,
@@ -1483,6 +1523,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "MAR",
+    "params": {
+     "indicatorCondition": "cd",
+     "indicatorValue": 0.99
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1125,
@@ -1662,6 +1709,13 @@
       0.73
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "MAR",
+    "params": {
+     "indicatorCondition": "cd",
+     "indicatorValue": 0.97
     }
    },
    "regimes": {
@@ -1914,6 +1968,16 @@
      }
     }
    },
+   "bot": {
+    "type": "MAR",
+    "params": {
+     "mar1length": 50,
+     "indicatorCondition": "gt",
+     "indicatorValue": 1.01,
+     "trendFilter": true,
+     "trendFilterType": "higher"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 3969,
@@ -2116,6 +2180,15 @@
       1.65
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "MAR",
+    "params": {
+     "mar1length": 50,
+     "mar2type": "ema",
+     "indicatorCondition": "cu",
+     "indicatorValue": 1
     }
    },
    "regimes": {
@@ -2368,6 +2441,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "MAR",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": 1.03
+    }
+   },
    "regimes": {
     "up": {
      "entries": 787,
@@ -2593,6 +2673,13 @@
       4.79
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "MAR",
+    "params": {
+     "indicatorCondition": "cd",
+     "indicatorValue": 0.99
     }
    },
    "regimes": {
@@ -2868,6 +2955,13 @@
      }
     }
    },
+   "bot": {
+    "type": "MAR",
+    "params": {
+     "indicatorCondition": "cd",
+     "indicatorValue": 0.97
+    }
+   },
    "regimes": {
     "up": {
      "entries": 191,
@@ -3118,6 +3212,16 @@
      }
     }
    },
+   "bot": {
+    "type": "MAR",
+    "params": {
+     "mar1length": 50,
+     "indicatorCondition": "gt",
+     "indicatorValue": 1.01,
+     "trendFilter": true,
+     "trendFilterType": "higher"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1203,
@@ -3322,6 +3426,15 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "MAR",
+    "params": {
+     "mar1length": 50,
+     "mar2type": "ema",
+     "indicatorCondition": "cu",
+     "indicatorValue": 1
+    }
+   },
    "regimes": {
     "up": {
      "entries": 25,
@@ -3524,6 +3637,13 @@
       4
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "MAR",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": 1.03
     }
    },
    "regimes": {

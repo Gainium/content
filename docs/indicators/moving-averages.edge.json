@@ -29,7 +29,7 @@
    "analysisMath": "cab0ed99"
   }
  },
- "updatedAt": "2026-10-25",
+ "updatedAt": "2026-10-26",
  "settings": [
   {
    "id": "ema20-down-price",
@@ -185,6 +185,13 @@
       0.11
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "MA",
+    "params": {
+     "indicatorCondition": "cd",
+     "maCrossingValue": "price"
     }
    },
    "regimes": {
@@ -414,6 +421,15 @@
      }
     }
    },
+   "bot": {
+    "type": "MA",
+    "params": {
+     "maType": "sma",
+     "indicatorLength": 200,
+     "indicatorCondition": "lt",
+     "maCrossingValue": "price"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 49831,
@@ -595,6 +611,15 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "MA",
+    "params": {
+     "maType": "sma",
+     "indicatorLength": 200,
+     "indicatorCondition": "cd",
+     "maCrossingValue": "price"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1430,
@@ -774,6 +799,16 @@
       0.67
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "MA",
+    "params": {
+     "maType": "sma",
+     "indicatorLength": 50,
+     "indicatorCondition": "cu",
+     "maCrossingValue": "sma",
+     "maCrossingLength": 200
     }
    },
    "regimes": {
@@ -1003,6 +1038,16 @@
      }
     }
    },
+   "bot": {
+    "type": "MA",
+    "params": {
+     "maType": "sma",
+     "indicatorLength": 50,
+     "indicatorCondition": "cd",
+     "maCrossingValue": "sma",
+     "maCrossingLength": 200
+    }
+   },
    "regimes": {
     "up": {
      "entries": 278,
@@ -1207,6 +1252,15 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "MA",
+    "params": {
+     "indicatorLength": 50,
+     "indicatorCondition": "cu",
+     "maCrossingValue": "ema",
+     "maCrossingLength": 200
+    }
+   },
    "regimes": {
     "up": {
      "entries": 237,
@@ -1386,6 +1440,13 @@
       0.5
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "MA",
+    "params": {
+     "indicatorCondition": "cd",
+     "maCrossingValue": "price"
     }
    },
    "regimes": {
@@ -1684,6 +1745,15 @@
      }
     }
    },
+   "bot": {
+    "type": "MA",
+    "params": {
+     "maType": "sma",
+     "indicatorLength": 200,
+     "indicatorCondition": "lt",
+     "maCrossingValue": "price"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 14036,
@@ -1886,6 +1956,15 @@
       1.74
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "MA",
+    "params": {
+     "maType": "sma",
+     "indicatorLength": 200,
+     "indicatorCondition": "cd",
+     "maCrossingValue": "price"
     }
    },
    "regimes": {
@@ -2092,6 +2171,16 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "MA",
+    "params": {
+     "maType": "sma",
+     "indicatorLength": 50,
+     "indicatorCondition": "cu",
+     "maCrossingValue": "sma",
+     "maCrossingLength": 200
+    }
+   },
    "regimes": {
     "up": {
      "entries": 49,
@@ -2271,6 +2360,16 @@
       2.66
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "MA",
+    "params": {
+     "maType": "sma",
+     "indicatorLength": 50,
+     "indicatorCondition": "cd",
+     "maCrossingValue": "sma",
+     "maCrossingLength": 200
     }
    },
    "regimes": {
@@ -2454,6 +2553,15 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "MA",
+    "params": {
+     "indicatorLength": 50,
+     "indicatorCondition": "cu",
+     "maCrossingValue": "ema",
+     "maCrossingLength": 200
+    }
+   },
    "regimes": {
     "up": {
      "entries": 47,
@@ -2633,6 +2741,13 @@
       4.72
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "MA",
+    "params": {
+     "indicatorCondition": "cd",
+     "maCrossingValue": "price"
     }
    },
    "regimes": {
@@ -2816,6 +2931,15 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "MA",
+    "params": {
+     "maType": "sma",
+     "indicatorLength": 200,
+     "indicatorCondition": "lt",
+     "maCrossingValue": "price"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 3264,
@@ -2997,6 +3121,15 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "MA",
+    "params": {
+     "maType": "sma",
+     "indicatorLength": 200,
+     "indicatorCondition": "cd",
+     "maCrossingValue": "price"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 0,
@@ -3176,6 +3309,16 @@
       22
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "MA",
+    "params": {
+     "maType": "sma",
+     "indicatorLength": 50,
+     "indicatorCondition": "cu",
+     "maCrossingValue": "sma",
+     "maCrossingLength": 200
     }
    },
    "regimes": {
@@ -3377,6 +3520,16 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "MA",
+    "params": {
+     "maType": "sma",
+     "indicatorLength": 50,
+     "indicatorCondition": "cd",
+     "maCrossingValue": "sma",
+     "maCrossingLength": 200
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1,
@@ -3556,6 +3709,15 @@
       32.1
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "MA",
+    "params": {
+     "indicatorLength": 50,
+     "indicatorCondition": "cu",
+     "maCrossingValue": "ema",
+     "maCrossingLength": 200
     }
    },
    "regimes": {

@@ -29,7 +29,7 @@
    "analysisMath": "cab0ed99"
   }
  },
- "updatedAt": "2026-10-25",
+ "updatedAt": "2026-10-26",
  "settings": [
   {
    "id": "ibull-choch",
@@ -185,6 +185,13 @@
       0.33
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "PP",
+    "params": {
+     "ppType": "Event Based",
+     "ppValue": "IBullCHoCH"
     }
    },
    "regimes": {
@@ -368,6 +375,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "PP",
+    "params": {
+     "ppType": "Event Based",
+     "ppValue": "IBullBoS"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1054,
@@ -547,6 +561,13 @@
       0.93
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "PP",
+    "params": {
+     "ppType": "Event Based",
+     "ppValue": "SBullBoS"
     }
    },
    "regimes": {
@@ -730,6 +751,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "PP",
+    "params": {
+     "ppType": "Event Based",
+     "ppValue": "IBearCHoCH"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1087,
@@ -909,6 +937,13 @@
       0.16
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "PP",
+    "params": {
+     "ppType": "Market Based",
+     "ppValue": "BullM"
     }
    },
    "regimes": {
@@ -1115,6 +1150,14 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "PP",
+    "params": {
+     "ppType": "Price Based",
+     "ppValue": "Any High",
+     "indicatorCondition": "cu"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 2788,
@@ -1296,6 +1339,14 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "PP",
+    "params": {
+     "ppType": "Price Based",
+     "ppValue": "Any Low",
+     "indicatorCondition": "cd"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 2491,
@@ -1475,6 +1526,13 @@
       1.21
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "PP",
+    "params": {
+     "ppType": "Event Based",
+     "ppValue": "IBullCHoCH"
     }
    },
    "regimes": {
@@ -1681,6 +1739,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "PP",
+    "params": {
+     "ppType": "Event Based",
+     "ppValue": "IBullBoS"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 282,
@@ -1862,6 +1927,13 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "PP",
+    "params": {
+     "ppType": "Event Based",
+     "ppValue": "SBullBoS"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 49,
@@ -2041,6 +2113,13 @@
       1.11
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "PP",
+    "params": {
+     "ppType": "Event Based",
+     "ppValue": "IBearCHoCH"
     }
    },
    "regimes": {
@@ -2270,6 +2349,13 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "PP",
+    "params": {
+     "ppType": "Market Based",
+     "ppValue": "BullM"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 15956,
@@ -2472,6 +2558,14 @@
       0.75
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "PP",
+    "params": {
+     "ppType": "Price Based",
+     "ppValue": "Any High",
+     "indicatorCondition": "cu"
     }
    },
    "regimes": {
@@ -2678,6 +2772,14 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "PP",
+    "params": {
+     "ppType": "Price Based",
+     "ppValue": "Any Low",
+     "indicatorCondition": "cd"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 576,
@@ -2882,6 +2984,13 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "PP",
+    "params": {
+     "ppType": "Event Based",
+     "ppValue": "IBullCHoCH"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 30,
@@ -3061,6 +3170,13 @@
       15.35
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "PP",
+    "params": {
+     "ppType": "Event Based",
+     "ppValue": "IBullBoS"
     }
    },
    "regimes": {
@@ -3290,6 +3406,13 @@
      }
     }
    },
+   "bot": {
+    "type": "PP",
+    "params": {
+     "ppType": "Event Based",
+     "ppValue": "SBullBoS"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 12,
@@ -3492,6 +3615,13 @@
       7.47
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "PP",
+    "params": {
+     "ppType": "Event Based",
+     "ppValue": "IBearCHoCH"
     }
    },
    "regimes": {
@@ -3719,6 +3849,13 @@
       9.91
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "PP",
+    "params": {
+     "ppType": "Market Based",
+     "ppValue": "BullM"
     }
    },
    "regimes": {
@@ -3971,6 +4108,14 @@
      }
     }
    },
+   "bot": {
+    "type": "PP",
+    "params": {
+     "ppType": "Price Based",
+     "ppValue": "Any High",
+     "indicatorCondition": "cu"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 108,
@@ -4173,6 +4318,14 @@
       6.26
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "PP",
+    "params": {
+     "ppType": "Price Based",
+     "ppValue": "Any Low",
+     "indicatorCondition": "cd"
     }
    },
    "regimes": {

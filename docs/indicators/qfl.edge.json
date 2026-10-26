@@ -29,7 +29,7 @@
    "analysisMath": "cab0ed99"
   }
  },
- "updatedAt": "2026-10-25",
+ "updatedAt": "2026-10-26",
  "settings": [
   {
    "id": "b36-p3-c3",
@@ -209,6 +209,10 @@
      ],
      "verdict": "none"
     }
+   },
+   "bot": {
+    "type": "QFL",
+    "params": {}
    },
    "regimes": {
     "up": {
@@ -412,6 +416,13 @@
       0.39
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "QFL",
+    "params": {
+     "pump": 1,
+     "baseCrack": 1
     }
    },
    "regimes": {
@@ -687,6 +698,12 @@
      }
     }
    },
+   "bot": {
+    "type": "QFL",
+    "params": {
+     "baseCrack": 5
+    }
+   },
    "regimes": {
     "up": {
      "entries": 849,
@@ -912,6 +929,12 @@
       0.7
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "QFL",
+    "params": {
+     "basePeriods": 72
     }
    },
    "regimes": {
@@ -1164,6 +1187,12 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "QFL",
+    "params": {
+     "pump": 5
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1165,
@@ -1391,6 +1420,10 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "QFL",
+    "params": {}
+   },
    "regimes": {
     "up": {
      "entries": 645,
@@ -1593,6 +1626,13 @@
       1.61
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "QFL",
+    "params": {
+     "pump": 1,
+     "baseCrack": 1
     }
    },
    "regimes": {
@@ -1822,6 +1862,12 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "QFL",
+    "params": {
+     "baseCrack": 5
+    }
+   },
    "regimes": {
     "up": {
      "entries": 394,
@@ -2024,6 +2070,12 @@
       2.33
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "QFL",
+    "params": {
+     "basePeriods": 72
     }
    },
    "regimes": {
@@ -2253,6 +2305,12 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "QFL",
+    "params": {
+     "pump": 5
+    }
+   },
    "regimes": {
     "up": {
      "entries": 522,
@@ -2433,6 +2491,10 @@
      ],
      "verdict": "few"
     }
+   },
+   "bot": {
+    "type": "QFL",
+    "params": {}
    },
    "regimes": {
     "up": {
@@ -2636,6 +2698,13 @@
       14.84
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "QFL",
+    "params": {
+     "pump": 1,
+     "baseCrack": 1
     }
    },
    "regimes": {
@@ -2842,6 +2911,12 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "QFL",
+    "params": {
+     "baseCrack": 5
+    }
+   },
    "regimes": {
     "up": {
      "entries": 31,
@@ -3046,6 +3121,12 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "QFL",
+    "params": {
+     "basePeriods": 72
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1,
@@ -3225,6 +3306,12 @@
       17.01
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "QFL",
+    "params": {
+     "pump": 5
     }
    },
    "regimes": {

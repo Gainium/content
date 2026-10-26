@@ -29,7 +29,7 @@
    "analysisMath": "cab0ed99"
   }
  },
- "updatedAt": "2026-10-25",
+ "updatedAt": "2026-10-26",
  "settings": [
   {
    "id": "bull-mid-cd",
@@ -185,6 +185,14 @@
       0.39
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "OBFVG",
+    "params": {
+     "indicatorCondition": "cd",
+     "obfvgValue": "bullish",
+     "obfvgRef": "middle"
     }
    },
    "regimes": {
@@ -366,6 +374,14 @@
       0.33
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "OBFVG",
+    "params": {
+     "indicatorCondition": "cd",
+     "obfvgValue": "bullish",
+     "obfvgRef": "high"
     }
    },
    "regimes": {
@@ -618,6 +634,14 @@
      }
     }
    },
+   "bot": {
+    "type": "OBFVG",
+    "params": {
+     "indicatorCondition": "gt",
+     "obfvgValue": "bullish",
+     "obfvgRef": "high"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 13036,
@@ -820,6 +844,14 @@
       0.41
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "OBFVG",
+    "params": {
+     "indicatorCondition": "cd",
+     "obfvgValue": "bullish",
+     "obfvgRef": "low"
     }
    },
    "regimes": {
@@ -1049,6 +1081,14 @@
      }
     }
    },
+   "bot": {
+    "type": "OBFVG",
+    "params": {
+     "indicatorCondition": "cu",
+     "obfvgValue": "bearish",
+     "obfvgRef": "middle"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1098,
@@ -1228,6 +1268,14 @@
       0.26
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "OBFVG",
+    "params": {
+     "indicatorCondition": "lt",
+     "obfvgValue": "bearish",
+     "obfvgRef": "low"
     }
    },
    "regimes": {
@@ -1457,6 +1505,14 @@
      }
     }
    },
+   "bot": {
+    "type": "OBFVG",
+    "params": {
+     "indicatorCondition": "cd",
+     "obfvgValue": "bullish",
+     "obfvgRef": "middle"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 271,
@@ -1659,6 +1715,14 @@
        }
       ]
      }
+    }
+   },
+   "bot": {
+    "type": "OBFVG",
+    "params": {
+     "indicatorCondition": "cd",
+     "obfvgValue": "bullish",
+     "obfvgRef": "high"
     }
    },
    "regimes": {
@@ -1865,6 +1929,14 @@
      }
     }
    },
+   "bot": {
+    "type": "OBFVG",
+    "params": {
+     "indicatorCondition": "gt",
+     "obfvgValue": "bullish",
+     "obfvgRef": "high"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 3962,
@@ -2044,6 +2116,14 @@
       1.83
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "OBFVG",
+    "params": {
+     "indicatorCondition": "cd",
+     "obfvgValue": "bullish",
+     "obfvgRef": "low"
     }
    },
    "regimes": {
@@ -2227,6 +2307,14 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "OBFVG",
+    "params": {
+     "indicatorCondition": "cu",
+     "obfvgValue": "bearish",
+     "obfvgRef": "middle"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 234,
@@ -2406,6 +2494,14 @@
       0.85
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "OBFVG",
+    "params": {
+     "indicatorCondition": "lt",
+     "obfvgValue": "bearish",
+     "obfvgRef": "low"
     }
    },
    "regimes": {
@@ -2589,6 +2685,14 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "OBFVG",
+    "params": {
+     "indicatorCondition": "cd",
+     "obfvgValue": "bullish",
+     "obfvgRef": "middle"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 46,
@@ -2768,6 +2872,14 @@
       19.62
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "OBFVG",
+    "params": {
+     "indicatorCondition": "cd",
+     "obfvgValue": "bullish",
+     "obfvgRef": "high"
     }
    },
    "regimes": {
@@ -2997,6 +3109,14 @@
      }
     }
    },
+   "bot": {
+    "type": "OBFVG",
+    "params": {
+     "indicatorCondition": "gt",
+     "obfvgValue": "bullish",
+     "obfvgRef": "high"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 787,
@@ -3176,6 +3296,14 @@
       17.22
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "OBFVG",
+    "params": {
+     "indicatorCondition": "cd",
+     "obfvgValue": "bullish",
+     "obfvgRef": "low"
     }
    },
    "regimes": {
@@ -3359,6 +3487,14 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "OBFVG",
+    "params": {
+     "indicatorCondition": "cu",
+     "obfvgValue": "bearish",
+     "obfvgRef": "middle"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 33,
@@ -3538,6 +3674,14 @@
       10.86
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "OBFVG",
+    "params": {
+     "indicatorCondition": "lt",
+     "obfvgValue": "bearish",
+     "obfvgRef": "low"
     }
    },
    "regimes": {

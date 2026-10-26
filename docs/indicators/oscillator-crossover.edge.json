@@ -29,7 +29,7 @@
    "analysisMath": "cab0ed99"
   }
  },
- "updatedAt": "2026-10-25",
+ "updatedAt": "2026-10-26",
  "settings": [
   {
    "id": "xo-rsi7-up-mfi14",
@@ -185,6 +185,14 @@
       0.14
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "XO",
+    "params": {
+     "xOscillator1": "RSI",
+     "indicatorCondition": "cu",
+     "xOscillator2": "MFI"
     }
    },
    "regimes": {
@@ -391,6 +399,14 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "XO",
+    "params": {
+     "xOscillator1": "RSI",
+     "indicatorCondition": "cd",
+     "xOscillator2": "MFI"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 9033,
@@ -572,6 +588,8 @@
      "verdict": "none"
     }
    },
+   "bot": null,
+   "botWhyNot": "Two tests in one: the oscillator cross and a level on both lines. A bot-form condition makes one comparison; use two conditions.",
    "regimes": {
     "up": {
      "entries": 2067,
@@ -753,6 +771,8 @@
      "verdict": "none"
     }
    },
+   "bot": null,
+   "botWhyNot": "Two tests in one: the oscillator cross and a level on both lines. A bot-form condition makes one comparison; use two conditions.",
    "regimes": {
     "up": {
      "entries": 2285,
@@ -980,6 +1000,14 @@
      }
     }
    },
+   "bot": {
+    "type": "XO",
+    "params": {
+     "xOscillator1": "RSI",
+     "indicatorCondition": "gt",
+     "xOscillator2": "MFI"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 44832,
@@ -1184,6 +1212,14 @@
      }
     }
    },
+   "bot": {
+    "type": "XO",
+    "params": {
+     "xOscillator1": "RSI",
+     "indicatorCondition": "cu",
+     "xOscillator2": "MFI"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 2233,
@@ -1363,6 +1399,14 @@
       0.4
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "XO",
+    "params": {
+     "xOscillator1": "RSI",
+     "indicatorCondition": "cd",
+     "xOscillator2": "MFI"
     }
    },
    "regimes": {
@@ -1546,6 +1590,8 @@
      "verdict": "none"
     }
    },
+   "bot": null,
+   "botWhyNot": "Two tests in one: the oscillator cross and a level on both lines. A bot-form condition makes one comparison; use two conditions.",
    "regimes": {
     "up": {
      "entries": 422,
@@ -1750,6 +1796,8 @@
      "verdict": "none"
     }
    },
+   "bot": null,
+   "botWhyNot": "Two tests in one: the oscillator cross and a level on both lines. A bot-form condition makes one comparison; use two conditions.",
    "regimes": {
     "up": {
      "entries": 645,
@@ -1929,6 +1977,14 @@
       0.32
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "XO",
+    "params": {
+     "xOscillator1": "RSI",
+     "indicatorCondition": "gt",
+     "xOscillator2": "MFI"
     }
    },
    "regimes": {
@@ -2112,6 +2168,14 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "XO",
+    "params": {
+     "xOscillator1": "RSI",
+     "indicatorCondition": "cu",
+     "xOscillator2": "MFI"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 359,
@@ -2291,6 +2355,14 @@
       2.87
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "XO",
+    "params": {
+     "xOscillator1": "RSI",
+     "indicatorCondition": "cd",
+     "xOscillator2": "MFI"
     }
    },
    "regimes": {
@@ -2474,6 +2546,8 @@
      "verdict": "few"
     }
    },
+   "bot": null,
+   "botWhyNot": "Two tests in one: the oscillator cross and a level on both lines. A bot-form condition makes one comparison; use two conditions.",
    "regimes": {
     "up": {
      "entries": 40,
@@ -2701,6 +2775,8 @@
      }
     }
    },
+   "bot": null,
+   "botWhyNot": "Two tests in one: the oscillator cross and a level on both lines. A bot-form condition makes one comparison; use two conditions.",
    "regimes": {
     "up": {
      "entries": 129,
@@ -2880,6 +2956,14 @@
       2.73
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "XO",
+    "params": {
+     "xOscillator1": "RSI",
+     "indicatorCondition": "gt",
+     "xOscillator2": "MFI"
     }
    },
    "regimes": {

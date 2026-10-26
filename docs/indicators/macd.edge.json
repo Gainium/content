@@ -29,7 +29,7 @@
    "analysisMath": "cab0ed99"
   }
  },
- "updatedAt": "2026-10-25",
+ "updatedAt": "2026-10-26",
  "settings": [
   {
    "id": "macd-up",
@@ -254,6 +254,13 @@
       0.15
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "MACD",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": 0
     }
    },
    "regimes": {
@@ -506,6 +513,13 @@
      }
     }
    },
+   "bot": {
+    "type": "MACD",
+    "params": {
+     "indicatorCondition": "cd",
+     "indicatorValue": 0
+    }
+   },
    "regimes": {
     "up": {
      "entries": 3342,
@@ -710,6 +724,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "MACD",
+    "params": {
+     "indicatorCondition": "gt",
+     "indicatorValue": 0
+    }
+   },
    "regimes": {
     "up": {
      "entries": 41999,
@@ -889,6 +910,13 @@
       0.1
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "MACD",
+    "params": {
+     "indicatorCondition": "lt",
+     "indicatorValue": 0
     }
    },
    "regimes": {
@@ -1072,6 +1100,14 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "MACD",
+    "params": {
+     "indicatorLength": 5,
+     "indicatorCondition": "cu",
+     "indicatorValue": 0
+    }
+   },
    "regimes": {
     "up": {
      "entries": 4272,
@@ -1251,6 +1287,13 @@
       0.65
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "MACD",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": 0
     }
    },
    "regimes": {
@@ -1434,6 +1477,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "MACD",
+    "params": {
+     "indicatorCondition": "cd",
+     "indicatorValue": 0
+    }
+   },
    "regimes": {
     "up": {
      "entries": 858,
@@ -1613,6 +1663,13 @@
       0.28
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "MACD",
+    "params": {
+     "indicatorCondition": "gt",
+     "indicatorValue": 0
     }
    },
    "regimes": {
@@ -1796,6 +1853,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "MACD",
+    "params": {
+     "indicatorCondition": "lt",
+     "indicatorValue": 0
+    }
+   },
    "regimes": {
     "up": {
      "entries": 11082,
@@ -1977,6 +2041,14 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "MACD",
+    "params": {
+     "indicatorLength": 5,
+     "indicatorCondition": "cu",
+     "indicatorValue": 0
+    }
+   },
    "regimes": {
     "up": {
      "entries": 999,
@@ -2156,6 +2228,13 @@
       5.02
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "MACD",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": 0
     }
    },
    "regimes": {
@@ -2385,6 +2464,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "MACD",
+    "params": {
+     "indicatorCondition": "cd",
+     "indicatorValue": 0
+    }
+   },
    "regimes": {
     "up": {
      "entries": 147,
@@ -2612,6 +2698,13 @@
      }
     }
    },
+   "bot": {
+    "type": "MACD",
+    "params": {
+     "indicatorCondition": "gt",
+     "indicatorValue": 0
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1744,
@@ -2816,6 +2909,13 @@
      }
     }
    },
+   "bot": {
+    "type": "MACD",
+    "params": {
+     "indicatorCondition": "lt",
+     "indicatorValue": 0
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1795,
@@ -2995,6 +3095,14 @@
       4.32
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "MACD",
+    "params": {
+     "indicatorLength": 5,
+     "indicatorCondition": "cu",
+     "indicatorValue": 0
     }
    },
    "regimes": {

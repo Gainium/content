@@ -29,7 +29,7 @@
    "analysisMath": "cab0ed99"
   }
  },
- "updatedAt": "2026-10-25",
+ "updatedAt": "2026-10-26",
  "settings": [
   {
    "id": "bb20-up-lower",
@@ -185,6 +185,13 @@
       0.23
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "BB",
+    "params": {
+     "indicatorCondition": "cu",
+     "bbCrossingValue": "lower"
     }
    },
    "regimes": {
@@ -368,6 +375,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "BB",
+    "params": {
+     "indicatorCondition": "lt",
+     "bbCrossingValue": "lower"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 5253,
@@ -547,6 +561,14 @@
       0.3
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "BB",
+    "params": {
+     "bbwMult": 2.5,
+     "indicatorCondition": "cu",
+     "bbCrossingValue": "lower"
     }
    },
    "regimes": {
@@ -730,6 +752,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "BB",
+    "params": {
+     "indicatorCondition": "cu",
+     "bbCrossingValue": "middle"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 5171,
@@ -909,6 +938,13 @@
       0.25
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "BB",
+    "params": {
+     "indicatorCondition": "cu",
+     "bbCrossingValue": "upper"
     }
    },
    "regimes": {
@@ -1092,6 +1128,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "BB",
+    "params": {
+     "indicatorCondition": "cd",
+     "bbCrossingValue": "upper"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 2753,
@@ -1271,6 +1314,13 @@
       0.91
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "BB",
+    "params": {
+     "indicatorCondition": "cu",
+     "bbCrossingValue": "lower"
     }
    },
    "regimes": {
@@ -1454,6 +1504,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "BB",
+    "params": {
+     "indicatorCondition": "lt",
+     "bbCrossingValue": "lower"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1245,
@@ -1635,6 +1692,14 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "BB",
+    "params": {
+     "bbwMult": 2.5,
+     "indicatorCondition": "cu",
+     "bbCrossingValue": "lower"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 300,
@@ -1814,6 +1879,13 @@
       0.6
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "BB",
+    "params": {
+     "indicatorCondition": "cu",
+     "bbCrossingValue": "middle"
     }
    },
    "regimes": {
@@ -2089,6 +2161,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "BB",
+    "params": {
+     "indicatorCondition": "cu",
+     "bbCrossingValue": "upper"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 722,
@@ -2339,6 +2418,13 @@
      }
     }
    },
+   "bot": {
+    "type": "BB",
+    "params": {
+     "indicatorCondition": "cd",
+     "bbCrossingValue": "upper"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 741,
@@ -2566,6 +2652,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "BB",
+    "params": {
+     "indicatorCondition": "cu",
+     "bbCrossingValue": "lower"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 68,
@@ -2745,6 +2838,13 @@
       8.51
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "BB",
+    "params": {
+     "indicatorCondition": "lt",
+     "bbCrossingValue": "lower"
     }
    },
    "regimes": {
@@ -2951,6 +3051,14 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "BB",
+    "params": {
+     "bbwMult": 2.5,
+     "indicatorCondition": "cu",
+     "bbCrossingValue": "lower"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 25,
@@ -3153,6 +3261,13 @@
       4.92
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "BB",
+    "params": {
+     "indicatorCondition": "cu",
+     "bbCrossingValue": "middle"
     }
    },
    "regimes": {
@@ -3359,6 +3474,13 @@
      }
     }
    },
+   "bot": {
+    "type": "BB",
+    "params": {
+     "indicatorCondition": "cu",
+     "bbCrossingValue": "upper"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 139,
@@ -3561,6 +3683,13 @@
        }
       ]
      }
+    }
+   },
+   "bot": {
+    "type": "BB",
+    "params": {
+     "indicatorCondition": "cd",
+     "bbCrossingValue": "upper"
     }
    },
    "regimes": {

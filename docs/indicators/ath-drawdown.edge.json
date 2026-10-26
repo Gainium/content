@@ -29,7 +29,7 @@
    "analysisMath": "cab0ed99"
   }
  },
- "updatedAt": "2026-10-25",
+ "updatedAt": "2026-10-26",
  "settings": [
   {
    "id": "ath100-lt10",
@@ -185,6 +185,13 @@
       0.24
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "ATH",
+    "params": {
+     "indicatorCondition": "lt",
+     "indicatorValue": 10
     }
    },
    "regimes": {
@@ -391,6 +398,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "ATH",
+    "params": {
+     "indicatorCondition": "cd",
+     "indicatorValue": 10
+    }
+   },
    "regimes": {
     "up": {
      "entries": 846,
@@ -593,6 +607,14 @@
       0.25
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "ATH",
+    "params": {
+     "indicatorCondition": "bw",
+     "indicatorValue": 10,
+     "indicatorValue2": 20
     }
    },
    "regimes": {
@@ -868,6 +890,13 @@
      }
     }
    },
+   "bot": {
+    "type": "ATH",
+    "params": {
+     "indicatorCondition": "lt",
+     "indicatorValue": 20
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1394,
@@ -1072,6 +1101,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "ATH",
+    "params": {
+     "indicatorCondition": "gt",
+     "indicatorValue": 5
+    }
+   },
    "regimes": {
     "up": {
      "entries": 51330,
@@ -1251,6 +1287,13 @@
       0.46
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "ATH",
+    "params": {
+     "indicatorCondition": "lt",
+     "indicatorValue": 10
     }
    },
    "regimes": {
@@ -1457,6 +1500,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "ATH",
+    "params": {
+     "indicatorCondition": "cd",
+     "indicatorValue": 10
+    }
+   },
    "regimes": {
     "up": {
      "entries": 509,
@@ -1636,6 +1686,14 @@
       0.75
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "ATH",
+    "params": {
+     "indicatorCondition": "bw",
+     "indicatorValue": 10,
+     "indicatorValue2": 20
     }
    },
    "regimes": {
@@ -1819,6 +1877,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "ATH",
+    "params": {
+     "indicatorCondition": "lt",
+     "indicatorValue": 20
+    }
+   },
    "regimes": {
     "up": {
      "entries": 2004,
@@ -1998,6 +2063,13 @@
       1.27
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "ATH",
+    "params": {
+     "indicatorCondition": "gt",
+     "indicatorValue": 5
     }
    },
    "regimes": {
@@ -2181,6 +2253,13 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "ATH",
+    "params": {
+     "indicatorCondition": "lt",
+     "indicatorValue": 10
+    }
+   },
    "regimes": {
     "up": {
      "entries": 2254,
@@ -2360,6 +2439,13 @@
       13.86
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "ATH",
+    "params": {
+     "indicatorCondition": "cd",
+     "indicatorValue": 10
     }
    },
    "regimes": {
@@ -2543,6 +2629,14 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "ATH",
+    "params": {
+     "indicatorCondition": "bw",
+     "indicatorValue": 10,
+     "indicatorValue2": 20
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1228,
@@ -2722,6 +2816,13 @@
       2.96
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "ATH",
+    "params": {
+     "indicatorCondition": "lt",
+     "indicatorValue": 20
     }
    },
    "regimes": {
@@ -2926,6 +3027,13 @@
       20.42
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "ATH",
+    "params": {
+     "indicatorCondition": "gt",
+     "indicatorValue": 5
     }
    },
    "regimes": {

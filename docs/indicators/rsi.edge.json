@@ -29,7 +29,7 @@
    "analysisMath": "cab0ed99"
   }
  },
- "updatedAt": "2026-10-25",
+ "updatedAt": "2026-10-26",
  "settings": [
   {
    "id": "rsi7-lt30",
@@ -185,6 +185,13 @@
       0.25
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "RSI",
+    "params": {
+     "indicatorCondition": "lt",
+     "indicatorValue": 30
     }
    },
    "regimes": {
@@ -368,6 +375,14 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "RSI",
+    "params": {
+     "indicatorLength": 14,
+     "indicatorCondition": "lt",
+     "indicatorValue": 30
+    }
+   },
    "regimes": {
     "up": {
      "entries": 3310,
@@ -547,6 +562,13 @@
       0.18
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "RSI",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": 30
     }
    },
    "regimes": {
@@ -751,6 +773,14 @@
       0.38
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "RSI",
+    "params": {
+     "indicatorLength": 14,
+     "indicatorCondition": "cu",
+     "indicatorValue": 30
     }
    },
    "regimes": {
@@ -1026,6 +1056,14 @@
      }
     }
    },
+   "bot": {
+    "type": "RSI",
+    "params": {
+     "indicatorLength": 14,
+     "indicatorCondition": "gt",
+     "indicatorValue": 70
+    }
+   },
    "regimes": {
     "up": {
      "entries": 5397,
@@ -1228,6 +1266,14 @@
       0.37
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "RSI",
+    "params": {
+     "indicatorLength": 14,
+     "indicatorCondition": "cd",
+     "indicatorValue": 70
     }
    },
    "regimes": {
@@ -1434,6 +1480,14 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "RSI",
+    "params": {
+     "indicatorLength": 14,
+     "indicatorCondition": "gt",
+     "indicatorValue": 50
+    }
+   },
    "regimes": {
     "up": {
      "entries": 45979,
@@ -1613,6 +1667,13 @@
       1.07
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "RSI",
+    "params": {
+     "indicatorCondition": "lt",
+     "indicatorValue": 30
     }
    },
    "regimes": {
@@ -1819,6 +1880,14 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "RSI",
+    "params": {
+     "indicatorLength": 14,
+     "indicatorCondition": "lt",
+     "indicatorValue": 30
+    }
+   },
    "regimes": {
     "up": {
      "entries": 696,
@@ -2023,6 +2092,13 @@
      }
     }
    },
+   "bot": {
+    "type": "RSI",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": 30
+    }
+   },
    "regimes": {
     "up": {
      "entries": 743,
@@ -2202,6 +2278,14 @@
       1.56
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "RSI",
+    "params": {
+     "indicatorLength": 14,
+     "indicatorCondition": "cu",
+     "indicatorValue": 30
     }
    },
    "regimes": {
@@ -2477,6 +2561,14 @@
      }
     }
    },
+   "bot": {
+    "type": "RSI",
+    "params": {
+     "indicatorLength": 14,
+     "indicatorCondition": "gt",
+     "indicatorValue": 70
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1943,
@@ -2727,6 +2819,14 @@
      }
     }
    },
+   "bot": {
+    "type": "RSI",
+    "params": {
+     "indicatorLength": 14,
+     "indicatorCondition": "cd",
+     "indicatorValue": 70
+    }
+   },
    "regimes": {
     "up": {
      "entries": 451,
@@ -2954,6 +3054,14 @@
      }
     }
    },
+   "bot": {
+    "type": "RSI",
+    "params": {
+     "indicatorLength": 14,
+     "indicatorCondition": "gt",
+     "indicatorValue": 50
+    }
+   },
    "regimes": {
     "up": {
      "entries": 12315,
@@ -3133,6 +3241,13 @@
       10.17
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "RSI",
+    "params": {
+     "indicatorCondition": "lt",
+     "indicatorValue": 30
     }
    },
    "regimes": {
@@ -3316,6 +3431,14 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "RSI",
+    "params": {
+     "indicatorLength": 14,
+     "indicatorCondition": "lt",
+     "indicatorValue": 30
+    }
+   },
    "regimes": {
     "up": {
      "entries": 18,
@@ -3495,6 +3618,13 @@
       6.96
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "RSI",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": 30
     }
    },
    "regimes": {
@@ -3699,6 +3829,14 @@
       17
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "RSI",
+    "params": {
+     "indicatorLength": 14,
+     "indicatorCondition": "cu",
+     "indicatorValue": 30
     }
    },
    "regimes": {
@@ -3951,6 +4089,14 @@
      }
     }
    },
+   "bot": {
+    "type": "RSI",
+    "params": {
+     "indicatorLength": 14,
+     "indicatorCondition": "gt",
+     "indicatorValue": 70
+    }
+   },
    "regimes": {
     "up": {
      "entries": 570,
@@ -4153,6 +4299,14 @@
       10.4
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "RSI",
+    "params": {
+     "indicatorLength": 14,
+     "indicatorCondition": "cd",
+     "indicatorValue": 70
     }
    },
    "regimes": {
@@ -4403,6 +4557,14 @@
        }
       ]
      }
+    }
+   },
+   "bot": {
+    "type": "RSI",
+    "params": {
+     "indicatorLength": 14,
+     "indicatorCondition": "gt",
+     "indicatorValue": 50
     }
    },
    "regimes": {

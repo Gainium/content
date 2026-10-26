@@ -29,7 +29,7 @@
    "analysisMath": "cab0ed99"
   }
  },
- "updatedAt": "2026-10-25",
+ "updatedAt": "2026-10-26",
  "settings": [
   {
    "id": "bull-cd-705",
@@ -185,6 +185,14 @@
       0.35
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "OTE",
+    "params": {
+     "oteLeg": "bullish",
+     "indicatorCondition": "cd",
+     "oteLevel": 0.705
     }
    },
    "regimes": {
@@ -368,6 +376,14 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "OTE",
+    "params": {
+     "oteLeg": "bullish",
+     "indicatorCondition": "cd",
+     "oteLevel": 0.618
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1702,
@@ -547,6 +563,15 @@
       0.35
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "OTE",
+    "params": {
+     "oteMinLegSize": 3,
+     "oteLeg": "bullish",
+     "indicatorCondition": "cd",
+     "oteLevel": 0.705
     }
    },
    "regimes": {
@@ -730,6 +755,15 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "OTE",
+    "params": {
+     "oteMinLegSize": 3,
+     "oteLeg": "bullish",
+     "indicatorCondition": "lt",
+     "oteLevel": 0.5
+    }
+   },
    "regimes": {
     "up": {
      "entries": 13950,
@@ -909,6 +943,14 @@
       0.29
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "OTE",
+    "params": {
+     "oteLeg": "bearish",
+     "indicatorCondition": "cu",
+     "oteLevel": 0.705
     }
    },
    "regimes": {
@@ -1115,6 +1157,15 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "OTE",
+    "params": {
+     "oteMinLegSize": 3,
+     "oteLeg": "bearish",
+     "indicatorCondition": "gt",
+     "oteLevel": 0.5
+    }
+   },
    "regimes": {
     "up": {
      "entries": 15909,
@@ -1319,6 +1370,14 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "OTE",
+    "params": {
+     "oteLeg": "bullish",
+     "indicatorCondition": "cd",
+     "oteLevel": 0.705
+    }
+   },
    "regimes": {
     "up": {
      "entries": 363,
@@ -1498,6 +1557,14 @@
       1.25
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "OTE",
+    "params": {
+     "oteLeg": "bullish",
+     "indicatorCondition": "cd",
+     "oteLevel": 0.618
     }
    },
    "regimes": {
@@ -1681,6 +1748,15 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "OTE",
+    "params": {
+     "oteMinLegSize": 3,
+     "oteLeg": "bullish",
+     "indicatorCondition": "cd",
+     "oteLevel": 0.705
+    }
+   },
    "regimes": {
     "up": {
      "entries": 371,
@@ -1860,6 +1936,15 @@
       0.82
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "OTE",
+    "params": {
+     "oteMinLegSize": 3,
+     "oteLeg": "bullish",
+     "indicatorCondition": "lt",
+     "oteLevel": 0.5
     }
    },
    "regimes": {
@@ -2043,6 +2128,14 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "OTE",
+    "params": {
+     "oteLeg": "bearish",
+     "indicatorCondition": "cu",
+     "oteLevel": 0.705
+    }
+   },
    "regimes": {
     "up": {
      "entries": 292,
@@ -2222,6 +2315,15 @@
       0.88
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "OTE",
+    "params": {
+     "oteMinLegSize": 3,
+     "oteLeg": "bearish",
+     "indicatorCondition": "gt",
+     "oteLevel": 0.5
     }
    },
    "regimes": {
@@ -2428,6 +2530,14 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "OTE",
+    "params": {
+     "oteLeg": "bullish",
+     "indicatorCondition": "cd",
+     "oteLevel": 0.705
+    }
+   },
    "regimes": {
     "up": {
      "entries": 41,
@@ -2607,6 +2717,14 @@
       13.56
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "OTE",
+    "params": {
+     "oteLeg": "bullish",
+     "indicatorCondition": "cd",
+     "oteLevel": 0.618
     }
    },
    "regimes": {
@@ -2790,6 +2908,15 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "OTE",
+    "params": {
+     "oteMinLegSize": 3,
+     "oteLeg": "bullish",
+     "indicatorCondition": "cd",
+     "oteLevel": 0.705
+    }
+   },
    "regimes": {
     "up": {
      "entries": 41,
@@ -2969,6 +3096,15 @@
       9.32
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "OTE",
+    "params": {
+     "oteMinLegSize": 3,
+     "oteLeg": "bullish",
+     "indicatorCondition": "lt",
+     "oteLevel": 0.5
     }
    },
    "regimes": {
@@ -3152,6 +3288,14 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "OTE",
+    "params": {
+     "oteLeg": "bearish",
+     "indicatorCondition": "cu",
+     "oteLevel": 0.705
+    }
+   },
    "regimes": {
     "up": {
      "entries": 45,
@@ -3331,6 +3475,15 @@
       5.21
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "OTE",
+    "params": {
+     "oteMinLegSize": 3,
+     "oteLeg": "bearish",
+     "indicatorCondition": "gt",
+     "oteLevel": 0.5
     }
    },
    "regimes": {

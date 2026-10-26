@@ -29,7 +29,7 @@
    "analysisMath": "cab0ed99"
   }
  },
- "updatedAt": "2026-10-25",
+ "updatedAt": "2026-10-26",
  "settings": [
   {
    "id": "bottom-start-t1",
@@ -256,6 +256,14 @@
      }
     }
    },
+   "bot": {
+    "type": "LW",
+    "params": {
+     "lwThreshold": 1,
+     "lwValue": "bottom",
+     "lwCondition": "onStart"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 854,
@@ -460,6 +468,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "LW",
+    "params": {
+     "lwValue": "bottom",
+     "lwCondition": "onStart"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 178,
@@ -639,6 +654,14 @@
       0.43
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "LW",
+    "params": {
+     "lwMaxDuration": 200,
+     "lwValue": "bottom",
+     "lwCondition": "during"
     }
    },
    "regimes": {
@@ -912,6 +935,14 @@
        }
       ]
      }
+    }
+   },
+   "bot": {
+    "type": "LW",
+    "params": {
+     "lwThreshold": 1,
+     "lwValue": "top",
+     "lwCondition": "onStart"
     }
    },
    "regimes": {
@@ -1210,6 +1241,14 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "LW",
+    "params": {
+     "lwMaxDuration": 200,
+     "lwValue": "top",
+     "lwCondition": "during"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 5150,
@@ -1435,6 +1474,14 @@
       1.83
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "LW",
+    "params": {
+     "lwThreshold": 1,
+     "lwValue": "bottom",
+     "lwCondition": "onStart"
     }
    },
    "regimes": {
@@ -1664,6 +1711,13 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "LW",
+    "params": {
+     "lwValue": "bottom",
+     "lwCondition": "onStart"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 62,
@@ -1843,6 +1897,14 @@
       1.45
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "LW",
+    "params": {
+     "lwMaxDuration": 200,
+     "lwValue": "bottom",
+     "lwCondition": "during"
     }
    },
    "regimes": {
@@ -2095,6 +2157,14 @@
      }
     }
    },
+   "bot": {
+    "type": "LW",
+    "params": {
+     "lwThreshold": 1,
+     "lwValue": "top",
+     "lwCondition": "onStart"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 283,
@@ -2322,6 +2392,14 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "LW",
+    "params": {
+     "lwMaxDuration": 200,
+     "lwValue": "top",
+     "lwCondition": "during"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1859,
@@ -2501,6 +2579,14 @@
       17.8
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "LW",
+    "params": {
+     "lwThreshold": 1,
+     "lwValue": "bottom",
+     "lwCondition": "onStart"
     }
    },
    "regimes": {
@@ -2684,6 +2770,13 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "LW",
+    "params": {
+     "lwValue": "bottom",
+     "lwCondition": "onStart"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 22,
@@ -2865,6 +2958,14 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "LW",
+    "params": {
+     "lwMaxDuration": 200,
+     "lwValue": "bottom",
+     "lwCondition": "during"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1158,
@@ -3044,6 +3145,14 @@
       15.51
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "LW",
+    "params": {
+     "lwThreshold": 1,
+     "lwValue": "top",
+     "lwCondition": "onStart"
     }
    },
    "regimes": {
@@ -3248,6 +3357,14 @@
       14.99
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "LW",
+    "params": {
+     "lwMaxDuration": 200,
+     "lwValue": "top",
+     "lwCondition": "during"
     }
    },
    "regimes": {

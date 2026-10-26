@@ -29,7 +29,7 @@
    "analysisMath": "cab0ed99"
   }
  },
- "updatedAt": "2026-10-25",
+ "updatedAt": "2026-10-26",
  "settings": [
   {
    "id": "stoch-kd-up-lower",
@@ -185,6 +185,16 @@
       0.3
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "Stoch",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "cu",
+     "rsiValue2": "d",
+     "stochRange": "lower",
+     "stochUpper": 20
     }
    },
    "regimes": {
@@ -368,6 +378,16 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "Stoch",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "cd",
+     "rsiValue2": "d",
+     "stochRange": "upper",
+     "stochLower": 80
+    }
+   },
    "regimes": {
     "up": {
      "entries": 2733,
@@ -547,6 +567,15 @@
       0.18
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "Stoch",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "lt",
+     "rsiValue2": "custom",
+     "valueInsteadof": 20
     }
    },
    "regimes": {
@@ -753,6 +782,15 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "Stoch",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "cu",
+     "rsiValue2": "custom",
+     "valueInsteadof": 20
+    }
+   },
    "regimes": {
     "up": {
      "entries": 5415,
@@ -932,6 +970,15 @@
       0.15
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "Stoch",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "gt",
+     "rsiValue2": "custom",
+     "valueInsteadof": 80
     }
    },
    "regimes": {
@@ -1138,6 +1185,16 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "Stoch",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "cu",
+     "rsiValue2": "d",
+     "stochRange": "lower",
+     "stochUpper": 20
+    }
+   },
    "regimes": {
     "up": {
      "entries": 310,
@@ -1340,6 +1397,16 @@
       1.08
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "Stoch",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "cd",
+     "rsiValue2": "d",
+     "stochRange": "upper",
+     "stochLower": 80
     }
    },
    "regimes": {
@@ -1546,6 +1613,15 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "Stoch",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "lt",
+     "rsiValue2": "custom",
+     "valueInsteadof": 20
+    }
+   },
    "regimes": {
     "up": {
      "entries": 2839,
@@ -1725,6 +1801,15 @@
       0.55
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "Stoch",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "cu",
+     "rsiValue2": "custom",
+     "valueInsteadof": 20
     }
    },
    "regimes": {
@@ -1908,6 +1993,15 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "Stoch",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "gt",
+     "rsiValue2": "custom",
+     "valueInsteadof": 80
+    }
+   },
    "regimes": {
     "up": {
      "entries": 5067,
@@ -2087,6 +2181,16 @@
       9.31
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "Stoch",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "cu",
+     "rsiValue2": "d",
+     "stochRange": "lower",
+     "stochUpper": 20
     }
    },
    "regimes": {
@@ -2316,6 +2420,16 @@
      }
     }
    },
+   "bot": {
+    "type": "Stoch",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "cd",
+     "rsiValue2": "d",
+     "stochRange": "upper",
+     "stochLower": 80
+    }
+   },
    "regimes": {
     "up": {
      "entries": 205,
@@ -2518,6 +2632,15 @@
       7.01
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "Stoch",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "lt",
+     "rsiValue2": "custom",
+     "valueInsteadof": 20
     }
    },
    "regimes": {
@@ -2770,6 +2893,15 @@
      }
     }
    },
+   "bot": {
+    "type": "Stoch",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "cu",
+     "rsiValue2": "custom",
+     "valueInsteadof": 20
+    }
+   },
    "regimes": {
     "up": {
      "entries": 150,
@@ -2995,6 +3127,15 @@
        }
       ]
      }
+    }
+   },
+   "bot": {
+    "type": "Stoch",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "gt",
+     "rsiValue2": "custom",
+     "valueInsteadof": 80
     }
    },
    "regimes": {

@@ -29,7 +29,7 @@
    "analysisMath": "cab0ed99"
   }
  },
- "updatedAt": "2026-10-25",
+ "updatedAt": "2026-10-26",
  "settings": [
   {
    "id": "stochrsi-kd-up-lower",
@@ -185,6 +185,16 @@
       0.21
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "StochRSI",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "cu",
+     "rsiValue2": "d",
+     "stochRange": "lower",
+     "stochUpper": 20
     }
    },
    "regimes": {
@@ -368,6 +378,16 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "StochRSI",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "cd",
+     "rsiValue2": "d",
+     "stochRange": "upper",
+     "stochLower": 80
+    }
+   },
    "regimes": {
     "up": {
      "entries": 3609,
@@ -547,6 +567,15 @@
       0.13
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "StochRSI",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "lt",
+     "rsiValue2": "custom",
+     "valueInsteadof": 20
     }
    },
    "regimes": {
@@ -730,6 +759,15 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "StochRSI",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "cu",
+     "rsiValue2": "custom",
+     "valueInsteadof": 20
+    }
+   },
    "regimes": {
     "up": {
      "entries": 4220,
@@ -911,6 +949,15 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "StochRSI",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "gt",
+     "rsiValue2": "custom",
+     "valueInsteadof": 80
+    }
+   },
    "regimes": {
     "up": {
      "entries": 21589,
@@ -1090,6 +1137,16 @@
       0.7
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "StochRSI",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "cu",
+     "rsiValue2": "d",
+     "stochRange": "lower",
+     "stochUpper": 20
     }
    },
    "regimes": {
@@ -1296,6 +1353,16 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "StochRSI",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "cd",
+     "rsiValue2": "d",
+     "stochRange": "upper",
+     "stochLower": 80
+    }
+   },
    "regimes": {
     "up": {
      "entries": 955,
@@ -1475,6 +1542,15 @@
       0.47
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "StochRSI",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "lt",
+     "rsiValue2": "custom",
+     "valueInsteadof": 20
     }
    },
    "regimes": {
@@ -1681,6 +1757,15 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "StochRSI",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "cu",
+     "rsiValue2": "custom",
+     "valueInsteadof": 20
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1029,
@@ -1860,6 +1945,15 @@
       0.5
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "StochRSI",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "gt",
+     "rsiValue2": "custom",
+     "valueInsteadof": 80
     }
    },
    "regimes": {
@@ -2064,6 +2158,16 @@
        }
       ]
      }
+    }
+   },
+   "bot": {
+    "type": "StochRSI",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "cu",
+     "rsiValue2": "d",
+     "stochRange": "lower",
+     "stochUpper": 20
     }
    },
    "regimes": {
@@ -2293,6 +2397,16 @@
      }
     }
    },
+   "bot": {
+    "type": "StochRSI",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "cd",
+     "rsiValue2": "d",
+     "stochRange": "upper",
+     "stochLower": 80
+    }
+   },
    "regimes": {
     "up": {
      "entries": 147,
@@ -2497,6 +2611,15 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "StochRSI",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "lt",
+     "rsiValue2": "custom",
+     "valueInsteadof": 20
+    }
+   },
    "regimes": {
     "up": {
      "entries": 979,
@@ -2676,6 +2799,15 @@
       5.11
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "StochRSI",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "cu",
+     "rsiValue2": "custom",
+     "valueInsteadof": 20
     }
    },
    "regimes": {
@@ -2880,6 +3012,15 @@
        }
       ]
      }
+    }
+   },
+   "bot": {
+    "type": "StochRSI",
+    "params": {
+     "rsiValue": "k",
+     "indicatorCondition": "gt",
+     "rsiValue2": "custom",
+     "valueInsteadof": 80
     }
    },
    "regimes": {

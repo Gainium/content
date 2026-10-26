@@ -29,7 +29,7 @@
    "analysisMath": "cab0ed99"
   }
  },
- "updatedAt": "2026-10-25",
+ "updatedAt": "2026-10-26",
  "settings": [
   {
    "id": "res-cu",
@@ -185,6 +185,13 @@
       0.34
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "SR",
+    "params": {
+     "indicatorCondition": "cu",
+     "srCrossingValue": "resistance"
     }
    },
    "regimes": {
@@ -366,6 +373,13 @@
       0.44
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "SR",
+    "params": {
+     "indicatorCondition": "cd",
+     "srCrossingValue": "resistance"
     }
    },
    "regimes": {
@@ -641,6 +655,13 @@
      }
     }
    },
+   "bot": {
+    "type": "SR",
+    "params": {
+     "indicatorCondition": "cu",
+     "srCrossingValue": "support"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 919,
@@ -891,6 +912,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "SR",
+    "params": {
+     "indicatorCondition": "cd",
+     "srCrossingValue": "support"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1284,
@@ -1118,6 +1146,15 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "SR",
+    "params": {
+     "leftBars": 5,
+     "rightBars": 5,
+     "indicatorCondition": "cu",
+     "srCrossingValue": "resistance"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 2788,
@@ -1320,6 +1357,15 @@
       0.32
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "SR",
+    "params": {
+     "leftBars": 5,
+     "rightBars": 5,
+     "indicatorCondition": "cu",
+     "srCrossingValue": "support"
     }
    },
    "regimes": {
@@ -1549,6 +1595,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "SR",
+    "params": {
+     "indicatorCondition": "cu",
+     "srCrossingValue": "resistance"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 360,
@@ -1753,6 +1806,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "SR",
+    "params": {
+     "indicatorCondition": "cd",
+     "srCrossingValue": "resistance"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 249,
@@ -1932,6 +1992,13 @@
       2.01
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "SR",
+    "params": {
+     "indicatorCondition": "cu",
+     "srCrossingValue": "support"
     }
    },
    "regimes": {
@@ -2138,6 +2205,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "SR",
+    "params": {
+     "indicatorCondition": "cd",
+     "srCrossingValue": "support"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 279,
@@ -2340,6 +2414,15 @@
       0.75
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "SR",
+    "params": {
+     "leftBars": 5,
+     "rightBars": 5,
+     "indicatorCondition": "cu",
+     "srCrossingValue": "resistance"
     }
    },
    "regimes": {
@@ -2569,6 +2652,15 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "SR",
+    "params": {
+     "leftBars": 5,
+     "rightBars": 5,
+     "indicatorCondition": "cu",
+     "srCrossingValue": "support"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 314,
@@ -2773,6 +2865,13 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "SR",
+    "params": {
+     "indicatorCondition": "cu",
+     "srCrossingValue": "resistance"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 58,
@@ -2952,6 +3051,13 @@
       16.2
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "SR",
+    "params": {
+     "indicatorCondition": "cd",
+     "srCrossingValue": "resistance"
     }
    },
    "regimes": {
@@ -3135,6 +3241,13 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "SR",
+    "params": {
+     "indicatorCondition": "cu",
+     "srCrossingValue": "support"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 17,
@@ -3314,6 +3427,13 @@
       12.68
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "SR",
+    "params": {
+     "indicatorCondition": "cd",
+     "srCrossingValue": "support"
     }
    },
    "regimes": {
@@ -3543,6 +3663,15 @@
      }
     }
    },
+   "bot": {
+    "type": "SR",
+    "params": {
+     "leftBars": 5,
+     "rightBars": 5,
+     "indicatorCondition": "cu",
+     "srCrossingValue": "resistance"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 108,
@@ -3745,6 +3874,15 @@
       9.81
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "SR",
+    "params": {
+     "leftBars": 5,
+     "rightBars": 5,
+     "indicatorCondition": "cu",
+     "srCrossingValue": "support"
     }
    },
    "regimes": {

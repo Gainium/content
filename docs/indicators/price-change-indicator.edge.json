@@ -29,7 +29,7 @@
    "analysisMath": "cab0ed99"
   }
  },
- "updatedAt": "2026-10-25",
+ "updatedAt": "2026-10-26",
  "settings": [
   {
    "id": "pc-minus2",
@@ -277,6 +277,12 @@
        }
       ]
      }
+    }
+   },
+   "bot": {
+    "type": "PC",
+    "params": {
+     "pcValue": -2
     }
    },
    "regimes": {
@@ -598,6 +604,12 @@
      }
     }
    },
+   "bot": {
+    "type": "PC",
+    "params": {
+     "pcValue": 2
+    }
+   },
    "regimes": {
     "up": {
      "entries": 3629,
@@ -915,6 +927,12 @@
        }
       ]
      }
+    }
+   },
+   "bot": {
+    "type": "PC",
+    "params": {
+     "pcValue": -3
     }
    },
    "regimes": {
@@ -1236,6 +1254,12 @@
      }
     }
    },
+   "bot": {
+    "type": "PC",
+    "params": {
+     "pcValue": 3
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1313,
@@ -1555,6 +1579,12 @@
      }
     }
    },
+   "bot": {
+    "type": "PC",
+    "params": {
+     "pcValue": -5
+    }
+   },
    "regimes": {
     "up": {
      "entries": 397,
@@ -1851,6 +1881,12 @@
      }
     }
    },
+   "bot": {
+    "type": "PC",
+    "params": {
+     "pcValue": 5
+    }
+   },
    "regimes": {
     "up": {
      "entries": 307,
@@ -2124,6 +2160,12 @@
      }
     }
    },
+   "bot": {
+    "type": "PC",
+    "params": {
+     "pcValue": -2
+    }
+   },
    "regimes": {
     "up": {
      "entries": 3843,
@@ -2374,6 +2416,12 @@
      }
     }
    },
+   "bot": {
+    "type": "PC",
+    "params": {
+     "pcValue": 2
+    }
+   },
    "regimes": {
     "up": {
      "entries": 3614,
@@ -2599,6 +2647,12 @@
        }
       ]
      }
+    }
+   },
+   "bot": {
+    "type": "PC",
+    "params": {
+     "pcValue": -3
     }
    },
    "regimes": {
@@ -2874,6 +2928,12 @@
      }
     }
    },
+   "bot": {
+    "type": "PC",
+    "params": {
+     "pcValue": 3
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1734,
@@ -3122,6 +3182,12 @@
        }
       ]
      }
+    }
+   },
+   "bot": {
+    "type": "PC",
+    "params": {
+     "pcValue": -5
     }
    },
    "regimes": {
@@ -3374,6 +3440,12 @@
      }
     }
    },
+   "bot": {
+    "type": "PC",
+    "params": {
+     "pcValue": 5
+    }
+   },
    "regimes": {
     "up": {
      "entries": 550,
@@ -3553,6 +3625,12 @@
       1.67
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "PC",
+    "params": {
+     "pcValue": -2
     }
    },
    "regimes": {
@@ -3736,6 +3814,12 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "PC",
+    "params": {
+     "pcValue": 2
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1798,
@@ -3915,6 +3999,12 @@
       2.36
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "PC",
+    "params": {
+     "pcValue": -3
     }
    },
    "regimes": {
@@ -4116,6 +4206,12 @@
      }
     }
    },
+   "bot": {
+    "type": "PC",
+    "params": {
+     "pcValue": 3
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1274,
@@ -4295,6 +4391,12 @@
       4.25
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "PC",
+    "params": {
+     "pcValue": -5
     }
    },
    "regimes": {
@@ -4522,6 +4624,12 @@
        }
       ]
      }
+    }
+   },
+   "bot": {
+    "type": "PC",
+    "params": {
+     "pcValue": 5
     }
    },
    "regimes": {

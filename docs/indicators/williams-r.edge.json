@@ -29,7 +29,7 @@
    "analysisMath": "cab0ed99"
   }
  },
- "updatedAt": "2026-10-25",
+ "updatedAt": "2026-10-26",
  "settings": [
   {
    "id": "wr14-up-80",
@@ -185,6 +185,13 @@
       0.16
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "WR",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": -80
     }
    },
    "regimes": {
@@ -366,6 +373,13 @@
       0.18
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "WR",
+    "params": {
+     "indicatorCondition": "lt",
+     "indicatorValue": -80
     }
    },
    "regimes": {
@@ -572,6 +586,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "WR",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": -20
+    }
+   },
    "regimes": {
     "up": {
      "entries": 6195,
@@ -751,6 +772,13 @@
       0.15
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "WR",
+    "params": {
+     "indicatorCondition": "gt",
+     "indicatorValue": -20
     }
    },
    "regimes": {
@@ -934,6 +962,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "WR",
+    "params": {
+     "indicatorCondition": "cd",
+     "indicatorValue": -20
+    }
+   },
    "regimes": {
     "up": {
      "entries": 6222,
@@ -1113,6 +1148,13 @@
       0.55
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "WR",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": -80
     }
    },
    "regimes": {
@@ -1296,6 +1338,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "WR",
+    "params": {
+     "indicatorCondition": "lt",
+     "indicatorValue": -80
+    }
+   },
    "regimes": {
     "up": {
      "entries": 2839,
@@ -1475,6 +1524,13 @@
       0.6
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "WR",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": -20
     }
    },
    "regimes": {
@@ -1658,6 +1714,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "WR",
+    "params": {
+     "indicatorCondition": "gt",
+     "indicatorValue": -20
+    }
+   },
    "regimes": {
     "up": {
      "entries": 5067,
@@ -1837,6 +1900,13 @@
       0.66
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "WR",
+    "params": {
+     "indicatorCondition": "cd",
+     "indicatorValue": -20
     }
    },
    "regimes": {
@@ -2089,6 +2159,13 @@
      }
     }
    },
+   "bot": {
+    "type": "WR",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": -80
+    }
+   },
    "regimes": {
     "up": {
      "entries": 150,
@@ -2268,6 +2345,13 @@
       7.01
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "WR",
+    "params": {
+     "indicatorCondition": "lt",
+     "indicatorValue": -80
     }
    },
    "regimes": {
@@ -2495,6 +2579,13 @@
        }
       ]
      }
+    }
+   },
+   "bot": {
+    "type": "WR",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": -20
     }
    },
    "regimes": {
@@ -2747,6 +2838,13 @@
      }
     }
    },
+   "bot": {
+    "type": "WR",
+    "params": {
+     "indicatorCondition": "gt",
+     "indicatorValue": -20
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1096,
@@ -2995,6 +3093,13 @@
        }
       ]
      }
+    }
+   },
+   "bot": {
+    "type": "WR",
+    "params": {
+     "indicatorCondition": "cd",
+     "indicatorValue": -20
     }
    },
    "regimes": {

@@ -29,7 +29,7 @@
    "analysisMath": "cab0ed99"
   }
  },
- "updatedAt": "2026-10-25",
+ "updatedAt": "2026-10-26",
  "settings": [
   {
    "id": "ao-up0",
@@ -185,6 +185,13 @@
       0.22
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "AO",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": 0
     }
    },
    "regimes": {
@@ -366,6 +373,13 @@
       0.25
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "AO",
+    "params": {
+     "indicatorCondition": "cd",
+     "indicatorValue": 0
     }
    },
    "regimes": {
@@ -572,6 +586,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "AO",
+    "params": {
+     "indicatorCondition": "gt",
+     "indicatorValue": 0
+    }
+   },
    "regimes": {
     "up": {
      "entries": 45832,
@@ -751,6 +772,13 @@
       0.12
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "AO",
+    "params": {
+     "indicatorCondition": "lt",
+     "indicatorValue": 0
     }
    },
    "regimes": {
@@ -934,6 +962,8 @@
      "verdict": "none"
     }
    },
+   "bot": null,
+   "botWhyNot": "Two tests in one: AO crossing its smoothed line and AO below 0. A bot-form condition makes one comparison; use two conditions.",
    "regimes": {
     "up": {
      "entries": 3122,
@@ -1138,6 +1168,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "AO",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": 0
+    }
+   },
    "regimes": {
     "up": {
      "entries": 464,
@@ -1317,6 +1354,13 @@
       0.85
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "AO",
+    "params": {
+     "indicatorCondition": "cd",
+     "indicatorValue": 0
     }
    },
    "regimes": {
@@ -1546,6 +1590,13 @@
      }
     }
    },
+   "bot": {
+    "type": "AO",
+    "params": {
+     "indicatorCondition": "gt",
+     "indicatorValue": 0
+    }
+   },
    "regimes": {
     "up": {
      "entries": 12294,
@@ -1773,6 +1824,13 @@
      }
     }
    },
+   "bot": {
+    "type": "AO",
+    "params": {
+     "indicatorCondition": "lt",
+     "indicatorValue": 0
+    }
+   },
    "regimes": {
     "up": {
      "entries": 9250,
@@ -1977,6 +2035,8 @@
      }
     }
    },
+   "bot": null,
+   "botWhyNot": "Two tests in one: AO crossing its smoothed line and AO below 0. A bot-form condition makes one comparison; use two conditions.",
    "regimes": {
     "up": {
      "entries": 706,
@@ -2156,6 +2216,13 @@
       6.3
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "AO",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": 0
     }
    },
    "regimes": {
@@ -2385,6 +2452,13 @@
      }
     }
    },
+   "bot": {
+    "type": "AO",
+    "params": {
+     "indicatorCondition": "cd",
+     "indicatorValue": 0
+    }
+   },
    "regimes": {
     "up": {
      "entries": 68,
@@ -2587,6 +2661,13 @@
       6.11
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "AO",
+    "params": {
+     "indicatorCondition": "gt",
+     "indicatorValue": 0
     }
    },
    "regimes": {
@@ -2816,6 +2897,13 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "AO",
+    "params": {
+     "indicatorCondition": "lt",
+     "indicatorValue": 0
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1218,
@@ -3020,6 +3108,8 @@
      "verdict": "none"
     }
    },
+   "bot": null,
+   "botWhyNot": "Two tests in one: AO crossing its smoothed line and AO below 0. A bot-form condition makes one comparison; use two conditions.",
    "regimes": {
     "up": {
      "entries": 101,

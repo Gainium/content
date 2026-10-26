@@ -29,7 +29,7 @@
    "analysisMath": "cab0ed99"
   }
  },
- "updatedAt": "2026-10-25",
+ "updatedAt": "2026-10-26",
  "settings": [
   {
    "id": "bullish",
@@ -185,6 +185,12 @@
       0.13
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "ECD",
+    "params": {
+     "ecdTrigger": "bullish"
     }
    },
    "regimes": {
@@ -368,6 +374,12 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "ECD",
+    "params": {
+     "ecdTrigger": "bearish"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 7749,
@@ -547,6 +559,12 @@
       0.1
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "ECD",
+    "params": {
+     "ecdTrigger": "both"
     }
    },
    "regimes": {
@@ -730,6 +748,12 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "ECD",
+    "params": {
+     "ecdTrigger": "bearish"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 7749,
@@ -909,6 +933,12 @@
       0.5
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "ECD",
+    "params": {
+     "ecdTrigger": "bullish"
     }
    },
    "regimes": {
@@ -1092,6 +1122,12 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "ECD",
+    "params": {
+     "ecdTrigger": "bearish"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1999,
@@ -1271,6 +1307,12 @@
       0.29
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "ECD",
+    "params": {
+     "ecdTrigger": "both"
     }
    },
    "regimes": {
@@ -1454,6 +1496,12 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "ECD",
+    "params": {
+     "ecdTrigger": "bearish"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1999,
@@ -1633,6 +1681,12 @@
       4.08
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "ECD",
+    "params": {
+     "ecdTrigger": "bullish"
     }
    },
    "regimes": {
@@ -1816,6 +1870,12 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "ECD",
+    "params": {
+     "ecdTrigger": "bearish"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 338,
@@ -1997,6 +2057,12 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "ECD",
+    "params": {
+     "ecdTrigger": "both"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 633,
@@ -2176,6 +2242,12 @@
       4.15
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "ECD",
+    "params": {
+     "ecdTrigger": "bearish"
     }
    },
    "regimes": {

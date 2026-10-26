@@ -29,7 +29,7 @@
    "analysisMath": "cab0ed99"
   }
  },
- "updatedAt": "2026-10-25",
+ "updatedAt": "2026-10-26",
  "settings": [
   {
    "id": "st3-flip-up",
@@ -208,6 +208,12 @@
        }
       ]
      }
+    }
+   },
+   "bot": {
+    "type": "ST",
+    "params": {
+     "stCondition": "downToUp"
     }
    },
    "regimes": {
@@ -391,6 +397,12 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "ST",
+    "params": {
+     "stCondition": "upToDown"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 996,
@@ -570,6 +582,12 @@
       0.13
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "ST",
+    "params": {
+     "stCondition": "up"
     }
    },
    "regimes": {
@@ -753,6 +771,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "ST",
+    "params": {
+     "factor": 2,
+     "stCondition": "downToUp"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1695,
@@ -932,6 +957,13 @@
       0.43
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "ST",
+    "params": {
+     "factor": 4,
+     "stCondition": "downToUp"
     }
    },
    "regimes": {
@@ -1115,6 +1147,12 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "ST",
+    "params": {
+     "stCondition": "down"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 41965,
@@ -1296,6 +1334,12 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "ST",
+    "params": {
+     "stCondition": "downToUp"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 222,
@@ -1475,6 +1519,12 @@
       1.28
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "ST",
+    "params": {
+     "stCondition": "upToDown"
     }
    },
    "regimes": {
@@ -1727,6 +1777,12 @@
      }
     }
    },
+   "bot": {
+    "type": "ST",
+    "params": {
+     "stCondition": "up"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 12092,
@@ -1954,6 +2010,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "ST",
+    "params": {
+     "factor": 2,
+     "stCondition": "downToUp"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 415,
@@ -2133,6 +2196,13 @@
       1.61
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "ST",
+    "params": {
+     "factor": 4,
+     "stCondition": "downToUp"
     }
    },
    "regimes": {
@@ -2385,6 +2455,12 @@
      }
     }
    },
+   "bot": {
+    "type": "ST",
+    "params": {
+     "stCondition": "down"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 9452,
@@ -2612,6 +2688,12 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "ST",
+    "params": {
+     "stCondition": "downToUp"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 30,
@@ -2816,6 +2898,12 @@
      }
     }
    },
+   "bot": {
+    "type": "ST",
+    "params": {
+     "stCondition": "upToDown"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 44,
@@ -2995,6 +3083,12 @@
       7.25
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "ST",
+    "params": {
+     "stCondition": "up"
     }
    },
    "regimes": {
@@ -3201,6 +3295,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "ST",
+    "params": {
+     "factor": 2,
+     "stCondition": "downToUp"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 66,
@@ -3382,6 +3483,13 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "ST",
+    "params": {
+     "factor": 4,
+     "stCondition": "downToUp"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 23,
@@ -3561,6 +3669,12 @@
       7.06
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "ST",
+    "params": {
+     "stCondition": "down"
     }
    },
    "regimes": {

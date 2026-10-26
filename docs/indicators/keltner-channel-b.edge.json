@@ -29,7 +29,7 @@
    "analysisMath": "cab0ed99"
   }
  },
- "updatedAt": "2026-10-25",
+ "updatedAt": "2026-10-26",
  "settings": [
   {
    "id": "kcpb20-down01",
@@ -185,6 +185,15 @@
       0.24
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "KCPB",
+    "params": {
+     "indicatorLength": 20,
+     "kcRangeLength": 10,
+     "indicatorCondition": "cd",
+     "indicatorValue": 0.1
     }
    },
    "regimes": {
@@ -368,6 +377,15 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "KCPB",
+    "params": {
+     "indicatorLength": 20,
+     "kcRangeLength": 10,
+     "indicatorCondition": "lt",
+     "indicatorValue": 0
+    }
+   },
    "regimes": {
     "up": {
      "entries": 3724,
@@ -549,6 +567,15 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "KCPB",
+    "params": {
+     "indicatorLength": 20,
+     "kcRangeLength": 10,
+     "indicatorCondition": "cu",
+     "indicatorValue": 1
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1924,
@@ -728,6 +755,13 @@
       0.66
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "KCPB",
+    "params": {
+     "indicatorCondition": "cd",
+     "indicatorValue": 0
     }
    },
    "regimes": {
@@ -1003,6 +1037,15 @@
      }
     }
    },
+   "bot": {
+    "type": "KCPB",
+    "params": {
+     "indicatorLength": 20,
+     "kcRangeLength": 10,
+     "indicatorCondition": "gt",
+     "indicatorValue": 1
+    }
+   },
    "regimes": {
     "up": {
      "entries": 6003,
@@ -1253,6 +1296,15 @@
      }
     }
    },
+   "bot": {
+    "type": "KCPB",
+    "params": {
+     "indicatorLength": 20,
+     "kcRangeLength": 10,
+     "indicatorCondition": "cd",
+     "indicatorValue": 0.1
+    }
+   },
    "regimes": {
     "up": {
      "entries": 528,
@@ -1455,6 +1507,15 @@
       1.69
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "KCPB",
+    "params": {
+     "indicatorLength": 20,
+     "kcRangeLength": 10,
+     "indicatorCondition": "lt",
+     "indicatorValue": 0
     }
    },
    "regimes": {
@@ -1707,6 +1768,15 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "KCPB",
+    "params": {
+     "indicatorLength": 20,
+     "kcRangeLength": 10,
+     "indicatorCondition": "cu",
+     "indicatorValue": 1
+    }
+   },
    "regimes": {
     "up": {
      "entries": 526,
@@ -1932,6 +2002,13 @@
        }
       ]
      }
+    }
+   },
+   "bot": {
+    "type": "KCPB",
+    "params": {
+     "indicatorCondition": "cd",
+     "indicatorValue": 0
     }
    },
    "regimes": {
@@ -2230,6 +2307,15 @@
      }
     }
    },
+   "bot": {
+    "type": "KCPB",
+    "params": {
+     "indicatorLength": 20,
+     "kcRangeLength": 10,
+     "indicatorCondition": "gt",
+     "indicatorValue": 1
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1889,
@@ -2457,6 +2543,15 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "KCPB",
+    "params": {
+     "indicatorLength": 20,
+     "kcRangeLength": 10,
+     "indicatorCondition": "cd",
+     "indicatorValue": 0.1
+    }
+   },
    "regimes": {
     "up": {
      "entries": 61,
@@ -2659,6 +2754,15 @@
       19.25
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "KCPB",
+    "params": {
+     "indicatorLength": 20,
+     "kcRangeLength": 10,
+     "indicatorCondition": "lt",
+     "indicatorValue": 0
     }
    },
    "regimes": {
@@ -2911,6 +3015,15 @@
      }
     }
    },
+   "bot": {
+    "type": "KCPB",
+    "params": {
+     "indicatorLength": 20,
+     "kcRangeLength": 10,
+     "indicatorCondition": "cu",
+     "indicatorValue": 1
+    }
+   },
    "regimes": {
     "up": {
      "entries": 139,
@@ -3113,6 +3226,13 @@
       31.15
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "KCPB",
+    "params": {
+     "indicatorCondition": "cd",
+     "indicatorValue": 0
     }
    },
    "regimes": {
@@ -3363,6 +3483,15 @@
        }
       ]
      }
+    }
+   },
+   "bot": {
+    "type": "KCPB",
+    "params": {
+     "indicatorLength": 20,
+     "kcRangeLength": 10,
+     "indicatorCondition": "gt",
+     "indicatorValue": 1
     }
    },
    "regimes": {

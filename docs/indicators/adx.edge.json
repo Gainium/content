@@ -29,7 +29,7 @@
    "analysisMath": "cab0ed99"
   }
  },
- "updatedAt": "2026-10-25",
+ "updatedAt": "2026-10-26",
  "settings": [
   {
    "id": "adx14-up25",
@@ -185,6 +185,13 @@
       0.26
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "ADX",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": 25
     }
    },
    "regimes": {
@@ -368,6 +375,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "ADX",
+    "params": {
+     "indicatorCondition": "gt",
+     "indicatorValue": 25
+    }
+   },
    "regimes": {
     "up": {
      "entries": 42608,
@@ -547,6 +561,13 @@
       0.17
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "ADX",
+    "params": {
+     "indicatorCondition": "lt",
+     "indicatorValue": 20
     }
    },
    "regimes": {
@@ -730,6 +751,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "ADX",
+    "params": {
+     "indicatorCondition": "cd",
+     "indicatorValue": 20
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1467,
@@ -909,6 +937,13 @@
       0.33
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "ADX",
+    "params": {
+     "indicatorCondition": "gt",
+     "indicatorValue": 40
     }
    },
    "regimes": {
@@ -1115,6 +1150,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "ADX",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": 25
+    }
+   },
    "regimes": {
     "up": {
      "entries": 377,
@@ -1294,6 +1336,13 @@
       0.51
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "ADX",
+    "params": {
+     "indicatorCondition": "gt",
+     "indicatorValue": 25
     }
    },
    "regimes": {
@@ -1477,6 +1526,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "ADX",
+    "params": {
+     "indicatorCondition": "lt",
+     "indicatorValue": 20
+    }
+   },
    "regimes": {
     "up": {
      "entries": 6569,
@@ -1656,6 +1712,13 @@
       1.23
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "ADX",
+    "params": {
+     "indicatorCondition": "cd",
+     "indicatorValue": 20
     }
    },
    "regimes": {
@@ -1885,6 +1948,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "ADX",
+    "params": {
+     "indicatorCondition": "gt",
+     "indicatorValue": 40
+    }
+   },
    "regimes": {
     "up": {
      "entries": 3226,
@@ -2089,6 +2159,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "ADX",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": 25
+    }
+   },
    "regimes": {
     "up": {
      "entries": 64,
@@ -2268,6 +2345,13 @@
       4.02
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "ADX",
+    "params": {
+     "indicatorCondition": "gt",
+     "indicatorValue": 25
     }
    },
    "regimes": {
@@ -2451,6 +2535,13 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "ADX",
+    "params": {
+     "indicatorCondition": "lt",
+     "indicatorValue": 20
+    }
+   },
    "regimes": {
     "up": {
      "entries": 784,
@@ -2630,6 +2721,13 @@
       8.57
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "ADX",
+    "params": {
+     "indicatorCondition": "cd",
+     "indicatorValue": 20
     }
    },
    "regimes": {
@@ -2834,6 +2932,13 @@
       9.84
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "ADX",
+    "params": {
+     "indicatorCondition": "gt",
+     "indicatorValue": 40
     }
    },
    "regimes": {

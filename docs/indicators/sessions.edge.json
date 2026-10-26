@@ -29,7 +29,7 @@
    "analysisMath": "cab0ed99"
   }
  },
- "updatedAt": "2026-10-25",
+ "updatedAt": "2026-10-26",
  "settings": [
   {
    "id": "london-cd-prevlow",
@@ -185,6 +185,18 @@
       0.48
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "SESSION",
+    "params": {
+     "sessionRule": "levels",
+     "sessionStart": "08:00",
+     "sessionEnd": "17:00",
+     "sessionTimezone": "Europe/London",
+     "sessionLevelA": "price",
+     "indicatorCondition": "cd",
+     "sessionLevelB": "prevLow"
     }
    },
    "regimes": {
@@ -368,6 +380,18 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "SESSION",
+    "params": {
+     "sessionRule": "levels",
+     "sessionStart": "08:00",
+     "sessionEnd": "17:00",
+     "sessionTimezone": "Europe/London",
+     "sessionLevelA": "price",
+     "indicatorCondition": "cu",
+     "sessionLevelB": "prevHigh"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 594,
@@ -549,6 +573,18 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "SESSION",
+    "params": {
+     "sessionRule": "levels",
+     "sessionStart": "08:00",
+     "sessionEnd": "17:00",
+     "sessionTimezone": "Europe/London",
+     "sessionLevelA": "price",
+     "indicatorCondition": "gt",
+     "sessionLevelB": "prevMid"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 12243,
@@ -728,6 +764,18 @@
       0.48
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "SESSION",
+    "params": {
+     "sessionRule": "levels",
+     "sessionStart": "08:00",
+     "sessionEnd": "17:00",
+     "sessionTimezone": "America/New_York",
+     "sessionLevelA": "price",
+     "indicatorCondition": "cu",
+     "sessionLevelB": "prevHigh"
     }
    },
    "regimes": {
@@ -934,6 +982,18 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "SESSION",
+    "params": {
+     "sessionRule": "levels",
+     "sessionStart": "",
+     "sessionEnd": "",
+     "sessionTimezone": "UTC",
+     "sessionLevelA": "price",
+     "indicatorCondition": "cu",
+     "sessionLevelB": "prevHigh"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1440,
@@ -1115,6 +1175,18 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "SESSION",
+    "params": {
+     "sessionRule": "levels",
+     "sessionStart": "",
+     "sessionEnd": "",
+     "sessionTimezone": "UTC",
+     "sessionLevelA": "price",
+     "indicatorCondition": "gt",
+     "sessionLevelB": "prevHigh"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 12505,
@@ -1294,6 +1366,18 @@
       0.33
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "SESSION",
+    "params": {
+     "sessionRule": "levels",
+     "sessionStart": "",
+     "sessionEnd": "",
+     "sessionTimezone": "UTC",
+     "sessionLevelA": "price",
+     "indicatorCondition": "cd",
+     "sessionLevelB": "prevLow"
     }
    },
    "regimes": {
@@ -1500,6 +1584,18 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "SESSION",
+    "params": {
+     "sessionRule": "levels",
+     "sessionStart": "08:00",
+     "sessionEnd": "17:00",
+     "sessionTimezone": "Europe/London",
+     "sessionLevelA": "price",
+     "indicatorCondition": "cd",
+     "sessionLevelB": "prevLow"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 278,
@@ -1702,6 +1798,18 @@
       1.38
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "SESSION",
+    "params": {
+     "sessionRule": "levels",
+     "sessionStart": "08:00",
+     "sessionEnd": "17:00",
+     "sessionTimezone": "Europe/London",
+     "sessionLevelA": "price",
+     "indicatorCondition": "cu",
+     "sessionLevelB": "prevHigh"
     }
    },
    "regimes": {
@@ -1908,6 +2016,18 @@
      }
     }
    },
+   "bot": {
+    "type": "SESSION",
+    "params": {
+     "sessionRule": "levels",
+     "sessionStart": "08:00",
+     "sessionEnd": "17:00",
+     "sessionTimezone": "Europe/London",
+     "sessionLevelA": "price",
+     "indicatorCondition": "gt",
+     "sessionLevelB": "prevMid"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 3347,
@@ -2112,6 +2232,18 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "SESSION",
+    "params": {
+     "sessionRule": "levels",
+     "sessionStart": "08:00",
+     "sessionEnd": "17:00",
+     "sessionTimezone": "America/New_York",
+     "sessionLevelA": "price",
+     "indicatorCondition": "cu",
+     "sessionLevelB": "prevHigh"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 197,
@@ -2291,6 +2423,18 @@
       0.87
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "SESSION",
+    "params": {
+     "sessionRule": "levels",
+     "sessionStart": "",
+     "sessionEnd": "",
+     "sessionTimezone": "UTC",
+     "sessionLevelA": "price",
+     "indicatorCondition": "cu",
+     "sessionLevelB": "prevHigh"
     }
    },
    "regimes": {
@@ -2566,6 +2710,18 @@
      }
     }
    },
+   "bot": {
+    "type": "SESSION",
+    "params": {
+     "sessionRule": "levels",
+     "sessionStart": "",
+     "sessionEnd": "",
+     "sessionTimezone": "UTC",
+     "sessionLevelA": "price",
+     "indicatorCondition": "gt",
+     "sessionLevelB": "prevHigh"
+    }
+   },
    "regimes": {
     "up": {
      "entries": 3243,
@@ -2768,6 +2924,18 @@
       0.84
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "SESSION",
+    "params": {
+     "sessionRule": "levels",
+     "sessionStart": "",
+     "sessionEnd": "",
+     "sessionTimezone": "UTC",
+     "sessionLevelA": "price",
+     "indicatorCondition": "cd",
+     "sessionLevelB": "prevLow"
     }
    },
    "regimes": {
@@ -3018,6 +3186,18 @@
        }
       ]
      }
+    }
+   },
+   "bot": {
+    "type": "SESSION",
+    "params": {
+     "sessionRule": "levels",
+     "sessionStart": "",
+     "sessionEnd": "",
+     "sessionTimezone": "UTC",
+     "sessionLevelA": "price",
+     "indicatorCondition": "gt",
+     "sessionLevelB": "prevHigh"
     }
    },
    "regimes": {

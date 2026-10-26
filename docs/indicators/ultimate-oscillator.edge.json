@@ -29,7 +29,7 @@
    "analysisMath": "cab0ed99"
   }
  },
- "updatedAt": "2026-10-25",
+ "updatedAt": "2026-10-26",
  "settings": [
   {
    "id": "uo-up30",
@@ -185,6 +185,13 @@
       0.82
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "UO",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": 30
     }
    },
    "regimes": {
@@ -366,6 +373,13 @@
       0.4
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "UO",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": 35
     }
    },
    "regimes": {
@@ -595,6 +609,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "UO",
+    "params": {
+     "indicatorCondition": "lt",
+     "indicatorValue": 30
+    }
+   },
    "regimes": {
     "up": {
      "entries": 349,
@@ -797,6 +818,13 @@
       0.12
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "UO",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": 50
     }
    },
    "regimes": {
@@ -1049,6 +1077,13 @@
      }
     }
    },
+   "bot": {
+    "type": "UO",
+    "params": {
+     "indicatorCondition": "gt",
+     "indicatorValue": 70
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1333,
@@ -1297,6 +1332,13 @@
        }
       ]
      }
+    }
+   },
+   "bot": {
+    "type": "UO",
+    "params": {
+     "indicatorCondition": "cd",
+     "indicatorValue": 70
     }
    },
    "regimes": {
@@ -1549,6 +1591,13 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "UO",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": 30
+    }
+   },
    "regimes": {
     "up": {
      "entries": 21,
@@ -1774,6 +1823,13 @@
        }
       ]
      }
+    }
+   },
+   "bot": {
+    "type": "UO",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": 35
     }
    },
    "regimes": {
@@ -2072,6 +2128,13 @@
      }
     }
    },
+   "bot": {
+    "type": "UO",
+    "params": {
+     "indicatorCondition": "lt",
+     "indicatorValue": 30
+    }
+   },
    "regimes": {
     "up": {
      "entries": 30,
@@ -2322,6 +2385,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "UO",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": 50
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1765,
@@ -2547,6 +2617,13 @@
       2.6
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "UO",
+    "params": {
+     "indicatorCondition": "gt",
+     "indicatorValue": 70
     }
    },
    "regimes": {
@@ -2776,6 +2853,13 @@
      "verdict": "none"
     }
    },
+   "bot": {
+    "type": "UO",
+    "params": {
+     "indicatorCondition": "cd",
+     "indicatorValue": 70
+    }
+   },
    "regimes": {
     "up": {
      "entries": 231,
@@ -2978,6 +3062,13 @@
       40.81
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "UO",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": 30
     }
    },
    "regimes": {
@@ -3184,6 +3275,13 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "UO",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": 35
+    }
+   },
    "regimes": {
     "up": {
      "entries": 5,
@@ -3365,6 +3463,13 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "UO",
+    "params": {
+     "indicatorCondition": "lt",
+     "indicatorValue": 30
+    }
+   },
    "regimes": {
     "up": {
      "entries": 1,
@@ -3544,6 +3649,13 @@
       4.57
      ],
      "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "UO",
+    "params": {
+     "indicatorCondition": "cu",
+     "indicatorValue": 50
     }
    },
    "regimes": {
@@ -3750,6 +3862,13 @@
      "verdict": "few"
     }
    },
+   "bot": {
+    "type": "UO",
+    "params": {
+     "indicatorCondition": "gt",
+     "indicatorValue": 70
+    }
+   },
    "regimes": {
     "up": {
      "entries": 138,
@@ -3952,6 +4071,13 @@
       13.27
      ],
      "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "UO",
+    "params": {
+     "indicatorCondition": "cd",
+     "indicatorValue": 70
     }
    },
    "regimes": {
