@@ -4616,41 +4616,36 @@
    }
   }
  ],
- "summary": "Not as a dip-buying signal. On BTC, ETH and SOL, price after RSI went below 30, or crossed back up through 30, moved no differently than after a random candle. The result that holds up runs the other way: after RSI(14) went above 70, price kept rising more than after random candles on 1h, 4h and daily, and that came from uptrends.",
+ "summary": "Not as a dip-buying signal. On BTC, ETH and SOL, price moved the same as after random candles when RSI was below 30 or crossed back up through 30. The result that holds up runs the other way: price kept rising after RSI(14) went above 70, so shorts opened there did worse than random on 1h, 4h and daily, mostly while the pair was in an uptrend.",
  "verdicts": [
   {
    "use": "Buying the dip (below 30)",
    "verdict": "none",
-   "text": "No better than random entries on 1h, 4h or daily, with RSI(7) or RSI(14). Uptrends and downtrends both land inside the luck band wherever there are enough episodes to judge."
-  },
-  {
-   "use": "Buying the bounce (cross up through 30)",
-   "verdict": "none",
-   "text": "No better than random on 1h, 4h or daily, with RSI(7) or RSI(14). On 1h, RSI(14) looked worse only because of signals on Nov 7–9, 2022, during the FTX collapse."
+   "text": "Same as random on 1h, 4h and daily, with RSI(7) or RSI(14), both while RSI was below 30 and on a cross back up through 30. The one exception is RSI(14) crossing up 30 on 1h, and it rests on signals on Nov 7–9, 2022."
   },
   {
    "use": "Shorting overbought (above 70)",
    "verdict": "worse",
-   "text": "Worse than random on 1h, 4h and daily, because price kept rising after overbought readings. On 1h and 4h it holds without its strongest stretch and at 10, 20, 50 and 100 candles, and it comes from uptrends."
-  },
-  {
-   "use": "Shorting the cross down through 70",
-   "verdict": "none",
-   "text": "Inside the luck band on 1h and daily. On 4h it looked worse than random only because of signals between Jan 31, 2021 and Feb 11, 2021. Without them, chance."
+   "text": "Worse than random on 1h, 4h and daily, because price kept rising after RSI(14) went above 70. Uptrends carry the gap. Below the 200-day average it was same as random on 1h and 4h, and daily had too few moves to judge."
   },
   {
    "use": "Riding momentum (above 50)",
    "verdict": "fragile",
-   "text": "Price did better than after random candles on 4h and daily, but only because of one early rally, on 4h the run between Dec 25, 2020 and Mar 3, 2021. Without it, chance, and on 1h it showed nothing."
+   "text": "Beat random on 4h and daily, but on 4h only because of the run between Dec 25, 2020 and Mar 3, 2021. Without that stretch it was same as random, and on 1h it was same as random too."
+  },
+  {
+   "use": "Shorting the cross down through 70",
+   "verdict": "none",
+   "text": "Same as random on 1h and daily. On 4h it looked worse than random, but only because of signals between Jan 31, 2021 and Feb 11, 2021."
   }
  ],
  "notes": [
-  "On 4h, RSI(14) below 30 gave 1,861 entries in 299 separate moves. Twenty candles later price was 0.32% behind random entries, inside the luck band. RSI(7) enters about two and a half times as often, ends 0.42% behind and is also inside the band. On daily, RSI(14) below 30 in uptrends fired in only 10 episodes, too few to judge, and in downtrends it stayed inside the band.",
-  "Regimes can hide a single bad stretch. On 4h, RSI(7) below 30 in downtrends looked worse than random only because of signals between Nov 6, 2022 and Nov 14, 2022, during the FTX collapse. On 1h, RSI(14) crossing up through 30 ended 0.21% behind random, carried by 7 signals on Nov 7–9, 2022 in downtrends. In uptrends the same cross showed nothing. RSI(7) gives nearly three times as many crosses up through 30 as RSI(14) on 4h, with no edge either way.",
-  "Shorting while RSI(14) was above 70 did 0.36% worse than random after 20 candles on 1h, 1.24% worse on 4h and 10% worse after 20 days on daily. On 1h and 4h it shows at 10, 20, 50 and 100 candles and holds without its strongest stretch. On daily it shows at 10 and 20 candles only. Uptrends carry it: on 4h they were 1.17% worse than random, while downtrends sat inside the band on 1h and 4h and were too few to judge on daily.",
-  "The cross down through 70 is weaker than the level. On 4h it was 0.8% worse than random, but only because of 8 signals on SOL between Jan 31, 2021 and Feb 11, 2021, and neither regime alone showed it. On 1h the pooled result is chance, and uptrends looked worse only because of 9 signals on Dec 20–22, 2023. On daily, crosses in downtrends came in only 10 episodes, too few to judge.",
-  "RSI(14) above 50 beat random entries by 0.25% on 4h, but the gap comes from the run between Dec 25, 2020 and Mar 3, 2021, and neither uptrends nor downtrends show it alone. On daily it was 2.93% ahead, resting on the stretch between Dec 29, 2020 and Jul 7, 2021. In daily uptrends it was 2.63% ahead and just as fragile, and in downtrends it showed nothing. On 1h the gap is 0.02%, inside the band.",
-  "For a long DCA bot on these pairs, timing entries with RSI below 30 changes nothing, so the take profit and DCA orders do the work. RSI(14) above 70 is the reading that carries information, and it points against a short: while the pair trades above its 200-day average, it is a reason to leave that condition out of a short bot. RSI(14) above 50 is at most a trend filter to test beside other conditions, not an edge."
+  "On 1h, RSI(14) below 30 gave 7,385 entries in 1,112 separate moves. Twenty candles later these entries were 0.06% behind random ones, inside the luck band. RSI(7) enters about two and a half times as often, on 1h and on 4h, and also lands inside the band. Splitting by trend changed nothing on 1h: both lengths were same as random above and below the 200-day average.",
+  "Shorting while RSI(14) was above 70 did 0.36% worse than random after 20 candles on 1h. It did 1.24% worse on 4h and 10% worse after 20 days on daily. On 1h and 4h the gap shows at 10, 20, 50 and 100 candles and holds without its strongest stretch. On daily it holds without that stretch but shows at 10 and 20 candles only.",
+  "Uptrends carry that result. With the pair above its 200-day average, the short did 0.44% worse than random on 1h and 1.17% worse on 4h. Below the average, the same short was same as random on both timeframes. On daily the downtrend side had too few moves to judge.",
+  "Going long while RSI(14) was above 50 beat random by 0.25% on 4h and by 2.93% on daily. Each gap rests on one run: between Dec 25, 2020 and Mar 3, 2021 on 4h, and between Dec 29, 2020 and Jul 7, 2021 on daily. Without that run, both were same as random. On 1h, across 82,581 entries, it was same as random.",
+  "Single stretches can fake a result. On 1h, RSI(14) crossing up through 30 looked worse than random only because of 7 signals on Nov 7–9, 2022, during the FTX collapse. On 4h in downtrends, RSI(7) below 30 looked worse for the same reason, with signals between Nov 6, 2022 and Nov 14, 2022. On 4h, the short on a cross down through 70 looked worse only because of SOL signals between Jan 31, 2021 and Feb 11, 2021.",
+  "For a long DCA bot, an oversold start condition did not change where price went next on these pairs, so the take profit and DCA orders decide the deal. RSI(14) above 70 is better used as a reason to leave a short setup out, or as a filter that keeps a short bot off while the pair trades above its 200-day average. If you test RSI above 50 as a trend filter beside other conditions, include stretches outside the runs named above."
  ],
  "summaryRefs": [
   {
@@ -4698,28 +4693,6 @@
    },
    {
     "tf": "*",
-    "setting": "rsi7-lt30",
-    "scope": "up"
-   },
-   {
-    "tf": "*",
-    "setting": "rsi14-lt30",
-    "scope": "up"
-   },
-   {
-    "tf": "*",
-    "setting": "rsi7-lt30",
-    "scope": "down"
-   },
-   {
-    "tf": "*",
-    "setting": "rsi14-lt30",
-    "scope": "down"
-   }
-  ],
-  [
-   {
-    "tf": "*",
     "setting": "rsi7-up30",
     "scope": "pooled"
    },
@@ -4731,17 +4704,7 @@
   ],
   [
    {
-    "tf": "1h",
-    "setting": "rsi14-gt70",
-    "scope": "pooled"
-   },
-   {
-    "tf": "4h",
-    "setting": "rsi14-gt70",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1d",
+    "tf": "*",
     "setting": "rsi14-gt70",
     "scope": "pooled"
    },
@@ -4758,35 +4721,25 @@
   ],
   [
    {
-    "tf": "1h",
-    "setting": "rsi14-down70",
-    "scope": "pooled"
-   },
-   {
     "tf": "4h",
-    "setting": "rsi14-down70",
+    "setting": "rsi14-gt50",
     "scope": "pooled"
    },
    {
     "tf": "1d",
-    "setting": "rsi14-down70",
+    "setting": "rsi14-gt50",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "rsi14-gt50",
     "scope": "pooled"
    }
   ],
   [
    {
-    "tf": "1h",
-    "setting": "rsi14-gt50",
-    "scope": "pooled"
-   },
-   {
-    "tf": "4h",
-    "setting": "rsi14-gt50",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1d",
-    "setting": "rsi14-gt50",
+    "tf": "*",
+    "setting": "rsi14-down70",
     "scope": "pooled"
    }
   ]
@@ -4794,9 +4747,34 @@
  "noteRefs": [
   [
    {
-    "tf": "4h",
+    "tf": "1h",
     "setting": "rsi14-lt30",
     "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "rsi14-lt30",
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "rsi14-lt30",
+    "scope": "down"
+   },
+   {
+    "tf": "1h",
+    "setting": "rsi7-lt30",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "rsi7-lt30",
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "rsi7-lt30",
+    "scope": "down"
    },
    {
     "tf": "4h",
@@ -4804,86 +4782,83 @@
     "scope": "pooled"
    },
    {
-    "tf": "1d",
+    "tf": "4h",
     "setting": "rsi14-lt30",
-    "scope": "up"
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "rsi14-gt70",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "rsi14-gt70",
+    "scope": "pooled"
    },
    {
     "tf": "1d",
-    "setting": "rsi14-lt30",
+    "setting": "rsi14-gt70",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "rsi14-gt70",
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "rsi14-gt70",
+    "scope": "down"
+   },
+   {
+    "tf": "4h",
+    "setting": "rsi14-gt70",
+    "scope": "up"
+   },
+   {
+    "tf": "4h",
+    "setting": "rsi14-gt70",
+    "scope": "down"
+   },
+   {
+    "tf": "1d",
+    "setting": "rsi14-gt70",
     "scope": "down"
    }
   ],
   [
+   {
+    "tf": "4h",
+    "setting": "rsi14-gt50",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "rsi14-gt50",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "rsi14-gt50",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "rsi14-up30",
+    "scope": "pooled"
+   },
    {
     "tf": "4h",
     "setting": "rsi7-lt30",
     "scope": "down"
    },
-   {
-    "tf": "1h",
-    "setting": "rsi14-up30",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1h",
-    "setting": "rsi14-up30",
-    "scope": "down"
-   },
-   {
-    "tf": "1h",
-    "setting": "rsi14-up30",
-    "scope": "up"
-   },
-   {
-    "tf": "4h",
-    "setting": "rsi7-up30",
-    "scope": "pooled"
-   },
-   {
-    "tf": "4h",
-    "setting": "rsi14-up30",
-    "scope": "pooled"
-   }
-  ],
-  [
-   {
-    "tf": "1h",
-    "setting": "rsi14-gt70",
-    "scope": "pooled"
-   },
-   {
-    "tf": "4h",
-    "setting": "rsi14-gt70",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1d",
-    "setting": "rsi14-gt70",
-    "scope": "pooled"
-   },
-   {
-    "tf": "4h",
-    "setting": "rsi14-gt70",
-    "scope": "up"
-   },
-   {
-    "tf": "1h",
-    "setting": "rsi14-gt70",
-    "scope": "down"
-   },
-   {
-    "tf": "4h",
-    "setting": "rsi14-gt70",
-    "scope": "down"
-   },
-   {
-    "tf": "1d",
-    "setting": "rsi14-gt70",
-    "scope": "down"
-   }
-  ],
-  [
    {
     "tf": "4h",
     "setting": "rsi14-down70",
@@ -4893,76 +4868,9 @@
     "tf": "4h",
     "setting": "rsi14-down70",
     "scope": "SOL"
-   },
-   {
-    "tf": "4h",
-    "setting": "rsi14-down70",
-    "scope": "up"
-   },
-   {
-    "tf": "4h",
-    "setting": "rsi14-down70",
-    "scope": "down"
-   },
-   {
-    "tf": "1h",
-    "setting": "rsi14-down70",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1h",
-    "setting": "rsi14-down70",
-    "scope": "up"
-   },
-   {
-    "tf": "1d",
-    "setting": "rsi14-down70",
-    "scope": "down"
    }
   ],
   [
-   {
-    "tf": "4h",
-    "setting": "rsi14-gt50",
-    "scope": "pooled"
-   },
-   {
-    "tf": "4h",
-    "setting": "rsi14-gt50",
-    "scope": "up"
-   },
-   {
-    "tf": "4h",
-    "setting": "rsi14-gt50",
-    "scope": "down"
-   },
-   {
-    "tf": "1d",
-    "setting": "rsi14-gt50",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1d",
-    "setting": "rsi14-gt50",
-    "scope": "up"
-   },
-   {
-    "tf": "1d",
-    "setting": "rsi14-gt50",
-    "scope": "down"
-   },
-   {
-    "tf": "1h",
-    "setting": "rsi14-gt50",
-    "scope": "pooled"
-   }
-  ],
-  [
-   {
-    "tf": "*",
-    "setting": "rsi7-lt30",
-    "scope": "pooled"
-   },
    {
     "tf": "*",
     "setting": "rsi14-lt30",
@@ -4974,12 +4882,22 @@
     "scope": "pooled"
    },
    {
-    "tf": "*",
+    "tf": "1h",
     "setting": "rsi14-gt70",
     "scope": "up"
    },
    {
-    "tf": "*",
+    "tf": "4h",
+    "setting": "rsi14-gt70",
+    "scope": "up"
+   },
+   {
+    "tf": "4h",
+    "setting": "rsi14-gt50",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
     "setting": "rsi14-gt50",
     "scope": "pooled"
    }

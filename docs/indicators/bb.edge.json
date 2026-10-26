@@ -3741,35 +3741,36 @@
    }
   }
  ],
- "summary": "Bollinger Bands show no edge for buying dips on these pairs. On BTC, ETH and SOL, price crossing back up through the lower band, or sitting below it, did no better than a random candle on 1h, 4h or daily. The result that holds up is a short on 4h: entries as price crossed back down through the upper band did 0.51% worse than random after 20 candles, and the gap holds without its strongest stretch.",
+ "summary": "Not at the lower band. Long entries as price crossed back up through the lower band, or while it stayed below it, did the same as random entries on 1h, 4h and daily. The result that holds up is on the short side: on 4h, shorting as price crossed back down through the upper band did 0.51% worse than random after 20 candles, with the gap sitting in uptrends.",
  "verdicts": [
   {
-   "use": "Buying the dip at the lower band",
+   "use": "Buying the lower band (cross up or below it)",
    "verdict": "none",
-   "text": "On 1h, 4h and daily, a cross up through the lower band did no better than random entries. Being below the band, or a cross up through the 2.5 SD band, did no better either."
+   "text": "Same as random on 1h, 4h and daily, with the default band or the wider 2.5 SD band, as a cross back up or as a level below the band."
   },
   {
-   "use": "Going long on a break above the upper band",
+   "use": "Riding a breakout (cross up the upper band)",
    "verdict": "fragile",
-   "text": "On 4h, price moved more after these candles than after random ones, in a window where price rose. These candles fire in volatile stretches, so this is timing, not a direction call, and it vanishes without Aug 10–17, 2021. On 1h and daily, it showed nothing."
+   "text": "Beat random on 4h by 0.51%, but it rests on signals on Aug 10–17, 2021. These crosses fire in volatile candles, so price moved more after them in a window that rose; they do not pick direction."
   },
   {
-   "use": "Shorting a cross back down through the upper band",
+   "use": "Shorting the upper band (cross back down)",
    "verdict": "worse",
-   "text": "Worse than random on 4h, and it holds without its strongest stretch. On 1h and daily the pooled result sits inside the luck band."
+   "text": "Worse than random on 4h by 0.51% after 20 candles, and it holds without its strongest stretch. On 1h it was same as random."
   },
   {
-   "use": "Going long on a cross up through the middle band",
+   "use": "Following the middle band (cross up)",
    "verdict": "none",
-   "text": "No better than random entries on 1h, 4h or daily."
+   "text": "Same as random on 1h, 4h and daily when price crossed up through the middle band."
   }
  ],
  "notes": [
-  "On 1h, price crossing up the lower band gave 5,018 entries in 2,653 separate moves. Twenty candles later they were 0.03% ahead of random entries, inside the luck band. Being below the band gives about twice as many entries and lands in the same place. The 2.5 SD band gives about half as many crosses and also shows nothing. None of the three showed anything in uptrends or in downtrends.",
-  "On 4h, price crossing up the upper band was followed by moves 0.51% above random entries after 20 candles, just above the luck band. These candles cluster in volatile stretches, and in a window where price rose they caught bigger moves because of when they fired, not because they picked direction. The gap vanishes without Aug 10–17, 2021. In uptrends it reached 0.71% and held without that stretch and at 10, 20, 50 and 100 candles, again a sign of timing in a rising window. In downtrends it showed nothing.",
-  "Shorting as price crossed back down through the upper band on 4h did 0.51% worse than random entries after 20 candles. It holds without its strongest stretch and shows again at 100 candles, though not at 10 or 50. In uptrends the result rests on Aug 10–17, 2021 and is gone without it. In downtrends it showed nothing. On daily the same short is inside the band pooled, but in downtrends it beat random by 5.16% after 20 days, over 45 separate moves. That held without its strongest entry and showed at 50 and 100 candles.",
-  "Single stretches can fake a result. On daily, SOL's long on an upper-band break beat random by 11%, but only because of signals between Jan 30, 2021 and Feb 22, 2021, when SOL rose and those volatile candles caught the move. ETH's daily cross up through the lower band did 5.96% worse, and that rests on signals between Jan 21, 2026 and Feb 6, 2026. The 2.5 SD cross on daily in downtrends did 5.28% worse only because of May 1–12, 2022, during the Terra collapse. The 4h middle-band cross in downtrends was 0.39% ahead, but only because of Jan 11–12, 2023.",
-  "For a long DCA bot, a lower-band start condition adds nothing on these pairs. The DCA orders and take profit decide the result. A short bot that opens as price slips back under the upper band on 4h is trading against continuation, so leave that trigger out or gate it behind a downtrend filter. Treat an upper-band break on 4h as a volatility marker next to your own trend condition, not as a direction call. It breaks down when the market goes sideways or falls."
+  "Long entries as price crossed up through the lower band on 1h gave 5,018 entries in 2,653 separate moves. Twenty candles later they were 0.03% ahead of random entries, inside the luck band of -0.09% to 0.11%. Staying in while price was below the band enters about twice as often and lands in the same place. The wider 2.5 SD band fires about half as often as the default band and also did the same as random. Both held that result in uptrends and in downtrends.",
+  "Shorting as price crossed back down through the upper band on 4h did 0.51% worse than random after 20 candles. It holds without its strongest stretch, between Dec 29, 2020 and Jan 5, 2021. It was same as random at 10 and 50 candles and worse again at 100. The gap sits in uptrends: there it did 0.59% worse, but rests on signals on Aug 10–17, 2021. In downtrends it was same as random.",
+  "Going long as price crossed up through the upper band on 4h beat random by 0.51%, but it is fragile. Without the signals on Aug 10–17, 2021 it is same as random. In uptrends it beat random by 0.71% and held without that stretch and at 10, 20, 50 and 100 candles; in downtrends it was same as random. These crosses fire mostly in volatile candles, so price moved more after them in a window that rose. That comes from when they fire, not from the cross picking a direction.",
+  "On daily, the short on a cross down through the upper band was same as random pooled. In downtrends it beat random by 5.16% after 20 days and held without its strongest signal and at 50 and 100 candles. In uptrends it showed nothing. That rests on 45 separate moves, so treat it as a lead to test on your pair.",
+  "Single stretches fake several results. On daily ETH, the cross up the lower band did 5.96% worse than random, only because of signals between Jan 21 and Feb 6, 2026. The daily 2.5 SD cross in downtrends did 5.28% worse only because of signals on May 1–12, 2022, during the Terra (LUNA) collapse. On 4h, the middle band cross in downtrends beat random by 0.39% only because of signals on Jan 11–12, 2023. SOL's daily long on the upper band cross beat random by 11% on signals between Jan 30 and Feb 22, 2021, a volatile stretch in a window that rose.",
+  "For a long DCA bot, a lower band entry did no better than a random candle on these pairs, so the DCA orders and take profit do the work. For a short bot, the upper band cross back down on 4h put entries against strength that continued in uptrends. Pair it with a downtrend filter or leave it out. Treat the upper band breakout long as a volatility timer: size the take profit for larger moves and add a separate trend condition for direction."
  ],
  "summaryRefs": [
   {
@@ -3791,6 +3792,16 @@
    "tf": "4h",
    "setting": "bb20-down-upper-short",
    "scope": "pooled"
+  },
+  {
+   "tf": "4h",
+   "setting": "bb20-down-upper-short",
+   "scope": "up"
+  },
+  {
+   "tf": "4h",
+   "setting": "bb20-down-upper-short",
+   "scope": "down"
   }
  ],
  "verdictRefs": [
@@ -3813,14 +3824,19 @@
   ],
   [
    {
-    "tf": "*",
+    "tf": "4h",
     "setting": "bb20-up-upper",
     "scope": "pooled"
    }
   ],
   [
    {
-    "tf": "*",
+    "tf": "4h",
+    "setting": "bb20-down-upper-short",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
     "setting": "bb20-down-upper-short",
     "scope": "pooled"
    }
@@ -3862,16 +3878,6 @@
    },
    {
     "tf": "1h",
-    "setting": "bb20-lt-lower",
-    "scope": "up"
-   },
-   {
-    "tf": "1h",
-    "setting": "bb20-lt-lower",
-    "scope": "down"
-   },
-   {
-    "tf": "1h",
     "setting": "bb20-25-up-lower",
     "scope": "up"
    },
@@ -3884,6 +3890,23 @@
   [
    {
     "tf": "4h",
+    "setting": "bb20-down-upper-short",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "bb20-down-upper-short",
+    "scope": "up"
+   },
+   {
+    "tf": "4h",
+    "setting": "bb20-down-upper-short",
+    "scope": "down"
+   }
+  ],
+  [
+   {
+    "tf": "4h",
     "setting": "bb20-up-upper",
     "scope": "pooled"
    },
@@ -3900,37 +3923,22 @@
   ],
   [
    {
-    "tf": "4h",
+    "tf": "1d",
     "setting": "bb20-down-upper-short",
     "scope": "pooled"
    },
    {
-    "tf": "4h",
+    "tf": "1d",
+    "setting": "bb20-down-upper-short",
+    "scope": "down"
+   },
+   {
+    "tf": "1d",
     "setting": "bb20-down-upper-short",
     "scope": "up"
-   },
-   {
-    "tf": "4h",
-    "setting": "bb20-down-upper-short",
-    "scope": "down"
-   },
-   {
-    "tf": "1d",
-    "setting": "bb20-down-upper-short",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1d",
-    "setting": "bb20-down-upper-short",
-    "scope": "down"
    }
   ],
   [
-   {
-    "tf": "1d",
-    "setting": "bb20-up-upper",
-    "scope": "SOL"
-   },
    {
     "tf": "1d",
     "setting": "bb20-up-lower",
@@ -3945,6 +3953,11 @@
     "tf": "4h",
     "setting": "bb20-up-middle",
     "scope": "down"
+   },
+   {
+    "tf": "1d",
+    "setting": "bb20-up-upper",
+    "scope": "SOL"
    }
   ],
   [
@@ -3956,7 +3969,7 @@
    {
     "tf": "4h",
     "setting": "bb20-down-upper-short",
-    "scope": "pooled"
+    "scope": "up"
    },
    {
     "tf": "4h",

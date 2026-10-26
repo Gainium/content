@@ -3899,36 +3899,41 @@
    }
   }
  ],
- "summary": "MFI shows no edge as an oversold signal. On BTC, ETH and SOL, entries while MFI(14) was below 20, or as it crossed back up through 20, did no better than entries on a random candle on 1h, 4h or daily. The result that holds up runs the other way: after MFI(14) went above 80, price kept rising, ending 10% above random entries after 20 days on daily and also above them on 1h in uptrends.",
+ "summary": "Not as a dip-buying signal. On BTC, ETH and SOL, price after MFI(14) went below 20, or crossed back up through 20, moved the same as random on 1h, 4h and daily. The result that holds up runs the other way: after MFI(14) went above 80, price kept rising, and shorts there did 10% worse than random after 20 days on daily.",
  "verdicts": [
   {
-   "use": "Buying oversold (below 20)",
+   "use": "Buying the dip (below 20)",
    "verdict": "none",
-   "text": "No better than random entries on 1h, 4h or daily, as a level or as a cross back up through 20. On 1h in uptrends, entries below 20 did worse than random."
+   "text": "Same as random on 1h, 4h and daily, both as a level and as a cross back up through 20."
   },
   {
    "use": "Shorting overbought (above 80)",
    "verdict": "worse",
-   "text": "Worse than random on daily and on 1h in uptrends. Price kept rising after readings above 80."
+   "text": "Worse than random on daily, and on 1h while the pair was in an uptrend. On 1h and 4h across all regimes it is fragile and rests on one stretch."
   },
   {
-   "use": "Shorting the turn down (crosses down 80 or 70)",
+   "use": "Shorting the turn down from 80",
    "verdict": "fragile-worse",
-   "text": "The cross down through 80 looked worse than random on 4h, but only because of signals on Aug 27–31, 2021. Without them, chance. Crossing down through 70 showed nothing on any timeframe."
+   "text": "Worse than random on 4h and daily, but only because of one SOL stretch. Without it, same as random. On 1h it was the same as random."
   },
   {
-   "use": "Riding momentum (crosses up 50)",
+   "use": "Shorting the turn down from 70",
    "verdict": "none",
-   "text": "No better than random entries on 1h, 4h or daily."
+   "text": "Same as random on 1h, 4h and daily, in uptrends and in downtrends."
+  },
+  {
+   "use": "Riding momentum (cross up 50)",
+   "verdict": "none",
+   "text": "Same as random on every timeframe. In downtrends on 4h and daily it beat random, but each result rests on a single stretch."
   }
  ],
  "notes": [
-  "On 1h, entries while MFI(14) was below 20 came to 6,764 in 1,387 separate moves. Twenty candles later they were 0.08% behind random entries, inside the luck band. The cross back up through 20 fires about a third as often and lands in the same place. On 4h and daily, neither setting left the band.",
-  "Market regime splits the oversold result. On 1h in uptrends, entries below 20 were 0.3% behind random after 20 candles. They were also behind at 10 and 50 candles, and the gap holds without its strongest stretch. In downtrends the same setting showed nothing. A dip below 20 while the pair closed above its 200-day SMA was no better entry than any other uptrend candle.",
-  "Shorting while MFI(14) was above 80 did 10% worse than random after 20 days on daily. That result holds without its strongest stretch and also shows at 10 candles. On 1h in uptrends it did 0.42% worse, at 10, 20, 50 and 100 candles, and holds without its strongest stretch. In 1h downtrends it showed nothing, and daily downtrends have too few separate moves to judge.",
-  "Several other short results rest on one stretch. On 1h, the pooled above-80 result disappears without signals on Aug 15–16, 2021. On 4h it disappears without the signals between Aug 27, 2021 and Sep 7, 2021. On daily, the cross down through 80 was 7% worse than random, but only because of signals between Aug 12, 2021 and Sep 13, 2021.",
-  "Crossing up through 50 showed nothing on 1h, 4h or daily. In downtrends on 4h and daily it beat random entries, but each gap disappears without one stretch. On 4h that stretch is May 4–7, 2025. On daily it falls between Dec 21, 2022 and Jan 2, 2023.",
-  "In a long DCA bot, MFI below 20 adds nothing on these pairs, so the DCA orders and take profit do the work. On 1h in uptrends, the dip entries did slightly worse than random. MFI carries information above 80, where price tended to keep rising. A short bot that opens on readings above 80 trades against that move. That reading tells you nothing in downtrends, where it showed no effect."
+  "On 1h, MFI(14) below 20 gave 6,764 entries in 1,387 separate moves. Twenty candles later, price had moved 0.08% less than after random entries, which is inside the luck band. The cross back up through 20 fires about a third as often and lands in the same place, 0.07% behind random. On 4h and daily, both settings were also the same as random.",
+  "The pooled result hides a split by trend. In uptrends on 1h, longs below 20 did 0.30% worse than random. That held without the strongest stretch and at 10, 20 and 50 candles. In downtrends, the same setting was the same as random. The cross up through 20 also did worse than random in uptrends, but only because of signals on Dec 18–19, 2024, so that result is fragile.",
+  "Shorting while MFI(14) was above 80 did 10% worse than random after 20 days on daily. That held without the strongest stretch, between Aug 10, 2021 and Sep 12, 2021, and at 10 candles, but not at 50 or 100. On 1h in uptrends it did 0.42% worse, at 10, 20, 50 and 100 candles. In downtrends it was the same as random on 1h and 4h. The daily downtrend had only 17 episodes, under the 30 needed to judge it.",
+  "Across all regimes, the 1h and 4h results for above 80 rest on single stretches: Aug 15–16, 2021 on 1h, and between Aug 27, 2021 and Sep 7, 2021 on 4h. Without those stretches they were the same as random. The cross down through 80 looks worse than random on 4h only because of SOL signals between Aug 27, 2021 and Aug 31, 2021. The cross down through 70 was the same as random on every timeframe.",
+  "MFI(14) crossing up through 50 on 1h gave 8,446 entries and matched random entries exactly. In downtrends it beat random by 0.34% on 4h, but that rests on May 4–7, 2025. On daily it beat random by 3%, but that rests on signals between Dec 21, 2022 and Jan 2, 2023. In uptrends it was the same as random on all three timeframes.",
+  "For a long DCA bot on these pairs, starting deals on MFI below 20 added nothing over random timing. The DCA orders and take profit decide the result, and in uptrends on 1h this condition lagged random entries. MFI carries information above 80, where price kept rising more than after random candles. A short bot that opens there trades against that move, mostly when the pair is above its 200-day SMA, so this is a reason to leave the condition out of a short bot's start rules."
  ],
  "summaryRefs": [
   {
@@ -3945,11 +3950,6 @@
    "tf": "1d",
    "setting": "mfi14-gt80",
    "scope": "pooled"
-  },
-  {
-   "tf": "1h",
-   "setting": "mfi14-gt80",
-   "scope": "up"
   }
  ],
  "verdictRefs": [
@@ -3963,11 +3963,6 @@
     "tf": "*",
     "setting": "mfi14-up20",
     "scope": "pooled"
-   },
-   {
-    "tf": "1h",
-    "setting": "mfi14-lt20",
-    "scope": "up"
    }
   ],
   [
@@ -3980,6 +3975,16 @@
     "tf": "1h",
     "setting": "mfi14-gt80",
     "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "mfi14-gt80",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "mfi14-gt80",
+    "scope": "pooled"
    }
   ],
   [
@@ -3989,9 +3994,41 @@
     "scope": "pooled"
    },
    {
+    "tf": "1d",
+    "setting": "mfi14-down80",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "mfi14-down80",
+    "scope": "SOL"
+   },
+   {
+    "tf": "1d",
+    "setting": "mfi14-down80",
+    "scope": "SOL"
+   },
+   {
+    "tf": "1h",
+    "setting": "mfi14-down80",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
     "tf": "*",
     "setting": "mfi14-down70",
     "scope": "pooled"
+   },
+   {
+    "tf": "*",
+    "setting": "mfi14-down70",
+    "scope": "up"
+   },
+   {
+    "tf": "*",
+    "setting": "mfi14-down70",
+    "scope": "down"
    }
   ],
   [
@@ -3999,6 +4036,16 @@
     "tf": "*",
     "setting": "mfi14-up50",
     "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "mfi14-up50",
+    "scope": "down"
+   },
+   {
+    "tf": "1d",
+    "setting": "mfi14-up50",
+    "scope": "down"
    }
   ]
  ],
@@ -4045,6 +4092,11 @@
     "tf": "1h",
     "setting": "mfi14-lt20",
     "scope": "down"
+   },
+   {
+    "tf": "1h",
+    "setting": "mfi14-up20",
+    "scope": "up"
    }
   ],
   [
@@ -4060,6 +4112,11 @@
    },
    {
     "tf": "1h",
+    "setting": "mfi14-gt80",
+    "scope": "down"
+   },
+   {
+    "tf": "4h",
     "setting": "mfi14-gt80",
     "scope": "down"
    },
@@ -4081,31 +4138,46 @@
     "scope": "pooled"
    },
    {
-    "tf": "1d",
+    "tf": "4h",
     "setting": "mfi14-down80",
     "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "mfi14-down80",
+    "scope": "SOL"
+   },
+   {
+    "tf": "*",
+    "setting": "mfi14-down70",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "mfi14-up50",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "mfi14-up50",
+    "scope": "down"
+   },
+   {
+    "tf": "1d",
+    "setting": "mfi14-up50",
+    "scope": "down"
+   },
+   {
+    "tf": "*",
+    "setting": "mfi14-up50",
+    "scope": "up"
    }
   ],
   [
    {
     "tf": "*",
-    "setting": "mfi14-up50",
-    "scope": "pooled"
-   },
-   {
-    "tf": "4h",
-    "setting": "mfi14-up50",
-    "scope": "down"
-   },
-   {
-    "tf": "1d",
-    "setting": "mfi14-up50",
-    "scope": "down"
-   }
-  ],
-  [
-   {
-    "tf": "1h",
     "setting": "mfi14-lt20",
     "scope": "pooled"
    },
@@ -4115,19 +4187,14 @@
     "scope": "up"
    },
    {
-    "tf": "1d",
-    "setting": "mfi14-gt80",
-    "scope": "pooled"
-   },
-   {
     "tf": "1h",
     "setting": "mfi14-gt80",
     "scope": "up"
    },
    {
-    "tf": "1h",
+    "tf": "1d",
     "setting": "mfi14-gt80",
-    "scope": "down"
+    "scope": "pooled"
    }
   ]
  ]
