@@ -4,7 +4,7 @@ slug: ema-20-50-rsi
 description: >-
   A classic crossover with a momentum filter: buy when the 20 EMA crosses above
   the 50 EMA while RSI is below 70, with a 2:1 reward to risk. Its rules, how to
-  run them in Gainium, and how they do against random entries on BTC, ETH and SOL.
+  run them in Gainium, and how they do against random entries on eight major coins.
 tldr: >-
   On hourly candles, buy when the 20 EMA crosses above the 50 EMA and RSI(14) is
   below 70. Take profit at 2%, stop at 1%, move the stop above the entry once the

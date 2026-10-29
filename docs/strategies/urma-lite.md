@@ -4,7 +4,7 @@ slug: urma-lite
 description: >-
   Urma Lite is an always-on DCA bot: it opens a deal as soon as it can, averages
   down with seven safety orders and sells 3% above the average price. Its rules,
-  how to run it in Gainium, and how it does against random entries on BTC, ETH and SOL.
+  how to run it in Gainium, and how it does against random entries on eight major coins.
 tldr: >-
   Start a deal whenever the coin has none, average down with seven equal-sized
   safety orders that spread wider as price falls, and take profit 3% above the

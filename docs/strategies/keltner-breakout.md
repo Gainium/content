@@ -4,7 +4,7 @@ slug: keltner-breakout
 description: >-
   A breakout strategy that buys when price closes above the upper Keltner
   channel while it is above a long TEMA trend line. Its rules, how to run them in
-  Gainium, and how they do against random entries on BTC, ETH and SOL.
+  Gainium, and how they do against random entries on eight major coins.
 tldr: >-
   On hourly candles, buy when price crosses above the upper Keltner channel (35
   EMA, 3 times the 10-period range) while it is above the 400-period TEMA. Take

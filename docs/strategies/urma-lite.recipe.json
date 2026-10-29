@@ -19,7 +19,7 @@
     "Hold one deal per coin at a time, with no stop loss."
   ],
   "notExpressed": [
-    "Running it on many altcoin pairs at once (the test runs BTC, ETH and SOL)"
+    "Running it on many altcoin pairs at once (the test runs eight major coins)"
   ],
   "variants": [
     "regime:supertrend",

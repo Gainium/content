@@ -4,7 +4,7 @@ slug: qfl
 description: >-
   The QFL (Quickfingers Luc) strategy buys when price cracks below a base, a
   support level that held before, and sells the bounce. Its rules, how to run them
-  as a Gainium DCA bot, and how they do against random entries on BTC, ETH and SOL.
+  as a Gainium DCA bot, and how they do against random entries on eight major coins.
 tldr: >-
   Find a base, buy when price cracks a few percent below it, average down with
   safety orders and sell the bounce back. In Gainium, the QFL Base Scanner start
@@ -30,7 +30,7 @@ faq:
   - title: Is QFL better than buying at random?
     details: >-
       The results table on this page compares the QFL bot with random entries that
-      use exactly the same safety orders and take profit, on BTC, ETH and SOL.
+      use exactly the same safety orders and take profit, on eight major coins.
 ---
 
 QFL is a dip-buying strategy: it waits for price to fall through a base, a level it bounced from before, and buys the panic. The idea is that a crack below a base is often a sharp overreaction that snaps back.

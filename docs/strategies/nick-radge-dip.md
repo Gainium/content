@@ -5,7 +5,7 @@ description: >-
   A dip-buying rule from Nick Radge: buy when price closes below its 10-day
   average while it is above its 200-day average, and sell when it closes back
   above the 10-day. Its rules, how to run them in Gainium, and how they do against
-  random entries on BTC, ETH and SOL.
+  random entries on eight major coins.
 tldr: >-
   Buy a pullback below the 10-day moving average only while price is above the
   200-day one, and sell as soon as it closes back above the 10-day. The forum

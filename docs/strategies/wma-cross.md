@@ -4,7 +4,7 @@ slug: wma-cross
 description: >-
   A moving average crossover: buy when the 7-day weighted moving average crosses
   above the 25-day one and sell when it crosses back below. Its rules, how to run
-  them in Gainium, and how they do against random entries on BTC, ETH and SOL.
+  them in Gainium, and how they do against random entries on eight major coins.
 tldr: >-
   Buy when the fast weighted moving average (7 days) crosses above the slow one
   (25 days), sell when it crosses back below. One position per coin, no stop

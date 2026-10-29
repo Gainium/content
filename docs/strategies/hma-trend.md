@@ -5,7 +5,7 @@ description: >-
   A trend strategy that buys once the 50 Hull moving average has stayed above the
   200 one, averages down with four safety orders and sells 17% above the average.
   Its rules, how to run them in Gainium, and how they do against random entries on
-  BTC, ETH and SOL.
+  eight major coins.
 tldr: >-
   On hourly candles, buy when the 50 HMA has been above the 200 HMA for 10 hours,
   add up to four safety orders 5% apart, and sell 17% above the average price or

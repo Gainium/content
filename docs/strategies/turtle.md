@@ -4,7 +4,7 @@ slug: turtle
 description: >-
   The Turtle trading strategy buys a breakout above the 20-day high and exits on
   a break of the 10-day low. Its rules, how to run them as a Gainium bot, and how
-  they do against random entries on BTC, ETH and SOL.
+  they do against random entries on eight major coins.
 tldr: >-
   Buy when the daily close breaks the highest high of the last 20 days, sell when
   it breaks the lowest low of the last 10. Run it in Gainium as a DCA bot with a
@@ -34,7 +34,7 @@ faq:
   - title: Does the Turtle strategy work on crypto?
     details: >-
       The results table on this page answers it with data: the same bot against
-      random entries that use the same exit, on BTC, ETH and SOL, refreshed every
+      random entries that use the same exit, on eight major coins, refreshed every
       month and split into an in-sample and an out-of-sample period.
 ---
 
