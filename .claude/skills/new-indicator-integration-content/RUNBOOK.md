@@ -14,10 +14,14 @@ PR that references the slug, not long after.
 ## Checklist
 
 ```
-[ ] docs/indicators/<slug>.md, kind: native + catalogKeys   ← the page the dashboard catalog links to
-[ ] scripts/check-indicators.ts passes
-[ ] field descriptions match the actual catalog fields in main-dash-sh
+[ ] docs/indicators/<slug>.md: templateVersion: 2, kind: native + catalogKeys   ← what the catalog's /help/<slug> resolves to
+[ ] frontmatter: all required fields + category, aliases, related, faq (3–5); id = max + 1 across help + indicators; dates quoted
+[ ] body: opening + the 4 template sections, no # title, no ## FAQ
+[ ] <slug>.settings.json via scripts/describe-native.ts --write; table pasted, "What it does" cells filled
+[ ] <slug>.edge-recipe.json (edge.json is generated, never hand-written)
+[ ] images → docs/images/indicators/<slug>__*.{png,webp}, embedded as .webp, each opened and checked
 [ ] note any chart-visual approximation from Step 0's Pine Script check, if applicable
+[ ] npm run check:indicators && npm run check:style && npm run images:check && npm test
 ```
 
 ## Verify before calling it done
