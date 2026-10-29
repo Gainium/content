@@ -17,7 +17,7 @@ sources:
   - title: Curtis Faith, The Original Turtle Trading Rules
     url: https://www.tradingblox.com/originalturtles/originalturtlerules.htm
 related:
-  - grid-stack
+  - wma-cross
   - qfl
 faq:
   - title: What is the Turtle trading strategy?

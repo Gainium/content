@@ -15,7 +15,7 @@ sources:
   - title: Urma Lite – simple low cost DCA always-on bot (Gainium community thread)
     url: https://community.gainium.io/t/1663
 related:
-  - double-dca
+  - hma-trend
   - qfl
 faq:
   - title: What is the Urma Lite strategy?

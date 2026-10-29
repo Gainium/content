@@ -15,7 +15,7 @@ sources:
   - title: Quickfingers Luc (QFL) indicator in the Gainium library
     url: https://gainium.io/indicators/qfl
 related:
-  - double-dca
+  - urma-lite
   - turtle
 faq:
   - title: What does QFL stand for?
