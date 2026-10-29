@@ -372,6 +372,36 @@ describe('indicator content API (spec 053)', () => {
         })
       })
 
+      describe('GET /indicators/edge-ranking (spec 061)', () => {
+        it('is not captured by /:slug and ranks pages with edge data only', async () => {
+          const { status, json } = await get('/indicators/edge-ranking')
+          expect(status).to.equal(200)
+          // rsi fixture: 21 settings, none `edge`, 2 fragile, 5 worse
+          expect(json).to.deep.equal({
+            data: [
+              {
+                slug: 'rsi',
+                judged: 21,
+                beat: 0,
+                fragile: 2,
+                worse: 5,
+                few: 0,
+                expected: 1.05,
+                p: 1,
+                tier: 'luck',
+                updatedAt: '2026-10-25',
+              },
+            ],
+          })
+        })
+
+        it('carries counts, never the edge commentary', async () => {
+          const { text } = await get('/indicators/edge-ranking?include=all')
+          expect(text).not.to.include('"edge"')
+          expect(text).not.to.include('FTX collapse')
+        })
+      })
+
       describe('GET /indicators/manifest', () => {
         it('is not captured by /:slug and lists both groups', async () => {
           const { status, json } = await get('/indicators/manifest')

@@ -2,6 +2,7 @@ import { Router, Request, Response } from 'express'
 import { contentLoader } from '../contentLoader'
 import { IndicatorListItem, ParsedIndicator } from '../types'
 import { getPaginationParams, paginateArray } from './createContentRouter'
+import { rankByEdge } from '../indicators/edgeRanking'
 
 /**
  * Indicator library (spec 053 §2.3).
@@ -32,6 +33,12 @@ const toListItem = ({ metadata }: ParsedIndicator): IndicatorListItem => ({
 // Registered before /:slug so "manifest" is never read as a slug.
 router.get('/manifest', (req: Request, res: Response) => {
   res.json({ data: contentLoader.getIndicatorManifest() })
+})
+
+// GET /indicators/edge-ranking[?include=all] — counts only (spec 061 §3), for
+// the site's ranked views; the edge commentary stays on /indicators/:slug.
+router.get('/edge-ranking', (req: Request, res: Response) => {
+  res.json({ data: rankByEdge(contentLoader.getIndicators(includeAll(req))) })
 })
 
 // GET /indicators[?include=all&page=&limit=]
