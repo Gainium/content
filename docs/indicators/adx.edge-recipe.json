@@ -4,7 +4,8 @@
   "featured": [
     "adx14-up25",
     "adx14-gt25",
-    "adx14-lt20"
+    "adx14-lt20",
+    "dmi14-pdi-up-mdi"
   ],
   "settings": [
     {
@@ -144,6 +145,99 @@
         "params": {
           "indicatorCondition": "gt",
           "indicatorValue": 40
+        }
+      }
+    },
+    {
+      "id": "dmi14-pdi-up-mdi",
+      "label": "DMI(14) +DI crosses above −DI",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "ADX",
+        "args": [
+          14,
+          false,
+          150,
+          80,
+          true
+        ],
+        "input": "candle"
+      },
+      "output": "pdi",
+      "condition": {
+        "op": "crossUp",
+        "against": {
+          "output": "mdi"
+        }
+      },
+      "bot": {
+        "type": "ADX",
+        "params": {
+          "adxMode": "dmi",
+          "indicatorCondition": "cu"
+        }
+      }
+    },
+    {
+      "id": "dmi14-pdi-gt-mdi",
+      "label": "DMI(14) +DI above −DI",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "ADX",
+        "args": [
+          14,
+          false,
+          150,
+          80,
+          true
+        ],
+        "input": "candle"
+      },
+      "output": "pdi",
+      "condition": {
+        "op": "gt",
+        "against": {
+          "output": "mdi"
+        }
+      },
+      "bot": {
+        "type": "ADX",
+        "params": {
+          "adxMode": "dmi",
+          "indicatorCondition": "gt"
+        }
+      }
+    },
+    {
+      "id": "dmi14-pdi-down-mdi-short",
+      "label": "DMI(14) +DI crosses below −DI, short",
+      "side": "short",
+      "featured": false,
+      "indicator": {
+        "class": "ADX",
+        "args": [
+          14,
+          false,
+          150,
+          80,
+          true
+        ],
+        "input": "candle"
+      },
+      "output": "pdi",
+      "condition": {
+        "op": "crossDown",
+        "against": {
+          "output": "mdi"
+        }
+      },
+      "bot": {
+        "type": "ADX",
+        "params": {
+          "adxMode": "dmi",
+          "indicatorCondition": "cd"
         }
       }
     }

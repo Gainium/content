@@ -16,10 +16,16 @@
       "default": false,
       "defaultText": "Off",
       "group": null,
+      "hiddenWhen": [
+        {
+          "equals": "dmi",
+          "field": "adxMode"
+        }
+      ],
       "id": "percentile",
       "kind": "logic",
-      "label": "Use percentile",
-      "tooltip": "Enable percentile mode.",
+      "label": "Percentile",
+      "tooltip": "Compare the indicator with its own percentile over the lookback instead of a fixed value. With smoothing on, the smoothed line is ranked.",
       "type": "boolean"
     },
     {
@@ -30,6 +36,10 @@
         {
           "equals": false,
           "field": "percentile"
+        },
+        {
+          "equals": "dmi",
+          "field": "adxMode"
         }
       ],
       "id": "percentileLookback",
@@ -46,13 +56,36 @@
         {
           "equals": false,
           "field": "percentile"
+        },
+        {
+          "equals": "dmi",
+          "field": "adxMode"
         }
       ],
       "id": "percentilePercentage",
       "kind": "logic",
-      "label": "Percentile",
+      "label": "Threshold",
       "step": 1,
+      "tooltip": "The percentile rank the indicator is compared with, 0–100.",
       "type": "number"
+    },
+    {
+      "default": null,
+      "defaultText": "—",
+      "group": null,
+      "id": "adxMode",
+      "kind": "logic",
+      "label": "Mode",
+      "optionLabels": [
+        "ADX",
+        "DMI (+DI vs −DI)"
+      ],
+      "options": [
+        "adx",
+        "dmi"
+      ],
+      "tooltip": "ADX: the trend strength line against a value. DMI: +DI against −DI, which directional line leads. Both use Length.",
+      "type": "select"
     },
     {
       "default": 14,
@@ -100,14 +133,39 @@
       "type": "interval"
     },
     {
-      "default": "none",
-      "defaultText": "None",
+      "default": null,
+      "defaultText": "—",
       "group": null,
-      "id": "smoothing",
+      "hiddenWhen": [
+        {
+          "equals": "dmi",
+          "field": "adxMode"
+        }
+      ],
+      "id": "smoothingEnabled",
       "kind": "logic",
       "label": "Smoothing",
+      "tooltip": "Moving average applied to the indicator line. With smoothing on, the condition uses the smoothed line.",
+      "type": "boolean"
+    },
+    {
+      "default": "none",
+      "defaultText": "none",
+      "group": null,
+      "hiddenWhen": [
+        {
+          "equals": "none",
+          "field": "smoothing"
+        },
+        {
+          "equals": "dmi",
+          "field": "adxMode"
+        }
+      ],
+      "id": "smoothing",
+      "kind": "logic",
+      "label": "Average",
       "optionLabels": [
-        "None",
         "SMA",
         "EMA",
         "WMA",
@@ -117,7 +175,6 @@
         "RMA"
       ],
       "options": [
-        "none",
         "sma",
         "ema",
         "wma",
@@ -126,7 +183,6 @@
         "hma",
         "rma"
       ],
-      "tooltip": "Moving average applied to the indicator line. With smoothing on, the condition uses the smoothed line.",
       "type": "select"
     },
     {
@@ -137,11 +193,15 @@
         {
           "equals": "none",
           "field": "smoothing"
+        },
+        {
+          "equals": "dmi",
+          "field": "adxMode"
         }
       ],
       "id": "smoothingLength",
       "kind": "logic",
-      "label": "Smoothing length",
+      "label": "Length",
       "max": 1000,
       "min": 1,
       "step": 1,
@@ -159,6 +219,10 @@
         {
           "equals": true,
           "field": "percentile"
+        },
+        {
+          "equals": "dmi",
+          "field": "adxMode"
         }
       ],
       "id": "smoothingCompare",
@@ -206,6 +270,10 @@
         {
           "equals": true,
           "field": "percentile"
+        },
+        {
+          "equals": "dmi",
+          "field": "adxMode"
         }
       ],
       "id": "indicatorValue",
@@ -222,6 +290,10 @@
         {
           "equals": true,
           "field": "percentile"
+        },
+        {
+          "equals": "dmi",
+          "field": "adxMode"
         }
       ],
       "id": "indicatorValue2",
