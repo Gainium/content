@@ -1,0 +1,919 @@
+{
+ "indicator": "order-blocks",
+ "defaultTf": "1h",
+ "method": {
+  "horizon": 20,
+  "horizons": [
+   10,
+   20,
+   50,
+   100
+  ],
+  "randomDraws": 500,
+  "minEpisodes": 30,
+  "source": "Binance spot",
+  "pairs": [
+   "BTC/USDT",
+   "ETH/USDT",
+   "SOL/USDT"
+  ],
+  "from": "2020-09-01",
+  "warmupFrom": "2020-06-01",
+  "regime": {
+   "by": "pair close vs its 200-day SMA",
+   "sma": 200
+  },
+  "to": "2026-10-28",
+  "engine": {
+   "indicators": "62598c87",
+   "analysisMath": "fbb772ac"
+  }
+ },
+ "updatedAt": "2026-10-29",
+ "settings": [
+  {
+   "id": "bull-top-cd",
+   "tf": "1h",
+   "label": "Close drops into a bullish block (retest long)",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 3644,
+    "episodes": 1814,
+    "draws": 100,
+    "edge": -0.06,
+    "chance": [
+     -0.12,
+     0.15
+    ],
+    "verdict": "none",
+    "path": [
+     0,
+     0.002,
+     -0.015,
+     -0.015,
+     -0.034,
+     -0.036,
+     -0.051,
+     -0.053,
+     -0.068,
+     -0.066,
+     -0.043,
+     -0.051,
+     -0.054,
+     -0.04,
+     -0.038,
+     -0.048,
+     -0.068,
+     -0.092,
+     -0.074,
+     -0.065
+    ],
+    "band": [
+     [
+      -0.029,
+      0.024
+     ],
+     [
+      -0.039,
+      0.039
+     ],
+     [
+      -0.04,
+      0.048
+     ],
+     [
+      -0.04,
+      0.056
+     ],
+     [
+      -0.056,
+      0.061
+     ],
+     [
+      -0.064,
+      0.06
+     ],
+     [
+      -0.076,
+      0.073
+     ],
+     [
+      -0.085,
+      0.076
+     ],
+     [
+      -0.09,
+      0.087
+     ],
+     [
+      -0.096,
+      0.084
+     ],
+     [
+      -0.091,
+      0.089
+     ],
+     [
+      -0.105,
+      0.097
+     ],
+     [
+      -0.108,
+      0.116
+     ],
+     [
+      -0.106,
+      0.125
+     ],
+     [
+      -0.11,
+      0.118
+     ],
+     [
+      -0.115,
+      0.116
+     ],
+     [
+      -0.102,
+      0.121
+     ],
+     [
+      -0.114,
+      0.138
+     ],
+     [
+      -0.122,
+      0.132
+     ],
+     [
+      -0.12,
+      0.151
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 1184,
+     "episodes": 595,
+     "draws": 211,
+     "edge": -0.07,
+     "chance": [
+      -0.13,
+      0.15
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 1192,
+     "episodes": 600,
+     "draws": 209,
+     "edge": 0.1,
+     "chance": [
+      -0.2,
+      0.21
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 1268,
+     "episodes": 619,
+     "draws": 197,
+     "edge": -0.22,
+     "chance": [
+      -0.31,
+      0.29
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "OB",
+    "params": {
+     "obSide": "bullish",
+     "obLevel": "top",
+     "indicatorCondition": "cd"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1997,
+     "episodes": 1002,
+     "draws": 125,
+     "edge": -0.03,
+     "chance": [
+      -0.16,
+      0.12
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 1537,
+     "episodes": 765,
+     "draws": 162,
+     "edge": -0.05,
+     "chance": [
+      -0.22,
+      0.21
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "bull-top-cd",
+   "tf": "4h",
+   "label": "Close drops into a bullish block (retest long)",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 862,
+    "episodes": 473,
+    "draws": 290,
+    "edge": -0.6,
+    "chance": [
+     -0.64,
+     0.62
+    ],
+    "verdict": "none",
+    "path": [
+     0.072,
+     -0.029,
+     -0.192,
+     -0.223,
+     -0.335,
+     -0.272,
+     -0.319,
+     -0.244,
+     -0.293,
+     -0.39,
+     -0.484,
+     -0.602,
+     -0.523,
+     -0.629,
+     -0.573,
+     -0.572,
+     -0.585,
+     -0.523,
+     -0.545,
+     -0.598
+    ],
+    "band": [
+     [
+      -0.108,
+      0.108
+     ],
+     [
+      -0.149,
+      0.144
+     ],
+     [
+      -0.193,
+      0.19
+     ],
+     [
+      -0.231,
+      0.231
+     ],
+     [
+      -0.271,
+      0.245
+     ],
+     [
+      -0.315,
+      0.292
+     ],
+     [
+      -0.366,
+      0.315
+     ],
+     [
+      -0.388,
+      0.327
+     ],
+     [
+      -0.389,
+      0.369
+     ],
+     [
+      -0.455,
+      0.393
+     ],
+     [
+      -0.469,
+      0.441
+     ],
+     [
+      -0.508,
+      0.468
+     ],
+     [
+      -0.511,
+      0.477
+     ],
+     [
+      -0.517,
+      0.505
+     ],
+     [
+      -0.514,
+      0.523
+     ],
+     [
+      -0.576,
+      0.522
+     ],
+     [
+      -0.572,
+      0.546
+     ],
+     [
+      -0.594,
+      0.593
+     ],
+     [
+      -0.615,
+      0.583
+     ],
+     [
+      -0.639,
+      0.62
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 295,
+     "episodes": 169,
+     "draws": 500,
+     "edge": 0.13,
+     "chance": [
+      -0.61,
+      0.63
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 284,
+     "episodes": 160,
+     "draws": 500,
+     "edge": -0.28,
+     "chance": [
+      -0.84,
+      0.87
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 283,
+     "episodes": 144,
+     "draws": 500,
+     "edge": -1.66,
+     "chance": [
+      -1.42,
+      1.32
+     ],
+     "verdict": "worse",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 4,
+       "start": "2022-08-15",
+       "end": "2022-08-17",
+       "without": "worse"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "worse"
+       }
+      ]
+     }
+    }
+   },
+   "bot": {
+    "type": "OB",
+    "params": {
+     "obSide": "bullish",
+     "obLevel": "top",
+     "indicatorCondition": "cd"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 452,
+     "episodes": 249,
+     "draws": 500,
+     "edge": -0.62,
+     "chance": [
+      -0.71,
+      0.79
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 398,
+     "episodes": 218,
+     "draws": 500,
+     "edge": -0.26,
+     "chance": [
+      -0.69,
+      0.69
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "bull-top-cd",
+   "tf": "1d",
+   "label": "Close drops into a bullish block (retest long)",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 134,
+    "episodes": 65,
+    "draws": 500,
+    "edge": -4.97,
+    "chance": [
+     -4.79,
+     4.37
+    ],
+    "verdict": "fragile-worse",
+    "robustness": {
+     "fragile": true,
+     "strongest": {
+      "deals": 5,
+      "start": "2022-04-11",
+      "end": "2022-04-26",
+      "without": "chance"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "worse"
+      },
+      {
+       "horizon": 50,
+       "state": "chance"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     -0.003,
+     0.014,
+     -0.284,
+     -0.771,
+     -1.312,
+     -1.612,
+     -2.046,
+     -2.451,
+     -2.313,
+     -2.963,
+     -3.166,
+     -2.974,
+     -3.409,
+     -2.898,
+     -3.175,
+     -2.996,
+     -4.241,
+     -4.646,
+     -4.243,
+     -4.973
+    ],
+    "band": [
+     [
+      -0.567,
+      0.63
+     ],
+     [
+      -0.912,
+      0.76
+     ],
+     [
+      -1.273,
+      1.056
+     ],
+     [
+      -1.364,
+      1.328
+     ],
+     [
+      -1.6,
+      1.478
+     ],
+     [
+      -1.722,
+      1.713
+     ],
+     [
+      -1.919,
+      2.093
+     ],
+     [
+      -2.222,
+      2.162
+     ],
+     [
+      -2.438,
+      2.244
+     ],
+     [
+      -2.742,
+      2.486
+     ],
+     [
+      -3.005,
+      2.741
+     ],
+     [
+      -3.063,
+      2.879
+     ],
+     [
+      -3.204,
+      3.205
+     ],
+     [
+      -3.447,
+      3.431
+     ],
+     [
+      -3.697,
+      3.46
+     ],
+     [
+      -3.996,
+      3.529
+     ],
+     [
+      -4.139,
+      3.852
+     ],
+     [
+      -4.347,
+      4.224
+     ],
+     [
+      -4.488,
+      4.117
+     ],
+     [
+      -4.792,
+      4.367
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 54,
+     "episodes": 22,
+     "draws": 500,
+     "edge": -1.6,
+     "chance": [
+      -4.78,
+      5.46
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 47,
+     "episodes": 26,
+     "draws": 500,
+     "edge": -0.74,
+     "chance": [
+      -5.08,
+      6.51
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 33,
+     "episodes": 17,
+     "draws": 500,
+     "edge": -14.83,
+     "chance": [
+      -10.46,
+      13.18
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 3,
+       "start": "2026-05-17",
+       "end": "2026-05-24",
+       "without": "worse"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   },
+   "bot": {
+    "type": "OB",
+    "params": {
+     "obSide": "bullish",
+     "obLevel": "top",
+     "indicatorCondition": "cd"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 75,
+     "episodes": 33,
+     "draws": 500,
+     "edge": -7.56,
+     "chance": [
+      -7.49,
+      7.71
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 2,
+       "start": "2025-02-06",
+       "end": "2025-02-16",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 59,
+     "episodes": 32,
+     "draws": 500,
+     "edge": -0.19,
+     "chance": [
+      -4.79,
+      5.64
+     ],
+     "verdict": "none"
+    }
+   }
+  }
+ ],
+ "summary": "Not as a retest long. After the close dropped into a bullish order block, price did the same as random on 1h and 4h. On daily it did worse than random, but only because of one stretch. The one result that holds up is negative: on SOL 4h, price did worse than random after these retests.",
+ "verdicts": [
+  {
+   "use": "Retest long into a bullish block on 1h",
+   "verdict": "none",
+   "text": "Same as random on BTC, ETH and SOL, and in both uptrends and downtrends. It fires the most of any timeframe and shows nothing."
+  },
+  {
+   "use": "Retest long into a bullish block on 4h",
+   "verdict": "none",
+   "text": "Same as random pooled, in uptrends and in downtrends. SOL on its own did worse than random, and that result holds without its strongest stretch."
+  },
+  {
+   "use": "Retest long into a bullish block on daily",
+   "verdict": "fragile-worse",
+   "text": "Worse than random, but it rests on 5 entries between Apr 11 and Apr 26, 2022. Without them it is the same as random."
+  }
+ ],
+ "notes": [
+  "On 1h, the close dropping into a bullish block gave 3,644 entries in 1,814 separate moves. Twenty candles later they were 0.06% behind random entries, inside the luck band. BTC, ETH and SOL each landed inside their own band. Uptrends and downtrends both came out the same as random.",
+  "On 4h the setting gave 862 entries in 473 moves. Pooled, it trailed random entries by 0.6%, just inside a band of -0.64% to 0.62%. BTC and ETH were the same as random. SOL trailed random by 1.66% after 20 candles, below its band.",
+  "The SOL 4h result holds without its strongest stretch, 4 entries on Aug 15–17, 2022. It also shows at 50 and 100 candles, but not at 10. On that pair, price tended to keep falling after the close entered a bullish block, rather than bouncing off it.",
+  "Daily gives 134 entries in 65 moves. Pooled, they trailed random by 5% after 20 days, just below the band. The gap comes from 5 entries between Apr 11 and Apr 26, 2022, and without them it is the same as random. BTC, ETH and SOL each have too few moves on daily to judge.",
+  "The daily result splits by regime. In uptrends it trailed random by 8%, but that rests on a stretch between Feb 6 and Feb 16, 2025, so it is fragile. In downtrends it was 0.19% behind random, the same as random. On 4h both regimes were the same as random.",
+  "For a long DCA bot, a retest of a bullish block does not time the entry on these pairs. The DCA orders and take profit decide the result, not the block. On SOL 4h, treat the retest as a reason to leave this start condition out or pair it with a trend filter. A block the close drops into is often a block that is about to break."
+ ],
+ "summaryRefs": [
+  {
+   "tf": "1h",
+   "setting": "bull-top-cd",
+   "scope": "pooled"
+  },
+  {
+   "tf": "4h",
+   "setting": "bull-top-cd",
+   "scope": "pooled"
+  },
+  {
+   "tf": "1d",
+   "setting": "bull-top-cd",
+   "scope": "pooled"
+  },
+  {
+   "tf": "4h",
+   "setting": "bull-top-cd",
+   "scope": "SOL"
+  }
+ ],
+ "verdictRefs": [
+  [
+   {
+    "tf": "1h",
+    "setting": "bull-top-cd",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "bull-top-cd",
+    "scope": "BTC"
+   },
+   {
+    "tf": "1h",
+    "setting": "bull-top-cd",
+    "scope": "ETH"
+   },
+   {
+    "tf": "1h",
+    "setting": "bull-top-cd",
+    "scope": "SOL"
+   },
+   {
+    "tf": "1h",
+    "setting": "bull-top-cd",
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "bull-top-cd",
+    "scope": "down"
+   }
+  ],
+  [
+   {
+    "tf": "4h",
+    "setting": "bull-top-cd",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "bull-top-cd",
+    "scope": "up"
+   },
+   {
+    "tf": "4h",
+    "setting": "bull-top-cd",
+    "scope": "down"
+   },
+   {
+    "tf": "4h",
+    "setting": "bull-top-cd",
+    "scope": "SOL"
+   }
+  ],
+  [
+   {
+    "tf": "1d",
+    "setting": "bull-top-cd",
+    "scope": "pooled"
+   }
+  ]
+ ],
+ "noteRefs": [
+  [
+   {
+    "tf": "1h",
+    "setting": "bull-top-cd",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "bull-top-cd",
+    "scope": "BTC"
+   },
+   {
+    "tf": "1h",
+    "setting": "bull-top-cd",
+    "scope": "ETH"
+   },
+   {
+    "tf": "1h",
+    "setting": "bull-top-cd",
+    "scope": "SOL"
+   },
+   {
+    "tf": "1h",
+    "setting": "bull-top-cd",
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "bull-top-cd",
+    "scope": "down"
+   }
+  ],
+  [
+   {
+    "tf": "4h",
+    "setting": "bull-top-cd",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "bull-top-cd",
+    "scope": "BTC"
+   },
+   {
+    "tf": "4h",
+    "setting": "bull-top-cd",
+    "scope": "ETH"
+   },
+   {
+    "tf": "4h",
+    "setting": "bull-top-cd",
+    "scope": "SOL"
+   }
+  ],
+  [
+   {
+    "tf": "4h",
+    "setting": "bull-top-cd",
+    "scope": "SOL"
+   }
+  ],
+  [
+   {
+    "tf": "1d",
+    "setting": "bull-top-cd",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "bull-top-cd",
+    "scope": "BTC"
+   },
+   {
+    "tf": "1d",
+    "setting": "bull-top-cd",
+    "scope": "ETH"
+   },
+   {
+    "tf": "1d",
+    "setting": "bull-top-cd",
+    "scope": "SOL"
+   }
+  ],
+  [
+   {
+    "tf": "1d",
+    "setting": "bull-top-cd",
+    "scope": "up"
+   },
+   {
+    "tf": "1d",
+    "setting": "bull-top-cd",
+    "scope": "down"
+   },
+   {
+    "tf": "4h",
+    "setting": "bull-top-cd",
+    "scope": "up"
+   },
+   {
+    "tf": "4h",
+    "setting": "bull-top-cd",
+    "scope": "down"
+   }
+  ],
+  [
+   {
+    "tf": "4h",
+    "setting": "bull-top-cd",
+    "scope": "SOL"
+   }
+  ]
+ ]
+}

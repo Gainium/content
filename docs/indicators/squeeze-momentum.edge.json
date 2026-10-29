@@ -1,0 +1,2959 @@
+{
+ "indicator": "squeeze-momentum",
+ "defaultTf": "1h",
+ "method": {
+  "horizon": 20,
+  "horizons": [
+   10,
+   20,
+   50,
+   100
+  ],
+  "randomDraws": 500,
+  "minEpisodes": 30,
+  "source": "Binance spot",
+  "pairs": [
+   "BTC/USDT",
+   "ETH/USDT",
+   "SOL/USDT"
+  ],
+  "from": "2020-09-01",
+  "warmupFrom": "2020-06-01",
+  "regime": {
+   "by": "pair close vs its 200-day SMA",
+   "sma": 200
+  },
+  "to": "2026-10-28",
+  "engine": {
+   "indicators": "62598c87",
+   "analysisMath": "fbb772ac"
+  }
+ },
+ "updatedAt": "2026-10-29",
+ "settings": [
+  {
+   "id": "fired-positive",
+   "tf": "1h",
+   "label": "Squeeze fires with positive momentum",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 2863,
+    "episodes": 2297,
+    "draws": 100,
+    "edge": -0.03,
+    "chance": [
+     -0.15,
+     0.11
+    ],
+    "verdict": "none",
+    "path": [
+     0.009,
+     0.011,
+     0.033,
+     0.013,
+     0.025,
+     -0.012,
+     -0.015,
+     -0.019,
+     -0.034,
+     -0.05,
+     -0.059,
+     -0.075,
+     -0.052,
+     -0.073,
+     -0.066,
+     -0.039,
+     -0.035,
+     -0.034,
+     -0.027,
+     -0.025
+    ],
+    "band": [
+     [
+      -0.022,
+      0.022
+     ],
+     [
+      -0.036,
+      0.038
+     ],
+     [
+      -0.061,
+      0.043
+     ],
+     [
+      -0.064,
+      0.059
+     ],
+     [
+      -0.073,
+      0.068
+     ],
+     [
+      -0.094,
+      0.07
+     ],
+     [
+      -0.095,
+      0.078
+     ],
+     [
+      -0.102,
+      0.086
+     ],
+     [
+      -0.106,
+      0.09
+     ],
+     [
+      -0.101,
+      0.092
+     ],
+     [
+      -0.109,
+      0.091
+     ],
+     [
+      -0.123,
+      0.107
+     ],
+     [
+      -0.127,
+      0.087
+     ],
+     [
+      -0.121,
+      0.087
+     ],
+     [
+      -0.116,
+      0.097
+     ],
+     [
+      -0.136,
+      0.105
+     ],
+     [
+      -0.135,
+      0.113
+     ],
+     [
+      -0.125,
+      0.114
+     ],
+     [
+      -0.139,
+      0.111
+     ],
+     [
+      -0.148,
+      0.109
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 998,
+     "episodes": 779,
+     "draws": 250,
+     "edge": 0.02,
+     "chance": [
+      -0.13,
+      0.13
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 976,
+     "episodes": 789,
+     "draws": 256,
+     "edge": -0.07,
+     "chance": [
+      -0.17,
+      0.15
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 889,
+     "episodes": 729,
+     "draws": 281,
+     "edge": -0.02,
+     "chance": [
+      -0.28,
+      0.24
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "SQZ",
+    "params": {
+     "sqzSignal": "fired",
+     "sqzMomentum": "positive"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1556,
+     "episodes": 1247,
+     "draws": 160,
+     "edge": 0.08,
+     "chance": [
+      -0.16,
+      0.15
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 1236,
+     "episodes": 996,
+     "draws": 202,
+     "edge": -0.08,
+     "chance": [
+      -0.18,
+      0.14
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "fired-positive-bb15",
+   "tf": "1h",
+   "label": "Squeeze fires with positive momentum, BB multiplier 1.5",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 2644,
+    "episodes": 2172,
+    "draws": 100,
+    "edge": 0.15,
+    "chance": [
+     -0.13,
+     0.13
+    ],
+    "verdict": "edge",
+    "robustness": {
+     "fragile": false,
+     "strongest": {
+      "deals": 3,
+      "start": "2026-08-18",
+      "end": "2026-08-19",
+      "without": "edge"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "chance"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     0.022,
+     0.01,
+     0.039,
+     0.039,
+     0.039,
+     0.049,
+     0.056,
+     0.049,
+     0.085,
+     0.096,
+     0.111,
+     0.13,
+     0.131,
+     0.098,
+     0.148,
+     0.161,
+     0.156,
+     0.18,
+     0.188,
+     0.152
+    ],
+    "band": [
+     [
+      -0.034,
+      0.026
+     ],
+     [
+      -0.045,
+      0.051
+     ],
+     [
+      -0.051,
+      0.069
+     ],
+     [
+      -0.073,
+      0.077
+     ],
+     [
+      -0.093,
+      0.069
+     ],
+     [
+      -0.095,
+      0.09
+     ],
+     [
+      -0.088,
+      0.093
+     ],
+     [
+      -0.107,
+      0.098
+     ],
+     [
+      -0.113,
+      0.121
+     ],
+     [
+      -0.109,
+      0.114
+     ],
+     [
+      -0.114,
+      0.111
+     ],
+     [
+      -0.131,
+      0.121
+     ],
+     [
+      -0.123,
+      0.1
+     ],
+     [
+      -0.131,
+      0.109
+     ],
+     [
+      -0.145,
+      0.124
+     ],
+     [
+      -0.128,
+      0.126
+     ],
+     [
+      -0.141,
+      0.122
+     ],
+     [
+      -0.133,
+      0.136
+     ],
+     [
+      -0.128,
+      0.13
+     ],
+     [
+      -0.131,
+      0.13
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 862,
+     "episodes": 712,
+     "draws": 290,
+     "edge": 0.16,
+     "chance": [
+      -0.14,
+      0.14
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 2,
+       "start": "2023-03-12",
+       "end": "2023-03-12",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 905,
+     "episodes": 735,
+     "draws": 276,
+     "edge": 0.2,
+     "chance": [
+      -0.19,
+      0.18
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 3,
+       "start": "2026-08-18",
+       "end": "2026-08-19",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 877,
+     "episodes": 725,
+     "draws": 285,
+     "edge": 0.1,
+     "chance": [
+      -0.29,
+      0.27
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "SQZ",
+    "params": {
+     "sqzBBMult": 1.5,
+     "sqzSignal": "fired",
+     "sqzMomentum": "positive"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1471,
+     "episodes": 1218,
+     "draws": 169,
+     "edge": 0.14,
+     "chance": [
+      -0.15,
+      0.13
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 2,
+       "start": "2021-01-02",
+       "end": "2021-01-03",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 1097,
+     "episodes": 897,
+     "draws": 227,
+     "edge": 0.16,
+     "chance": [
+      -0.18,
+      0.18
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "any-crossup",
+   "tf": "1h",
+   "label": "Momentum crosses up zero",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 4071,
+    "episodes": 3552,
+    "draws": 100,
+    "edge": 0.06,
+    "chance": [
+     -0.08,
+     0.1
+    ],
+    "verdict": "none",
+    "path": [
+     0.016,
+     0.015,
+     0.018,
+     0.019,
+     0.029,
+     0.063,
+     0.094,
+     0.085,
+     0.113,
+     0.109,
+     0.109,
+     0.083,
+     0.063,
+     0.062,
+     0.048,
+     0.077,
+     0.067,
+     0.087,
+     0.062,
+     0.059
+    ],
+    "band": [
+     [
+      -0.023,
+      0.026
+     ],
+     [
+      -0.035,
+      0.037
+     ],
+     [
+      -0.043,
+      0.045
+     ],
+     [
+      -0.044,
+      0.049
+     ],
+     [
+      -0.051,
+      0.06
+     ],
+     [
+      -0.058,
+      0.062
+     ],
+     [
+      -0.057,
+      0.064
+     ],
+     [
+      -0.072,
+      0.071
+     ],
+     [
+      -0.066,
+      0.071
+     ],
+     [
+      -0.071,
+      0.072
+     ],
+     [
+      -0.073,
+      0.089
+     ],
+     [
+      -0.082,
+      0.101
+     ],
+     [
+      -0.079,
+      0.101
+     ],
+     [
+      -0.093,
+      0.106
+     ],
+     [
+      -0.095,
+      0.102
+     ],
+     [
+      -0.1,
+      0.102
+     ],
+     [
+      -0.112,
+      0.09
+     ],
+     [
+      -0.101,
+      0.087
+     ],
+     [
+      -0.09,
+      0.094
+     ],
+     [
+      -0.085,
+      0.097
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 1386,
+     "episodes": 1198,
+     "draws": 180,
+     "edge": -0.02,
+     "chance": [
+      -0.12,
+      0.09
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 1365,
+     "episodes": 1191,
+     "draws": 183,
+     "edge": 0,
+     "chance": [
+      -0.12,
+      0.12
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 1320,
+     "episodes": 1163,
+     "draws": 189,
+     "edge": 0.21,
+     "chance": [
+      -0.17,
+      0.16
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 3,
+       "start": "2021-09-08",
+       "end": "2021-09-08",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   },
+   "bot": {
+    "type": "SQZ",
+    "params": {
+     "sqzSignal": "any",
+     "sqzMomentum": "crossUp"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 2135,
+     "episodes": 1881,
+     "draws": 117,
+     "edge": 0.06,
+     "chance": [
+      -0.11,
+      0.12
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 1833,
+     "episodes": 1583,
+     "draws": 136,
+     "edge": 0.06,
+     "chance": [
+      -0.11,
+      0.1
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "off-rising",
+   "tf": "1h",
+   "label": "Out of a squeeze with rising momentum",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 54610,
+    "episodes": 1615,
+    "draws": 100,
+    "edge": 0.11,
+    "chance": [
+     -0.05,
+     0.06
+    ],
+    "verdict": "edge",
+    "robustness": {
+     "fragile": false,
+     "strongest": {
+      "deals": 169,
+      "start": "2021-08-23",
+      "end": "2021-09-07",
+      "without": "edge"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "edge"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     -0.002,
+     -0.002,
+     0.005,
+     0.012,
+     0.018,
+     0.028,
+     0.038,
+     0.052,
+     0.064,
+     0.075,
+     0.087,
+     0.101,
+     0.11,
+     0.111,
+     0.114,
+     0.117,
+     0.117,
+     0.117,
+     0.113,
+     0.109
+    ],
+    "band": [
+     [
+      -0.007,
+      0.007
+     ],
+     [
+      -0.013,
+      0.012
+     ],
+     [
+      -0.017,
+      0.018
+     ],
+     [
+      -0.022,
+      0.022
+     ],
+     [
+      -0.026,
+      0.024
+     ],
+     [
+      -0.031,
+      0.028
+     ],
+     [
+      -0.036,
+      0.032
+     ],
+     [
+      -0.039,
+      0.035
+     ],
+     [
+      -0.04,
+      0.036
+     ],
+     [
+      -0.043,
+      0.037
+     ],
+     [
+      -0.046,
+      0.042
+     ],
+     [
+      -0.044,
+      0.042
+     ],
+     [
+      -0.043,
+      0.044
+     ],
+     [
+      -0.047,
+      0.045
+     ],
+     [
+      -0.052,
+      0.047
+     ],
+     [
+      -0.056,
+      0.047
+     ],
+     [
+      -0.054,
+      0.049
+     ],
+     [
+      -0.049,
+      0.053
+     ],
+     [
+      -0.051,
+      0.055
+     ],
+     [
+      -0.053,
+      0.056
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 17403,
+     "episodes": 591,
+     "draws": 100,
+     "edge": 0.08,
+     "chance": [
+      -0.06,
+      0.06
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 56,
+       "start": "2021-02-05",
+       "end": "2021-02-09",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 18066,
+     "episodes": 547,
+     "draws": 100,
+     "edge": 0.08,
+     "chance": [
+      -0.07,
+      0.08
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 43,
+       "start": "2025-05-06",
+       "end": "2025-05-09",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 19141,
+     "episodes": 477,
+     "draws": 100,
+     "edge": 0.15,
+     "chance": [
+      -0.1,
+      0.11
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 169,
+       "start": "2021-08-23",
+       "end": "2021-09-07",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    }
+   },
+   "bot": {
+    "type": "SQZ",
+    "params": {
+     "sqzSignal": "off",
+     "sqzMomentum": "rising"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 29164,
+     "episodes": 905,
+     "draws": 100,
+     "edge": 0.1,
+     "chance": [
+      -0.07,
+      0.07
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 169,
+       "start": "2021-08-23",
+       "end": "2021-09-07",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 23717,
+     "episodes": 781,
+     "draws": 100,
+     "edge": 0.11,
+     "chance": [
+      -0.09,
+      0.07
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 43,
+       "start": "2025-05-06",
+       "end": "2025-05-09",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "fired-positive",
+   "tf": "4h",
+   "label": "Squeeze fires with positive momentum",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 667,
+    "episodes": 555,
+    "draws": 374,
+    "edge": 0.32,
+    "chance": [
+     -0.53,
+     0.52
+    ],
+    "verdict": "none",
+    "path": [
+     0.212,
+     0.144,
+     0.084,
+     0.012,
+     0.02,
+     -0.05,
+     -0.042,
+     0.083,
+     0.048,
+     0.082,
+     0.163,
+     0.275,
+     0.318,
+     0.339,
+     0.402,
+     0.259,
+     0.299,
+     0.235,
+     0.234,
+     0.318
+    ],
+    "band": [
+     [
+      -0.119,
+      0.108
+     ],
+     [
+      -0.155,
+      0.173
+     ],
+     [
+      -0.2,
+      0.199
+     ],
+     [
+      -0.237,
+      0.252
+     ],
+     [
+      -0.281,
+      0.285
+     ],
+     [
+      -0.273,
+      0.329
+     ],
+     [
+      -0.322,
+      0.338
+     ],
+     [
+      -0.342,
+      0.352
+     ],
+     [
+      -0.386,
+      0.341
+     ],
+     [
+      -0.404,
+      0.351
+     ],
+     [
+      -0.424,
+      0.344
+     ],
+     [
+      -0.446,
+      0.361
+     ],
+     [
+      -0.452,
+      0.362
+     ],
+     [
+      -0.426,
+      0.422
+     ],
+     [
+      -0.449,
+      0.432
+     ],
+     [
+      -0.483,
+      0.443
+     ],
+     [
+      -0.468,
+      0.474
+     ],
+     [
+      -0.474,
+      0.469
+     ],
+     [
+      -0.546,
+      0.488
+     ],
+     [
+      -0.533,
+      0.523
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 232,
+     "episodes": 188,
+     "draws": 500,
+     "edge": 0.18,
+     "chance": [
+      -0.52,
+      0.58
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 219,
+     "episodes": 189,
+     "draws": 500,
+     "edge": 0.19,
+     "chance": [
+      -0.74,
+      0.81
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 216,
+     "episodes": 178,
+     "draws": 500,
+     "edge": 0.61,
+     "chance": [
+      -1.04,
+      1.02
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "SQZ",
+    "params": {
+     "sqzSignal": "fired",
+     "sqzMomentum": "positive"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 370,
+     "episodes": 304,
+     "draws": 500,
+     "edge": 0.37,
+     "chance": [
+      -0.65,
+      0.62
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 286,
+     "episodes": 240,
+     "draws": 500,
+     "edge": 0.42,
+     "chance": [
+      -0.77,
+      0.64
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "fired-positive-bb15",
+   "tf": "4h",
+   "label": "Squeeze fires with positive momentum, BB multiplier 1.5",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 715,
+    "episodes": 594,
+    "draws": 349,
+    "edge": 0.02,
+    "chance": [
+     -0.58,
+     0.48
+    ],
+    "verdict": "none",
+    "path": [
+     0.04,
+     0.05,
+     0.145,
+     0.266,
+     0.222,
+     0.214,
+     0.257,
+     0.246,
+     0.25,
+     0.207,
+     0.317,
+     0.313,
+     0.264,
+     0.245,
+     0.271,
+     0.204,
+     0.148,
+     0.014,
+     -0.065,
+     0.024
+    ],
+    "band": [
+     [
+      -0.128,
+      0.112
+     ],
+     [
+      -0.16,
+      0.177
+     ],
+     [
+      -0.215,
+      0.214
+     ],
+     [
+      -0.254,
+      0.255
+     ],
+     [
+      -0.283,
+      0.273
+     ],
+     [
+      -0.333,
+      0.296
+     ],
+     [
+      -0.348,
+      0.321
+     ],
+     [
+      -0.382,
+      0.348
+     ],
+     [
+      -0.376,
+      0.339
+     ],
+     [
+      -0.386,
+      0.355
+     ],
+     [
+      -0.398,
+      0.368
+     ],
+     [
+      -0.404,
+      0.405
+     ],
+     [
+      -0.415,
+      0.397
+     ],
+     [
+      -0.436,
+      0.419
+     ],
+     [
+      -0.455,
+      0.436
+     ],
+     [
+      -0.509,
+      0.458
+     ],
+     [
+      -0.505,
+      0.485
+     ],
+     [
+      -0.526,
+      0.488
+     ],
+     [
+      -0.522,
+      0.477
+     ],
+     [
+      -0.577,
+      0.477
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 235,
+     "episodes": 194,
+     "draws": 500,
+     "edge": 0.04,
+     "chance": [
+      -0.61,
+      0.53
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 249,
+     "episodes": 206,
+     "draws": 500,
+     "edge": -0.01,
+     "chance": [
+      -0.68,
+      0.71
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 231,
+     "episodes": 194,
+     "draws": 500,
+     "edge": 0.06,
+     "chance": [
+      -1.08,
+      0.93
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "SQZ",
+    "params": {
+     "sqzBBMult": 1.5,
+     "sqzSignal": "fired",
+     "sqzMomentum": "positive"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 393,
+     "episodes": 331,
+     "draws": 500,
+     "edge": 0.2,
+     "chance": [
+      -0.65,
+      0.55
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 300,
+     "episodes": 245,
+     "draws": 500,
+     "edge": -0.08,
+     "chance": [
+      -0.76,
+      0.67
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "any-crossup",
+   "tf": "4h",
+   "label": "Momentum crosses up zero",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 1007,
+    "episodes": 888,
+    "draws": 248,
+    "edge": 0.2,
+    "chance": [
+     -0.37,
+     0.33
+    ],
+    "verdict": "none",
+    "path": [
+     0.065,
+     0.156,
+     0.122,
+     0.271,
+     0.271,
+     0.179,
+     0.208,
+     0.32,
+     0.306,
+     0.232,
+     0.27,
+     0.414,
+     0.406,
+     0.39,
+     0.281,
+     0.267,
+     0.338,
+     0.311,
+     0.211,
+     0.2
+    ],
+    "band": [
+     [
+      -0.095,
+      0.091
+     ],
+     [
+      -0.137,
+      0.137
+     ],
+     [
+      -0.164,
+      0.171
+     ],
+     [
+      -0.193,
+      0.208
+     ],
+     [
+      -0.196,
+      0.232
+     ],
+     [
+      -0.239,
+      0.256
+     ],
+     [
+      -0.28,
+      0.279
+     ],
+     [
+      -0.286,
+      0.297
+     ],
+     [
+      -0.277,
+      0.298
+     ],
+     [
+      -0.312,
+      0.319
+     ],
+     [
+      -0.311,
+      0.3
+     ],
+     [
+      -0.326,
+      0.299
+     ],
+     [
+      -0.359,
+      0.304
+     ],
+     [
+      -0.34,
+      0.275
+     ],
+     [
+      -0.329,
+      0.3
+     ],
+     [
+      -0.329,
+      0.341
+     ],
+     [
+      -0.341,
+      0.33
+     ],
+     [
+      -0.369,
+      0.366
+     ],
+     [
+      -0.373,
+      0.343
+     ],
+     [
+      -0.365,
+      0.333
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 333,
+     "episodes": 297,
+     "draws": 500,
+     "edge": -0.14,
+     "chance": [
+      -0.37,
+      0.33
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 340,
+     "episodes": 294,
+     "draws": 500,
+     "edge": 0.68,
+     "chance": [
+      -0.49,
+      0.49
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 3,
+       "start": "2026-08-13",
+       "end": "2026-08-17",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 334,
+     "episodes": 297,
+     "draws": 500,
+     "edge": 0.06,
+     "chance": [
+      -0.72,
+      0.71
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "SQZ",
+    "params": {
+     "sqzSignal": "any",
+     "sqzMomentum": "crossUp"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 519,
+     "episodes": 464,
+     "draws": 481,
+     "edge": -0.05,
+     "chance": [
+      -0.42,
+      0.45
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 460,
+     "episodes": 402,
+     "draws": 500,
+     "edge": 0.46,
+     "chance": [
+      -0.44,
+      0.43
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 3,
+       "start": "2026-08-13",
+       "end": "2026-08-17",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "off-rising",
+   "tf": "4h",
+   "label": "Out of a squeeze with rising momentum",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 14357,
+    "episodes": 368,
+    "draws": 100,
+    "edge": -0.1,
+    "chance": [
+     -0.19,
+     0.24
+    ],
+    "verdict": "none",
+    "path": [
+     0.01,
+     0.011,
+     -0.001,
+     -0.015,
+     -0.023,
+     -0.029,
+     -0.004,
+     0.006,
+     0.022,
+     0.025,
+     0.017,
+     0.008,
+     -0.009,
+     -0.03,
+     -0.042,
+     -0.06,
+     -0.068,
+     -0.07,
+     -0.085,
+     -0.102
+    ],
+    "band": [
+     [
+      -0.022,
+      0.028
+     ],
+     [
+      -0.043,
+      0.052
+     ],
+     [
+      -0.066,
+      0.079
+     ],
+     [
+      -0.076,
+      0.095
+     ],
+     [
+      -0.081,
+      0.106
+     ],
+     [
+      -0.09,
+      0.122
+     ],
+     [
+      -0.101,
+      0.133
+     ],
+     [
+      -0.127,
+      0.14
+     ],
+     [
+      -0.135,
+      0.14
+     ],
+     [
+      -0.159,
+      0.154
+     ],
+     [
+      -0.165,
+      0.172
+     ],
+     [
+      -0.173,
+      0.18
+     ],
+     [
+      -0.18,
+      0.189
+     ],
+     [
+      -0.189,
+      0.203
+     ],
+     [
+      -0.202,
+      0.204
+     ],
+     [
+      -0.209,
+      0.202
+     ],
+     [
+      -0.221,
+      0.211
+     ],
+     [
+      -0.206,
+      0.228
+     ],
+     [
+      -0.193,
+      0.226
+     ],
+     [
+      -0.193,
+      0.236
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 4646,
+     "episodes": 125,
+     "draws": 100,
+     "edge": -0.07,
+     "chance": [
+      -0.17,
+      0.23
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 4757,
+     "episodes": 132,
+     "draws": 100,
+     "edge": -0.06,
+     "chance": [
+      -0.22,
+      0.26
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 4954,
+     "episodes": 111,
+     "draws": 100,
+     "edge": -0.19,
+     "chance": [
+      -0.4,
+      0.33
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "SQZ",
+    "params": {
+     "sqzSignal": "off",
+     "sqzMomentum": "rising"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 7507,
+     "episodes": 236,
+     "draws": 100,
+     "edge": -0.02,
+     "chance": [
+      -0.22,
+      0.26
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 6438,
+     "episodes": 186,
+     "draws": 100,
+     "edge": -0.17,
+     "chance": [
+      -0.28,
+      0.26
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "fired-positive",
+   "tf": "1d",
+   "label": "Squeeze fires with positive momentum",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 112,
+    "episodes": 86,
+    "draws": 500,
+    "edge": -0.15,
+    "chance": [
+     -4.28,
+     4.9
+    ],
+    "verdict": "none",
+    "path": [
+     -0.245,
+     0.145,
+     -0.122,
+     -0.363,
+     -0.284,
+     0.252,
+     0.028,
+     0.486,
+     -0.367,
+     0.056,
+     -0.149,
+     -0.037,
+     0.118,
+     -0.084,
+     -0.565,
+     -0.14,
+     0.525,
+     -0.215,
+     -0.606,
+     -0.147
+    ],
+    "band": [
+     [
+      -0.745,
+      0.713
+     ],
+     [
+      -1.023,
+      0.986
+     ],
+     [
+      -1.225,
+      1.28
+     ],
+     [
+      -1.509,
+      1.454
+     ],
+     [
+      -1.784,
+      1.582
+     ],
+     [
+      -1.929,
+      1.883
+     ],
+     [
+      -2.053,
+      2.056
+     ],
+     [
+      -2.474,
+      2.198
+     ],
+     [
+      -2.523,
+      2.584
+     ],
+     [
+      -2.61,
+      2.88
+     ],
+     [
+      -2.99,
+      2.895
+     ],
+     [
+      -2.956,
+      3.218
+     ],
+     [
+      -3.109,
+      3.643
+     ],
+     [
+      -3.399,
+      3.962
+     ],
+     [
+      -3.688,
+      4.256
+     ],
+     [
+      -3.795,
+      4.346
+     ],
+     [
+      -3.893,
+      4.874
+     ],
+     [
+      -4.044,
+      4.938
+     ],
+     [
+      -3.98,
+      5.41
+     ],
+     [
+      -4.285,
+      4.9
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 41,
+     "episodes": 28,
+     "draws": 500,
+     "edge": -0.21,
+     "chance": [
+      -3.27,
+      3.96
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 34,
+     "episodes": 29,
+     "draws": 500,
+     "edge": 1.93,
+     "chance": [
+      -4.98,
+      6.01
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 37,
+     "episodes": 29,
+     "draws": 500,
+     "edge": -1.9,
+     "chance": [
+      -9.74,
+      8.79
+     ],
+     "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "SQZ",
+    "params": {
+     "sqzSignal": "fired",
+     "sqzMomentum": "positive"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 54,
+     "episodes": 45,
+     "draws": 500,
+     "edge": -2.82,
+     "chance": [
+      -5.14,
+      7
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 57,
+     "episodes": 44,
+     "draws": 500,
+     "edge": 1.37,
+     "chance": [
+      -3.65,
+      3.87
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "fired-positive-bb15",
+   "tf": "1d",
+   "label": "Squeeze fires with positive momentum, BB multiplier 1.5",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 100,
+    "episodes": 90,
+    "draws": 500,
+    "edge": 6.07,
+    "chance": [
+     -4.31,
+     4.35
+    ],
+    "verdict": "edge",
+    "robustness": {
+     "fragile": false,
+     "strongest": {
+      "deals": 1,
+      "start": "2021-02-03",
+      "end": "2021-02-03",
+      "without": "edge"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "chance"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     0.593,
+     1.656,
+     1.453,
+     1.686,
+     2.667,
+     2.395,
+     2.863,
+     2.844,
+     3.733,
+     4.002,
+     4.168,
+     4.721,
+     5.011,
+     4.792,
+     4.808,
+     5.112,
+     4.784,
+     4.275,
+     5.397,
+     6.072
+    ],
+    "band": [
+     [
+      -0.786,
+      0.824
+     ],
+     [
+      -1.065,
+      1.107
+     ],
+     [
+      -1.296,
+      1.293
+     ],
+     [
+      -1.494,
+      1.6
+     ],
+     [
+      -1.79,
+      1.783
+     ],
+     [
+      -1.859,
+      2.047
+     ],
+     [
+      -2.153,
+      2.205
+     ],
+     [
+      -2.395,
+      2.604
+     ],
+     [
+      -2.569,
+      2.667
+     ],
+     [
+      -2.795,
+      2.803
+     ],
+     [
+      -2.945,
+      3.096
+     ],
+     [
+      -3.059,
+      3.002
+     ],
+     [
+      -3.271,
+      3.476
+     ],
+     [
+      -3.37,
+      3.781
+     ],
+     [
+      -3.449,
+      3.946
+     ],
+     [
+      -3.555,
+      3.944
+     ],
+     [
+      -3.695,
+      4.371
+     ],
+     [
+      -3.895,
+      4.162
+     ],
+     [
+      -4.006,
+      4.596
+     ],
+     [
+      -4.314,
+      4.35
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 31,
+     "episodes": 29,
+     "draws": 500,
+     "edge": 2.97,
+     "chance": [
+      -3.53,
+      3.87
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 35,
+     "episodes": 32,
+     "draws": 500,
+     "edge": 4.55,
+     "chance": [
+      -4.33,
+      4.75
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 34,
+     "episodes": 29,
+     "draws": 500,
+     "edge": 10.34,
+     "chance": [
+      -7.33,
+      8.54
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 1,
+       "start": "2021-02-03",
+       "end": "2021-02-03",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   },
+   "bot": {
+    "type": "SQZ",
+    "params": {
+     "sqzBBMult": 1.5,
+     "sqzSignal": "fired",
+     "sqzMomentum": "positive"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 60,
+     "episodes": 54,
+     "draws": 500,
+     "edge": 6.76,
+     "chance": [
+      -3.82,
+      5.35
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 1,
+       "start": "2021-08-01",
+       "end": "2021-08-01",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 38,
+     "episodes": 35,
+     "draws": 500,
+     "edge": 0.62,
+     "chance": [
+      -5.5,
+      6.33
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "any-crossup",
+   "tf": "1d",
+   "label": "Momentum crosses up zero",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 161,
+    "episodes": 145,
+    "draws": 500,
+    "edge": 0.27,
+    "chance": [
+     -2.88,
+     2.79
+    ],
+    "verdict": "none",
+    "path": [
+     -0.154,
+     0.076,
+     0.271,
+     -0.274,
+     -1.068,
+     -0.765,
+     -0.842,
+     -0.681,
+     -0.518,
+     -0.741,
+     -0.895,
+     -0.488,
+     -0.559,
+     -1.208,
+     -0.397,
+     -0.077,
+     -0.013,
+     -0.004,
+     0.109,
+     0.272
+    ],
+    "band": [
+     [
+      -0.635,
+      0.621
+     ],
+     [
+      -0.946,
+      0.868
+     ],
+     [
+      -1.113,
+      0.963
+     ],
+     [
+      -1.266,
+      1.135
+     ],
+     [
+      -1.344,
+      1.237
+     ],
+     [
+      -1.479,
+      1.273
+     ],
+     [
+      -1.785,
+      1.49
+     ],
+     [
+      -1.966,
+      1.8
+     ],
+     [
+      -2.197,
+      1.899
+     ],
+     [
+      -2.342,
+      1.984
+     ],
+     [
+      -2.409,
+      2.111
+     ],
+     [
+      -2.553,
+      2.303
+     ],
+     [
+      -2.58,
+      2.265
+     ],
+     [
+      -2.583,
+      2.366
+     ],
+     [
+      -2.409,
+      2.433
+     ],
+     [
+      -2.565,
+      2.568
+     ],
+     [
+      -2.792,
+      2.65
+     ],
+     [
+      -2.854,
+      2.653
+     ],
+     [
+      -2.884,
+      2.826
+     ],
+     [
+      -2.877,
+      2.791
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 57,
+     "episodes": 51,
+     "draws": 500,
+     "edge": -2.31,
+     "chance": [
+      -2.43,
+      2.36
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 51,
+     "episodes": 46,
+     "draws": 500,
+     "edge": 0.65,
+     "chance": [
+      -3.31,
+      3.43
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 53,
+     "episodes": 48,
+     "draws": 500,
+     "edge": 2.77,
+     "chance": [
+      -5.66,
+      5.53
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "SQZ",
+    "params": {
+     "sqzSignal": "any",
+     "sqzMomentum": "crossUp"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 84,
+     "episodes": 75,
+     "draws": 500,
+     "edge": -1.06,
+     "chance": [
+      -3.78,
+      3.92
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 74,
+     "episodes": 67,
+     "draws": 500,
+     "edge": 2.24,
+     "chance": [
+      -3.11,
+      3.78
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "off-rising",
+   "tf": "1d",
+   "label": "Out of a squeeze with rising momentum",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 2513,
+    "episodes": 60,
+    "draws": 100,
+    "edge": 0.96,
+    "chance": [
+     -1.45,
+     2.08
+    ],
+    "verdict": "none",
+    "path": [
+     0.138,
+     0.275,
+     0.329,
+     0.396,
+     0.486,
+     0.51,
+     0.446,
+     0.366,
+     0.331,
+     0.292,
+     0.325,
+     0.377,
+     0.518,
+     0.592,
+     0.633,
+     0.691,
+     0.724,
+     0.765,
+     0.861,
+     0.961
+    ],
+    "band": [
+     [
+      -0.133,
+      0.158
+     ],
+     [
+      -0.286,
+      0.307
+     ],
+     [
+      -0.44,
+      0.551
+     ],
+     [
+      -0.608,
+      0.836
+     ],
+     [
+      -0.81,
+      1.016
+     ],
+     [
+      -0.905,
+      1.217
+     ],
+     [
+      -1.063,
+      1.299
+     ],
+     [
+      -1.129,
+      1.407
+     ],
+     [
+      -1.208,
+      1.569
+     ],
+     [
+      -1.25,
+      1.728
+     ],
+     [
+      -1.477,
+      1.725
+     ],
+     [
+      -1.456,
+      1.663
+     ],
+     [
+      -1.312,
+      1.771
+     ],
+     [
+      -1.421,
+      1.624
+     ],
+     [
+      -1.518,
+      1.665
+     ],
+     [
+      -1.519,
+      1.804
+     ],
+     [
+      -1.557,
+      1.872
+     ],
+     [
+      -1.477,
+      1.936
+     ],
+     [
+      -1.425,
+      2.038
+     ],
+     [
+      -1.45,
+      2.08
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 799,
+     "episodes": 25,
+     "draws": 312,
+     "edge": 0.28,
+     "chance": [
+      -1.37,
+      1.8
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 833,
+     "episodes": 13,
+     "draws": 300,
+     "edge": -1.01,
+     "chance": [
+      -2.12,
+      2.02
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 881,
+     "episodes": 22,
+     "draws": 283,
+     "edge": 3.21,
+     "chance": [
+      -2.99,
+      3.24
+     ],
+     "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "SQZ",
+    "params": {
+     "sqzSignal": "off",
+     "sqzMomentum": "rising"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1372,
+     "episodes": 51,
+     "draws": 182,
+     "edge": 1.41,
+     "chance": [
+      -2.11,
+      1.97
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 1064,
+     "episodes": 50,
+     "draws": 234,
+     "edge": -1.4,
+     "chance": [
+      -1.75,
+      1.8
+     ],
+     "verdict": "none"
+    }
+   }
+  }
+ ],
+ "summary": "Not as a direction signal. With default settings, price did no better than after random entries when a squeeze fired with positive momentum, on 1h, 4h or daily. Momentum crossing up through zero was the same as random too. Two settings beat random: a BB multiplier of 1.5 on 1h and daily, and the long side out of a squeeze with rising momentum on 1h. Both fire in volatile candles in a window where price rose, so price moved more after them; they do not show which way it would move.",
+ "verdicts": [
+  {
+   "use": "Squeeze firing with positive momentum (default settings)",
+   "verdict": "none",
+   "text": "Same as random on 1h, 4h and daily, in uptrends and in downtrends."
+  },
+  {
+   "use": "Squeeze firing with positive momentum, BB multiplier 1.5",
+   "verdict": "edge",
+   "text": "Beat random on 1h and daily but not on 4h, and on daily only in uptrends. These entries cluster in volatile candles in a window that rose, so the result comes from when they fire, not from direction."
+  },
+  {
+   "use": "Momentum crossing up through zero",
+   "verdict": "none",
+   "text": "Same as random on 1h, 4h and daily with the three pairs pooled. SOL on 1h is the one cell that beat random."
+  },
+  {
+   "use": "Staying long out of a squeeze with rising momentum",
+   "verdict": "edge",
+   "text": "Beat random on 1h only. On 4h and daily it was the same as random. The entries sit in volatile stretches of a window that rose, so price moved more after them; they do not show which way."
+  }
+ ],
+ "notes": [
+  "With default settings, a squeeze firing with positive momentum gave 2,863 entries on 1h. Twenty candles later they were 0.03% behind random entries, inside the luck band. On 4h and daily it was also the same as random. It was the same as random in uptrends and in downtrends.",
+  "Setting the BB multiplier to 1.5 gave 2,644 entries on 1h, about the same count as the default. Those entries beat random by 0.15% after 20 candles. The result held without its strongest stretch and at 10 candles, but was the same as random at 50 and 100. In uptrends it rested on signals on Jan 2–3, 2021, and in downtrends it was the same as random. On BTC it rested on Mar 12, 2023, during the Silicon Valley Bank collapse, and on ETH it rested on Aug 18–19, 2026.",
+  "On daily, the 1.5 multiplier gave 100 entries, and they beat random by 6% after 20 days. Uptrends carried that result at 7%. In downtrends it was the same as random, and BTC and SOL had too few episodes to judge. A squeeze fires when volatility returns, and the window rose overall. Price moved more after these candles, which does not show that the signal picked direction.",
+  "Out of a squeeze with rising momentum is a level condition, so it enters on every candle it holds. It gave 54,610 entries on 1h in 1,615 separate moves. It beat random by 0.11% after 20 candles, and also at 10 and 50 candles, but not at 100. It held without its strongest stretch. In downtrends it held at 0.11%. In uptrends it rested on signals between Aug 23 and Sep 7, 2021. On 4h and daily it was the same as random, so this shape belongs to volatile 1h stretches, not to the direction of the release.",
+  "Momentum crossing up through zero was the same as random on all three timeframes with the pairs pooled. SOL on 1h beat random by 0.21%, and held without its strongest stretch and at 10 candles. On 4h, crosses in downtrends were 0.46% ahead, but only because of signals between Aug 13 and Aug 17, 2026. ETH on 4h was 0.68% ahead at 20 candles only. In uptrends the 4h cross was the same as random.",
+  "For a long DCA bot, the default squeeze firing adds no timing on these pairs, and the take profit and DCA orders do the work. The 1.5 multiplier and out of a squeeze with rising momentum on 1h mark candles after which price moved further. That makes them a filter for when a take profit may be reached sooner, not a call on direction. This breaks in a falling market, because the same bigger moves then run against a long. The zero cross is a setting to leave out unless you trade SOL on 1h."
+ ],
+ "summaryRefs": [
+  {
+   "tf": "*",
+   "setting": "fired-positive",
+   "scope": "pooled"
+  },
+  {
+   "tf": "*",
+   "setting": "any-crossup",
+   "scope": "pooled"
+  },
+  {
+   "tf": "1h",
+   "setting": "fired-positive-bb15",
+   "scope": "pooled"
+  },
+  {
+   "tf": "1d",
+   "setting": "fired-positive-bb15",
+   "scope": "pooled"
+  },
+  {
+   "tf": "1h",
+   "setting": "off-rising",
+   "scope": "pooled"
+  }
+ ],
+ "verdictRefs": [
+  [
+   {
+    "tf": "*",
+    "setting": "fired-positive",
+    "scope": "pooled"
+   },
+   {
+    "tf": "*",
+    "setting": "fired-positive",
+    "scope": "up"
+   },
+   {
+    "tf": "*",
+    "setting": "fired-positive",
+    "scope": "down"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "fired-positive-bb15",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "fired-positive-bb15",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "fired-positive-bb15",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "fired-positive-bb15",
+    "scope": "up"
+   },
+   {
+    "tf": "1d",
+    "setting": "fired-positive-bb15",
+    "scope": "down"
+   }
+  ],
+  [
+   {
+    "tf": "*",
+    "setting": "any-crossup",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "any-crossup",
+    "scope": "SOL"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "off-rising",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "off-rising",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "off-rising",
+    "scope": "pooled"
+   }
+  ]
+ ],
+ "noteRefs": [
+  [
+   {
+    "tf": "1h",
+    "setting": "fired-positive",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "fired-positive",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "fired-positive",
+    "scope": "pooled"
+   },
+   {
+    "tf": "*",
+    "setting": "fired-positive",
+    "scope": "up"
+   },
+   {
+    "tf": "*",
+    "setting": "fired-positive",
+    "scope": "down"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "fired-positive-bb15",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "fired-positive",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "fired-positive-bb15",
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "fired-positive-bb15",
+    "scope": "down"
+   },
+   {
+    "tf": "1h",
+    "setting": "fired-positive-bb15",
+    "scope": "BTC"
+   },
+   {
+    "tf": "1h",
+    "setting": "fired-positive-bb15",
+    "scope": "ETH"
+   }
+  ],
+  [
+   {
+    "tf": "1d",
+    "setting": "fired-positive-bb15",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "fired-positive-bb15",
+    "scope": "up"
+   },
+   {
+    "tf": "1d",
+    "setting": "fired-positive-bb15",
+    "scope": "down"
+   },
+   {
+    "tf": "1d",
+    "setting": "fired-positive-bb15",
+    "scope": "BTC"
+   },
+   {
+    "tf": "1d",
+    "setting": "fired-positive-bb15",
+    "scope": "SOL"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "off-rising",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "off-rising",
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "off-rising",
+    "scope": "down"
+   },
+   {
+    "tf": "4h",
+    "setting": "off-rising",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "off-rising",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "*",
+    "setting": "any-crossup",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "any-crossup",
+    "scope": "SOL"
+   },
+   {
+    "tf": "4h",
+    "setting": "any-crossup",
+    "scope": "down"
+   },
+   {
+    "tf": "4h",
+    "setting": "any-crossup",
+    "scope": "up"
+   },
+   {
+    "tf": "4h",
+    "setting": "any-crossup",
+    "scope": "ETH"
+   }
+  ],
+  [
+   {
+    "tf": "*",
+    "setting": "fired-positive",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "fired-positive-bb15",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "off-rising",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "any-crossup",
+    "scope": "SOL"
+   }
+  ]
+ ]
+}
