@@ -1,0 +1,39 @@
+{
+  "indicator": "order-blocks",
+  "defaultTf": "1h",
+  "featured": [
+    "bull-top-cd"
+  ],
+  "settings": [
+    {
+      "id": "bull-top-cd",
+      "label": "Close drops into a bullish block (retest long)",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "OrderBlocks",
+        "args": [
+          5
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "fn",
+        "fn": "orderBlockCondition",
+        "options": {
+          "side": "bullish",
+          "level": "top",
+          "condition": "cd"
+        }
+      },
+      "bot": {
+        "type": "OB",
+        "params": {
+          "obSide": "bullish",
+          "obLevel": "top",
+          "indicatorCondition": "cd"
+        }
+      }
+    }
+  ]
+}

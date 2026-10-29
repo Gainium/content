@@ -1,0 +1,141 @@
+{
+  "alertConditions": "not applicable",
+  "chart": null,
+  "indicator": {
+    "author": "Gainium",
+    "kind": "native",
+    "openSource": null,
+    "overlay": null,
+    "scriptId": "OB",
+    "shortTitle": "Order Blocks",
+    "title": "Order Blocks",
+    "version": null
+  },
+  "inputs": [
+    {
+      "default": "1h",
+      "defaultText": "1 hour",
+      "group": null,
+      "id": "indicatorInterval",
+      "kind": "logic",
+      "label": "Interval",
+      "optionLabels": [
+        "1 minute",
+        "3 minutes",
+        "5 minutes",
+        "15 minutes",
+        "30 minutes",
+        "1 hour",
+        "2 hours",
+        "4 hours",
+        "8 hours",
+        "1 day",
+        "1 week"
+      ],
+      "options": [
+        "1m",
+        "3m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "4h",
+        "8h",
+        "1d",
+        "1w"
+      ],
+      "type": "interval"
+    },
+    {
+      "default": 5,
+      "defaultText": "5",
+      "group": null,
+      "id": "obSwingLength",
+      "kind": "logic",
+      "label": "Swing length",
+      "max": 50,
+      "min": 2,
+      "step": 1,
+      "suffix": "bars",
+      "tooltip": "A swing high or low needs this many bars on each side of it, so it is confirmed this many bars after it prints. A close beyond the latest swing forms a block.",
+      "type": "number"
+    },
+    {
+      "default": "bullish",
+      "defaultText": "Bullish block",
+      "group": null,
+      "id": "obSide",
+      "kind": "logic",
+      "label": "Block",
+      "optionLabels": [
+        "Bullish block",
+        "Bearish block"
+      ],
+      "options": [
+        "bullish",
+        "bearish"
+      ],
+      "tooltip": "Bullish: formed when a close breaks above a swing high; the candle with the lowest low before the break. Bearish: the mirror below a swing low. Only the latest block of each side counts; it ends when a candle closes through it.",
+      "type": "select"
+    },
+    {
+      "default": "top",
+      "defaultText": "Top",
+      "group": null,
+      "id": "obLevel",
+      "kind": "logic",
+      "label": "Level",
+      "optionLabels": [
+        "Top",
+        "Middle",
+        "Bottom"
+      ],
+      "options": [
+        "top",
+        "middle",
+        "bottom"
+      ],
+      "tooltip": "The edge of the block the close is compared with, or its middle.",
+      "type": "select"
+    },
+    {
+      "default": "cd",
+      "defaultText": "Price crossing down",
+      "group": null,
+      "id": "indicatorCondition",
+      "kind": "logic",
+      "label": "Condition",
+      "optionLabels": [
+        "Price crossing down",
+        "Price crossing up",
+        "Price greater than",
+        "Price lower than"
+      ],
+      "options": [
+        "cd",
+        "cu",
+        "gt",
+        "lt"
+      ],
+      "tooltip": "Crossing compares two candles of the same block; a new block moving the level is not a crossing. No active block: false. Price crossing down the top of a bullish block is the retest long.",
+      "type": "select"
+    },
+    {
+      "default": 0,
+      "defaultText": "0",
+      "group": null,
+      "id": "keepConditionBars",
+      "kind": "logic",
+      "label": "Keep true",
+      "min": 0,
+      "step": 1,
+      "tooltip": "This condition will remain true for a number of extra bars. Default is 0, which means it will be true only on the bar that triggered the condition.",
+      "type": "number"
+    }
+  ],
+  "notes": [],
+  "plots": [],
+  "schema": "gainium.indicator-settings/1",
+  "source": "gainium-catalog"
+}
