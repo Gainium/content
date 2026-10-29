@@ -6,7 +6,7 @@ description: >-
   Learn how to use the Supertrend indicator in Gainium, create bot trading
   strategies, and optimize your trading performance effectively.
 createdAt: '2024-10-05T11:32:00.136Z'
-updatedAt: '2026-10-25T00:00:00.000Z'
+updatedAt: '2026-10-29T12:00:00.000Z'
 publishedAt: '2024-10-05T11:32:02.834Z'
 locale: en
 categories:
@@ -105,7 +105,7 @@ How to read it:
 
 | Setting | Default | What it does |
 | --- | --- | --- |
-| Multiplier | 3 | ATRs between the candle midpoint and the line. A higher value sits further from price and flips less. |
+| Multiplier | 3 | ATRs between the candle midpoint and the line, from 0.1 in steps of 0.1. A higher value sits further from price and flips less. |
 | ATR Length | 10 | Candles in the ATR, smoothed with Wilder's average, 1 to 200. |
 | Condition | Up trend | Up trend and Down trend are true on every candle of the trend. From down to up and From up to down are true only on the flip candle. |
 | Interval | 1 hour | Candle size the line is calculated on, from 1 minute to 1 week. |

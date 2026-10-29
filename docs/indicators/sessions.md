@@ -7,7 +7,7 @@ description: >-
   signals by day of the week and time of day, and to trade the previous
   session's high, low, midpoint, open or close with the Price levels rule.
 createdAt: '2026-04-07T12:00:00.000Z'
-updatedAt: '2026-10-25T00:00:00.000Z'
+updatedAt: '2026-10-29T12:00:00.000Z'
 publishedAt: '2026-04-07T12:00:00.000Z'
 locale: en
 categories:
@@ -27,7 +27,9 @@ tldr: >-
   market) or set your own hours. The In session and Out of session rules
   filter by time; the Price levels rule compares session prices, for example
   buy when price crosses above the previous session's high during the New
-  York session.
+  York session. Its Active setting reads the levels during the session,
+  outside it or any time: Monday only with Active Outside the session trades
+  the rest of the week against Monday's range.
 kind: native
 catalogKeys:
   - SESSION
@@ -57,15 +59,19 @@ faq:
       session the indicator only saw part of is skipped.
   - title: Why does my Price levels condition never fire?
     details: >-
-      Check three things. The rule is only true during the session. A
-      crossing never counts on the candle where the session values roll
-      over. An interval longer than the session may leave no candle opening
-      inside it, so use 15 minutes or less for sessions with hours.
-  - title: Can I use two Session indicators in one bot?
+      Check three things. With Active During the session (the default), the
+      rule is only true inside the session; choose Outside the session or Any
+      time to read it on other candles. A crossing never counts on the candle
+      where the session values roll over. An interval longer than the session
+      may leave no candle opening inside it, so use 15 minutes or less for
+      sessions with hours.
+  - title: How do I trade the Monday range?
     details: >-
-      Yes. A bot can have one In session or Out of session filter and, at the
-      same time, one or more Session indicators on Price levels, each with its
-      own session, interval and condition.
+      Set Session to All day, Session Days to Monday only, Time zone UTC, Rule
+      Price levels and Active Outside the session. Price crossing up Previous
+      session high then fires when a candle from Tuesday to Sunday closes
+      above Monday's high. Monday itself never fires, and each new Monday
+      replaces the range.
 related:
   - price-change-indicator
   - support-resistance-indicator
@@ -96,7 +102,7 @@ Crypto trades 24/7, but volume and volatility are not spread evenly. They rise w
 
 - **In session:** true only inside the session (selected days, and hours when set).
 - **Out of session:** true only outside it.
-- **Price levels:** compares a value **A** (**Compare**) with a value **B** (**With**) using a **Condition**, and is true only when the condition is met during the session.
+- **Price levels:** compares a value **A** (**Compare**) with a value **B** (**With**) using a **Condition**. **Active** sets when it is read: During the session (the default), Outside the session, or Any time.
 
 **Price levels values.** Compare and With offer the same list:
 
@@ -115,11 +121,13 @@ What decides those values:
 
 - **A candle belongs to a session when it opens inside it.** With the US stock market session (09:30–16:00 New York), 15-minute candles start at 09:30, so the session's open, high and low include its first half hour. With a 1-hour interval the first candle inside is the 10:00 one. An interval longer than the session may leave no candle inside it, and the rule never fires.
 - **Previous session = the last completed session.** A session is complete once a candle arrives outside it. Between sessions, the previous session is the one that just ended.
-- **Current session values exist only while a session runs.** The current midpoint moves whenever the session makes a new high or low, so price crossing it works like crossing a moving average.
+- **Current session values exist only while a session runs.** The current midpoint moves whenever the session makes a new high or low, so price crossing it works like crossing a moving average. Outside a session a condition that reads Current session open or midpoint is false.
 - **A session seen only in part is skipped.** If the candle history starts mid-session, that session never becomes a previous session.
 - **No value, no signal.** With no completed session yet, or Current session open outside a session, the condition is false. Comparing a value with itself is always false.
 
-**Crossings.** Crossing up means Compare was below With on the previous candle and is at or above it now; crossing down is the reverse. A crossing never counts on the candle where the session values roll over: both candles must belong to the same session and see the same previous session. A level that jumps because the session changed is never read as price crossing it.
+**Crossings.** Crossing up means Compare was below With on the previous candle and is at or above it now; crossing down is the reverse. A crossing never counts on the candle where the session values roll over: both candles must see the same previous session and be in the same place, both in one session or both outside. A level that jumps because the session changed is never read as price crossing it.
+
+**Active.** With **Outside the session** the rule is read only on candles outside the session, against the last session that ended. With **Any time** it is read on every candle. A Monday-only session with Active Outside the session is the Monday range: Monday sets the high, low and midpoint, and the rest of the week trades against them. On BTC/USDT 1h, a close crosses up the Monday high at some point from Tuesday to Sunday in about 63% of weeks, and crosses down the Monday low in about 56%.
 
 On the bot chart, In session shades every candle the session touches (Out of session shades the time outside it). With Price levels, the shading shows the session, Compare is drawn in orange and With in purple. Previous-session lines stay flat while a session runs and step to the new values once it ends, with a one-candle gap at the change.
 
@@ -133,14 +141,17 @@ On the bot chart, In session shades every candle the session touches (Out of ses
 | Start | — | Local time the session opens. Leave Start and End empty for the whole day. |
 | End | — | Local time the session closes. An End before Start runs overnight and belongs to the day it opens. |
 | Time zone | UTC | Session days and hours are read on this clock. |
-| Rule | In session | In or out of session filters by time. Price levels compares two session prices and is true only during the session. |
+| Rule | In session | In or out of session filters by time. Price levels compares two session prices; Active sets whether it is read during the session, outside it or any time. |
 | Interval | 15 minutes | Candles the session prices are read from. |
 | Compare | Price | Price is the close of the latest candle. Previous session values come from the last session that has ended. Current session open and midpoint have no value outside a session; the midpoint is halfway between the session high and low so far. |
 | Condition | Crossing up | Crossing compares two candles of the same session; a new session moving the levels is not a crossing. Nothing triggers before a whole session has ended. |
 | With | Previous session high | The value Compare is tested against. |
+| Active | — | When Price levels is read. Not set means During the session. Outside the session reads the last session that ended on every other candle; Any time reads every candle. Current session values have none outside a session. |
 | Session Days | 1,2,3,4,5 | Days the session opens, in its time zone: 0 is Sunday, 1 Monday, up to 6 for Saturday. |
 
 **Tip:** keep the Interval at 15 minutes for sessions that open on the half hour. With the US stock market session (09:30 New York), Price crossing up Previous session high fires about three times as often on 15m candles as on 1h, because the first 1h candle inside opens at 10:00.
+
+**Tip:** **Active** Outside the session on a Monday-only session fires on the rest of the week instead of on Monday. In a backtest on BTC/USDT 15m candles, Price crossing up Previous session high opened 6 deals from Tuesday to Sunday with Outside the session, and none with During the session.
 
 **Tip:** With Current session midpoint fires far more often than a previous-session level, because the midpoint moves with every new session high or low. On the New York session with 15m candles it fires about three and a half times as often as Previous session high.
 
@@ -166,6 +177,18 @@ On the bot chart, In session shades every candle the session touches (Out of ses
 
 ![Annotated Gainium bot chart, BTC/USDT 1h, Session Selector on London with Price levels: the shaded London sessions and the close below the previous London low where the deal starts](https://content.gainium.io/images/content/indicators/sessions__london-low-reversion.webp)
 
+### Trade the Monday range
+
+- **Entry:** Session Selector, Session **All day**, Time zone **UTC**, Session Days **Monday** only, Rule **Price levels**, **Active Outside the session**, Interval 1 hour, Compare **Price**, Condition **Crossing up**, With **Previous session high**.
+- **Exit:** take profit 2%. For a stop, set the stop loss type to Indicators with a second Session Selector on the same session and Active: Compare **Price**, Condition **Crossing down**, With **Previous session midpoint**.
+- **Settings:** Session Days Monday and no hours, so Monday is one whole UTC day. The mirror trade buys a close under the Monday low (Crossing down, Previous session low) with a take profit condition of Crossing up Previous session midpoint. Price reached the Monday midpoint before the next Monday after about 41% of first breaks down, from a median 2.4% under it.
+- **Timeframe:** 1 hour. After the first close above the Monday high, price traded 2% higher within 24 candles about half of the time.
+- **When it fails:** on a false break. After about 43% of first breaks, a close fell back under the Monday high within 24 candles. The condition fires again on the next cross up, so set the bot's Max open deals to 1 for one deal on each Monday range.
+
+In the chart below, Monday is the unshaded day. The first close above Monday's high came on Tuesday evening UTC, fell back under it, and crossed up again before the run to 81,600.
+
+![Annotated Gainium bot chart, BTC/USDT 1h, Session Selector on Monday only with Price levels and Active Outside the session: Monday unshaded, the purple Monday high at 80,824.5 after it, the first close above it ringed on Tuesday evening UTC, and a later second cross before the rise to 81,600](https://content.gainium.io/images/content/indicators/sessions__monday-range.webp)
+
 ## Using Sessions in Gainium
 
 1. Create a DCA bot and switch the form to **Manual**.
@@ -184,7 +207,10 @@ The fields and their defaults:
 - **Compare:** Price. Price levels only.
 - **Condition:** Crossing up. Price levels only: Crossing down, Crossing up, Greater than, Lower than.
 - **With:** Previous session high. Price levels only.
+- **Active:** not set, which reads as During the session. Price levels only: During the session, Outside the session or Any time.
 - **Session Days:** Monday to Friday.
+
+![Session Selector settings card in the Gainium bot form set for the Monday range: Session All day, Time zone UTC, Rule Price levels, Interval 15 minutes, Compare Price, Condition Crossing up, With Previous session high, Active Outside the session ringed, and only Mon ringed under Session Days](https://content.gainium.io/images/content/indicators/sessions__price-levels-outside.webp)
 
 Session Selector has no Keep true field, and it cannot drive the Bot Controller.
 

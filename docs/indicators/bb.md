@@ -6,7 +6,7 @@ description: >-
   In this article, we explain what is the Bollinger Bands indicator and how it
   can be used in bot trading.
 createdAt: '2023-04-05T14:51:39.550Z'
-updatedAt: '2026-10-25T00:00:00.000Z'
+updatedAt: '2026-10-29T12:00:00.000Z'
 publishedAt: '2023-04-12T06:03:51.322Z'
 locale: en
 categories:
@@ -100,13 +100,13 @@ How to read them:
 | MA type | SMA | The moving average of the middle band: SMA, EMA, WMA, DEMA, TEMA, HMA, VWMA or RMA. |
 | SMA Length | 20 | The period of the middle band's moving average. |
 | Length | 20 | The number of closes the standard deviation is measured over. |
-| Standard Deviations | 2 | How far the upper and lower bands sit from the middle band, in standard deviations. |
+| Standard Deviations | 2 | How far the upper and lower bands sit from the middle band, in standard deviations, 0.1 to 10 in steps of 0.1. |
 | Interval | 1 hour | The candle size the bands are calculated on, from 1 minute to 1 week. |
 | Condition | Crossing up | How the close is compared with the band in Value: Crossing up, Crossing down, Greater than or Lower than. |
 | Value | Lower | The band the close is compared with: Lower, Upper or Middle. |
 | Keep true | 0 | Extra bars the condition stays true after it fires. 0 means only the bar that triggered it. |
 
-**Tip:** Standard Deviations 2.5 keeps only the deeper flushes. On BTC/USDT 4h, the lower-band reclaim fires about a third as often with 2.5 as with 2, and about a third more often with 1.5 than with 2, so 1.5 gives almost four times as many reclaims as 2.5. The field steps by 1, so type 2.5 by hand.
+**Tip:** Standard Deviations 2.5 keeps only the deeper flushes. On BTC/USDT 4h, the lower-band reclaim fires about a third as often with 2.5 as with 2, and about a third more often with 1.5 than with 2, so 1.5 gives almost four times as many reclaims as 2.5. The field steps by 0.1, from 0.1 to 10.
 
 ![Bollinger Bands Standard Deviations 2 vs 2.5 on BINANCE:BTCUSDT 4h: the same candles in both panels; with 2.5 the bands sit wider and far fewer candles close outside the lower band](https://content.gainium.io/images/content/indicators/bb__tip-standard-deviations.webp)
 

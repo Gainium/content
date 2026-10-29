@@ -123,7 +123,7 @@
         "out",
         "levels"
       ],
-      "tooltip": "In or out of session filters by time. Price levels compares two session prices and is true only during the session.",
+      "tooltip": "In or out of session filters by time. Price levels compares two session prices; Active sets whether it is read during the session, outside it or any time.",
       "type": "select"
     },
     {
@@ -266,6 +266,32 @@
         }
       ],
       "tooltip": "The value Compare is tested against.",
+      "type": "select"
+    },
+    {
+      "default": null,
+      "defaultText": "—",
+      "group": null,
+      "id": "sessionLevelsActive",
+      "kind": "logic",
+      "label": "Active",
+      "optionLabels": [
+        "During the session",
+        "Outside the session",
+        "Any time"
+      ],
+      "options": [
+        "session",
+        "outside",
+        "always"
+      ],
+      "shownWhen": [
+        {
+          "equals": "levels",
+          "field": "sessionRule"
+        }
+      ],
+      "tooltip": "When the condition is read. Outside the session the previous session values are those of the last session that ended, and current session values have none. A crossing needs two candles in the same place: both in one session, or both outside. Monday range: Session Days Monday, no hours, Outside the session, Price crossing up Previous session high.",
       "type": "select"
     },
     {

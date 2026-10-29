@@ -7,7 +7,7 @@ description: >-
   detecting trend reversals, and momentum shifts with strategies and practical
   examples.
 createdAt: '2024-10-07T04:35:50.955Z'
-updatedAt: '2026-10-25T00:00:00.000Z'
+updatedAt: '2026-10-29T12:00:00.000Z'
 publishedAt: '2024-10-07T04:36:49.453Z'
 locale: en
 categories:
@@ -53,9 +53,10 @@ faq:
       fires on every RSI divergence of the chosen type.
   - title: Why does the signal come one candle after the low?
     details: >-
-      A low only counts as a pivot once the next candle closes higher on the
-      oscillator, so the condition can only see it one candle later. On
-      4-hour candles that is a four-hour delay from the actual low.
+      A low only counts as a pivot once Pivot lookback right candles after it
+      have closed higher on the oscillator. With the default of 1, the
+      condition sees it one candle later; on 4-hour candles that is a
+      four-hour delay. A larger value finds steadier pivots and signals later.
   - title: What Min number of divergences should I use?
     details: >-
       It trades frequency for agreement. On BTC/USDT 4h, a regular bullish
@@ -95,8 +96,8 @@ Divergence is one of the RSI signals in J. Welles Wilder Jr.'s 1978 book, and tr
 
 How Gainium detects them, on every closed candle and for each selected oscillator:
 
-1. Find a **pivot** on the oscillator: a value lower (or higher) than the 3 candles before it and the 1 candle after it. The pivot is confirmed one candle after it forms.
-2. Compare it with the oscillator's previous pivot, which must be 1 to 60 candles earlier.
+1. Find a **pivot** on the oscillator: a value lower (or higher) than the **Pivot lookback left** candles before it (default 3) and the **Pivot lookback right** candles after it (default 1). The pivot is confirmed Pivot lookback right candles after it forms.
+2. Compare it with the oscillator's previous pivot, which must be between **Min of lookback range** and **Max of lookback range** candles earlier (default 1 to 60).
 3. Compare the price lows (or highs) at the same two candles.
 4. Count the oscillators that show each type on this candle. The condition is true when the count reaches **Min number of divergences**. "Any Bullish" means the regular count or the hidden count reaches it; the two are not added together.
 
@@ -114,13 +115,19 @@ How often they appear: on BTC/USDT 4h, two or more oscillators show any bearish 
 | Type of divergence | Any Bearish | Regular (Bearish, Bullish), hidden, or Any. Any counts regular and hidden divergences separately and fires when either count reaches the minimum. |
 | Oscillators | AO,CCI,MACD,MFI,MOM,RSI,Stoch,UO,WR | The oscillators checked, all nine by default. Each runs with fixed settings, for example RSI 14 and MACD 12, 26, 9. |
 | Interval | 1 hour | Candle size of the oscillators and of price, from 1 minute to 1 week. |
+| Pivot lookback left | 3 | Candles before a pivot that must be higher (for a low) or lower (for a high), 1 to 50. |
+| Pivot lookback right | 1 | Candles after a pivot that must be higher or lower, 1 to 50. The pivot, and the signal, are confirmed this many candles after the low or high. |
+| Min of lookback range | 1 | Fewest candles between the two pivots a divergence compares, 1 to 500. Must be below the max. |
+| Max of lookback range | 60 | Most candles between the two pivots a divergence compares, 2 to 500. |
 | Keep true | 0 | Extra candles the condition stays true after it fires. A divergence is true on one candle only. |
 
 **Tip:** **Min number of divergences** can never be met when it is higher than the number of selected Oscillators. With only RSI selected, set it to 1. The field stops at 9, one for each oscillator.
 
 **Tip:** Each step of **Min number of divergences** cuts the signals by 60 to 70%. With Any Bullish on BTC/USDT 4h, a minimum of 2 fires on about a quarter as many candles as 1, and a minimum of 4 on about a twentieth.
 
-**Tip:** A pivot is confirmed one candle after it forms, and the condition is true on that candle only. Set **Keep true** to 2 or 3 when it shares a group with a condition that tends to fire a few candles later, such as RSI crossing up through 30.
+**Tip:** A pivot is confirmed **Pivot lookback right** candles after it forms, and the condition is true on that candle only. Set **Keep true** to 2 or 3 when it shares a group with a condition that tends to fire a few candles later, such as RSI crossing up through 30.
+
+**Tip:** **Pivot lookback left** 5, **Pivot lookback right** 2 and **Max of lookback range** 30 keep only clearer pivots that sit close together. With Any Bullish and a minimum of 2 on BTC, ETH and SOL 1h, they fire about two thirds as often as the defaults (3, 1 and 60), and each signal comes one candle later.
 
 ## Trading setups for bots
 
@@ -160,7 +167,15 @@ The fields and their defaults:
 - **Type of divergence:** Any Bearish. The options are Any Bearish, Bearish, Hidden Bearish, Any Bullish, Bullish and Hidden Bullish.
 - **Oscillators:** all nine selected: Awesome Oscillator, CCI, MACD, MFI, Momentum, RSI, Stochastic, Ultimate Oscillator and Williams %R.
 - **Interval:** 1 hour.
+- **Pivot lookback left:** 3 candles, from 1 to 50.
+- **Pivot lookback right:** 1 candle, from 1 to 50.
+- **Min of lookback range:** 1 candle, from 1 to 500.
+- **Max of lookback range:** 60 candles, from 2 to 500. Min must stay below Max, or the bot form will not save.
 - **Keep true:** 0 extra candles. A divergence is true on one candle only, so Keep true 1 or 2 lets it meet a second condition that fires a little later.
+
+![The pivot fields of the Gainium Divergences settings card with their defaults: Pivot lookback left 3, Pivot lookback right 1, Min of lookback range 1 and Max of lookback range 60 bars](https://content.gainium.io/images/content/indicators/divergences-indicator__pivots.webp)
+
+The bot-form chart's divergence study uses the same four values, so its marks match the condition.
 
 Divergences works as a deal start, DCA, take profit or stop loss condition, and in the Bot Controller.
 

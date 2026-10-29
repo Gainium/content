@@ -6,7 +6,7 @@ description: >-
   In this article, we explain what is BBW indicator and how it can be used in
   bot trading.
 createdAt: '2023-04-05T14:49:25.356Z'
-updatedAt: '2026-10-25T00:00:00.000Z'
+updatedAt: '2026-10-29T12:00:00.000Z'
 publishedAt: '2023-04-12T05:15:20.930Z'
 locale: en
 categories:
@@ -43,7 +43,7 @@ faq:
   - title: What is a low BBW?
     details: >-
       It depends on the pair and interval. On BTC/USDT 4h, BBW ranges from
-      about 0.0097 to 0.27, with a median near 0.034. Use percentile mode to
+      about 0.0097 to 0.27, with a median near 0.034. Switch on Percentile to
       say "low" without picking a number.
   - title: Does a squeeze tell you the breakout direction?
     details: >-
@@ -99,16 +99,17 @@ How to read it:
 
 | Setting | Default | What it does |
 | --- | --- | --- |
-| Use percentile | Off | On: Value is hidden and the condition compares the line with its own percentile level over the last Lookback bars. |
+| Percentile | Off | On: Value is hidden and the condition compares the line with its own percentile level over the last Lookback bars. With smoothing on, the smoothed line is ranked. |
 | Lookback | 150 | Bars the percentile level is taken from. Percentile mode only. |
-| Percentile | 80 | Which percentile of those bars is the level: 80 is higher than 80% of them, 10 lower than 90% of them. Percentile mode only. |
+| Threshold | 80 | Which percentile of those bars is the level, 0 to 100: 80 is higher than 80% of them, 10 lower than 90% of them. Percentile mode only. |
 | MA type | SMA | The moving average of the middle band: SMA, EMA, WMA, DEMA, TEMA, HMA, VWMA or RMA. |
 | SMA Length | 20 | The period of the middle band's moving average. |
 | Length | 20 | The number of closes the standard deviation is measured over. |
-| Standard Deviations | 2 | How far each band sits from the middle band. BBW grows in proportion to it. |
+| Standard Deviations | 2 | How far each band sits from the middle band, 0.1 to 10 in steps of 0.1. BBW grows in proportion to it. |
 | Interval | 1 hour | The candle size BBW is calculated on, from 1 minute to 1 week. |
-| Smoothing | None | Moving average applied to the indicator line. With smoothing on, the condition uses the smoothed line. |
-| Smoothing length | 14 | Bars in the smoothing average. Shown when Smoothing is on. |
+| Smoothing | — | Moving average applied to the indicator line. With smoothing on, the condition uses the smoothed line. |
+| Average | none | The smoothing average: SMA, EMA, WMA, DEMA, TEMA, HMA or RMA. Shown when Smoothing is on. |
+| Length | 14 | Bars in the smoothing average. Shown when Smoothing is on. |
 | Compare | Smoothed line vs value | Smoothed line vs value: the condition tests the smoothed line against Value. Line vs smoothed line: the condition tests the indicator against its own moving average, a momentum-turn signal. Percentile mode always compares against a value. |
 | Condition | Crossing down | How BBW is compared with Value: Crossing up, Crossing down, Greater than, Lower than, or Between Value and Upper value. Percentile mode drops Between. |
 | Value | 0.05 | The threshold as a ratio, in steps of 0.01: 0.05 means the bands are 5% of the middle band apart. |
@@ -119,7 +120,7 @@ How to read it:
 
 **Tip:** BBW scales with Standard Deviations. The BTC/USDT 4h median was 0.017 with 1, 0.035 with 2 and 0.052 with 3, so a Lower than 0.02 condition is true about six times as often with 1 as with 2, and about a fifth as often with 3. If you change Standard Deviations, scale Value by the same factor.
 
-**Tip:** Use percentile with Percentile 10 and Lower than gives a squeeze test that works on any pair. On BTC/USDT 4h it is true on about one bar in nine, in short separate stretches of seven or eight bars.
+**Tip:** **Percentile** on with Threshold 10 and Lower than gives a squeeze test that works on any pair. On BTC/USDT 4h it is true on about one bar in nine, in short separate stretches of seven or eight bars.
 
 ## Trading setups for bots
 
@@ -159,22 +160,22 @@ BBW can start deals, place DCA orders (DCA type Indicators), close deals, and st
 
 The settings card starts with these defaults:
 
-- **Use percentile:** off. When on, the condition compares BBW with its own percentile level over the last **Lookback** bars (default 150) at the **Percentile** you set (default 80), and Value is hidden. Percentile 10 means "narrower than 90% of the last 150 bars". See [Indicator Percentiles](https://gainium.io/help/indicator-percentiles).
+- **Percentile:** off. When on, the condition compares BBW with its own percentile level over the last **Lookback** bars (default 150) at the **Threshold** you set (default 80), and Value is hidden. Threshold 10 means "narrower than 90% of the last 150 bars". See [Indicator Percentiles](https://gainium.io/help/indicator-percentiles).
 - **MA type:** SMA, or EMA, WMA, DEMA, TEMA, HMA, VWMA, RMA for the middle band.
 - **SMA Length:** 20. The period of the middle band.
 - **Length:** 20. The closes the standard deviation is measured over.
 - **Standard Deviations:** 2.
 - **Interval:** 1 hour, from 1 minute to 1 week.
-- **Smoothing:** None. A moving average of the BBW line (SMA, EMA, WMA, DEMA, TEMA, HMA or RMA), **Smoothing length** 14. **Compare** picks whether the condition tests the smoothed line against Value or the raw line against the smoothed one. See [Indicator Smoothing](https://gainium.io/help/indicator-smoothing).
+- **Smoothing:** off. When on, a moving average of the BBW line: **Average** SMA, EMA, WMA, DEMA, TEMA, HMA or RMA, and **Length** 14. **Compare** picks whether the condition tests the smoothed line against Value or the raw line against the smoothed one. See [Indicator Smoothing](https://gainium.io/help/indicator-smoothing).
 - **Condition:** Crossing down. The options are Crossing up, Crossing down, Greater than, Lower than and Between.
 - **Value:** 0.05, in steps of 0.01.
 - **Keep true:** 0. The number of extra bars the condition stays true after it fires.
 
 ![The BBW settings card in the Gainium bot form with its defaults: Use percentile off (ringed), MA type SMA, SMA Length 20, Length 20, Standard Deviations 2, Interval 1 hour, Smoothing None, Condition Crossing down, Value 0.05, Keep true 0](https://content.gainium.io/images/content/indicators/bbw__settings.webp)
 
-The fixed 0.02 in the first setup fits BTC/USDT 4h only. For a bot that trades many pairs, switch on **Use percentile** with Lookback 150, Percentile 10 and Condition Lower than.
+The fixed 0.02 in the first setup fits BTC/USDT 4h only. For a bot that trades many pairs, switch on **Percentile** with Lookback 150, Threshold 10 and Condition Lower than.
 
-**Example configuration** (the squeeze breakout): Deal start condition Indicators, both in one group. BBW: Use percentile off, MA type SMA, SMA Length 20, Length 20, Standard Deviations 2, Interval 4 hours, Smoothing None, Condition Lower than, Value 0.02, Keep true 6. BB: same band settings, Interval 4 hours, Condition Crossing up, Value Upper. Take profit type Indicators: BB, Condition Crossing down, Value Middle.
+**Example configuration** (the squeeze breakout): Deal start condition Indicators, both in one group. BBW: Percentile off, MA type SMA, SMA Length 20, Length 20, Standard Deviations 2, Interval 4 hours, Smoothing off, Condition Lower than, Value 0.02, Keep true 6. BB: same band settings, Interval 4 hours, Condition Crossing up, Value Upper. Take profit type Indicators: BB, Condition Crossing down, Value Middle.
 
 ## Related indicators
 

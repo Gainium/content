@@ -3,7 +3,7 @@
   "defaultTf": "1h",
   "featured": [
     "london-cd-prevlow",
-    "london-cu-prevhigh",
+    "monday-cu-prevhigh",
     "day-cu-prevhigh"
   ],
   "settings": [
@@ -56,7 +56,7 @@
       "id": "london-cu-prevhigh",
       "label": "London: price crosses up previous high",
       "side": "long",
-      "featured": true,
+      "featured": false,
       "indicator": {
         "class": "SessionLevels",
         "args": [
@@ -319,6 +319,98 @@
           "sessionLevelA": "price",
           "indicatorCondition": "cd",
           "sessionLevelB": "prevLow"
+        }
+      }
+    },
+    {
+      "id": "monday-cu-prevhigh",
+      "label": "Monday range: price crosses up Monday's high",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "SessionLevels",
+        "args": [
+          [
+            1
+          ],
+          {
+            "start": "",
+            "end": "",
+            "timezone": "UTC"
+          }
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "fn",
+        "fn": "sessionLevelsCondition",
+        "options": {
+          "a": "price",
+          "b": "prevHigh",
+          "condition": "cu",
+          "active": "outside"
+        }
+      },
+      "bot": {
+        "type": "SESSION",
+        "params": {
+          "sessionRule": "levels",
+          "sessionStart": "",
+          "sessionEnd": "",
+          "sessionTimezone": "UTC",
+          "sessionLevelA": "price",
+          "indicatorCondition": "cu",
+          "sessionLevelB": "prevHigh",
+          "sessionLevelsActive": "outside",
+          "sessionDays": [
+            1
+          ]
+        }
+      }
+    },
+    {
+      "id": "monday-cd-prevlow-short",
+      "label": "Monday range: price crosses down Monday's low, short",
+      "side": "short",
+      "featured": false,
+      "indicator": {
+        "class": "SessionLevels",
+        "args": [
+          [
+            1
+          ],
+          {
+            "start": "",
+            "end": "",
+            "timezone": "UTC"
+          }
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "fn",
+        "fn": "sessionLevelsCondition",
+        "options": {
+          "a": "price",
+          "b": "prevLow",
+          "condition": "cd",
+          "active": "outside"
+        }
+      },
+      "bot": {
+        "type": "SESSION",
+        "params": {
+          "sessionRule": "levels",
+          "sessionStart": "",
+          "sessionEnd": "",
+          "sessionTimezone": "UTC",
+          "sessionLevelA": "price",
+          "indicatorCondition": "cd",
+          "sessionLevelB": "prevLow",
+          "sessionLevelsActive": "outside",
+          "sessionDays": [
+            1
+          ]
         }
       }
     }

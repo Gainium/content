@@ -7,7 +7,7 @@ description: >-
   capturing overbought/oversold conditions, and building effective bot trading
   strategies.
 createdAt: '2024-10-06T07:36:52.543Z'
-updatedAt: '2026-10-25T00:00:00.000Z'
+updatedAt: '2026-10-29T12:00:00.000Z'
 publishedAt: '2024-10-06T07:36:54.333Z'
 locale: en
 categories:
@@ -93,16 +93,17 @@ How to read it:
 
 | Setting | Default | What it does |
 | --- | --- | --- |
-| Use percentile | Off | On: Value is hidden and the condition compares the line with its own percentile level over the last Lookback bars. |
+| Percentile | Off | On: Value is hidden and the condition compares the line with its own percentile level over the last Lookback bars. With smoothing on, the smoothed line is ranked. |
 | Lookback | 150 | Bars the percentile level is taken from. Percentile mode only. |
-| Percentile | 80 | Which percentile of those bars is the level: 80 is higher than 80% of them, 10 lower than 90% of them. Percentile mode only. |
+| Threshold | 80 | Which percentile of those bars is the level, 0 to 100: 80 is higher than 80% of them, 10 lower than 90% of them. Percentile mode only. |
 | MA type | SMA | The moving average of the middle band: SMA, EMA, WMA, DEMA, TEMA, HMA, VWMA or RMA. |
 | SMA Length | 20 | The period of the middle band's moving average. |
 | Length | 20 | The number of closes the standard deviation is measured over. |
-| Standard Deviations | 2 | How far each band sits from the middle band. Wider bands keep %B closer to 0.5. |
+| Standard Deviations | 2 | How far each band sits from the middle band, 0.1 to 10 in steps of 0.1. Wider bands keep %B closer to 0.5. |
 | Interval | 1 hour | The candle size %B is calculated on, from 1 minute to 1 week. |
-| Smoothing | None | Moving average applied to the indicator line. With smoothing on, the condition uses the smoothed line. |
-| Smoothing length | 14 | Bars in the smoothing average. Shown when Smoothing is on. |
+| Smoothing | — | Moving average applied to the indicator line. With smoothing on, the condition uses the smoothed line. |
+| Average | none | The smoothing average: SMA, EMA, WMA, DEMA, TEMA, HMA or RMA. Shown when Smoothing is on. |
+| Length | 14 | Bars in the smoothing average. Shown when Smoothing is on. |
 | Compare | Smoothed line vs value | Smoothed line vs value: the condition tests the smoothed line against Value. Line vs smoothed line: the condition tests the indicator against its own moving average, a momentum-turn signal. Percentile mode always compares against a value. |
 | Condition | Crossing down | How %B is compared with Value: Crossing up, Crossing down, Greater than, Lower than, or Between Value and Upper value. Percentile mode drops Between. |
 | Value | 0.05 | The threshold on the %B scale, in steps of 0.01: 0 is the lower band, 1 the upper band. |
@@ -113,7 +114,7 @@ How to read it:
 
 **Tip:** Standard Deviations sets how often 0.05 is reached. %B crossing down 0.05 on BTC/USDT 4h fires about 40% more often with 1.5 than with 2, and about 40% less often with 2.5, so 1.5 gives a little over twice as many signals as 2.5.
 
-**Tip:** Smoothing EMA with Smoothing length 14 kept %B above 0.08 on BTC/USDT 4h, so crossing down 0.05 never fired. With that smoothing use a Value of 0.2, which fires about a third as often as the unsmoothed 0.05, or a Smoothing length of 3, which keeps 0.05 and fires about three quarters as often.
+**Tip:** **Smoothing** on with Average EMA and Length 14 kept %B above 0.08 on BTC/USDT 4h, so crossing down 0.05 never fired. With that smoothing use a Value of 0.2, which fires about a third as often as the unsmoothed 0.05, or a smoothing Length of 3, which keeps 0.05 and fires about three quarters as often.
 
 ## Trading setups for bots
 
@@ -155,20 +156,20 @@ BB %B can start deals, place DCA orders (DCA type Indicators), close deals, and 
 
 The settings card starts with these defaults:
 
-- **Use percentile:** off. When on, Value is replaced by %B's own percentile level over the last **Lookback** bars (default 150) at the **Percentile** you set (default 80). See [Indicator Percentiles](https://gainium.io/help/indicator-percentiles).
+- **Percentile:** off. When on, Value is replaced by %B's own percentile level over the last **Lookback** bars (default 150) at the **Threshold** you set (default 80). See [Indicator Percentiles](https://gainium.io/help/indicator-percentiles).
 - **MA type:** SMA, or EMA, WMA, DEMA, TEMA, HMA, VWMA, RMA for the middle band.
 - **SMA Length:** 20. The period of the middle band.
 - **Length:** 20. The closes the standard deviation is measured over.
 - **Standard Deviations:** 2.
 - **Interval:** 1 hour, from 1 minute to 1 week.
-- **Smoothing:** None. A moving average of the %B line (SMA, EMA, WMA, DEMA, TEMA, HMA or RMA), **Smoothing length** 14, and **Compare** to test the smoothed line against Value or the raw line against the smoothed one. See [Indicator Smoothing](https://gainium.io/help/indicator-smoothing).
+- **Smoothing:** off. When on, a moving average of the %B line: **Average** SMA, EMA, WMA, DEMA, TEMA, HMA or RMA, **Length** 14, and **Compare** to test the smoothed line against Value or the raw line against the smoothed one. See [Indicator Smoothing](https://gainium.io/help/indicator-smoothing).
 - **Condition:** Crossing down. The options are Crossing up, Crossing down, Greater than, Lower than and Between.
 - **Value:** 0.05, on the 0 to 1 scale, in steps of 0.01.
 - **Keep true:** 0. The number of extra bars the condition stays true after it fires.
 
 ![The Bollinger Bands %B settings card in the Gainium bot form with its defaults: Use percentile off, MA type SMA, SMA Length 20, Length 20, Standard Deviations 2, Interval 1 hour, Smoothing None, Condition Crossing down, Value 0.05 (ringed), Keep true 0](https://content.gainium.io/images/content/indicators/bollinger-bands-b__settings.webp)
 
-**Example configuration** (the dip buy): Deal start condition Indicators, BB %B with Use percentile off, MA type SMA, SMA Length 20, Length 20, Standard Deviations 2, Interval 4 hours, Smoothing None, Condition Crossing down, Value 0.05, Keep true 0. Take profit type Indicators, BB %B with the same settings, Condition Crossing up, Value 0.95. Three DCA orders 1.5% apart.
+**Example configuration** (the dip buy): Deal start condition Indicators, BB %B with Percentile off, MA type SMA, SMA Length 20, Length 20, Standard Deviations 2, Interval 4 hours, Smoothing off, Condition Crossing down, Value 0.05, Keep true 0. Take profit type Indicators, BB %B with the same settings, Condition Crossing up, Value 0.95. Three DCA orders 1.5% apart.
 
 ## Related indicators
 

@@ -19,7 +19,8 @@
       "id": "factor",
       "kind": "logic",
       "label": "Multiplier",
-      "step": 1,
+      "min": 0.1,
+      "step": 0.1,
       "type": "number"
     },
     {
