@@ -13,6 +13,26 @@
   },
   "inputs": [
     {
+      "default": null,
+      "defaultText": "—",
+      "group": null,
+      "id": "pcCompare",
+      "kind": "logic",
+      "label": "Condition",
+      "optionLabels": [
+        "Greater than",
+        "Lower than",
+        "Between"
+      ],
+      "options": [
+        "gt",
+        "lt",
+        "bw"
+      ],
+      "tooltip": "How the last closed candle's move from its open is compared with % change: greater than, lower than, or between % change and the second value.",
+      "type": "select"
+    },
+    {
       "default": 5,
       "defaultText": "5",
       "group": null,
@@ -20,7 +40,24 @@
       "kind": "logic",
       "label": "% change",
       "step": 0.1,
-      "tooltip": "The minimum price increase or decrease in the previous candle. Use a positive number for an increase and a negative number for a decrease.",
+      "tooltip": "The price move of the last closed candle from its open, in %. A positive number reads the move up to the high, a negative number the move down to the low.",
+      "type": "number"
+    },
+    {
+      "default": null,
+      "defaultText": "—",
+      "group": null,
+      "id": "pcValue2",
+      "kind": "logic",
+      "label": "And % change",
+      "shownWhen": [
+        {
+          "equals": "bw",
+          "field": "pcCompare"
+        }
+      ],
+      "step": 0.1,
+      "tooltip": "The other end of the range, with the same sign as % change: 2 and 5 = the candle rose between 2 % and 5 %; -2 and -5 = it fell between 2 % and 5 %.",
       "type": "number"
     },
     {
