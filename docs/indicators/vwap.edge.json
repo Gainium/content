@@ -1,0 +1,4837 @@
+{
+ "indicator": "vwap",
+ "defaultTf": "1h",
+ "method": {
+  "horizon": 20,
+  "horizons": [
+   10,
+   20,
+   50,
+   100
+  ],
+  "randomDraws": 500,
+  "minEpisodes": 30,
+  "source": "Binance spot",
+  "pairs": [
+   "BTC/USDT",
+   "ETH/USDT",
+   "SOL/USDT"
+  ],
+  "from": "2020-09-01",
+  "warmupFrom": "2020-06-01",
+  "regime": {
+   "by": "pair close vs its 200-day SMA",
+   "sma": 200
+  },
+  "to": "2026-10-28",
+  "engine": {
+   "indicators": "c1a80cca",
+   "analysisMath": "1e6c0dbf"
+  }
+ },
+ "updatedAt": "2026-10-29",
+ "settings": [
+  {
+   "id": "vwap-day-gt",
+   "tf": "1h",
+   "label": "Close above the daily VWAP",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 82848,
+    "episodes": 453,
+    "draws": 100,
+    "edge": -0.02,
+    "chance": [
+     -0.05,
+     0.05
+    ],
+    "verdict": "none",
+    "path": [
+     0.007,
+     0.006,
+     0.007,
+     0.008,
+     0.008,
+     0.006,
+     0.006,
+     0.006,
+     0.01,
+     0.009,
+     0.006,
+     0.006,
+     0.008,
+     0.007,
+     0.004,
+     0.002,
+     -0.003,
+     -0.009,
+     -0.016,
+     -0.021
+    ],
+    "band": [
+     [
+      -0.005,
+      0.004
+     ],
+     [
+      -0.011,
+      0.008
+     ],
+     [
+      -0.015,
+      0.013
+     ],
+     [
+      -0.018,
+      0.016
+     ],
+     [
+      -0.023,
+      0.019
+     ],
+     [
+      -0.025,
+      0.022
+     ],
+     [
+      -0.027,
+      0.023
+     ],
+     [
+      -0.027,
+      0.024
+     ],
+     [
+      -0.028,
+      0.025
+     ],
+     [
+      -0.029,
+      0.029
+     ],
+     [
+      -0.033,
+      0.033
+     ],
+     [
+      -0.034,
+      0.034
+     ],
+     [
+      -0.038,
+      0.039
+     ],
+     [
+      -0.04,
+      0.042
+     ],
+     [
+      -0.043,
+      0.042
+     ],
+     [
+      -0.044,
+      0.044
+     ],
+     [
+      -0.045,
+      0.045
+     ],
+     [
+      -0.045,
+      0.044
+     ],
+     [
+      -0.047,
+      0.045
+     ],
+     [
+      -0.048,
+      0.049
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 27971,
+     "episodes": 137,
+     "draws": 100,
+     "edge": -0.01,
+     "chance": [
+      -0.04,
+      0.04
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 27954,
+     "episodes": 157,
+     "draws": 100,
+     "edge": -0.01,
+     "chance": [
+      -0.05,
+      0.05
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 26923,
+     "episodes": 159,
+     "draws": 100,
+     "edge": -0.04,
+     "chance": [
+      -0.09,
+      0.1
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "VWAP",
+    "params": {
+     "vwapAnchor": "day",
+     "vwapLine": "vwap",
+     "indicatorCondition": "gt"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 44778,
+     "episodes": 279,
+     "draws": 100,
+     "edge": 0,
+     "chance": [
+      -0.04,
+      0.05
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 35948,
+     "episodes": 264,
+     "draws": 100,
+     "edge": -0.05,
+     "chance": [
+      -0.05,
+      0.05
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "vwap-day-lt-lower2",
+   "tf": "1h",
+   "label": "Close below the daily VWAP's lower 2σ band",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 12898,
+    "episodes": 3273,
+    "draws": 100,
+    "edge": 0.07,
+    "chance": [
+     -0.09,
+     0.08
+    ],
+    "verdict": "none",
+    "path": [
+     0.009,
+     0.023,
+     0.028,
+     0.028,
+     0.042,
+     0.038,
+     0.045,
+     0.045,
+     0.04,
+     0.045,
+     0.051,
+     0.05,
+     0.034,
+     0.027,
+     0.039,
+     0.028,
+     0.028,
+     0.043,
+     0.057,
+     0.07
+    ],
+    "band": [
+     [
+      -0.015,
+      0.02
+     ],
+     [
+      -0.024,
+      0.031
+     ],
+     [
+      -0.028,
+      0.039
+     ],
+     [
+      -0.036,
+      0.038
+     ],
+     [
+      -0.035,
+      0.04
+     ],
+     [
+      -0.047,
+      0.049
+     ],
+     [
+      -0.055,
+      0.052
+     ],
+     [
+      -0.051,
+      0.056
+     ],
+     [
+      -0.053,
+      0.052
+     ],
+     [
+      -0.062,
+      0.053
+     ],
+     [
+      -0.058,
+      0.064
+     ],
+     [
+      -0.065,
+      0.063
+     ],
+     [
+      -0.072,
+      0.065
+     ],
+     [
+      -0.072,
+      0.063
+     ],
+     [
+      -0.087,
+      0.067
+     ],
+     [
+      -0.091,
+      0.073
+     ],
+     [
+      -0.09,
+      0.068
+     ],
+     [
+      -0.092,
+      0.072
+     ],
+     [
+      -0.088,
+      0.072
+     ],
+     [
+      -0.094,
+      0.083
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 4353,
+     "episodes": 1067,
+     "draws": 100,
+     "edge": 0.04,
+     "chance": [
+      -0.07,
+      0.09
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 4097,
+     "episodes": 1116,
+     "draws": 100,
+     "edge": 0.11,
+     "chance": [
+      -0.11,
+      0.1
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 3,
+       "start": "2026-08-19",
+       "end": "2026-08-19",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 4448,
+     "episodes": 1090,
+     "draws": 100,
+     "edge": 0.06,
+     "chance": [
+      -0.17,
+      0.15
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "VWAP",
+    "params": {
+     "vwapAnchor": "day",
+     "vwapLine": "lower",
+     "indicatorCondition": "lt",
+     "vwapBandMultiplier": 2
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 6823,
+     "episodes": 1800,
+     "draws": 100,
+     "edge": 0.09,
+     "chance": [
+      -0.1,
+      0.1
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 5754,
+     "episodes": 1432,
+     "draws": 100,
+     "edge": 0.08,
+     "chance": [
+      -0.09,
+      0.09
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "vwap-day-gt-upper2-short",
+   "tf": "1h",
+   "label": "Close above the daily VWAP's upper 2σ band, short",
+   "side": "short",
+   "featured": false,
+   "pooled": {
+    "entries": 13922,
+    "episodes": 3193,
+    "draws": 100,
+    "edge": 0.05,
+    "chance": [
+     -0.07,
+     0.07
+    ],
+    "verdict": "none",
+    "path": [
+     0,
+     0.024,
+     0.018,
+     0.008,
+     0.017,
+     0.027,
+     0.027,
+     0.024,
+     0.023,
+     0.041,
+     0.044,
+     0.047,
+     0.043,
+     0.054,
+     0.046,
+     0.036,
+     0.037,
+     0.042,
+     0.045,
+     0.052
+    ],
+    "band": [
+     [
+      -0.011,
+      0.016
+     ],
+     [
+      -0.019,
+      0.023
+     ],
+     [
+      -0.029,
+      0.031
+     ],
+     [
+      -0.033,
+      0.033
+     ],
+     [
+      -0.035,
+      0.04
+     ],
+     [
+      -0.047,
+      0.043
+     ],
+     [
+      -0.05,
+      0.051
+     ],
+     [
+      -0.048,
+      0.053
+     ],
+     [
+      -0.043,
+      0.057
+     ],
+     [
+      -0.049,
+      0.062
+     ],
+     [
+      -0.044,
+      0.067
+     ],
+     [
+      -0.052,
+      0.068
+     ],
+     [
+      -0.055,
+      0.072
+     ],
+     [
+      -0.059,
+      0.07
+     ],
+     [
+      -0.06,
+      0.076
+     ],
+     [
+      -0.063,
+      0.079
+     ],
+     [
+      -0.059,
+      0.076
+     ],
+     [
+      -0.062,
+      0.069
+     ],
+     [
+      -0.07,
+      0.078
+     ],
+     [
+      -0.073,
+      0.071
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 4837,
+     "episodes": 1028,
+     "draws": 100,
+     "edge": 0.02,
+     "chance": [
+      -0.07,
+      0.07
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 4570,
+     "episodes": 1074,
+     "draws": 100,
+     "edge": -0.02,
+     "chance": [
+      -0.09,
+      0.08
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 4515,
+     "episodes": 1091,
+     "draws": 100,
+     "edge": 0.15,
+     "chance": [
+      -0.15,
+      0.19
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "VWAP",
+    "params": {
+     "vwapAnchor": "day",
+     "vwapLine": "upper",
+     "indicatorCondition": "gt",
+     "vwapBandMultiplier": 2
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 7692,
+     "episodes": 1679,
+     "draws": 100,
+     "edge": 0,
+     "chance": [
+      -0.07,
+      0.07
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 5889,
+     "episodes": 1465,
+     "draws": 100,
+     "edge": 0.1,
+     "chance": [
+      -0.11,
+      0.06
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 5,
+       "start": "2022-05-10",
+       "end": "2022-05-11",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "vwap-week-gt",
+   "tf": "1h",
+   "label": "Close above the weekly VWAP",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 82525,
+    "episodes": 1036,
+    "draws": 100,
+    "edge": 0.08,
+    "chance": [
+     -0.08,
+     0.07
+    ],
+    "verdict": "fragile",
+    "robustness": {
+     "fragile": true,
+     "strongest": {
+      "deals": 621,
+      "start": "2023-10-13",
+      "end": "2023-11-13",
+      "without": "chance"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "edge"
+      },
+      {
+       "horizon": 100,
+       "state": "edge"
+      }
+     ]
+    },
+    "path": [
+     0.007,
+     0.013,
+     0.017,
+     0.022,
+     0.028,
+     0.033,
+     0.039,
+     0.046,
+     0.051,
+     0.053,
+     0.056,
+     0.06,
+     0.063,
+     0.066,
+     0.069,
+     0.072,
+     0.071,
+     0.072,
+     0.075,
+     0.077
+    ],
+    "band": [
+     [
+      -0.005,
+      0.004
+     ],
+     [
+      -0.009,
+      0.007
+     ],
+     [
+      -0.013,
+      0.011
+     ],
+     [
+      -0.017,
+      0.014
+     ],
+     [
+      -0.021,
+      0.015
+     ],
+     [
+      -0.027,
+      0.017
+     ],
+     [
+      -0.031,
+      0.02
+     ],
+     [
+      -0.033,
+      0.023
+     ],
+     [
+      -0.036,
+      0.026
+     ],
+     [
+      -0.038,
+      0.03
+     ],
+     [
+      -0.043,
+      0.033
+     ],
+     [
+      -0.049,
+      0.035
+     ],
+     [
+      -0.054,
+      0.038
+     ],
+     [
+      -0.058,
+      0.041
+     ],
+     [
+      -0.062,
+      0.045
+     ],
+     [
+      -0.065,
+      0.049
+     ],
+     [
+      -0.071,
+      0.053
+     ],
+     [
+      -0.075,
+      0.059
+     ],
+     [
+      -0.078,
+      0.063
+     ],
+     [
+      -0.08,
+      0.066
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 28329,
+     "episodes": 341,
+     "draws": 100,
+     "edge": 0.03,
+     "chance": [
+      -0.06,
+      0.07
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 28088,
+     "episodes": 331,
+     "draws": 100,
+     "edge": 0.02,
+     "chance": [
+      -0.1,
+      0.1
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 26108,
+     "episodes": 364,
+     "draws": 100,
+     "edge": 0.19,
+     "chance": [
+      -0.13,
+      0.11
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 621,
+       "start": "2023-10-13",
+       "end": "2023-11-13",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    }
+   },
+   "bot": {
+    "type": "VWAP",
+    "params": {
+     "vwapAnchor": "week",
+     "vwapLine": "vwap",
+     "indicatorCondition": "gt"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 46923,
+     "episodes": 563,
+     "draws": 100,
+     "edge": 0.05,
+     "chance": [
+      -0.09,
+      0.06
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 33536,
+     "episodes": 515,
+     "draws": 100,
+     "edge": 0.07,
+     "chance": [
+      -0.08,
+      0.07
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 250,
+       "start": "2022-12-30",
+       "end": "2023-01-10",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "vwap-week-lt-lower2",
+   "tf": "1h",
+   "label": "Close below the weekly VWAP's lower 2σ band",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 6341,
+    "episodes": 1439,
+    "draws": 100,
+    "edge": -0.09,
+    "chance": [
+     -0.25,
+     0.26
+    ],
+    "verdict": "none",
+    "path": [
+     0.008,
+     0.011,
+     0.017,
+     0.03,
+     0.026,
+     -0.005,
+     -0.036,
+     -0.076,
+     -0.101,
+     -0.118,
+     -0.133,
+     -0.125,
+     -0.118,
+     -0.114,
+     -0.117,
+     -0.123,
+     -0.126,
+     -0.114,
+     -0.109,
+     -0.091
+    ],
+    "band": [
+     [
+      -0.029,
+      0.025
+     ],
+     [
+      -0.049,
+      0.041
+     ],
+     [
+      -0.067,
+      0.054
+     ],
+     [
+      -0.07,
+      0.07
+     ],
+     [
+      -0.087,
+      0.089
+     ],
+     [
+      -0.105,
+      0.1
+     ],
+     [
+      -0.116,
+      0.123
+     ],
+     [
+      -0.134,
+      0.141
+     ],
+     [
+      -0.15,
+      0.163
+     ],
+     [
+      -0.173,
+      0.168
+     ],
+     [
+      -0.188,
+      0.167
+     ],
+     [
+      -0.203,
+      0.181
+     ],
+     [
+      -0.209,
+      0.188
+     ],
+     [
+      -0.203,
+      0.183
+     ],
+     [
+      -0.202,
+      0.184
+     ],
+     [
+      -0.208,
+      0.211
+     ],
+     [
+      -0.23,
+      0.222
+     ],
+     [
+      -0.248,
+      0.232
+     ],
+     [
+      -0.243,
+      0.239
+     ],
+     [
+      -0.245,
+      0.257
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 2108,
+     "episodes": 455,
+     "draws": 118,
+     "edge": -0.23,
+     "chance": [
+      -0.2,
+      0.24
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 25,
+       "start": "2022-06-10",
+       "end": "2022-06-14",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 1874,
+     "episodes": 468,
+     "draws": 133,
+     "edge": -0.07,
+     "chance": [
+      -0.27,
+      0.25
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 2359,
+     "episodes": 516,
+     "draws": 105,
+     "edge": 0,
+     "chance": [
+      -0.49,
+      0.43
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "VWAP",
+    "params": {
+     "vwapAnchor": "week",
+     "vwapLine": "lower",
+     "indicatorCondition": "lt",
+     "vwapBandMultiplier": 2
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 3095,
+     "episodes": 754,
+     "draws": 100,
+     "edge": -0.06,
+     "chance": [
+      -0.26,
+      0.32
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 3086,
+     "episodes": 654,
+     "draws": 100,
+     "edge": -0.09,
+     "chance": [
+      -0.25,
+      0.3
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "vwap-month-gt",
+   "tf": "1h",
+   "label": "Close above the monthly VWAP",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 82102,
+    "episodes": 584,
+    "draws": 100,
+    "edge": 0.14,
+    "chance": [
+     -0.12,
+     0.09
+    ],
+    "verdict": "fragile",
+    "robustness": {
+     "fragile": true,
+     "strongest": {
+      "deals": 1428,
+      "start": "2021-01-01",
+      "end": "2021-03-03",
+      "without": "chance"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "edge"
+      },
+      {
+       "horizon": 100,
+       "state": "edge"
+      }
+     ]
+    },
+    "path": [
+     0.007,
+     0.015,
+     0.022,
+     0.03,
+     0.039,
+     0.047,
+     0.055,
+     0.062,
+     0.07,
+     0.078,
+     0.085,
+     0.094,
+     0.101,
+     0.108,
+     0.114,
+     0.119,
+     0.125,
+     0.129,
+     0.135,
+     0.141
+    ],
+    "band": [
+     [
+      -0.006,
+      0.004
+     ],
+     [
+      -0.014,
+      0.009
+     ],
+     [
+      -0.021,
+      0.013
+     ],
+     [
+      -0.027,
+      0.017
+     ],
+     [
+      -0.032,
+      0.022
+     ],
+     [
+      -0.038,
+      0.026
+     ],
+     [
+      -0.044,
+      0.032
+     ],
+     [
+      -0.049,
+      0.036
+     ],
+     [
+      -0.053,
+      0.041
+     ],
+     [
+      -0.058,
+      0.047
+     ],
+     [
+      -0.064,
+      0.051
+     ],
+     [
+      -0.069,
+      0.056
+     ],
+     [
+      -0.075,
+      0.061
+     ],
+     [
+      -0.08,
+      0.066
+     ],
+     [
+      -0.088,
+      0.07
+     ],
+     [
+      -0.095,
+      0.076
+     ],
+     [
+      -0.101,
+      0.08
+     ],
+     [
+      -0.105,
+      0.086
+     ],
+     [
+      -0.111,
+      0.09
+     ],
+     [
+      -0.117,
+      0.095
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 28599,
+     "episodes": 192,
+     "draws": 100,
+     "edge": 0.07,
+     "chance": [
+      -0.09,
+      0.07
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 1293,
+       "start": "2020-10-07",
+       "end": "2020-12-04",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 27247,
+     "episodes": 191,
+     "draws": 100,
+     "edge": 0.12,
+     "chance": [
+      -0.11,
+      0.1
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 1375,
+       "start": "2020-12-24",
+       "end": "2021-02-23",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 26256,
+     "episodes": 201,
+     "draws": 100,
+     "edge": 0.24,
+     "chance": [
+      -0.17,
+      0.17
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 1428,
+       "start": "2021-01-01",
+       "end": "2021-03-03",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    }
+   },
+   "bot": {
+    "type": "VWAP",
+    "params": {
+     "vwapAnchor": "month",
+     "vwapLine": "vwap",
+     "indicatorCondition": "gt"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 51445,
+     "episodes": 317,
+     "draws": 100,
+     "edge": 0.1,
+     "chance": [
+      -0.1,
+      0.07
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 963,
+       "start": "2021-08-03",
+       "end": "2021-09-14",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 28534,
+     "episodes": 314,
+     "draws": 100,
+     "edge": 0.08,
+     "chance": [
+      -0.12,
+      0.1
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "vwap-day-gt",
+   "tf": "4h",
+   "label": "Close above the daily VWAP",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 20802,
+    "episodes": 3,
+    "draws": 100,
+    "edge": 0,
+    "chance": [
+     -0.11,
+     0.09
+    ],
+    "verdict": "few",
+    "path": [
+     -0.01,
+     -0.007,
+     0.005,
+     0.009,
+     -0.019,
+     -0.044,
+     -0.035,
+     -0.032,
+     -0.028,
+     -0.009,
+     0.01,
+     -0.005,
+     -0.003,
+     -0.015,
+     -0.013,
+     -0.022,
+     -0.008,
+     0.007,
+     0.005,
+     0
+    ],
+    "band": [
+     [
+      -0.022,
+      0.017
+     ],
+     [
+      -0.042,
+      0.033
+     ],
+     [
+      -0.053,
+      0.039
+     ],
+     [
+      -0.059,
+      0.05
+     ],
+     [
+      -0.061,
+      0.046
+     ],
+     [
+      -0.068,
+      0.059
+     ],
+     [
+      -0.071,
+      0.063
+     ],
+     [
+      -0.073,
+      0.061
+     ],
+     [
+      -0.069,
+      0.065
+     ],
+     [
+      -0.082,
+      0.071
+     ],
+     [
+      -0.082,
+      0.077
+     ],
+     [
+      -0.093,
+      0.076
+     ],
+     [
+      -0.085,
+      0.065
+     ],
+     [
+      -0.095,
+      0.068
+     ],
+     [
+      -0.104,
+      0.07
+     ],
+     [
+      -0.109,
+      0.073
+     ],
+     [
+      -0.11,
+      0.077
+     ],
+     [
+      -0.107,
+      0.081
+     ],
+     [
+      -0.114,
+      0.081
+     ],
+     [
+      -0.106,
+      0.09
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 7036,
+     "episodes": 1,
+     "draws": 100,
+     "edge": 0.04,
+     "chance": [
+      -0.1,
+      0.08
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 6990,
+     "episodes": 1,
+     "draws": 100,
+     "edge": 0.03,
+     "chance": [
+      -0.12,
+      0.11
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 6776,
+     "episodes": 1,
+     "draws": 100,
+     "edge": -0.06,
+     "chance": [
+      -0.21,
+      0.15
+     ],
+     "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "VWAP",
+    "params": {
+     "vwapAnchor": "day",
+     "vwapLine": "vwap",
+     "indicatorCondition": "gt"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 11232,
+     "episodes": 36,
+     "draws": 100,
+     "edge": 0.01,
+     "chance": [
+      -0.11,
+      0.09
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 9037,
+     "episodes": 37,
+     "draws": 100,
+     "edge": 0.03,
+     "chance": [
+      -0.12,
+      0.12
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "vwap-day-lt-lower2",
+   "tf": "4h",
+   "label": "Close below the daily VWAP's lower 2σ band",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 6913,
+    "episodes": 114,
+    "draws": 100,
+    "edge": 0.13,
+    "chance": [
+     -0.14,
+     0.18
+    ],
+    "verdict": "none",
+    "path": [
+     0.062,
+     0.066,
+     0.042,
+     0.038,
+     0.083,
+     0.123,
+     0.128,
+     0.179,
+     0.198,
+     0.155,
+     0.138,
+     0.126,
+     0.101,
+     0.135,
+     0.134,
+     0.136,
+     0.15,
+     0.098,
+     0.101,
+     0.125
+    ],
+    "band": [
+     [
+      -0.05,
+      0.048
+     ],
+     [
+      -0.047,
+      0.057
+     ],
+     [
+      -0.051,
+      0.083
+     ],
+     [
+      -0.059,
+      0.098
+     ],
+     [
+      -0.058,
+      0.095
+     ],
+     [
+      -0.079,
+      0.099
+     ],
+     [
+      -0.077,
+      0.117
+     ],
+     [
+      -0.084,
+      0.112
+     ],
+     [
+      -0.082,
+      0.105
+     ],
+     [
+      -0.086,
+      0.111
+     ],
+     [
+      -0.087,
+      0.105
+     ],
+     [
+      -0.137,
+      0.115
+     ],
+     [
+      -0.121,
+      0.135
+     ],
+     [
+      -0.124,
+      0.132
+     ],
+     [
+      -0.119,
+      0.143
+     ],
+     [
+      -0.118,
+      0.167
+     ],
+     [
+      -0.125,
+      0.155
+     ],
+     [
+      -0.13,
+      0.166
+     ],
+     [
+      -0.139,
+      0.172
+     ],
+     [
+      -0.137,
+      0.18
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 2317,
+     "episodes": 33,
+     "draws": 107,
+     "edge": 0.02,
+     "chance": [
+      -0.12,
+      0.17
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 2217,
+     "episodes": 53,
+     "draws": 112,
+     "edge": 0.12,
+     "chance": [
+      -0.21,
+      0.21
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 2379,
+     "episodes": 28,
+     "draws": 105,
+     "edge": 0.22,
+     "chance": [
+      -0.28,
+      0.39
+     ],
+     "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "VWAP",
+    "params": {
+     "vwapAnchor": "day",
+     "vwapLine": "lower",
+     "indicatorCondition": "lt",
+     "vwapBandMultiplier": 2
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 3667,
+     "episodes": 108,
+     "draws": 100,
+     "edge": 0.14,
+     "chance": [
+      -0.2,
+      0.21
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 3041,
+     "episodes": 85,
+     "draws": 100,
+     "edge": 0.11,
+     "chance": [
+      -0.21,
+      0.19
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "vwap-day-gt-upper2-short",
+   "tf": "4h",
+   "label": "Close above the daily VWAP's upper 2σ band, short",
+   "side": "short",
+   "featured": false,
+   "pooled": {
+    "entries": 7579,
+    "episodes": 62,
+    "draws": 100,
+    "edge": 0.17,
+    "chance": [
+     -0.13,
+     0.18
+    ],
+    "verdict": "none",
+    "path": [
+     0.013,
+     0.014,
+     0.017,
+     0.02,
+     0.029,
+     0.119,
+     0.08,
+     0.08,
+     0.11,
+     0.087,
+     0.071,
+     0.119,
+     0.123,
+     0.148,
+     0.153,
+     0.173,
+     0.135,
+     0.118,
+     0.135,
+     0.172
+    ],
+    "band": [
+     [
+      -0.047,
+      0.045
+     ],
+     [
+      -0.055,
+      0.073
+     ],
+     [
+      -0.071,
+      0.064
+     ],
+     [
+      -0.083,
+      0.081
+     ],
+     [
+      -0.081,
+      0.099
+     ],
+     [
+      -0.081,
+      0.105
+     ],
+     [
+      -0.078,
+      0.109
+     ],
+     [
+      -0.087,
+      0.103
+     ],
+     [
+      -0.106,
+      0.1
+     ],
+     [
+      -0.105,
+      0.117
+     ],
+     [
+      -0.11,
+      0.128
+     ],
+     [
+      -0.106,
+      0.124
+     ],
+     [
+      -0.089,
+      0.134
+     ],
+     [
+      -0.089,
+      0.134
+     ],
+     [
+      -0.118,
+      0.129
+     ],
+     [
+      -0.127,
+      0.14
+     ],
+     [
+      -0.117,
+      0.162
+     ],
+     [
+      -0.103,
+      0.17
+     ],
+     [
+      -0.112,
+      0.183
+     ],
+     [
+      -0.133,
+      0.178
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 2577,
+     "episodes": 24,
+     "draws": 100,
+     "edge": 0.07,
+     "chance": [
+      -0.16,
+      0.15
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 2499,
+     "episodes": 18,
+     "draws": 100,
+     "edge": 0.01,
+     "chance": [
+      -0.15,
+      0.21
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 2503,
+     "episodes": 20,
+     "draws": 100,
+     "edge": 0.44,
+     "chance": [
+      -0.25,
+      0.31
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 544,
+       "start": "2025-03-04",
+       "end": "2026-06-16",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   },
+   "bot": {
+    "type": "VWAP",
+    "params": {
+     "vwapAnchor": "day",
+     "vwapLine": "upper",
+     "indicatorCondition": "gt",
+     "vwapBandMultiplier": 2
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 4046,
+     "episodes": 63,
+     "draws": 100,
+     "edge": 0.15,
+     "chance": [
+      -0.11,
+      0.14
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 67,
+       "start": "2021-11-15",
+       "end": "2022-01-18",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 3341,
+     "episodes": 75,
+     "draws": 100,
+     "edge": 0.11,
+     "chance": [
+      -0.2,
+      0.18
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "vwap-week-gt",
+   "tf": "4h",
+   "label": "Close above the weekly VWAP",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 20678,
+    "episodes": 318,
+    "draws": 100,
+    "edge": 0.22,
+    "chance": [
+     -0.3,
+     0.22
+    ],
+    "verdict": "fragile",
+    "robustness": {
+     "fragile": true,
+     "strongest": {
+      "deals": 448,
+      "start": "2021-07-21",
+      "end": "2021-11-15",
+      "without": "chance"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "chance"
+      },
+      {
+       "horizon": 100,
+       "state": "edge"
+      }
+     ]
+    },
+    "path": [
+     0.018,
+     0.043,
+     0.061,
+     0.074,
+     0.082,
+     0.089,
+     0.108,
+     0.139,
+     0.166,
+     0.18,
+     0.194,
+     0.196,
+     0.199,
+     0.201,
+     0.211,
+     0.213,
+     0.218,
+     0.217,
+     0.218,
+     0.224
+    ],
+    "band": [
+     [
+      -0.023,
+      0.015
+     ],
+     [
+      -0.042,
+      0.032
+     ],
+     [
+      -0.056,
+      0.047
+     ],
+     [
+      -0.073,
+      0.055
+     ],
+     [
+      -0.09,
+      0.066
+     ],
+     [
+      -0.101,
+      0.072
+     ],
+     [
+      -0.116,
+      0.086
+     ],
+     [
+      -0.126,
+      0.098
+     ],
+     [
+      -0.144,
+      0.102
+     ],
+     [
+      -0.167,
+      0.108
+     ],
+     [
+      -0.172,
+      0.114
+     ],
+     [
+      -0.185,
+      0.122
+     ],
+     [
+      -0.198,
+      0.139
+     ],
+     [
+      -0.215,
+      0.156
+     ],
+     [
+      -0.223,
+      0.163
+     ],
+     [
+      -0.242,
+      0.163
+     ],
+     [
+      -0.26,
+      0.172
+     ],
+     [
+      -0.273,
+      0.19
+     ],
+     [
+      -0.287,
+      0.209
+     ],
+     [
+      -0.304,
+      0.217
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 7111,
+     "episodes": 95,
+     "draws": 100,
+     "edge": 0.14,
+     "chance": [
+      -0.23,
+      0.19
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 7017,
+     "episodes": 109,
+     "draws": 100,
+     "edge": 0.11,
+     "chance": [
+      -0.31,
+      0.25
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 6550,
+     "episodes": 114,
+     "draws": 100,
+     "edge": 0.46,
+     "chance": [
+      -0.5,
+      0.4
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 448,
+       "start": "2021-07-21",
+       "end": "2021-11-15",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    }
+   },
+   "bot": {
+    "type": "VWAP",
+    "params": {
+     "vwapAnchor": "week",
+     "vwapLine": "vwap",
+     "indicatorCondition": "gt"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 11747,
+     "episodes": 167,
+     "draws": 100,
+     "edge": 0.2,
+     "chance": [
+      -0.33,
+      0.21
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 8412,
+     "episodes": 198,
+     "draws": 100,
+     "edge": 0.17,
+     "chance": [
+      -0.26,
+      0.26
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "vwap-week-lt-lower2",
+   "tf": "4h",
+   "label": "Close below the weekly VWAP's lower 2σ band",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 2338,
+    "episodes": 732,
+    "draws": 106,
+    "edge": -0.19,
+    "chance": [
+     -0.41,
+     0.49
+    ],
+    "verdict": "none",
+    "path": [
+     0.03,
+     -0.132,
+     -0.134,
+     -0.123,
+     -0.046,
+     -0.015,
+     -0.031,
+     -0.085,
+     -0.249,
+     -0.332,
+     -0.352,
+     -0.356,
+     -0.355,
+     -0.293,
+     -0.233,
+     -0.22,
+     -0.144,
+     -0.184,
+     -0.168,
+     -0.195
+    ],
+    "band": [
+     [
+      -0.078,
+      0.072
+     ],
+     [
+      -0.098,
+      0.127
+     ],
+     [
+      -0.148,
+      0.175
+     ],
+     [
+      -0.183,
+      0.214
+     ],
+     [
+      -0.224,
+      0.251
+     ],
+     [
+      -0.23,
+      0.27
+     ],
+     [
+      -0.289,
+      0.289
+     ],
+     [
+      -0.33,
+      0.291
+     ],
+     [
+      -0.326,
+      0.316
+     ],
+     [
+      -0.334,
+      0.357
+     ],
+     [
+      -0.389,
+      0.38
+     ],
+     [
+      -0.376,
+      0.375
+     ],
+     [
+      -0.381,
+      0.37
+     ],
+     [
+      -0.417,
+      0.419
+     ],
+     [
+      -0.373,
+      0.433
+     ],
+     [
+      -0.36,
+      0.443
+     ],
+     [
+      -0.359,
+      0.436
+     ],
+     [
+      -0.337,
+      0.475
+     ],
+     [
+      -0.363,
+      0.51
+     ],
+     [
+      -0.405,
+      0.486
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 759,
+     "episodes": 237,
+     "draws": 329,
+     "edge": -0.51,
+     "chance": [
+      -0.45,
+      0.46
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 11,
+       "start": "2022-06-10",
+       "end": "2022-06-13",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 701,
+     "episodes": 246,
+     "draws": 356,
+     "edge": -0.2,
+     "chance": [
+      -0.6,
+      0.63
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 878,
+     "episodes": 249,
+     "draws": 284,
+     "edge": 0.03,
+     "chance": [
+      -0.72,
+      0.91
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "VWAP",
+    "params": {
+     "vwapAnchor": "week",
+     "vwapLine": "lower",
+     "indicatorCondition": "lt",
+     "vwapBandMultiplier": 2
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1182,
+     "episodes": 403,
+     "draws": 211,
+     "edge": -0.14,
+     "chance": [
+      -0.49,
+      0.62
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 1095,
+     "episodes": 326,
+     "draws": 228,
+     "edge": -0.12,
+     "chance": [
+      -0.57,
+      0.59
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "vwap-month-gt",
+   "tf": "4h",
+   "label": "Close above the monthly VWAP",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 20548,
+    "episodes": 258,
+    "draws": 100,
+    "edge": 0.35,
+    "chance": [
+     -0.4,
+     0.3
+    ],
+    "verdict": "fragile",
+    "robustness": {
+     "fragile": true,
+     "strongest": {
+      "deals": 358,
+      "start": "2020-12-29",
+      "end": "2021-03-03",
+      "without": "chance"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "chance"
+      },
+      {
+       "horizon": 100,
+       "state": "edge"
+      }
+     ]
+    },
+    "path": [
+     0.029,
+     0.062,
+     0.096,
+     0.12,
+     0.143,
+     0.165,
+     0.189,
+     0.219,
+     0.244,
+     0.26,
+     0.28,
+     0.294,
+     0.302,
+     0.309,
+     0.318,
+     0.326,
+     0.334,
+     0.336,
+     0.341,
+     0.348
+    ],
+    "band": [
+     [
+      -0.021,
+      0.018
+     ],
+     [
+      -0.043,
+      0.035
+     ],
+     [
+      -0.064,
+      0.051
+     ],
+     [
+      -0.09,
+      0.068
+     ],
+     [
+      -0.107,
+      0.089
+     ],
+     [
+      -0.126,
+      0.108
+     ],
+     [
+      -0.145,
+      0.119
+     ],
+     [
+      -0.159,
+      0.131
+     ],
+     [
+      -0.182,
+      0.141
+     ],
+     [
+      -0.2,
+      0.143
+     ],
+     [
+      -0.224,
+      0.154
+     ],
+     [
+      -0.249,
+      0.169
+     ],
+     [
+      -0.268,
+      0.185
+     ],
+     [
+      -0.288,
+      0.2
+     ],
+     [
+      -0.304,
+      0.207
+     ],
+     [
+      -0.321,
+      0.22
+     ],
+     [
+      -0.338,
+      0.243
+     ],
+     [
+      -0.356,
+      0.268
+     ],
+     [
+      -0.377,
+      0.286
+     ],
+     [
+      -0.396,
+      0.296
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 7159,
+     "episodes": 87,
+     "draws": 100,
+     "edge": 0.13,
+     "chance": [
+      -0.34,
+      0.26
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 6817,
+     "episodes": 90,
+     "draws": 100,
+     "edge": 0.26,
+     "chance": [
+      -0.45,
+      0.36
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 6572,
+     "episodes": 81,
+     "draws": 100,
+     "edge": 0.71,
+     "chance": [
+      -0.57,
+      0.56
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 358,
+       "start": "2020-12-29",
+       "end": "2021-03-03",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    }
+   },
+   "bot": {
+    "type": "VWAP",
+    "params": {
+     "vwapAnchor": "month",
+     "vwapLine": "vwap",
+     "indicatorCondition": "gt"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 12860,
+     "episodes": 146,
+     "draws": 100,
+     "edge": 0.24,
+     "chance": [
+      -0.37,
+      0.26
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 7158,
+     "episodes": 150,
+     "draws": 100,
+     "edge": 0.12,
+     "chance": [
+      -0.39,
+      0.34
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "vwap-day-gt",
+   "tf": "1d",
+   "label": "Close above the daily VWAP",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 3459,
+    "episodes": 3,
+    "draws": 100,
+    "edge": 0.87,
+    "chance": [
+     -0.59,
+     0.57
+    ],
+    "verdict": "few",
+    "robustness": {
+     "fragile": false,
+     "strongest": {
+      "deals": 1093,
+      "start": "2020-09-02",
+      "end": "2026-10-06",
+      "without": "edge"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "chance"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     0.038,
+     0.061,
+     0.143,
+     0.174,
+     0.182,
+     0.325,
+     0.414,
+     0.376,
+     0.385,
+     0.463,
+     0.473,
+     0.409,
+     0.566,
+     0.586,
+     0.658,
+     0.749,
+     0.631,
+     0.627,
+     0.756,
+     0.871
+    ],
+    "band": [
+     [
+      -0.094,
+      0.139
+     ],
+     [
+      -0.142,
+      0.165
+     ],
+     [
+      -0.164,
+      0.182
+     ],
+     [
+      -0.18,
+      0.167
+     ],
+     [
+      -0.253,
+      0.254
+     ],
+     [
+      -0.267,
+      0.293
+     ],
+     [
+      -0.325,
+      0.285
+     ],
+     [
+      -0.332,
+      0.306
+     ],
+     [
+      -0.343,
+      0.334
+     ],
+     [
+      -0.404,
+      0.406
+     ],
+     [
+      -0.401,
+      0.438
+     ],
+     [
+      -0.453,
+      0.415
+     ],
+     [
+      -0.532,
+      0.4
+     ],
+     [
+      -0.488,
+      0.457
+     ],
+     [
+      -0.546,
+      0.574
+     ],
+     [
+      -0.474,
+      0.567
+     ],
+     [
+      -0.556,
+      0.562
+     ],
+     [
+      -0.592,
+      0.584
+     ],
+     [
+      -0.549,
+      0.578
+     ],
+     [
+      -0.594,
+      0.571
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 1192,
+     "episodes": 1,
+     "draws": 209,
+     "edge": 0.79,
+     "chance": [
+      -0.49,
+      0.71
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": null,
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 1174,
+     "episodes": 1,
+     "draws": 212,
+     "edge": 0.77,
+     "chance": [
+      -0.65,
+      0.61
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": null,
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 1093,
+     "episodes": 1,
+     "draws": 228,
+     "edge": 1.33,
+     "chance": [
+      -1.14,
+      1.03
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": null,
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   },
+   "bot": {
+    "type": "VWAP",
+    "params": {
+     "vwapAnchor": "day",
+     "vwapLine": "vwap",
+     "indicatorCondition": "gt"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1882,
+     "episodes": 24,
+     "draws": 132,
+     "edge": 0.86,
+     "chance": [
+      -0.9,
+      0.7
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 166,
+       "start": "2021-02-28",
+       "end": "2022-01-18",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 1488,
+     "episodes": 21,
+     "draws": 168,
+     "edge": 0.72,
+     "chance": [
+      -0.64,
+      0.61
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 83,
+       "start": "2025-02-03",
+       "end": "2025-07-05",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "vwap-day-lt-lower2",
+   "tf": "1d",
+   "label": "Close below the daily VWAP's lower 2σ band",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 3221,
+    "episodes": 3,
+    "draws": 100,
+    "edge": -0.94,
+    "chance": [
+     -0.62,
+     0.65
+    ],
+    "verdict": "few",
+    "robustness": {
+     "fragile": false,
+     "strongest": {
+      "deals": 1036,
+      "start": "2020-09-02",
+      "end": "2026-10-08",
+      "without": "worse"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "worse"
+      },
+      {
+       "horizon": 50,
+       "state": "chance"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     -0.04,
+     -0.052,
+     -0.144,
+     -0.169,
+     -0.18,
+     -0.332,
+     -0.423,
+     -0.393,
+     -0.404,
+     -0.492,
+     -0.498,
+     -0.429,
+     -0.605,
+     -0.62,
+     -0.698,
+     -0.8,
+     -0.675,
+     -0.67,
+     -0.819,
+     -0.941
+    ],
+    "band": [
+     [
+      -0.155,
+      0.097
+     ],
+     [
+      -0.172,
+      0.15
+     ],
+     [
+      -0.202,
+      0.174
+     ],
+     [
+      -0.182,
+      0.197
+     ],
+     [
+      -0.272,
+      0.268
+     ],
+     [
+      -0.309,
+      0.299
+     ],
+     [
+      -0.302,
+      0.344
+     ],
+     [
+      -0.329,
+      0.356
+     ],
+     [
+      -0.347,
+      0.385
+     ],
+     [
+      -0.44,
+      0.433
+     ],
+     [
+      -0.47,
+      0.451
+     ],
+     [
+      -0.439,
+      0.496
+     ],
+     [
+      -0.436,
+      0.6
+     ],
+     [
+      -0.487,
+      0.553
+     ],
+     [
+      -0.622,
+      0.568
+     ],
+     [
+      -0.611,
+      0.541
+     ],
+     [
+      -0.596,
+      0.612
+     ],
+     [
+      -0.627,
+      0.652
+     ],
+     [
+      -0.615,
+      0.613
+     ],
+     [
+      -0.616,
+      0.645
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 1036,
+     "episodes": 1,
+     "draws": 241,
+     "edge": -0.9,
+     "chance": [
+      -0.8,
+      0.57
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": null,
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 1053,
+     "episodes": 1,
+     "draws": 237,
+     "edge": -0.82,
+     "chance": [
+      -0.65,
+      0.76
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": null,
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 1132,
+     "episodes": 1,
+     "draws": 220,
+     "edge": -1.34,
+     "chance": [
+      -1.04,
+      1.14
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": null,
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   },
+   "bot": {
+    "type": "VWAP",
+    "params": {
+     "vwapAnchor": "day",
+     "vwapLine": "lower",
+     "indicatorCondition": "lt",
+     "vwapBandMultiplier": 2
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1668,
+     "episodes": 26,
+     "draws": 149,
+     "edge": -0.99,
+     "chance": [
+      -0.81,
+      1.04
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 114,
+       "start": "2023-01-17",
+       "end": "2023-08-16",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 1464,
+     "episodes": 21,
+     "draws": 170,
+     "edge": -0.75,
+     "chance": [
+      -0.61,
+      0.66
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 240,
+       "start": "2022-01-20",
+       "end": "2023-04-08",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "vwap-day-gt-upper2-short",
+   "tf": "1d",
+   "label": "Close above the daily VWAP's upper 2σ band, short",
+   "side": "short",
+   "featured": false,
+   "pooled": {
+    "entries": 3459,
+    "episodes": 3,
+    "draws": 100,
+    "edge": -0.87,
+    "chance": [
+     -0.57,
+     0.59
+    ],
+    "verdict": "few",
+    "robustness": {
+     "fragile": false,
+     "strongest": {
+      "deals": 1093,
+      "start": "2020-09-02",
+      "end": "2026-10-06",
+      "without": "worse"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "worse"
+      },
+      {
+       "horizon": 50,
+       "state": "chance"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     -0.038,
+     -0.061,
+     -0.143,
+     -0.174,
+     -0.182,
+     -0.325,
+     -0.414,
+     -0.376,
+     -0.385,
+     -0.463,
+     -0.473,
+     -0.409,
+     -0.566,
+     -0.586,
+     -0.658,
+     -0.749,
+     -0.631,
+     -0.627,
+     -0.756,
+     -0.871
+    ],
+    "band": [
+     [
+      -0.139,
+      0.094
+     ],
+     [
+      -0.165,
+      0.142
+     ],
+     [
+      -0.182,
+      0.164
+     ],
+     [
+      -0.167,
+      0.18
+     ],
+     [
+      -0.254,
+      0.253
+     ],
+     [
+      -0.293,
+      0.267
+     ],
+     [
+      -0.285,
+      0.325
+     ],
+     [
+      -0.306,
+      0.332
+     ],
+     [
+      -0.334,
+      0.343
+     ],
+     [
+      -0.406,
+      0.404
+     ],
+     [
+      -0.438,
+      0.401
+     ],
+     [
+      -0.415,
+      0.453
+     ],
+     [
+      -0.4,
+      0.532
+     ],
+     [
+      -0.457,
+      0.488
+     ],
+     [
+      -0.574,
+      0.546
+     ],
+     [
+      -0.567,
+      0.474
+     ],
+     [
+      -0.562,
+      0.556
+     ],
+     [
+      -0.584,
+      0.592
+     ],
+     [
+      -0.578,
+      0.549
+     ],
+     [
+      -0.571,
+      0.594
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 1192,
+     "episodes": 1,
+     "draws": 209,
+     "edge": -0.79,
+     "chance": [
+      -0.71,
+      0.49
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": null,
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 1174,
+     "episodes": 1,
+     "draws": 212,
+     "edge": -0.77,
+     "chance": [
+      -0.61,
+      0.65
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": null,
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 1093,
+     "episodes": 1,
+     "draws": 228,
+     "edge": -1.33,
+     "chance": [
+      -1.03,
+      1.14
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": null,
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   },
+   "bot": {
+    "type": "VWAP",
+    "params": {
+     "vwapAnchor": "day",
+     "vwapLine": "upper",
+     "indicatorCondition": "gt",
+     "vwapBandMultiplier": 2
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1882,
+     "episodes": 24,
+     "draws": 132,
+     "edge": -0.86,
+     "chance": [
+      -0.7,
+      0.9
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 166,
+       "start": "2021-02-28",
+       "end": "2022-01-18",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 1488,
+     "episodes": 21,
+     "draws": 168,
+     "edge": -0.72,
+     "chance": [
+      -0.61,
+      0.64
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 83,
+       "start": "2025-02-03",
+       "end": "2025-07-05",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "vwap-week-gt",
+   "tf": "1d",
+   "label": "Close above the weekly VWAP",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 3456,
+    "episodes": 3,
+    "draws": 100,
+    "edge": 1.11,
+    "chance": [
+     -1.08,
+     0.85
+    ],
+    "verdict": "few",
+    "robustness": {
+     "fragile": true,
+     "strongest": {
+      "deals": 1093,
+      "start": "2020-09-07",
+      "end": "2026-10-06",
+      "without": "chance"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "chance"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     0.085,
+     0.164,
+     0.192,
+     0.248,
+     0.274,
+     0.346,
+     0.433,
+     0.402,
+     0.459,
+     0.577,
+     0.589,
+     0.654,
+     0.828,
+     0.927,
+     1.036,
+     1.092,
+     1.013,
+     1.042,
+     1.07,
+     1.113
+    ],
+    "band": [
+     [
+      -0.114,
+      0.091
+     ],
+     [
+      -0.158,
+      0.136
+     ],
+     [
+      -0.227,
+      0.22
+     ],
+     [
+      -0.296,
+      0.269
+     ],
+     [
+      -0.315,
+      0.305
+     ],
+     [
+      -0.368,
+      0.358
+     ],
+     [
+      -0.432,
+      0.464
+     ],
+     [
+      -0.476,
+      0.548
+     ],
+     [
+      -0.57,
+      0.569
+     ],
+     [
+      -0.642,
+      0.6
+     ],
+     [
+      -0.707,
+      0.624
+     ],
+     [
+      -0.767,
+      0.641
+     ],
+     [
+      -0.813,
+      0.644
+     ],
+     [
+      -0.798,
+      0.598
+     ],
+     [
+      -0.902,
+      0.637
+     ],
+     [
+      -0.972,
+      0.621
+     ],
+     [
+      -0.954,
+      0.666
+     ],
+     [
+      -0.926,
+      0.738
+     ],
+     [
+      -0.958,
+      0.835
+     ],
+     [
+      -1.081,
+      0.852
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 1194,
+     "episodes": 1,
+     "draws": 209,
+     "edge": 0.31,
+     "chance": [
+      -0.85,
+      0.94
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 1169,
+     "episodes": 1,
+     "draws": 213,
+     "edge": 0.52,
+     "chance": [
+      -0.98,
+      1.12
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 1093,
+     "episodes": 1,
+     "draws": 228,
+     "edge": 2.88,
+     "chance": [
+      -1.99,
+      1.88
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": null,
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   },
+   "bot": {
+    "type": "VWAP",
+    "params": {
+     "vwapAnchor": "week",
+     "vwapLine": "vwap",
+     "indicatorCondition": "gt"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1962,
+     "episodes": 23,
+     "draws": 127,
+     "edge": 1.29,
+     "chance": [
+      -1.22,
+      0.94
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 178,
+       "start": "2021-03-01",
+       "end": "2022-01-18",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 1410,
+     "episodes": 22,
+     "draws": 177,
+     "edge": 0.37,
+     "chance": [
+      -0.87,
+      1.13
+     ],
+     "verdict": "few"
+    }
+   }
+  },
+  {
+   "id": "vwap-week-lt-lower2",
+   "tf": "1d",
+   "label": "Close below the weekly VWAP's lower 2σ band",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 1027,
+    "episodes": 45,
+    "draws": 243,
+    "edge": -1.17,
+    "chance": [
+     -1.58,
+     1.73
+    ],
+    "verdict": "none",
+    "path": [
+     -0.175,
+     -0.238,
+     -0.445,
+     -0.51,
+     -0.469,
+     -0.574,
+     -0.786,
+     -0.798,
+     -0.991,
+     -1.251,
+     -1.107,
+     -1.015,
+     -1.025,
+     -0.971,
+     -1.069,
+     -1.291,
+     -1.169,
+     -1.263,
+     -1.138,
+     -1.174
+    ],
+    "band": [
+     [
+      -0.246,
+      0.234
+     ],
+     [
+      -0.349,
+      0.36
+     ],
+     [
+      -0.38,
+      0.446
+     ],
+     [
+      -0.457,
+      0.489
+     ],
+     [
+      -0.519,
+      0.604
+     ],
+     [
+      -0.633,
+      0.645
+     ],
+     [
+      -0.693,
+      0.772
+     ],
+     [
+      -0.742,
+      0.778
+     ],
+     [
+      -0.736,
+      0.874
+     ],
+     [
+      -0.859,
+      0.914
+     ],
+     [
+      -0.813,
+      1.071
+     ],
+     [
+      -0.962,
+      1.17
+     ],
+     [
+      -1.011,
+      1.223
+     ],
+     [
+      -1.05,
+      1.326
+     ],
+     [
+      -1.102,
+      1.383
+     ],
+     [
+      -1.241,
+      1.426
+     ],
+     [
+      -1.296,
+      1.592
+     ],
+     [
+      -1.347,
+      1.582
+     ],
+     [
+      -1.46,
+      1.635
+     ],
+     [
+      -1.581,
+      1.73
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 331,
+     "episodes": 14,
+     "draws": 500,
+     "edge": -1.56,
+     "chance": [
+      -1.4,
+      1.54
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 113,
+       "start": "2021-10-26",
+       "end": "2023-06-05",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "worse"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 318,
+     "episodes": 18,
+     "draws": 500,
+     "edge": -0.61,
+     "chance": [
+      -1.38,
+      1.45
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 378,
+     "episodes": 13,
+     "draws": 500,
+     "edge": -1.74,
+     "chance": [
+      -3.14,
+      2.94
+     ],
+     "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "VWAP",
+    "params": {
+     "vwapAnchor": "week",
+     "vwapLine": "lower",
+     "indicatorCondition": "lt",
+     "vwapBandMultiplier": 2
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 520,
+     "episodes": 48,
+     "draws": 480,
+     "edge": -1.91,
+     "chance": [
+      -2.17,
+      2.47
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 486,
+     "episodes": 32,
+     "draws": 500,
+     "edge": -0.59,
+     "chance": [
+      -1.28,
+      1.34
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "vwap-month-gt",
+   "tf": "1d",
+   "label": "Close above the monthly VWAP",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 3419,
+    "episodes": 43,
+    "draws": 100,
+    "edge": 2.25,
+    "chance": [
+     -2.21,
+     1.67
+    ],
+    "verdict": "fragile",
+    "robustness": {
+     "fragile": true,
+     "strongest": {
+      "deals": 132,
+      "start": "2020-12-29",
+      "end": "2021-07-07",
+      "without": "chance"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "chance"
+      },
+      {
+       "horizon": 50,
+       "state": "chance"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     0.132,
+     0.236,
+     0.308,
+     0.329,
+     0.379,
+     0.502,
+     0.632,
+     0.681,
+     0.788,
+     0.972,
+     1.147,
+     1.324,
+     1.52,
+     1.632,
+     1.746,
+     1.862,
+     1.983,
+     2.11,
+     2.198,
+     2.247
+    ],
+    "band": [
+     [
+      -0.14,
+      0.109
+     ],
+     [
+      -0.266,
+      0.219
+     ],
+     [
+      -0.402,
+      0.358
+     ],
+     [
+      -0.49,
+      0.449
+     ],
+     [
+      -0.589,
+      0.562
+     ],
+     [
+      -0.718,
+      0.654
+     ],
+     [
+      -0.774,
+      0.67
+     ],
+     [
+      -0.86,
+      0.785
+     ],
+     [
+      -0.94,
+      0.844
+     ],
+     [
+      -1.011,
+      0.88
+     ],
+     [
+      -1.104,
+      0.988
+     ],
+     [
+      -1.217,
+      1.125
+     ],
+     [
+      -1.316,
+      1.198
+     ],
+     [
+      -1.39,
+      1.314
+     ],
+     [
+      -1.515,
+      1.39
+     ],
+     [
+      -1.686,
+      1.393
+     ],
+     [
+      -1.791,
+      1.485
+     ],
+     [
+      -1.921,
+      1.515
+     ],
+     [
+      -2.055,
+      1.626
+     ],
+     [
+      -2.214,
+      1.672
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 1197,
+     "episodes": 15,
+     "draws": 208,
+     "edge": 0.86,
+     "chance": [
+      -1.46,
+      1.54
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 1130,
+     "episodes": 11,
+     "draws": 221,
+     "edge": 1.99,
+     "chance": [
+      -2.33,
+      1.98
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 199,
+       "start": "2020-09-12",
+       "end": "2021-06-06",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 1092,
+     "episodes": 17,
+     "draws": 228,
+     "edge": 4.25,
+     "chance": [
+      -3.32,
+      2.98
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 132,
+       "start": "2020-12-29",
+       "end": "2021-07-07",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   },
+   "bot": {
+    "type": "VWAP",
+    "params": {
+     "vwapAnchor": "month",
+     "vwapLine": "vwap",
+     "indicatorCondition": "gt"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 2136,
+     "episodes": 38,
+     "draws": 117,
+     "edge": 2.19,
+     "chance": [
+      -2.04,
+      2.11
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 77,
+       "start": "2021-07-29",
+       "end": "2021-12-02",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 1194,
+     "episodes": 46,
+     "draws": 209,
+     "edge": 0.2,
+     "chance": [
+      -2.09,
+      2.28
+     ],
+     "verdict": "none"
+    }
+   }
+  }
+ ],
+ "summary": "Mostly no. On BTC, ETH and SOL, closes below a lower 2σ band and shorts above an upper 2σ band did the same as random entries on 1h and 4h, and every long result above the weekly or monthly VWAP rests on one rally. The result that holds up is narrow: on SOL 1h, closes above the weekly VWAP beat random by 0.19%, without its strongest stretch and at 10, 20, 50 and 100 candles.",
+ "verdicts": [
+  {
+   "use": "Buying the dip (below the lower 2σ band)",
+   "verdict": "none",
+   "text": "Same as random on 1h and 4h with the daily or the weekly anchor, in uptrends and in downtrends. On daily candles the weekly band was also same as random, and the daily band had too few separate moves to judge."
+  },
+  {
+   "use": "Shorting the stretch (above the upper 2σ band)",
+   "verdict": "none",
+   "text": "Same as random pooled on 1h and 4h. In downtrends on 1h the short beat random by 0.10%, at 10 and 20 candles only."
+  },
+  {
+   "use": "Riding the trend (above the weekly VWAP)",
+   "verdict": "fragile",
+   "text": "Beat random on 1h and 4h, but each result rests on one rally. Only SOL on 1h held without its strongest stretch."
+  },
+  {
+   "use": "Riding the trend (above the monthly VWAP)",
+   "verdict": "fragile",
+   "text": "Beat random on 1h, 4h and daily, but each gap comes from a single rally. Without it, price moved as it did after random candles."
+  },
+  {
+   "use": "Holding above the daily VWAP",
+   "verdict": "none",
+   "text": "Same as random on 1h, on BTC, ETH and SOL alike. On 4h and daily candles there were too few separate moves to judge."
+  }
+ ],
+ "notes": [
+  "Closes below the daily VWAP's lower 2σ band on 1h gave 12,898 entries in 3,273 separate moves. Twenty candles later they were 0.07% ahead of random entries, inside the luck band, and the same held in uptrends and in downtrends. The weekly lower band fires about half as often and was 0.09% behind random, also same as random. On BTC it looked worse than random on 1h and 4h, but only because of signals on Jun 10–14, 2022, during the Celsius withdrawal freeze.",
+  "Shorting closes above the daily VWAP's upper 2σ band was same as random pooled on 1h, at 0.05%. Split by trend, the result changes. In downtrends the short beat random by 0.10%, held without its strongest stretch, the Terra collapse on May 10–11, 2022, and showed at 10 candles but not at 50 or 100; in uptrends it showed nothing. On 4h the same short looked better than random in uptrends only because of the stretch between Nov 15, 2021 and Jan 18, 2022.",
+  "Closes above the weekly VWAP on 1h beat random by 0.08% pooled, but the gap rests on SOL's run between Oct 13, 2023 and Nov 13, 2023 and is same as random without it. Split by trend, it showed only in downtrends, and was fragile there as well. SOL alone held up: 0.19% ahead of random on 1h, without that stretch and at 10, 20, 50 and 100 candles, while BTC and ETH were same as random. On 4h the result, 0.22%, rests on the stretch between Jul 21, 2021 and Nov 15, 2021, and neither trend beat random.",
+  "Above the monthly VWAP the gap grows with the timeframe: 0.14% on 1h, 0.35% on 4h and 2.25% after 20 days on daily. Each rests on one rally, between Jan 1, 2021 and Mar 3, 2021 on 1h and between Dec 29, 2020 and Mar 3, 2021 on 4h, and is same as random without it. On 1h it showed in uptrends, fragile there too, and not in downtrends. On 4h it showed in neither trend, and on daily it showed nothing in downtrends.",
+  "Closes above the daily VWAP on 1h enter about six and a half times as often as the lower 2σ band and were same as random, at -0.02%, on every pair and in both trends. On 4h and daily candles the daily anchor gives only 3 separate moves pooled, under the 30 the test needs, so those cells are not judged.",
+  "For a long DCA bot, a close below the lower 2σ band timed entries no better than a random candle on these pairs, so the DCA orders and take profit carry the result. Above the weekly or monthly VWAP works at most as a trend filter beside other conditions, and the gains it shows come from single rallies. The cells worth testing on your own pair are the 1h short above the daily upper 2σ band while the pair is below its 200-day SMA, with the bot's take profit set inside 20 candles, and the weekly VWAP filter on SOL 1h."
+ ],
+ "summaryRefs": [
+  {
+   "tf": "1h",
+   "setting": "vwap-day-lt-lower2",
+   "scope": "pooled"
+  },
+  {
+   "tf": "4h",
+   "setting": "vwap-day-lt-lower2",
+   "scope": "pooled"
+  },
+  {
+   "tf": "1h",
+   "setting": "vwap-week-lt-lower2",
+   "scope": "pooled"
+  },
+  {
+   "tf": "4h",
+   "setting": "vwap-week-lt-lower2",
+   "scope": "pooled"
+  },
+  {
+   "tf": "1h",
+   "setting": "vwap-day-gt-upper2-short",
+   "scope": "pooled"
+  },
+  {
+   "tf": "4h",
+   "setting": "vwap-day-gt-upper2-short",
+   "scope": "pooled"
+  },
+  {
+   "tf": "*",
+   "setting": "vwap-week-gt",
+   "scope": "pooled"
+  },
+  {
+   "tf": "*",
+   "setting": "vwap-month-gt",
+   "scope": "pooled"
+  },
+  {
+   "tf": "1h",
+   "setting": "vwap-week-gt",
+   "scope": "SOL"
+  }
+ ],
+ "verdictRefs": [
+  [
+   {
+    "tf": "1h",
+    "setting": "vwap-day-lt-lower2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "vwap-day-lt-lower2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-week-lt-lower2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "vwap-week-lt-lower2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "vwap-week-lt-lower2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "vwap-day-lt-lower2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-day-lt-lower2",
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-day-lt-lower2",
+    "scope": "down"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "vwap-day-gt-upper2-short",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "vwap-day-gt-upper2-short",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-day-gt-upper2-short",
+    "scope": "down"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "vwap-week-gt",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "vwap-week-gt",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-week-gt",
+    "scope": "SOL"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "vwap-month-gt",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "vwap-month-gt",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "vwap-month-gt",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "vwap-day-gt",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-day-gt",
+    "scope": "BTC"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-day-gt",
+    "scope": "ETH"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-day-gt",
+    "scope": "SOL"
+   },
+   {
+    "tf": "4h",
+    "setting": "vwap-day-gt",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "vwap-day-gt",
+    "scope": "pooled"
+   }
+  ]
+ ],
+ "noteRefs": [
+  [
+   {
+    "tf": "1h",
+    "setting": "vwap-day-lt-lower2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-day-lt-lower2",
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-day-lt-lower2",
+    "scope": "down"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-week-lt-lower2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-week-lt-lower2",
+    "scope": "BTC"
+   },
+   {
+    "tf": "4h",
+    "setting": "vwap-week-lt-lower2",
+    "scope": "BTC"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "vwap-day-gt-upper2-short",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-day-gt-upper2-short",
+    "scope": "down"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-day-gt-upper2-short",
+    "scope": "up"
+   },
+   {
+    "tf": "4h",
+    "setting": "vwap-day-gt-upper2-short",
+    "scope": "up"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "vwap-week-gt",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-week-gt",
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-week-gt",
+    "scope": "down"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-week-gt",
+    "scope": "SOL"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-week-gt",
+    "scope": "BTC"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-week-gt",
+    "scope": "ETH"
+   },
+   {
+    "tf": "4h",
+    "setting": "vwap-week-gt",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "vwap-week-gt",
+    "scope": "up"
+   },
+   {
+    "tf": "4h",
+    "setting": "vwap-week-gt",
+    "scope": "down"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "vwap-month-gt",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "vwap-month-gt",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "vwap-month-gt",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-month-gt",
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-month-gt",
+    "scope": "down"
+   },
+   {
+    "tf": "4h",
+    "setting": "vwap-month-gt",
+    "scope": "up"
+   },
+   {
+    "tf": "4h",
+    "setting": "vwap-month-gt",
+    "scope": "down"
+   },
+   {
+    "tf": "1d",
+    "setting": "vwap-month-gt",
+    "scope": "down"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "vwap-day-gt",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-day-lt-lower2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-day-gt",
+    "scope": "BTC"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-day-gt",
+    "scope": "ETH"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-day-gt",
+    "scope": "SOL"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-day-gt",
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-day-gt",
+    "scope": "down"
+   },
+   {
+    "tf": "4h",
+    "setting": "vwap-day-gt",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "vwap-day-gt",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "vwap-day-lt-lower2",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-day-gt-upper2-short",
+    "scope": "down"
+   },
+   {
+    "tf": "1h",
+    "setting": "vwap-week-gt",
+    "scope": "SOL"
+   },
+   {
+    "tf": "*",
+    "setting": "vwap-week-gt",
+    "scope": "pooled"
+   },
+   {
+    "tf": "*",
+    "setting": "vwap-month-gt",
+    "scope": "pooled"
+   }
+  ]
+ ]
+}

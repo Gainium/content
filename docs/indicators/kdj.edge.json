@@ -1,0 +1,3968 @@
+{
+ "indicator": "kdj",
+ "defaultTf": "1h",
+ "method": {
+  "horizon": 20,
+  "horizons": [
+   10,
+   20,
+   50,
+   100
+  ],
+  "randomDraws": 500,
+  "minEpisodes": 30,
+  "source": "Binance spot",
+  "pairs": [
+   "BTC/USDT",
+   "ETH/USDT",
+   "SOL/USDT"
+  ],
+  "from": "2020-09-01",
+  "warmupFrom": "2020-06-01",
+  "regime": {
+   "by": "pair close vs its 200-day SMA",
+   "sma": 200
+  },
+  "to": "2026-10-28",
+  "engine": {
+   "indicators": "c1a80cca",
+   "analysisMath": "1e6c0dbf"
+  }
+ },
+ "updatedAt": "2026-10-29",
+ "settings": [
+  {
+   "id": "kdj-k-up-d",
+   "tf": "1h",
+   "label": "KDJ(9,3,3) K crosses up D",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 14021,
+    "episodes": 1184,
+    "draws": 100,
+    "edge": -0.03,
+    "chance": [
+     -0.04,
+     0.04
+    ],
+    "verdict": "none",
+    "path": [
+     0.009,
+     -0.002,
+     -0.018,
+     -0.019,
+     -0.029,
+     -0.028,
+     -0.029,
+     -0.041,
+     -0.027,
+     -0.037,
+     -0.047,
+     -0.051,
+     -0.054,
+     -0.059,
+     -0.056,
+     -0.051,
+     -0.047,
+     -0.042,
+     -0.04,
+     -0.033
+    ],
+    "band": [
+     [
+      -0.01,
+      0.014
+     ],
+     [
+      -0.018,
+      0.017
+     ],
+     [
+      -0.025,
+      0.021
+     ],
+     [
+      -0.029,
+      0.02
+     ],
+     [
+      -0.031,
+      0.023
+     ],
+     [
+      -0.034,
+      0.025
+     ],
+     [
+      -0.038,
+      0.03
+     ],
+     [
+      -0.04,
+      0.03
+     ],
+     [
+      -0.035,
+      0.03
+     ],
+     [
+      -0.032,
+      0.033
+     ],
+     [
+      -0.033,
+      0.035
+     ],
+     [
+      -0.033,
+      0.035
+     ],
+     [
+      -0.034,
+      0.037
+     ],
+     [
+      -0.035,
+      0.034
+     ],
+     [
+      -0.039,
+      0.037
+     ],
+     [
+      -0.043,
+      0.041
+     ],
+     [
+      -0.044,
+      0.048
+     ],
+     [
+      -0.044,
+      0.049
+     ],
+     [
+      -0.043,
+      0.049
+     ],
+     [
+      -0.042,
+      0.045
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 4698,
+     "episodes": 385,
+     "draws": 100,
+     "edge": -0.05,
+     "chance": [
+      -0.03,
+      0.04
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 39,
+       "start": "2022-04-26",
+       "end": "2022-05-13",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 4666,
+     "episodes": 402,
+     "draws": 100,
+     "edge": 0,
+     "chance": [
+      -0.06,
+      0.05
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 4657,
+     "episodes": 397,
+     "draws": 100,
+     "edge": -0.05,
+     "chance": [
+      -0.09,
+      0.1
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "KDJ",
+    "params": {
+     "kdjLine": "k",
+     "indicatorCondition": "cu",
+     "kdjCompareTo": "d"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 7628,
+     "episodes": 650,
+     "draws": 100,
+     "edge": -0.04,
+     "chance": [
+      -0.04,
+      0.04
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 6048,
+     "episodes": 601,
+     "draws": 100,
+     "edge": -0.02,
+     "chance": [
+      -0.05,
+      0.05
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "kdj-k-up-d-lower30",
+   "tf": "1h",
+   "label": "KDJ(9,3,3) K crosses up D below 30",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 2710,
+    "episodes": 1902,
+    "draws": 100,
+    "edge": 0.04,
+    "chance": [
+     -0.16,
+     0.19
+    ],
+    "verdict": "none",
+    "path": [
+     -0.02,
+     -0.069,
+     -0.077,
+     -0.088,
+     -0.094,
+     -0.089,
+     -0.084,
+     -0.1,
+     -0.102,
+     -0.098,
+     -0.096,
+     -0.084,
+     -0.056,
+     -0.025,
+     -0.029,
+     -0.022,
+     0.03,
+     0.042,
+     0.047,
+     0.035
+    ],
+    "band": [
+     [
+      -0.028,
+      0.034
+     ],
+     [
+      -0.04,
+      0.045
+     ],
+     [
+      -0.054,
+      0.054
+     ],
+     [
+      -0.064,
+      0.066
+     ],
+     [
+      -0.065,
+      0.078
+     ],
+     [
+      -0.074,
+      0.081
+     ],
+     [
+      -0.076,
+      0.103
+     ],
+     [
+      -0.096,
+      0.098
+     ],
+     [
+      -0.09,
+      0.104
+     ],
+     [
+      -0.119,
+      0.108
+     ],
+     [
+      -0.135,
+      0.125
+     ],
+     [
+      -0.134,
+      0.122
+     ],
+     [
+      -0.133,
+      0.138
+     ],
+     [
+      -0.126,
+      0.142
+     ],
+     [
+      -0.135,
+      0.159
+     ],
+     [
+      -0.137,
+      0.159
+     ],
+     [
+      -0.135,
+      0.159
+     ],
+     [
+      -0.127,
+      0.173
+     ],
+     [
+      -0.152,
+      0.181
+     ],
+     [
+      -0.162,
+      0.186
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 837,
+     "episodes": 593,
+     "draws": 298,
+     "edge": -0.09,
+     "chance": [
+      -0.16,
+      0.18
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 798,
+     "episodes": 569,
+     "draws": 313,
+     "edge": 0.16,
+     "chance": [
+      -0.23,
+      0.25
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 1075,
+     "episodes": 740,
+     "draws": 232,
+     "edge": 0.02,
+     "chance": [
+      -0.26,
+      0.29
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "KDJ",
+    "params": {
+     "kdjLine": "k",
+     "indicatorCondition": "cu",
+     "kdjCompareTo": "d",
+     "stochRange": "lower",
+     "stochUpper": 30
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1329,
+     "episodes": 942,
+     "draws": 188,
+     "edge": 0,
+     "chance": [
+      -0.21,
+      0.21
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 1280,
+     "episodes": 916,
+     "draws": 195,
+     "edge": 0.15,
+     "chance": [
+      -0.19,
+      0.17
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "kdj-k-down-d-upper80",
+   "tf": "1h",
+   "label": "KDJ(9,3,3) K crosses down D above 80, short",
+   "side": "short",
+   "featured": false,
+   "pooled": {
+    "entries": 1079,
+    "episodes": 853,
+    "draws": 231,
+    "edge": -0.06,
+    "chance": [
+     -0.24,
+     0.29
+    ],
+    "verdict": "none",
+    "path": [
+     -0.034,
+     -0.051,
+     -0.104,
+     -0.122,
+     -0.118,
+     -0.13,
+     -0.09,
+     -0.134,
+     -0.165,
+     -0.163,
+     -0.164,
+     -0.237,
+     -0.18,
+     -0.159,
+     -0.092,
+     -0.086,
+     -0.113,
+     -0.099,
+     -0.101,
+     -0.061
+    ],
+    "band": [
+     [
+      -0.046,
+      0.054
+     ],
+     [
+      -0.075,
+      0.071
+     ],
+     [
+      -0.086,
+      0.094
+     ],
+     [
+      -0.1,
+      0.109
+     ],
+     [
+      -0.125,
+      0.129
+     ],
+     [
+      -0.137,
+      0.157
+     ],
+     [
+      -0.141,
+      0.171
+     ],
+     [
+      -0.151,
+      0.183
+     ],
+     [
+      -0.158,
+      0.198
+     ],
+     [
+      -0.18,
+      0.217
+     ],
+     [
+      -0.181,
+      0.228
+     ],
+     [
+      -0.196,
+      0.229
+     ],
+     [
+      -0.203,
+      0.224
+     ],
+     [
+      -0.222,
+      0.22
+     ],
+     [
+      -0.226,
+      0.241
+     ],
+     [
+      -0.239,
+      0.258
+     ],
+     [
+      -0.254,
+      0.256
+     ],
+     [
+      -0.253,
+      0.275
+     ],
+     [
+      -0.246,
+      0.282
+     ],
+     [
+      -0.245,
+      0.287
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 338,
+     "episodes": 266,
+     "draws": 500,
+     "edge": -0.13,
+     "chance": [
+      -0.25,
+      0.28
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 370,
+     "episodes": 296,
+     "draws": 500,
+     "edge": 0.17,
+     "chance": [
+      -0.37,
+      0.35
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 371,
+     "episodes": 291,
+     "draws": 500,
+     "edge": -0.23,
+     "chance": [
+      -0.54,
+      0.57
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "KDJ",
+    "params": {
+     "kdjLine": "k",
+     "indicatorCondition": "cd",
+     "kdjCompareTo": "d",
+     "stochRange": "upper",
+     "stochLower": 80
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 691,
+     "episodes": 533,
+     "draws": 361,
+     "edge": 0.01,
+     "chance": [
+      -0.33,
+      0.33
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 357,
+     "episodes": 294,
+     "draws": 500,
+     "edge": -0.11,
+     "chance": [
+      -0.33,
+      0.38
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "kdj-j-up-0",
+   "tf": "1h",
+   "label": "KDJ(9,3,3) J crosses up 0",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 3490,
+    "episodes": 2505,
+    "draws": 100,
+    "edge": 0,
+    "chance": [
+     -0.13,
+     0.14
+    ],
+    "verdict": "none",
+    "path": [
+     0.001,
+     0.018,
+     0.028,
+     0.021,
+     -0.003,
+     -0.037,
+     -0.042,
+     -0.025,
+     -0.053,
+     -0.066,
+     -0.071,
+     -0.089,
+     -0.089,
+     -0.086,
+     -0.066,
+     -0.073,
+     -0.057,
+     -0.022,
+     -0.001,
+     -0.004
+    ],
+    "band": [
+     [
+      -0.027,
+      0.028
+     ],
+     [
+      -0.035,
+      0.045
+     ],
+     [
+      -0.049,
+      0.052
+     ],
+     [
+      -0.065,
+      0.067
+     ],
+     [
+      -0.068,
+      0.071
+     ],
+     [
+      -0.081,
+      0.083
+     ],
+     [
+      -0.087,
+      0.071
+     ],
+     [
+      -0.082,
+      0.094
+     ],
+     [
+      -0.093,
+      0.09
+     ],
+     [
+      -0.092,
+      0.093
+     ],
+     [
+      -0.104,
+      0.123
+     ],
+     [
+      -0.108,
+      0.131
+     ],
+     [
+      -0.1,
+      0.131
+     ],
+     [
+      -0.101,
+      0.133
+     ],
+     [
+      -0.122,
+      0.131
+     ],
+     [
+      -0.123,
+      0.137
+     ],
+     [
+      -0.115,
+      0.159
+     ],
+     [
+      -0.11,
+      0.142
+     ],
+     [
+      -0.128,
+      0.132
+     ],
+     [
+      -0.132,
+      0.143
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 1128,
+     "episodes": 830,
+     "draws": 221,
+     "edge": -0.04,
+     "chance": [
+      -0.1,
+      0.13
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 998,
+     "episodes": 765,
+     "draws": 250,
+     "edge": 0.02,
+     "chance": [
+      -0.16,
+      0.15
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 1364,
+     "episodes": 910,
+     "draws": 183,
+     "edge": -0.01,
+     "chance": [
+      -0.23,
+      0.23
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "KDJ",
+    "params": {
+     "kdjLine": "j",
+     "indicatorCondition": "cu",
+     "kdjCompareTo": "custom",
+     "indicatorValue": 0
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1798,
+     "episodes": 1298,
+     "draws": 139,
+     "edge": -0.11,
+     "chance": [
+      -0.16,
+      0.17
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 1552,
+     "episodes": 1132,
+     "draws": 161,
+     "edge": 0.13,
+     "chance": [
+      -0.13,
+      0.12
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 1,
+       "start": "2023-01-13",
+       "end": "2023-01-13",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "kdj-j-lt0",
+   "tf": "1h",
+   "label": "KDJ(9,3,3) J below 0",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 7015,
+    "episodes": 2432,
+    "draws": 100,
+    "edge": 0.02,
+    "chance": [
+     -0.15,
+     0.16
+    ],
+    "verdict": "none",
+    "path": [
+     0.044,
+     0.063,
+     0.073,
+     0.069,
+     0.065,
+     0.05,
+     0.032,
+     0.013,
+     0.011,
+     -0.004,
+     -0.02,
+     -0.03,
+     -0.051,
+     -0.06,
+     -0.065,
+     -0.053,
+     -0.046,
+     -0.032,
+     -0.001,
+     0.021
+    ],
+    "band": [
+     [
+      -0.022,
+      0.025
+     ],
+     [
+      -0.039,
+      0.048
+     ],
+     [
+      -0.05,
+      0.07
+     ],
+     [
+      -0.057,
+      0.089
+     ],
+     [
+      -0.068,
+      0.098
+     ],
+     [
+      -0.072,
+      0.096
+     ],
+     [
+      -0.081,
+      0.098
+     ],
+     [
+      -0.089,
+      0.102
+     ],
+     [
+      -0.096,
+      0.093
+     ],
+     [
+      -0.095,
+      0.098
+     ],
+     [
+      -0.112,
+      0.116
+     ],
+     [
+      -0.108,
+      0.135
+     ],
+     [
+      -0.109,
+      0.13
+     ],
+     [
+      -0.108,
+      0.14
+     ],
+     [
+      -0.113,
+      0.139
+     ],
+     [
+      -0.119,
+      0.143
+     ],
+     [
+      -0.125,
+      0.144
+     ],
+     [
+      -0.132,
+      0.146
+     ],
+     [
+      -0.145,
+      0.152
+     ],
+     [
+      -0.154,
+      0.165
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 2254,
+     "episodes": 803,
+     "draws": 110,
+     "edge": -0.02,
+     "chance": [
+      -0.13,
+      0.15
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 1983,
+     "episodes": 749,
+     "draws": 126,
+     "edge": 0.02,
+     "chance": [
+      -0.2,
+      0.17
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 2778,
+     "episodes": 880,
+     "draws": 100,
+     "edge": 0.03,
+     "chance": [
+      -0.22,
+      0.21
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "KDJ",
+    "params": {
+     "kdjLine": "j",
+     "indicatorCondition": "lt",
+     "kdjCompareTo": "custom",
+     "indicatorValue": 0
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 3412,
+     "episodes": 1263,
+     "draws": 100,
+     "edge": -0.1,
+     "chance": [
+      -0.15,
+      0.16
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 3310,
+     "episodes": 1101,
+     "draws": 100,
+     "edge": 0.2,
+     "chance": [
+      -0.16,
+      0.13
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 7,
+       "start": "2022-06-18",
+       "end": "2022-06-20",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "kdj-j-down-100",
+   "tf": "1h",
+   "label": "KDJ(9,3,3) J crosses down 100, short",
+   "side": "short",
+   "featured": false,
+   "pooled": {
+    "entries": 4233,
+    "episodes": 2820,
+    "draws": 100,
+    "edge": -0.11,
+    "chance": [
+     -0.09,
+     0.12
+    ],
+    "verdict": "fragile-worse",
+    "robustness": {
+     "fragile": true,
+     "strongest": {
+      "deals": 3,
+      "start": "2021-01-02",
+      "end": "2021-01-03",
+      "without": "chance"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "worse"
+      },
+      {
+       "horizon": 50,
+       "state": "chance"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     -0.04,
+     -0.06,
+     -0.068,
+     -0.084,
+     -0.09,
+     -0.109,
+     -0.1,
+     -0.121,
+     -0.106,
+     -0.144,
+     -0.13,
+     -0.16,
+     -0.169,
+     -0.161,
+     -0.189,
+     -0.193,
+     -0.187,
+     -0.158,
+     -0.139,
+     -0.109
+    ],
+    "band": [
+     [
+      -0.026,
+      0.027
+     ],
+     [
+      -0.041,
+      0.033
+     ],
+     [
+      -0.054,
+      0.041
+     ],
+     [
+      -0.055,
+      0.047
+     ],
+     [
+      -0.067,
+      0.061
+     ],
+     [
+      -0.063,
+      0.063
+     ],
+     [
+      -0.073,
+      0.066
+     ],
+     [
+      -0.074,
+      0.082
+     ],
+     [
+      -0.066,
+      0.094
+     ],
+     [
+      -0.072,
+      0.097
+     ],
+     [
+      -0.082,
+      0.098
+     ],
+     [
+      -0.073,
+      0.113
+     ],
+     [
+      -0.078,
+      0.121
+     ],
+     [
+      -0.082,
+      0.109
+     ],
+     [
+      -0.084,
+      0.115
+     ],
+     [
+      -0.085,
+      0.11
+     ],
+     [
+      -0.099,
+      0.11
+     ],
+     [
+      -0.09,
+      0.106
+     ],
+     [
+      -0.103,
+      0.107
+     ],
+     [
+      -0.093,
+      0.121
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 1387,
+     "episodes": 938,
+     "draws": 180,
+     "edge": -0.07,
+     "chance": [
+      -0.1,
+      0.1
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 1381,
+     "episodes": 923,
+     "draws": 181,
+     "edge": -0.08,
+     "chance": [
+      -0.15,
+      0.15
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 1465,
+     "episodes": 959,
+     "draws": 170,
+     "edge": -0.17,
+     "chance": [
+      -0.18,
+      0.21
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "KDJ",
+    "params": {
+     "kdjLine": "j",
+     "indicatorCondition": "cd",
+     "kdjCompareTo": "custom",
+     "indicatorValue": 100
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 2401,
+     "episodes": 1561,
+     "draws": 104,
+     "edge": -0.09,
+     "chance": [
+      -0.13,
+      0.14
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 1697,
+     "episodes": 1188,
+     "draws": 147,
+     "edge": -0.12,
+     "chance": [
+      -0.17,
+      0.14
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "kdj-k-up-d",
+   "tf": "4h",
+   "label": "KDJ(9,3,3) K crosses up D",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 3434,
+    "episodes": 326,
+    "draws": 100,
+    "edge": -0.14,
+    "chance": [
+     -0.17,
+     0.16
+    ],
+    "verdict": "none",
+    "path": [
+     -0.021,
+     0.023,
+     0.039,
+     0.096,
+     0.105,
+     -0.032,
+     -0.027,
+     -0.042,
+     -0.024,
+     -0.01,
+     -0.014,
+     0.001,
+     -0.05,
+     -0.082,
+     -0.097,
+     -0.133,
+     -0.054,
+     -0.082,
+     -0.099,
+     -0.136
+    ],
+    "band": [
+     [
+      -0.051,
+      0.061
+     ],
+     [
+      -0.084,
+      0.067
+     ],
+     [
+      -0.092,
+      0.079
+     ],
+     [
+      -0.109,
+      0.089
+     ],
+     [
+      -0.119,
+      0.107
+     ],
+     [
+      -0.124,
+      0.127
+     ],
+     [
+      -0.134,
+      0.115
+     ],
+     [
+      -0.139,
+      0.134
+     ],
+     [
+      -0.129,
+      0.127
+     ],
+     [
+      -0.123,
+      0.148
+     ],
+     [
+      -0.133,
+      0.151
+     ],
+     [
+      -0.126,
+      0.154
+     ],
+     [
+      -0.139,
+      0.128
+     ],
+     [
+      -0.133,
+      0.124
+     ],
+     [
+      -0.134,
+      0.105
+     ],
+     [
+      -0.168,
+      0.123
+     ],
+     [
+      -0.169,
+      0.131
+     ],
+     [
+      -0.179,
+      0.123
+     ],
+     [
+      -0.188,
+      0.142
+     ],
+     [
+      -0.174,
+      0.162
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 1129,
+     "episodes": 113,
+     "draws": 221,
+     "edge": -0.09,
+     "chance": [
+      -0.19,
+      0.17
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 1160,
+     "episodes": 100,
+     "draws": 215,
+     "edge": -0.05,
+     "chance": [
+      -0.22,
+      0.21
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 1145,
+     "episodes": 113,
+     "draws": 218,
+     "edge": -0.26,
+     "chance": [
+      -0.38,
+      0.33
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "KDJ",
+    "params": {
+     "kdjLine": "k",
+     "indicatorCondition": "cu",
+     "kdjCompareTo": "d"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1823,
+     "episodes": 204,
+     "draws": 137,
+     "edge": -0.19,
+     "chance": [
+      -0.22,
+      0.21
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 1515,
+     "episodes": 190,
+     "draws": 165,
+     "edge": 0.1,
+     "chance": [
+      -0.19,
+      0.23
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "kdj-k-up-d-lower30",
+   "tf": "4h",
+   "label": "KDJ(9,3,3) K crosses up D below 30",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 747,
+    "episodes": 497,
+    "draws": 334,
+    "edge": -0.17,
+    "chance": [
+     -0.65,
+     0.75
+    ],
+    "verdict": "none",
+    "path": [
+     -0.135,
+     -0.021,
+     0.06,
+     0.037,
+     -0.073,
+     -0.256,
+     -0.33,
+     -0.399,
+     -0.29,
+     -0.222,
+     -0.228,
+     -0.137,
+     -0.151,
+     -0.16,
+     -0.256,
+     -0.265,
+     -0.21,
+     -0.204,
+     -0.163,
+     -0.169
+    ],
+    "band": [
+     [
+      -0.154,
+      0.125
+     ],
+     [
+      -0.205,
+      0.171
+     ],
+     [
+      -0.228,
+      0.224
+     ],
+     [
+      -0.261,
+      0.264
+     ],
+     [
+      -0.314,
+      0.299
+     ],
+     [
+      -0.344,
+      0.354
+     ],
+     [
+      -0.353,
+      0.391
+     ],
+     [
+      -0.393,
+      0.425
+     ],
+     [
+      -0.41,
+      0.443
+     ],
+     [
+      -0.418,
+      0.479
+     ],
+     [
+      -0.439,
+      0.487
+     ],
+     [
+      -0.435,
+      0.533
+     ],
+     [
+      -0.469,
+      0.567
+     ],
+     [
+      -0.513,
+      0.562
+     ],
+     [
+      -0.508,
+      0.593
+     ],
+     [
+      -0.505,
+      0.625
+     ],
+     [
+      -0.531,
+      0.705
+     ],
+     [
+      -0.61,
+      0.675
+     ],
+     [
+      -0.615,
+      0.72
+     ],
+     [
+      -0.649,
+      0.754
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 235,
+     "episodes": 160,
+     "draws": 500,
+     "edge": -0.03,
+     "chance": [
+      -0.6,
+      0.69
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 209,
+     "episodes": 154,
+     "draws": 500,
+     "edge": -0.52,
+     "chance": [
+      -0.96,
+      0.92
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 303,
+     "episodes": 183,
+     "draws": 500,
+     "edge": -0.13,
+     "chance": [
+      -1.05,
+      1.23
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "KDJ",
+    "params": {
+     "kdjLine": "k",
+     "indicatorCondition": "cu",
+     "kdjCompareTo": "d",
+     "stochRange": "lower",
+     "stochUpper": 30
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 306,
+     "episodes": 219,
+     "draws": 500,
+     "edge": 0,
+     "chance": [
+      -0.8,
+      0.9
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 412,
+     "episodes": 272,
+     "draws": 500,
+     "edge": -0.08,
+     "chance": [
+      -0.56,
+      0.65
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "kdj-k-down-d-upper80",
+   "tf": "4h",
+   "label": "KDJ(9,3,3) K crosses down D above 80, short",
+   "side": "short",
+   "featured": false,
+   "pooled": {
+    "entries": 334,
+    "episodes": 243,
+    "draws": 500,
+    "edge": -0.72,
+    "chance": [
+     -0.98,
+     0.95
+    ],
+    "verdict": "none",
+    "path": [
+     0.033,
+     -0.07,
+     -0.132,
+     -0.306,
+     -0.406,
+     -0.61,
+     -0.707,
+     -0.66,
+     -0.636,
+     -0.775,
+     -0.747,
+     -0.706,
+     -0.671,
+     -0.686,
+     -0.866,
+     -0.815,
+     -0.91,
+     -0.749,
+     -0.699,
+     -0.717
+    ],
+    "band": [
+     [
+      -0.169,
+      0.174
+     ],
+     [
+      -0.254,
+      0.229
+     ],
+     [
+      -0.326,
+      0.321
+     ],
+     [
+      -0.384,
+      0.383
+     ],
+     [
+      -0.433,
+      0.411
+     ],
+     [
+      -0.477,
+      0.502
+     ],
+     [
+      -0.471,
+      0.491
+     ],
+     [
+      -0.514,
+      0.545
+     ],
+     [
+      -0.571,
+      0.591
+     ],
+     [
+      -0.595,
+      0.643
+     ],
+     [
+      -0.64,
+      0.701
+     ],
+     [
+      -0.713,
+      0.724
+     ],
+     [
+      -0.71,
+      0.781
+     ],
+     [
+      -0.749,
+      0.826
+     ],
+     [
+      -0.734,
+      0.851
+     ],
+     [
+      -0.779,
+      0.866
+     ],
+     [
+      -0.779,
+      0.914
+     ],
+     [
+      -0.846,
+      0.909
+     ],
+     [
+      -0.883,
+      0.919
+     ],
+     [
+      -0.978,
+      0.949
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 105,
+     "episodes": 82,
+     "draws": 500,
+     "edge": -0.52,
+     "chance": [
+      -0.98,
+      0.87
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 133,
+     "episodes": 93,
+     "draws": 500,
+     "edge": 0.03,
+     "chance": [
+      -1.16,
+      1.21
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 96,
+     "episodes": 68,
+     "draws": 500,
+     "edge": -2.04,
+     "chance": [
+      -2.11,
+      2.18
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "KDJ",
+    "params": {
+     "kdjLine": "k",
+     "indicatorCondition": "cd",
+     "kdjCompareTo": "d",
+     "stochRange": "upper",
+     "stochLower": 80
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 244,
+     "episodes": 169,
+     "draws": 500,
+     "edge": -1.23,
+     "chance": [
+      -1.05,
+      1
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 7,
+       "start": "2021-04-27",
+       "end": "2021-05-04",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "worse"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 84,
+     "episodes": 74,
+     "draws": 500,
+     "edge": 1.09,
+     "chance": [
+      -1.34,
+      1.47
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "kdj-j-up-0",
+   "tf": "4h",
+   "label": "KDJ(9,3,3) J crosses up 0",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 826,
+    "episodes": 623,
+    "draws": 302,
+    "edge": 0.12,
+    "chance": [
+     -0.47,
+     0.59
+    ],
+    "verdict": "none",
+    "path": [
+     -0.033,
+     -0.053,
+     0.109,
+     0.2,
+     0.18,
+     0.148,
+     0.044,
+     0.018,
+     0.03,
+     -0.033,
+     0.066,
+     0.086,
+     0.11,
+     0.154,
+     0.076,
+     0.277,
+     0.248,
+     0.209,
+     0.249,
+     0.125
+    ],
+    "band": [
+     [
+      -0.113,
+      0.126
+     ],
+     [
+      -0.158,
+      0.18
+     ],
+     [
+      -0.207,
+      0.202
+     ],
+     [
+      -0.245,
+      0.239
+     ],
+     [
+      -0.279,
+      0.291
+     ],
+     [
+      -0.295,
+      0.301
+     ],
+     [
+      -0.303,
+      0.336
+     ],
+     [
+      -0.274,
+      0.371
+     ],
+     [
+      -0.32,
+      0.331
+     ],
+     [
+      -0.323,
+      0.4
+     ],
+     [
+      -0.304,
+      0.425
+     ],
+     [
+      -0.321,
+      0.423
+     ],
+     [
+      -0.386,
+      0.43
+     ],
+     [
+      -0.367,
+      0.478
+     ],
+     [
+      -0.382,
+      0.512
+     ],
+     [
+      -0.427,
+      0.512
+     ],
+     [
+      -0.432,
+      0.54
+     ],
+     [
+      -0.428,
+      0.519
+     ],
+     [
+      -0.407,
+      0.539
+     ],
+     [
+      -0.47,
+      0.587
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 263,
+     "episodes": 198,
+     "draws": 500,
+     "edge": 0.04,
+     "chance": [
+      -0.54,
+      0.58
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 233,
+     "episodes": 187,
+     "draws": 500,
+     "edge": -0.12,
+     "chance": [
+      -0.66,
+      0.78
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 330,
+     "episodes": 238,
+     "draws": 500,
+     "edge": 0.27,
+     "chance": [
+      -0.87,
+      0.91
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "KDJ",
+    "params": {
+     "kdjLine": "j",
+     "indicatorCondition": "cu",
+     "kdjCompareTo": "custom",
+     "indicatorValue": 0
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 398,
+     "episodes": 300,
+     "draws": 500,
+     "edge": -0.37,
+     "chance": [
+      -0.51,
+      0.74
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 394,
+     "episodes": 306,
+     "draws": 500,
+     "edge": -0.14,
+     "chance": [
+      -0.62,
+      0.55
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "kdj-j-lt0",
+   "tf": "4h",
+   "label": "KDJ(9,3,3) J below 0",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 1637,
+    "episodes": 607,
+    "draws": 152,
+    "edge": 0.27,
+    "chance": [
+     -0.58,
+     0.69
+    ],
+    "verdict": "none",
+    "path": [
+     0.17,
+     0.153,
+     0.14,
+     0.22,
+     0.265,
+     0.262,
+     0.237,
+     0.218,
+     0.201,
+     0.159,
+     0.126,
+     0.149,
+     0.182,
+     0.166,
+     0.166,
+     0.12,
+     0.181,
+     0.205,
+     0.218,
+     0.266
+    ],
+    "band": [
+     [
+      -0.08,
+      0.102
+     ],
+     [
+      -0.12,
+      0.172
+     ],
+     [
+      -0.163,
+      0.23
+     ],
+     [
+      -0.223,
+      0.261
+     ],
+     [
+      -0.265,
+      0.302
+     ],
+     [
+      -0.349,
+      0.357
+     ],
+     [
+      -0.383,
+      0.399
+     ],
+     [
+      -0.418,
+      0.465
+     ],
+     [
+      -0.406,
+      0.501
+     ],
+     [
+      -0.402,
+      0.533
+     ],
+     [
+      -0.432,
+      0.551
+     ],
+     [
+      -0.435,
+      0.56
+     ],
+     [
+      -0.456,
+      0.557
+     ],
+     [
+      -0.49,
+      0.579
+     ],
+     [
+      -0.483,
+      0.647
+     ],
+     [
+      -0.502,
+      0.667
+     ],
+     [
+      -0.554,
+      0.719
+     ],
+     [
+      -0.594,
+      0.68
+     ],
+     [
+      -0.594,
+      0.663
+     ],
+     [
+      -0.578,
+      0.691
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 501,
+     "episodes": 196,
+     "draws": 499,
+     "edge": 0,
+     "chance": [
+      -0.63,
+      0.7
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 452,
+     "episodes": 184,
+     "draws": 500,
+     "edge": 0.41,
+     "chance": [
+      -0.86,
+      0.88
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 684,
+     "episodes": 227,
+     "draws": 365,
+     "edge": 0.25,
+     "chance": [
+      -0.89,
+      1.01
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "KDJ",
+    "params": {
+     "kdjLine": "j",
+     "indicatorCondition": "lt",
+     "kdjCompareTo": "custom",
+     "indicatorValue": 0
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 749,
+     "episodes": 304,
+     "draws": 333,
+     "edge": -0.35,
+     "chance": [
+      -0.62,
+      0.95
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 815,
+     "episodes": 293,
+     "draws": 306,
+     "edge": 0.27,
+     "chance": [
+      -0.67,
+      0.61
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "kdj-j-down-100",
+   "tf": "4h",
+   "label": "KDJ(9,3,3) J crosses down 100, short",
+   "side": "short",
+   "featured": false,
+   "pooled": {
+    "entries": 1102,
+    "episodes": 738,
+    "draws": 226,
+    "edge": -0.84,
+    "chance": [
+     -0.44,
+     0.48
+    ],
+    "verdict": "worse",
+    "robustness": {
+     "fragile": false,
+     "strongest": {
+      "deals": 3,
+      "start": "2021-08-14",
+      "end": "2021-08-16",
+      "without": "worse"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "worse"
+      },
+      {
+       "horizon": 50,
+       "state": "worse"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     -0.227,
+     -0.227,
+     -0.171,
+     -0.158,
+     -0.199,
+     -0.281,
+     -0.372,
+     -0.412,
+     -0.517,
+     -0.54,
+     -0.533,
+     -0.504,
+     -0.51,
+     -0.559,
+     -0.524,
+     -0.577,
+     -0.556,
+     -0.669,
+     -0.739,
+     -0.84
+    ],
+    "band": [
+     [
+      -0.091,
+      0.111
+     ],
+     [
+      -0.13,
+      0.155
+     ],
+     [
+      -0.157,
+      0.196
+     ],
+     [
+      -0.233,
+      0.249
+     ],
+     [
+      -0.274,
+      0.281
+     ],
+     [
+      -0.295,
+      0.286
+     ],
+     [
+      -0.319,
+      0.295
+     ],
+     [
+      -0.321,
+      0.352
+     ],
+     [
+      -0.313,
+      0.355
+     ],
+     [
+      -0.338,
+      0.38
+     ],
+     [
+      -0.342,
+      0.356
+     ],
+     [
+      -0.35,
+      0.363
+     ],
+     [
+      -0.369,
+      0.413
+     ],
+     [
+      -0.375,
+      0.413
+     ],
+     [
+      -0.43,
+      0.393
+     ],
+     [
+      -0.439,
+      0.434
+     ],
+     [
+      -0.446,
+      0.462
+     ],
+     [
+      -0.412,
+      0.452
+     ],
+     [
+      -0.429,
+      0.469
+     ],
+     [
+      -0.437,
+      0.481
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 361,
+     "episodes": 249,
+     "draws": 500,
+     "edge": -0.57,
+     "chance": [
+      -0.39,
+      0.43
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 3,
+       "start": "2020-12-30",
+       "end": "2020-12-31",
+       "without": "worse"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 356,
+     "episodes": 238,
+     "draws": 500,
+     "edge": -0.6,
+     "chance": [
+      -0.65,
+      0.61
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 385,
+     "episodes": 251,
+     "draws": 500,
+     "edge": -1.3,
+     "chance": [
+      -0.9,
+      0.84
+     ],
+     "verdict": "worse",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 3,
+       "start": "2021-08-14",
+       "end": "2021-08-16",
+       "without": "worse"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "worse"
+       }
+      ]
+     }
+    }
+   },
+   "bot": {
+    "type": "KDJ",
+    "params": {
+     "kdjLine": "j",
+     "indicatorCondition": "cd",
+     "kdjCompareTo": "custom",
+     "indicatorValue": 100
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 659,
+     "episodes": 423,
+     "draws": 379,
+     "edge": -0.79,
+     "chance": [
+      -0.5,
+      0.5
+     ],
+     "verdict": "worse",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 3,
+       "start": "2021-08-14",
+       "end": "2021-08-16",
+       "without": "worse"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "worse"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 420,
+     "episodes": 308,
+     "draws": 500,
+     "edge": -0.38,
+     "chance": [
+      -0.5,
+      0.54
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "kdj-k-up-d",
+   "tf": "1d",
+   "label": "KDJ(9,3,3) K crosses up D",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 579,
+    "episodes": 39,
+    "draws": 431,
+    "edge": 0.15,
+    "chance": [
+     -1.34,
+     1.15
+    ],
+    "verdict": "none",
+    "path": [
+     0.003,
+     0.263,
+     0.494,
+     0.368,
+     0.422,
+     0.327,
+     0.38,
+     0.016,
+     0.125,
+     0.069,
+     -0.357,
+     -0.497,
+     -0.008,
+     0.278,
+     0.27,
+     0.572,
+     0.57,
+     0.465,
+     0.422,
+     0.151
+    ],
+    "band": [
+     [
+      -0.375,
+      0.325
+     ],
+     [
+      -0.451,
+      0.432
+     ],
+     [
+      -0.614,
+      0.476
+     ],
+     [
+      -0.723,
+      0.567
+     ],
+     [
+      -0.746,
+      0.653
+     ],
+     [
+      -0.793,
+      0.684
+     ],
+     [
+      -0.872,
+      0.708
+     ],
+     [
+      -0.857,
+      0.715
+     ],
+     [
+      -0.95,
+      0.729
+     ],
+     [
+      -0.914,
+      0.775
+     ],
+     [
+      -0.998,
+      0.837
+     ],
+     [
+      -0.991,
+      0.812
+     ],
+     [
+      -1.008,
+      0.837
+     ],
+     [
+      -1.1,
+      0.867
+     ],
+     [
+      -1.214,
+      0.92
+     ],
+     [
+      -1.206,
+      0.926
+     ],
+     [
+      -1.244,
+      1.028
+     ],
+     [
+      -1.303,
+      1.176
+     ],
+     [
+      -1.412,
+      1.189
+     ],
+     [
+      -1.341,
+      1.146
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 195,
+     "episodes": 13,
+     "draws": 500,
+     "edge": -0.1,
+     "chance": [
+      -1.11,
+      1.06
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 200,
+     "episodes": 12,
+     "draws": 500,
+     "edge": -1.07,
+     "chance": [
+      -1.66,
+      1.45
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 184,
+     "episodes": 14,
+     "draws": 500,
+     "edge": 1.97,
+     "chance": [
+      -2.93,
+      2.72
+     ],
+     "verdict": "few"
+    }
+   },
+   "bot": {
+    "type": "KDJ",
+    "params": {
+     "kdjLine": "k",
+     "indicatorCondition": "cu",
+     "kdjCompareTo": "d"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 302,
+     "episodes": 42,
+     "draws": 500,
+     "edge": 1.21,
+     "chance": [
+      -1.62,
+      1.97
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 262,
+     "episodes": 39,
+     "draws": 500,
+     "edge": -0.8,
+     "chance": [
+      -1.24,
+      1.2
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "kdj-k-up-d-lower30",
+   "tf": "1d",
+   "label": "KDJ(9,3,3) K crosses up D below 30",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 124,
+    "episodes": 84,
+    "draws": 500,
+    "edge": -1.54,
+    "chance": [
+     -5.24,
+     5.94
+    ],
+    "verdict": "none",
+    "path": [
+     0.148,
+     0.337,
+     -0.145,
+     0.248,
+     0.73,
+     0.787,
+     0.569,
+     0.345,
+     -0.39,
+     -0.559,
+     -1.257,
+     -2.025,
+     -1.98,
+     -2.127,
+     -2.116,
+     -1.402,
+     -1.941,
+     -1.604,
+     -1.45,
+     -1.545
+    ],
+    "band": [
+     [
+      -0.823,
+      0.716
+     ],
+     [
+      -1.186,
+      1.013
+     ],
+     [
+      -1.413,
+      1.304
+     ],
+     [
+      -1.798,
+      1.742
+     ],
+     [
+      -1.995,
+      1.838
+     ],
+     [
+      -2.288,
+      2.307
+     ],
+     [
+      -2.491,
+      2.274
+     ],
+     [
+      -2.817,
+      2.971
+     ],
+     [
+      -2.92,
+      3.068
+     ],
+     [
+      -3.145,
+      3.394
+     ],
+     [
+      -3.177,
+      3.513
+     ],
+     [
+      -3.557,
+      3.855
+     ],
+     [
+      -3.52,
+      3.86
+     ],
+     [
+      -3.882,
+      4.221
+     ],
+     [
+      -4.129,
+      4.41
+     ],
+     [
+      -4.493,
+      4.717
+     ],
+     [
+      -4.552,
+      4.954
+     ],
+     [
+      -4.712,
+      5.169
+     ],
+     [
+      -4.871,
+      5.721
+     ],
+     [
+      -5.236,
+      5.941
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 36,
+     "episodes": 24,
+     "draws": 500,
+     "edge": -2.8,
+     "chance": [
+      -4.61,
+      4.98
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 37,
+     "episodes": 29,
+     "draws": 500,
+     "edge": -3.3,
+     "chance": [
+      -5.2,
+      5.06
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 51,
+     "episodes": 31,
+     "draws": 500,
+     "edge": -0.27,
+     "chance": [
+      -9.25,
+      9.38
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "KDJ",
+    "params": {
+     "kdjLine": "k",
+     "indicatorCondition": "cu",
+     "kdjCompareTo": "d",
+     "stochRange": "lower",
+     "stochUpper": 30
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 31,
+     "episodes": 26,
+     "draws": 500,
+     "edge": -4.27,
+     "chance": [
+      -7.81,
+      7.38
+     ],
+     "verdict": "few"
+    },
+    "down": {
+     "entries": 91,
+     "episodes": 59,
+     "draws": 500,
+     "edge": 1.56,
+     "chance": [
+      -3.16,
+      3.02
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "kdj-k-down-d-upper80",
+   "tf": "1d",
+   "label": "KDJ(9,3,3) K crosses down D above 80, short",
+   "side": "short",
+   "featured": false,
+   "pooled": {
+    "entries": 91,
+    "episodes": 48,
+    "draws": 500,
+    "edge": -6.92,
+    "chance": [
+     -6.24,
+     6.43
+    ],
+    "verdict": "fragile-worse",
+    "robustness": {
+     "fragile": true,
+     "strongest": {
+      "deals": 5,
+      "start": "2021-08-08",
+      "end": "2021-09-09",
+      "without": "chance"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "worse"
+      },
+      {
+       "horizon": 50,
+       "state": "chance"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     -0.005,
+     -0.312,
+     -0.961,
+     -1.625,
+     -1.917,
+     -1.862,
+     -2.5,
+     -2.371,
+     -2.268,
+     -3.211,
+     -3.162,
+     -4.113,
+     -4.029,
+     -4.418,
+     -5.058,
+     -5.593,
+     -6.793,
+     -7.977,
+     -7.214,
+     -6.917
+    ],
+    "band": [
+     [
+      -0.768,
+      0.798
+     ],
+     [
+      -1.216,
+      1.2
+     ],
+     [
+      -1.579,
+      1.513
+     ],
+     [
+      -1.771,
+      1.888
+     ],
+     [
+      -1.973,
+      2.091
+     ],
+     [
+      -2.159,
+      2.438
+     ],
+     [
+      -2.436,
+      2.734
+     ],
+     [
+      -2.692,
+      3.121
+     ],
+     [
+      -2.994,
+      3.267
+     ],
+     [
+      -3.24,
+      3.736
+     ],
+     [
+      -3.567,
+      4.043
+     ],
+     [
+      -3.752,
+      4.31
+     ],
+     [
+      -4.042,
+      4.406
+     ],
+     [
+      -4.59,
+      4.77
+     ],
+     [
+      -4.676,
+      4.956
+     ],
+     [
+      -4.972,
+      5.24
+     ],
+     [
+      -5.478,
+      5.616
+     ],
+     [
+      -5.835,
+      5.721
+     ],
+     [
+      -6.139,
+      6.201
+     ],
+     [
+      -6.242,
+      6.43
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 36,
+     "episodes": 16,
+     "draws": 500,
+     "edge": -7.35,
+     "chance": [
+      -7,
+      5.64
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 5,
+       "start": "2020-12-21",
+       "end": "2021-01-10",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 28,
+     "episodes": 17,
+     "draws": 500,
+     "edge": 4.3,
+     "chance": [
+      -8.55,
+      6.81
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 27,
+     "episodes": 15,
+     "draws": 500,
+     "edge": -18.62,
+     "chance": [
+      -14.27,
+      12.23
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 5,
+       "start": "2021-08-08",
+       "end": "2021-09-09",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   },
+   "bot": {
+    "type": "KDJ",
+    "params": {
+     "kdjLine": "k",
+     "indicatorCondition": "cd",
+     "kdjCompareTo": "d",
+     "stochRange": "upper",
+     "stochLower": 80
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 78,
+     "episodes": 39,
+     "draws": 500,
+     "edge": -5.76,
+     "chance": [
+      -7.69,
+      5.87
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 11,
+     "episodes": 9,
+     "draws": 500,
+     "edge": 5,
+     "chance": [
+      -14.91,
+      10.97
+     ],
+     "verdict": "few"
+    }
+   }
+  },
+  {
+   "id": "kdj-j-up-0",
+   "tf": "1d",
+   "label": "KDJ(9,3,3) J crosses up 0",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 143,
+    "episodes": 101,
+    "draws": 500,
+    "edge": -1.32,
+    "chance": [
+     -4.62,
+     5.85
+    ],
+    "verdict": "none",
+    "path": [
+     -1.134,
+     -1.815,
+     -1.698,
+     -1.992,
+     -1.938,
+     -1.671,
+     -1.009,
+     -0.771,
+     -0.491,
+     -0.574,
+     -0.652,
+     -0.34,
+     -0.77,
+     -1.222,
+     -1.035,
+     -1.237,
+     -1.75,
+     -1.32,
+     -0.803,
+     -1.319
+    ],
+    "band": [
+     [
+      -0.721,
+      0.793
+     ],
+     [
+      -0.973,
+      1.232
+     ],
+     [
+      -1.158,
+      1.393
+     ],
+     [
+      -1.589,
+      1.625
+     ],
+     [
+      -1.773,
+      1.851
+     ],
+     [
+      -2.096,
+      2.293
+     ],
+     [
+      -2.224,
+      2.589
+     ],
+     [
+      -2.436,
+      2.9
+     ],
+     [
+      -2.789,
+      3.241
+     ],
+     [
+      -2.821,
+      3.442
+     ],
+     [
+      -3.102,
+      3.609
+     ],
+     [
+      -3.339,
+      3.874
+     ],
+     [
+      -3.44,
+      4.271
+     ],
+     [
+      -3.723,
+      4.471
+     ],
+     [
+      -3.926,
+      4.874
+     ],
+     [
+      -4.253,
+      4.817
+     ],
+     [
+      -4.195,
+      5.199
+     ],
+     [
+      -4.266,
+      5.294
+     ],
+     [
+      -4.421,
+      5.576
+     ],
+     [
+      -4.617,
+      5.851
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 48,
+     "episodes": 33,
+     "draws": 500,
+     "edge": -1.31,
+     "chance": [
+      -3.85,
+      3.56
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 38,
+     "episodes": 31,
+     "draws": 500,
+     "edge": -0.98,
+     "chance": [
+      -4.17,
+      4.66
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 57,
+     "episodes": 37,
+     "draws": 500,
+     "edge": -2.27,
+     "chance": [
+      -7.41,
+      8.65
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "KDJ",
+    "params": {
+     "kdjLine": "j",
+     "indicatorCondition": "cu",
+     "kdjCompareTo": "custom",
+     "indicatorValue": 0
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 48,
+     "episodes": 39,
+     "draws": 500,
+     "edge": -0.04,
+     "chance": [
+      -5.8,
+      6.09
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 92,
+     "episodes": 61,
+     "draws": 500,
+     "edge": 0.56,
+     "chance": [
+      -3.93,
+      3.45
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "kdj-j-lt0",
+   "tf": "1d",
+   "label": "KDJ(9,3,3) J below 0",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 278,
+    "episodes": 98,
+    "draws": 500,
+    "edge": -0.49,
+    "chance": [
+     -5.16,
+     6.39
+    ],
+    "verdict": "none",
+    "path": [
+     0.559,
+     0.131,
+     -0.413,
+     -0.628,
+     -0.707,
+     -0.98,
+     -0.952,
+     -0.628,
+     -0.407,
+     0.072,
+     0.137,
+     0.159,
+     0.193,
+     -0.203,
+     -0.76,
+     -0.99,
+     -0.949,
+     -1.084,
+     -0.941,
+     -0.492
+    ],
+    "band": [
+     [
+      -0.601,
+      0.58
+     ],
+     [
+      -0.996,
+      1.019
+     ],
+     [
+      -1.362,
+      1.416
+     ],
+     [
+      -1.803,
+      1.808
+     ],
+     [
+      -1.913,
+      1.97
+     ],
+     [
+      -2.277,
+      2.32
+     ],
+     [
+      -2.543,
+      2.686
+     ],
+     [
+      -2.816,
+      3.161
+     ],
+     [
+      -3.083,
+      3.463
+     ],
+     [
+      -3.318,
+      3.837
+     ],
+     [
+      -3.376,
+      4.03
+     ],
+     [
+      -3.57,
+      4.145
+     ],
+     [
+      -3.729,
+      4.304
+     ],
+     [
+      -3.829,
+      4.674
+     ],
+     [
+      -4.133,
+      5.113
+     ],
+     [
+      -4.365,
+      5.485
+     ],
+     [
+      -4.595,
+      5.621
+     ],
+     [
+      -4.772,
+      5.879
+     ],
+     [
+      -5.017,
+      6.158
+     ],
+     [
+      -5.158,
+      6.385
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 92,
+     "episodes": 32,
+     "draws": 500,
+     "edge": -2.46,
+     "chance": [
+      -3.78,
+      3.85
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 71,
+     "episodes": 30,
+     "draws": 500,
+     "edge": 2.13,
+     "chance": [
+      -4.79,
+      5.8
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 115,
+     "episodes": 36,
+     "draws": 500,
+     "edge": -1.39,
+     "chance": [
+      -8.64,
+      10.52
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "KDJ",
+    "params": {
+     "kdjLine": "j",
+     "indicatorCondition": "lt",
+     "kdjCompareTo": "custom",
+     "indicatorValue": 0
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 103,
+     "episodes": 43,
+     "draws": 500,
+     "edge": 3.03,
+     "chance": [
+      -5.99,
+      7.68
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 169,
+     "episodes": 57,
+     "draws": 500,
+     "edge": -0.3,
+     "chance": [
+      -4.92,
+      4.04
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "kdj-j-down-100",
+   "tf": "1d",
+   "label": "KDJ(9,3,3) J crosses down 100, short",
+   "side": "short",
+   "featured": false,
+   "pooled": {
+    "entries": 208,
+    "episodes": 132,
+    "draws": 500,
+    "edge": -1.9,
+    "chance": [
+     -3.39,
+     2.87
+    ],
+    "verdict": "none",
+    "path": [
+     0.021,
+     -0.373,
+     -0.059,
+     0.061,
+     -0.395,
+     -0.518,
+     -1.023,
+     -1.154,
+     -0.755,
+     -0.92,
+     -0.734,
+     -0.814,
+     -0.875,
+     -0.509,
+     -0.477,
+     -0.57,
+     -1.129,
+     -1.378,
+     -1.482,
+     -1.905
+    ],
+    "band": [
+     [
+      -0.638,
+      0.643
+     ],
+     [
+      -0.904,
+      1.02
+     ],
+     [
+      -1.14,
+      1.142
+     ],
+     [
+      -1.273,
+      1.328
+     ],
+     [
+      -1.439,
+      1.521
+     ],
+     [
+      -1.726,
+      1.785
+     ],
+     [
+      -1.785,
+      1.895
+     ],
+     [
+      -1.915,
+      1.96
+     ],
+     [
+      -2.021,
+      1.985
+     ],
+     [
+      -2.287,
+      2.156
+     ],
+     [
+      -2.244,
+      2.243
+     ],
+     [
+      -2.281,
+      2.252
+     ],
+     [
+      -2.503,
+      2.309
+     ],
+     [
+      -2.619,
+      2.446
+     ],
+     [
+      -2.786,
+      2.339
+     ],
+     [
+      -2.846,
+      2.652
+     ],
+     [
+      -3.002,
+      2.754
+     ],
+     [
+      -3.313,
+      2.805
+     ],
+     [
+      -3.276,
+      2.823
+     ],
+     [
+      -3.389,
+      2.875
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 71,
+     "episodes": 45,
+     "draws": 500,
+     "edge": -1.46,
+     "chance": [
+      -2.71,
+      2.73
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 61,
+     "episodes": 41,
+     "draws": 500,
+     "edge": -4.4,
+     "chance": [
+      -4.42,
+      3.99
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 76,
+     "episodes": 46,
+     "draws": 500,
+     "edge": 0.05,
+     "chance": [
+      -5.69,
+      5.11
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "KDJ",
+    "params": {
+     "kdjLine": "j",
+     "indicatorCondition": "cd",
+     "kdjCompareTo": "custom",
+     "indicatorValue": 100
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 129,
+     "episodes": 83,
+     "draws": 500,
+     "edge": 0.3,
+     "chance": [
+      -4.12,
+      2.42
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 76,
+     "episodes": 54,
+     "draws": 500,
+     "edge": -3.3,
+     "chance": [
+      -3.84,
+      4.22
+     ],
+     "verdict": "none"
+    }
+   }
+  }
+ ],
+ "summary": "Mostly no. On BTC, ETH and SOL, KDJ(9,3,3) crosses and J extremes did the same as random entries on 1h, 4h and daily, on both the long and the short side. The clearest result is on the short side. After J crossed down through 100 on 4h, price kept rising, and shorts did 0.84% worse than random after 20 candles.",
+ "verdicts": [
+  {
+   "use": "Buying oversold (K crosses up D below 30, J below 0, J crosses up 0)",
+   "verdict": "none",
+   "text": "Same as random on 1h, 4h and daily. This holds for the level and for both crosses."
+  },
+  {
+   "use": "Buying any K cross up through D",
+   "verdict": "none",
+   "text": "Same as random on 1h, 4h and daily, pooled across the three pairs."
+  },
+  {
+   "use": "Shorting J crossing down through 100 (4h)",
+   "verdict": "worse",
+   "text": "Worse than random on 4h, with price still rising after the signal. It holds without its strongest stretch and at 10, 20 and 50 candles."
+  },
+  {
+   "use": "Shorting K crossing down D above 80 (daily)",
+   "verdict": "fragile-worse",
+   "text": "Worse than random on daily, but only because of signals between Aug 8 and Sep 9, 2021. Without them, it was the same as random."
+  },
+  {
+   "use": "Buying J below 0 (1h)",
+   "verdict": "none",
+   "text": "Pooled, this was the same as random. Only entries taken below the 200-day SMA beat random, and only at 20 and 50 candles."
+  }
+ ],
+ "notes": [
+  "On 1h, K crossing up D trailed random entries by 0.03% after 20 candles, inside the luck band. Requiring the cross to happen below 30 cuts entries to about a fifth, and the result was again the same as random on 1h, 4h and daily. On BTC 1h, the plain cross looked worse than random only because of signals between Apr 26 and May 13, 2022, during the Terra collapse.",
+  "Shorting as J crossed down through 100 on 4h did 0.84% worse than random after 20 candles. The result held without its strongest stretch and at 10, 20 and 50 candles. On SOL it was 1.3% worse at every horizon. The trend carries it: in uptrends it was 0.79% worse and held at 10, 20, 50 and 100 candles, while in downtrends it was the same as random. J above 100 marked strength that continued, not a top.",
+  "On 1h, the same J cross down through 100 also looked worse than random, but only because of signals on Jan 2-3, 2021. Without them it was the same as random.",
+  "On 1h, J below 0 was the same as random pooled, but the two regimes split. In downtrends it beat random by 0.2% after 20 candles and held without its strongest stretch. It also showed at 50 candles, but not at 10 or 100. In uptrends it was the same as random. J crossing up through 0 enters about half as often, and its downtrend result rests on a single entry on Jan 13, 2023.",
+  "Shorting as K crossed down D above 80 on daily did 6.92% worse than random, but only because of 5 signals between Aug 8 and Sep 9, 2021. On 4h the same short looked worse in uptrends only because of signals between Apr 27 and May 4, 2021. In downtrends on daily it had too few moves to judge.",
+  "For a long DCA bot on these pairs, KDJ oversold timing did not change where price went, so the DCA orders and take profit decide the result. If you add a KDJ condition, J below 0 on 1h is the one to test, and only alongside a downtrend filter such as price below its 200-day SMA. For a short bot, leave J crossing down through 100 out as an entry on 4h. In uptrends, price kept rising after it fired."
+ ],
+ "summaryRefs": [
+  {
+   "tf": "*",
+   "setting": "kdj-k-up-d",
+   "scope": "pooled"
+  },
+  {
+   "tf": "*",
+   "setting": "kdj-k-up-d-lower30",
+   "scope": "pooled"
+  },
+  {
+   "tf": "*",
+   "setting": "kdj-j-up-0",
+   "scope": "pooled"
+  },
+  {
+   "tf": "*",
+   "setting": "kdj-j-lt0",
+   "scope": "pooled"
+  },
+  {
+   "tf": "*",
+   "setting": "kdj-k-down-d-upper80",
+   "scope": "pooled"
+  },
+  {
+   "tf": "*",
+   "setting": "kdj-j-down-100",
+   "scope": "pooled"
+  },
+  {
+   "tf": "4h",
+   "setting": "kdj-j-down-100",
+   "scope": "pooled"
+  }
+ ],
+ "verdictRefs": [
+  [
+   {
+    "tf": "*",
+    "setting": "kdj-k-up-d-lower30",
+    "scope": "pooled"
+   },
+   {
+    "tf": "*",
+    "setting": "kdj-j-lt0",
+    "scope": "pooled"
+   },
+   {
+    "tf": "*",
+    "setting": "kdj-j-up-0",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "*",
+    "setting": "kdj-k-up-d",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "4h",
+    "setting": "kdj-j-down-100",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1d",
+    "setting": "kdj-k-down-d-upper80",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "kdj-j-lt0",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "kdj-j-lt0",
+    "scope": "down"
+   }
+  ]
+ ],
+ "noteRefs": [
+  [
+   {
+    "tf": "1h",
+    "setting": "kdj-k-up-d",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "kdj-k-up-d",
+    "scope": "BTC"
+   },
+   {
+    "tf": "1h",
+    "setting": "kdj-k-up-d-lower30",
+    "scope": "pooled"
+   },
+   {
+    "tf": "*",
+    "setting": "kdj-k-up-d-lower30",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "4h",
+    "setting": "kdj-j-down-100",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "kdj-j-down-100",
+    "scope": "SOL"
+   },
+   {
+    "tf": "4h",
+    "setting": "kdj-j-down-100",
+    "scope": "up"
+   },
+   {
+    "tf": "4h",
+    "setting": "kdj-j-down-100",
+    "scope": "down"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "kdj-j-down-100",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "kdj-j-lt0",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "kdj-j-lt0",
+    "scope": "down"
+   },
+   {
+    "tf": "1h",
+    "setting": "kdj-j-lt0",
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "kdj-j-up-0",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "kdj-j-up-0",
+    "scope": "down"
+   }
+  ],
+  [
+   {
+    "tf": "1d",
+    "setting": "kdj-k-down-d-upper80",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "kdj-k-down-d-upper80",
+    "scope": "up"
+   },
+   {
+    "tf": "1d",
+    "setting": "kdj-k-down-d-upper80",
+    "scope": "down"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "kdj-j-lt0",
+    "scope": "down"
+   },
+   {
+    "tf": "4h",
+    "setting": "kdj-j-down-100",
+    "scope": "up"
+   }
+  ]
+ ]
+}
