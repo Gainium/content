@@ -1,0 +1,135 @@
+{
+  "alertConditions": "not applicable",
+  "chart": null,
+  "indicator": {
+    "author": "Gainium",
+    "kind": "native",
+    "openSource": null,
+    "overlay": null,
+    "scriptId": "CANDLE",
+    "shortTitle": "Candle Colour",
+    "title": "Candle Colour",
+    "version": null
+  },
+  "inputs": [
+    {
+      "default": "heikinAshi",
+      "defaultText": "Heikin Ashi",
+      "group": null,
+      "id": "candleSource",
+      "kind": "logic",
+      "label": "Candles",
+      "optionLabels": [
+        "Heikin Ashi",
+        "Regular candles"
+      ],
+      "options": [
+        "heikinAshi",
+        "regular"
+      ],
+      "tooltip": "Heikin Ashi averages each candle with the one before, so runs of one colour are longer and less noisy. Regular reads the exchange candles as they are.",
+      "type": "select"
+    },
+    {
+      "default": "1h",
+      "defaultText": "1 hour",
+      "group": null,
+      "id": "indicatorInterval",
+      "kind": "logic",
+      "label": "Interval",
+      "optionLabels": [
+        "1 minute",
+        "3 minutes",
+        "5 minutes",
+        "15 minutes",
+        "30 minutes",
+        "1 hour",
+        "2 hours",
+        "4 hours",
+        "8 hours",
+        "1 day",
+        "1 week"
+      ],
+      "options": [
+        "1m",
+        "3m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "4h",
+        "8h",
+        "1d",
+        "1w"
+      ],
+      "type": "interval"
+    },
+    {
+      "default": "green",
+      "defaultText": "Green",
+      "group": null,
+      "id": "candleColor",
+      "kind": "logic",
+      "label": "Colour",
+      "optionLabels": [
+        "Green",
+        "Red"
+      ],
+      "options": [
+        "green",
+        "red"
+      ],
+      "tooltip": "Green: close above open. Red: close below open. A candle that closes at its open is neither and breaks every run.",
+      "type": "select"
+    },
+    {
+      "default": 1,
+      "defaultText": "1",
+      "group": null,
+      "id": "candleCount",
+      "kind": "logic",
+      "label": "In a row",
+      "max": 50,
+      "min": 1,
+      "step": 1,
+      "suffix": "candles",
+      "tooltip": "How many closed candles of that colour in a row.",
+      "type": "number"
+    },
+    {
+      "default": "streak",
+      "defaultText": "While in a row",
+      "group": null,
+      "id": "candleTrigger",
+      "kind": "logic",
+      "label": "Trigger",
+      "optionLabels": [
+        "While in a row",
+        "Once per run"
+      ],
+      "options": [
+        "streak",
+        "start"
+      ],
+      "tooltip": "While in a row: true on every candle while the last N candles are all that colour. Once per run: true only on the N-th candle of the run, once.",
+      "type": "select"
+    },
+    {
+      "default": 0,
+      "defaultText": "0",
+      "group": null,
+      "id": "keepConditionBars",
+      "kind": "logic",
+      "label": "Keep true",
+      "min": 0,
+      "step": 1,
+      "tooltip": "This condition will remain true for a number of extra bars. Default is 0, which means it will be true only on the bar that triggered the condition.",
+      "type": "number"
+    }
+  ],
+  "notes": [],
+  "plots": [],
+  "schema": "gainium.indicator-settings/1",
+  "source": "gainium-catalog"
+}

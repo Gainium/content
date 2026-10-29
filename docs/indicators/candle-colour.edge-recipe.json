@@ -1,0 +1,70 @@
+{
+  "indicator": "candle-colour",
+  "defaultTf": "1h",
+  "featured": [
+    "ha-green-3-start",
+    "ha-red-1-start-short"
+  ],
+  "settings": [
+    {
+      "id": "ha-green-3-start",
+      "label": "Third green Heikin Ashi candle in a row",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "Candle",
+        "args": [
+          "heikinAshi"
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "fn",
+        "fn": "candleCondition",
+        "options": {
+          "color": "green",
+          "count": 3,
+          "trigger": "start"
+        }
+      },
+      "bot": {
+        "type": "CANDLE",
+        "params": {
+          "candleColor": "green",
+          "candleCount": 3,
+          "candleTrigger": "start"
+        }
+      }
+    },
+    {
+      "id": "ha-red-1-start-short",
+      "label": "First red Heikin Ashi candle, short",
+      "side": "short",
+      "featured": true,
+      "indicator": {
+        "class": "Candle",
+        "args": [
+          "heikinAshi"
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "fn",
+        "fn": "candleCondition",
+        "options": {
+          "color": "red",
+          "count": 1,
+          "trigger": "start"
+        }
+      },
+      "bot": {
+        "type": "CANDLE",
+        "params": {
+          "candleColor": "red",
+          "candleCount": 1,
+          "candleTrigger": "start"
+        }
+      }
+    }
+  ]
+}
