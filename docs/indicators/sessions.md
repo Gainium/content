@@ -7,7 +7,7 @@ description: >-
   signals by day of the week and time of day, and to trade the previous
   session's high, low, midpoint, open or close with the Price levels rule.
 createdAt: '2026-04-07T12:00:00.000Z'
-updatedAt: '2026-10-29T12:00:00.000Z'
+updatedAt: '2026-10-29T13:00:00.000Z'
 publishedAt: '2026-04-07T12:00:00.000Z'
 locale: en
 categories:
@@ -61,17 +61,18 @@ faq:
     details: >-
       Check three things. With Active During the session (the default), the
       rule is only true inside the session; choose Outside the session or Any
-      time to read it on other candles. A crossing never counts on the candle
-      where the session values roll over. An interval longer than the session
-      may leave no candle opening inside it, so use 15 minutes or less for
-      sessions with hours.
+      time to read it on other candles. A crossing never counts on a
+      session's first candle, and on the first candle after a session ends it
+      counts only for Price against a Previous session value. An interval
+      longer than the session may leave no candle opening inside it, so use
+      15 minutes or less for sessions with hours.
   - title: How do I trade the Monday range?
     details: >-
       Set Session to All day, Session Days to Monday only, Time zone UTC, Rule
       Price levels and Active Outside the session. Price crossing up Previous
       session high then fires when a candle from Tuesday to Sunday closes
-      above Monday's high. Monday itself never fires, and each new Monday
-      replaces the range.
+      above Monday's high, Tuesday's first candle included. Monday itself
+      never fires, and each new Monday replaces the range.
 related:
   - price-change-indicator
   - support-resistance-indicator
@@ -125,9 +126,9 @@ What decides those values:
 - **A session seen only in part is skipped.** If the candle history starts mid-session, that session never becomes a previous session.
 - **No value, no signal.** With no completed session yet, or Current session open outside a session, the condition is false. Comparing a value with itself is always false.
 
-**Crossings.** Crossing up means Compare was below With on the previous candle and is at or above it now; crossing down is the reverse. A crossing never counts on the candle where the session values roll over: both candles must see the same previous session and be in the same place, both in one session or both outside. A level that jumps because the session changed is never read as price crossing it.
+**Crossings.** Crossing up means Compare was below With on the previous candle and is at or above it now; crossing down is the reverse. Both candles must see the same previous session and be in the same place, both in one session or both outside, so a session's first candle never crosses. One exception: on the first candle after a session ends, Price against a Previous session value is a crossing when the close before it, the session's last, was on the other side of the new level. Both closes are compared with that one level, so a close above Monday's high on Tuesday's first candle is a crossing up. The last close of a session is always inside that session's high and low, so Crossing up Previous session high still needs a close above the high: a level that jumps because the session changed is never read as price crossing it. Two session values, or a Current session value, never cross on that candle.
 
-**Active.** With **Outside the session** the rule is read only on candles outside the session, against the last session that ended. With **Any time** it is read on every candle. A Monday-only session with Active Outside the session is the Monday range: Monday sets the high, low and midpoint, and the rest of the week trades against them. On BTC/USDT 1h, a close crosses up the Monday high at some point from Tuesday to Sunday in about 63% of weeks, and crosses down the Monday low in about 56%.
+**Active.** With **Outside the session** the rule is read only on candles outside the session, against the last session that ended. With **Any time** it is read on every candle. A Monday-only session with Active Outside the session is the Monday range: Monday sets the high, low and midpoint, and the rest of the week trades against them. On BTC/USDT 1h, a close crosses up the Monday high at some point from Tuesday to Sunday in about 63% of weeks, and crosses down the Monday low in about 57%.
 
 On the bot chart, In session shades every candle the session touches (Out of session shades the time outside it). With Price levels, the shading shows the session, Compare is drawn in orange and With in purple. Previous-session lines stay flat while a session runs and step to the new values once it ends, with a one-candle gap at the change.
 
@@ -144,7 +145,7 @@ On the bot chart, In session shades every candle the session touches (Out of ses
 | Rule | In session | In or out of session filters by time. Price levels compares two session prices; Active sets whether it is read during the session, outside it or any time. |
 | Interval | 15 minutes | Candles the session prices are read from. |
 | Compare | Price | Price is the close of the latest candle. Previous session values come from the last session that has ended. Current session open and midpoint have no value outside a session; the midpoint is halfway between the session high and low so far. |
-| Condition | Crossing up | Crossing compares two candles of the same session; a new session moving the levels is not a crossing. Nothing triggers before a whole session has ended. |
+| Condition | Crossing up | Crossing compares two candles in the same place, one session or both outside it; a new session moving the levels is not a crossing. Exception: on the first candle after a session ends, Price can cross a Previous session value. Nothing triggers before a whole session has ended. |
 | With | Previous session high | The value Compare is tested against. |
 | Active | — | When Price levels is read. Not set means During the session. Outside the session reads the last session that ended on every other candle; Any time reads every candle. Current session values have none outside a session. |
 | Session Days | 1,2,3,4,5 | Days the session opens, in its time zone: 0 is Sunday, 1 Monday, up to 6 for Saturday. |
