@@ -21,6 +21,10 @@
   "notExpressed": [
     "Running it on many altcoin pairs at once (the test runs BTC, ETH and SOL)"
   ],
+  "variants": [
+    "regime:supertrend",
+    "regime:structure"
+  ],
   "bot": {
     "type": "dca",
     "interval": "1h",

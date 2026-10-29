@@ -1,0 +1,79 @@
+{
+  "strategy": "price-move-30h",
+  "name": "3% hourly move, 30-hour hold",
+  "source": {
+    "label": "Ares's shared Gainium backtest of 2026-10-29 (10 coins, Oct 2023 \u2013 Oct 2026)",
+    "url": "https://app.gainium.io/bot/backtests?backtestShare=e54c9682-3bbc-4760-889c-a9d3fd7f2ceb"
+  },
+  "tuned": true,
+  "rulesFixedAt": "2026-10-29",
+  "tunedOn": {
+    "from": "2023-10-01",
+    "to": "2026-10-29"
+  },
+  "baseline": "random",
+  "tags": [
+    "momentum"
+  ],
+  "rules": [
+    "Buy when the price has moved 3% or more up or down within one hour.",
+    "Sell 30 hours later, whatever the price.",
+    "Hold up to 10 deals per coin at a time, with no stop loss and no safety orders."
+  ],
+  "notExpressed": [
+    "ZEC and HYPE from the original coin list (the test's eight coins have Binance history back to 2020)"
+  ],
+  "variants": [
+    "regime:supertrend",
+    "regime:structure"
+  ],
+  "bot": {
+    "type": "dca",
+    "interval": "1h",
+    "settings": {
+      "baseOrderSize": "100",
+      "startCondition": "TechnicalIndicators",
+      "startOrderType": "LIMIT",
+      "useTp": true,
+      "tpPerc": "3",
+      "dealCloseCondition": "webhook",
+      "closeByTimer": true,
+      "closeByTimerValue": 30,
+      "closeByTimerUnits": "hours",
+      "maxDealsPerPair": "10",
+      "indicatorGroups": [
+        {
+          "id": "entry",
+          "logic": "or",
+          "action": "startDeal"
+        }
+      ],
+      "indicators": [
+        {
+          "type": "PC",
+          "uuid": "pc-down",
+          "indicatorLength": 14,
+          "indicatorValue": "70",
+          "indicatorCondition": "cu",
+          "indicatorInterval": "1h",
+          "indicatorAction": "startDeal",
+          "groupId": "entry",
+          "keepConditionBars": "0",
+          "pcValue": "-3"
+        },
+        {
+          "type": "PC",
+          "uuid": "pc-up",
+          "indicatorLength": 14,
+          "indicatorValue": "70",
+          "indicatorCondition": "cu",
+          "indicatorInterval": "1h",
+          "indicatorAction": "startDeal",
+          "groupId": "entry",
+          "keepConditionBars": "0",
+          "pcValue": "3"
+        }
+      ]
+    }
+  }
+}

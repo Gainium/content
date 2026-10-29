@@ -21,6 +21,10 @@
   "notExpressed": [
     "The 3x leverage of the futures original (the test is spot)"
   ],
+  "variants": [
+    "regime:supertrend",
+    "regime:structure"
+  ],
   "bot": {
     "type": "dca",
     "interval": "1h",

@@ -22,6 +22,10 @@
   "notExpressed": [
     "The 15-minute version the author also runs (the test's shortest interval is 1 hour)"
   ],
+  "variants": [
+    "regime:supertrend",
+    "regime:structure"
+  ],
   "bot": {
     "type": "dca",
     "interval": "1h",

@@ -8,7 +8,10 @@
   "tuned": false,
   "rulesFixedAt": "2026-10-29",
   "baseline": "random",
-  "tags": ["mean-reversion", "dca"],
+  "tags": [
+    "mean-reversion",
+    "dca"
+  ],
   "rules": [
     "Find a base: the lowest low of the last 36 hourly candles, confirmed when price bounces 3% above it within 8 candles.",
     "Buy when price cracks 3% below that base.",
@@ -18,6 +21,10 @@
   ],
   "notExpressed": [
     "Choosing bases by eye on the chart (the scanner finds them by rule)"
+  ],
+  "variants": [
+    "regime:supertrend",
+    "regime:structure"
   ],
   "bot": {
     "type": "dca",
@@ -36,11 +43,24 @@
       "tpPerc": "3",
       "maxNumberOfOpenDeals": "3",
       "maxDealsPerPair": "1",
-      "indicatorGroups": [{ "id": "entry", "logic": "and", "action": "startDeal" }],
+      "indicatorGroups": [
+        {
+          "id": "entry",
+          "logic": "and",
+          "action": "startDeal"
+        }
+      ],
       "indicators": [
         {
-          "type": "QFL", "basePeriods": 36, "pumpPeriods": 8, "pump": 3, "baseCrack": 3,
-          "indicatorInterval": "1h", "indicatorAction": "startDeal", "groupId": "entry", "uuid": "qfl-default"
+          "type": "QFL",
+          "basePeriods": 36,
+          "pumpPeriods": 8,
+          "pump": 3,
+          "baseCrack": 3,
+          "indicatorInterval": "1h",
+          "indicatorAction": "startDeal",
+          "groupId": "entry",
+          "uuid": "qfl-default"
         }
       ]
     }

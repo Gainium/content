@@ -21,6 +21,10 @@
   "notExpressed": [
     "The moving-average ratio filter the forum version adds (its settings are not given)"
   ],
+  "variants": [
+    "regime:supertrend",
+    "regime:structure"
+  ],
   "bot": {
     "type": "dca",
     "interval": "1d",

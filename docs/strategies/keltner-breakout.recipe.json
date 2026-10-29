@@ -20,6 +20,10 @@
     "Hold one position per coin at a time."
   ],
   "notExpressed": [],
+  "variants": [
+    "regime:supertrend",
+    "regime:structure"
+  ],
   "bot": {
     "type": "dca",
     "interval": "1h",

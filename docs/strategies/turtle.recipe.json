@@ -9,7 +9,10 @@
   "tuned": false,
   "rulesFixedAt": "2026-10-29",
   "baseline": "random",
-  "tags": ["trend-following", "breakout"],
+  "tags": [
+    "trend-following",
+    "breakout"
+  ],
   "rules": [
     "Buy when the daily close breaks above the highest high of the previous 20 days.",
     "Sell when the daily close breaks below the lowest low of the previous 10 days.",
@@ -22,6 +25,10 @@
     "Skipping a breakout after a winning breakout",
     "Short trades (the test is spot, long only)"
   ],
+  "variants": [
+    "regime:supertrend",
+    "regime:structure"
+  ],
   "bot": {
     "type": "dca",
     "interval": "1d",
@@ -33,17 +40,39 @@
       "maxNumberOfOpenDeals": "3",
       "maxDealsPerPair": "1",
       "indicatorGroups": [
-        { "id": "entry", "logic": "and", "action": "startDeal" },
-        { "id": "exit", "logic": "and", "action": "closeDeal" }
+        {
+          "id": "entry",
+          "logic": "and",
+          "action": "startDeal"
+        },
+        {
+          "id": "exit",
+          "logic": "and",
+          "action": "closeDeal"
+        }
       ],
       "indicators": [
         {
-          "type": "DC", "indicatorLength": 20, "dcValue": "upper", "indicatorCondition": "cu", "indicatorValue": "0",
-          "indicatorInterval": "1d", "indicatorAction": "startDeal", "groupId": "entry", "uuid": "dc20-upper"
+          "type": "DC",
+          "indicatorLength": 20,
+          "dcValue": "upper",
+          "indicatorCondition": "cu",
+          "indicatorValue": "0",
+          "indicatorInterval": "1d",
+          "indicatorAction": "startDeal",
+          "groupId": "entry",
+          "uuid": "dc20-upper"
         },
         {
-          "type": "DC", "indicatorLength": 10, "dcValue": "lower", "indicatorCondition": "cd", "indicatorValue": "0",
-          "indicatorInterval": "1d", "indicatorAction": "closeDeal", "groupId": "exit", "uuid": "dc10-lower"
+          "type": "DC",
+          "indicatorLength": 10,
+          "dcValue": "lower",
+          "indicatorCondition": "cd",
+          "indicatorValue": "0",
+          "indicatorInterval": "1d",
+          "indicatorAction": "closeDeal",
+          "groupId": "exit",
+          "uuid": "dc10-lower"
         }
       ]
     }

@@ -18,6 +18,10 @@
     "Hold one position per coin at a time, with no stop loss."
   ],
   "notExpressed": [],
+  "variants": [
+    "regime:supertrend",
+    "regime:structure"
+  ],
   "bot": {
     "type": "dca",
     "interval": "1d",
