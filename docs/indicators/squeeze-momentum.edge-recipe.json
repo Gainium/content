@@ -1,0 +1,139 @@
+{
+  "indicator": "squeeze-momentum",
+  "defaultTf": "1h",
+  "featured": [
+    "fired-positive-bb15",
+    "off-rising",
+    "any-crossup"
+  ],
+  "settings": [
+    {
+      "id": "fired-positive",
+      "label": "Squeeze fires with positive momentum",
+      "side": "long",
+      "featured": false,
+      "volatility": true,
+      "indicator": {
+        "class": "Squeeze",
+        "args": [
+          20,
+          2,
+          20,
+          1.5
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "fn",
+        "fn": "squeezeCondition",
+        "options": {
+          "signal": "fired",
+          "momentum": "positive"
+        }
+      },
+      "bot": {
+        "type": "SQZ",
+        "params": {
+          "sqzSignal": "fired",
+          "sqzMomentum": "positive"
+        }
+      }
+    },
+    {
+      "id": "fired-positive-bb15",
+      "label": "Squeeze fires with positive momentum, BB multiplier 1.5",
+      "side": "long",
+      "featured": true,
+      "volatility": true,
+      "indicator": {
+        "class": "Squeeze",
+        "args": [
+          20,
+          1.5,
+          20,
+          1.5
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "fn",
+        "fn": "squeezeCondition",
+        "options": {
+          "signal": "fired",
+          "momentum": "positive"
+        }
+      },
+      "bot": {
+        "type": "SQZ",
+        "params": {
+          "sqzBBMult": 1.5,
+          "sqzSignal": "fired",
+          "sqzMomentum": "positive"
+        }
+      }
+    },
+    {
+      "id": "any-crossup",
+      "label": "Momentum crosses up zero",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "Squeeze",
+        "args": [
+          20,
+          2,
+          20,
+          1.5
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "fn",
+        "fn": "squeezeCondition",
+        "options": {
+          "signal": "any",
+          "momentum": "crossUp"
+        }
+      },
+      "bot": {
+        "type": "SQZ",
+        "params": {
+          "sqzSignal": "any",
+          "sqzMomentum": "crossUp"
+        }
+      }
+    },
+    {
+      "id": "off-rising",
+      "label": "Out of a squeeze with rising momentum",
+      "side": "long",
+      "featured": true,
+      "volatility": true,
+      "indicator": {
+        "class": "Squeeze",
+        "args": [
+          20,
+          2,
+          20,
+          1.5
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "fn",
+        "fn": "squeezeCondition",
+        "options": {
+          "signal": "off",
+          "momentum": "rising"
+        }
+      },
+      "bot": {
+        "type": "SQZ",
+        "params": {
+          "sqzSignal": "off",
+          "sqzMomentum": "rising"
+        }
+      }
+    }
+  ]
+}

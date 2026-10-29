@@ -1,0 +1,171 @@
+{
+  "alertConditions": "not applicable",
+  "chart": null,
+  "indicator": {
+    "author": "Gainium",
+    "kind": "native",
+    "openSource": null,
+    "overlay": null,
+    "scriptId": "SQZ",
+    "shortTitle": "Squeeze",
+    "title": "Squeeze Momentum",
+    "version": null
+  },
+  "inputs": [
+    {
+      "default": 20,
+      "defaultText": "20",
+      "group": null,
+      "id": "sqzLength",
+      "kind": "logic",
+      "label": "BB length",
+      "max": 500,
+      "min": 2,
+      "step": 1,
+      "tooltip": "Candles of the Bollinger Bands.",
+      "type": "number"
+    },
+    {
+      "default": 2,
+      "defaultText": "2",
+      "group": null,
+      "id": "sqzBBMult",
+      "kind": "logic",
+      "label": "BB multiplier",
+      "max": 10,
+      "min": 0.1,
+      "step": 0.1,
+      "suffix": "σ",
+      "tooltip": "Width of the Bollinger Bands in standard deviations. TradingView's published script draws with 1.5; set 1.5 to match its chart.",
+      "type": "number"
+    },
+    {
+      "default": 20,
+      "defaultText": "20",
+      "group": null,
+      "id": "sqzKCLength",
+      "kind": "logic",
+      "label": "KC length",
+      "max": 500,
+      "min": 2,
+      "step": 1,
+      "tooltip": "Candles of the Keltner Channels, also the length of the momentum.",
+      "type": "number"
+    },
+    {
+      "default": 1.5,
+      "defaultText": "1.5",
+      "group": null,
+      "id": "sqzKCMult",
+      "kind": "logic",
+      "label": "KC multiplier",
+      "max": 10,
+      "min": 0.1,
+      "step": 0.1,
+      "suffix": "×",
+      "tooltip": "Width of the Keltner Channels as a multiple of the average true range.",
+      "type": "number"
+    },
+    {
+      "default": "1h",
+      "defaultText": "1 hour",
+      "group": null,
+      "id": "indicatorInterval",
+      "kind": "logic",
+      "label": "Interval",
+      "optionLabels": [
+        "1 minute",
+        "3 minutes",
+        "5 minutes",
+        "15 minutes",
+        "30 minutes",
+        "1 hour",
+        "2 hours",
+        "4 hours",
+        "8 hours",
+        "1 day",
+        "1 week"
+      ],
+      "options": [
+        "1m",
+        "3m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "4h",
+        "8h",
+        "1d",
+        "1w"
+      ],
+      "type": "interval"
+    },
+    {
+      "default": "fired",
+      "defaultText": "Squeeze fired",
+      "group": null,
+      "id": "sqzSignal",
+      "kind": "logic",
+      "label": "Squeeze",
+      "optionLabels": [
+        "Squeeze fired",
+        "In a squeeze",
+        "Out of a squeeze",
+        "Any"
+      ],
+      "options": [
+        "fired",
+        "on",
+        "off",
+        "any"
+      ],
+      "tooltip": "In a squeeze: the Bollinger Bands are inside the Keltner Channels. Fired: the squeeze ended on this candle (the candle before was in one). Out of a squeeze: the bands are outside the channels.",
+      "type": "select"
+    },
+    {
+      "default": "positive",
+      "defaultText": "Positive",
+      "group": null,
+      "id": "sqzMomentum",
+      "kind": "logic",
+      "label": "Momentum",
+      "optionLabels": [
+        "Positive",
+        "Negative",
+        "Rising",
+        "Falling",
+        "Crossing above zero",
+        "Crossing below zero",
+        "Any"
+      ],
+      "options": [
+        "positive",
+        "negative",
+        "rising",
+        "falling",
+        "crossUp",
+        "crossDown",
+        "any"
+      ],
+      "tooltip": "The momentum histogram: above or below zero, higher or lower than on the candle before, or crossing zero. Both Squeeze and Momentum must hold; they cannot both be Any.",
+      "type": "select"
+    },
+    {
+      "default": 0,
+      "defaultText": "0",
+      "group": null,
+      "id": "keepConditionBars",
+      "kind": "logic",
+      "label": "Keep true",
+      "min": 0,
+      "step": 1,
+      "tooltip": "This condition will remain true for a number of extra bars. Default is 0, which means it will be true only on the bar that triggered the condition.",
+      "type": "number"
+    }
+  ],
+  "notes": [],
+  "plots": [],
+  "schema": "gainium.indicator-settings/1",
+  "source": "gainium-catalog"
+}
