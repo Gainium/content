@@ -479,6 +479,7 @@ const BASE_INDICATOR_CATALOG: Record<IndicatorEnum, IndicatorDefinition> = {
       makeIntervalField({ key: 'indicatorInterval', label: 'Interval', defaultValue: ExchangeIntervals.oneH }),
       makeBooleanField({ key: 'smoothingEnabled', label: 'Smoothing', derive: { get: (p) => 'false', set: (v) => ({}) } }),
       makeSelectField({ key: 'rsiMode', label: 'Mode', options: [{ value: 'a', label: 'A' }, { value: 'b', label: 'B' }], derive: { set: modeParams } }),
+      makeSelectField({ key: 'rsiActive', label: 'Active', options: [{ value: 'x', label: 'X' }, { value: 'y', label: 'Y' }], derive: { get: (p) => p.rsiActive ?? 'x', set: (v) => ({ rsiActive: v as string }) } }),
       conditionField,
       makeNumberField({ key: 'indicatorValue', label: 'Value', defaultValue: 70 }),
       makeNumberField({ key: 'indicatorValue2', label: 'Upper value' }),
@@ -683,6 +684,15 @@ describe('indicator edge recipe bot-form configs (spec 054)', () => {
       errorsOf(
         lt30,
         rsi({ indicatorCondition: 'lt', indicatorValue: 30, rsiMode: 'b' }),
+      ),
+    ).to.deep.equal([])
+  })
+
+  it('passes a derive control whose inline setter writes its own key', () => {
+    expect(
+      errorsOf(
+        lt30,
+        rsi({ indicatorCondition: 'lt', indicatorValue: 30, rsiActive: 'y' }),
       ),
     ).to.deep.equal([])
   })

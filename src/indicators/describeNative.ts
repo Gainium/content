@@ -238,10 +238,14 @@ export class CatalogEvaluator {
             key = await this.ev(p.name.expression, scope, mod)
           else key = p.name.getText(mod.source).replace(/^['"]|['"]$/g, '')
           if (key === UNRESOLVED) continue
-          // Summary/derivation callbacks are UI behaviour, not settings.
+          // Summary/derivation callbacks are UI behaviour, not settings. A
+          // derive `set` is kept as a closure: the edge check calls it to see
+          // whether the control stores its own key (Session's Active field
+          // writes it inline, ADX's Mode through a named function).
           if (
-            ts.isArrowFunction(p.initializer) ||
-            ts.isFunctionExpression(p.initializer)
+            (ts.isArrowFunction(p.initializer) ||
+              ts.isFunctionExpression(p.initializer)) &&
+            key !== 'set'
           )
             continue
           out[String(key)] = await this.ev(p.initializer, scope, mod)
