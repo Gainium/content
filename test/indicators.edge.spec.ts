@@ -449,6 +449,7 @@ import { IndicatorEnum, IndicatorStartConditionEnum, MAEnum, ExchangeIntervals }
 import { SESSION_PRESETS } from '@/utils/indicators/sessionWindow';
 const makeNumberField = (def) => ({ type: 'number', ...def });
 const makeSelectField = (def) => ({ type: 'select', ...def });
+const modeParams = (v, p) => ({ rsiMode: v, percentile: false });
 const makeBooleanField = (def) => ({ type: 'boolean', ...def });
 const makeTimeField = (def) => ({ type: 'time', ...def });
 const makeIntervalField = (def) => ({ type: 'interval', ...def, options: def.options ?? INTERVAL_OPTIONS });
@@ -477,6 +478,7 @@ const BASE_INDICATOR_CATALOG: Record<IndicatorEnum, IndicatorDefinition> = {
       makeNumberField({ key: 'indicatorLength', label: 'Length', defaultValue: 7 }),
       makeIntervalField({ key: 'indicatorInterval', label: 'Interval', defaultValue: ExchangeIntervals.oneH }),
       makeBooleanField({ key: 'smoothingEnabled', label: 'Smoothing', derive: { get: (p) => 'false', set: (v) => ({}) } }),
+      makeSelectField({ key: 'rsiMode', label: 'Mode', options: [{ value: 'a', label: 'A' }, { value: 'b', label: 'B' }], derive: { set: modeParams } }),
       conditionField,
       makeNumberField({ key: 'indicatorValue', label: 'Value', defaultValue: 70 }),
       makeNumberField({ key: 'indicatorValue2', label: 'Upper value' }),
@@ -674,6 +676,15 @@ describe('indicator edge recipe bot-form configs (spec 054)', () => {
     expect(
       errorsOf({ op: 'true' }, { type: 'WIP', params: {} }).join(),
     ).to.include('pendingPort')
+  })
+
+  it('passes a derive control without a default whose setter writes its own key', () => {
+    expect(
+      errorsOf(
+        lt30,
+        rsi({ indicatorCondition: 'lt', indicatorValue: 30, rsiMode: 'b' }),
+      ),
+    ).to.deep.equal([])
   })
 
   it('fails keys the type does not store: unknown, interval, derive-only', () => {

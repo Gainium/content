@@ -840,6 +840,30 @@ export function checkEdgeRecipe(
 // --- a setting's bot-form config ---------------------------------------------
 
 /**
+ * A `derive` control without a default still stores a value of its own when
+ * its setter writes its own key (ADX's Mode: `adxModeParams` returns
+ * `{ adxMode, … }`). Evaluated with each static option and empty params; a
+ * setter the evaluator cannot follow counts as storing nothing, as before.
+ */
+async function deriveWritesOwnKey(
+  ev: CatalogEvaluator,
+  f: Obj,
+): Promise<boolean> {
+  const derive = f.derive
+  const options = optionValues(f.options)
+  if (!isObj(derive) || derive.set === undefined || !options) return false
+  for (const option of options) {
+    const out = await ev.call(derive.set, [option, {}]).catch(() => undefined)
+    if (
+      isObj(out) &&
+      Object.prototype.hasOwnProperty.call(out, f.key as string)
+    )
+      return true
+  }
+  return false
+}
+
+/**
  * One field of a catalog type, as the bot check reads it (statically, from the
  * dashboard's indicator catalog; see loadBotCatalog).
  */
@@ -927,7 +951,10 @@ export async function loadBotCatalog(
         defaultValue: f.defaultValue,
         // a list default makes a select multi-valued too (Divergence's oscillators)
         multiple: f.multiple === true || Array.isArray(f.defaultValue),
-        stored: !(f.derive !== undefined && f.defaultValue === undefined),
+        stored:
+          f.derive === undefined ||
+          f.defaultValue !== undefined ||
+          (await deriveWritesOwnKey(ev, f)),
       }
       fields.set(field.key, field)
       for (const k of Array.isArray(f.keyWhen) ? f.keyWhen : [])
