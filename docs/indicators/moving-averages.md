@@ -26,7 +26,9 @@ tldr: >-
   The default is EMA 20 on 1-hour candles crossing down the current price,
   which fires when price closes back above the EMA. The golden cross, the
   50-day SMA crossing above the 200-day SMA, is the rarest signal on this
-  page: on BTC/USDT the 1-hour default fires about 600 times for each one.
+  page: on BTC/USDT the 1-hour default fires about 600 times for each one. An
+  optional trend filter adds a second test: the average now against itself a
+  set number of candles ago, by a percentage.
 kind: native
 catalogKeys:
   - MA
@@ -66,6 +68,14 @@ faq:
       Yes. The comparison average has its own interval field, so you can
       compare a 1-hour EMA with a 1-day SMA. The bot reads each average from
       its own candles.
+  - title: What does Use Trend Filter do on Moving Averages?
+    details: >-
+      It compares the average now with the same average Trend filter lookback
+      candles ago. Higher or equal to 0.5 needs it to have risen by at least
+      0.5%, Lower or equal to needs a fall of at least that much, and Between
+      values needs a move of less than that either way. The condition fires
+      only when the filter and the moving average condition are both true on
+      the same candle.
 related:
   - moving-average-ratio
   - macd
@@ -106,6 +116,7 @@ How to read it:
 - **Price above a rising average:** up trend at that length. Below a falling one: down trend.
 - **The 200-day SMA** is the line most traders watch. Price can stay on one side of it for most of a cycle: on the BTC/USDT daily chart, price closed above it on only about one candle in five.
 - **Two averages:** the shorter one above the longer one means the recent trend is up. The 50-day crossing above the 200-day is called a golden cross, the reverse a death cross.
+- **Slope:** an average that rose 0.5% over its last 10 candles is in a different market from one that went flat. The trend filter turns that slope into a condition. It uses the same rule as the Moving Average Ratio's trend filter, applied to the average itself.
 
 ![Moving Average Ribbon (SMA 20, 50, 100 and 200) on BINANCE:BTCUSDT 1D, dark theme: price below all four averages for most of the chart, then above all of them on the right](https://content.gainium.io/images/content/indicators/moving-averages__chart.webp)
 
@@ -121,10 +132,16 @@ How to read it:
 | Comparison length | 20 | Length of the second average, 1 to 1,000. Hidden with Current price. |
 | Comparison interval | 1 hour | Candle size of the second average. It can differ from Interval. Hidden with Current price. |
 | Keep true | 0 | Extra candles the condition stays true after it fires, so it can meet a slower condition in the same group. |
+| Use Trend Filter | Off | On: the condition also needs the average to have moved by Value, % over the last Trend filter lookback candles. Both must be true on the same candle. |
+| Trend filter lookback | 10 | How many candles back the average is compared with itself, 1 to 1,000. |
+| Operator | Lower or equal to | Lower or equal to: the average fell by at least Value, %. Higher or equal to: it rose by at least that much. Between values: it moved less than that either way. |
+| Value, % | 2 | The size of the move, in percent of the average. |
 
 **Tip:** Condition **Crossing down** with Compared to **Current price** is a buy-side signal: the average drops below the close when price closes back above it. With the defaults, EMA 20 on 1 hour, it fires on BTC/USDT about 1.4 times as often as the same cross of an RMA 20.
 
 **Tip:** The **Moving average** type sets how often the condition fires. At Length 20 on 1 hour, price crosses up through an HMA about 2.3 times as often as through an RMA. Use SMA or RMA when each cross should be rare.
+
+**Tip:** **Use Trend Filter** with its defaults (Operator Lower or equal to, lookback 10, Value, % 2) asks for an average that fell 2% in 10 candles. On the default EMA 20 1-hour condition that keeps about one cross in 190 on BTC/USDT. Set the Operator and Value for the slope you want before you rely on it.
 
 **Tip:** For a golden cross, set **Comparison interval** to 1 day as well as Interval. Both start at 1 hour, so changing only Interval compares a daily SMA 50 with an SMA 200 of hourly candles, which covers less history than the 50 daily candles of the "fast" average.
 
@@ -152,6 +169,20 @@ Use the 200-day SMA as an on/off switch for a long bot, and let a faster conditi
 
 ![Annotated BTC/USDT 1D chart: a death cross, then the later golden cross where the 50-day SMA rises above the 200-day SMA at 78,456](https://content.gainium.io/images/content/indicators/moving-averages__golden-cross.webp)
 
+### Price crosses up a flat SMA 20
+
+A cross of a short average works best as a range trade: price dips under a flat average and comes back. The trend filter keeps the crosses where the average itself has gone sideways.
+
+- **Entry:** Moving Averages, SMA, Length 20, Interval 4 hours, Condition **Crossing down**, Compared to **Current price** (price closing back above the SMA). **Use Trend Filter** on, Trend filter lookback **10**, Operator **Between values**, Value, % **0.5**.
+- **Exit:** take profit 2%.
+- **Settings:** Between values 0.5 passes only when the SMA moved less than 0.5% over the last 10 candles. On BTC/USDT 4h that keeps about 40% of the crosses.
+- **Timeframe:** 4 hours. On BTC/USDT, price fell 2% within 12 candles after about a third of the filtered crosses, against about 45% of all crosses. The 2% take profit filled within 12 candles about as often with the filter as without it, at about 47%.
+- **When it fails:** a flat average is also how a breakdown starts. In the chart below, a cross at 82,116 passed the filter, fell 1.1% and then rose only 1.6%, short of the take profit. Higher or equal to 0.5 is not the fix: it keeps about one cross in five and buys late, and price fell 2% within 12 candles after about 58% of those.
+
+In the chart below, two crosses passed the filter, at 83,906 and 82,618, and both reached a 2% take profit within a day. The filter blocked a cross under a rising SMA (+0.6% in 10 candles), after which price fell 3.7%, and one under a falling SMA (−0.8%), after which it fell 2.2%.
+
+![Annotated BINANCE:BTCUSDT 4h chart with the 20-period SMA from the Moving Average Ribbon: crosses up at 83,906 and 82,618 under a flat SMA pass the trend filter and reach 2%; crosses under a rising and a falling SMA are blocked and followed by drops of 3.7% and 2.2%](https://content.gainium.io/images/content/indicators/moving-averages__flat-filter.webp)
+
 ## Using Moving Averages in Gainium
 
 1. Create a DCA bot and switch the form to **Manual**.
@@ -172,10 +203,15 @@ The fields and their defaults:
 - **SMA length** (named after the type you compare with): 20, from 1 to 1,000. Shown only when Compared to is an average.
 - **SMA interval** (named the same way): 1 hour. The second average's own candles.
 - **Keep true:** 0 extra candles.
+- **Use Trend Filter:** off. When on: **Trend filter lookback** 10 candles (1 to 1,000), **Operator** Lower or equal to (or Higher or equal to, or Between values), and **Value, %** 2. The filter reads the first average, the one in Moving average.
 
 ![Gainium Moving Averages settings card with the defaults: EMA, Length 20, Interval 1 hour, Condition Crossing down, Compared to Current price, Keep true 0](https://content.gainium.io/images/content/indicators/moving-averages__settings.webp)
 
 Moving Averages works as a deal start, DCA, take profit or stop loss condition, and in the Bot Controller.
+
+![Gainium Moving Averages settings card with Use Trend Filter on: EMA, Length 20, Interval 1 hour, Condition Crossing down, Compared to Current price, Trend filter lookback 10, Operator Higher or equal to, Value, % 0.2](https://content.gainium.io/images/content/indicators/moving-averages__trend-filter-settings.webp)
+
+Example configuration for the flat-average setup: Moving average SMA, Length 20, Interval 4 hours, Condition Crossing down, Compared to Current price, Keep true 0, Use Trend Filter on, Trend filter lookback 10, Operator Between values, Value, % 0.5.
 
 Example configuration for the golden cross: Moving average SMA, Length 50, Interval 1 day, Condition Crossing up, Compared to SMA, SMA length 200, SMA interval 1 day, Keep true 0.
 

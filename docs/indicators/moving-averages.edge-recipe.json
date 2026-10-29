@@ -244,6 +244,104 @@
           "maCrossingLength": 200
         }
       }
+    },
+    {
+      "id": "sma20-down-price-tf-flat05",
+      "label": "Price crosses up SMA 20, SMA within 0.5% of 10 candles ago",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "createIndicator",
+        "args": [
+          {
+            "type": "MA",
+            "maType": "sma",
+            "interval": 20,
+            "trendFilter": true,
+            "trendFilterLookback": 10,
+            "trendFilterValue": 0.5,
+            "trendFilterType": "between"
+          }
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "all": [
+          {
+            "op": "crossDown",
+            "output": "value",
+            "against": "close"
+          },
+          {
+            "op": "eq",
+            "output": "trend",
+            "against": 3
+          }
+        ]
+      },
+      "bot": {
+        "type": "MA",
+        "params": {
+          "maType": "sma",
+          "indicatorLength": 20,
+          "indicatorCondition": "cd",
+          "maCrossingValue": "price",
+          "trendFilter": true,
+          "trendFilterLookback": 10,
+          "trendFilterType": "between",
+          "trendFilterValue": 0.5
+        }
+      }
+    },
+    {
+      "id": "sma20-down-price-tf-up05",
+      "label": "Price crosses up SMA 20, SMA up 0.5% or more over 10 candles",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "createIndicator",
+        "args": [
+          {
+            "type": "MA",
+            "maType": "sma",
+            "interval": 20,
+            "trendFilter": true,
+            "trendFilterLookback": 10,
+            "trendFilterValue": 0.5,
+            "trendFilterType": "higher"
+          }
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "all": [
+          {
+            "op": "crossDown",
+            "output": "value",
+            "against": "close"
+          },
+          {
+            "op": "eq",
+            "output": "trend",
+            "against": 2
+          }
+        ]
+      },
+      "bot": {
+        "type": "MA",
+        "params": {
+          "maType": "sma",
+          "indicatorLength": 20,
+          "indicatorCondition": "cd",
+          "maCrossingValue": "price",
+          "trendFilter": true,
+          "trendFilterLookback": 10,
+          "trendFilterType": "higher",
+          "trendFilterValue": 0.5
+        }
+      }
     }
   ]
 }

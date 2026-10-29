@@ -214,6 +214,75 @@
       "step": 1,
       "tooltip": "This condition will remain true for a number of extra bars. Default is 0, which means it will be true only on the bar that triggered the condition.",
       "type": "number"
+    },
+    {
+      "default": false,
+      "defaultText": "Off",
+      "group": null,
+      "id": "trendFilter",
+      "kind": "logic",
+      "label": "Use Trend Filter",
+      "tooltip": "Only allow entries when the indicator has moved by the configured amount over the trend filter lookback. Independent of the percentile setting.",
+      "type": "boolean"
+    },
+    {
+      "default": 10,
+      "defaultText": "10",
+      "group": null,
+      "hiddenWhen": [
+        {
+          "equals": false,
+          "field": "trendFilter"
+        }
+      ],
+      "id": "trendFilterLookback",
+      "kind": "logic",
+      "label": "Trend filter lookback",
+      "max": 1000,
+      "min": 1,
+      "step": 1,
+      "type": "number"
+    },
+    {
+      "default": "lower",
+      "defaultText": "Lower or equal to",
+      "group": null,
+      "hiddenWhen": [
+        {
+          "equals": false,
+          "field": "trendFilter"
+        }
+      ],
+      "id": "trendFilterType",
+      "kind": "logic",
+      "label": "Operator",
+      "optionLabels": [
+        "Lower or equal to",
+        "Higher or equal to",
+        "Between values"
+      ],
+      "options": [
+        "lower",
+        "higher",
+        "between"
+      ],
+      "type": "select"
+    },
+    {
+      "default": 2,
+      "defaultText": "2",
+      "group": null,
+      "hiddenWhen": [
+        {
+          "equals": false,
+          "field": "trendFilter"
+        }
+      ],
+      "id": "trendFilterValue",
+      "kind": "logic",
+      "label": "Value, %",
+      "step": 1,
+      "type": "number"
     }
   ],
   "notes": [],
