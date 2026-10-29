@@ -1,0 +1,241 @@
+{
+  "alertConditions": "not applicable",
+  "chart": null,
+  "indicator": {
+    "author": "Gainium",
+    "kind": "native",
+    "openSource": null,
+    "overlay": null,
+    "scriptId": "KDJ",
+    "shortTitle": "KDJ",
+    "title": "KDJ Indicator",
+    "version": null
+  },
+  "inputs": [
+    {
+      "default": 9,
+      "defaultText": "9",
+      "group": null,
+      "id": "kdjLength",
+      "kind": "logic",
+      "label": "Length",
+      "max": 500,
+      "min": 1,
+      "step": 1,
+      "tooltip": "Candles whose highest high and lowest low frame the close (RSV).",
+      "type": "number"
+    },
+    {
+      "default": "1h",
+      "defaultText": "1 hour",
+      "group": null,
+      "id": "indicatorInterval",
+      "kind": "logic",
+      "label": "Interval",
+      "optionLabels": [
+        "1 minute",
+        "3 minutes",
+        "5 minutes",
+        "15 minutes",
+        "30 minutes",
+        "1 hour",
+        "2 hours",
+        "4 hours",
+        "8 hours",
+        "1 day",
+        "1 week"
+      ],
+      "options": [
+        "1m",
+        "3m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "4h",
+        "8h",
+        "1d",
+        "1w"
+      ],
+      "type": "interval"
+    },
+    {
+      "default": 3,
+      "defaultText": "3",
+      "group": null,
+      "id": "kdjKSmooth",
+      "kind": "logic",
+      "label": "Smooth K",
+      "max": 100,
+      "min": 1,
+      "step": 1,
+      "type": "number"
+    },
+    {
+      "default": 3,
+      "defaultText": "3",
+      "group": null,
+      "id": "kdjDSmooth",
+      "kind": "logic",
+      "label": "Smooth D",
+      "max": 100,
+      "min": 1,
+      "step": 1,
+      "type": "number"
+    },
+    {
+      "default": "k",
+      "defaultText": "k",
+      "group": null,
+      "id": "kdjLine",
+      "kind": "logic",
+      "label": "Line",
+      "type": "select"
+    },
+    {
+      "default": "cu",
+      "defaultText": "crossing up",
+      "group": null,
+      "id": "indicatorCondition",
+      "kind": "logic",
+      "label": "Condition",
+      "optionLabels": [
+        "crossing down",
+        "crossing up",
+        "greater than",
+        "lower than"
+      ],
+      "options": [
+        "cd",
+        "cu",
+        "gt",
+        "lt"
+      ],
+      "type": "select"
+    },
+    {
+      "default": "d",
+      "defaultText": "d",
+      "group": null,
+      "id": "kdjCompareTo",
+      "kind": "logic",
+      "label": "Compared to",
+      "optionLabels": [
+        "Custom value"
+      ],
+      "options": [
+        "custom"
+      ],
+      "type": "select"
+    },
+    {
+      "default": 20,
+      "defaultText": "20",
+      "group": null,
+      "id": "indicatorValue",
+      "kind": "logic",
+      "label": "Value",
+      "shownWhen": [
+        {
+          "equals": "custom",
+          "field": "kdjCompareTo"
+        }
+      ],
+      "step": 1,
+      "type": "number"
+    },
+    {
+      "default": "none",
+      "defaultText": "Anywhere",
+      "group": null,
+      "hiddenWhen": [
+        {
+          "equals": "custom",
+          "field": "kdjCompareTo"
+        }
+      ],
+      "id": "stochRange",
+      "kind": "logic",
+      "label": "Zone",
+      "optionLabels": [
+        "Lower",
+        "Upper",
+        "Lower&Upper",
+        "Anywhere"
+      ],
+      "options": [
+        "lower",
+        "upper",
+        "both",
+        "none"
+      ],
+      "tooltip": "This is the area where the condition must be met",
+      "type": "select"
+    },
+    {
+      "default": "20",
+      "defaultText": "20",
+      "group": null,
+      "hiddenWhen": [
+        {
+          "equals": "upper",
+          "field": "stochRange"
+        },
+        {
+          "equals": "none",
+          "field": "stochRange"
+        },
+        {
+          "equals": "custom",
+          "field": "kdjCompareTo"
+        }
+      ],
+      "id": "stochLower",
+      "kind": "logic",
+      "label": "Lower band",
+      "tooltip": "Define the lower band range where the condition must be met",
+      "type": "number"
+    },
+    {
+      "default": "80",
+      "defaultText": "80",
+      "group": null,
+      "hiddenWhen": [
+        {
+          "equals": "lower",
+          "field": "stochRange"
+        },
+        {
+          "equals": "none",
+          "field": "stochRange"
+        },
+        {
+          "equals": "custom",
+          "field": "kdjCompareTo"
+        }
+      ],
+      "id": "stochUpper",
+      "kind": "logic",
+      "label": "Upper band",
+      "tooltip": "Define the upper band range where the condition must be met",
+      "type": "number"
+    },
+    {
+      "default": 0,
+      "defaultText": "0",
+      "group": null,
+      "id": "keepConditionBars",
+      "kind": "logic",
+      "label": "Keep true",
+      "min": 0,
+      "step": 1,
+      "tooltip": "This condition will remain true for a number of extra bars. Default is 0, which means it will be true only on the bar that triggered the condition.",
+      "type": "number"
+    }
+  ],
+  "notes": [],
+  "plots": [],
+  "schema": "gainium.indicator-settings/1",
+  "source": "gainium-catalog"
+}

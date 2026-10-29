@@ -1,0 +1,188 @@
+{
+  "indicator": "vwap",
+  "defaultTf": "1h",
+  "featured": [
+    "vwap-day-lt-lower2",
+    "vwap-week-gt",
+    "vwap-week-lt-lower2"
+  ],
+  "settings": [
+    {
+      "id": "vwap-day-gt",
+      "label": "Close above the daily VWAP",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "VWAP",
+        "args": [
+          "day",
+          1
+        ],
+        "input": "candle"
+      },
+      "output": "price",
+      "condition": {
+        "op": "gt",
+        "against": {
+          "output": "vwap"
+        }
+      },
+      "bot": {
+        "type": "VWAP",
+        "params": {
+          "vwapAnchor": "day",
+          "vwapLine": "vwap",
+          "indicatorCondition": "gt"
+        }
+      }
+    },
+    {
+      "id": "vwap-day-lt-lower2",
+      "label": "Close below the daily VWAP's lower 2σ band",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "VWAP",
+        "args": [
+          "day",
+          2
+        ],
+        "input": "candle"
+      },
+      "output": "price",
+      "condition": {
+        "op": "lt",
+        "against": {
+          "output": "lower"
+        }
+      },
+      "bot": {
+        "type": "VWAP",
+        "params": {
+          "vwapAnchor": "day",
+          "vwapLine": "lower",
+          "indicatorCondition": "lt",
+          "vwapBandMultiplier": 2
+        }
+      }
+    },
+    {
+      "id": "vwap-day-gt-upper2-short",
+      "label": "Close above the daily VWAP's upper 2σ band, short",
+      "side": "short",
+      "featured": false,
+      "indicator": {
+        "class": "VWAP",
+        "args": [
+          "day",
+          2
+        ],
+        "input": "candle"
+      },
+      "output": "price",
+      "condition": {
+        "op": "gt",
+        "against": {
+          "output": "upper"
+        }
+      },
+      "bot": {
+        "type": "VWAP",
+        "params": {
+          "vwapAnchor": "day",
+          "vwapLine": "upper",
+          "indicatorCondition": "gt",
+          "vwapBandMultiplier": 2
+        }
+      }
+    },
+    {
+      "id": "vwap-week-gt",
+      "label": "Close above the weekly VWAP",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "VWAP",
+        "args": [
+          "week",
+          1
+        ],
+        "input": "candle"
+      },
+      "output": "price",
+      "condition": {
+        "op": "gt",
+        "against": {
+          "output": "vwap"
+        }
+      },
+      "bot": {
+        "type": "VWAP",
+        "params": {
+          "vwapAnchor": "week",
+          "vwapLine": "vwap",
+          "indicatorCondition": "gt"
+        }
+      }
+    },
+    {
+      "id": "vwap-week-lt-lower2",
+      "label": "Close below the weekly VWAP's lower 2σ band",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "VWAP",
+        "args": [
+          "week",
+          2
+        ],
+        "input": "candle"
+      },
+      "output": "price",
+      "condition": {
+        "op": "lt",
+        "against": {
+          "output": "lower"
+        }
+      },
+      "bot": {
+        "type": "VWAP",
+        "params": {
+          "vwapAnchor": "week",
+          "vwapLine": "lower",
+          "indicatorCondition": "lt",
+          "vwapBandMultiplier": 2
+        }
+      }
+    },
+    {
+      "id": "vwap-month-gt",
+      "label": "Close above the monthly VWAP",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "VWAP",
+        "args": [
+          "month",
+          1
+        ],
+        "input": "candle"
+      },
+      "output": "price",
+      "condition": {
+        "op": "gt",
+        "against": {
+          "output": "vwap"
+        }
+      },
+      "bot": {
+        "type": "VWAP",
+        "params": {
+          "vwapAnchor": "month",
+          "vwapLine": "vwap",
+          "indicatorCondition": "gt"
+        }
+      }
+    }
+  ]
+}

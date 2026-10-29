@@ -1,0 +1,149 @@
+{
+  "alertConditions": "not applicable",
+  "chart": null,
+  "indicator": {
+    "author": "Gainium",
+    "kind": "native",
+    "openSource": null,
+    "overlay": null,
+    "scriptId": "VWAP",
+    "shortTitle": "VWAP",
+    "title": "Anchored VWAP",
+    "version": null
+  },
+  "inputs": [
+    {
+      "default": "1h",
+      "defaultText": "1 hour",
+      "group": null,
+      "id": "indicatorInterval",
+      "kind": "logic",
+      "label": "Interval",
+      "optionLabels": [
+        "1 minute",
+        "3 minutes",
+        "5 minutes",
+        "15 minutes",
+        "30 minutes",
+        "1 hour",
+        "2 hours",
+        "4 hours",
+        "8 hours",
+        "1 day",
+        "1 week"
+      ],
+      "options": [
+        "1m",
+        "3m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "4h",
+        "8h",
+        "1d",
+        "1w"
+      ],
+      "type": "interval"
+    },
+    {
+      "default": "day",
+      "defaultText": "Day",
+      "group": null,
+      "id": "vwapAnchor",
+      "kind": "logic",
+      "label": "Anchor",
+      "optionLabels": [
+        "Day",
+        "Week",
+        "Month"
+      ],
+      "options": [
+        "day",
+        "week",
+        "month"
+      ],
+      "tooltip": "Where the VWAP restarts: every day at 00:00 UTC, every Monday at 00:00 UTC, or on the 1st of every month. Pick an interval with several candles per period.",
+      "type": "select"
+    },
+    {
+      "default": "vwap",
+      "defaultText": "VWAP",
+      "group": null,
+      "id": "vwapLine",
+      "kind": "logic",
+      "label": "Line",
+      "optionLabels": [
+        "VWAP",
+        "Upper band",
+        "Lower band"
+      ],
+      "options": [
+        "vwap",
+        "upper",
+        "lower"
+      ],
+      "tooltip": "The line the close is compared with.",
+      "type": "select"
+    },
+    {
+      "default": 1,
+      "defaultText": "1",
+      "group": null,
+      "hiddenWhen": [
+        {
+          "equals": "vwap",
+          "field": "vwapLine"
+        }
+      ],
+      "id": "vwapBandMultiplier",
+      "kind": "logic",
+      "label": "Band width",
+      "max": 10,
+      "min": 0.1,
+      "step": 0.1,
+      "suffix": "σ",
+      "tooltip": "Distance of the bands from the VWAP, in volume-weighted standard deviations of the price since the anchor.",
+      "type": "number"
+    },
+    {
+      "default": "cu",
+      "defaultText": "Price crossing up",
+      "group": null,
+      "id": "indicatorCondition",
+      "kind": "logic",
+      "label": "Condition",
+      "optionLabels": [
+        "Price crossing down",
+        "Price crossing up",
+        "Price greater than",
+        "Price lower than"
+      ],
+      "options": [
+        "cd",
+        "cu",
+        "gt",
+        "lt"
+      ],
+      "tooltip": "Compares the close with the line. A crossing counts only within one period: the restart at the anchor is not a crossing.",
+      "type": "select"
+    },
+    {
+      "default": 0,
+      "defaultText": "0",
+      "group": null,
+      "id": "keepConditionBars",
+      "kind": "logic",
+      "label": "Keep true",
+      "min": 0,
+      "step": 1,
+      "tooltip": "This condition will remain true for a number of extra bars. Default is 0, which means it will be true only on the bar that triggered the condition.",
+      "type": "number"
+    }
+  ],
+  "notes": [],
+  "plots": [],
+  "schema": "gainium.indicator-settings/1",
+  "source": "gainium-catalog"
+}

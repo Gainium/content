@@ -1,0 +1,254 @@
+{
+  "indicator": "kdj",
+  "defaultTf": "1h",
+  "featured": [
+    "kdj-k-up-d",
+    "kdj-j-up-0",
+    "kdj-k-up-d-lower30"
+  ],
+  "settings": [
+    {
+      "id": "kdj-k-up-d",
+      "label": "KDJ(9,3,3) K crosses up D",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "KDJ",
+        "args": [
+          9,
+          3,
+          3
+        ],
+        "input": "candle"
+      },
+      "output": "k",
+      "condition": {
+        "op": "crossUp",
+        "against": {
+          "output": "d"
+        }
+      },
+      "bot": {
+        "type": "KDJ",
+        "params": {
+          "kdjLine": "k",
+          "indicatorCondition": "cu",
+          "kdjCompareTo": "d"
+        }
+      }
+    },
+    {
+      "id": "kdj-k-up-d-lower30",
+      "label": "KDJ(9,3,3) K crosses up D below 30",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "KDJ",
+        "args": [
+          9,
+          3,
+          3
+        ],
+        "input": "candle"
+      },
+      "output": "k",
+      "condition": {
+        "all": [
+          {
+            "op": "crossUp",
+            "output": "k",
+            "against": {
+              "output": "d"
+            }
+          },
+          {
+            "op": "lt",
+            "output": "k",
+            "against": 30,
+            "raw": true
+          },
+          {
+            "op": "lt",
+            "output": "d",
+            "against": 30,
+            "raw": true
+          },
+          {
+            "op": "lt",
+            "output": "k",
+            "against": 30,
+            "raw": true,
+            "at": "prev"
+          },
+          {
+            "op": "lt",
+            "output": "d",
+            "against": 30,
+            "raw": true,
+            "at": "prev"
+          }
+        ]
+      },
+      "bot": {
+        "type": "KDJ",
+        "params": {
+          "kdjLine": "k",
+          "indicatorCondition": "cu",
+          "kdjCompareTo": "d",
+          "stochRange": "lower",
+          "stochUpper": 30
+        }
+      }
+    },
+    {
+      "id": "kdj-k-down-d-upper80",
+      "label": "KDJ(9,3,3) K crosses down D above 80, short",
+      "side": "short",
+      "featured": false,
+      "indicator": {
+        "class": "KDJ",
+        "args": [
+          9,
+          3,
+          3
+        ],
+        "input": "candle"
+      },
+      "output": "k",
+      "condition": {
+        "all": [
+          {
+            "op": "crossDown",
+            "output": "k",
+            "against": {
+              "output": "d"
+            }
+          },
+          {
+            "op": "gt",
+            "output": "k",
+            "against": 80,
+            "raw": true
+          },
+          {
+            "op": "gt",
+            "output": "d",
+            "against": 80,
+            "raw": true
+          },
+          {
+            "op": "gt",
+            "output": "k",
+            "against": 80,
+            "raw": true,
+            "at": "prev"
+          },
+          {
+            "op": "gt",
+            "output": "d",
+            "against": 80,
+            "raw": true,
+            "at": "prev"
+          }
+        ]
+      },
+      "bot": {
+        "type": "KDJ",
+        "params": {
+          "kdjLine": "k",
+          "indicatorCondition": "cd",
+          "kdjCompareTo": "d",
+          "stochRange": "upper",
+          "stochLower": 80
+        }
+      }
+    },
+    {
+      "id": "kdj-j-up-0",
+      "label": "KDJ(9,3,3) J crosses up 0",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "KDJ",
+        "args": [
+          9,
+          3,
+          3
+        ],
+        "input": "candle"
+      },
+      "output": "j",
+      "condition": {
+        "op": "crossUp",
+        "against": 0
+      },
+      "bot": {
+        "type": "KDJ",
+        "params": {
+          "kdjLine": "j",
+          "indicatorCondition": "cu",
+          "kdjCompareTo": "custom",
+          "indicatorValue": 0
+        }
+      }
+    },
+    {
+      "id": "kdj-j-lt0",
+      "label": "KDJ(9,3,3) J below 0",
+      "side": "long",
+      "featured": false,
+      "indicator": {
+        "class": "KDJ",
+        "args": [
+          9,
+          3,
+          3
+        ],
+        "input": "candle"
+      },
+      "output": "j",
+      "condition": {
+        "op": "lt",
+        "against": 0
+      },
+      "bot": {
+        "type": "KDJ",
+        "params": {
+          "kdjLine": "j",
+          "indicatorCondition": "lt",
+          "kdjCompareTo": "custom",
+          "indicatorValue": 0
+        }
+      }
+    },
+    {
+      "id": "kdj-j-down-100",
+      "label": "KDJ(9,3,3) J crosses down 100, short",
+      "side": "short",
+      "featured": false,
+      "indicator": {
+        "class": "KDJ",
+        "args": [
+          9,
+          3,
+          3
+        ],
+        "input": "candle"
+      },
+      "output": "j",
+      "condition": {
+        "op": "crossDown",
+        "against": 100
+      },
+      "bot": {
+        "type": "KDJ",
+        "params": {
+          "kdjLine": "j",
+          "indicatorCondition": "cd",
+          "kdjCompareTo": "custom",
+          "indicatorValue": 100
+        }
+      }
+    }
+  ]
+}
