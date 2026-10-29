@@ -6,7 +6,7 @@ description: >-
   Learn how to use the Moving Average Ratio (MAR) in Gainium for flexible bot
   trading with advanced trend detection and customizable entry/exit rules.
 createdAt: '2024-10-05T11:55:03.576Z'
-updatedAt: '2026-10-25T00:00:00.000Z'
+updatedAt: '2026-10-29T00:00:00.000Z'
 publishedAt: '2024-10-05T12:19:52.638Z'
 locale: en
 categories:
@@ -83,7 +83,7 @@ MAR is a Gainium condition, not a classic indicator with a published author. The
 
 - **Relative to** is the base moving average, the denominator: a type (EMA by default) and a length (20).
 - **Reference** is the numerator: the current close by default, or a second moving average with its own type and length.
-- Both averages use closes, except VWMA, which also uses volume. All eight Gainium types are available: SMA, EMA, WMA, DEMA, TEMA, HMA, VWMA and RMA.
+- Both averages use closes, except VWMA, which also uses volume. All nine Gainium types are available: SMA, EMA, WMA, DEMA, TEMA, HMA, VWMA, RMA and McGinley Dynamic.
 
 How to read it:
 
@@ -103,7 +103,7 @@ The default Value, 0.99, sits near the 11th percentile of the 1-hour range: BTC 
 | Use percentile | Off | Off: the condition tests the fixed Value. On: Value hides and MAR is compared with its own Percentile over the last Lookback candles. |
 | Lookback | 150 | Candles of the line's own history the percentile is taken from. Percentile mode only. |
 | Percentile | 80 | The rank in that history used as the level: 80 is a level that only 20% of readings exceeded. Percentile mode only. |
-| Reference | Current price | The numerator: the candle's close, or a moving average of any of the eight types. |
+| Reference | Current price | The numerator: the candle's close, or a moving average of any of the nine types. |
 | Comparison MA length | 20 | Length of the Reference average, 1 to 500. Hidden with Current price. |
 | Relative to | EMA | The type of the base average, the denominator. |
 | Base MA length | 20 | Length of the base average, 1 to 500. |
@@ -161,7 +161,7 @@ Use the trend filter to require that price is above the average and pulling away
 The fields and their defaults:
 
 - **Use percentile:** off. When on, MAR is compared with its own percentile level over **Lookback** (150 candles) at **Percentile** (80), and Value hides.
-- **Reference:** Current price. Or any of the eight average types; a **Length** field (20, from 1 to 500) appears, named after the type.
+- **Reference:** Current price. Or any of the nine average types; a **Length** field (20, from 1 to 500) appears, named after the type.
 - **Relative to:** EMA, the base average.
 - **EMA Length:** 20, from 1 to 500. The label follows the type you pick.
 - **Interval:** 1 hour.

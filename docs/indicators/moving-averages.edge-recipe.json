@@ -33,6 +33,58 @@
       }
     },
     {
+      "id": "mg20-down-price",
+      "label": "Price crosses up McGinley Dynamic 20",
+      "side": "long",
+      "indicator": {
+        "class": "McGinley",
+        "args": [
+          20
+        ],
+        "input": "close"
+      },
+      "output": null,
+      "condition": {
+        "op": "crossDown",
+        "against": "close"
+      },
+      "bot": {
+        "type": "MA",
+        "params": {
+          "maType": "mcginley",
+          "indicatorLength": 20,
+          "indicatorCondition": "cd",
+          "maCrossingValue": "price"
+        }
+      }
+    },
+    {
+      "id": "mg20-lt-price",
+      "label": "Price above McGinley Dynamic 20",
+      "side": "long",
+      "indicator": {
+        "class": "McGinley",
+        "args": [
+          20
+        ],
+        "input": "close"
+      },
+      "output": null,
+      "condition": {
+        "op": "lt",
+        "against": "close"
+      },
+      "bot": {
+        "type": "MA",
+        "params": {
+          "maType": "mcginley",
+          "indicatorLength": 20,
+          "indicatorCondition": "lt",
+          "maCrossingValue": "price"
+        }
+      }
+    },
+    {
       "id": "sma200-lt-price",
       "label": "Price above SMA 200",
       "side": "long",

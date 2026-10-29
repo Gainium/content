@@ -70,7 +70,8 @@
         "TEMA",
         "HMA",
         "VWMA",
-        "RMA"
+        "RMA",
+        "McGinley Dynamic"
       ],
       "options": [
         "price",
@@ -81,7 +82,8 @@
         "tema",
         "hma",
         "vwma",
-        "rma"
+        "rma",
+        "mcginley"
       ],
       "type": "select"
     },
@@ -118,7 +120,8 @@
         "TEMA",
         "HMA",
         "VWMA",
-        "RMA"
+        "RMA",
+        "McGinley Dynamic"
       ],
       "options": [
         "sma",
@@ -128,7 +131,8 @@
         "tema",
         "hma",
         "vwma",
-        "rma"
+        "rma",
+        "mcginley"
       ],
       "type": "select"
     },
