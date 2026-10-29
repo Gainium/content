@@ -2,7 +2,7 @@
   "strategy": "price-move-30h",
   "name": "3% hourly move, 30-hour hold",
   "source": {
-    "label": "Ares's shared Gainium backtest of 2026-10-29 (10 coins, Oct 2023 \u2013 Oct 2026)",
+    "label": "Ares's shared Gainium backtest of 2026-10-29 (10 coins, Oct 2023 – Oct 2026)",
     "url": "https://app.gainium.io/bot/backtests?backtestShare=e54c9682-3bbc-4760-889c-a9d3fd7f2ceb"
   },
   "tuned": true,
@@ -12,6 +12,12 @@
     "to": "2026-10-29"
   },
   "baseline": "random",
+  "grid": {
+    "rows": "Move",
+    "cols": "Hold",
+    "row": "3%",
+    "col": "30h"
+  },
   "tags": [
     "momentum"
   ],
@@ -25,7 +31,387 @@
   ],
   "variants": [
     "regime:supertrend",
-    "regime:structure"
+    "regime:structure",
+    {
+      "id": "move-2-hold-5",
+      "name": "2% move, 5-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 5
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-2"
+        },
+        "pc-up": {
+          "pcValue": "2"
+        }
+      },
+      "grid": {
+        "row": "2%",
+        "col": "5h"
+      }
+    },
+    {
+      "id": "move-2-hold-10",
+      "name": "2% move, 10-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 10
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-2"
+        },
+        "pc-up": {
+          "pcValue": "2"
+        }
+      },
+      "grid": {
+        "row": "2%",
+        "col": "10h"
+      }
+    },
+    {
+      "id": "move-2-hold-15",
+      "name": "2% move, 15-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 15
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-2"
+        },
+        "pc-up": {
+          "pcValue": "2"
+        }
+      },
+      "grid": {
+        "row": "2%",
+        "col": "15h"
+      }
+    },
+    {
+      "id": "move-2-hold-20",
+      "name": "2% move, 20-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 20
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-2"
+        },
+        "pc-up": {
+          "pcValue": "2"
+        }
+      },
+      "grid": {
+        "row": "2%",
+        "col": "20h"
+      }
+    },
+    {
+      "id": "move-2-hold-30",
+      "name": "2% move, 30-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 30
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-2"
+        },
+        "pc-up": {
+          "pcValue": "2"
+        }
+      },
+      "grid": {
+        "row": "2%",
+        "col": "30h"
+      }
+    },
+    {
+      "id": "move-3-hold-5",
+      "name": "3% move, 5-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 5
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-3"
+        },
+        "pc-up": {
+          "pcValue": "3"
+        }
+      },
+      "grid": {
+        "row": "3%",
+        "col": "5h"
+      }
+    },
+    {
+      "id": "move-3-hold-10",
+      "name": "3% move, 10-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 10
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-3"
+        },
+        "pc-up": {
+          "pcValue": "3"
+        }
+      },
+      "grid": {
+        "row": "3%",
+        "col": "10h"
+      }
+    },
+    {
+      "id": "move-3-hold-15",
+      "name": "3% move, 15-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 15
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-3"
+        },
+        "pc-up": {
+          "pcValue": "3"
+        }
+      },
+      "grid": {
+        "row": "3%",
+        "col": "15h"
+      }
+    },
+    {
+      "id": "move-3-hold-20",
+      "name": "3% move, 20-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 20
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-3"
+        },
+        "pc-up": {
+          "pcValue": "3"
+        }
+      },
+      "grid": {
+        "row": "3%",
+        "col": "20h"
+      }
+    },
+    {
+      "id": "move-4-hold-5",
+      "name": "4% move, 5-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 5
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-4"
+        },
+        "pc-up": {
+          "pcValue": "4"
+        }
+      },
+      "grid": {
+        "row": "4%",
+        "col": "5h"
+      }
+    },
+    {
+      "id": "move-4-hold-10",
+      "name": "4% move, 10-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 10
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-4"
+        },
+        "pc-up": {
+          "pcValue": "4"
+        }
+      },
+      "grid": {
+        "row": "4%",
+        "col": "10h"
+      }
+    },
+    {
+      "id": "move-4-hold-15",
+      "name": "4% move, 15-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 15
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-4"
+        },
+        "pc-up": {
+          "pcValue": "4"
+        }
+      },
+      "grid": {
+        "row": "4%",
+        "col": "15h"
+      }
+    },
+    {
+      "id": "move-4-hold-20",
+      "name": "4% move, 20-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 20
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-4"
+        },
+        "pc-up": {
+          "pcValue": "4"
+        }
+      },
+      "grid": {
+        "row": "4%",
+        "col": "20h"
+      }
+    },
+    {
+      "id": "move-4-hold-30",
+      "name": "4% move, 30-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 30
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-4"
+        },
+        "pc-up": {
+          "pcValue": "4"
+        }
+      },
+      "grid": {
+        "row": "4%",
+        "col": "30h"
+      }
+    },
+    {
+      "id": "move-5-hold-5",
+      "name": "5% move, 5-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 5
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-5"
+        },
+        "pc-up": {
+          "pcValue": "5"
+        }
+      },
+      "grid": {
+        "row": "5%",
+        "col": "5h"
+      }
+    },
+    {
+      "id": "move-5-hold-10",
+      "name": "5% move, 10-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 10
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-5"
+        },
+        "pc-up": {
+          "pcValue": "5"
+        }
+      },
+      "grid": {
+        "row": "5%",
+        "col": "10h"
+      }
+    },
+    {
+      "id": "move-5-hold-15",
+      "name": "5% move, 15-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 15
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-5"
+        },
+        "pc-up": {
+          "pcValue": "5"
+        }
+      },
+      "grid": {
+        "row": "5%",
+        "col": "15h"
+      }
+    },
+    {
+      "id": "move-5-hold-20",
+      "name": "5% move, 20-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 20
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-5"
+        },
+        "pc-up": {
+          "pcValue": "5"
+        }
+      },
+      "grid": {
+        "row": "5%",
+        "col": "20h"
+      }
+    },
+    {
+      "id": "move-5-hold-30",
+      "name": "5% move, 30-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 30
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-5"
+        },
+        "pc-up": {
+          "pcValue": "5"
+        }
+      },
+      "grid": {
+        "row": "5%",
+        "col": "30h"
+      }
+    }
   ],
   "bot": {
     "type": "dca",
