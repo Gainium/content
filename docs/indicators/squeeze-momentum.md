@@ -7,7 +7,7 @@ description: >-
   Keltner Channels mark a squeeze, a momentum histogram gives the direction,
   and a bot can trade when the squeeze fires.
 createdAt: '2026-10-29T12:00:00.000Z'
-updatedAt: '2026-10-29T12:00:00.000Z'
+updatedAt: '2026-10-29T13:00:00.000Z'
 publishedAt: '2026-10-29T12:00:00.000Z'
 locale: en
 categories:
@@ -22,13 +22,13 @@ ingestedAt: ''
 templateVersion: 2
 tldr: >-
   Squeeze Momentum is LazyBear's version of John Carter's TTM Squeeze. A
-  squeeze is on while the Bollinger Bands (20, 2) sit inside the Keltner
+  squeeze is on while the Bollinger Bands (20, 1.5) sit inside the Keltner
   Channels (20, 1.5 ATR); it fires on the first candle after that. A momentum
   histogram, a linear regression of price against the middle of its range,
   shows the direction. A bot condition combines the squeeze state (fired, in,
   out or any) with the momentum (positive, negative, rising, falling, crossing
-  zero or any). The script TradingView shows draws with a Bollinger multiplier
-  of 1.5; set BB multiplier 1.5 to match its chart.
+  zero or any). The default Bollinger multiplier, 1.5, matches the chart
+  TradingView shows; 2 is LazyBear's corrected version and Carter's original.
 kind: native
 catalogKeys:
   - SQZ
@@ -41,12 +41,14 @@ aliases:
   - "TTM Squeeze"
   - "Squeeze"
 faq:
-  - title: Why do my signals differ from the Squeeze Momentum chart on TradingView?
+  - title: Does it match the Squeeze Momentum chart on TradingView?
     details: >-
-      The script TradingView shows has the Bollinger multiplier fixed at 1.5
-      in its code, whatever its input says. LazyBear published the fix
-      separately. Gainium uses the fixed version, so set BB multiplier to 1.5
-      to match the TradingView chart, or keep 2 for the corrected formula.
+      Yes, with the default settings. The script TradingView shows uses its
+      KC multiplier for the Bollinger Bands too, so its BB MultFactor input
+      changes nothing, and Gainium's default BB multiplier is the same 1.5.
+      If you change KC multiplier, set BB multiplier to the same value to keep
+      matching that chart. Set BB multiplier 2 for LazyBear's corrected
+      version, which TradingView does not show.
   - title: What does Squeeze fired mean?
     details: >-
       The candle before was in a squeeze (Bollinger Bands inside the Keltner
@@ -81,7 +83,7 @@ Squeeze Momentum marks the stretches when Bollinger Bands contract inside the Ke
 
 John Carter described the TTM Squeeze in his book Mastering the Trade. LazyBear published Squeeze Momentum, his open version of it, on TradingView in 2014. It compares two bands around the same 20-candle average:
 
-**Bollinger Bands = SMA(close, 20) ± 2 × standard deviation(close, 20)**
+**Bollinger Bands = SMA(close, 20) ± 1.5 × standard deviation(close, 20)**
 
 **Keltner Channels = SMA(close, 20) ± 1.5 × SMA(true range, 20)**
 
@@ -97,11 +99,11 @@ It is above zero when price sits above the middle of its recent range and its av
 
 How to read it:
 
-- **Squeezes are common.** On BTC/USDT 1h the default settings are in a squeeze on about 35% of candles, and a median squeeze lasts 7 candles.
-- **About half of the fires point up.** On BTC/USDT 1h, momentum is above zero on about 53% of the candles where the squeeze fires.
-- **A fire means movement, not direction.** After a fire with positive momentum on BTC/USDT 4h, price moved 1.5% above the entry within 24 candles after about 70% of fires, and 1.5% below it after about 76%.
+- **Squeezes are the usual state.** On BTC/USDT 1h the default settings are in a squeeze on about 60% of candles, and a median squeeze lasts 14 candles.
+- **About half of the fires point up.** On BTC/USDT 1h, momentum is above zero on about 54% of the candles where the squeeze fires.
+- **A fire means movement, not direction.** After a fire with positive momentum on BTC/USDT 4h, price moved 1.5% above the entry within 24 candles after about 73% of fires, and 1.5% below it after about 71%.
 
-**TradingView's chart uses a multiplier of 1.5.** The script TradingView displays has the Bollinger multiplier fixed at 1.5 in its code, whatever the input says. LazyBear posted the corrected source separately, and Gainium uses that corrected formula. Set **BB multiplier** to 1.5 to get the squeezes TradingView draws.
+**The default matches TradingView's chart.** The Squeeze Momentum script TradingView displays uses its KC multiplier, 1.5, for the Bollinger Bands too, so its BB MultFactor input changes nothing. Gainium's default **BB multiplier** is the same 1.5. On 7,196 BTC/USDT 1h candles, Gainium and TradingView showed the same squeeze on every candle, and the squeeze fired with positive momentum on the same 124 candles. LazyBear posted a corrected source separately, in which the Bollinger multiplier is its own input, and John Carter's TTM Squeeze uses 2 standard deviations. Set **BB multiplier** to 2 for that version.
 
 ![Squeeze Momentum Indicator by LazyBear on BINANCE:BTCUSDT 4h, dark theme: the momentum histogram in green above zero and red below it, with grey crosses on the zero line out of a squeeze and dark crosses in one](https://content.gainium.io/images/content/indicators/squeeze-momentum__chart.webp)
 
@@ -110,7 +112,7 @@ How to read it:
 | Setting | Default | What it does |
 | --- | --- | --- |
 | BB length | 20 | Candles of the Bollinger Bands. |
-| BB multiplier | 2 | Width of the Bollinger Bands in standard deviations. TradingView's published script draws with 1.5; set 1.5 to match its chart. |
+| BB multiplier | 1.5 | Width of the Bollinger Bands in standard deviations. 1.5 (the default) matches the Squeeze Momentum chart TradingView shows; 2 is LazyBear's corrected version. |
 | KC length | 20 | Candles of the Keltner Channels, also the length of the momentum. |
 | KC multiplier | 1.5 | Width of the Keltner Channels as a multiple of the average true range. |
 | Interval | 1 hour | Candle size the squeeze and the momentum are calculated on, from 1 minute to 1 week. |
@@ -118,11 +120,11 @@ How to read it:
 | Momentum | Positive | The momentum histogram: above or below zero, higher or lower than on the candle before, or crossing zero. Both Squeeze and Momentum must hold; they cannot both be Any. |
 | Keep true | 0 | This condition will remain true for a number of extra bars. Default is 0, which means it will be true only on the bar that triggered the condition. |
 
-**Tip:** **BB multiplier** 1.5 instead of 2 puts BTC/USDT 1h in a squeeze on about 60% of candles instead of 35%. Squeezes last twice as long, with a median of 14 candles, and fire about 14% less often.
+**Tip:** **BB multiplier** 2 instead of 1.5 puts BTC/USDT 1h in a squeeze on about 35% of candles instead of 60%. Squeezes last half as long, with a median of 7 candles, and fire about 16% more often.
 
 **Tip:** **Squeeze** Squeeze fired is true on one candle per squeeze. In a squeeze is true on every candle of it, so with Momentum Positive a bot can open deal after deal while the squeeze lasts. Use In a squeeze with a crossing rule, or with a limit on open deals.
 
-**Tip:** **Momentum** Crossing up with Squeeze Any fires on every zero crossing of the histogram. On BTC/USDT 1h that is about 1.4 times as often as Squeeze fired with Positive.
+**Tip:** **Momentum** Crossing up with Squeeze Any fires on every zero crossing of the histogram. On BTC/USDT 1h that is about 1.6 times as often as Squeeze fired with Positive.
 
 ## Trading setups for bots
 
@@ -130,9 +132,9 @@ How to read it:
 
 - **Entry:** Squeeze Momentum, Squeeze **Squeeze fired**, Momentum **Positive**, default lengths and multipliers, Interval 4 hours.
 - **Exit:** take profit 1.5%, with a stop loss of 1.5% to 2%.
-- **Settings:** BB multiplier 2. With 1.5 the squeezes are longer and fire about 14% less often.
-- **Timeframe:** 4 hours. Price moved 1.5% above the entry within 24 candles after about 70% of the 4h fires, against 49% on 1h.
-- **When it fails:** when the breakout reverses. Price also moved 1.5% below the entry within 24 candles after about 76% of the 4h fires, so the move after a fire runs both ways. Keep the stop loss, or add a trend filter such as the Moving Averages trend filter.
+- **Settings:** the defaults, BB multiplier 1.5. With 2 the 4h squeezes fire about 6% more often, and price moved 1.5% below the entry after more of those fires (about 76%) than 1.5% above it (about 70%).
+- **Timeframe:** 4 hours. Price moved 1.5% above the entry within 24 candles after about 73% of the 4h fires, against 51% on 1h.
+- **When it fails:** when the breakout reverses. Price also moved 1.5% below the entry within 24 candles after about 71% of the 4h fires, so the move after a fire runs both ways. Keep the stop loss, or add a trend filter such as the Moving Averages trend filter.
 
 In the chart below, the first grey cross after a run of orange ones came with momentum already above zero. The squeeze fired there, and price climbed about 1% over the next day.
 
@@ -140,15 +142,15 @@ In the chart below, the first grey cross after a run of orange ones came with mo
 
 ### Enter early: momentum crosses up inside the squeeze
 
-- **Entry:** Squeeze Momentum, Squeeze **In a squeeze**, Momentum **Crossing up**, Interval 4 hours.
+- **Entry:** Squeeze Momentum, **BB multiplier** 2, Squeeze **In a squeeze**, Momentum **Crossing up**, Interval 4 hours.
 - **Exit:** take profit 1.5%, with a stop loss of 1.5% to 2%.
-- **Settings:** the defaults. The condition is true only on the candle the histogram crosses zero, so it opens one deal per crossing.
-- **Timeframe:** 4 hours. After about 73% of these entries on BTC/USDT 4h, the squeeze later fired with positive momentum; on 1h it was about 66%.
+- **Settings:** BB multiplier 2, the other fields at their defaults. With 2 the squeezes are shorter, so a crossing inside one comes closer to the fire. The condition is true only on the candle the histogram crosses zero, so it opens one deal per crossing.
+- **Timeframe:** 4 hours. After about 73% of these entries on BTC/USDT 4h, the squeeze later fired with positive momentum; on 1h it was about 66%. With the default 1.5 it was about 58% on 4h.
 - **When it fails:** when the squeeze fires down. The entry comes before the breakout, so about a quarter of the 4h entries were early longs into a fall. Price moved 1.5% below the entry within 24 candles after about 71% of them.
 
-In the chart below, momentum crossed up zero while the crosses were still orange, three candles before the squeeze fired.
+In the chart below, with the default 1.5, momentum crossed up zero while the crosses were still orange, five candles before the squeeze fired. With BB multiplier 2 the same squeeze fired two candles earlier.
 
-![Annotated Gainium bot chart, BTC/USDT 1h, with Squeeze Momentum: the first green histogram bar after a red stretch is ringed while the zero-line crosses are still orange, three candles before the squeeze fires](https://content.gainium.io/images/content/indicators/squeeze-momentum__cross-up.webp)
+![Annotated Gainium bot chart, BTC/USDT 1h, with Squeeze Momentum: the first green histogram bar after a red stretch is ringed while the zero-line crosses are still orange, five candles before the squeeze fires](https://content.gainium.io/images/content/indicators/squeeze-momentum__cross-up.webp)
 
 ## Using Squeeze Momentum in Gainium
 
@@ -161,7 +163,7 @@ In the chart below, momentum crossed up zero while the crosses were still orange
 The fields and their defaults:
 
 - **BB length:** 20, from 2 to 500.
-- **BB multiplier:** 2, from 0.1 to 10, in steps of 0.1.
+- **BB multiplier:** 1.5, from 0.1 to 10, in steps of 0.1.
 - **KC length:** 20, from 2 to 500. It is also the momentum length.
 - **KC multiplier:** 1.5, from 0.1 to 10.
 - **Interval:** 1 hour.
@@ -169,15 +171,15 @@ The fields and their defaults:
 - **Momentum:** Positive. Or Negative, Rising, Falling, Crossing up, Crossing down or Any.
 - **Keep true:** 0 extra candles.
 
-![The Squeeze Momentum settings card in the Gainium bot form with its defaults: BB length 20, BB multiplier 2, KC length 20, KC multiplier 1.5, Interval 1 hour, Squeeze fired, Momentum Positive, Keep true 0](https://content.gainium.io/images/content/indicators/squeeze-momentum__settings.webp)
+![The Squeeze Momentum settings card in the Gainium bot form with its defaults: BB length 20, BB multiplier 1.5, KC length 20, KC multiplier 1.5, Interval 1 hour, Squeeze fired, Momentum Positive, Keep true 0](https://content.gainium.io/images/content/indicators/squeeze-momentum__settings.webp)
 
 The bot-form chart draws the histogram in LazyBear's four colours and puts a cross on the zero line for every candle: orange in a squeeze, grey out of one, and blue when neither holds. LazyBear's original draws the in-squeeze crosses black, which does not show on a dark chart.
 
-![The Gainium bot-form chart, BTC/USDT 1h, with Squeeze 20 2 20 1.5: the momentum histogram in bright and dark green and red, with orange and grey crosses on the zero line](https://content.gainium.io/images/content/indicators/squeeze-momentum__bot-chart.webp)
+![The Gainium bot-form chart, BTC/USDT 1h, with Squeeze 20 1.5 20 1.5: the momentum histogram in bright and dark green and red, with orange and grey crosses on the zero line](https://content.gainium.io/images/content/indicators/squeeze-momentum__bot-chart.webp)
 
 Squeeze Momentum works as a deal start, DCA, take profit or stop loss condition, and in the Bot Controller. The backtest draws it on every deal chart.
 
-Example configuration for the first setup: BB length 20, BB multiplier 2, KC length 20, KC multiplier 1.5, Interval 4 hours, Squeeze fired, Momentum Positive, Keep true 0, take profit 1.5%.
+Example configuration for the first setup: BB length 20, BB multiplier 1.5, KC length 20, KC multiplier 1.5, Interval 4 hours, Squeeze fired, Momentum Positive, Keep true 0, take profit 1.5%.
 
 ## Related indicators
 

@@ -2,7 +2,7 @@
   "indicator": "squeeze-momentum",
   "defaultTf": "1h",
   "featured": [
-    "fired-positive-bb15",
+    "fired-positive",
     "off-rising",
     "any-crossup"
   ],
@@ -10,38 +10,6 @@
     {
       "id": "fired-positive",
       "label": "Squeeze fires with positive momentum",
-      "side": "long",
-      "featured": false,
-      "volatility": true,
-      "indicator": {
-        "class": "Squeeze",
-        "args": [
-          20,
-          2,
-          20,
-          1.5
-        ],
-        "input": "candle"
-      },
-      "condition": {
-        "op": "fn",
-        "fn": "squeezeCondition",
-        "options": {
-          "signal": "fired",
-          "momentum": "positive"
-        }
-      },
-      "bot": {
-        "type": "SQZ",
-        "params": {
-          "sqzSignal": "fired",
-          "sqzMomentum": "positive"
-        }
-      }
-    },
-    {
-      "id": "fired-positive-bb15",
-      "label": "Squeeze fires with positive momentum, BB multiplier 1.5",
       "side": "long",
       "featured": true,
       "volatility": true,
@@ -66,7 +34,6 @@
       "bot": {
         "type": "SQZ",
         "params": {
-          "sqzBBMult": 1.5,
           "sqzSignal": "fired",
           "sqzMomentum": "positive"
         }
@@ -81,7 +48,7 @@
         "class": "Squeeze",
         "args": [
           20,
-          2,
+          1.5,
           20,
           1.5
         ],
@@ -113,7 +80,7 @@
         "class": "Squeeze",
         "args": [
           20,
-          2,
+          1.5,
           20,
           1.5
         ],

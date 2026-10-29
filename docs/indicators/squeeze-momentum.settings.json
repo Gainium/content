@@ -26,8 +26,8 @@
       "type": "number"
     },
     {
-      "default": 2,
-      "defaultText": "2",
+      "default": 1.5,
+      "defaultText": "1.5",
       "group": null,
       "id": "sqzBBMult",
       "kind": "logic",
@@ -36,7 +36,7 @@
       "min": 0.1,
       "step": 0.1,
       "suffix": "σ",
-      "tooltip": "Width of the Bollinger Bands in standard deviations. TradingView's published script draws with 1.5; set 1.5 to match its chart.",
+      "tooltip": "Width of the Bollinger Bands in standard deviations. 1.5 (the default) matches the Squeeze Momentum chart TradingView shows; 2 is LazyBear's corrected version.",
       "type": "number"
     },
     {
