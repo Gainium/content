@@ -1,0 +1,24 @@
+{
+ "strategy": "gamma",
+ "name": "Gamma",
+ "source": {
+  "label": "fixture"
+ },
+ "tuned": false,
+ "rulesFixedAt": "2026-01-01",
+ "baseline": "random",
+ "tags": [
+  "dca"
+ ],
+ "rules": [
+  "Buy weekly."
+ ],
+ "notExpressed": [],
+ "bot": {
+  "type": "dca",
+  "interval": "1d",
+  "settings": {
+   "baseOrderSize": "100"
+  }
+ }
+}

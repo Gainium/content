@@ -8,8 +8,11 @@ import {
   ParsedBlogPost,
   ParsedHelpDoc,
   ParsedIndicator,
+  ParsedStrategy,
+  StrategyFrontmatter,
 } from './types'
 import { validateIndicatorFrontmatter } from './indicators/validateIndicator'
+import { validateStrategyFrontmatter } from './strategies/validateStrategy'
 
 /**
  * The one parse + validate path for content files. The API server
@@ -168,6 +171,30 @@ export function parseIndicatorSource(
       errors.length === 0
         ? {
             metadata: parsed.data as unknown as IndicatorFrontmatter,
+            content: parsed.content,
+            rawContent: parsed.rawContent,
+          }
+        : undefined,
+    errors,
+    warnings: parsed.warnings,
+  }
+}
+
+/** A strategy page (spec 061 §5); its recipe and results are attached by the loader. */
+export function parseStrategySource(
+  rawContent: string,
+): ParseResult<ParsedStrategy> {
+  const parsed = parseMarkdown(rawContent)
+  const errors = validateStrategyFrontmatter(parsed.data)
+  // gray-matter reads an unquoted YYYY-MM-DD as a Date
+  for (const key of ['publishedAt', 'updatedAt'])
+    if (parsed.data[key] instanceof Date)
+      parsed.data[key] = (parsed.data[key] as Date).toISOString().slice(0, 10)
+  return {
+    doc:
+      errors.length === 0
+        ? {
+            metadata: parsed.data as unknown as StrategyFrontmatter,
             content: parsed.content,
             rawContent: parsed.rawContent,
           }

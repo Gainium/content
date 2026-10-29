@@ -1,0 +1,50 @@
+{
+  "strategy": "turtle",
+  "name": "Turtle trading (System 1)",
+  "source": {
+    "label": "The Turtle rules taught by Richard Dennis and William Eckhardt in 1983 (System 1), as published in Curtis Faith's \"The Original Turtle Trading Rules\"",
+    "url": "https://community.gainium.io/t/1320"
+  },
+  "tuned": false,
+  "rulesFixedAt": "2026-10-29",
+  "baseline": "random",
+  "tags": ["trend-following", "breakout"],
+  "rules": [
+    "Buy when the daily close breaks above the highest high of the previous 20 days.",
+    "Sell when the daily close breaks below the lowest low of the previous 10 days.",
+    "Hold one position per coin at a time, sized at the coin's whole budget."
+  ],
+  "notExpressed": [
+    "Position size from volatility (the N unit, a 20-day average true range)",
+    "Adding up to three more units every half N the trade moves in your favour",
+    "The 2N stop loss",
+    "Skipping a breakout after a winning breakout",
+    "Short trades (the test is spot, long only)"
+  ],
+  "bot": {
+    "type": "dca",
+    "interval": "1d",
+    "settings": {
+      "baseOrderSize": "1000",
+      "startCondition": "TechnicalIndicators",
+      "useTp": true,
+      "dealCloseCondition": "techInd",
+      "maxNumberOfOpenDeals": "3",
+      "maxDealsPerPair": "1",
+      "indicatorGroups": [
+        { "id": "entry", "logic": "and", "action": "startDeal" },
+        { "id": "exit", "logic": "and", "action": "closeDeal" }
+      ],
+      "indicators": [
+        {
+          "type": "DC", "indicatorLength": 20, "dcValue": "upper", "indicatorCondition": "cu", "indicatorValue": "0",
+          "indicatorInterval": "1d", "indicatorAction": "startDeal", "groupId": "entry", "uuid": "dc20-upper"
+        },
+        {
+          "type": "DC", "indicatorLength": 10, "dcValue": "lower", "indicatorCondition": "cd", "indicatorValue": "0",
+          "indicatorInterval": "1d", "indicatorAction": "closeDeal", "groupId": "exit", "uuid": "dc10-lower"
+        }
+      ]
+    }
+  }
+}

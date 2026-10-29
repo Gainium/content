@@ -1,0 +1,25 @@
+{
+ "strategy": "alpha",
+ "name": "Alpha",
+ "source": {
+  "label": "fixture"
+ },
+ "tuned": false,
+ "rulesFixedAt": "2026-01-01",
+ "baseline": "random",
+ "tags": [
+  "trend-following"
+ ],
+ "rules": [
+  "Buy the breakout.",
+  "Sell the breakdown."
+ ],
+ "notExpressed": [],
+ "bot": {
+  "type": "dca",
+  "interval": "1d",
+  "settings": {
+   "baseOrderSize": "100"
+  }
+ }
+}

@@ -1,0 +1,92 @@
+{
+ "strategy": "qfl",
+ "updatedAt": "2026-10-29",
+ "method": {
+  "source": "Binance spot",
+  "pairs": [
+   "BTC/USDT",
+   "ETH/USDT",
+   "SOL/USDT"
+  ],
+  "from": "2020-09-01",
+  "oosFrom": "2024-01-01",
+  "to": "2026-10-28",
+  "interval": "1h",
+  "fee": 0.001,
+  "baseline": "random",
+  "randomDraws": 200,
+  "band": [
+   5,
+   95
+  ],
+  "minTrades": 30,
+  "minOosDays": 365,
+  "budget": 15077.34,
+  "engine": {
+   "backtester": "3ca8da03",
+   "version": "1.25.0"
+  }
+ },
+ "periods": {
+  "inSample": {
+   "from": "2020-09-01",
+   "to": "2023-12-31",
+   "strategy": {
+    "return": 58.26,
+    "maxDrawdown": 28.85,
+    "profitFactor": null,
+    "trades": 590,
+    "closed": 589,
+    "winRate": 100,
+    "medianHoldingHours": 6
+   },
+   "random": {
+    "draws": 200,
+    "band": [
+     29.04,
+     87.49
+    ],
+    "medianReturn": 57.2,
+    "medianMaxDrawdown": 37.28,
+    "medianTrades": 576,
+    "medianHoldingHours": 12
+   },
+   "hold": {
+    "return": 905.51,
+    "maxDrawdown": 91.51
+   },
+   "state": "inside"
+  },
+  "outOfSample": {
+   "from": "2024-01-01",
+   "to": "2026-10-28",
+   "strategy": {
+    "return": 24.75,
+    "maxDrawdown": 35.64,
+    "profitFactor": null,
+    "trades": 244,
+    "closed": 244,
+    "winRate": 100,
+    "medianHoldingHours": 15
+   },
+   "random": {
+    "draws": 200,
+    "band": [
+     13.01,
+     34.18
+    ],
+    "medianReturn": 27.37,
+    "medianMaxDrawdown": 29.55,
+    "medianTrades": 256,
+    "medianHoldingHours": 33.5
+   },
+   "hold": {
+    "return": 31.46,
+    "maxDrawdown": 63.6
+   },
+   "state": "inside"
+  }
+ },
+ "verdict": "inside",
+ "excess": -2.62
+}

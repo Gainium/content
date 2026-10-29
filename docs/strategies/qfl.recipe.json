@@ -1,0 +1,48 @@
+{
+  "strategy": "qfl",
+  "name": "QFL base cracking",
+  "source": {
+    "label": "Quickfingers Luc's base-cracking method, with Gainium's QFL Base Scanner defaults and the bot form's Mid-term safety-order preset",
+    "url": "https://gainium.io/indicators/qfl"
+  },
+  "tuned": false,
+  "rulesFixedAt": "2026-10-29",
+  "baseline": "random",
+  "tags": ["mean-reversion", "dca"],
+  "rules": [
+    "Find a base: the lowest low of the last 36 hourly candles, confirmed when price bounces 3% above it within 8 candles.",
+    "Buy when price cracks 3% below that base.",
+    "Average down with up to 8 safety orders, the first 2% lower, each 1.15 times further and 1.5 times larger than the one before.",
+    "Sell the whole position 3% above its average price.",
+    "Hold one position per coin at a time, with no stop loss."
+  ],
+  "notExpressed": [
+    "Choosing bases by eye on the chart (the scanner finds them by rule)"
+  ],
+  "bot": {
+    "type": "dca",
+    "interval": "1h",
+    "settings": {
+      "baseOrderSize": "100",
+      "orderSize": "100",
+      "startCondition": "TechnicalIndicators",
+      "useDca": true,
+      "ordersCount": 8,
+      "activeOrdersCount": 2,
+      "step": "2",
+      "stepScale": "1.15",
+      "volumeScale": "1.5",
+      "useTp": true,
+      "tpPerc": "3",
+      "maxNumberOfOpenDeals": "3",
+      "maxDealsPerPair": "1",
+      "indicatorGroups": [{ "id": "entry", "logic": "and", "action": "startDeal" }],
+      "indicators": [
+        {
+          "type": "QFL", "basePeriods": 36, "pumpPeriods": 8, "pump": 3, "baseCrack": 3,
+          "indicatorInterval": "1h", "indicatorAction": "startDeal", "groupId": "entry", "uuid": "qfl-default"
+        }
+      ]
+    }
+  }
+}

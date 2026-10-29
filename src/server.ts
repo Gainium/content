@@ -7,6 +7,7 @@ import helpRouter from './routes/help'
 import blogRouter from './routes/blog'
 import searchRouter from './routes/search'
 import indicatorsRouter from './routes/indicators'
+import strategiesRouter from './routes/strategies'
 import logger from './utils/logger'
 
 const PORT = process.env.PORT || 7570
@@ -37,6 +38,8 @@ export function createServer(): Application {
         search: '/search',
         indicators: '/indicators',
         indicatorManifest: '/indicators/manifest',
+        strategies: '/strategies',
+        strategyRanking: '/strategies/ranking',
         images: '/images/content/{help,blog}/<filename>',
       },
     })
@@ -58,6 +61,7 @@ export function createServer(): Application {
   app.use('/blog', blogRouter)
   app.use('/search', searchRouter)
   app.use('/indicators', indicatorsRouter)
+  app.use('/strategies', strategiesRouter)
 
   // 404 handler
   app.use((req: Request, res: Response) => {

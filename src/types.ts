@@ -153,6 +153,48 @@ export interface IndicatorManifest {
   }>
 }
 
+/**
+ * Frontmatter of `docs/strategies/<slug>.md` (main-app spec 061 §5). The
+ * rules, tags and numbers are not here: they live in `<slug>.recipe.json` and
+ * `<slug>.results.json` beside the page, so the prose cannot drift from them.
+ */
+export interface StrategyFrontmatter {
+  name: string
+  slug: string
+  description: string
+  tldr: string
+  publishedAt: string
+  updatedAt: string
+  /** Where the strategy comes from: the forum thread, the blog post. */
+  sources?: Array<{ title?: string; url: string }>
+  faq?: Array<{ title: string; details: string }>
+  /** Other strategy slugs. */
+  related?: string[]
+}
+
+export interface ParsedStrategy {
+  metadata: StrategyFrontmatter
+  content: string
+  rawContent: string
+  /** `<slug>.recipe.json`, parsed. A page without one is not served. */
+  recipe?: Record<string, unknown>
+  /** `<slug>.results.json`, parsed, once the engine has run the recipe. */
+  results?: Record<string, unknown>
+}
+
+/** One item of `GET /strategies`. */
+export interface StrategyListItem {
+  name: string
+  slug: string
+  description: string
+  tldr: string
+  tags: string[]
+  /** How many rules the recipe has: the beginners view's simplicity. */
+  rules: number
+  hasResults: boolean
+  updatedAt: string
+}
+
 export interface ContentMetadata {
   helpDocs: HelpDocFrontmatter[]
   blogPosts: BlogPostFrontmatter[]
@@ -200,6 +242,7 @@ export interface CacheData {
   helpDocs: ParsedHelpDoc[]
   blogPosts: ParsedBlogPost[]
   indicators?: ParsedIndicator[]
+  strategies?: ParsedStrategy[]
   timestamp: number
 }
 

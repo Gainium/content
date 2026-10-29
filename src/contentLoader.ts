@@ -4,6 +4,7 @@ import {
   ParsedHelpDoc,
   ParsedBlogPost,
   ParsedIndicator,
+  ParsedStrategy,
   IndicatorManifest,
   CacheData,
   GitMetadata,
@@ -13,6 +14,7 @@ import {
   parseBlogPostSource,
   parseHelpDocSource,
   parseIndicatorSource,
+  parseStrategySource,
   readMarkdownDir,
 } from './contentParser'
 import { INDICATOR_SLUGS_MOVED_FROM_HELP } from './indicators/movedFromHelp'
@@ -22,7 +24,7 @@ import logger from './utils/logger'
 const DOCS_DIR = path.join(process.cwd(), 'docs')
 // Bump when the cached shape or the parse rules change, so an old cache is
 // never served.
-const CACHE_VERSION = 4
+const CACHE_VERSION = 5
 const TEMP_DIR = path.join(process.cwd(), 'temp')
 const CACHE_FILE = path.join(TEMP_DIR, 'content-cache.json')
 
@@ -46,6 +48,8 @@ interface ContentSnapshot {
   movedHelp: Map<string, ParsedHelpDoc>
   blog: Collection<ParsedBlogPost>
   indicators: Map<string, ParsedIndicator>
+  /** Pages with a recipe only (spec 061 §5). */
+  strategies: Map<string, ParsedStrategy>
 }
 
 const bySlug = (a: { metadata: { slug: string } }, b: typeof a) =>
@@ -82,6 +86,7 @@ function buildSnapshot(
   helpDocs: ParsedHelpDoc[],
   blogPosts: ParsedBlogPost[],
   indicatorPages: ParsedIndicator[],
+  strategyPages: ParsedStrategy[] = [],
 ): ContentSnapshot {
   const indicators = new Map(
     [...indicatorPages].sort(bySlug).map((doc) => [doc.metadata.slug, doc]),
@@ -116,6 +121,9 @@ function buildSnapshot(
       byTag: indexBy(blogPosts, (post) => post.metadata.tags),
     },
     indicators,
+    strategies: new Map(
+      [...strategyPages].sort(bySlug).map((doc) => [doc.metadata.slug, doc]),
+    ),
   }
 }
 
@@ -185,6 +193,7 @@ export class ContentLoader {
           cacheData.helpDocs,
           cacheData.blogPosts,
           cacheData.indicators ?? [],
+          cacheData.strategies ?? [],
         )
         this.currentCommit = cacheData.metadata
         return true
@@ -209,7 +218,7 @@ export class ContentLoader {
     await this.saveToCache()
 
     logger.info(
-      `Loaded ${this.snapshot.help.docs.size} help docs, ${this.snapshot.blog.docs.size} blog posts and ${this.snapshot.indicators.size} indicator pages`,
+      `Loaded ${this.snapshot.help.docs.size} help docs, ${this.snapshot.blog.docs.size} blog posts, ${this.snapshot.indicators.size} indicator pages and ${this.snapshot.strategies.size} strategies`,
     )
   }
 
@@ -227,6 +236,8 @@ export class ContentLoader {
     const blogPosts = await this.loadDir('blog', parseBlogPostSource)
     const indicators = await this.loadDir('indicators', parseIndicatorSource)
     await this.attachEdgeData(indicators)
+    const strategies = await this.loadDir('strategies', parseStrategySource)
+    await this.attachStrategyData(strategies)
 
     const helpSlugs = new Set(helpDocs.map((doc) => doc.metadata.slug))
     indicators.forEach(({ metadata }) => {
@@ -238,7 +249,12 @@ export class ContentLoader {
     })
 
     // Swap in one assignment: no request ever sees a partial corpus
-    this.snapshot = buildSnapshot(helpDocs, blogPosts, indicators)
+    this.snapshot = buildSnapshot(
+      helpDocs,
+      blogPosts,
+      indicators,
+      strategies.filter((doc) => doc.recipe),
+    )
   }
 
   private async loadDir<T extends { metadata: { slug: string } }>(
@@ -315,15 +331,60 @@ export class ContentLoader {
     )
   }
 
+  /**
+   * Attach each strategy page's `<slug>.recipe.json` and `<slug>.results.json`
+   * (spec 061 §5). A page without a readable recipe is logged and not served:
+   * the library only shows strategies whose rules are stated. A missing
+   * results file means the engine has not run the recipe yet.
+   */
+  private async attachStrategyData(
+    strategies: ParsedStrategy[],
+  ): Promise<void> {
+    const dir = path.join(this.docsDir, 'strategies')
+    const readJson = async (file: string) => {
+      let raw: string
+      try {
+        raw = await fs.readFile(path.join(dir, file), 'utf-8')
+      } catch (error) {
+        if ((error as NodeJS.ErrnoException).code !== 'ENOENT')
+          logger.error(`Error reading ${file}:`, error)
+        return undefined
+      }
+      try {
+        const data = JSON.parse(raw)
+        if (typeof data !== 'object' || data === null || Array.isArray(data))
+          throw new Error('not a JSON object')
+        return data as Record<string, unknown>
+      } catch (error) {
+        logger.error(`Skipping ${file}: ${(error as Error).message}`)
+        return undefined
+      }
+    }
+    await Promise.all(
+      strategies.map(async (doc) => {
+        const slug = doc.metadata.slug
+        doc.recipe = await readJson(`${slug}.recipe.json`)
+        if (!doc.recipe) {
+          logger.error(
+            `Strategy "${slug}" has no readable ${slug}.recipe.json; not served`,
+          )
+          return
+        }
+        doc.results = await readJson(`${slug}.results.json`)
+      }),
+    )
+  }
+
   private async saveToCache(): Promise<void> {
     try {
-      const { help, blog, indicators } = this.snapshot
+      const { help, blog, indicators, strategies } = this.snapshot
       const cacheData: CacheData = {
         version: CACHE_VERSION,
         metadata: this.currentCommit!,
         helpDocs: Array.from(help.docs.values()),
         blogPosts: Array.from(blog.docs.values()),
         indicators: Array.from(indicators.values()),
+        strategies: Array.from(strategies.values()),
         timestamp: Date.now(),
       }
 
@@ -398,6 +459,15 @@ export class ContentLoader {
     return native.filter(
       (doc) => !this.snapshot.movedHelp.has(doc.metadata.slug),
     )
+  }
+
+  /** Strategy pages that have a recipe (spec 061 §5), by slug. */
+  getStrategies(): ParsedStrategy[] {
+    return Array.from(this.snapshot.strategies.values())
+  }
+
+  getStrategyBySlug(slug: string): ParsedStrategy | undefined {
+    return this.snapshot.strategies.get(slug)
   }
 
   getIndicatorManifest(): IndicatorManifest {

@@ -23,6 +23,7 @@
     "images:webp:delete": "tsx scripts/convert-to-webp.ts --delete",
     "images:check": "tsx scripts/convert-to-webp.ts --check",
     "check:indicators": "tsx scripts/check-indicators.ts",
+    "check:strategies": "tsx scripts/check-strategies.ts",
     "check:style": "tsx scripts/check-style.ts",
     "lint": "tsc --noEmit && eslint .",
     "lint:fix": "eslint . --fix",

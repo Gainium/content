@@ -1,0 +1,65 @@
+{
+ "strategy": "beta",
+ "updatedAt": "2026-10-29",
+ "method": {
+  "source": "Binance spot",
+  "pairs": [
+   "BTC/USDT",
+   "ETH/USDT",
+   "SOL/USDT"
+  ],
+  "from": "2020-09-01",
+  "oosFrom": "2024-01-01",
+  "to": "2026-10-28",
+  "interval": "1d",
+  "fee": 0.001,
+  "baseline": "hold",
+  "minTrades": 30,
+  "minOosDays": 365,
+  "budget": 300,
+  "engine": {
+   "backtester": "fixture",
+   "version": "0"
+  }
+ },
+ "periods": {
+  "inSample": {
+   "from": "2020-09-01",
+   "to": "2023-12-31",
+   "strategy": {
+    "return": 30,
+    "maxDrawdown": 12.5,
+    "profitFactor": 1.4,
+    "trades": 900,
+    "closed": 900,
+    "winRate": 40,
+    "medianHoldingHours": 96
+   },
+   "hold": {
+    "return": 200,
+    "maxDrawdown": 50
+   },
+   "state": "below"
+  },
+  "outOfSample": {
+   "from": "2024-01-01",
+   "to": "2026-10-28",
+   "strategy": {
+    "return": 5,
+    "maxDrawdown": 12.5,
+    "profitFactor": 1.4,
+    "trades": 800,
+    "closed": 800,
+    "winRate": 40,
+    "medianHoldingHours": 96
+   },
+   "hold": {
+    "return": 40,
+    "maxDrawdown": 50
+   },
+   "state": "below"
+  }
+ },
+ "verdict": "worse",
+ "excess": -35
+}

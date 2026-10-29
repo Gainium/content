@@ -1,0 +1,297 @@
+{
+ "strategy": "grid-stack",
+ "updatedAt": "2026-10-29",
+ "method": {
+  "source": "Binance spot",
+  "pairs": [
+   "BTC/USDT",
+   "ETH/USDT",
+   "SOL/USDT"
+  ],
+  "from": "2020-09-01",
+  "oosFrom": "2024-01-01",
+  "to": "2026-10-28",
+  "interval": "1h",
+  "fee": 0.001,
+  "baseline": "hold",
+  "minTrades": 30,
+  "minOosDays": 365,
+  "budget": 30000,
+  "engine": {
+   "backtester": "3ca8da03",
+   "version": "1.25.0"
+  }
+ },
+ "periods": {
+  "inSample": {
+   "from": "2020-09-01",
+   "to": "2023-12-31",
+   "strategy": {
+    "return": 299.09,
+    "maxDrawdown": 87.35,
+    "profitFactor": null,
+    "trades": 10137,
+    "closed": 10137,
+    "winRate": null,
+    "medianHoldingHours": null
+   },
+   "coins": {
+    "BTC": {
+     "range": {
+      "low": 3156.26,
+      "high": 13970
+     },
+     "zones": [
+      {
+       "name": "Below the range",
+       "low": 1578.13,
+       "top": 3156.26,
+       "levels": 29
+      },
+      {
+       "name": "Bottom third",
+       "low": 3156.26,
+       "top": 6760.84,
+       "levels": 78
+      },
+      {
+       "name": "Middle third",
+       "low": 6760.84,
+       "top": 10365.42,
+       "levels": 30
+      },
+      {
+       "name": "Top third",
+       "low": 10365.42,
+       "top": 13970,
+       "levels": 31
+      },
+      {
+       "name": "Above the range",
+       "low": 13970,
+       "top": 27940,
+       "levels": 29
+      }
+     ]
+    },
+    "ETH": {
+     "range": {
+      "low": 81.79,
+      "high": 446
+     },
+     "zones": [
+      {
+       "name": "Below the range",
+       "low": 40.9,
+       "top": 81.79,
+       "levels": 29
+      },
+      {
+       "name": "Bottom third",
+       "low": 81.79,
+       "top": 203.19,
+       "levels": 92
+      },
+      {
+       "name": "Middle third",
+       "low": 203.19,
+       "top": 324.6,
+       "levels": 32
+      },
+      {
+       "name": "Top third",
+       "low": 324.6,
+       "top": 446,
+       "levels": 33
+      },
+      {
+       "name": "Above the range",
+       "low": 446,
+       "top": 892,
+       "levels": 29
+      }
+     ]
+    },
+    "SOL": {
+     "range": {
+      "low": 2.74,
+      "high": 4.89
+     },
+     "zones": [
+      {
+       "name": "Below the range",
+       "low": 1.37,
+       "top": 2.74,
+       "levels": 29
+      },
+      {
+       "name": "Bottom third",
+       "low": 2.74,
+       "top": 3.46,
+       "levels": 24
+      },
+      {
+       "name": "Middle third",
+       "low": 3.46,
+       "top": 4.17,
+       "levels": 14
+      },
+      {
+       "name": "Top third",
+       "low": 4.17,
+       "top": 4.89,
+       "levels": 17
+      },
+      {
+       "name": "Above the range",
+       "low": 4.89,
+       "top": 9.77,
+       "levels": 29
+      }
+     ]
+    }
+   },
+   "hold": {
+    "return": 905.51,
+    "maxDrawdown": 91.51
+   },
+   "state": "below"
+  },
+  "outOfSample": {
+   "from": "2024-01-01",
+   "to": "2026-10-28",
+   "strategy": {
+    "return": 45.26,
+    "maxDrawdown": 23.01,
+    "profitFactor": null,
+    "trades": 28795,
+    "closed": 28795,
+    "winRate": null,
+    "medianHoldingHours": null
+   },
+   "coins": {
+    "BTC": {
+     "range": {
+      "low": 15476,
+      "high": 48189.84
+     },
+     "zones": [
+      {
+       "name": "Below the range",
+       "low": 7738,
+       "top": 15476,
+       "levels": 29
+      },
+      {
+       "name": "Bottom third",
+       "low": 15476,
+       "top": 26380.61,
+       "levels": 55
+      },
+      {
+       "name": "Middle third",
+       "low": 26380.61,
+       "top": 37285.23,
+       "levels": 24
+      },
+      {
+       "name": "Top third",
+       "low": 37285.23,
+       "top": 48189.84,
+       "levels": 27
+      },
+      {
+       "name": "Above the range",
+       "low": 48189.84,
+       "top": 96379.68,
+       "levels": 29
+      }
+     ]
+    },
+    "ETH": {
+     "range": {
+      "low": 881.56,
+      "high": 3900.73
+     },
+     "zones": [
+      {
+       "name": "Below the range",
+       "low": 440.78,
+       "top": 881.56,
+       "levels": 29
+      },
+      {
+       "name": "Bottom third",
+       "low": 881.56,
+       "top": 1887.95,
+       "levels": 78
+      },
+      {
+       "name": "Middle third",
+       "low": 1887.95,
+       "top": 2894.34,
+       "levels": 30
+      },
+      {
+       "name": "Top third",
+       "low": 2894.34,
+       "top": 3900.73,
+       "levels": 31
+      },
+      {
+       "name": "Above the range",
+       "low": 3900.73,
+       "top": 7801.46,
+       "levels": 29
+      }
+     ]
+    },
+    "SOL": {
+     "range": {
+      "low": 8,
+      "high": 179.53
+     },
+     "zones": [
+      {
+       "name": "Below the range",
+       "low": 4,
+       "top": 8,
+       "levels": 29
+      },
+      {
+       "name": "Bottom third",
+       "low": 8,
+       "top": 65.18,
+       "levels": 212
+      },
+      {
+       "name": "Middle third",
+       "low": 65.18,
+       "top": 122.35,
+       "levels": 43
+      },
+      {
+       "name": "Top third",
+       "low": 122.35,
+       "top": 179.53,
+       "levels": 40
+      },
+      {
+       "name": "Above the range",
+       "low": 179.53,
+       "top": 359.06,
+       "levels": 29
+      }
+     ]
+    }
+   },
+   "hold": {
+    "return": 31.46,
+    "maxDrawdown": 63.6
+   },
+   "state": "above"
+  }
+ },
+ "verdict": "mixed",
+ "excess": 13.8
+}

@@ -17,6 +17,7 @@ export interface StyleScopeEntry {
 
 export const DEFAULT_STYLE_SCOPE: readonly StyleScopeEntry[] = [
   { path: 'docs/indicators', mode: 'error' },
+  { path: 'docs/strategies', mode: 'error' },
   { path: 'docs/help', mode: 'warn' },
   { path: 'docs/blog', mode: 'warn' },
 ]

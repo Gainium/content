@@ -1,0 +1,26 @@
+{
+ "strategy": "beta",
+ "name": "Beta",
+ "source": {
+  "label": "fixture"
+ },
+ "tuned": false,
+ "rulesFixedAt": "2026-01-01",
+ "baseline": "hold",
+ "tags": [
+  "grid"
+ ],
+ "rules": [
+  "Run five grids.",
+  "Leave them running.",
+  "Split the budget."
+ ],
+ "notExpressed": [],
+ "bot": {
+  "type": "gridStack",
+  "interval": "1h",
+  "budgetPerPair": 1000,
+  "rangeLookbackDays": 730,
+  "zones": []
+ }
+}
