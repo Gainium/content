@@ -34,13 +34,17 @@ describe('edge ranking (spec 061 §3)', () => {
   })
 
   it('one edge in 18 settings is luck, not a ranking win', () => {
-    const item = toEdgeRankingItem(doc('a', [...times(1, 'edge'), ...times(17, 'none')]))!
+    const item = toEdgeRankingItem(
+      doc('a', [...times(1, 'edge'), ...times(17, 'none')]),
+    )!
     expect(item.tier).to.equal('luck')
     expect(item.p).to.be.greaterThan(0.5)
   })
 
   it('8 of 18 beats luck', () => {
-    const item = toEdgeRankingItem(doc('a', [...times(8, 'edge'), ...times(10, 'none')]))!
+    const item = toEdgeRankingItem(
+      doc('a', [...times(8, 'edge'), ...times(10, 'none')]),
+    )!
     expect(item.tier).to.equal('beats-luck')
     expect(item.expected).to.equal(0.9)
     expect(item.p).to.be.greaterThan(0).and.lessThan(1e-5)
@@ -50,7 +54,13 @@ describe('edge ranking (spec 061 §3)', () => {
     const item = toEdgeRankingItem(
       doc('a', ['few', 'few', 'worse', 'fragile-worse', 'none']),
     )!
-    expect(item).to.include({ judged: 3, few: 2, worse: 2, beat: 0, tier: 'luck' })
+    expect(item).to.include({
+      judged: 3,
+      few: 2,
+      worse: 2,
+      beat: 0,
+      tier: 'luck',
+    })
   })
 
   it('drops pages without data or with nothing judged', () => {
@@ -66,6 +76,11 @@ describe('edge ranking (spec 061 §3)', () => {
       doc('untested', null),
       doc('one', ['edge', ...times(17, 'none')]),
     ])
-    expect(ranked.map((r) => r.slug)).to.deep.equal(['strong', 'one', 'luck-a', 'luck-b'])
+    expect(ranked.map((r) => r.slug)).to.deep.equal([
+      'strong',
+      'one',
+      'luck-a',
+      'luck-b',
+    ])
   })
 })

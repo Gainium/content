@@ -58,9 +58,15 @@ export function binomialUpperTail(k: number, n: number, q: number): number {
 }
 
 /** The ranking row for one page, or null when it has no usable edge data. */
-export function toEdgeRankingItem(doc: ParsedIndicator): EdgeRankingItem | null {
+export function toEdgeRankingItem(
+  doc: ParsedIndicator,
+): EdgeRankingItem | null {
   const edge = doc.edge as any
-  if (!edge || !Array.isArray(edge.settings) || typeof edge.updatedAt !== 'string') {
+  if (
+    !edge ||
+    !Array.isArray(edge.settings) ||
+    typeof edge.updatedAt !== 'string'
+  ) {
     return null
   }
   const verdicts: string[] = edge.settings.map((s: any) => s?.pooled?.verdict)
@@ -94,5 +100,7 @@ export function rankByEdge(docs: ParsedIndicator[]): EdgeRankingItem[] {
   return docs
     .map(toEdgeRankingItem)
     .filter((i): i is EdgeRankingItem => i !== null)
-    .sort((a, b) => a.p - b.p || b.beat - a.beat || a.slug.localeCompare(b.slug))
+    .sort(
+      (a, b) => a.p - b.p || b.beat - a.beat || a.slug.localeCompare(b.slug),
+    )
 }
