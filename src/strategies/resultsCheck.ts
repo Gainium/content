@@ -65,6 +65,14 @@ export function checkRecipe(recipe: any, slug: string): string[] {
   if (!Array.isArray(recipe.tags)) errs.push('recipe.tags must be a list')
   if (!Array.isArray(recipe.notExpressed))
     errs.push('recipe.notExpressed must be a list')
+  // Where users discuss the strategy: the dashboard library links to it.
+  if (
+    recipe.discussion !== undefined &&
+    !/^https:\/\/community\.gainium\.io\/t\/[\w-]+(\/\d+)?$/.test(
+      recipe.discussion,
+    )
+  )
+    errs.push('recipe.discussion must be a community.gainium.io/t/ thread URL')
   if (typeof recipe.tuned !== 'boolean' || !isDate(recipe.rulesFixedAt))
     errs.push('recipe.tuned and recipe.rulesFixedAt are required')
   else if (
@@ -162,10 +170,12 @@ export function checkResultsFile(
       errs.push(
         `061.state-matches-numbers: ${name} is ${p.state}, its numbers say ${want}`,
       )
-    // engine verdict.js likeForLike: the random bot traded about as often
+    // engine verdict.js likeForLike: the random bot traded about as often, or
+    // fewer times while entering at every chance (its deals ran longer)
     if (
       m.baseline === 'random' &&
       s.trades >= m.minTrades &&
+      !(p.random.saturated && p.random.medianTrades < s.trades) &&
       !(
         Math.abs(p.random.medianTrades - s.trades) <=
         Math.max(3, 0.25 * s.trades)

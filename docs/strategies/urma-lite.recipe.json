@@ -1,0 +1,43 @@
+{
+  "strategy": "urma-lite",
+  "name": "Urma Lite (always-on DCA)",
+  "source": {
+    "label": "Urma Lite, a low-cost always-on DCA bot shared on the Gainium community forum (based on TradeAlts' ASAP DCA bots)",
+    "url": "https://community.gainium.io/t/1663"
+  },
+  "discussion": "https://community.gainium.io/t/1663",
+  "tuned": false,
+  "rulesFixedAt": "2026-10-29",
+  "baseline": "random",
+  "tags": [
+    "dca"
+  ],
+  "rules": [
+    "Open a deal as soon as the coin has none, whatever the price.",
+    "Average down with up to 7 safety orders the same size as the first order, the first 1.87% lower, each 1.5 times further and 1.4 times larger than the one before.",
+    "Sell the whole position 3% above its average price.",
+    "Hold one deal per coin at a time, with no stop loss."
+  ],
+  "notExpressed": [
+    "Running it on many altcoin pairs at once (the test runs BTC, ETH and SOL)"
+  ],
+  "bot": {
+    "type": "dca",
+    "interval": "1h",
+    "settings": {
+      "baseOrderSize": "100",
+      "orderSize": "100",
+      "startCondition": "ASAP",
+      "useDca": true,
+      "ordersCount": 7,
+      "activeOrdersCount": 1,
+      "step": "1.87",
+      "stepScale": "1.5",
+      "volumeScale": "1.4",
+      "useTp": true,
+      "tpPerc": "3",
+      "maxNumberOfOpenDeals": "3",
+      "maxDealsPerPair": "1"
+    }
+  }
+}

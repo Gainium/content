@@ -1,0 +1,88 @@
+{
+  "strategy": "nick-radge-dip",
+  "name": "Nick Radge dip buying",
+  "source": {
+    "label": "Nick Radge's buy-the-dip rule as set up for a Gainium bot on the community forum",
+    "url": "https://community.gainium.io/t/2026"
+  },
+  "discussion": "https://community.gainium.io/t/2026",
+  "tuned": false,
+  "rulesFixedAt": "2026-10-29",
+  "baseline": "random",
+  "tags": [
+    "mean-reversion"
+  ],
+  "rules": [
+    "Buy when the daily close is below its 10-day average while it is above its 200-day average.",
+    "Sell when the daily close is back above its 10-day average.",
+    "Sell at a 10% loss from the entry.",
+    "Hold one position per coin at a time."
+  ],
+  "notExpressed": [
+    "The moving-average ratio filter the forum version adds (its settings are not given)"
+  ],
+  "bot": {
+    "type": "dca",
+    "interval": "1d",
+    "settings": {
+      "baseOrderSize": "1000",
+      "startCondition": "TechnicalIndicators",
+      "useTp": true,
+      "dealCloseCondition": "techInd",
+      "useSl": true,
+      "slPerc": "-10",
+      "maxNumberOfOpenDeals": "3",
+      "maxDealsPerPair": "1",
+      "indicatorGroups": [
+        {
+          "id": "entry",
+          "logic": "and",
+          "action": "startDeal"
+        },
+        {
+          "id": "exit",
+          "logic": "and",
+          "action": "closeDeal"
+        }
+      ],
+      "indicators": [
+        {
+          "type": "MA",
+          "uuid": "sma10-above",
+          "maType": "sma",
+          "indicatorLength": 10,
+          "indicatorCondition": "gt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1d",
+          "indicatorAction": "startDeal",
+          "maCrossingValue": "price",
+          "groupId": "entry"
+        },
+        {
+          "type": "MA",
+          "uuid": "sma200-below",
+          "maType": "sma",
+          "indicatorLength": 200,
+          "indicatorCondition": "lt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1d",
+          "indicatorAction": "startDeal",
+          "maCrossingValue": "price",
+          "groupId": "entry"
+        },
+        {
+          "type": "MA",
+          "uuid": "sma10-exit",
+          "maType": "sma",
+          "indicatorLength": 10,
+          "indicatorCondition": "lt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1d",
+          "indicatorAction": "closeDeal",
+          "maCrossingValue": "price",
+          "groupId": "exit"
+        }
+      ]
+    }
+  }
+}

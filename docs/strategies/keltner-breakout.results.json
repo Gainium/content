@@ -1,0 +1,174 @@
+{
+ "strategy": "keltner-breakout",
+ "updatedAt": "2026-10-29",
+ "method": {
+  "source": "Binance spot",
+  "pairs": [
+   "BTC/USDT",
+   "ETH/USDT",
+   "SOL/USDT"
+  ],
+  "from": "2020-09-01",
+  "oosFrom": "2024-01-01",
+  "to": "2026-10-28",
+  "interval": "1h",
+  "fee": 0.001,
+  "baseline": "random",
+  "randomDraws": 200,
+  "band": [
+   5,
+   95
+  ],
+  "minTrades": 30,
+  "minOosDays": 365,
+  "budget": 3000,
+  "engine": {
+   "backtester": "5bcdca35",
+   "version": "1.26.0"
+  }
+ },
+ "periods": {
+  "inSample": {
+   "from": "2020-09-01",
+   "to": "2023-12-31",
+   "strategy": {
+    "return": -14.93,
+    "maxDrawdown": 29.41,
+    "profitFactor": 0.95,
+    "trades": 890,
+    "closed": 890,
+    "winRate": 34.38,
+    "medianHoldingHours": 2
+   },
+   "random": {
+    "draws": 200,
+    "band": [
+     -86.68,
+     -29.65
+    ],
+    "medianReturn": -55.2,
+    "medianMaxDrawdown": 63.02,
+    "medianTrades": 815,
+    "medianHoldingHours": 4
+   },
+   "hold": {
+    "return": 905.51,
+    "maxDrawdown": 91.51
+   },
+   "state": "above"
+  },
+  "outOfSample": {
+   "from": "2024-01-01",
+   "to": "2026-10-28",
+   "strategy": {
+    "return": -36.07,
+    "maxDrawdown": 38.02,
+    "profitFactor": 0.83,
+    "trades": 645,
+    "closed": 645,
+    "winRate": 32.87,
+    "medianHoldingHours": 6
+   },
+   "random": {
+    "draws": 200,
+    "band": [
+     -53.62,
+     -11.53
+    ],
+    "medianReturn": -33.07,
+    "medianMaxDrawdown": 38.28,
+    "medianTrades": 578,
+    "medianHoldingHours": 7
+   },
+   "hold": {
+    "return": 31.46,
+    "maxDrawdown": 63.6
+   },
+   "state": "inside"
+  }
+ },
+ "verdict": "inside",
+ "excess": -3,
+ "copy": {
+  "type": "dca",
+  "interval": "1h",
+  "pairs": [
+   "BTC/USDT",
+   "ETH/USDT",
+   "SOL/USDT"
+  ],
+  "settings": {
+   "strategy": "LONG",
+   "futures": false,
+   "coinm": false,
+   "leverage": 1,
+   "profitCurrency": "quote",
+   "orderSizeType": "quote",
+   "orderFixedIn": "quote",
+   "startOrderType": "MARKET",
+   "startCondition": "TechnicalIndicators",
+   "dcaCondition": "percentage",
+   "scaleDcaType": "percentage",
+   "useDca": false,
+   "ordersCount": 0,
+   "activeOrdersCount": 0,
+   "step": "1",
+   "stepScale": "1",
+   "volumeScale": "1",
+   "minimumDeviation": "0",
+   "useTp": true,
+   "tpPerc": "3",
+   "useSl": true,
+   "slPerc": "-1.5",
+   "dealCloseCondition": "tp",
+   "dealCloseConditionSL": "tp",
+   "closeDealType": "closeByMarket",
+   "maxNumberOfOpenDeals": "3",
+   "useMulti": true,
+   "maxDealsPerPair": "1",
+   "hodlDay": "7",
+   "hodlAt": "00:00",
+   "hodlNextBuy": 0,
+   "indicators": [
+    {
+     "type": "MA",
+     "uuid": "tema400",
+     "maType": "tema",
+     "indicatorLength": 400,
+     "indicatorCondition": "lt",
+     "indicatorValue": "0",
+     "indicatorInterval": "1h",
+     "indicatorAction": "startDeal",
+     "maCrossingValue": "price",
+     "groupId": "entry"
+    },
+    {
+     "type": "KC",
+     "uuid": "kc35",
+     "indicatorLength": 35,
+     "indicatorCondition": "cu",
+     "indicatorValue": "0",
+     "indicatorInterval": "1h",
+     "indicatorAction": "startDeal",
+     "groupId": "entry",
+     "bbCrossingValue": "upper",
+     "kcMa": "ema",
+     "kcRange": "R",
+     "kcRangeLength": 10,
+     "bbwMult": 3
+    }
+   ],
+   "indicatorGroups": [
+    {
+     "id": "entry",
+     "logic": "and",
+     "action": "startDeal"
+    }
+   ],
+   "baseOrderSize": "1000",
+   "moveSL": true,
+   "moveSLTrigger": "2",
+   "moveSLValue": "1.5"
+  }
+ }
+}

@@ -161,6 +161,22 @@ describe('strategy checks (spec 061 invariants)', () => {
     const thin = clone(alpha)
     thin.periods.outOfSample.random.medianTrades = 30
     expect(check(thin).join()).to.include('061.random-like-for-like')
+    // entering at every chance and still trading less is like for like
+    thin.periods.outOfSample.random.saturated = true
+    expect(check(thin).join()).not.to.include('061.random-like-for-like')
+  })
+
+  it('a recipe’s discussion link must be a forum thread', () => {
+    const ok = 'https://community.gainium.io/t/1320'
+    expect(
+      checkRecipe({ ...alphaRecipe, discussion: ok }, 'alpha'),
+    ).to.deep.equal([])
+    expect(
+      checkRecipe(
+        { ...alphaRecipe, discussion: 'https://example.com/t/1' },
+        'alpha',
+      ).join(),
+    ).to.include('discussion')
   })
 
   it('061.dated: stale data fails', () => {

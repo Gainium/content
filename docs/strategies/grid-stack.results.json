@@ -18,8 +18,8 @@
   "minOosDays": 365,
   "budget": 30000,
   "engine": {
-   "backtester": "3ca8da03",
-   "version": "1.25.0"
+   "backtester": "5bcdca35",
+   "version": "1.26.0"
   }
  },
  "periods": {
@@ -293,5 +293,243 @@
   }
  },
  "verdict": "mixed",
- "excess": 13.8
+ "excess": 13.8,
+ "copy": {
+  "type": "gridStack",
+  "interval": "1h",
+  "rangeAt": "2026-10-28",
+  "coins": {
+   "BTC/USDT": [
+    {
+     "name": "Below the range",
+     "allocation": 5,
+     "settings": {
+      "lowPrice": 28900.1,
+      "topPrice": 57800.19,
+      "gridStep": "0.025",
+      "gridType": "geometric",
+      "levels": 29,
+      "profitCurrency": "base",
+      "strategy": "LONG",
+      "futures": false,
+      "leverage": 1
+     }
+    },
+    {
+     "name": "Bottom third",
+     "allocation": 30,
+     "settings": {
+      "lowPrice": 57800.19,
+      "topPrice": 80600,
+      "gridStep": "0.01",
+      "gridType": "geometric",
+      "levels": 34,
+      "profitCurrency": "base",
+      "strategy": "LONG",
+      "futures": false,
+      "leverage": 1
+     }
+    },
+    {
+     "name": "Middle third",
+     "allocation": 20,
+     "settings": {
+      "lowPrice": 80600,
+      "topPrice": 103399.82,
+      "gridStep": "0.015",
+      "gridType": "geometric",
+      "levels": 18,
+      "profitCurrency": "base",
+      "strategy": "LONG",
+      "futures": false,
+      "leverage": 1
+     }
+    },
+    {
+     "name": "Top third",
+     "allocation": 30,
+     "settings": {
+      "lowPrice": 103399.82,
+      "topPrice": 126199.63,
+      "gridStep": "0.01",
+      "gridType": "geometric",
+      "levels": 21,
+      "profitCurrency": "quote",
+      "strategy": "LONG",
+      "futures": false,
+      "leverage": 1
+     }
+    },
+    {
+     "name": "Above the range",
+     "allocation": 15,
+     "settings": {
+      "lowPrice": 126199.63,
+      "topPrice": 252399.26,
+      "gridStep": "0.025",
+      "gridType": "geometric",
+      "levels": 29,
+      "profitCurrency": "quote",
+      "strategy": "LONG",
+      "futures": false,
+      "leverage": 1
+     }
+    }
+   ],
+   "ETH/USDT": [
+    {
+     "name": "Below the range",
+     "allocation": 5,
+     "settings": {
+      "lowPrice": 692.52,
+      "topPrice": 1385.05,
+      "gridStep": "0.025",
+      "gridType": "geometric",
+      "levels": 29,
+      "profitCurrency": "base",
+      "strategy": "LONG",
+      "futures": false,
+      "leverage": 1
+     }
+    },
+    {
+     "name": "Bottom third",
+     "allocation": 30,
+     "settings": {
+      "lowPrice": 1385.05,
+      "topPrice": 2575.63,
+      "gridStep": "0.01",
+      "gridType": "geometric",
+      "levels": 63,
+      "profitCurrency": "base",
+      "strategy": "LONG",
+      "futures": false,
+      "leverage": 1
+     }
+    },
+    {
+     "name": "Middle third",
+     "allocation": 20,
+     "settings": {
+      "lowPrice": 2575.63,
+      "topPrice": 3766.2,
+      "gridStep": "0.015",
+      "gridType": "geometric",
+      "levels": 27,
+      "profitCurrency": "base",
+      "strategy": "LONG",
+      "futures": false,
+      "leverage": 1
+     }
+    },
+    {
+     "name": "Top third",
+     "allocation": 30,
+     "settings": {
+      "lowPrice": 3766.2,
+      "topPrice": 4956.78,
+      "gridStep": "0.01",
+      "gridType": "geometric",
+      "levels": 29,
+      "profitCurrency": "quote",
+      "strategy": "LONG",
+      "futures": false,
+      "leverage": 1
+     }
+    },
+    {
+     "name": "Above the range",
+     "allocation": 15,
+     "settings": {
+      "lowPrice": 4956.78,
+      "topPrice": 9913.56,
+      "gridStep": "0.025",
+      "gridType": "geometric",
+      "levels": 29,
+      "profitCurrency": "quote",
+      "strategy": "LONG",
+      "futures": false,
+      "leverage": 1
+     }
+    }
+   ],
+   "SOL/USDT": [
+    {
+     "name": "Below the range",
+     "allocation": 5,
+     "settings": {
+      "lowPrice": 30.07,
+      "topPrice": 60.13,
+      "gridStep": "0.025",
+      "gridType": "geometric",
+      "levels": 29,
+      "profitCurrency": "base",
+      "strategy": "LONG",
+      "futures": false,
+      "leverage": 1
+     }
+    },
+    {
+     "name": "Bottom third",
+     "allocation": 30,
+     "settings": {
+      "lowPrice": 60.13,
+      "topPrice": 138.7,
+      "gridStep": "0.01",
+      "gridType": "geometric",
+      "levels": 85,
+      "profitCurrency": "base",
+      "strategy": "LONG",
+      "futures": false,
+      "leverage": 1
+     }
+    },
+    {
+     "name": "Middle third",
+     "allocation": 20,
+     "settings": {
+      "lowPrice": 138.7,
+      "topPrice": 217.26,
+      "gridStep": "0.015",
+      "gridType": "geometric",
+      "levels": 31,
+      "profitCurrency": "base",
+      "strategy": "LONG",
+      "futures": false,
+      "leverage": 1
+     }
+    },
+    {
+     "name": "Top third",
+     "allocation": 30,
+     "settings": {
+      "lowPrice": 217.26,
+      "topPrice": 295.83,
+      "gridStep": "0.01",
+      "gridType": "geometric",
+      "levels": 32,
+      "profitCurrency": "quote",
+      "strategy": "LONG",
+      "futures": false,
+      "leverage": 1
+     }
+    },
+    {
+     "name": "Above the range",
+     "allocation": 15,
+     "settings": {
+      "lowPrice": 295.83,
+      "topPrice": 591.66,
+      "gridStep": "0.025",
+      "gridType": "geometric",
+      "levels": 29,
+      "profitCurrency": "quote",
+      "strategy": "LONG",
+      "futures": false,
+      "leverage": 1
+     }
+    }
+   ]
+  }
+ }
 }

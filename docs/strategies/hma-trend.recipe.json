@@ -1,0 +1,68 @@
+{
+  "strategy": "hma-trend",
+  "name": "HMA 50/200 trend with safety orders",
+  "source": {
+    "label": "The BTC combo bot tested over four years on the Gainium community forum",
+    "url": "https://community.gainium.io/t/4430"
+  },
+  "discussion": "https://community.gainium.io/t/4430",
+  "tuned": false,
+  "rulesFixedAt": "2026-10-29",
+  "baseline": "random",
+  "tags": [
+    "trend-following"
+  ],
+  "rules": [
+    "Buy when the 50-hour Hull moving average has been above the 200-hour one for 10 hours.",
+    "Add up to 4 safety orders, each a third of the first order, every 5% lower.",
+    "Sell the whole position 17% above its average price, or at a 10% loss from it.",
+    "Hold one position per coin at a time."
+  ],
+  "notExpressed": [
+    "The 3x leverage of the futures original (the test is spot)"
+  ],
+  "bot": {
+    "type": "dca",
+    "interval": "1h",
+    "settings": {
+      "baseOrderSize": "1500",
+      "orderSize": "500",
+      "startCondition": "TechnicalIndicators",
+      "useDca": true,
+      "ordersCount": 4,
+      "activeOrdersCount": 1,
+      "step": "5",
+      "useTp": true,
+      "tpPerc": "17",
+      "useSl": true,
+      "slPerc": "-10",
+      "maxNumberOfOpenDeals": "3",
+      "maxDealsPerPair": "1",
+      "indicatorGroups": [
+        {
+          "id": "entry",
+          "logic": "and",
+          "action": "startDeal"
+        }
+      ],
+      "indicators": [
+        {
+          "type": "MA",
+          "uuid": "hma200",
+          "maType": "hma",
+          "indicatorLength": 200,
+          "indicatorCondition": "lt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1h",
+          "indicatorAction": "startDeal",
+          "maCrossingValue": "hma",
+          "maCrossingLength": 50,
+          "maCrossingInterval": "1h",
+          "maUUID": "hma200-x",
+          "groupId": "entry",
+          "keepConditionBars": "10"
+        }
+      ]
+    }
+  }
+}

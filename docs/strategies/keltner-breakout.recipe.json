@@ -1,0 +1,76 @@
+{
+  "strategy": "keltner-breakout",
+  "name": "Keltner channel breakout",
+  "source": {
+    "label": "The Range Filter bot shared on the Gainium community forum",
+    "url": "https://community.gainium.io/t/2443"
+  },
+  "discussion": "https://community.gainium.io/t/2443",
+  "tuned": false,
+  "rulesFixedAt": "2026-10-29",
+  "baseline": "random",
+  "tags": [
+    "trend-following",
+    "breakout"
+  ],
+  "rules": [
+    "Buy when the hourly close crosses above the upper Keltner channel (35-hour EMA, 3 times the 10-hour range) while price is above the 400-hour TEMA.",
+    "Sell 3% above the entry, or at a 1.5% loss.",
+    "Once the trade is 2% up, move the stop to 1.5% above the entry.",
+    "Hold one position per coin at a time."
+  ],
+  "notExpressed": [],
+  "bot": {
+    "type": "dca",
+    "interval": "1h",
+    "settings": {
+      "baseOrderSize": "1000",
+      "startCondition": "TechnicalIndicators",
+      "useTp": true,
+      "tpPerc": "3",
+      "useSl": true,
+      "slPerc": "-1.5",
+      "moveSL": true,
+      "moveSLTrigger": "2",
+      "moveSLValue": "1.5",
+      "maxNumberOfOpenDeals": "3",
+      "maxDealsPerPair": "1",
+      "indicatorGroups": [
+        {
+          "id": "entry",
+          "logic": "and",
+          "action": "startDeal"
+        }
+      ],
+      "indicators": [
+        {
+          "type": "MA",
+          "uuid": "tema400",
+          "maType": "tema",
+          "indicatorLength": 400,
+          "indicatorCondition": "lt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1h",
+          "indicatorAction": "startDeal",
+          "maCrossingValue": "price",
+          "groupId": "entry"
+        },
+        {
+          "type": "KC",
+          "uuid": "kc35",
+          "indicatorLength": 35,
+          "indicatorCondition": "cu",
+          "indicatorValue": "0",
+          "indicatorInterval": "1h",
+          "indicatorAction": "startDeal",
+          "groupId": "entry",
+          "bbCrossingValue": "upper",
+          "kcMa": "ema",
+          "kcRange": "R",
+          "kcRangeLength": 10,
+          "bbwMult": 3
+        }
+      ]
+    }
+  }
+}

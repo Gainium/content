@@ -1,0 +1,102 @@
+{
+  "strategy": "ema-20-50-rsi",
+  "name": "EMA 20/50 cross with RSI filter",
+  "source": {
+    "label": "The Classic 20-50-RSI bot shared on the Gainium community forum (its 1-hour version)",
+    "url": "https://community.gainium.io/t/2442"
+  },
+  "discussion": "https://community.gainium.io/t/2442",
+  "tuned": false,
+  "rulesFixedAt": "2026-10-29",
+  "baseline": "random",
+  "tags": [
+    "trend-following"
+  ],
+  "rules": [
+    "Buy when the 20-hour EMA crosses above the 50-hour EMA while the hourly RSI(14) is below 70.",
+    "Sell 2% above the entry, or at a 1% loss.",
+    "Once the trade is 1% up, move the stop to 0.5% above the entry.",
+    "Sell when the 20-hour EMA crosses back below the 50-hour EMA.",
+    "After a trade closes, wait 4 hours before the next one on the same coin."
+  ],
+  "notExpressed": [
+    "The 15-minute version the author also runs (the test's shortest interval is 1 hour)"
+  ],
+  "bot": {
+    "type": "dca",
+    "interval": "1h",
+    "settings": {
+      "baseOrderSize": "1000",
+      "startCondition": "TechnicalIndicators",
+      "useTp": true,
+      "tpPerc": "2",
+      "useSl": true,
+      "slPerc": "-1",
+      "moveSL": true,
+      "moveSLTrigger": "1",
+      "moveSLValue": "0.5",
+      "dealCloseConditionSL": "techInd",
+      "useCooldown": true,
+      "cooldownAfterDealStop": true,
+      "cooldownAfterDealStopInterval": 4,
+      "cooldownAfterDealStopUnits": "hours",
+      "maxNumberOfOpenDeals": "3",
+      "maxDealsPerPair": "1",
+      "indicatorGroups": [
+        {
+          "id": "entry",
+          "logic": "and",
+          "action": "startDeal"
+        },
+        {
+          "id": "exit",
+          "logic": "and",
+          "action": "closeDeal"
+        }
+      ],
+      "indicators": [
+        {
+          "type": "MA",
+          "uuid": "ema50-entry",
+          "maType": "ema",
+          "indicatorLength": 50,
+          "indicatorCondition": "cd",
+          "indicatorValue": "0",
+          "indicatorInterval": "1h",
+          "indicatorAction": "startDeal",
+          "maCrossingValue": "ema",
+          "maCrossingLength": 20,
+          "maCrossingInterval": "1h",
+          "maUUID": "ema50-entry-x",
+          "groupId": "entry"
+        },
+        {
+          "type": "RSI",
+          "uuid": "rsi14",
+          "indicatorLength": 14,
+          "indicatorCondition": "lt",
+          "indicatorValue": "70",
+          "indicatorInterval": "1h",
+          "indicatorAction": "startDeal",
+          "groupId": "entry"
+        },
+        {
+          "type": "MA",
+          "uuid": "ema50-exit",
+          "maType": "ema",
+          "indicatorLength": 50,
+          "indicatorCondition": "cu",
+          "indicatorValue": "0",
+          "indicatorInterval": "1h",
+          "indicatorAction": "closeDeal",
+          "maCrossingValue": "ema",
+          "maCrossingLength": 20,
+          "maCrossingInterval": "1h",
+          "maUUID": "ema50-exit-x",
+          "groupId": "exit",
+          "section": "sl"
+        }
+      ]
+    }
+  }
+}

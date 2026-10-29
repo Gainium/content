@@ -1,0 +1,77 @@
+{
+  "strategy": "wma-cross",
+  "name": "WMA 7/25 crossover",
+  "source": {
+    "label": "The weighted moving average crossover asked about as a set-and-forget bot on the Gainium community forum",
+    "url": "https://community.gainium.io/t/970"
+  },
+  "discussion": "https://community.gainium.io/t/970",
+  "tuned": false,
+  "rulesFixedAt": "2026-10-29",
+  "baseline": "random",
+  "tags": [
+    "trend-following"
+  ],
+  "rules": [
+    "Buy when the 7-day weighted moving average crosses above the 25-day one.",
+    "Sell when it crosses back below.",
+    "Hold one position per coin at a time, with no stop loss."
+  ],
+  "notExpressed": [],
+  "bot": {
+    "type": "dca",
+    "interval": "1d",
+    "settings": {
+      "baseOrderSize": "1000",
+      "startCondition": "TechnicalIndicators",
+      "useTp": true,
+      "dealCloseCondition": "techInd",
+      "maxNumberOfOpenDeals": "3",
+      "maxDealsPerPair": "1",
+      "indicatorGroups": [
+        {
+          "id": "entry",
+          "logic": "and",
+          "action": "startDeal"
+        },
+        {
+          "id": "exit",
+          "logic": "and",
+          "action": "closeDeal"
+        }
+      ],
+      "indicators": [
+        {
+          "type": "MA",
+          "uuid": "wma25-entry",
+          "maType": "wma",
+          "indicatorLength": 25,
+          "indicatorCondition": "cd",
+          "indicatorValue": "0",
+          "indicatorInterval": "1d",
+          "indicatorAction": "startDeal",
+          "maCrossingValue": "wma",
+          "maCrossingLength": 7,
+          "maCrossingInterval": "1d",
+          "maUUID": "wma25-entry-x",
+          "groupId": "entry"
+        },
+        {
+          "type": "MA",
+          "uuid": "wma25-exit",
+          "maType": "wma",
+          "indicatorLength": 25,
+          "indicatorCondition": "cu",
+          "indicatorValue": "0",
+          "indicatorInterval": "1d",
+          "indicatorAction": "closeDeal",
+          "maCrossingValue": "wma",
+          "maCrossingLength": 7,
+          "maCrossingInterval": "1d",
+          "maUUID": "wma25-exit-x",
+          "groupId": "exit"
+        }
+      ]
+    }
+  }
+}

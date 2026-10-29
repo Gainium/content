@@ -23,8 +23,8 @@
   "minOosDays": 365,
   "budget": 15077.34,
   "engine": {
-   "backtester": "3ca8da03",
-   "version": "1.25.0"
+   "backtester": "5bcdca35",
+   "version": "1.26.0"
   }
  },
  "periods": {
@@ -32,24 +32,24 @@
    "from": "2020-09-01",
    "to": "2023-12-31",
    "strategy": {
-    "return": 58.26,
-    "maxDrawdown": 28.85,
+    "return": 42.06,
+    "maxDrawdown": 13.41,
     "profitFactor": null,
-    "trades": 590,
-    "closed": 589,
+    "trades": 411,
+    "closed": 410,
     "winRate": 100,
     "medianHoldingHours": 6
    },
    "random": {
     "draws": 200,
     "band": [
-     29.04,
-     87.49
+     9.08,
+     52.64
     ],
-    "medianReturn": 57.2,
-    "medianMaxDrawdown": 37.28,
-    "medianTrades": 576,
-    "medianHoldingHours": 12
+    "medianReturn": 37.69,
+    "medianMaxDrawdown": 22.92,
+    "medianTrades": 377,
+    "medianHoldingHours": 14.25
    },
    "hold": {
     "return": 905.51,
@@ -61,24 +61,24 @@
    "from": "2024-01-01",
    "to": "2026-10-28",
    "strategy": {
-    "return": 24.75,
-    "maxDrawdown": 35.64,
+    "return": 17.99,
+    "maxDrawdown": 14.8,
     "profitFactor": null,
-    "trades": 244,
-    "closed": 244,
+    "trades": 167,
+    "closed": 167,
     "winRate": 100,
-    "medianHoldingHours": 15
+    "medianHoldingHours": 13
    },
    "random": {
     "draws": 200,
     "band": [
-     13.01,
-     34.18
+     5.39,
+     20.27
     ],
-    "medianReturn": 27.37,
-    "medianMaxDrawdown": 29.55,
-    "medianTrades": 256,
-    "medianHoldingHours": 33.5
+    "medianReturn": 16.84,
+    "medianMaxDrawdown": 16.61,
+    "medianTrades": 152,
+    "medianHoldingHours": 37
    },
    "hold": {
     "return": 31.46,
@@ -88,5 +88,69 @@
   }
  },
  "verdict": "inside",
- "excess": -2.62
+ "excess": 1.15,
+ "copy": {
+  "type": "dca",
+  "interval": "1h",
+  "pairs": [
+   "BTC/USDT",
+   "ETH/USDT",
+   "SOL/USDT"
+  ],
+  "settings": {
+   "strategy": "LONG",
+   "futures": false,
+   "coinm": false,
+   "leverage": 1,
+   "profitCurrency": "quote",
+   "orderSizeType": "quote",
+   "orderFixedIn": "quote",
+   "startOrderType": "MARKET",
+   "startCondition": "TechnicalIndicators",
+   "dcaCondition": "percentage",
+   "scaleDcaType": "percentage",
+   "useDca": true,
+   "ordersCount": 8,
+   "activeOrdersCount": 2,
+   "step": "2",
+   "stepScale": "1.15",
+   "volumeScale": "1.5",
+   "minimumDeviation": "0",
+   "useTp": true,
+   "tpPerc": "3",
+   "useSl": false,
+   "slPerc": "-10",
+   "dealCloseCondition": "tp",
+   "dealCloseConditionSL": "tp",
+   "closeDealType": "closeByMarket",
+   "maxNumberOfOpenDeals": "3",
+   "useMulti": true,
+   "maxDealsPerPair": "1",
+   "hodlDay": "7",
+   "hodlAt": "00:00",
+   "hodlNextBuy": 0,
+   "indicators": [
+    {
+     "type": "QFL",
+     "basePeriods": 36,
+     "pumpPeriods": 8,
+     "pump": 3,
+     "baseCrack": 3,
+     "indicatorInterval": "1h",
+     "indicatorAction": "startDeal",
+     "groupId": "entry",
+     "uuid": "qfl-default"
+    }
+   ],
+   "indicatorGroups": [
+    {
+     "id": "entry",
+     "logic": "and",
+     "action": "startDeal"
+    }
+   ],
+   "baseOrderSize": "100",
+   "orderSize": "100"
+  }
+ }
 }
