@@ -1,0 +1,131 @@
+{
+  "strategy": "ote-pullback",
+  "name": "Structure + OTE pullback",
+  "source": {
+    "label": "The Structure + OTE strategy, with the Fibonacci entry, stop and target of the PO3, OTE + ADR model, both published in TradeZella's strategy library",
+    "url": "https://www.tradezella.com/strategies/structure-ote"
+  },
+  "tuned": false,
+  "rulesFixedAt": "2026-10-30",
+  "baseline": "random",
+  "tags": [
+    "trend-following"
+  ],
+  "rules": [
+    "Only buy while the daily market structure is bullish.",
+    "On 4-hour candles, take the latest up-leg of at least 3% and buy when price pulls back through 70.5% of it, the middle of the optimal trade entry zone in its discount half.",
+    "Put the stop at the last confirmed 4-hour swing low, and the target at 2.4 times the risk, which from a 70.5% entry is about the top of the leg.",
+    "Risk the same 20 USDT on every trade, so a tighter stop buys a larger position.",
+    "Hold one position per coin at a time."
+  ],
+  "notExpressed": [
+    "The lower-timeframe trigger: a sweep of a swing low followed by a break of structure and an entry on the breaker",
+    "Requiring an order block, breaker or fair value gap at the pullback (the point of interest)",
+    "The target at the actual swing high: a fixed 2.4R stands in for it",
+    "PO3's London and New York session windows and its accumulation-manipulation-distribution read",
+    "Moving the stop to breakeven once price closes past the 0.2 level, trailing past the target, and adding a second entry once the first is at breakeven",
+    "Short trades in premium (the test is spot, long only)"
+  ],
+  "variants": [
+    "regime:supertrend",
+    {
+      "id": "ote-618",
+      "name": "Buy at 61.8% of the leg",
+      "kind": "settings",
+      "settings": {
+        "riskTpRatio": "1.6"
+      },
+      "indicators": {
+        "ote-705": {
+          "oteLevel": 0.618
+        }
+      }
+    },
+    {
+      "id": "equilibrium-50",
+      "name": "Buy at 50% of the leg",
+      "kind": "settings",
+      "settings": {
+        "riskTpRatio": "1"
+      },
+      "indicators": {
+        "ote-705": {
+          "oteLevel": 0.5
+        }
+      }
+    }
+  ],
+  "bot": {
+    "type": "dca",
+    "interval": "1h",
+    "settings": {
+      "baseOrderSize": "2000",
+      "startCondition": "TechnicalIndicators",
+      "useMaxDealsPerHigherTimeframe": false,
+      "useRiskReward": true,
+      "rrSlType": "indicator",
+      "riskSlType": "fixed",
+      "riskSlAmountValue": "20",
+      "riskUseTpRatio": true,
+      "riskTpRatio": "2.4",
+      "riskMinSl": "1",
+      "riskMaxSl": "15",
+      "riskMinPositionSize": "0",
+      "riskMaxPositionSize": "2000",
+      "maxNumberOfOpenDeals": "3",
+      "maxDealsPerPair": "1",
+      "indicatorGroups": [
+        {
+          "id": "entry",
+          "logic": "and",
+          "action": "startDeal"
+        }
+      ],
+      "indicators": [
+        {
+          "type": "PP",
+          "uuid": "htf-bull-structure",
+          "ppType": "Market Based",
+          "ppValue": "BullM",
+          "ppHighLeft": 5,
+          "ppHighRight": 5,
+          "ppLowLeft": 5,
+          "ppLowRight": 5,
+          "ppMult": 1,
+          "indicatorLength": 1,
+          "indicatorInterval": "1d",
+          "indicatorValue": "0",
+          "indicatorCondition": "gt",
+          "indicatorAction": "startDeal",
+          "groupId": "entry"
+        },
+        {
+          "type": "OTE",
+          "uuid": "ote-705",
+          "oteLeftBars": 10,
+          "oteMinLegSize": 3,
+          "oteLeg": "bullish",
+          "oteLevel": 0.705,
+          "indicatorCondition": "cd",
+          "indicatorInterval": "4h",
+          "indicatorAction": "startDeal",
+          "groupId": "entry"
+        },
+        {
+          "type": "PP",
+          "uuid": "rr-swing-low",
+          "ppType": "Price Based",
+          "ppValue": "Any Low",
+          "ppLowLeft": 10,
+          "ppLowRight": 10,
+          "ppMult": 1,
+          "indicatorLength": 1,
+          "indicatorInterval": "4h",
+          "indicatorValue": "0",
+          "indicatorCondition": "cd",
+          "indicatorAction": "riskReward"
+        }
+      ]
+    }
+  }
+}

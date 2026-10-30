@@ -1,0 +1,109 @@
+{
+  "strategy": "bb-snapback",
+  "name": "Bollinger band snap-back to the mean",
+  "source": {
+    "label": "The Mean Reversion Strategy published in TradeZella's strategy library (an intraday stock method, run here on hourly crypto candles)",
+    "url": "https://www.tradezella.com/strategies/mean-reversion-strategy"
+  },
+  "tuned": false,
+  "rulesFixedAt": "2026-10-30",
+  "baseline": "random",
+  "tags": [
+    "mean-reversion"
+  ],
+  "rules": [
+    "Buy on the first green hourly candle after price has closed below the lower Bollinger band (20 hours, 2 standard deviations) within the last 3 hours.",
+    "Sell when the hourly close crosses back above the middle band, the 20-hour average.",
+    "Sell at a 3% loss from the entry.",
+    "Hold one position per coin at a time."
+  ],
+  "notExpressed": [
+    "The trigger of a break above the prior candle's high (the first green candle stands in for it)",
+    "The stop beyond the capitulation low (a fixed 3% stands in for it) and trailing it under each prior candle's low",
+    "Grading the setup: a normally calm instrument turning volatile, a volume spike, several bars in one direction, and no news behind the move",
+    "Larger size on better setups, smaller on single-candle reversals",
+    "Short trades after a stretched rally (the test is spot, long only)"
+  ],
+  "variants": [
+    "regime:supertrend",
+    "regime:structure",
+    {
+      "id": "bb25",
+      "name": "2.5 standard deviation band",
+      "kind": "settings",
+      "indicators": {
+        "bb20-below-lower": {
+          "bbwMult": 2.5
+        }
+      }
+    }
+  ],
+  "bot": {
+    "type": "dca",
+    "interval": "1h",
+    "settings": {
+      "baseOrderSize": "1000",
+      "startCondition": "TechnicalIndicators",
+      "useTp": true,
+      "dealCloseCondition": "techInd",
+      "useSl": true,
+      "slPerc": "-3",
+      "maxNumberOfOpenDeals": "3",
+      "maxDealsPerPair": "1",
+      "indicatorGroups": [
+        {
+          "id": "entry",
+          "logic": "and",
+          "action": "startDeal"
+        },
+        {
+          "id": "exit",
+          "logic": "and",
+          "action": "closeDeal"
+        }
+      ],
+      "indicators": [
+        {
+          "type": "BB",
+          "uuid": "bb20-below-lower",
+          "indicatorLength": 20,
+          "bbwMa": "sma",
+          "bbwMaLength": 20,
+          "bbwMult": 2,
+          "indicatorCondition": "lt",
+          "bbCrossingValue": "lower",
+          "indicatorValue": "0",
+          "indicatorInterval": "1h",
+          "indicatorAction": "startDeal",
+          "groupId": "entry",
+          "keepConditionBars": "3"
+        },
+        {
+          "type": "CANDLE",
+          "uuid": "first-green",
+          "candleSource": "regular",
+          "candleColor": "green",
+          "candleCount": 1,
+          "candleTrigger": "start",
+          "indicatorInterval": "1h",
+          "indicatorAction": "startDeal",
+          "groupId": "entry"
+        },
+        {
+          "type": "BB",
+          "uuid": "bb20-middle-exit",
+          "indicatorLength": 20,
+          "bbwMa": "sma",
+          "bbwMaLength": 20,
+          "bbwMult": 2,
+          "indicatorCondition": "cu",
+          "bbCrossingValue": "middle",
+          "indicatorValue": "0",
+          "indicatorInterval": "1h",
+          "indicatorAction": "closeDeal",
+          "groupId": "exit"
+        }
+      ]
+    }
+  }
+}

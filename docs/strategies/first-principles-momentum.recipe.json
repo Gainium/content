@@ -1,0 +1,85 @@
+{
+  "strategy": "first-principles-momentum",
+  "name": "Outsized daily move, 3-day hold",
+  "source": {
+    "label": "The short-term momentum approach in Pavel's Trading First Principles Framework, published in TradeZella's strategy library",
+    "url": "https://www.tradezella.com/strategies/trading-first-principles-framework"
+  },
+  "tuned": false,
+  "rulesFixedAt": "2026-10-30",
+  "baseline": "random",
+  "tags": [
+    "momentum",
+    "breakout"
+  ],
+  "rules": [
+    "Buy when the daily close crosses above its 5-day EMA plus twice the average daily range of the last 5 days, a day that moves about double the recent norm.",
+    "Sell 3 days later, whatever the price.",
+    "Hold one position per coin at a time, with no stop loss."
+  ],
+  "notExpressed": [
+    "The framework compares the day's move with the prior five-day average move; a 5-day Keltner channel (2 times the 5-day range) stands in for that comparison",
+    "Its alternative exit, selling as soon as momentum fades (no rule is given for it)",
+    "The optional RSI or CCI confirmation (no thresholds are given)"
+  ],
+  "variants": [
+    "regime:supertrend",
+    "regime:structure",
+    {
+      "id": "hold-2d",
+      "name": "2-day hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 2
+      }
+    },
+    {
+      "id": "hold-5d",
+      "name": "5-day hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 5
+      }
+    }
+  ],
+  "bot": {
+    "type": "dca",
+    "interval": "1d",
+    "settings": {
+      "baseOrderSize": "1000",
+      "startCondition": "TechnicalIndicators",
+      "useTp": true,
+      "tpPerc": "3",
+      "dealCloseCondition": "webhook",
+      "closeByTimer": true,
+      "closeByTimerValue": 3,
+      "closeByTimerUnits": "days",
+      "maxNumberOfOpenDeals": "3",
+      "maxDealsPerPair": "1",
+      "indicatorGroups": [
+        {
+          "id": "entry",
+          "logic": "and",
+          "action": "startDeal"
+        }
+      ],
+      "indicators": [
+        {
+          "type": "KC",
+          "uuid": "kc5-upper",
+          "indicatorLength": 5,
+          "indicatorCondition": "cu",
+          "indicatorValue": "0",
+          "indicatorInterval": "1d",
+          "indicatorAction": "startDeal",
+          "groupId": "entry",
+          "bbCrossingValue": "upper",
+          "kcMa": "ema",
+          "kcRange": "R",
+          "kcRangeLength": 5,
+          "bbwMult": 2
+        }
+      ]
+    }
+  }
+}

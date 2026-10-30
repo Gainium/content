@@ -1,0 +1,181 @@
+{
+  "strategy": "stage-2-breakout",
+  "name": "Stage 2 breakout (stage analysis)",
+  "source": {
+    "label": "Ted Zhang's Stage Analysis strategy, published in TradeZella's strategy library",
+    "url": "https://www.tradezella.com/strategies/stage-analysis"
+  },
+  "tuned": false,
+  "rulesFixedAt": "2026-10-30",
+  "baseline": "random",
+  "tags": [
+    "trend-following",
+    "breakout"
+  ],
+  "rules": [
+    "Only buy in Stage 2: the daily close is above its 50-, 100-, 150- and 200-day averages (10, 20, 30 and 40 weeks), and the 50-day average is above the 100- and 150-day ones.",
+    "Buy when, in Stage 2, the daily close breaks above the highest high of the previous 20 days.",
+    "Sell on a daily close below the 100-day (20-week) average, or below the lowest low of the previous 20 days.",
+    "Hold one position per coin at a time."
+  ],
+  "notExpressed": [
+    "Reading stages on the weekly chart: the daily 50/100/150/200-day averages stand in for the 10/20/30/40-week ones",
+    "Judging the base (tight, constructive, a shakeout and higher lows) and its volume",
+    "Cutting overall exposure when market breadth weakens",
+    "The tactical Stage 4 mean-reversion long",
+    "Sizing each trade by its stop distance, and trimming into vertical moves",
+    "Short trades in Stage 4 (the test is spot, long only)"
+  ],
+  "variants": [
+    "regime:supertrend",
+    "regime:structure",
+    {
+      "id": "exit-10w",
+      "name": "Sell below the 50-day (10-week) average",
+      "kind": "settings",
+      "indicators": {
+        "sma100-exit": {
+          "indicatorLength": 50
+        }
+      }
+    }
+  ],
+  "bot": {
+    "type": "dca",
+    "interval": "1d",
+    "settings": {
+      "baseOrderSize": "1000",
+      "startCondition": "TechnicalIndicators",
+      "useTp": true,
+      "dealCloseCondition": "techInd",
+      "maxNumberOfOpenDeals": "3",
+      "maxDealsPerPair": "1",
+      "indicatorGroups": [
+        {
+          "id": "entry",
+          "logic": "and",
+          "action": "startDeal"
+        },
+        {
+          "id": "exit",
+          "logic": "or",
+          "action": "closeDeal"
+        }
+      ],
+      "indicators": [
+        {
+          "type": "MA",
+          "uuid": "sma50-above",
+          "maType": "sma",
+          "indicatorLength": 50,
+          "indicatorCondition": "lt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1d",
+          "indicatorAction": "startDeal",
+          "maCrossingValue": "price",
+          "groupId": "entry"
+        },
+        {
+          "type": "MA",
+          "uuid": "sma100-above",
+          "maType": "sma",
+          "indicatorLength": 100,
+          "indicatorCondition": "lt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1d",
+          "indicatorAction": "startDeal",
+          "maCrossingValue": "price",
+          "groupId": "entry"
+        },
+        {
+          "type": "MA",
+          "uuid": "sma150-above",
+          "maType": "sma",
+          "indicatorLength": 150,
+          "indicatorCondition": "lt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1d",
+          "indicatorAction": "startDeal",
+          "maCrossingValue": "price",
+          "groupId": "entry"
+        },
+        {
+          "type": "MA",
+          "uuid": "sma200-above",
+          "maType": "sma",
+          "indicatorLength": 200,
+          "indicatorCondition": "lt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1d",
+          "indicatorAction": "startDeal",
+          "maCrossingValue": "price",
+          "groupId": "entry"
+        },
+        {
+          "type": "MA",
+          "uuid": "sma100-below-50",
+          "maType": "sma",
+          "indicatorLength": 100,
+          "indicatorCondition": "lt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1d",
+          "indicatorAction": "startDeal",
+          "maCrossingValue": "sma",
+          "maCrossingLength": 50,
+          "maCrossingInterval": "1d",
+          "maUUID": "sma100-below-50-x",
+          "groupId": "entry"
+        },
+        {
+          "type": "MA",
+          "uuid": "sma150-below-50",
+          "maType": "sma",
+          "indicatorLength": 150,
+          "indicatorCondition": "lt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1d",
+          "indicatorAction": "startDeal",
+          "maCrossingValue": "sma",
+          "maCrossingLength": 50,
+          "maCrossingInterval": "1d",
+          "maUUID": "sma150-below-50-x",
+          "groupId": "entry"
+        },
+        {
+          "type": "DC",
+          "uuid": "dc20-upper",
+          "indicatorLength": 20,
+          "dcValue": "upper",
+          "indicatorCondition": "cu",
+          "indicatorValue": "0",
+          "indicatorInterval": "1d",
+          "indicatorAction": "startDeal",
+          "groupId": "entry"
+        },
+        {
+          "type": "MA",
+          "uuid": "sma100-exit",
+          "maType": "sma",
+          "indicatorLength": 100,
+          "indicatorCondition": "gt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1d",
+          "indicatorAction": "closeDeal",
+          "maCrossingValue": "price",
+          "groupId": "exit"
+        },
+        {
+          "type": "DC",
+          "uuid": "dc20-lower-exit",
+          "indicatorLength": 20,
+          "dcValue": "lower",
+          "indicatorCondition": "cd",
+          "indicatorValue": "0",
+          "indicatorInterval": "1d",
+          "indicatorAction": "closeDeal",
+          "groupId": "exit"
+        }
+      ]
+    }
+  }
+}

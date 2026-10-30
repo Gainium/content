@@ -1,0 +1,87 @@
+{
+  "strategy": "first-principles-trend",
+  "name": "100-day high breakout, 10-day average exit",
+  "source": {
+    "label": "The long-term trend-following approach in Pavel's Trading First Principles Framework, published in TradeZella's strategy library",
+    "url": "https://www.tradezella.com/strategies/trading-first-principles-framework"
+  },
+  "tuned": false,
+  "rulesFixedAt": "2026-10-30",
+  "baseline": "random",
+  "tags": [
+    "trend-following",
+    "breakout"
+  ],
+  "rules": [
+    "Buy when the daily close breaks above the highest high of the previous 100 days.",
+    "Sell on the first daily close below the 10-day simple moving average.",
+    "Hold one position per coin at a time, with no stop loss."
+  ],
+  "notExpressed": [
+    "The framework leaves the lookback to the trader: 100 days is used here; it also names 200 days and the all-time high",
+    "Splitting capital across several low-correlated strategies and rebalancing them back to target weights"
+  ],
+  "variants": [
+    "regime:supertrend",
+    "regime:structure",
+    {
+      "id": "dc200",
+      "name": "200-day high breakout",
+      "kind": "settings",
+      "indicators": {
+        "dc100-upper": {
+          "indicatorLength": 200
+        }
+      }
+    }
+  ],
+  "bot": {
+    "type": "dca",
+    "interval": "1d",
+    "settings": {
+      "baseOrderSize": "1000",
+      "startCondition": "TechnicalIndicators",
+      "useTp": true,
+      "dealCloseCondition": "techInd",
+      "maxNumberOfOpenDeals": "3",
+      "maxDealsPerPair": "1",
+      "indicatorGroups": [
+        {
+          "id": "entry",
+          "logic": "and",
+          "action": "startDeal"
+        },
+        {
+          "id": "exit",
+          "logic": "and",
+          "action": "closeDeal"
+        }
+      ],
+      "indicators": [
+        {
+          "type": "DC",
+          "indicatorLength": 100,
+          "dcValue": "upper",
+          "indicatorCondition": "cu",
+          "indicatorValue": "0",
+          "indicatorInterval": "1d",
+          "indicatorAction": "startDeal",
+          "groupId": "entry",
+          "uuid": "dc100-upper"
+        },
+        {
+          "type": "MA",
+          "uuid": "sma10-exit",
+          "maType": "sma",
+          "indicatorLength": 10,
+          "indicatorCondition": "gt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1d",
+          "indicatorAction": "closeDeal",
+          "maCrossingValue": "price",
+          "groupId": "exit"
+        }
+      ]
+    }
+  }
+}

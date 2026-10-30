@@ -1,0 +1,183 @@
+{
+  "strategy": "ema-stack-fvg",
+  "name": "EMA stack with fair value gap tap",
+  "source": {
+    "label": "The Unique High RR strategy (a forex and gold model on 30-minute candles), published in TradeZella's strategy library",
+    "url": "https://www.tradezella.com/strategies/unique-high-rr"
+  },
+  "tuned": false,
+  "rulesFixedAt": "2026-10-30",
+  "baseline": "random",
+  "tags": [
+    "trend-following"
+  ],
+  "rules": [
+    "Only buy while the hourly close is above the 200-hour EMA and the 5, 9, 13 and 21-hour EMAs are stacked in that order, fastest on top.",
+    "Only buy while the last daily Heikin Ashi candle is green.",
+    "Only buy between 03:00 and 06:30 New York time, Monday to Friday.",
+    "Buy when price dips into the middle of the latest bullish fair value gap.",
+    "Sell when the 5-hour EMA crosses below the 9-hour EMA, or at a 2% loss from the entry.",
+    "Hold one position per coin at a time."
+  ],
+  "notExpressed": [
+    "The 30-minute chart: the test runs hourly candles",
+    "The trident pattern: a small doji wicking into the gap's midpoint, then a confirming candle",
+    "Requiring the gap to form between 02:30 and 04:00 New York time",
+    "The stop below the gap's first candle (a fixed 2% stands in for it), and the target managed from daily structure",
+    "Closing early on a large candle that breaks the structure",
+    "The daily candle-strength indicator: a daily Heikin Ashi colour stands in for it",
+    "Short trades below the 200 EMA (the test is spot, long only)"
+  ],
+  "variants": [
+    "regime:supertrend",
+    "regime:structure",
+    {
+      "id": "any-hour",
+      "name": "Any hour, every day (no session window)",
+      "kind": "settings",
+      "indicators": {
+        "ny-window": {
+          "sessionPreset": "allDay",
+          "sessionStart": null,
+          "sessionEnd": null,
+          "sessionDays": [0, 1, 2, 3, 4, 5, 6]
+        }
+      }
+    }
+  ],
+  "bot": {
+    "type": "dca",
+    "interval": "1h",
+    "settings": {
+      "baseOrderSize": "1000",
+      "startCondition": "TechnicalIndicators",
+      "useMaxDealsPerHigherTimeframe": false,
+      "useTp": true,
+      "dealCloseCondition": "techInd",
+      "useSl": true,
+      "slPerc": "-2",
+      "maxNumberOfOpenDeals": "3",
+      "maxDealsPerPair": "1",
+      "indicatorGroups": [
+        {
+          "id": "entry",
+          "logic": "and",
+          "action": "startDeal"
+        },
+        {
+          "id": "exit",
+          "logic": "and",
+          "action": "closeDeal"
+        }
+      ],
+      "indicators": [
+        {
+          "type": "MA",
+          "uuid": "ema200-trend",
+          "maType": "ema",
+          "indicatorLength": 200,
+          "indicatorCondition": "lt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1h",
+          "indicatorAction": "startDeal",
+          "maCrossingValue": "price",
+          "groupId": "entry"
+        },
+        {
+          "type": "MA",
+          "uuid": "ema9-below-5",
+          "maType": "ema",
+          "indicatorLength": 9,
+          "indicatorCondition": "lt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1h",
+          "indicatorAction": "startDeal",
+          "maCrossingValue": "ema",
+          "maCrossingLength": 5,
+          "maCrossingInterval": "1h",
+          "maUUID": "ema9-below-5-x",
+          "groupId": "entry"
+        },
+        {
+          "type": "MA",
+          "uuid": "ema13-below-9",
+          "maType": "ema",
+          "indicatorLength": 13,
+          "indicatorCondition": "lt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1h",
+          "indicatorAction": "startDeal",
+          "maCrossingValue": "ema",
+          "maCrossingLength": 9,
+          "maCrossingInterval": "1h",
+          "maUUID": "ema13-below-9-x",
+          "groupId": "entry"
+        },
+        {
+          "type": "MA",
+          "uuid": "ema21-below-13",
+          "maType": "ema",
+          "indicatorLength": 21,
+          "indicatorCondition": "lt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1h",
+          "indicatorAction": "startDeal",
+          "maCrossingValue": "ema",
+          "maCrossingLength": 13,
+          "maCrossingInterval": "1h",
+          "maUUID": "ema21-below-13-x",
+          "groupId": "entry"
+        },
+        {
+          "type": "CANDLE",
+          "uuid": "daily-ha-green",
+          "candleSource": "heikinAshi",
+          "candleColor": "green",
+          "candleCount": 1,
+          "candleTrigger": "streak",
+          "indicatorInterval": "1d",
+          "indicatorAction": "startDeal",
+          "groupId": "entry"
+        },
+        {
+          "type": "SESSION",
+          "uuid": "ny-window",
+          "sessionPreset": "custom",
+          "sessionStart": "03:00",
+          "sessionEnd": "06:30",
+          "sessionTimezone": "America/New_York",
+          "sessionDays": [1, 2, 3, 4, 5],
+          "sessionRule": "in",
+          "indicatorInterval": "1h",
+          "indicatorAction": "startDeal",
+          "groupId": "entry"
+        },
+        {
+          "type": "OBFVG",
+          "uuid": "fvg-mid-tap",
+          "obfvgValue": "bullish",
+          "obfvgRef": "middle",
+          "indicatorCondition": "cd",
+          "indicatorInterval": "1h",
+          "indicatorAction": "startDeal",
+          "groupId": "entry"
+        },
+        {
+          "type": "MA",
+          "uuid": "ema9-exit",
+          "maType": "ema",
+          "indicatorLength": 9,
+          "indicatorCondition": "cu",
+          "indicatorValue": "0",
+          "indicatorInterval": "1h",
+          "indicatorAction": "closeDeal",
+          "maCrossingValue": "ema",
+          "maCrossingLength": 5,
+          "maCrossingInterval": "1h",
+          "maUUID": "ema9-exit-x",
+          "groupId": "exit"
+        }
+      ]
+    }
+  }
+}

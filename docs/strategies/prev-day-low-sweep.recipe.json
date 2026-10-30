@@ -1,0 +1,113 @@
+{
+  "strategy": "prev-day-low-sweep",
+  "name": "Previous-day low sweep and reclaim",
+  "source": {
+    "label": "The Liquidity Strategy, with the previous-day levels of the Intraday Liquidity & Volatility Model, both published in TradeZella's strategy library",
+    "url": "https://www.tradezella.com/strategies/liquidity-strategy"
+  },
+  "tuned": false,
+  "rulesFixedAt": "2026-10-30",
+  "baseline": "random",
+  "tags": [
+    "mean-reversion"
+  ],
+  "rules": [
+    "Buy when an hourly close takes price back above the previous UTC day's low, after it closed below that low within the last 6 hours (a sweep that trapped sellers).",
+    "Sell when the hourly close crosses above the previous day's high.",
+    "Sell at a 2% loss from the entry, or 24 hours after it, whatever the price.",
+    "Hold one position per coin at a time."
+  ],
+  "notExpressed": [
+    "Choosing by eye which highs and lows are respected liquidity: only the previous day's low and high are used",
+    "Trading only inside one session window, such as the New York open",
+    "The stop just past the swept low (a fixed 2% stands in for it), moving it up only after a higher low, and partial exits at liquidity levels",
+    "The Intraday model's daily bias and its Asia and London session highs and lows",
+    "Short trades after a sweep of a high (the test is spot, long only)"
+  ],
+  "variants": [
+    "regime:supertrend",
+    "regime:structure",
+    {
+      "id": "hold-12h",
+      "name": "12-hour time stop",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 12
+      }
+    }
+  ],
+  "bot": {
+    "type": "dca",
+    "interval": "1h",
+    "settings": {
+      "baseOrderSize": "1000",
+      "startCondition": "TechnicalIndicators",
+      "useTp": true,
+      "dealCloseCondition": "techInd",
+      "useSl": true,
+      "slPerc": "-2",
+      "closeByTimer": true,
+      "closeByTimerValue": 24,
+      "closeByTimerUnits": "hours",
+      "maxNumberOfOpenDeals": "3",
+      "maxDealsPerPair": "1",
+      "indicatorGroups": [
+        {
+          "id": "entry",
+          "logic": "and",
+          "action": "startDeal"
+        },
+        {
+          "id": "exit",
+          "logic": "and",
+          "action": "closeDeal"
+        }
+      ],
+      "indicators": [
+        {
+          "type": "SESSION",
+          "uuid": "pdl-sweep",
+          "sessionPreset": "allDay",
+          "sessionTimezone": "UTC",
+          "sessionDays": [0, 1, 2, 3, 4, 5, 6],
+          "sessionRule": "levels",
+          "sessionLevelA": "price",
+          "indicatorCondition": "cd",
+          "sessionLevelB": "prevLow",
+          "indicatorInterval": "1h",
+          "indicatorAction": "startDeal",
+          "groupId": "entry",
+          "keepConditionBars": "6"
+        },
+        {
+          "type": "SESSION",
+          "uuid": "pdl-reclaim",
+          "sessionPreset": "allDay",
+          "sessionTimezone": "UTC",
+          "sessionDays": [0, 1, 2, 3, 4, 5, 6],
+          "sessionRule": "levels",
+          "sessionLevelA": "price",
+          "indicatorCondition": "cu",
+          "sessionLevelB": "prevLow",
+          "indicatorInterval": "1h",
+          "indicatorAction": "startDeal",
+          "groupId": "entry"
+        },
+        {
+          "type": "SESSION",
+          "uuid": "pdh-target",
+          "sessionPreset": "allDay",
+          "sessionTimezone": "UTC",
+          "sessionDays": [0, 1, 2, 3, 4, 5, 6],
+          "sessionRule": "levels",
+          "sessionLevelA": "price",
+          "indicatorCondition": "cu",
+          "sessionLevelB": "prevHigh",
+          "indicatorInterval": "1h",
+          "indicatorAction": "closeDeal",
+          "groupId": "exit"
+        }
+      ]
+    }
+  }
+}

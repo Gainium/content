@@ -1,0 +1,110 @@
+{
+  "strategy": "ma-undercut-rally",
+  "name": "Moving-average undercut and rally",
+  "source": {
+    "label": "The moving-average undercut-and-rally setup of the Real Simple Strategy, with the 10/20-day EMA pullback of the Price Cycle Continuation strategy, both published in TradeZella's strategy library",
+    "url": "https://www.tradezella.com/strategies/real-simple-strategy"
+  },
+  "tuned": false,
+  "rulesFixedAt": "2026-10-30",
+  "baseline": "random",
+  "tags": [
+    "trend-following"
+  ],
+  "rules": [
+    "Only buy while the daily close is above a rising 50-day simple moving average (higher than it was 10 days earlier).",
+    "Buy when the daily close dips below the 10-day EMA and then closes back above it.",
+    "Sell on a daily close below the 20-day EMA, or at an 8% loss from the entry.",
+    "Hold one position per coin at a time."
+  ],
+  "notExpressed": [
+    "The stop under the undercut swing low (a fixed 8% stands in for it)",
+    "Taking part of the position off after three to five strong days",
+    "Risking 0.5 to 1% of equity per trade, sized from the stop distance",
+    "Relative strength against the market and a strong sector or theme",
+    "The other setups on the source pages: episodic pivots on earnings gaps, flat-base and high-tight-flag breakouts, and the short side of the price cycle",
+    "Super Stock Momentum's version on the rising 50-day SMA (its 10-day trailing exit would fire on the bar after a 50-day reclaim)"
+  ],
+  "variants": [
+    "regime:supertrend",
+    "regime:structure",
+    {
+      "id": "tight-trail",
+      "name": "Sell on the first close below the 10-day EMA",
+      "kind": "settings",
+      "indicators": {
+        "ema20-exit": {
+          "indicatorLength": 10
+        }
+      }
+    }
+  ],
+  "bot": {
+    "type": "dca",
+    "interval": "1d",
+    "settings": {
+      "baseOrderSize": "1000",
+      "startCondition": "TechnicalIndicators",
+      "useTp": true,
+      "dealCloseCondition": "techInd",
+      "useSl": true,
+      "slPerc": "-8",
+      "maxNumberOfOpenDeals": "3",
+      "maxDealsPerPair": "1",
+      "indicatorGroups": [
+        {
+          "id": "entry",
+          "logic": "and",
+          "action": "startDeal"
+        },
+        {
+          "id": "exit",
+          "logic": "and",
+          "action": "closeDeal"
+        }
+      ],
+      "indicators": [
+        {
+          "type": "MA",
+          "uuid": "sma50-rising",
+          "maType": "sma",
+          "indicatorLength": 50,
+          "indicatorCondition": "lt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1d",
+          "indicatorAction": "startDeal",
+          "maCrossingValue": "price",
+          "groupId": "entry",
+          "trendFilter": true,
+          "trendFilterLookback": 10,
+          "trendFilterType": "higher",
+          "trendFilterValue": 0
+        },
+        {
+          "type": "MA",
+          "uuid": "ema10-reclaim",
+          "maType": "ema",
+          "indicatorLength": 10,
+          "indicatorCondition": "cd",
+          "indicatorValue": "0",
+          "indicatorInterval": "1d",
+          "indicatorAction": "startDeal",
+          "maCrossingValue": "price",
+          "groupId": "entry"
+        },
+        {
+          "type": "MA",
+          "uuid": "ema20-exit",
+          "maType": "ema",
+          "indicatorLength": 20,
+          "indicatorCondition": "gt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1d",
+          "indicatorAction": "closeDeal",
+          "maCrossingValue": "price",
+          "groupId": "exit"
+        }
+      ]
+    }
+  }
+}

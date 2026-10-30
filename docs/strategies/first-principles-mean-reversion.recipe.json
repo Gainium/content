@@ -1,0 +1,99 @@
+{
+  "strategy": "first-principles-mean-reversion",
+  "name": "5-day average snap-back with RSI(2)",
+  "source": {
+    "label": "The mean-reversion approach in Pavel's Trading First Principles Framework, published in TradeZella's strategy library",
+    "url": "https://www.tradezella.com/strategies/trading-first-principles-framework"
+  },
+  "tuned": false,
+  "rulesFixedAt": "2026-10-30",
+  "baseline": "random",
+  "tags": [
+    "mean-reversion"
+  ],
+  "rules": [
+    "Buy when the daily close is below its 5-day average and the 2-day RSI is under 10.",
+    "Sell when the daily close is back above the 5-day average.",
+    "Sell 4 days after the entry if that has not happened, whatever the price.",
+    "Hold one position per coin at a time, with no stop loss."
+  ],
+  "notExpressed": [
+    "The framework leaves the thresholds to the trader: RSI(2) under 10 is used here as the measure of an unusual stretch below the average, in place of comparing the gap to its typical size",
+    "Splitting capital across several low-correlated strategies and rebalancing them back to target weights"
+  ],
+  "variants": [
+    "regime:supertrend",
+    "regime:structure",
+    {
+      "id": "hold-2d",
+      "name": "2-day time stop",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 2
+      }
+    }
+  ],
+  "bot": {
+    "type": "dca",
+    "interval": "1d",
+    "settings": {
+      "baseOrderSize": "1000",
+      "startCondition": "TechnicalIndicators",
+      "useTp": true,
+      "dealCloseCondition": "techInd",
+      "closeByTimer": true,
+      "closeByTimerValue": 4,
+      "closeByTimerUnits": "days",
+      "maxNumberOfOpenDeals": "3",
+      "maxDealsPerPair": "1",
+      "indicatorGroups": [
+        {
+          "id": "entry",
+          "logic": "and",
+          "action": "startDeal"
+        },
+        {
+          "id": "exit",
+          "logic": "and",
+          "action": "closeDeal"
+        }
+      ],
+      "indicators": [
+        {
+          "type": "RSI",
+          "uuid": "rsi2",
+          "indicatorLength": 2,
+          "indicatorCondition": "lt",
+          "indicatorValue": "10",
+          "indicatorInterval": "1d",
+          "indicatorAction": "startDeal",
+          "groupId": "entry"
+        },
+        {
+          "type": "MA",
+          "uuid": "sma5-below",
+          "maType": "sma",
+          "indicatorLength": 5,
+          "indicatorCondition": "gt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1d",
+          "indicatorAction": "startDeal",
+          "maCrossingValue": "price",
+          "groupId": "entry"
+        },
+        {
+          "type": "MA",
+          "uuid": "sma5-exit",
+          "maType": "sma",
+          "indicatorLength": 5,
+          "indicatorCondition": "lt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1d",
+          "indicatorAction": "closeDeal",
+          "maCrossingValue": "price",
+          "groupId": "exit"
+        }
+      ]
+    }
+  }
+}
