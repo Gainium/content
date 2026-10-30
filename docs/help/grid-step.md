@@ -6,7 +6,7 @@ description: >-
   Unlock the secrets to optimal grid spacing for your grid bot. Discover how to
   balance trade frequency and fees for maximum profitability.
 createdAt: '2022-08-09T05:15:55.547Z'
-updatedAt: '2026-02-24T07:44:20.573Z'
+updatedAt: '2026-10-30T12:00:00.000Z'
 publishedAt: '2022-08-09T05:18:02.132Z'
 locale: en
 categories:
@@ -44,7 +44,7 @@ tldr: >-
   0.5–1% spacing depending on coin volatility, and use backtesting to optimize.
 ---
 
-The grid step, aka grid spacing, is an essential factor to consider when setting your grid strategy. As you may have guessed, a lower step will increase the number of transactions and lower the profit per transaction, so where is the sweet spot? Let's dive in.
+The grid step, aka grid spacing, is an essential factor to consider when setting your grid strategy. As you may have guessed, a lower step will increase the number of transactions and lower the profit per transaction, so where is the sweet spot?
 
 ## Finding the right grid spacing for your strategy
 
@@ -64,7 +64,7 @@ One size does not fit all. Each coin pair has its dance, with unique volatility 
 
 ### The Thin Line: Overcoming Exchange Fees
 
-Here's a pro tip: Avoid grid spaces that are too narrow. Why? Because every trade has a cost, thanks to exchange fees. Your grid bot needs not just to make a profit but also [cover these fees](https://gainium.io/help/breakeven-price-grid). For instance, if you set grids 0.2% apart in spot trading, the grid bot will space them 0.4% apart when accounting for the buy and sell fees (0.2% grid plus 0.1% spot fee x 2). Suddenly, half of your spacing is just to overcome fees, making it very inefficient for you (great for the exchange though).
+Avoid grid spaces that are too narrow. Every completed buy and sell pays two exchange fees, and your grid profit has to [cover them](https://gainium.io/help/breakeven-price-grid). The bot doesn't widen the spacing to account for fees: grids you set 0.2% apart stay 0.2% apart. On spot with a 0.1% fee per order, each round trip pays 0.2% in fees, so a 0.2% grid only breaks even. Set the grid step above your round-trip fee, or add [sell displacement](https://gainium.io/help/sell-displacement) so the step plus the displacement clears it.
 
 ### Navigating Exchange Limitations
 
@@ -85,6 +85,6 @@ Results:
 
 ## The Takeaway
 
-Finding the optimal grid spacing is more art than science. It's about knowing your coin pair, backtesting your strategy, and understanding the balance between being too greedy and too cautious. Remember, your grid bot is your fishing net waiting for a movement. With the proper spacing, you're setting yourself up for a good catch. So, dive into the data, keep an eye on fees, and may your grid bot thrive with profit.
+Finding the optimal grid spacing is more art than science. It's about knowing your coin pair, backtesting your strategy, and understanding the balance between being too greedy and too cautious. Your grid bot is your fishing net waiting for a movement. With the proper spacing, you're setting yourself up for a good catch. Backtest your pair, and keep the step plus sell displacement above your round-trip fee.
 
 
