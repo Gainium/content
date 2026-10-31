@@ -2,8 +2,7 @@
   "strategy": "ma-undercut-rally",
   "name": "Moving-average undercut and rally",
   "source": {
-    "label": "The moving-average undercut-and-rally setup of the Real Simple Strategy, with the 10/20-day EMA pullback of the Price Cycle Continuation strategy, both published in TradeZella's strategy library",
-    "url": "https://www.tradezella.com/strategies/real-simple-strategy"
+    "label": "The moving-average undercut-and-rally setup of the Real Simple Strategy, with the 10/20-day EMA pullback of the Price Cycle Continuation strategy"
   },
   "tuned": false,
   "rulesFixedAt": "2026-10-30",

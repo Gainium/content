@@ -2,8 +2,7 @@
   "strategy": "bb-snapback",
   "name": "Bollinger band snap-back to the mean",
   "source": {
-    "label": "The Mean Reversion Strategy published in TradeZella's strategy library (an intraday stock method, run here on hourly crypto candles)",
-    "url": "https://www.tradezella.com/strategies/mean-reversion-strategy"
+    "label": "The Mean Reversion Strategy (an intraday stock method, run here on hourly crypto candles)"
   },
   "tuned": false,
   "rulesFixedAt": "2026-10-30",

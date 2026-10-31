@@ -2,8 +2,7 @@
   "strategy": "first-principles-mean-reversion",
   "name": "5-day average snap-back with RSI(2)",
   "source": {
-    "label": "The mean-reversion approach in Pavel's Trading First Principles Framework, published in TradeZella's strategy library",
-    "url": "https://www.tradezella.com/strategies/trading-first-principles-framework"
+    "label": "The mean-reversion approach in Pavel's Trading First Principles Framework"
   },
   "tuned": false,
   "rulesFixedAt": "2026-10-30",

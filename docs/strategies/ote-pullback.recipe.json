@@ -2,8 +2,7 @@
   "strategy": "ote-pullback",
   "name": "Structure + OTE pullback",
   "source": {
-    "label": "The Structure + OTE strategy, with the Fibonacci entry, stop and target of the PO3, OTE + ADR model, both published in TradeZella's strategy library",
-    "url": "https://www.tradezella.com/strategies/structure-ote"
+    "label": "The Structure + OTE strategy, with the Fibonacci entry, stop and target of the PO3, OTE + ADR model"
   },
   "tuned": false,
   "rulesFixedAt": "2026-10-30",

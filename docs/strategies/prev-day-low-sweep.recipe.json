@@ -2,8 +2,7 @@
   "strategy": "prev-day-low-sweep",
   "name": "Previous-day low sweep and reclaim",
   "source": {
-    "label": "The Liquidity Strategy, with the previous-day levels of the Intraday Liquidity & Volatility Model, both published in TradeZella's strategy library",
-    "url": "https://www.tradezella.com/strategies/liquidity-strategy"
+    "label": "The Liquidity Strategy, with the previous-day levels of the Intraday Liquidity & Volatility Model"
   },
   "tuned": false,
   "rulesFixedAt": "2026-10-30",
@@ -69,7 +68,15 @@
           "uuid": "pdl-sweep",
           "sessionPreset": "allDay",
           "sessionTimezone": "UTC",
-          "sessionDays": [0, 1, 2, 3, 4, 5, 6],
+          "sessionDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
           "sessionRule": "levels",
           "sessionLevelA": "price",
           "indicatorCondition": "cd",
@@ -84,7 +91,15 @@
           "uuid": "pdl-reclaim",
           "sessionPreset": "allDay",
           "sessionTimezone": "UTC",
-          "sessionDays": [0, 1, 2, 3, 4, 5, 6],
+          "sessionDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
           "sessionRule": "levels",
           "sessionLevelA": "price",
           "indicatorCondition": "cu",
@@ -98,7 +113,15 @@
           "uuid": "pdh-target",
           "sessionPreset": "allDay",
           "sessionTimezone": "UTC",
-          "sessionDays": [0, 1, 2, 3, 4, 5, 6],
+          "sessionDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
           "sessionRule": "levels",
           "sessionLevelA": "price",
           "indicatorCondition": "cu",

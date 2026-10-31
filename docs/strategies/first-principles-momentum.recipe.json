@@ -2,8 +2,7 @@
   "strategy": "first-principles-momentum",
   "name": "Outsized daily move, 3-day hold",
   "source": {
-    "label": "The short-term momentum approach in Pavel's Trading First Principles Framework, published in TradeZella's strategy library",
-    "url": "https://www.tradezella.com/strategies/trading-first-principles-framework"
+    "label": "The short-term momentum approach in Pavel's Trading First Principles Framework"
   },
   "tuned": false,
   "rulesFixedAt": "2026-10-30",

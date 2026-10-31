@@ -2,8 +2,7 @@
   "strategy": "ema-stack-fvg",
   "name": "EMA stack with fair value gap tap",
   "source": {
-    "label": "The Unique High RR strategy (a forex and gold model on 30-minute candles), published in TradeZella's strategy library",
-    "url": "https://www.tradezella.com/strategies/unique-high-rr"
+    "label": "The Unique High RR strategy (a forex and gold model on 30-minute candles)"
   },
   "tuned": false,
   "rulesFixedAt": "2026-10-30",
@@ -40,7 +39,15 @@
           "sessionPreset": "allDay",
           "sessionStart": null,
           "sessionEnd": null,
-          "sessionDays": [0, 1, 2, 3, 4, 5, 6]
+          "sessionDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
         }
       }
     }
@@ -146,7 +153,13 @@
           "sessionStart": "03:00",
           "sessionEnd": "06:30",
           "sessionTimezone": "America/New_York",
-          "sessionDays": [1, 2, 3, 4, 5],
+          "sessionDays": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
           "sessionRule": "in",
           "indicatorInterval": "1h",
           "indicatorAction": "startDeal",

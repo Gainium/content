@@ -2,8 +2,7 @@
   "strategy": "first-principles-trend",
   "name": "100-day high breakout, 10-day average exit",
   "source": {
-    "label": "The long-term trend-following approach in Pavel's Trading First Principles Framework, published in TradeZella's strategy library",
-    "url": "https://www.tradezella.com/strategies/trading-first-principles-framework"
+    "label": "The long-term trend-following approach in Pavel's Trading First Principles Framework"
   },
   "tuned": false,
   "rulesFixedAt": "2026-10-30",

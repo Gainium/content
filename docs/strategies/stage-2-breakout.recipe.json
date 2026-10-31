@@ -2,8 +2,7 @@
   "strategy": "stage-2-breakout",
   "name": "Stage 2 breakout (stage analysis)",
   "source": {
-    "label": "Ted Zhang's Stage Analysis strategy, published in TradeZella's strategy library",
-    "url": "https://www.tradezella.com/strategies/stage-analysis"
+    "label": "Ted Zhang's Stage Analysis strategy"
   },
   "tuned": false,
   "rulesFixedAt": "2026-10-30",
