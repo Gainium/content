@@ -1,0 +1,110 @@
+{
+  "strategy": "stoch-pullback-200",
+  "name": "Stochastic pullback above the 200 EMA",
+  "source": {
+    "label": "Data Trader's stochastic pullback strategy",
+    "url": "https://www.youtube.com/watch?v=vLbLZWi_Ypc",
+    "credits": [
+      {
+        "by": "Data Trader",
+        "url": "https://www.youtube.com/watch?v=vLbLZWi_Ypc",
+        "video": {
+          "id": "vLbLZWi_Ypc",
+          "title": "BEST Stochastic Indicator Strategy for Daytrading Forex & Stocks (Easy Pullback Strategy)",
+          "channel": "Data Trader"
+        }
+      }
+    ]
+  },
+  "tuned": false,
+  "rulesFixedAt": "2026-10-31",
+  "baseline": "random",
+  "tags": [
+    "trend-following",
+    "pullback"
+  ],
+  "rules": [
+    "Only buy while the hourly close is above the 200-hour EMA.",
+    "Buy when the stochastic %K (14, 3, 3) crosses back up through 20, out of oversold.",
+    "Put the stop at the last swing low (5 hourly candles each side) and the target at 2 times the risk.",
+    "Risking the same 20 USDT per trade: a stop closer than 1% is widened to 1% and one wider than 15% is cut to 15%, so a position never passes 2,000 USDT.",
+    "Hold one position per coin at a time."
+  ],
+  "notExpressed": [
+    "The video names no stochastic settings or oversold level: the test uses 14, 3, 3 and 20, the common defaults",
+    "The nearest swing low as the trader sees it: the test takes the last low confirmed by 5 hourly candles on each side",
+    "The variant that also waits for a MACD cross while the stochastic is oversold",
+    "The source trades its own chart timeframe on forex or stocks; the test runs it on hourly crypto candles",
+    "Short trades below the 200 EMA (the test is spot, long only)"
+  ],
+  "bot": {
+    "type": "dca",
+    "interval": "1h",
+    "settings": {
+      "startCondition": "TechnicalIndicators",
+      "maxNumberOfOpenDeals": "3",
+      "maxDealsPerPair": "1",
+      "baseOrderSize": "2000",
+      "useRiskReward": true,
+      "rrSlType": "indicator",
+      "riskSlType": "fixed",
+      "riskSlAmountValue": "20",
+      "riskUseTpRatio": true,
+      "riskTpRatio": "2",
+      "riskMinSl": "1",
+      "riskMaxSl": "15",
+      "riskMinPositionSize": "0",
+      "riskMaxPositionSize": "2000",
+      "indicatorGroups": [
+        {
+          "id": "entry",
+          "logic": "and",
+          "action": "startDeal"
+        }
+      ],
+      "indicators": [
+        {
+          "type": "MA",
+          "uuid": "trend-ema200",
+          "maType": "ema",
+          "indicatorLength": 200,
+          "indicatorCondition": "lt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1h",
+          "indicatorAction": "startDeal",
+          "maCrossingValue": "price",
+          "groupId": "entry"
+        },
+        {
+          "type": "Stoch",
+          "uuid": "stoch-up20",
+          "indicatorLength": 14,
+          "stochSmoothK": 3,
+          "stochSmoothD": 3,
+          "rsiValue": "k",
+          "indicatorCondition": "cu",
+          "rsiValue2": "custom",
+          "valueInsteadof": 20,
+          "indicatorValue": "0",
+          "indicatorInterval": "1h",
+          "indicatorAction": "startDeal",
+          "groupId": "entry"
+        },
+        {
+          "type": "PP",
+          "uuid": "rr-swing-low",
+          "ppType": "Price Based",
+          "ppValue": "Any Low",
+          "ppLowLeft": 5,
+          "ppLowRight": 5,
+          "ppMult": 1,
+          "indicatorLength": 1,
+          "indicatorInterval": "1h",
+          "indicatorValue": "0",
+          "indicatorCondition": "cd",
+          "indicatorAction": "riskReward"
+        }
+      ]
+    }
+  }
+}

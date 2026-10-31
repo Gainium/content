@@ -1,0 +1,98 @@
+{
+  "strategy": "rsi10-pullback",
+  "name": "RSI(10) pullback above the 200-day average",
+  "source": {
+    "label": "Rayner Teo's RSI pullback strategy, which he credits to Larry Connors",
+    "url": "https://www.youtube.com/watch?v=W8ENIXvcGlQ",
+    "credits": [
+      {
+        "by": "Rayner Teo",
+        "url": "https://www.youtube.com/watch?v=W8ENIXvcGlQ",
+        "video": {
+          "id": "W8ENIXvcGlQ",
+          "title": "This SIMPLE Trading Strategy Has A 88.89% Winning Rate",
+          "channel": "Rayner Teo"
+        }
+      }
+    ]
+  },
+  "tuned": false,
+  "rulesFixedAt": "2026-10-31",
+  "baseline": "random",
+  "tags": [
+    "mean-reversion"
+  ],
+  "rules": [
+    "Only buy while the daily close is above the 200-day simple moving average.",
+    "Buy when the 10-day RSI closes below 30.",
+    "Sell when the 10-day RSI closes above 40, or 10 days after the entry if that has not happened.",
+    "Hold one position per coin at a time, with no stop loss."
+  ],
+  "notExpressed": [
+    "The video does not name the 200-day average's type; the test uses the simple average, as Larry Connors does",
+    "Entering and exiting at the next day's open: the bot trades at the signal day's close",
+    "Ten trading days on a stock index: crypto trades every day, so the time stop is ten calendar days",
+    "The source trades the S&P 500 and other equity indices; the test runs it on crypto"
+  ],
+  "bot": {
+    "type": "dca",
+    "interval": "1d",
+    "settings": {
+      "startCondition": "TechnicalIndicators",
+      "maxNumberOfOpenDeals": "3",
+      "maxDealsPerPair": "1",
+      "baseOrderSize": "1000",
+      "useTp": true,
+      "dealCloseCondition": "techInd",
+      "closeByTimer": true,
+      "closeByTimerValue": 10,
+      "closeByTimerUnits": "days",
+      "indicatorGroups": [
+        {
+          "id": "entry",
+          "logic": "and",
+          "action": "startDeal"
+        },
+        {
+          "id": "exit",
+          "logic": "and",
+          "action": "closeDeal"
+        }
+      ],
+      "indicators": [
+        {
+          "type": "MA",
+          "uuid": "trend-sma200",
+          "maType": "sma",
+          "indicatorLength": 200,
+          "indicatorCondition": "lt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1d",
+          "indicatorAction": "startDeal",
+          "maCrossingValue": "price",
+          "groupId": "entry"
+        },
+        {
+          "type": "RSI",
+          "uuid": "rsi10-entry",
+          "indicatorLength": 10,
+          "indicatorCondition": "lt",
+          "indicatorValue": "30",
+          "indicatorInterval": "1d",
+          "indicatorAction": "startDeal",
+          "groupId": "entry"
+        },
+        {
+          "type": "RSI",
+          "uuid": "rsi10-exit",
+          "indicatorLength": 10,
+          "indicatorCondition": "gt",
+          "indicatorValue": "40",
+          "indicatorInterval": "1d",
+          "indicatorAction": "closeDeal",
+          "groupId": "exit"
+        }
+      ]
+    }
+  }
+}

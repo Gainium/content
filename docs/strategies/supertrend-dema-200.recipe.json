@@ -1,0 +1,159 @@
+{
+  "strategy": "supertrend-dema-200",
+  "name": "Supertrend buy above the 200 DEMA",
+  "source": {
+    "label": "TradingLab's Supertrend and DEMA strategy, with Trading Rush's 200 EMA version",
+    "url": "https://www.youtube.com/watch?v=g-PLctW8aU0",
+    "credits": [
+      {
+        "by": "TradingLab",
+        "url": "https://www.youtube.com/watch?v=g-PLctW8aU0",
+        "video": {
+          "id": "g-PLctW8aU0",
+          "title": "Highly Profitable DEMA + SuperTrend Trading Strategy",
+          "channel": "TradingLab"
+        }
+      },
+      {
+        "by": "Trading Rush",
+        "what": "the 200 EMA version, backtested 100 times",
+        "url": "https://www.youtube.com/watch?v=GKNVmb82IfE",
+        "video": {
+          "id": "GKNVmb82IfE",
+          "title": "Supertrend Indicator Tested 100 Times so you don't have to...",
+          "channel": "TRADING RUSH"
+        }
+      }
+    ]
+  },
+  "tuned": false,
+  "rulesFixedAt": "2026-10-31",
+  "baseline": "random",
+  "tags": [
+    "trend-following"
+  ],
+  "rules": [
+    "Only buy while the hourly close is above the 200-hour DEMA.",
+    "Buy when the hourly Supertrend (ATR 12, multiplier 3) flips to a buy, on the closed candle.",
+    "Sell when the Supertrend flips to a sell; there is no take profit.",
+    "Hold one position per coin at a time."
+  ],
+  "notExpressed": [
+    "The stop at the Supertrend line is the sell flip itself, on a closing basis: a candle that only wicks through the line does not stop the trade",
+    "Buying when price crosses above the DEMA while the Supertrend is already a buy (TradingLab's tip)",
+    "Exiting at the Fibonacci Bollinger Band's 1 level (an untested extra in the video)",
+    "TradingLab trades DOGE and LTC on 15-minute candles; the test runs on hourly candles",
+    "Short trades below the DEMA (the test is spot, long only)"
+  ],
+  "variants": [
+    {
+      "id": "ema200-1-5r",
+      "name": "200 EMA, stop at the line, 1.5R target (Trading Rush)",
+      "kind": "settings",
+      "indicators": {
+        "trend-dema200": {
+          "maType": "ema"
+        }
+      },
+      "settings": {
+        "baseOrderSize": "2000",
+        "useRiskReward": true,
+        "rrSlType": "indicator",
+        "riskSlType": "fixed",
+        "riskSlAmountValue": "20",
+        "riskUseTpRatio": true,
+        "riskTpRatio": "1.5",
+        "riskMinSl": "1",
+        "riskMaxSl": "15",
+        "riskMinPositionSize": "0",
+        "riskMaxPositionSize": "2000",
+        "dealCloseCondition": "tp",
+        "indicatorGroups": [
+          {
+            "id": "entry",
+            "logic": "and",
+            "action": "startDeal"
+          }
+        ]
+      },
+      "removeIndicators": [
+        "st-sell"
+      ],
+      "addIndicators": [
+        {
+          "type": "ST",
+          "uuid": "rr-supertrend",
+          "factor": 3,
+          "atrLength": 12,
+          "stCondition": "up",
+          "indicatorInterval": "1h",
+          "indicatorValue": "0",
+          "indicatorCondition": "gt",
+          "indicatorAction": "riskReward"
+        }
+      ]
+    }
+  ],
+  "bot": {
+    "type": "dca",
+    "interval": "1h",
+    "settings": {
+      "startCondition": "TechnicalIndicators",
+      "maxNumberOfOpenDeals": "3",
+      "maxDealsPerPair": "1",
+      "baseOrderSize": "1000",
+      "useTp": false,
+      "dealCloseCondition": "techInd",
+      "indicatorGroups": [
+        {
+          "id": "entry",
+          "logic": "and",
+          "action": "startDeal"
+        },
+        {
+          "id": "exit",
+          "logic": "and",
+          "action": "closeDeal"
+        }
+      ],
+      "indicators": [
+        {
+          "type": "MA",
+          "uuid": "trend-dema200",
+          "maType": "dema",
+          "indicatorLength": 200,
+          "indicatorCondition": "lt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1h",
+          "indicatorAction": "startDeal",
+          "maCrossingValue": "price",
+          "groupId": "entry"
+        },
+        {
+          "type": "ST",
+          "uuid": "st-buy",
+          "factor": 3,
+          "atrLength": 12,
+          "stCondition": "downToUp",
+          "indicatorInterval": "1h",
+          "indicatorValue": "0",
+          "indicatorCondition": "gt",
+          "indicatorAction": "startDeal",
+          "groupId": "entry"
+        },
+        {
+          "type": "ST",
+          "uuid": "st-sell",
+          "factor": 3,
+          "atrLength": 12,
+          "stCondition": "upToDown",
+          "indicatorInterval": "1h",
+          "indicatorValue": "0",
+          "indicatorCondition": "gt",
+          "indicatorAction": "closeDeal",
+          "groupId": "exit"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "strategy": "macd-zero-cross-200",
+  "name": "MACD cross below zero above the 200 EMA",
+  "source": {
+    "label": "TradingLab's MACD strategy, with the same rules from Trading Rush and Data Trader's 100 EMA version",
+    "url": "https://www.youtube.com/watch?v=rf_EQvubKlk",
+    "credits": [
+      {
+        "by": "TradingLab",
+        "url": "https://www.youtube.com/watch?v=rf_EQvubKlk",
+        "video": {
+          "id": "rf_EQvubKlk",
+          "title": "BEST MACD Trading Strategy [86% Win Rate]",
+          "channel": "TradingLab"
+        }
+      },
+      {
+        "by": "Trading Rush",
+        "what": "the same rules, backtested 100 times",
+        "url": "https://www.youtube.com/watch?v=nmffSjdZbWQ",
+        "video": {
+          "id": "nmffSjdZbWQ",
+          "title": "I risked MACD Trading Strategy 100 TIMES Here’s What Happened... - Forex Day Trading",
+          "channel": "TRADING RUSH"
+        }
+      },
+      {
+        "by": "Data Trader",
+        "what": "the 100 EMA version without the zero-line rule",
+        "url": "https://www.youtube.com/watch?v=Yj0yEBxwLVw",
+        "video": {
+          "id": "Yj0yEBxwLVw",
+          "title": "Most Effective MACD Strategy for Daytrading Crypto, Forex & Stocks",
+          "channel": "Data Trader"
+        }
+      }
+    ]
+  },
+  "tuned": false,
+  "rulesFixedAt": "2026-10-31",
+  "baseline": "random",
+  "tags": [
+    "trend-following"
+  ],
+  "rules": [
+    "Only buy while the hourly close is above the 200-hour EMA.",
+    "Buy when the MACD line (12, 26) crosses above its 9-period signal line while both are below zero.",
+    "Put the stop at the 200-hour EMA and the target at 1.5 times the risk.",
+    "Risking the same 20 USDT per trade: a stop closer than 1% is widened to 1% and one wider than 15% is cut to 15%, so a position never passes 2,000 USDT.",
+    "Hold one position per coin at a time."
+  ],
+  "notExpressed": [
+    "TradingLab calls it the 200-day moving average without a type; the test uses the 200 EMA on the trading chart, as Trading Rush does",
+    "Trading Rush's own trades take a quarter off at 1R, move the stop to breakeven and aim for 2R; its 100-trade test used the flat 1.5R kept here",
+    "Waiting for price to come back to a support level first (TradingLab's optional filter)",
+    "The source trades its own chart timeframe on forex or stocks; the test runs it on hourly crypto candles",
+    "Short trades below the 200 EMA (the test is spot, long only)"
+  ],
+  "variants": [
+    {
+      "id": "swing-low-stop",
+      "name": "Stop at the last swing low (Trading Rush)",
+      "kind": "settings",
+      "removeIndicators": [
+        "rr-ema200"
+      ],
+      "addIndicators": [
+        {
+          "type": "PP",
+          "uuid": "rr-swing-low",
+          "ppType": "Price Based",
+          "ppValue": "Any Low",
+          "ppLowLeft": 5,
+          "ppLowRight": 5,
+          "ppMult": 1,
+          "indicatorLength": 1,
+          "indicatorInterval": "1h",
+          "indicatorValue": "0",
+          "indicatorCondition": "cd",
+          "indicatorAction": "riskReward"
+        }
+      ]
+    },
+    {
+      "id": "ema100-no-zero",
+      "name": "100 EMA, no zero-line rule, swing-low stop (Data Trader)",
+      "kind": "settings",
+      "indicators": {
+        "trend-ema200": {
+          "indicatorLength": 100
+        }
+      },
+      "removeIndicators": [
+        "macd-below-zero",
+        "rr-ema200"
+      ],
+      "addIndicators": [
+        {
+          "type": "PP",
+          "uuid": "rr-swing-low",
+          "ppType": "Price Based",
+          "ppValue": "Any Low",
+          "ppLowLeft": 5,
+          "ppLowRight": 5,
+          "ppMult": 1,
+          "indicatorLength": 1,
+          "indicatorInterval": "1h",
+          "indicatorValue": "0",
+          "indicatorCondition": "cd",
+          "indicatorAction": "riskReward"
+        }
+      ]
+    }
+  ],
+  "bot": {
+    "type": "dca",
+    "interval": "1h",
+    "settings": {
+      "startCondition": "TechnicalIndicators",
+      "maxNumberOfOpenDeals": "3",
+      "maxDealsPerPair": "1",
+      "baseOrderSize": "2000",
+      "useRiskReward": true,
+      "rrSlType": "indicator",
+      "riskSlType": "fixed",
+      "riskSlAmountValue": "20",
+      "riskUseTpRatio": true,
+      "riskTpRatio": "1.5",
+      "riskMinSl": "1",
+      "riskMaxSl": "15",
+      "riskMinPositionSize": "0",
+      "riskMaxPositionSize": "2000",
+      "indicatorGroups": [
+        {
+          "id": "entry",
+          "logic": "and",
+          "action": "startDeal"
+        }
+      ],
+      "indicators": [
+        {
+          "type": "MA",
+          "uuid": "trend-ema200",
+          "maType": "ema",
+          "indicatorLength": 200,
+          "indicatorCondition": "lt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1h",
+          "indicatorAction": "startDeal",
+          "maCrossingValue": "price",
+          "groupId": "entry"
+        },
+        {
+          "type": "MACD",
+          "uuid": "macd-cross-up",
+          "indicatorLength": 9,
+          "macdFast": 12,
+          "macdSlow": 26,
+          "macdMaSource": "ema",
+          "macdMaSignal": "ema",
+          "indicatorCondition": "cu",
+          "indicatorValue": "0",
+          "indicatorInterval": "1h",
+          "indicatorAction": "startDeal",
+          "groupId": "entry"
+        },
+        {
+          "type": "MA",
+          "uuid": "macd-below-zero",
+          "maType": "ema",
+          "indicatorLength": 26,
+          "indicatorCondition": "gt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1h",
+          "indicatorAction": "startDeal",
+          "maCrossingValue": "ema",
+          "maCrossingLength": 12,
+          "maCrossingInterval": "1h",
+          "maUUID": "macd-below-zero-x",
+          "groupId": "entry"
+        },
+        {
+          "type": "MA",
+          "uuid": "rr-ema200",
+          "maType": "ema",
+          "indicatorLength": 200,
+          "indicatorCondition": "gt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1h",
+          "indicatorAction": "riskReward",
+          "maCrossingValue": "price"
+        }
+      ]
+    }
+  }
+}

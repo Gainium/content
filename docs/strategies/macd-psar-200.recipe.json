@@ -1,0 +1,116 @@
+{
+  "strategy": "macd-psar-200",
+  "name": "MACD and Parabolic SAR above the 200 EMA",
+  "source": {
+    "label": "Data Trader's MACD, Parabolic SAR and 200 EMA strategy",
+    "url": "https://www.youtube.com/watch?v=sbKTRVWppZY",
+    "credits": [
+      {
+        "by": "Data Trader",
+        "url": "https://www.youtube.com/watch?v=sbKTRVWppZY",
+        "video": {
+          "id": "sbKTRVWppZY",
+          "title": "70% Win Rate MACD + Parabolic SAR + 200 EMA Trading Strategy (Proven 100 Trades)",
+          "channel": "Data Trader"
+        }
+      }
+    ]
+  },
+  "tuned": false,
+  "rulesFixedAt": "2026-10-31",
+  "baseline": "random",
+  "tags": [
+    "trend-following"
+  ],
+  "rules": [
+    "Only buy while the hourly close is above the 200-hour EMA.",
+    "Buy when the MACD line (12, 26) crosses above its 9-period signal line while the Parabolic SAR (0.02, 0.02, 0.2) is below the price.",
+    "Put the stop at the Parabolic SAR and the target at 1 times the risk.",
+    "Risking the same 20 USDT per trade: a stop closer than 1% is widened to 1% and one wider than 15% is cut to 15%, so a position never passes 2,000 USDT.",
+    "Hold one position per coin at a time."
+  ],
+  "notExpressed": [
+    "Entering later when the SAR flips below the price while the MACD is still crossed up: the test buys only on the MACD cross itself",
+    "Capping the stop at \"0.7\" when the SAR is far away (the video leaves the unit unsaid); the test's cap is 15%",
+    "Data Trader trades EUR/USD on 30-minute candles; the test runs on hourly crypto candles",
+    "Short trades below the 200 EMA (the test is spot, long only)"
+  ],
+  "bot": {
+    "type": "dca",
+    "interval": "1h",
+    "settings": {
+      "startCondition": "TechnicalIndicators",
+      "maxNumberOfOpenDeals": "3",
+      "maxDealsPerPair": "1",
+      "baseOrderSize": "2000",
+      "useRiskReward": true,
+      "rrSlType": "indicator",
+      "riskSlType": "fixed",
+      "riskSlAmountValue": "20",
+      "riskUseTpRatio": true,
+      "riskTpRatio": "1",
+      "riskMinSl": "1",
+      "riskMaxSl": "15",
+      "riskMinPositionSize": "0",
+      "riskMaxPositionSize": "2000",
+      "indicatorGroups": [
+        {
+          "id": "entry",
+          "logic": "and",
+          "action": "startDeal"
+        }
+      ],
+      "indicators": [
+        {
+          "type": "MA",
+          "uuid": "trend-ema200",
+          "maType": "ema",
+          "indicatorLength": 200,
+          "indicatorCondition": "lt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1h",
+          "indicatorAction": "startDeal",
+          "maCrossingValue": "price",
+          "groupId": "entry"
+        },
+        {
+          "type": "MACD",
+          "uuid": "macd-cross-up",
+          "indicatorLength": 9,
+          "macdFast": 12,
+          "macdSlow": 26,
+          "macdMaSource": "ema",
+          "macdMaSignal": "ema",
+          "indicatorCondition": "cu",
+          "indicatorValue": "0",
+          "indicatorInterval": "1h",
+          "indicatorAction": "startDeal",
+          "groupId": "entry"
+        },
+        {
+          "type": "PSAR",
+          "uuid": "psar-below",
+          "psarStart": 0.02,
+          "psarInc": 0.02,
+          "psarMax": 0.2,
+          "indicatorCondition": "gt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1h",
+          "indicatorAction": "startDeal",
+          "groupId": "entry"
+        },
+        {
+          "type": "PSAR",
+          "uuid": "rr-psar",
+          "psarStart": 0.02,
+          "psarInc": 0.02,
+          "psarMax": 0.2,
+          "indicatorCondition": "gt",
+          "indicatorValue": "0",
+          "indicatorInterval": "1h",
+          "indicatorAction": "riskReward"
+        }
+      ]
+    }
+  }
+}
