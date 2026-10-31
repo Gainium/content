@@ -3,7 +3,19 @@
   "name": "QFL base cracking",
   "source": {
     "label": "Quickfingers Luc's base-cracking method, with Gainium's QFL Base Scanner defaults and the bot form's Mid-term safety-order preset",
-    "url": "https://gainium.io/indicators/qfl"
+    "url": "https://steemit.com/@quickfingersluc",
+    "credits": [
+      {
+        "by": "Quickfingers Luc",
+        "what": "base cracking",
+        "url": "https://steemit.com/@quickfingersluc"
+      },
+      {
+        "by": "Gainium",
+        "what": "the QFL Base Scanner",
+        "url": "https://gainium.io/indicators/qfl"
+      }
+    ]
   },
   "tuned": false,
   "rulesFixedAt": "2026-10-29",

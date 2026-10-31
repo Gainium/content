@@ -2,8 +2,14 @@
   "strategy": "nick-radge-dip",
   "name": "Nick Radge dip buying",
   "source": {
-    "label": "Nick Radge's buy-the-dip rule as set up for a Gainium bot on the community forum",
-    "url": "https://community.gainium.io/t/2026"
+    "label": "A Nick Radge-style dip rule as set up for a Gainium bot on the community forum",
+    "url": "https://community.gainium.io/t/2026",
+    "credits": [
+      {
+        "by": "the Gainium community forum",
+        "url": "https://community.gainium.io/t/2026"
+      }
+    ]
   },
   "discussion": "https://community.gainium.io/t/2026",
   "tuned": false,

@@ -2,7 +2,30 @@
   "strategy": "ma-undercut-rally",
   "name": "Moving-average undercut and rally",
   "source": {
-    "label": "The moving-average undercut-and-rally setup of the Real Simple Strategy, with the 10/20-day EMA pullback of the Price Cycle Continuation strategy"
+    "label": "Ariel Hernandez's undercut-and-rally setup, with Clement Ang's 10/20-day EMA pullback",
+    "url": "https://www.youtube.com/watch?v=BynXTHRe9NU",
+    "credits": [
+      {
+        "by": "Ariel Hernandez",
+        "what": "the undercut and rally",
+        "url": "https://www.youtube.com/watch?v=BynXTHRe9NU",
+        "video": {
+          "id": "BynXTHRe9NU",
+          "title": "Undercut and Rally",
+          "channel": "Ariel Hernandez"
+        }
+      },
+      {
+        "by": "Clement Ang",
+        "what": "the 10/20-day EMA pullback",
+        "url": "https://www.youtube.com/watch?v=0_NSmOWVbpA",
+        "video": {
+          "id": "0_NSmOWVbpA",
+          "title": "If You Only Watch ONE Market Cycle Trading Video, Make It This (500%+ Champion)",
+          "channel": "Chart Fanatics"
+        }
+      }
+    ]
   },
   "tuned": false,
   "rulesFixedAt": "2026-10-30",

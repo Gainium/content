@@ -2,7 +2,29 @@
   "strategy": "first-principles-trend",
   "name": "100-day high breakout, 10-day average exit",
   "source": {
-    "label": "The long-term trend-following approach in Pavel's Trading First Principles Framework"
+    "label": "The long-term trend-following approach in Pavel Kýček's Trading First Principles Framework",
+    "url": "https://www.youtube.com/watch?v=_wpg45NdMkM",
+    "credits": [
+      {
+        "by": "Pavel Kýček (Robuxio)",
+        "url": "https://www.youtube.com/watch?v=_wpg45NdMkM",
+        "video": {
+          "id": "_wpg45NdMkM",
+          "title": "20 Years Of Institutional Trading Knowledge In 70 Minutes ($20M+ AUM)",
+          "channel": "Chart Fanatics"
+        }
+      },
+      {
+        "by": "Pavel Kýček (Robuxio)",
+        "what": "his algorithmic crypto trading course",
+        "url": "https://www.youtube.com/watch?v=ljK1Nv8SPJI",
+        "video": {
+          "id": "ljK1Nv8SPJI",
+          "title": "Algorithmic Crypto Trading Course — Free Lesson 1 of 11 | Pavel Kýček, Robuxio",
+          "channel": "ROBUXIO"
+        }
+      }
+    ]
   },
   "tuned": false,
   "rulesFixedAt": "2026-10-30",

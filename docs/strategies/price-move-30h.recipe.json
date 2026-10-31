@@ -3,7 +3,14 @@
   "name": "3% hourly move, 30-hour hold",
   "source": {
     "label": "Ares's shared Gainium backtest of 2026-10-29 (10 coins, Oct 2023 – Oct 2026)",
-    "url": "https://app.gainium.io/bot/backtests?backtestShare=e54c9682-3bbc-4760-889c-a9d3fd7f2ceb"
+    "url": "https://app.gainium.io/bot/backtests?backtestShare=e54c9682-3bbc-4760-889c-a9d3fd7f2ceb",
+    "credits": [
+      {
+        "by": "Ares (Gainium)",
+        "what": "a shared Gainium backtest",
+        "url": "https://app.gainium.io/bot/backtests?backtestShare=e54c9682-3bbc-4760-889c-a9d3fd7f2ceb"
+      }
+    ]
   },
   "tuned": true,
   "rulesFixedAt": "2026-10-29",

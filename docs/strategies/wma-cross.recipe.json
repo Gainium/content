@@ -3,7 +3,13 @@
   "name": "WMA 7/25 crossover",
   "source": {
     "label": "The weighted moving average crossover asked about as a set-and-forget bot on the Gainium community forum",
-    "url": "https://community.gainium.io/t/970"
+    "url": "https://community.gainium.io/t/970",
+    "credits": [
+      {
+        "by": "the Gainium community forum",
+        "url": "https://community.gainium.io/t/970"
+      }
+    ]
   },
   "discussion": "https://community.gainium.io/t/970",
   "tuned": false,

@@ -2,8 +2,19 @@
   "strategy": "urma-lite",
   "name": "Urma Lite (always-on DCA)",
   "source": {
-    "label": "Urma Lite, a low-cost always-on DCA bot shared on the Gainium community forum (based on TradeAlts' ASAP DCA bots)",
-    "url": "https://community.gainium.io/t/1663"
+    "label": "Urma Lite, a low-cost always-on DCA bot shared on the Gainium community forum",
+    "url": "https://community.gainium.io/t/1663",
+    "credits": [
+      {
+        "by": "the Gainium community forum",
+        "url": "https://community.gainium.io/t/1663"
+      },
+      {
+        "by": "Trade Alts",
+        "what": "background: the ASAP DCA bots",
+        "url": "https://www.youtube.com/@TradeAlts"
+      }
+    ]
   },
   "discussion": "https://community.gainium.io/t/1663",
   "tuned": false,

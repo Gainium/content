@@ -2,7 +2,19 @@
   "strategy": "ema-stack-fvg",
   "name": "EMA stack with fair value gap tap",
   "source": {
-    "label": "The Unique High RR strategy (a forex and gold model on 30-minute candles)"
+    "label": "Tyler's (TG Capital) EMA stack with fair value gap entries (a forex and gold model on 30-minute candles)",
+    "url": "https://www.youtube.com/watch?v=ADnslyKOwFE",
+    "credits": [
+      {
+        "by": "Tyler (TG Capital)",
+        "url": "https://www.youtube.com/watch?v=ADnslyKOwFE",
+        "video": {
+          "id": "ADnslyKOwFE",
+          "title": "STEAL This INSANE Simple 90% Win Rate Trading Strategy (1:20+ RR) - TG Capital",
+          "channel": "Chart Fanatics"
+        }
+      }
+    ]
   },
   "tuned": false,
   "rulesFixedAt": "2026-10-30",

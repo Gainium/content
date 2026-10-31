@@ -3,7 +3,24 @@
   "name": "Turtle trading (System 1)",
   "source": {
     "label": "The Turtle rules taught by Richard Dennis and William Eckhardt in 1983 (System 1), as published in Curtis Faith's \"The Original Turtle Trading Rules\"",
-    "url": "https://community.gainium.io/t/1320"
+    "url": "https://www.tradingblox.com/originalturtles/",
+    "credits": [
+      {
+        "by": "Curtis Faith",
+        "what": "The Original Turtle Trading Rules",
+        "url": "https://www.tradingblox.com/originalturtles/"
+      },
+      {
+        "by": "Richard Dennis and William Eckhardt",
+        "what": "the Turtle traders; a summary",
+        "url": "https://www.youtube.com/watch?v=NJkXSZUHl1g",
+        "video": {
+          "id": "NJkXSZUHl1g",
+          "title": "TURTLE TRADERS STRATEGY - The Complete TurtleTrader by Michael Covel. (Richard Dennis)",
+          "channel": "Financial Wisdom"
+        }
+      }
+    ]
   },
   "discussion": "https://community.gainium.io/t/1320",
   "tuned": false,

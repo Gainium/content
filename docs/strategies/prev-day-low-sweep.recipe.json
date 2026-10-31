@@ -2,7 +2,29 @@
   "strategy": "prev-day-low-sweep",
   "name": "Previous-day low sweep and reclaim",
   "source": {
-    "label": "The Liquidity Strategy, with the previous-day levels of the Intraday Liquidity & Volatility Model"
+    "label": "JadeCap's liquidity sweep of the previous day's levels",
+    "url": "https://www.youtube.com/watch?v=8OX-mcSHWhg",
+    "credits": [
+      {
+        "by": "JadeCap",
+        "url": "https://www.youtube.com/watch?v=8OX-mcSHWhg",
+        "video": {
+          "id": "8OX-mcSHWhg",
+          "title": "Worlds BEST Prop Firm Trader Reveals SIMPLE Trading Strategy - Jadecap (Full Breakdown)",
+          "channel": "Chart Fanatics"
+        }
+      },
+      {
+        "by": "Inter Equity Trading",
+        "what": "trading liquidity",
+        "url": "https://www.youtube.com/watch?v=xaZeNPHwKDw",
+        "video": {
+          "id": "xaZeNPHwKDw",
+          "title": "The BEST Way To Trade LIQUIDITY (SIMPLE STRATEGY)",
+          "channel": "Inter Equity Trading"
+        }
+      }
+    ]
   },
   "tuned": false,
   "rulesFixedAt": "2026-10-30",

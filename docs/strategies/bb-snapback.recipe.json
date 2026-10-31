@@ -2,7 +2,19 @@
   "strategy": "bb-snapback",
   "name": "Bollinger band snap-back to the mean",
   "source": {
-    "label": "The Mean Reversion Strategy (an intraday stock method, run here on hourly crypto candles)"
+    "label": "Lance Breitstein's Bollinger Band mean reversion (an intraday stock method, run here on hourly crypto candles)",
+    "url": "https://www.youtube.com/watch?v=ZZ-e9wxARSI",
+    "credits": [
+      {
+        "by": "Lance Breitstein",
+        "url": "https://www.youtube.com/watch?v=ZZ-e9wxARSI",
+        "video": {
+          "id": "ZZ-e9wxARSI",
+          "title": "The Bollinger Band Edge Most Traders Never Discover",
+          "channel": "TheOneLanceB"
+        }
+      }
+    ]
   },
   "tuned": false,
   "rulesFixedAt": "2026-10-30",

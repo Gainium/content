@@ -2,7 +2,29 @@
   "strategy": "stage-2-breakout",
   "name": "Stage 2 breakout (stage analysis)",
   "source": {
-    "label": "Ted Zhang's Stage Analysis strategy"
+    "label": "Ted Zhang's stage analysis strategy, after Stan Weinstein's four stages",
+    "url": "https://www.youtube.com/watch?v=VDK200OHNSo",
+    "credits": [
+      {
+        "by": "Ted Zhang",
+        "url": "https://www.youtube.com/watch?v=VDK200OHNSo",
+        "video": {
+          "id": "VDK200OHNSo",
+          "title": "Trading $50M At 25 Using One SIMPLE Market Cycle Strategy (4 Stages) - Ted Zhang",
+          "channel": "Chart Fanatics"
+        }
+      },
+      {
+        "by": "Stan Weinstein",
+        "what": "the four stages, from Secrets for Profiting in Bull and Bear Markets (1988); a summary",
+        "url": "https://www.youtube.com/watch?v=JbKiiLo1s2o",
+        "video": {
+          "id": "JbKiiLo1s2o",
+          "title": "STAN WEINSTEIN - SECRETS FOR PROFITING IN BULL AND BEAR MARKETS - Professional Investor.",
+          "channel": "Financial Wisdom"
+        }
+      }
+    ]
   },
   "tuned": false,
   "rulesFixedAt": "2026-10-30",

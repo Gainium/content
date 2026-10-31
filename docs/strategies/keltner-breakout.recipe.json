@@ -3,7 +3,13 @@
   "name": "Keltner channel breakout",
   "source": {
     "label": "The Range Filter bot shared on the Gainium community forum",
-    "url": "https://community.gainium.io/t/2443"
+    "url": "https://community.gainium.io/t/2443",
+    "credits": [
+      {
+        "by": "the Gainium community forum",
+        "url": "https://community.gainium.io/t/2443"
+      }
+    ]
   },
   "discussion": "https://community.gainium.io/t/2443",
   "tuned": false,

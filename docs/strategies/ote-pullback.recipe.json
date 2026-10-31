@@ -2,7 +2,45 @@
   "strategy": "ote-pullback",
   "name": "Structure + OTE pullback",
   "source": {
-    "label": "The Structure + OTE strategy, with the Fibonacci entry, stop and target of the PO3, OTE + ADR model"
+    "label": "Trader Mayne's structure and OTE entry, with NBB Trader's Fibonacci stop and target; OTE as taught by Michael Huddleston (ICT)",
+    "url": "https://www.youtube.com/watch?v=7emw-Ok9gho",
+    "credits": [
+      {
+        "by": "Trader Mayne",
+        "what": "the OTE entry",
+        "url": "https://www.youtube.com/watch?v=7emw-Ok9gho",
+        "video": {
+          "id": "7emw-Ok9gho",
+          "title": "OTE Is The Most Precise Entry In Smart Money Trading",
+          "channel": "Trader Mayne"
+        }
+      },
+      {
+        "by": "Trader Mayne",
+        "what": "market structure",
+        "url": "https://www.youtube.com/watch?v=jt5ncnNoCTQ",
+        "video": {
+          "id": "jt5ncnNoCTQ",
+          "title": "How To Trade Market Structure Like a Pro",
+          "channel": "Trader Mayne"
+        }
+      },
+      {
+        "by": "NBB Trader",
+        "what": "the PO3, OTE and ADR model",
+        "url": "https://www.youtube.com/watch?v=rxPPBj29kFg",
+        "video": {
+          "id": "rxPPBj29kFg",
+          "title": "NBB Trader Part II: This ICT Strategy Will Change Everything! | WOR Podcast - EP.118",
+          "channel": "Words of Rizdom"
+        }
+      },
+      {
+        "by": "Michael Huddleston (ICT)",
+        "what": "the OTE concept",
+        "url": "https://www.youtube.com/watch?v=Cg0-CFJOJvg"
+      }
+    ]
   },
   "tuned": false,
   "rulesFixedAt": "2026-10-30",

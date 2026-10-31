@@ -3,7 +3,13 @@
   "name": "HMA 50/200 trend with safety orders",
   "source": {
     "label": "The BTC combo bot tested over four years on the Gainium community forum",
-    "url": "https://community.gainium.io/t/4430"
+    "url": "https://community.gainium.io/t/4430",
+    "credits": [
+      {
+        "by": "the Gainium community forum",
+        "url": "https://community.gainium.io/t/4430"
+      }
+    ]
   },
   "discussion": "https://community.gainium.io/t/4430",
   "tuned": false,

@@ -3,7 +3,13 @@
   "name": "EMA 20/50 cross with RSI filter",
   "source": {
     "label": "The Classic 20-50-RSI bot shared on the Gainium community forum (its 1-hour version)",
-    "url": "https://community.gainium.io/t/2442"
+    "url": "https://community.gainium.io/t/2442",
+    "credits": [
+      {
+        "by": "the Gainium community forum",
+        "url": "https://community.gainium.io/t/2442"
+      }
+    ]
   },
   "discussion": "https://community.gainium.io/t/2442",
   "tuned": false,
