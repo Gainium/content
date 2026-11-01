@@ -418,6 +418,306 @@
         "row": "5%",
         "col": "30h"
       }
+    },
+    {
+      "id": "move-1-5-hold-5",
+      "name": "1.5% move, 5-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 5
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-1.5"
+        },
+        "pc-up": {
+          "pcValue": "1.5"
+        }
+      },
+      "grid": {
+        "row": "1.5%",
+        "col": "5h"
+      }
+    },
+    {
+      "id": "move-1-5-hold-10",
+      "name": "1.5% move, 10-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 10
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-1.5"
+        },
+        "pc-up": {
+          "pcValue": "1.5"
+        }
+      },
+      "grid": {
+        "row": "1.5%",
+        "col": "10h"
+      }
+    },
+    {
+      "id": "move-1-5-hold-15",
+      "name": "1.5% move, 15-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 15
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-1.5"
+        },
+        "pc-up": {
+          "pcValue": "1.5"
+        }
+      },
+      "grid": {
+        "row": "1.5%",
+        "col": "15h"
+      }
+    },
+    {
+      "id": "move-1-5-hold-20",
+      "name": "1.5% move, 20-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 20
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-1.5"
+        },
+        "pc-up": {
+          "pcValue": "1.5"
+        }
+      },
+      "grid": {
+        "row": "1.5%",
+        "col": "20h"
+      }
+    },
+    {
+      "id": "move-1-5-hold-30",
+      "name": "1.5% move, 30-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 30
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-1.5"
+        },
+        "pc-up": {
+          "pcValue": "1.5"
+        }
+      },
+      "grid": {
+        "row": "1.5%",
+        "col": "30h"
+      }
+    },
+    {
+      "id": "move-1-5-hold-48",
+      "name": "1.5% move, 48-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 48
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-1.5"
+        },
+        "pc-up": {
+          "pcValue": "1.5"
+        }
+      },
+      "grid": {
+        "row": "1.5%",
+        "col": "48h"
+      }
+    },
+    {
+      "id": "move-1-5-hold-72",
+      "name": "1.5% move, 72-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 72
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-1.5"
+        },
+        "pc-up": {
+          "pcValue": "1.5"
+        }
+      },
+      "grid": {
+        "row": "1.5%",
+        "col": "72h"
+      }
+    },
+    {
+      "id": "move-2-hold-48",
+      "name": "2% move, 48-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 48
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-2"
+        },
+        "pc-up": {
+          "pcValue": "2"
+        }
+      },
+      "grid": {
+        "row": "2%",
+        "col": "48h"
+      }
+    },
+    {
+      "id": "move-2-hold-72",
+      "name": "2% move, 72-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 72
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-2"
+        },
+        "pc-up": {
+          "pcValue": "2"
+        }
+      },
+      "grid": {
+        "row": "2%",
+        "col": "72h"
+      }
+    },
+    {
+      "id": "move-3-hold-48",
+      "name": "3% move, 48-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 48
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-3"
+        },
+        "pc-up": {
+          "pcValue": "3"
+        }
+      },
+      "grid": {
+        "row": "3%",
+        "col": "48h"
+      }
+    },
+    {
+      "id": "move-3-hold-72",
+      "name": "3% move, 72-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 72
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-3"
+        },
+        "pc-up": {
+          "pcValue": "3"
+        }
+      },
+      "grid": {
+        "row": "3%",
+        "col": "72h"
+      }
+    },
+    {
+      "id": "move-4-hold-48",
+      "name": "4% move, 48-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 48
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-4"
+        },
+        "pc-up": {
+          "pcValue": "4"
+        }
+      },
+      "grid": {
+        "row": "4%",
+        "col": "48h"
+      }
+    },
+    {
+      "id": "move-4-hold-72",
+      "name": "4% move, 72-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 72
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-4"
+        },
+        "pc-up": {
+          "pcValue": "4"
+        }
+      },
+      "grid": {
+        "row": "4%",
+        "col": "72h"
+      }
+    },
+    {
+      "id": "move-5-hold-48",
+      "name": "5% move, 48-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 48
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-5"
+        },
+        "pc-up": {
+          "pcValue": "5"
+        }
+      },
+      "grid": {
+        "row": "5%",
+        "col": "48h"
+      }
+    },
+    {
+      "id": "move-5-hold-72",
+      "name": "5% move, 72-hour hold",
+      "kind": "settings",
+      "settings": {
+        "closeByTimerValue": 72
+      },
+      "indicators": {
+        "pc-down": {
+          "pcValue": "-5"
+        },
+        "pc-up": {
+          "pcValue": "5"
+        }
+      },
+      "grid": {
+        "row": "5%",
+        "col": "72h"
+      }
     }
   ],
   "bot": {
