@@ -36,6 +36,7 @@
       }
     ]
   },
+  "discussion": "https://community.gainium.io/t/5477",
   "tuned": false,
   "rulesFixedAt": "2026-10-31",
   "baseline": "random",
