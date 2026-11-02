@@ -1,0 +1,195 @@
+{
+ "strategy": "stoch-pullback-200",
+ "updatedAt": "2026-11-02",
+ "method": {
+  "source": "Binance spot",
+  "pairs": [
+   "BTC/USDT",
+   "ETH/USDT",
+   "SOL/USDT"
+  ],
+  "from": "2020-09-01",
+  "oosFrom": "2024-01-01",
+  "to": "2026-11-01",
+  "interval": "1h",
+  "fee": 0.001,
+  "baseline": "random",
+  "randomDraws": 200,
+  "band": [
+   5,
+   95
+  ],
+  "minTrades": 30,
+  "minOosDays": 365,
+  "budget": 6000,
+  "engine": {
+   "backtester": "c6cc7248",
+   "version": "1.28.0"
+  }
+ },
+ "periods": {
+  "inSample": {
+   "from": "2020-09-01",
+   "to": "2023-12-31",
+   "strategy": {
+    "return": -43.31,
+    "maxDrawdown": 46.3,
+    "profitFactor": 0.75,
+    "trades": 660,
+    "closed": 659,
+    "winRate": 31.26,
+    "medianHoldingHours": 6
+   },
+   "random": {
+    "draws": 200,
+    "band": [
+     -27.14,
+     6.62
+    ],
+    "medianReturn": -9.85,
+    "medianMaxDrawdown": 24.86,
+    "medianTrades": 633,
+    "medianHoldingHours": 17
+   },
+   "hold": {
+    "return": 905.51,
+    "maxDrawdown": 91.51
+   },
+   "state": "below"
+  },
+  "outOfSample": {
+   "from": "2024-01-01",
+   "to": "2026-11-01",
+   "strategy": {
+    "return": -25.71,
+    "maxDrawdown": 30.16,
+    "profitFactor": 0.81,
+    "trades": 525,
+    "closed": 525,
+    "winRate": 33.52,
+    "medianHoldingHours": 9
+   },
+   "random": {
+    "draws": 200,
+    "band": [
+     -25.87,
+     1.8
+    ],
+    "medianReturn": -12.63,
+    "medianMaxDrawdown": 18.81,
+    "medianTrades": 492,
+    "medianHoldingHours": 18
+   },
+   "hold": {
+    "return": 25.31,
+    "maxDrawdown": 63.6
+   },
+   "state": "inside"
+  }
+ },
+ "verdict": "inside",
+ "excess": -13.08,
+ "copy": {
+  "type": "dca",
+  "interval": "1h",
+  "pairs": [
+   "BTC/USDT",
+   "ETH/USDT",
+   "SOL/USDT"
+  ],
+  "settings": {
+   "strategy": "LONG",
+   "futures": false,
+   "coinm": false,
+   "leverage": 1,
+   "profitCurrency": "quote",
+   "orderSizeType": "quote",
+   "orderFixedIn": "quote",
+   "startOrderType": "MARKET",
+   "startCondition": "TechnicalIndicators",
+   "dcaCondition": "percentage",
+   "scaleDcaType": "percentage",
+   "useDca": false,
+   "ordersCount": 0,
+   "activeOrdersCount": 0,
+   "step": "1",
+   "stepScale": "1",
+   "volumeScale": "1",
+   "minimumDeviation": "0",
+   "useTp": false,
+   "tpPerc": "1",
+   "useSl": false,
+   "slPerc": "-10",
+   "dealCloseCondition": "tp",
+   "dealCloseConditionSL": "tp",
+   "closeDealType": "closeByMarket",
+   "maxNumberOfOpenDeals": "3",
+   "useMulti": true,
+   "maxDealsPerPair": "1",
+   "hodlDay": "7",
+   "hodlAt": "00:00",
+   "hodlNextBuy": 0,
+   "indicators": [
+    {
+     "type": "MA",
+     "uuid": "trend-ema200",
+     "maType": "ema",
+     "indicatorLength": 200,
+     "indicatorCondition": "lt",
+     "indicatorValue": "0",
+     "indicatorInterval": "1h",
+     "indicatorAction": "startDeal",
+     "maCrossingValue": "price",
+     "groupId": "entry"
+    },
+    {
+     "type": "Stoch",
+     "uuid": "stoch-up20",
+     "indicatorLength": 14,
+     "stochSmoothK": 3,
+     "stochSmoothD": 3,
+     "rsiValue": "k",
+     "indicatorCondition": "cu",
+     "rsiValue2": "custom",
+     "valueInsteadof": 20,
+     "indicatorValue": "0",
+     "indicatorInterval": "1h",
+     "indicatorAction": "startDeal",
+     "groupId": "entry"
+    },
+    {
+     "type": "PP",
+     "uuid": "rr-swing-low",
+     "ppType": "Price Based",
+     "ppValue": "Any Low",
+     "ppLowLeft": 5,
+     "ppLowRight": 5,
+     "ppMult": 1,
+     "indicatorLength": 1,
+     "indicatorInterval": "1h",
+     "indicatorValue": "0",
+     "indicatorCondition": "cd",
+     "indicatorAction": "riskReward"
+    }
+   ],
+   "indicatorGroups": [
+    {
+     "id": "entry",
+     "logic": "and",
+     "action": "startDeal"
+    }
+   ],
+   "baseOrderSize": "2000",
+   "useRiskReward": true,
+   "rrSlType": "indicator",
+   "riskSlType": "fixed",
+   "riskSlAmountValue": "20",
+   "riskUseTpRatio": true,
+   "riskTpRatio": "2",
+   "riskMinSl": "1",
+   "riskMaxSl": "15",
+   "riskMinPositionSize": "0",
+   "riskMaxPositionSize": "2000"
+  }
+ }
+}

@@ -1,0 +1,184 @@
+{
+ "strategy": "rsi10-pullback",
+ "updatedAt": "2026-11-02",
+ "method": {
+  "source": "Binance spot",
+  "pairs": [
+   "BTC/USDT",
+   "ETH/USDT",
+   "SOL/USDT"
+  ],
+  "from": "2020-09-01",
+  "oosFrom": "2024-01-01",
+  "to": "2026-11-01",
+  "interval": "1d",
+  "fee": 0.001,
+  "baseline": "random",
+  "randomDraws": 200,
+  "band": [
+   5,
+   95
+  ],
+  "minTrades": 30,
+  "minOosDays": 365,
+  "budget": 3000,
+  "engine": {
+   "backtester": "c6cc7248",
+   "version": "1.28.0"
+  }
+ },
+ "periods": {
+  "inSample": {
+   "from": "2020-09-01",
+   "to": "2023-12-31",
+   "strategy": {
+    "return": 20.24,
+    "maxDrawdown": 8.57,
+    "profitFactor": 4.12,
+    "trades": 13,
+    "closed": 13,
+    "winRate": 84.62,
+    "medianHoldingHours": 96
+   },
+   "random": {
+    "draws": 200,
+    "band": [
+     -9.93,
+     15.37
+    ],
+    "medianReturn": 2.4,
+    "medianMaxDrawdown": 5.94,
+    "medianTrades": 13,
+    "medianHoldingHours": 24
+   },
+   "hold": {
+    "return": 958.47,
+    "maxDrawdown": 91.73
+   },
+   "state": "few"
+  },
+  "outOfSample": {
+   "from": "2024-01-01",
+   "to": "2026-11-01",
+   "strategy": {
+    "return": 19.01,
+    "maxDrawdown": 4.67,
+    "profitFactor": 18.01,
+    "trades": 15,
+    "closed": 12,
+    "winRate": 83.33,
+    "medianHoldingHours": 72
+   },
+   "random": {
+    "draws": 200,
+    "band": [
+     -10.89,
+     8.8
+    ],
+    "medianReturn": 0.26,
+    "medianMaxDrawdown": 5.91,
+    "medianTrades": 15,
+    "medianHoldingHours": 24
+   },
+   "hold": {
+    "return": 19.91,
+    "maxDrawdown": 62.3
+   },
+   "state": "few"
+  }
+ },
+ "verdict": "few",
+ "excess": 18.75,
+ "copy": {
+  "type": "dca",
+  "interval": "1d",
+  "pairs": [
+   "BTC/USDT",
+   "ETH/USDT",
+   "SOL/USDT"
+  ],
+  "settings": {
+   "strategy": "LONG",
+   "futures": false,
+   "coinm": false,
+   "leverage": 1,
+   "profitCurrency": "quote",
+   "orderSizeType": "quote",
+   "orderFixedIn": "quote",
+   "startOrderType": "MARKET",
+   "startCondition": "TechnicalIndicators",
+   "dcaCondition": "percentage",
+   "scaleDcaType": "percentage",
+   "useDca": false,
+   "ordersCount": 0,
+   "activeOrdersCount": 0,
+   "step": "1",
+   "stepScale": "1",
+   "volumeScale": "1",
+   "minimumDeviation": "0",
+   "useTp": true,
+   "tpPerc": "1",
+   "useSl": false,
+   "slPerc": "-10",
+   "dealCloseCondition": "techInd",
+   "dealCloseConditionSL": "tp",
+   "closeDealType": "closeByMarket",
+   "maxNumberOfOpenDeals": "3",
+   "useMulti": true,
+   "maxDealsPerPair": "1",
+   "hodlDay": "7",
+   "hodlAt": "00:00",
+   "hodlNextBuy": 0,
+   "indicators": [
+    {
+     "type": "MA",
+     "uuid": "trend-sma200",
+     "maType": "sma",
+     "indicatorLength": 200,
+     "indicatorCondition": "lt",
+     "indicatorValue": "0",
+     "indicatorInterval": "1d",
+     "indicatorAction": "startDeal",
+     "maCrossingValue": "price",
+     "groupId": "entry"
+    },
+    {
+     "type": "RSI",
+     "uuid": "rsi10-entry",
+     "indicatorLength": 10,
+     "indicatorCondition": "lt",
+     "indicatorValue": "30",
+     "indicatorInterval": "1d",
+     "indicatorAction": "startDeal",
+     "groupId": "entry"
+    },
+    {
+     "type": "RSI",
+     "uuid": "rsi10-exit",
+     "indicatorLength": 10,
+     "indicatorCondition": "gt",
+     "indicatorValue": "40",
+     "indicatorInterval": "1d",
+     "indicatorAction": "closeDeal",
+     "groupId": "exit"
+    }
+   ],
+   "indicatorGroups": [
+    {
+     "id": "entry",
+     "logic": "and",
+     "action": "startDeal"
+    },
+    {
+     "id": "exit",
+     "logic": "and",
+     "action": "closeDeal"
+    }
+   ],
+   "baseOrderSize": "1000",
+   "closeByTimer": true,
+   "closeByTimerValue": 10,
+   "closeByTimerUnits": "days"
+  }
+ }
+}

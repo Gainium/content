@@ -1,0 +1,203 @@
+{
+ "strategy": "macd-psar-200",
+ "updatedAt": "2026-11-02",
+ "method": {
+  "source": "Binance spot",
+  "pairs": [
+   "BTC/USDT",
+   "ETH/USDT",
+   "SOL/USDT"
+  ],
+  "from": "2020-09-01",
+  "oosFrom": "2024-01-01",
+  "to": "2026-11-01",
+  "interval": "1h",
+  "fee": 0.001,
+  "baseline": "random",
+  "randomDraws": 200,
+  "band": [
+   5,
+   95
+  ],
+  "minTrades": 30,
+  "minOosDays": 365,
+  "budget": 6000,
+  "engine": {
+   "backtester": "c6cc7248",
+   "version": "1.28.0"
+  }
+ },
+ "periods": {
+  "inSample": {
+   "from": "2020-09-01",
+   "to": "2023-12-31",
+   "strategy": {
+    "return": -28.51,
+    "maxDrawdown": 32.91,
+    "profitFactor": 0.83,
+    "trades": 905,
+    "closed": 904,
+    "winRate": 49.34,
+    "medianHoldingHours": 10
+   },
+   "random": {
+    "draws": 200,
+    "band": [
+     -50.37,
+     -18.33
+    ],
+    "medianReturn": -33.57,
+    "medianMaxDrawdown": 36.98,
+    "medianTrades": 871,
+    "medianHoldingHours": 7
+   },
+   "hold": {
+    "return": 905.51,
+    "maxDrawdown": 91.51
+   },
+   "state": "inside"
+  },
+  "outOfSample": {
+   "from": "2024-01-01",
+   "to": "2026-11-01",
+   "strategy": {
+    "return": -30.54,
+    "maxDrawdown": 33.73,
+    "profitFactor": 0.79,
+    "trades": 780,
+    "closed": 780,
+    "winRate": 49.62,
+    "medianHoldingHours": 9
+   },
+   "random": {
+    "draws": 200,
+    "band": [
+     -45.98,
+     -16.82
+    ],
+    "medianReturn": -30.36,
+    "medianMaxDrawdown": 32.85,
+    "medianTrades": 754,
+    "medianHoldingHours": 7
+   },
+   "hold": {
+    "return": 25.31,
+    "maxDrawdown": 63.6
+   },
+   "state": "inside"
+  }
+ },
+ "verdict": "inside",
+ "excess": -0.18,
+ "copy": {
+  "type": "dca",
+  "interval": "1h",
+  "pairs": [
+   "BTC/USDT",
+   "ETH/USDT",
+   "SOL/USDT"
+  ],
+  "settings": {
+   "strategy": "LONG",
+   "futures": false,
+   "coinm": false,
+   "leverage": 1,
+   "profitCurrency": "quote",
+   "orderSizeType": "quote",
+   "orderFixedIn": "quote",
+   "startOrderType": "MARKET",
+   "startCondition": "TechnicalIndicators",
+   "dcaCondition": "percentage",
+   "scaleDcaType": "percentage",
+   "useDca": false,
+   "ordersCount": 0,
+   "activeOrdersCount": 0,
+   "step": "1",
+   "stepScale": "1",
+   "volumeScale": "1",
+   "minimumDeviation": "0",
+   "useTp": false,
+   "tpPerc": "1",
+   "useSl": false,
+   "slPerc": "-10",
+   "dealCloseCondition": "tp",
+   "dealCloseConditionSL": "tp",
+   "closeDealType": "closeByMarket",
+   "maxNumberOfOpenDeals": "3",
+   "useMulti": true,
+   "maxDealsPerPair": "1",
+   "hodlDay": "7",
+   "hodlAt": "00:00",
+   "hodlNextBuy": 0,
+   "indicators": [
+    {
+     "type": "MA",
+     "uuid": "trend-ema200",
+     "maType": "ema",
+     "indicatorLength": 200,
+     "indicatorCondition": "lt",
+     "indicatorValue": "0",
+     "indicatorInterval": "1h",
+     "indicatorAction": "startDeal",
+     "maCrossingValue": "price",
+     "groupId": "entry"
+    },
+    {
+     "type": "MACD",
+     "uuid": "macd-cross-up",
+     "indicatorLength": 9,
+     "macdFast": 12,
+     "macdSlow": 26,
+     "macdMaSource": "ema",
+     "macdMaSignal": "ema",
+     "indicatorCondition": "cu",
+     "indicatorValue": "0",
+     "indicatorInterval": "1h",
+     "indicatorAction": "startDeal",
+     "groupId": "entry"
+    },
+    {
+     "type": "PSAR",
+     "uuid": "psar-below",
+     "psarStart": 0.02,
+     "psarInc": 0.02,
+     "psarMax": 0.2,
+     "indicatorCondition": "gt",
+     "indicatorValue": "0",
+     "indicatorInterval": "1h",
+     "indicatorAction": "startDeal",
+     "groupId": "entry"
+    },
+    {
+     "type": "PSAR",
+     "uuid": "rr-psar",
+     "psarStart": 0.02,
+     "psarInc": 0.02,
+     "psarMax": 0.2,
+     "indicatorCondition": "gt",
+     "indicatorValue": "0",
+     "indicatorInterval": "1h",
+     "indicatorAction": "riskReward"
+    }
+   ],
+   "indicatorGroups": [
+    {
+     "id": "entry",
+     "logic": "and",
+     "action": "startDeal"
+    }
+   ],
+   "baseOrderSize": "2000",
+   "useRiskReward": true,
+   "rrSlType": "indicator",
+   "riskSlType": "fixed",
+   "riskSlAmountValue": "20",
+   "riskUseTpRatio": true,
+   "riskTpRatio": "1",
+   "riskMinSl": "1",
+   "riskMaxSl": "15",
+   "riskMinPositionSize": "0",
+   "riskMaxPositionSize": "2000"
+  }
+ }
+}

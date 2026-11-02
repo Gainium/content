@@ -1,6 +1,6 @@
 {
  "strategy": "turtle",
- "updatedAt": "2026-10-29",
+ "updatedAt": "2026-11-02",
  "method": {
   "source": "Binance spot",
   "pairs": [
@@ -10,7 +10,7 @@
   ],
   "from": "2020-09-01",
   "oosFrom": "2024-01-01",
-  "to": "2026-10-28",
+  "to": "2026-11-01",
   "interval": "1d",
   "fee": 0.001,
   "baseline": "random",
@@ -23,8 +23,8 @@
   "minOosDays": 365,
   "budget": 3000,
   "engine": {
-   "backtester": "5bcdca35",
-   "version": "1.26.0"
+   "backtester": "c6cc7248",
+   "version": "1.28.0"
   }
  },
  "periods": {
@@ -59,7 +59,7 @@
   },
   "outOfSample": {
    "from": "2024-01-01",
-   "to": "2026-10-28",
+   "to": "2026-11-01",
    "strategy": {
     "return": 10.77,
     "maxDrawdown": 33.42,
@@ -72,23 +72,23 @@
    "random": {
     "draws": 200,
     "band": [
-     -39.88,
-     59.01
+     -46.22,
+     56.83
     ],
-    "medianReturn": 7.77,
-    "medianMaxDrawdown": 34.56,
-    "medianTrades": 52,
+    "medianReturn": 5.06,
+    "medianMaxDrawdown": 33.9,
+    "medianTrades": 51,
     "medianHoldingHours": 384
    },
    "hold": {
-    "return": 25.76,
+    "return": 19.91,
     "maxDrawdown": 62.3
    },
    "state": "inside"
   }
  },
  "verdict": "inside",
- "excess": 3,
+ "excess": 5.71,
  "copy": {
   "type": "dca",
   "interval": "1d",
