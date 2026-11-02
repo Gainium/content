@@ -23,13 +23,13 @@
    "by": "pair close vs its 200-day SMA",
    "sma": 200
   },
-  "to": "2026-10-28",
+  "to": "2026-11-01",
   "engine": {
-   "indicators": "62598c87",
-   "analysisMath": "fbb772ac"
+   "indicators": "d40fa65d",
+   "analysisMath": "43bcfde2"
   }
  },
- "updatedAt": "2026-10-29",
+ "updatedAt": "2026-11-02",
  "settings": [
   {
    "id": "ha-green-3-start",
@@ -38,13 +38,13 @@
    "side": "long",
    "featured": true,
    "pooled": {
-    "entries": 12004,
+    "entries": 12028,
     "episodes": 1873,
     "draws": 100,
     "edge": 0.06,
     "chance": [
-     -0.05,
-     0.03
+     -0.06,
+     0.04
     ],
     "verdict": "fragile",
     "robustness": {
@@ -76,18 +76,18 @@
      -0.019,
      -0.027,
      -0.032,
-     -0.026,
-     -0.006,
-     -0.002,
-     -0.004,
+     -0.027,
      -0.007,
-     0.007,
-     0.007,
-     0.003,
-     0.015,
-     0.011,
-     0.018,
-     0.005,
+     -0.003,
+     -0.005,
+     -0.008,
+     0.006,
+     0.006,
+     0.001,
+     0.014,
+     0.01,
+     0.017,
+     0.004,
      0.021,
      0.031,
      0.058
@@ -95,106 +95,106 @@
     "band": [
      [
       -0.017,
-      0.014
+      0.015
+     ],
+     [
+      -0.025,
+      0.022
+     ],
+     [
+      -0.027,
+      0.025
+     ],
+     [
+      -0.027,
+      0.033
+     ],
+     [
+      -0.026,
+      0.034
+     ],
+     [
+      -0.029,
+      0.036
      ],
      [
       -0.028,
-      0.02
-     ],
-     [
-      -0.037,
-      0.027
-     ],
-     [
-      -0.041,
-      0.028
-     ],
-     [
-      -0.036,
-      0.031
-     ],
-     [
-      -0.036,
-      0.031
-     ],
-     [
-      -0.035,
-      0.027
-     ],
-     [
-      -0.03,
-      0.036
-     ],
-     [
-      -0.031,
-      0.037
-     ],
-     [
-      -0.036,
-      0.045
-     ],
-     [
-      -0.031,
-      0.034
-     ],
-     [
-      -0.047,
-      0.037
-     ],
-     [
-      -0.045,
-      0.04
-     ],
-     [
-      -0.045,
-      0.04
-     ],
-     [
-      -0.046,
-      0.034
-     ],
-     [
-      -0.045,
-      0.042
-     ],
-     [
-      -0.045,
-      0.044
-     ],
-     [
-      -0.05,
       0.038
      ],
      [
-      -0.056,
+      -0.03,
+      0.041
+     ],
+     [
+      -0.036,
+      0.035
+     ],
+     [
+      -0.034,
+      0.038
+     ],
+     [
+      -0.037,
+      0.043
+     ],
+     [
+      -0.037,
+      0.039
+     ],
+     [
+      -0.038,
       0.036
      ],
      [
-      -0.051,
+      -0.038,
       0.034
+     ],
+     [
+      -0.032,
+      0.038
+     ],
+     [
+      -0.041,
+      0.041
+     ],
+     [
+      -0.045,
+      0.04
+     ],
+     [
+      -0.051,
+      0.043
+     ],
+     [
+      -0.058,
+      0.045
+     ],
+     [
+      -0.063,
+      0.04
      ]
     ]
    },
    "coins": {
     "BTC": {
-     "entries": 4065,
+     "entries": 4075,
      "episodes": 611,
      "draws": 100,
      "edge": 0.03,
      "chance": [
-      -0.05,
-      0.04
+      -0.04,
+      0.05
      ],
      "verdict": "none"
     },
     "ETH": {
-     "entries": 4011,
+     "entries": 4019,
      "episodes": 618,
      "draws": 100,
      "edge": 0.08,
      "chance": [
       -0.06,
-      0.05
+      0.07
      ],
      "verdict": "fragile",
      "robustness": {
@@ -222,15 +222,38 @@
      }
     },
     "SOL": {
-     "entries": 3928,
+     "entries": 3934,
      "episodes": 644,
      "draws": 100,
      "edge": 0.07,
      "chance": [
-      -0.09,
-      0.08
+      -0.1,
+      0.07
      ],
-     "verdict": "none"
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 14,
+       "start": "2021-01-06",
+       "end": "2021-01-11",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
     }
    },
    "bot": {
@@ -243,13 +266,13 @@
    },
    "regimes": {
     "up": {
-     "entries": 6507,
+     "entries": 6531,
      "episodes": 1016,
      "draws": 100,
      "edge": 0.04,
      "chance": [
       -0.05,
-      0.05
+      0.04
      ],
      "verdict": "none"
     },
@@ -273,12 +296,12 @@
    "side": "short",
    "featured": true,
    "pooled": {
-    "entries": 20749,
+    "entries": 20786,
     "episodes": 283,
     "draws": 100,
     "edge": 0.05,
     "chance": [
-     -0.04,
+     -0.03,
      0.03
     ],
     "verdict": "edge",
@@ -306,15 +329,15 @@
      ]
     },
     "path": [
-     0.009,
+     0.01,
      -0.003,
-     0,
+     0.001,
      0.012,
      0.007,
      -0.005,
      -0.004,
-     0.004,
-     0.013,
+     0.005,
+     0.012,
      0.009,
      0.01,
      0.012,
@@ -322,102 +345,102 @@
      0.017,
      0.025,
      0.027,
-     0.031,
-     0.031,
+     0.03,
+     0.03,
      0.038,
      0.052
     ],
     "band": [
      [
+      -0.012,
+      0.012
+     ],
+     [
       -0.015,
-      0.014
+      0.016
      ],
      [
-      -0.017,
-      0.015
-     ],
-     [
-      -0.02,
+      -0.014,
       0.018
      ],
      [
+      -0.018,
+      0.023
+     ],
+     [
+      -0.017,
+      0.022
+     ],
+     [
+      -0.016,
+      0.023
+     ],
+     [
+      -0.018,
+      0.022
+     ],
+     [
       -0.021,
-      0.02
+      0.026
      ],
      [
       -0.022,
-      0.024
+      0.028
      ],
      [
-      -0.025,
-      0.023
+      -0.024,
+      0.032
+     ],
+     [
+      -0.023,
+      0.031
+     ],
+     [
+      -0.023,
+      0.026
      ],
      [
       -0.026,
-      0.023
+      0.03
+     ],
+     [
+      -0.024,
+      0.029
+     ],
+     [
+      -0.022,
+      0.031
+     ],
+     [
+      -0.024,
+      0.035
+     ],
+     [
+      -0.023,
+      0.033
      ],
      [
       -0.03,
-      0.024
-     ],
-     [
-      -0.029,
-      0.025
-     ],
-     [
-      -0.032,
-      0.023
-     ],
-     [
-      -0.032,
-      0.025
-     ],
-     [
-      -0.032,
-      0.026
-     ],
-     [
-      -0.028,
-      0.026
-     ],
-     [
-      -0.033,
       0.028
      ],
      [
-      -0.035,
-      0.028
+      -0.026,
+      0.031
      ],
      [
-      -0.031,
-      0.029
-     ],
-     [
-      -0.036,
-      0.028
-     ],
-     [
-      -0.037,
-      0.027
-     ],
-     [
-      -0.036,
-      0.028
-     ],
-     [
-      -0.041,
-      0.029
+      -0.026,
+      0.033
      ]
     ]
    },
    "coins": {
     "BTC": {
-     "entries": 6986,
+     "entries": 6999,
      "episodes": 94,
      "draws": 100,
      "edge": 0.05,
      "chance": [
-      -0.04,
+      -0.03,
       0.03
      ],
      "verdict": "fragile",
@@ -436,7 +459,7 @@
        },
        {
         "horizon": 50,
-        "state": "edge"
+        "state": "chance"
        },
        {
         "horizon": 100,
@@ -446,24 +469,24 @@
      }
     },
     "ETH": {
-     "entries": 7032,
+     "entries": 7047,
      "episodes": 93,
      "draws": 100,
      "edge": 0.03,
      "chance": [
       -0.04,
-      0.03
+      0.05
      ],
      "verdict": "none"
     },
     "SOL": {
-     "entries": 6731,
+     "entries": 6740,
      "episodes": 96,
      "draws": 100,
      "edge": 0.07,
      "chance": [
-      -0.08,
-      0.05
+      -0.06,
+      0.07
      ],
      "verdict": "fragile",
      "robustness": {
@@ -481,7 +504,7 @@
        },
        {
         "horizon": 50,
-        "state": "edge"
+        "state": "chance"
        },
        {
         "horizon": 100,
@@ -501,7 +524,7 @@
    },
    "regimes": {
     "up": {
-     "entries": 11138,
+     "entries": 11175,
      "episodes": 202,
      "draws": 100,
      "edge": 0.04,
@@ -577,151 +600,151 @@
    "side": "long",
    "featured": true,
    "pooled": {
-    "entries": 2906,
+    "entries": 2910,
     "episodes": 480,
     "draws": 100,
     "edge": 0.12,
     "chance": [
      -0.19,
-     0.18
+     0.17
     ],
     "verdict": "none",
     "path": [
      -0.01,
-     0.036,
-     0.077,
+     0.037,
+     0.079,
      0.072,
-     0.022,
-     0.016,
+     0.024,
+     0.019,
      0.04,
      0.088,
-     0.102,
-     0.1,
-     0.131,
-     0.081,
+     0.104,
+     0.104,
+     0.134,
+     0.08,
      0.086,
      0.083,
-     0.137,
-     0.112,
+     0.136,
+     0.111,
      0.084,
-     0.062,
+     0.063,
      0.097,
-     0.12
+     0.121
     ],
     "band": [
      [
-      -0.083,
-      0.066
+      -0.067,
+      0.073
      ],
      [
-      -0.11,
-      0.099
+      -0.078,
+      0.071
      ],
      [
-      -0.097,
-      0.086
+      -0.126,
+      0.097
      ],
      [
-      -0.129,
-      0.102
+      -0.101,
+      0.1
      ],
      [
-      -0.136,
-      0.132
+      -0.107,
+      0.127
      ],
      [
-      -0.133,
-      0.149
+      -0.116,
+      0.11
      ],
      [
-      -0.15,
-      0.119
+      -0.121,
+      0.121
      ],
      [
-      -0.159,
+      -0.127,
+      0.124
+     ],
+     [
+      -0.127,
       0.123
      ],
      [
-      -0.156,
-      0.139
+      -0.137,
+      0.136
      ],
      [
-      -0.158,
-      0.157
+      -0.165,
+      0.137
      ],
      [
-      -0.151,
-      0.144
+      -0.172,
+      0.146
      ],
      [
-      -0.136,
-      0.133
-     ],
-     [
-      -0.15,
-      0.134
-     ],
-     [
-      -0.131,
-      0.145
-     ],
-     [
-      -0.134,
-      0.144
-     ],
-     [
-      -0.156,
-      0.177
-     ],
-     [
-      -0.2,
+      -0.177,
       0.18
      ],
      [
-      -0.187,
-      0.176
+      -0.159,
+      0.18
      ],
      [
-      -0.182,
+      -0.185,
+      0.165
+     ],
+     [
+      -0.152,
       0.164
      ],
      [
+      -0.143,
+      0.143
+     ],
+     [
+      -0.152,
+      0.146
+     ],
+     [
+      -0.166,
+      0.169
+     ],
+     [
       -0.191,
-      0.18
+      0.172
      ]
     ]
    },
    "coins": {
     "BTC": {
-     "entries": 972,
+     "entries": 974,
      "episodes": 163,
-     "draws": 257,
+     "draws": 256,
      "edge": 0.03,
      "chance": [
-      -0.15,
-      0.2
+      -0.17,
+      0.19
      ],
      "verdict": "none"
     },
     "ETH": {
-     "entries": 1002,
+     "entries": 1003,
      "episodes": 145,
      "draws": 249,
      "edge": 0.11,
      "chance": [
-      -0.26,
-      0.23
+      -0.24,
+      0.26
      ],
      "verdict": "none"
     },
     "SOL": {
-     "entries": 932,
+     "entries": 933,
      "episodes": 172,
-     "draws": 268,
-     "edge": 0.24,
+     "draws": 267,
+     "edge": 0.25,
      "chance": [
-      -0.41,
-      0.38
+      -0.38,
+      0.39
      ],
      "verdict": "none"
     }
@@ -736,13 +759,13 @@
    },
    "regimes": {
     "up": {
-     "entries": 1558,
+     "entries": 1562,
      "episodes": 269,
      "draws": 160,
      "edge": 0.06,
      "chance": [
-      -0.23,
-      0.21
+      -0.2,
+      0.2
      ],
      "verdict": "none"
     },
@@ -766,12 +789,12 @@
    "side": "short",
    "featured": true,
    "pooled": {
-    "entries": 4971,
+    "entries": 4984,
     "episodes": 122,
     "draws": 100,
     "edge": 0.15,
     "chance": [
-     -0.13,
+     -0.11,
      0.14
     ],
     "verdict": "fragile",
@@ -800,112 +823,112 @@
     },
     "path": [
      0.013,
-     0.019,
-     0.034,
-     0.105,
+     0.018,
+     0.032,
+     0.104,
      0.09,
-     0.041,
-     0.042,
-     0.047,
-     0.058,
-     0.045,
-     0.074,
-     0.068,
      0.039,
+     0.042,
+     0.048,
+     0.059,
+     0.046,
+     0.075,
+     0.069,
+     0.04,
      0.068,
      0.116,
      0.097,
-     0.165,
+     0.164,
      0.192,
-     0.163,
-     0.147
+     0.165,
+     0.149
     ],
     "band": [
      [
-      -0.055,
+      -0.04,
       0.049
      ],
      [
-      -0.055,
-      0.055
+      -0.059,
+      0.068
      ],
      [
-      -0.08,
-      0.076
+      -0.064,
+      0.061
+     ],
+     [
+      -0.077,
+      0.077
      ],
      [
       -0.083,
-      0.081
+      0.076
      ],
      [
-      -0.093,
+      -0.089,
       0.072
      ],
      [
-      -0.098,
-      0.085
+      -0.089,
+      0.088
      ],
      [
-      -0.091,
-      0.095
+      -0.097,
+      0.081
      ],
      [
-      -0.088,
-      0.09
-     ],
-     [
-      -0.102,
-      0.086
-     ],
-     [
-      -0.073,
-      0.1
-     ],
-     [
-      -0.102,
+      -0.097,
       0.094
      ],
      [
-      -0.108,
-      0.112
+      -0.089,
+      0.106
+     ],
+     [
+      -0.128,
+      0.107
+     ],
+     [
+      -0.1,
+      0.119
+     ],
+     [
+      -0.097,
+      0.133
+     ],
+     [
+      -0.111,
+      0.157
+     ],
+     [
+      -0.093,
+      0.158
      ],
      [
       -0.099,
-      0.112
+      0.162
      ],
      [
-      -0.094,
-      0.105
+      -0.109,
+      0.17
      ],
      [
-      -0.09,
-      0.127
+      -0.106,
+      0.153
      ],
      [
-      -0.117,
-      0.129
+      -0.118,
+      0.148
      ],
      [
-      -0.135,
-      0.13
-     ],
-     [
-      -0.129,
-      0.135
-     ],
-     [
-      -0.134,
-      0.135
-     ],
-     [
-      -0.132,
-      0.143
+      -0.115,
+      0.139
      ]
     ]
    },
    "coins": {
     "BTC": {
-     "entries": 1685,
+     "entries": 1689,
      "episodes": 42,
      "draws": 148,
      "edge": 0.14,
@@ -939,24 +962,24 @@
      }
     },
     "ETH": {
-     "entries": 1664,
+     "entries": 1669,
      "episodes": 39,
-     "draws": 150,
+     "draws": 149,
      "edge": 0.13,
      "chance": [
-      -0.2,
-      0.15
+      -0.17,
+      0.17
      ],
      "verdict": "none"
     },
     "SOL": {
-     "entries": 1622,
+     "entries": 1626,
      "episodes": 41,
-     "draws": 154,
+     "draws": 153,
      "edge": 0.16,
      "chance": [
-      -0.29,
-      0.31
+      -0.23,
+      0.27
      ],
      "verdict": "none"
     }
@@ -971,13 +994,13 @@
    },
    "regimes": {
     "up": {
-     "entries": 2687,
+     "entries": 2700,
      "episodes": 91,
      "draws": 100,
      "edge": 0.24,
      "chance": [
-      -0.11,
-      0.17
+      -0.13,
+      0.15
      ],
      "verdict": "fragile",
      "robustness": {
@@ -1027,114 +1050,114 @@
     "entries": 482,
     "episodes": 71,
     "draws": 500,
-    "edge": 0.38,
+    "edge": 0.41,
     "chance": [
-     -1.33,
-     1.22
+     -1.41,
+     1.32
     ],
     "verdict": "none",
     "path": [
      0.187,
-     -0.065,
-     -0.251,
-     0.118,
-     -0.102,
-     -0.216,
-     0.022,
-     0.061,
-     0.063,
-     0.139,
-     0.295,
-     0.174,
-     0.75,
-     0.721,
-     0.908,
-     0.995,
-     0.996,
-     0.639,
-     0.69,
-     0.382
+     -0.063,
+     -0.247,
+     0.124,
+     -0.095,
+     -0.209,
+     0.03,
+     0.069,
+     0.07,
+     0.147,
+     0.303,
+     0.185,
+     0.763,
+     0.735,
+     0.923,
+     1.01,
+     1.014,
+     0.659,
+     0.713,
+     0.407
     ],
     "band": [
      [
-      -0.378,
-      0.346
+      -0.359,
+      0.376
      ],
      [
-      -0.495,
-      0.507
+      -0.521,
+      0.461
      ],
      [
-      -0.613,
-      0.567
+      -0.608,
+      0.593
      ],
      [
-      -0.677,
-      0.578
+      -0.7,
+      0.623
      ],
      [
-      -0.71,
-      0.633
+      -0.776,
+      0.662
      ],
      [
-      -0.769,
-      0.658
+      -0.829,
+      0.742
      ],
      [
-      -0.833,
-      0.745
+      -0.866,
+      0.791
      ],
      [
-      -0.854,
-      0.788
+      -0.83,
+      0.906
      ],
      [
-      -0.851,
-      0.834
+      -0.872,
+      0.859
      ],
      [
-      -0.952,
-      0.852
+      -0.97,
+      0.967
      ],
      [
-      -0.972,
-      0.871
+      -0.979,
+      1.025
      ],
      [
-      -1.04,
-      0.843
+      -1.151,
+      0.889
      ],
      [
-      -1.127,
-      0.84
+      -1.163,
+      0.912
      ],
      [
-      -1.09,
-      0.931
+      -1.234,
+      0.978
      ],
      [
-      -1.17,
-      0.956
+      -1.125,
+      1.001
      ],
      [
-      -1.272,
-      0.975
+      -1.181,
+      1.007
      ],
      [
-      -1.252,
-      1.042
+      -1.246,
+      1.032
      ],
      [
-      -1.333,
-      1.18
+      -1.264,
+      1.152
      ],
      [
-      -1.387,
-      1.118
+      -1.362,
+      1.229
      ],
      [
-      -1.331,
-      1.223
+      -1.407,
+      1.318
      ]
     ]
    },
@@ -1143,10 +1166,10 @@
      "entries": 159,
      "episodes": 26,
      "draws": 500,
-     "edge": -0.45,
+     "edge": -0.43,
      "chance": [
-      -1.09,
-      0.96
+      -1.19,
+      1.02
      ],
      "verdict": "few"
     },
@@ -1154,10 +1177,10 @@
      "entries": 161,
      "episodes": 21,
      "draws": 500,
-     "edge": 0.26,
+     "edge": 0.29,
      "chance": [
-      -1.71,
-      1.6
+      -1.65,
+      1.62
      ],
      "verdict": "few"
     },
@@ -1165,10 +1188,10 @@
      "entries": 162,
      "episodes": 24,
      "draws": 500,
-     "edge": 1.28,
+     "edge": 1.31,
      "chance": [
-      -3.06,
-      3.05
+      -3.14,
+      2.86
      ],
      "verdict": "few"
     }
@@ -1186,10 +1209,10 @@
      "entries": 262,
      "episodes": 57,
      "draws": 500,
-     "edge": 0.08,
+     "edge": 0.13,
      "chance": [
-      -1.56,
-      1.31
+      -1.31,
+      1.46
      ],
      "verdict": "none"
     },
@@ -1213,140 +1236,140 @@
    "side": "short",
    "featured": true,
    "pooled": {
-    "entries": 810,
+    "entries": 812,
     "episodes": 22,
-    "draws": 308,
+    "draws": 307,
     "edge": 0.31,
     "chance": [
-     -0.81,
-     0.88
+     -0.79,
+     0.79
     ],
     "verdict": "few",
     "path": [
-     0.034,
+     0.03,
      0.157,
-     0.068,
-     0.194,
-     0.083,
-     0.186,
-     0.313,
-     0.243,
-     0.403,
-     0.495,
-     0.249,
-     0.049,
+     0.064,
+     0.192,
+     0.081,
      0.183,
-     0.162,
-     0.32,
-     0.18,
-     0.284,
-     0.329,
-     0.18,
-     0.307
+     0.31,
+     0.237,
+     0.396,
+     0.495,
+     0.25,
+     0.051,
+     0.185,
+     0.164,
+     0.318,
+     0.178,
+     0.291,
+     0.336,
+     0.184,
+     0.306
     ],
     "band": [
      [
-      -0.252,
-      0.288
+      -0.276,
+      0.271
      ],
      [
-      -0.373,
-      0.341
+      -0.411,
+      0.385
      ],
      [
-      -0.496,
-      0.366
+      -0.47,
+      0.432
      ],
      [
-      -0.481,
-      0.448
+      -0.52,
+      0.447
      ],
      [
-      -0.489,
-      0.511
+      -0.557,
+      0.529
      ],
      [
-      -0.503,
-      0.505
+      -0.51,
+      0.537
      ],
      [
-      -0.457,
-      0.621
+      -0.53,
+      0.584
      ],
      [
-      -0.572,
-      0.624
+      -0.593,
+      0.589
      ],
      [
-      -0.651,
-      0.6
+      -0.617,
+      0.581
      ],
      [
-      -0.648,
-      0.633
+      -0.647,
+      0.604
      ],
      [
-      -0.655,
-      0.658
+      -0.631,
+      0.641
      ],
      [
-      -0.679,
-      0.673
+      -0.675,
+      0.623
      ],
      [
-      -0.693,
-      0.718
+      -0.726,
+      0.675
      ],
      [
-      -0.73,
-      0.728
+      -0.719,
+      0.708
      ],
      [
-      -0.764,
-      0.829
+      -0.697,
+      0.717
      ],
      [
-      -0.763,
-      0.823
+      -0.722,
+      0.749
      ],
      [
-      -0.78,
-      0.885
+      -0.791,
+      0.768
      ],
      [
-      -0.82,
-      0.865
+      -0.832,
+      0.878
      ],
      [
-      -0.82,
-      0.923
+      -0.81,
+      0.832
      ],
      [
-      -0.812,
-      0.885
+      -0.787,
+      0.793
      ]
     ]
    },
    "coins": {
     "BTC": {
-     "entries": 267,
+     "entries": 268,
      "episodes": 9,
      "draws": 500,
-     "edge": 0.33,
+     "edge": 0.34,
      "chance": [
-      -1.11,
-      0.95
+      -1.01,
+      0.85
      ],
      "verdict": "few"
     },
     "ETH": {
-     "entries": 277,
+     "entries": 278,
      "episodes": 5,
      "draws": 500,
-     "edge": 0.14,
+     "edge": 0.15,
      "chance": [
-      -1.16,
-      1.14
+      -1.1,
+      1.09
      ],
      "verdict": "few"
     },
@@ -1354,10 +1377,10 @@
      "entries": 266,
      "episodes": 8,
      "draws": 500,
-     "edge": 0.4,
+     "edge": 0.37,
      "chance": [
-      -1.78,
-      1.98
+      -1.6,
+      2.07
      ],
      "verdict": "few"
     }
@@ -1372,13 +1395,13 @@
    },
    "regimes": {
     "up": {
-     "entries": 443,
+     "entries": 445,
      "episodes": 35,
      "draws": 500,
      "edge": 0.37,
      "chance": [
-      -1.13,
-      1.21
+      -1.1,
+      1.18
      ],
      "verdict": "none"
     },
@@ -1396,35 +1419,50 @@
    }
   }
  ],
- "summary": "Barely. The third green Heikin Ashi candle in a row did the same as random on 4h and daily, and its small 1h result shows at 20 candles only. The result that holds up is a short after the first red Heikin Ashi candle on 1h: it beat random by 0.05% after 20 candles, and it holds without its strongest stretch and at 50 and 100 candles.",
+ "summary": "Mostly no. A third green Heikin Ashi candle in a row did the same as random on 4h and daily, and on 1h it beat random at 20 candles only. The one result that holds up is on the short side: after the first red Heikin Ashi candle on 1h, price did 0.05% worse than after random candles, at 20, 50 and 100 candles and without its strongest stretch.",
  "verdicts": [
   {
-   "use": "Going long on the third green candle in a row",
+   "use": "Going long on a third green candle (1h)",
    "verdict": "fragile",
-   "text": "Beat random on 1h by 0.06% at 20 candles only, and was the same as random at 10, 50 and 100. Same as random on 4h and daily."
+   "text": "Beat random by 0.06% after 20 candles. At 10, 50 and 100 candles it was the same as random."
   },
   {
-   "use": "Shorting the first red candle on 1h",
+   "use": "Going long on a third green candle (4h, daily)",
+   "verdict": "none",
+   "text": "Same as random on 4h and on daily. Both results sit inside the luck band."
+  },
+  {
+   "use": "Shorting the first red candle (1h)",
    "verdict": "edge",
-   "text": "Beat random by 0.05% after 20 candles, and also at 50 and 100 candles, with or without its strongest stretch. Split by trend, uptrends and downtrends each rest on one stretch."
+   "text": "Beat random by 0.05% on the short side after 20 candles. The gap also shows at 50 and 100 candles and holds without its strongest stretch."
   },
   {
-   "use": "Shorting the first red candle on 4h and daily",
+   "use": "Shorting the first red candle (4h)",
    "verdict": "fragile",
-   "text": "On 4h it beat random only because of entries between Jul 29, 2022 and Jan 1, 2023, and only at 20 and 50 candles. Daily had too few separate moves to judge."
+   "text": "Beat random by 0.15%. All of that comes from signals between Jul 29, 2022 and Jan 1, 2023, and without them it is the same as random."
   }
  ],
  "notes": [
-  "On 1h, the third green Heikin Ashi candle in a row gave 12,004 entries in 1,873 separate moves. Twenty candles later they were 0.06% ahead of random, just above a luck band that tops out at 0.03%. At 10, 50 and 100 candles they were the same as random. Split by trend, they were the same as random both above and below the 200-day average, so neither regime carries the pooled result.",
-  "On 4h the same setting was 0.12% ahead of random, inside a band of -0.19% to 0.18%. On daily it was 0.38% ahead, inside -1.33% to 1.22%. Each pair alone had too few separate moves on daily to judge.",
-  "The first red Heikin Ashi candle on 1h gives about one and three-quarter times as many entries as the third green one. Its entries bunch into 283 separate moves, against 1,873 for the green setting. A short after it beat random by 0.05% at 20 candles, and also beat random at 50 and 100 candles, though not at 10. It still beats random without its strongest stretch, 242 entries between Apr 27, 2022 and Jul 11, 2022, the sell-off that held the Terra collapse.",
-  "Split by trend, the 1h short is fragile on both sides. Below the 200-day average it beat random by 0.06%, but that rests on the same stretch between Apr 27, 2022 and Jul 11, 2022. Above it, the gap rests on 76 entries between Sep 1, 2020 and Sep 23, 2020 and shows at 20 candles only. On single pairs, BTC and SOL are fragile and ETH was the same as random.",
-  "On 4h the short beat random by 0.15%, just above the band, but the gap comes from 121 entries between Jul 29, 2022 and Jan 1, 2023, the stretch that held the FTX collapse. In uptrends it beat random by 0.24%, resting on entries between Oct 29, 2021 and Jan 19, 2022. In downtrends it was the same as random. On daily it had 22 separate moves, under the 30 needed to judge.",
-  "For a long DCA bot, waiting for three green Heikin Ashi candles did no better than a random start on these pairs, so the DCA orders and take profit do the work. The first red candle on 1h is a small tilt: 0.05% over 20 candles is small next to a short bot's take profit. It fits as a filter beside other short conditions. It showed at 50 and 100 candles but not at 10, so a short bot with a quick take profit gets little from it."
+  "On 1h, the first red Heikin Ashi candle gave 20,786 short entries in 283 separate moves. Twenty candles later, price was 0.05% lower than after random candles, and the luck band tops out at 0.03%. The gap also shows at 50 and 100 candles but not at 10. It holds without its strongest stretch, between Apr 27, 2022 and Jul 11, 2022.",
+  "If you split it by trend, neither half holds on its own. In uptrends the result rests on signals between Sep 1, 2020 and Sep 23, 2020. In downtrends it rests on the stretch between Apr 27, 2022 and Jul 11, 2022, and without either stretch it is the same as random. By coin, ETH was the same as random, and BTC and SOL each rest on a stretch that began on Apr 26, 2022.",
+  "On 1h, a third green candle in a row beat random by 0.06% after 20 candles, but at 10, 50 and 100 candles it was the same as random. Taken separately, uptrends and downtrends were both the same as random. On ETH the result rests on signals between Dec 24, 2020 and Jan 10, 2021, and on SOL on signals between Jan 6, 2021 and Jan 11, 2021. BTC was the same as random.",
+  "On 4h and daily, the green streak did the same as random: 0.12% on 4h and 0.41% on daily, both inside the luck band. Uptrends and downtrends were the same as random on both timeframes. On daily, no single coin has enough moves to judge.",
+  "On 4h, shorting the first red candle beat random by 0.15%, just above a band that ends at 0.14%. It rests on signals between Jul 29, 2022 and Jan 1, 2023, and it shows at 50 candles but not at 10 or 100. In uptrends it beat random by 0.24%, carried by the stretch between Oct 29, 2021 and Jan 19, 2022, and in downtrends it was the same as random. On daily the short has only 22 moves, under the 30 needed, so it was not judged.",
+  "On these pairs, a green Heikin Ashi streak adds nothing to a long bot's entry timing, so the DCA orders and take profit do the work. The first red candle on 1h is the only setting where price leaned one way, and the lean is small. Use it as a filter beside other conditions on a short bot, or as a reason to hold back a long entry. It shrinks to nothing in any trend that lacks a strong stretch to carry it."
  ],
  "summaryRefs": [
   {
-   "tf": "*",
+   "tf": "1h",
+   "setting": "ha-green-3-start",
+   "scope": "pooled"
+  },
+  {
+   "tf": "4h",
+   "setting": "ha-green-3-start",
+   "scope": "pooled"
+  },
+  {
+   "tf": "1d",
    "setting": "ha-green-3-start",
    "scope": "pooled"
   },
@@ -1440,7 +1478,9 @@
     "tf": "1h",
     "setting": "ha-green-3-start",
     "scope": "pooled"
-   },
+   }
+  ],
+  [
    {
     "tf": "4h",
     "setting": "ha-green-3-start",
@@ -1457,26 +1497,11 @@
     "tf": "1h",
     "setting": "ha-red-1-start-short",
     "scope": "pooled"
-   },
-   {
-    "tf": "1h",
-    "setting": "ha-red-1-start-short",
-    "scope": "up"
-   },
-   {
-    "tf": "1h",
-    "setting": "ha-red-1-start-short",
-    "scope": "down"
    }
   ],
   [
    {
     "tf": "4h",
-    "setting": "ha-red-1-start-short",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1d",
     "setting": "ha-red-1-start-short",
     "scope": "pooled"
    }
@@ -1486,69 +1511,20 @@
   [
    {
     "tf": "1h",
-    "setting": "ha-green-3-start",
+    "setting": "ha-red-1-start-short",
     "scope": "pooled"
-   },
+   }
+  ],
+  [
    {
     "tf": "1h",
-    "setting": "ha-green-3-start",
+    "setting": "ha-red-1-start-short",
     "scope": "up"
    },
    {
     "tf": "1h",
-    "setting": "ha-green-3-start",
-    "scope": "down"
-   }
-  ],
-  [
-   {
-    "tf": "4h",
-    "setting": "ha-green-3-start",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1d",
-    "setting": "ha-green-3-start",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1d",
-    "setting": "ha-green-3-start",
-    "scope": "BTC"
-   },
-   {
-    "tf": "1d",
-    "setting": "ha-green-3-start",
-    "scope": "ETH"
-   },
-   {
-    "tf": "1d",
-    "setting": "ha-green-3-start",
-    "scope": "SOL"
-   }
-  ],
-  [
-   {
-    "tf": "1h",
-    "setting": "ha-red-1-start-short",
-    "scope": "pooled"
-   },
-   {
-    "tf": "1h",
-    "setting": "ha-green-3-start",
-    "scope": "pooled"
-   }
-  ],
-  [
-   {
-    "tf": "1h",
     "setting": "ha-red-1-start-short",
     "scope": "down"
-   },
-   {
-    "tf": "1h",
-    "setting": "ha-red-1-start-short",
-    "scope": "up"
    },
    {
     "tf": "1h",
@@ -1568,6 +1544,85 @@
   ],
   [
    {
+    "tf": "1h",
+    "setting": "ha-green-3-start",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "ha-green-3-start",
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "ha-green-3-start",
+    "scope": "down"
+   },
+   {
+    "tf": "1h",
+    "setting": "ha-green-3-start",
+    "scope": "ETH"
+   },
+   {
+    "tf": "1h",
+    "setting": "ha-green-3-start",
+    "scope": "SOL"
+   },
+   {
+    "tf": "1h",
+    "setting": "ha-green-3-start",
+    "scope": "BTC"
+   }
+  ],
+  [
+   {
+    "tf": "4h",
+    "setting": "ha-green-3-start",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "ha-green-3-start",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "ha-green-3-start",
+    "scope": "up"
+   },
+   {
+    "tf": "4h",
+    "setting": "ha-green-3-start",
+    "scope": "down"
+   },
+   {
+    "tf": "1d",
+    "setting": "ha-green-3-start",
+    "scope": "up"
+   },
+   {
+    "tf": "1d",
+    "setting": "ha-green-3-start",
+    "scope": "down"
+   },
+   {
+    "tf": "1d",
+    "setting": "ha-green-3-start",
+    "scope": "BTC"
+   },
+   {
+    "tf": "1d",
+    "setting": "ha-green-3-start",
+    "scope": "ETH"
+   },
+   {
+    "tf": "1d",
+    "setting": "ha-green-3-start",
+    "scope": "SOL"
+   }
+  ],
+  [
+   {
     "tf": "4h",
     "setting": "ha-red-1-start-short",
     "scope": "pooled"
@@ -1590,14 +1645,19 @@
   ],
   [
    {
-    "tf": "*",
-    "setting": "ha-green-3-start",
+    "tf": "1h",
+    "setting": "ha-red-1-start-short",
     "scope": "pooled"
    },
    {
     "tf": "1h",
     "setting": "ha-red-1-start-short",
-    "scope": "pooled"
+    "scope": "up"
+   },
+   {
+    "tf": "1h",
+    "setting": "ha-red-1-start-short",
+    "scope": "down"
    }
   ]
  ]

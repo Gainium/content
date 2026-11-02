@@ -23,13 +23,13 @@
    "by": "pair close vs its 200-day SMA",
    "sma": 200
   },
-  "to": "2026-10-28",
+  "to": "2026-11-01",
   "engine": {
-   "indicators": "62598c87",
-   "analysisMath": "fbb772ac"
+   "indicators": "d40fa65d",
+   "analysisMath": "43bcfde2"
   }
  },
- "updatedAt": "2026-10-29",
+ "updatedAt": "2026-11-02",
  "settings": [
   {
    "id": "bull-top-cd",
@@ -38,13 +38,13 @@
    "side": "long",
    "featured": true,
    "pooled": {
-    "entries": 3644,
-    "episodes": 1814,
+    "entries": 3648,
+    "episodes": 1816,
     "draws": 100,
-    "edge": -0.06,
+    "edge": -0.07,
     "chance": [
-     -0.12,
-     0.15
+     -0.13,
+     0.14
     ],
     "verdict": "none",
     "path": [
@@ -52,115 +52,115 @@
      0.002,
      -0.015,
      -0.015,
-     -0.034,
-     -0.036,
+     -0.035,
+     -0.037,
      -0.051,
      -0.053,
      -0.068,
      -0.066,
      -0.043,
      -0.051,
-     -0.054,
-     -0.04,
-     -0.038,
+     -0.055,
+     -0.041,
+     -0.039,
      -0.048,
      -0.068,
      -0.092,
-     -0.074,
-     -0.065
+     -0.076,
+     -0.066
     ],
     "band": [
      [
-      -0.029,
-      0.024
-     ],
-     [
-      -0.039,
-      0.039
+      -0.026,
+      0.027
      ],
      [
       -0.04,
+      0.044
+     ],
+     [
+      -0.044,
       0.048
      ],
      [
-      -0.04,
-      0.056
+      -0.043,
+      0.052
      ],
      [
-      -0.056,
-      0.061
-     ],
-     [
-      -0.064,
+      -0.066,
       0.06
      ],
      [
-      -0.076,
+      -0.061,
+      0.054
+     ],
+     [
+      -0.068,
+      0.063
+     ],
+     [
+      -0.077,
       0.073
      ],
      [
-      -0.085,
-      0.076
-     ],
-     [
       -0.09,
-      0.087
+      0.085
      ],
      [
-      -0.096,
-      0.084
+      -0.099,
+      0.092
      ],
      [
-      -0.091,
-      0.089
+      -0.101,
+      0.1
      ],
      [
-      -0.105,
-      0.097
-     ],
-     [
-      -0.108,
-      0.116
-     ],
-     [
-      -0.106,
-      0.125
-     ],
-     [
-      -0.11,
-      0.118
-     ],
-     [
-      -0.115,
-      0.116
-     ],
-     [
-      -0.102,
-      0.121
-     ],
-     [
-      -0.114,
-      0.138
-     ],
-     [
-      -0.122,
-      0.132
+      -0.097,
+      0.105
      ],
      [
       -0.12,
-      0.151
+      0.115
+     ],
+     [
+      -0.134,
+      0.118
+     ],
+     [
+      -0.121,
+      0.119
+     ],
+     [
+      -0.128,
+      0.112
+     ],
+     [
+      -0.125,
+      0.107
+     ],
+     [
+      -0.131,
+      0.125
+     ],
+     [
+      -0.14,
+      0.134
+     ],
+     [
+      -0.126,
+      0.144
      ]
     ]
    },
    "coins": {
     "BTC": {
-     "entries": 1184,
-     "episodes": 595,
-     "draws": 211,
+     "entries": 1185,
+     "episodes": 596,
+     "draws": 210,
      "edge": -0.07,
      "chance": [
-      -0.13,
-      0.15
+      -0.17,
+      0.13
      ],
      "verdict": "none"
     },
@@ -170,19 +170,19 @@
      "draws": 209,
      "edge": 0.1,
      "chance": [
-      -0.2,
-      0.21
+      -0.22,
+      0.2
      ],
      "verdict": "none"
     },
     "SOL": {
-     "entries": 1268,
-     "episodes": 619,
-     "draws": 197,
+     "entries": 1271,
+     "episodes": 620,
+     "draws": 196,
      "edge": -0.22,
      "chance": [
       -0.31,
-      0.29
+      0.31
      ],
      "verdict": "none"
     }
@@ -197,13 +197,13 @@
    },
    "regimes": {
     "up": {
-     "entries": 1997,
-     "episodes": 1002,
-     "draws": 125,
-     "edge": -0.03,
+     "entries": 2001,
+     "episodes": 1004,
+     "draws": 124,
+     "edge": -0.04,
      "chance": [
-      -0.16,
-      0.12
+      -0.13,
+      0.15
      ],
      "verdict": "none"
     },
@@ -227,117 +227,117 @@
    "side": "long",
    "featured": true,
    "pooled": {
-    "entries": 862,
-    "episodes": 473,
-    "draws": 290,
+    "entries": 863,
+    "episodes": 474,
+    "draws": 289,
     "edge": -0.6,
     "chance": [
-     -0.64,
-     0.62
+     -0.61,
+     0.5
     ],
     "verdict": "none",
     "path": [
      0.072,
-     -0.029,
-     -0.192,
-     -0.223,
-     -0.335,
-     -0.272,
+     -0.028,
+     -0.188,
+     -0.222,
+     -0.338,
+     -0.273,
      -0.319,
-     -0.244,
-     -0.293,
-     -0.39,
+     -0.245,
+     -0.295,
+     -0.393,
      -0.484,
      -0.602,
      -0.523,
-     -0.629,
-     -0.573,
+     -0.628,
      -0.572,
-     -0.585,
-     -0.523,
-     -0.545,
-     -0.598
+     -0.571,
+     -0.584,
+     -0.522,
+     -0.544,
+     -0.596
     ],
     "band": [
      [
-      -0.108,
-      0.108
+      -0.11,
+      0.098
      ],
      [
-      -0.149,
-      0.144
+      -0.171,
+      0.145
      ],
      [
-      -0.193,
-      0.19
+      -0.201,
+      0.202
      ],
      [
-      -0.231,
-      0.231
+      -0.242,
+      0.241
      ],
      [
-      -0.271,
-      0.245
+      -0.298,
+      0.287
      ],
      [
-      -0.315,
-      0.292
+      -0.31,
+      0.29
      ],
      [
-      -0.366,
-      0.315
+      -0.333,
+      0.312
      ],
      [
-      -0.388,
-      0.327
+      -0.361,
+      0.348
+     ],
+     [
+      -0.375,
+      0.391
      ],
      [
       -0.389,
-      0.369
+      0.409
      ],
      [
-      -0.455,
-      0.393
+      -0.425,
+      0.418
      ],
      [
-      -0.469,
-      0.441
+      -0.411,
+      0.446
      ],
      [
-      -0.508,
-      0.468
+      -0.445,
+      0.465
      ],
      [
-      -0.511,
-      0.477
-     ],
-     [
-      -0.517,
+      -0.475,
       0.505
      ],
      [
       -0.514,
-      0.523
+      0.488
      ],
      [
-      -0.576,
-      0.522
+      -0.563,
+      0.472
      ],
      [
-      -0.572,
-      0.546
+      -0.556,
+      0.452
      ],
      [
-      -0.594,
-      0.593
+      -0.573,
+      0.499
      ],
      [
-      -0.615,
-      0.583
+      -0.605,
+      0.507
      ],
      [
-      -0.639,
-      0.62
+      -0.607,
+      0.501
      ]
     ]
    },
@@ -346,10 +346,10 @@
      "entries": 295,
      "episodes": 169,
      "draws": 500,
-     "edge": 0.13,
+     "edge": 0.14,
      "chance": [
-      -0.61,
-      0.63
+      -0.66,
+      0.55
      ],
      "verdict": "none"
     },
@@ -359,19 +359,19 @@
      "draws": 500,
      "edge": -0.28,
      "chance": [
-      -0.84,
-      0.87
+      -0.87,
+      0.78
      ],
      "verdict": "none"
     },
     "SOL": {
-     "entries": 283,
-     "episodes": 144,
+     "entries": 284,
+     "episodes": 145,
      "draws": 500,
      "edge": -1.66,
      "chance": [
-      -1.42,
-      1.32
+      -1.36,
+      1.34
      ],
      "verdict": "worse",
      "robustness": {
@@ -409,13 +409,13 @@
    },
    "regimes": {
     "up": {
-     "entries": 452,
-     "episodes": 249,
+     "entries": 453,
+     "episodes": 250,
      "draws": 500,
      "edge": -0.62,
      "chance": [
-      -0.71,
-      0.79
+      -0.69,
+      0.74
      ],
      "verdict": "none"
     },
@@ -439,13 +439,13 @@
    "side": "long",
    "featured": true,
    "pooled": {
-    "entries": 134,
+    "entries": 135,
     "episodes": 65,
     "draws": 500,
-    "edge": -4.97,
+    "edge": -5,
     "chance": [
-     -4.79,
-     4.37
+     -4.8,
+     4.36
     ],
     "verdict": "fragile-worse",
     "robustness": {
@@ -472,107 +472,107 @@
      ]
     },
     "path": [
-     -0.003,
-     0.014,
-     -0.284,
-     -0.771,
-     -1.312,
-     -1.612,
-     -2.046,
-     -2.451,
-     -2.313,
-     -2.963,
-     -3.166,
-     -2.974,
-     -3.409,
-     -2.898,
-     -3.175,
-     -2.996,
-     -4.241,
-     -4.646,
-     -4.243,
-     -4.973
+     0.012,
+     0.005,
+     -0.283,
+     -0.773,
+     -1.317,
+     -1.613,
+     -2.045,
+     -2.437,
+     -2.295,
+     -2.968,
+     -3.17,
+     -2.988,
+     -3.427,
+     -2.923,
+     -3.19,
+     -3.012,
+     -4.279,
+     -4.683,
+     -4.28,
+     -4.998
     ],
     "band": [
      [
-      -0.567,
-      0.63
+      -0.623,
+      0.672
      ],
      [
-      -0.912,
-      0.76
+      -0.861,
+      0.801
      ],
      [
-      -1.273,
-      1.056
+      -1.091,
+      1.105
      ],
      [
-      -1.364,
-      1.328
+      -1.287,
+      1.278
      ],
      [
-      -1.6,
-      1.478
+      -1.501,
+      1.382
      ],
      [
-      -1.722,
-      1.713
+      -1.732,
+      1.682
      ],
      [
-      -1.919,
-      2.093
+      -1.887,
+      1.741
      ],
      [
-      -2.222,
-      2.162
+      -2.149,
+      2.075
      ],
      [
-      -2.438,
-      2.244
+      -2.35,
+      2.05
      ],
      [
-      -2.742,
-      2.486
+      -2.844,
+      2.227
      ],
      [
-      -3.005,
-      2.741
+      -2.972,
+      2.816
      ],
      [
-      -3.063,
-      2.879
+      -3.151,
+      3.058
      ],
      [
-      -3.204,
-      3.205
+      -3.312,
+      3.07
      ],
      [
-      -3.447,
-      3.431
+      -3.552,
+      3.346
      ],
      [
-      -3.697,
-      3.46
+      -3.879,
+      3.314
      ],
      [
-      -3.996,
-      3.529
+      -3.952,
+      3.638
      ],
      [
-      -4.139,
-      3.852
+      -4.28,
+      3.905
      ],
      [
-      -4.347,
-      4.224
+      -4.389,
+      4.11
      ],
      [
-      -4.488,
-      4.117
+      -4.42,
+      4.335
      ],
      [
-      -4.792,
-      4.367
+      -4.797,
+      4.357
      ]
     ]
    },
@@ -581,21 +581,21 @@
      "entries": 54,
      "episodes": 22,
      "draws": 500,
-     "edge": -1.6,
+     "edge": -1.58,
      "chance": [
-      -4.78,
-      5.46
+      -4.56,
+      5.61
      ],
      "verdict": "few"
     },
     "ETH": {
-     "entries": 47,
+     "entries": 48,
      "episodes": 26,
      "draws": 500,
-     "edge": -0.74,
+     "edge": -0.92,
      "chance": [
-      -5.08,
-      6.51
+      -4.8,
+      6.59
      ],
      "verdict": "few"
     },
@@ -603,10 +603,10 @@
      "entries": 33,
      "episodes": 17,
      "draws": 500,
-     "edge": -14.83,
+     "edge": -14.8,
      "chance": [
-      -10.46,
-      13.18
+      -10.83,
+      12.35
      ],
      "verdict": "few",
      "robustness": {
@@ -644,38 +644,15 @@
    },
    "regimes": {
     "up": {
-     "entries": 75,
+     "entries": 76,
      "episodes": 33,
      "draws": 500,
-     "edge": -7.56,
+     "edge": -7.58,
      "chance": [
-      -7.49,
-      7.71
+      -7.61,
+      7.87
      ],
-     "verdict": "fragile-worse",
-     "robustness": {
-      "fragile": true,
-      "strongest": {
-       "deals": 2,
-       "start": "2025-02-06",
-       "end": "2025-02-16",
-       "without": "chance"
-      },
-      "otherHorizons": [
-       {
-        "horizon": 10,
-        "state": "chance"
-       },
-       {
-        "horizon": 50,
-        "state": "chance"
-       },
-       {
-        "horizon": 100,
-        "state": "chance"
-       }
-      ]
-     }
+     "verdict": "none"
     },
     "down": {
      "entries": 59,
@@ -691,31 +668,26 @@
    }
   }
  ],
- "summary": "Not as a retest long. After the close dropped into a bullish order block, price did the same as random on 1h and 4h. On daily it did worse than random, but only because of one stretch. The one result that holds up is negative: on SOL 4h, price did worse than random after these retests.",
+ "summary": "Not on these pairs. After the close dropped into a bullish order block, price did the same as random entries on 1h and 4h, pooled across BTC, ETH and SOL. The one result that holds up runs the wrong way: on SOL 4h, price did worse than random after these retests, and that holds without its strongest stretch and at 50 and 100 candles.",
  "verdicts": [
   {
-   "use": "Retest long into a bullish block on 1h",
+   "use": "Buying the retest of a bullish block (1h, 4h)",
    "verdict": "none",
-   "text": "Same as random on BTC, ETH and SOL, and in both uptrends and downtrends. It fires the most of any timeframe and shows nothing."
+   "text": "Same as random on 1h and 4h, pooled across the three pairs, in uptrends and in downtrends. SOL on 4h alone did worse than random."
   },
   {
-   "use": "Retest long into a bullish block on 4h",
-   "verdict": "none",
-   "text": "Same as random pooled, in uptrends and in downtrends. SOL on its own did worse than random, and that result holds without its strongest stretch."
-  },
-  {
-   "use": "Retest long into a bullish block on daily",
+   "use": "Buying the retest on daily",
    "verdict": "fragile-worse",
-   "text": "Worse than random, but it rests on 5 entries between Apr 11 and Apr 26, 2022. Without them it is the same as random."
+   "text": "Worse than random by 5% after 20 days, but only because of signals between Apr 11, 2022 and Apr 26, 2022. Without them, same as random."
   }
  ],
  "notes": [
-  "On 1h, the close dropping into a bullish block gave 3,644 entries in 1,814 separate moves. Twenty candles later they were 0.06% behind random entries, inside the luck band. BTC, ETH and SOL each landed inside their own band. Uptrends and downtrends both came out the same as random.",
-  "On 4h the setting gave 862 entries in 473 moves. Pooled, it trailed random entries by 0.6%, just inside a band of -0.64% to 0.62%. BTC and ETH were the same as random. SOL trailed random by 1.66% after 20 candles, below its band.",
-  "The SOL 4h result holds without its strongest stretch, 4 entries on Aug 15–17, 2022. It also shows at 50 and 100 candles, but not at 10. On that pair, price tended to keep falling after the close entered a bullish block, rather than bouncing off it.",
-  "Daily gives 134 entries in 65 moves. Pooled, they trailed random by 5% after 20 days, just below the band. The gap comes from 5 entries between Apr 11 and Apr 26, 2022, and without them it is the same as random. BTC, ETH and SOL each have too few moves on daily to judge.",
-  "The daily result splits by regime. In uptrends it trailed random by 8%, but that rests on a stretch between Feb 6 and Feb 16, 2025, so it is fragile. In downtrends it was 0.19% behind random, the same as random. On 4h both regimes were the same as random.",
-  "For a long DCA bot, a retest of a bullish block does not time the entry on these pairs. The DCA orders and take profit decide the result, not the block. On SOL 4h, treat the retest as a reason to leave this start condition out or pair it with a trend filter. A block the close drops into is often a block that is about to break."
+  "On 1h the retest gave 3,648 entries in 1,816 separate moves. Twenty candles later they were 0.07% behind random entries, inside the luck band of -0.13% to 0.14%. Each pair landed inside its own band, and so did uptrends and downtrends.",
+  "On 4h the same rule gave 863 entries in 474 moves. They trailed random by 0.6% after 20 candles. That sits just inside the band, whose low end is -0.61%.",
+  "SOL carries the weak side on 4h. Its retests trailed random by 1.66%, below a band that reached -1.36%. The result holds without its strongest stretch, Aug 15–17, 2022, and at 50 and 100 candles, though not at 10. BTC on 4h was 0.14% ahead of random, inside its band.",
+  "On daily the signal is rare: 135 entries in 65 moves. They trailed random by 5% after 20 days, just below the band. Without five signals between Apr 11, 2022 and Apr 26, 2022, the result falls back inside the band, and it is gone at 50 and 100 days. Each pair on its own had too few moves to judge.",
+  "Neither regime carries the daily result. In uptrends the daily retest trailed random by 8%, inside a band nearly as wide. In downtrends it was 0.19% behind, also inside.",
+  "For a long DCA bot, a close back into a bullish order block did not time entries better than a random candle on 1h or 4h. The take profit and DCA orders do the work there. On SOL 4h, the retest marked weakness that continued, so leave it out as an entry condition there or use it only as a filter beside other conditions. On daily, too few signals fire to read much into it."
  ],
  "summaryRefs": [
   {
@@ -725,11 +697,6 @@
   },
   {
    "tf": "4h",
-   "setting": "bull-top-cd",
-   "scope": "pooled"
-  },
-  {
-   "tf": "1d",
    "setting": "bull-top-cd",
    "scope": "pooled"
   },
@@ -747,19 +714,9 @@
     "scope": "pooled"
    },
    {
-    "tf": "1h",
+    "tf": "4h",
     "setting": "bull-top-cd",
-    "scope": "BTC"
-   },
-   {
-    "tf": "1h",
-    "setting": "bull-top-cd",
-    "scope": "ETH"
-   },
-   {
-    "tf": "1h",
-    "setting": "bull-top-cd",
-    "scope": "SOL"
+    "scope": "pooled"
    },
    {
     "tf": "1h",
@@ -770,13 +727,6 @@
     "tf": "1h",
     "setting": "bull-top-cd",
     "scope": "down"
-   }
-  ],
-  [
-   {
-    "tf": "4h",
-    "setting": "bull-top-cd",
-    "scope": "pooled"
    },
    {
     "tf": "4h",
@@ -840,21 +790,6 @@
     "tf": "4h",
     "setting": "bull-top-cd",
     "scope": "pooled"
-   },
-   {
-    "tf": "4h",
-    "setting": "bull-top-cd",
-    "scope": "BTC"
-   },
-   {
-    "tf": "4h",
-    "setting": "bull-top-cd",
-    "scope": "ETH"
-   },
-   {
-    "tf": "4h",
-    "setting": "bull-top-cd",
-    "scope": "SOL"
    }
   ],
   [
@@ -862,6 +797,11 @@
     "tf": "4h",
     "setting": "bull-top-cd",
     "scope": "SOL"
+   },
+   {
+    "tf": "4h",
+    "setting": "bull-top-cd",
+    "scope": "BTC"
    }
   ],
   [
@@ -896,23 +836,28 @@
     "tf": "1d",
     "setting": "bull-top-cd",
     "scope": "down"
-   },
-   {
-    "tf": "4h",
-    "setting": "bull-top-cd",
-    "scope": "up"
-   },
-   {
-    "tf": "4h",
-    "setting": "bull-top-cd",
-    "scope": "down"
    }
   ],
   [
    {
+    "tf": "1h",
+    "setting": "bull-top-cd",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "bull-top-cd",
+    "scope": "pooled"
+   },
+   {
     "tf": "4h",
     "setting": "bull-top-cd",
     "scope": "SOL"
+   },
+   {
+    "tf": "1d",
+    "setting": "bull-top-cd",
+    "scope": "pooled"
    }
   ]
  ]
