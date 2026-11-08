@@ -3,11 +3,11 @@ id: 1045
 name: Automations
 slug: automations
 description: >-
-  Run actions automatically when market, account or webhook conditions are met:
+  Run actions automatically when market, account, bot or webhook conditions are met:
   start or stop bots, open or close deals, set global variables, send
   notifications or webhooks.
 createdAt: '2026-10-11T00:00:00.000Z'
-updatedAt: '2026-10-12T00:00:00.000Z'
+updatedAt: '2026-11-08T00:00:00.000Z'
 publishedAt: '2026-10-11T00:00:00.000Z'
 locale: en
 categories:
@@ -21,7 +21,8 @@ tags:
 tldr: >-
   An automation runs actions when its conditions become true. Conditions can be
   price, indicators, your Gainium P&L today, the screener, the Fear & Greed
-  Index, an incoming webhook or an exchange balance, combined in groups with
+  Index, an incoming webhook, an exchange balance or an event of one of your
+  bots (deal started or closed, bot started or stopped), combined in groups with
   ANY/ALL and AND/OR. Actions start or stop bots, open or close deals, send
   notifications or webhooks, or set global variables. The fire mode (Re-arm,
   Once or Cooldown) decides how often it can run. It costs 10 credits plus 1–2
@@ -37,6 +38,7 @@ An **automation** is a rule you write once and Gainium keeps watching for you: *
 - When BTC crosses above 70,000, send me a Telegram message.
 - When RSI on the 1h chart drops below 30 on any of my three coins and the Fear & Greed Index is under 25, start my DCA bot.
 - When my TradingView alert fires, stop my grid bot and close its deals.
+- When my long DCA bot closes a deal, start a deal on my short bot.
 
 Each automation has three parts:
 
@@ -155,6 +157,31 @@ Compare a balance on one of your exchange connections to a value: choose the ass
 - If an old balance is the only thing stopping your automation from firing, you get a notification (at most once a day) asking you to open **Portfolio**, which refreshes your balances.
 - If you don't hold the asset at all and the rest of that connection's balances are fresh, the balance counts as 0.
 
+### Bot event
+
+Fire an automation when one of your own **DCA or Combo bots** does something:
+
+- **Deal started**
+- **Deal closed**
+- **Bot started**
+- **Bot stopped**
+
+Choose the bot (paper or live, matching the automation) and tick one or more events. Any ticked event counts.
+
+- Like an incoming webhook, a bot event is a **moment**: the condition stays true for a **window** you choose, 1 to 1,440 minutes, 15 by default. That lets it combine with other conditions — for example, "bot A closed a deal in the last 15 minutes AND RSI on BTC is below 30".
+- **Every new event counts.** With *Re-arm*, each deal the bot closes can fire the automation again, even while the window of the previous one is still open.
+- Events are counted only while the automation is active. Events from before you turned it on don't count.
+- The bot doesn't need an outgoing webhook set up. Gainium passes the event to your automations internally.
+- Grid bots and [hedge bots](https://gainium.io/help/hedge-bots) can't be used as the source yet.
+
+**Chaining bots.** This is how to make one bot start or stop another: add a Bot event condition for bot A and a **Start deal**, **Start bot** or **Stop bot** action for bot B. To keep chains from looping:
+
+- An automation can't act on a bot that triggers it. *When bot A closes a deal → start a deal on bot A* is refused when you save (the bot's own settings already cover restarting deals).
+- An automation can't be turned on if it would close a loop through your other active automations — for example, *A → B* is active and you try to turn on *B → A*. You'll see *This would make a loop*.
+- The [safety caps](#safety-caps) still apply to every action an automation runs.
+
+> **Why not an outgoing bot webhook?** A bot's outgoing webhook can't call Gainium's own servers, including another bot's webhook URL — the delivery log shows *Destination not allowed*. That is a security restriction. Use a Bot event condition instead.
+
 ## Groups: ANY / ALL and AND / OR
 
 Conditions live in **groups**:
@@ -166,9 +193,9 @@ There is one level of grouping: groups can't contain other groups. That still co
 
 If a condition is unknown, Gainium only fires when the result is certain anyway. "True OR unknown" is true; "true AND unknown" waits.
 
-## Crosses and webhooks are moments
+## Crosses, webhooks and bot events are moments
 
-Most conditions are states — "price is above 70,000" stays true while it's above. **Crosses** and **incoming webhooks** are moments, so each one stays true for a short window to let it combine with other conditions:
+Most conditions are states — "price is above 70,000" stays true while it's above. **Crosses**, **incoming webhooks** and **bot events** are moments, so each one stays true for a short window to let it combine with other conditions:
 
 | Condition | Stays true for |
 |---|---|
@@ -176,6 +203,7 @@ Most conditions are states — "price is above 70,000" stays true while it's abo
 | Indicator signal | Until one more candle has closed, as in bots (longer with **keep condition for N bars**) |
 | Fear & Greed cross | Until the next daily reading replaces it (about a day) |
 | Incoming webhook | The window you set (1–1,440 minutes) |
+| Bot event | The window you set (1–1,440 minutes) |
 
 A price cross needs Gainium to see the price on both sides of your value. Right after an automation is activated, the first price doesn't count as a cross.
 
@@ -223,7 +251,7 @@ The fire mode decides what happens after an automation fires.
 
 | Mode | Behaviour |
 |---|---|
-| **Re-arm** (default) | Fires when the conditions become true, then waits until they're false again before it can fire the next time. The badge shows *Waiting to re-arm* in between. A new incoming-webhook call counts as becoming true again, so repeated alerts aren't lost |
+| **Re-arm** (default) | Fires when the conditions become true, then waits until they're false again before it can fire the next time. The badge shows *Waiting to re-arm* in between. A new incoming-webhook call or bot event counts as becoming true again, so repeated alerts and events aren't lost |
 | **Once** | Fires one time, then pauses itself and releases its credits |
 | **Cooldown** | Fires whenever the conditions are true, but at most once per cooldown period you set (at least 60 minutes on Free, 1 minute on paid plans). The badge shows *Cooling down* in between |
 
@@ -263,7 +291,7 @@ Every paid plan has the same automation limits, including trials.
 | Shortest cooldown | 60 minutes | 1 minute |
 | Firings per day (whole account, UTC day) | 20 | 200 |
 | Firings per day (one automation) | 50 | 50 |
-| Conditions | Price, indicator, Gainium P&L, screener, Fear & Greed | All, plus incoming webhook and exchange balance |
+| Conditions | Price, indicator, Gainium P&L, screener, Fear & Greed, bot event | All, plus incoming webhook and exchange balance |
 | Actions | Notify, start bot, stop bot | All, plus start/close deal, outgoing webhook and set global variable |
 
 An indicator condition counts as one condition however many coins it watches.
@@ -275,7 +303,7 @@ Like bots, automations lock [credits](https://gainium.io/help/bot-credit-system)
 | | Credits |
 |---|---|
 | Base, per automation | 10 |
-| Price, Gainium P&L, Fear & Greed or incoming webhook condition | 1 each |
+| Price, Gainium P&L, Fear & Greed, incoming webhook or bot event condition | 1 each |
 | Screener or exchange balance condition | 2 each |
 | Indicator condition | 2 per coin |
 | Notify action | 0 |
@@ -287,7 +315,10 @@ Like bots, automations lock [credits](https://gainium.io/help/bot-credit-system)
 **Example 2 — buy the dip.** RSI 1h below 30 on 3 coins (any) AND Fear & Greed below 25 → start a DCA bot and notify.
 10 + 6 (indicator, 3 coins × 2) + 1 (Fear & Greed) + 2 (start bot) + 0 (notify) = **19 credits**.
 
-**Example 3 — TradingView exit (paid).** Incoming webhook → stop a bot, close its deals and set a global variable.
+**Example 3 — bot chain (paid).** Bot event (bot A closed a deal) → start a deal on bot B.
+10 + 1 (bot event) + 2 (start deal) = **13 credits**. On Free, use *Start bot* instead of *Start deal*.
+
+**Example 4 — TradingView exit (paid).** Incoming webhook → stop a bot, close its deals and set a global variable.
 10 + 1 (webhook) + 2 + 2 + 2 = **17 credits**.
 
 The builder shows the cost as you edit and turns red if your available credits can't cover it.
@@ -321,6 +352,7 @@ Hover the badge to see the exact reason. You also get a notification when an aut
 These protect your account from runaway rules, including automations that trigger each other:
 
 - **Daily caps:** see *Firings per day* in the limits table. A capped firing isn't lost — the automation stays armed and fires when the cap resets at 00:00 UTC, if its conditions are still true.
+- **No bot loops:** an automation can't act on a bot that triggers it through a Bot event condition, directly or through your other active automations (see [Bot event](#bot-event)).
 - **Same target, once a minute:** the same bot, deal, variable or webhook URL is acted on at most once every 60 seconds, even if several automations ask for it. Notify actions are exempt.
 - **60 actions per hour:** your account runs at most 60 actions an hour across all automations (notifications don't count). If an automation has 3 firings in a row where every action was over this limit, it's paused with *Error*.
 - **Failing actions:** if an automation has 5 firings in a row where every action failed, it's paused with *Error*.
@@ -347,6 +379,10 @@ No. If the conditions are already true when you activate (or save an edit to) an
 ### My webhook call returned an error.
 
 Check the URL is the current one (did you regenerate it?) and that the automation is active — calls to a paused automation are refused. *Invalid JSON body* means the message looks like JSON but doesn't parse — check the quotes and commas. If you set an event name, the message must be JSON with a matching `"event"`; other calls are accepted but don't trigger that condition.
+
+### Can one bot start another bot?
+
+Yes, with a [Bot event](#bot-event) condition: *When bot A closes a deal → start a deal on bot B*. Pointing bot A's outgoing webhook at bot B's webhook URL doesn't work, because outgoing webhooks can't call Gainium's own servers.
 
 ### Can an automation trade on its own?
 
