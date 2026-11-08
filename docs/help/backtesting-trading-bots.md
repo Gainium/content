@@ -56,7 +56,7 @@ When backtesting a crypto trading bot, there are a few things to keep in mind:
 
 ## Performing a backtest in Gainium
 
-With Ganium you can backtest your bot configuration right from the bot creation page to get a sense of past performance. This way, you can make the necessary adjustments and deploy your bot when satisfied with the backtesting results.
+With Gainium you can backtest your bot configuration right from the bot creation page to get a sense of past performance. This way, you can make the necessary adjustments and deploy your bot when satisfied with the backtesting results.
 
 To backtest a trading strategy, click “Trading bots” on the sidebar and “+ New” to launch the new bot page. Here you can set the desired configuration for your bot, including deal start condition, Take Profit, Stop loss, DCA, etc. Then click the “Backtest” button at the bottom. The backtesting results will show in the panel underneath.
 
