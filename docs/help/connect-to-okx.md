@@ -4,7 +4,7 @@ name: Connect to OKX
 slug: connect-to-okx
 description: This guide will walk you through step by step how to connect OKX to Gainium.
 createdAt: '2023-12-04T16:34:41.588Z'
-updatedAt: '2026-07-18T00:00:00.000Z'
+updatedAt: '2026-11-12T00:00:00.000Z'
 publishedAt: '2023-12-04T16:34:45.153Z'
 locale: en
 categories:
@@ -27,7 +27,7 @@ This guide will walk you through creating a new API key in OKX and inputting the
 ## **Step 1: Create a New API Key in OKX**
 
 ### **1.1 Login to Your OKX Account**
-- Visit [OKX](https://www.okx.com/join/26209845) and log in to your account. You'll need to create an account if you don’t have one.
+- Visit [OKX](https://www.okx.com/) and log in to your account. If you don't have one yet, [create one here](https://okx.ac/join/GAINIUM).
 
 ### **1.2 Access API Management**
 - Once logged in, navigate to the 'Account' section in the top right corner.

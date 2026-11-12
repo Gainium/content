@@ -4,7 +4,7 @@ name: Connect to Bybit
 slug: connect-to-bybit
 description: This guide will walk you through step by step how to connect Bybit to Gainium
 createdAt: '2023-03-30T17:46:38.439Z'
-updatedAt: '2026-02-24T07:44:20.567Z'
+updatedAt: '2026-11-12T00:00:00.000Z'
 publishedAt: '2023-04-01T13:08:36.264Z'
 locale: en
 categories:
@@ -23,6 +23,8 @@ tldr: >-
 ## How to connect Gainium to Bybit
 
 **1. Log in to Bybit and go to the API Keys Page**
+
+If you don't have a Bybit account yet, [create one here](https://partner.bybit.com/b/GAINIUM).
 
 Once you have logged into your Bybit account, hover on “My Account” on the top right and select the account you want to use to create API keys (Bybit allows the creation of subaccounts).
 

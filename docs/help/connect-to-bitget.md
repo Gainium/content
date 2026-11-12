@@ -4,7 +4,7 @@ name: Connect to Bitget
 slug: connect-to-bitget
 description: Step-by-step guide to connecting your Bitget account to Gainium via API keys.
 createdAt: '2026-03-30T11:44:00.000Z'
-updatedAt: '2026-03-30T11:44:00.000Z'
+updatedAt: '2026-11-12T00:00:00.000Z'
 publishedAt: '2026-03-30T11:44:00.000Z'
 locale: en
 categories:
@@ -24,7 +24,7 @@ Gainium uses APIs to connect to your exchange and execute trades. This guide wal
 
 ## Step 1 – Log in to Bitget
 
-Go to [bitget.com](https://www.bitget.com/) and log in to your account. If you don't have an account yet, create one and complete identity verification first.
+Go to [bitget.com](https://www.bitget.com/) and log in to your account. If you don't have an account yet, [create one here](https://partner.bitget.com/bg/gainium) and complete identity verification first.
 
 > **Note:** Bitget requires either **2FA (Google Authenticator)** or **phone number (SMS) verification** to be enabled before you can create API keys. If you haven't set this up yet, go to **Profile → Security Settings** and enable it before continuing.
 

@@ -4,7 +4,7 @@ name: Connect to Binance
 slug: connect-to-binance
 description: Learn how to connect Gainium to Binance.
 createdAt: '2022-08-04T06:56:17.511Z'
-updatedAt: '2026-02-24T07:44:20.567Z'
+updatedAt: '2026-11-12T00:00:00.000Z'
 publishedAt: '2022-08-04T06:56:46.683Z'
 locale: en
 categories:
@@ -27,7 +27,7 @@ Gainium uses APIs to connect to your exchange and make trades. In this article, 
 
 ## Step 1 - Open Binance Dashboard
 
-Switch to the new browser tab, log in, or create a new account on [*https://binance.com/*](https://binance.com/).
+Switch to the new browser tab and log in to [binance.com](https://binance.com/). If you don't have an account yet, [create one here](https://www.binance.com/register?ref=GAINIUM).
 
 ## Step 2 – Find "API Management" in Binance
 

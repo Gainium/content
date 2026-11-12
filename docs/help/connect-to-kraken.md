@@ -4,7 +4,7 @@ name: Connect to Kraken
 slug: connect-to-kraken
 description: Step-by-step guide to connecting your Kraken account to Gainium via API keys.
 createdAt: '2026-03-30T11:44:00.000Z'
-updatedAt: '2026-09-11T00:00:00.000Z'
+updatedAt: '2026-11-12T00:00:00.000Z'
 publishedAt: '2026-03-30T11:44:00.000Z'
 locale: en
 categories:
@@ -32,7 +32,7 @@ Use this if you want to connect **Kraken SPOT** in Gainium.
 
 ### Step 1 – Sign in to Kraken Pro
 
-Go to [pro.kraken.com](https://pro.kraken.com/) and log in to your Kraken account. Kraken API management is handled through **Kraken Pro** (not the standard Kraken app).
+Go to [pro.kraken.com](https://pro.kraken.com/) and log in to your Kraken account. Kraken API management is handled through **Kraken Pro** (not the standard Kraken app). If you don't have a Kraken account yet, [create one here](https://kraken.pxf.io/gainium).
 
 ### Step 2 – Open API Settings
 

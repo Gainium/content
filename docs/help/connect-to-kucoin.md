@@ -4,7 +4,7 @@ name: Connect to Kucoin
 slug: connect-to-kucoin
 description: This guide will walk you through step by step how to connect Kucoin to Gainium
 createdAt: '2023-03-30T19:07:10.650Z'
-updatedAt: '2026-02-24T07:44:20.568Z'
+updatedAt: '2026-11-12T00:00:00.000Z'
 publishedAt: '2023-03-31T02:32:20.039Z'
 locale: en
 categories:
@@ -22,6 +22,8 @@ tldr: >-
 ## How to connect Gainium to Kucoin
 
 **1. Log in to Kucoin and go to the API Keys Page**
+
+If you don't have a KuCoin account yet, [create one here](https://www.kucoin.com/r/af/GAINIUM).
 
 Once you have logged into your Kucoin account, hover on “My Account” on the top right and click on API management. (Kucoin allows the creation of a subaccount, to create API for the subaccount, you need to select the subaccount first).
 
