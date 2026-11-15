@@ -7,7 +7,7 @@ description: >-
   order, which ones each setting offers, what each option does, and how to
   move a large position on a pair with a thin order book.
 createdAt: '2026-11-15T00:00:00.000Z'
-updatedAt: '2026-11-15T00:00:00.000Z'
+updatedAt: '2026-11-15T12:00:00.000Z'
 publishedAt: '2026-11-15T00:00:00.000Z'
 locale: en
 categories:
@@ -71,7 +71,7 @@ A resting order gets maker fees and your exact price. Price can touch it, fill p
 
 ## Chasing limit
 
-Only for orders started by a signal, and for stop loss. When the order triggers, a limit order is placed at the current price and moved with the market until it fills.
+Only for orders started by a signal, and for stop loss. When the order triggers, a limit order is placed at the top of the order book (a buy at the best bid, a sell at the best ask), so it waits for a fill instead of paying the spread. It is moved with the book until it fills.
 
 | Setting | Default | What it does |
 |---|---|---|
@@ -79,7 +79,7 @@ Only for orders started by a signal, and for stop loss. When the order triggers,
 | Max chase | 1% | The order is never moved further than this from the price at which it triggered. 0 means no cap. |
 | Enter market timeout | 35 s | If the order is still not filled after this many seconds, it is cancelled and the rest is executed at market. |
 
-Example: an indicator take profit fires on a long at 100.00 with a max chase of 1%. The bot places a limit sell near 100.00 and moves it every 10 s, never below 99.00. After 35 s, whatever is left is executed at market.
+Example: an indicator take profit fires on a long at 100.00 with a max chase of 1%. The bot places a limit sell at the best ask and moves it every 10 s, never below 99.00. After 35 s, whatever is left is executed at market.
 
 On a stop loss the timeout is required (at least 1 s). Price can fall through the max chase faster than the order fills; the timeout makes sure the position still closes.
 
