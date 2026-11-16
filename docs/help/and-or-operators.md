@@ -6,7 +6,7 @@ description: >-
   Learn how to combine multiple indicators in Gainium trading bots with AND/OR,
   inside a group and between groups.
 createdAt: '2024-08-14T07:51:12.849Z'
-updatedAt: '2026-10-12T00:00:00.000Z'
+updatedAt: '2026-11-16T00:00:00.000Z'
 publishedAt: '2024-08-14T07:51:14.109Z'
 locale: en
 categories:
@@ -31,9 +31,9 @@ Combining several indicators lets you filter out weak signals or catch more oppo
 - **AND**: all the indicators must meet their conditions.
 - **OR**: at least one of the indicators must meet its condition.
 
-When you set the deal start condition (or the take profit or stop loss type) to **Indicators**, your indicators are shown in a list. Click **+ Indicator** to add another one. Between two indicators you will see an **AND** pill: click it to switch the group to **OR**. A group uses one operator for all its indicators, so switching one pill switches them all.
+When you set the deal start condition (or the take profit or stop loss type, or the DCA type) to **Indicators**, your indicators are shown in a list. With DCA by indicators, each DCA level has its own groups, built the same way. Click **+ Indicator** to add another one. Between two indicators you will see an **AND** pill: click it to switch the group to **OR**. A group uses one operator for all its indicators, so switching one pill switches them all.
 
-Once you have two or more indicators, the line above them spells out the whole condition, for example **RSI and MACD**.
+Once you have two or more indicators, the line above them spells out the whole condition, for example **RSI and MACD**. The eye button on an indicator hides it from the chart; it still counts in the condition.
 
 ![Two indicators in one group, joined with AND, and the condition line RSI and MACD](https://content.gainium.io/images/content/help/image_6adcc3e7eb-c5acdc.webp)
 
@@ -57,7 +57,7 @@ When in doubt, read the condition line: it adds the brackets for you.
 ## Practical Tips
 - **Start simple.** Decide whether you want every condition to be met (AND) or any of several setups to trigger (OR), then add groups only when you need alternatives.
 - **Consider the trade-offs.** More AND conditions usually mean fewer but more selective trades. More OR alternatives mean more trades with a wider range of setups.
-- **Mind the limit.** A bot can use up to 20 indicators across all its conditions; the counter shows how many remain.
+- **Mind the limit.** A bot can use up to 20 indicators across all its conditions; the counter shows how many remain. DCA levels count as their largest level, because a deal only listens to one level at a time: three levels with 1, 3 and 2 indicators count as 3.
 - **Test and adjust.** Backtest your combinations and compare how they perform before going live.
 
 ## Conclusion

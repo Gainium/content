@@ -7,7 +7,7 @@ description: >-
   Technical Indicator, or Custom orders. Tailor strategies for any market
   condition.
 createdAt: '2024-10-07T07:47:46.957Z'
-updatedAt: '2026-02-24T07:44:20.569Z'
+updatedAt: '2026-11-16T00:00:00.000Z'
 publishedAt: '2024-10-07T07:47:49.191Z'
 locale: en
 categories:
@@ -20,8 +20,8 @@ ingested: true
 ingestedAt: '2025-06-29T10:57:30.007Z'
 tldr: >-
   Gainium offers three DCA types—Scaled (evenly distributed orders by
-  percentage, ATR, or ADR), Technical Indicators (orders triggered by indicators
-  like RSI or ATR), and Custom (fully user-defined steps and amounts). Each mode
+  percentage, ATR, or ADR), Technical Indicators (each DCA order triggered by its
+  own indicator conditions, combined with AND/OR), and Custom (fully user-defined steps and amounts). Each mode
   allows traders to spread entries across multiple price levels to reduce
   volatility impact.
 ---
@@ -85,18 +85,22 @@ When using **ATR** or **ADR**, this mode becomes [more dynamic](https://gainium.
 
 ### DCA Type: Technical Indicators
 
-In **Technical Indicators** DCA mode, the bot places orders based on specific market indicators such as **ATR**, **Moving Average Ratio (MAR)**, or **RSI**. This allows you to trigger orders based on actual market conditions rather than predefined steps.
+In **Technical Indicators** DCA mode, each DCA order waits for its own indicator conditions instead of a fixed price step. This lets you add to a position only when the market confirms it, for example when RSI shows the pair is oversold.
 
-#### Key Settings:
-- **Indicator**:You can choose between technical indicators, such as **ATR**, **MAR**, or **RSI**. For example, **ATR** lets you place DCA orders based on market volatility, while **RSI** can detect oversold conditions.
-- **Order Step**:You can define the minimum percentage distance between each DCA order. For instance, setting this to **1%** means the bot won’t place another DCA order until the price moves at least 1% from the previous order, ignoring other signals.
-- **Indicator-Specific Settings**:**ATR**: Adjust the length, interval, and factor to match the asset's volatility. For example, using a **14-day ATR** helps capture long-term volatility.
-- **MAR**: Set the **EMA Length** and **conditions** to place DCA orders when the price crosses above or below a specific moving average.
-- **RSI**: Use the RSI to place orders when the market is overbought or oversold.
+Each DCA order is a **level**, shown as a card (**DCA 1**, **DCA 2**, …). Click **+ Add DCA** to add a level; the new one copies the last level, conditions included. Click the arrow next to a level's name to collapse it to a one-line summary (amount, minimum distance and number of indicators).
+
+#### Settings of each level:
+- **Minimum % from last filled order**: the price must have moved at least this far from the previous filled order before the level can fill, whatever its indicators say. For example, at **1%** the bot ignores signals until the price is 1% beyond the last order.
+- **DCA order amount**: the size of this level's order.
+- **Conditions**: the indicators that trigger the level. They work exactly like deal start conditions: add indicators with **+ Indicator**, combine them with **AND** or **OR**, and add alternatives with **+ Group**. The line above the groups spells out the whole condition, for example **Place DCA 1 when RSI or (MFI and CCI)**. See [Understanding AND/OR operators](https://gainium.io/help/and-or-operators).
+
+Levels fill in order. A deal only listens to the conditions of the level it has reached, so DCA 2 can only fill after DCA 1.
 
 #### Example Strategy for Technical Indicators:
-- **Entry**: Set the bot to buy more when the **RSI** exceeds **30**, signaling oversold conditions. Use **5 orders** and set a **1% minimum step**.
-- **Exit**: The bot will sell as the price moves higher, ideally when **RSI** crosses back above **70** to signal overbought conditions.
+- **DCA 1**: buy more when **RSI** drops below **30**, at least **1%** below the entry.
+- **DCA 2**: buy more when **RSI** is below **25** and **MFI** is below **20**, at least **2%** below DCA 1, with a larger amount.
+- **Exit**: close the deal with a take profit, or when **RSI** crosses back above **70**.
+
 ![image.png](https://content.gainium.io/images/content/help/image_22b0e91d0f-d1f932.webp)
 *DCA Mode by Indicators*
 

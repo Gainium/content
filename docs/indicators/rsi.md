@@ -173,7 +173,7 @@ How to read it:
 ## Using RSI in Gainium
 
 1. Create a DCA bot and switch the form to **Manual**. Quick mode has no indicator conditions.
-2. Set **Deal start condition** to **Indicators**. The bot adds an RSI condition. To use RSI for an exit, set the take profit or stop loss type to **Indicators** instead. For DCA orders, set the DCA type to **Indicators** and click **Add DCA Indicator**.
+2. Set **Deal start condition** to **Indicators**. The bot adds an RSI condition. To use RSI for an exit, set the take profit or stop loss type to **Indicators** instead. For DCA orders, set the DCA type to **Indicators**, click **+ Add DCA** and edit the level's condition.
 3. Click **Edit** on the condition. If another indicator is selected, click **Change indicator** and pick **Relative Strength Index (RSI)**.
 
 ![The Select start indicator dialog in the Gainium bot form, searched for RSI, with Relative Strength Index (RSI) ringed](https://content.gainium.io/images/content/indicators/rsi__picker.webp)

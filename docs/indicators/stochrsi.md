@@ -140,7 +140,7 @@ How to read it:
 ## Using Stochastic RSI in Gainium
 
 1. Create a DCA bot and switch the form to **Manual**.
-2. Set **Deal start condition** to **Indicators**. For exits, set the take profit or stop loss type to **Indicators**. For DCA orders, set the DCA type to **Indicators** and click **Add DCA Indicator**.
+2. Set **Deal start condition** to **Indicators**. For exits, set the take profit or stop loss type to **Indicators**. For DCA orders, set the DCA type to **Indicators**, click **+ Add DCA** and edit the level's condition.
 3. Click **Edit** on the condition, then **Change indicator**, and pick **Stochastic RSI (StochRSI)**.
 
 ![The Select start indicator dialog in the Gainium bot form, searched for Stochastic RSI, with Stochastic RSI (StochRSI) ringed](https://content.gainium.io/images/content/indicators/stochrsi__picker.webp)
