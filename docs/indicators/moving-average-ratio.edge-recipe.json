@@ -179,6 +179,99 @@
           "indicatorValue": 1.03
         }
       }
+    },
+    {
+      "id": "mar-kama20-down099",
+      "label": "Price / KAMA 20 crosses down 0.99",
+      "side": "long",
+      "indicator": {
+        "class": "MAR",
+        "args": [
+          "kama",
+          20,
+          "price",
+          20,
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossDown",
+        "against": 0.99
+      },
+      "bot": {
+        "type": "MAR",
+        "params": {
+          "mar1type": "kama",
+          "indicatorCondition": "cd",
+          "indicatorValue": 0.99
+        }
+      }
+    },
+    {
+      "id": "mar-alma20-down099",
+      "label": "Price / ALMA 20 crosses down 0.99",
+      "side": "long",
+      "indicator": {
+        "class": "MAR",
+        "args": [
+          "alma",
+          20,
+          "price",
+          20,
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossDown",
+        "against": 0.99
+      },
+      "bot": {
+        "type": "MAR",
+        "params": {
+          "mar1type": "alma",
+          "indicatorCondition": "cd",
+          "indicatorValue": 0.99
+        }
+      }
+    },
+    {
+      "id": "mar-lsma20-down099",
+      "label": "Price / LSMA 20 crosses down 0.99",
+      "side": "long",
+      "indicator": {
+        "class": "MAR",
+        "args": [
+          "lsma",
+          20,
+          "price",
+          20,
+          false,
+          150,
+          80
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossDown",
+        "against": 0.99
+      },
+      "bot": {
+        "type": "MAR",
+        "params": {
+          "mar1type": "lsma",
+          "indicatorCondition": "cd",
+          "indicatorValue": 0.99
+        }
+      }
     }
   ]
 }

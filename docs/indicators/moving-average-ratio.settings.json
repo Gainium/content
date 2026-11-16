@@ -18,8 +18,8 @@
       "group": null,
       "id": "percentile",
       "kind": "logic",
-      "label": "Use percentile",
-      "tooltip": "Enable percentile mode.",
+      "label": "Percentile",
+      "tooltip": "Compare the indicator with its own percentile over the lookback instead of a fixed value. With smoothing on, the smoothed line is ranked.",
       "type": "boolean"
     },
     {
@@ -50,8 +50,9 @@
       ],
       "id": "percentilePercentage",
       "kind": "logic",
-      "label": "Percentile",
+      "label": "Threshold",
       "step": 1,
+      "tooltip": "The percentile rank the indicator is compared with, 0–100.",
       "type": "number"
     },
     {
@@ -71,7 +72,10 @@
         "HMA",
         "VWMA",
         "RMA",
-        "McGinley Dynamic"
+        "McGinley Dynamic",
+        "KAMA",
+        "ALMA",
+        "LSMA"
       ],
       "options": [
         "price",
@@ -83,7 +87,10 @@
         "hma",
         "vwma",
         "rma",
-        "mcginley"
+        "mcginley",
+        "kama",
+        "alma",
+        "lsma"
       ],
       "type": "select"
     },
@@ -121,7 +128,10 @@
         "HMA",
         "VWMA",
         "RMA",
-        "McGinley Dynamic"
+        "McGinley Dynamic",
+        "KAMA",
+        "ALMA",
+        "LSMA"
       ],
       "options": [
         "sma",
@@ -132,7 +142,10 @@
         "hma",
         "vwma",
         "rma",
-        "mcginley"
+        "mcginley",
+        "kama",
+        "alma",
+        "lsma"
       ],
       "type": "select"
     },
@@ -184,14 +197,29 @@
       "type": "interval"
     },
     {
-      "default": "none",
-      "defaultText": "None",
+      "default": null,
+      "defaultText": "—",
       "group": null,
-      "id": "smoothing",
+      "id": "smoothingEnabled",
       "kind": "logic",
       "label": "Smoothing",
+      "tooltip": "Moving average applied to the indicator line. With smoothing on, the condition uses the smoothed line.",
+      "type": "boolean"
+    },
+    {
+      "default": "none",
+      "defaultText": "none",
+      "group": null,
+      "hiddenWhen": [
+        {
+          "equals": "none",
+          "field": "smoothing"
+        }
+      ],
+      "id": "smoothing",
+      "kind": "logic",
+      "label": "Average",
       "optionLabels": [
-        "None",
         "SMA",
         "EMA",
         "WMA",
@@ -201,7 +229,6 @@
         "RMA"
       ],
       "options": [
-        "none",
         "sma",
         "ema",
         "wma",
@@ -210,7 +237,6 @@
         "hma",
         "rma"
       ],
-      "tooltip": "Moving average applied to the indicator line. With smoothing on, the condition uses the smoothed line.",
       "type": "select"
     },
     {
@@ -225,7 +251,7 @@
       ],
       "id": "smoothingLength",
       "kind": "logic",
-      "label": "Smoothing length",
+      "label": "Length",
       "max": 1000,
       "min": 1,
       "step": 1,

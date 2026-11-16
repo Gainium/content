@@ -1,0 +1,120 @@
+{
+  "indicator": "on-balance-volume",
+  "defaultTf": "4h",
+  "featured": [
+    "obv-sma20-up",
+    "obv-sma20-gt",
+    "obv-sma20-down-short"
+  ],
+  "settings": [
+    {
+      "id": "obv-sma20-up",
+      "label": "OBV crosses up its SMA 20",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "OBV",
+        "args": [
+          "sma",
+          20
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "fn",
+        "fn": "obvCondition",
+        "options": {
+          "condition": "cu"
+        }
+      },
+      "bot": {
+        "type": "OBV",
+        "params": {
+          "indicatorCondition": "cu"
+        }
+      }
+    },
+    {
+      "id": "obv-sma20-gt",
+      "label": "OBV above its SMA 20",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "OBV",
+        "args": [
+          "sma",
+          20
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "fn",
+        "fn": "obvCondition",
+        "options": {
+          "condition": "gt"
+        }
+      },
+      "bot": {
+        "type": "OBV",
+        "params": {
+          "indicatorCondition": "gt"
+        }
+      }
+    },
+    {
+      "id": "obv-ema50-up",
+      "label": "OBV crosses up its EMA 50",
+      "side": "long",
+      "indicator": {
+        "class": "OBV",
+        "args": [
+          "ema",
+          50
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "fn",
+        "fn": "obvCondition",
+        "options": {
+          "condition": "cu"
+        }
+      },
+      "bot": {
+        "type": "OBV",
+        "params": {
+          "obvMaType": "ema",
+          "obvMaLength": 50,
+          "indicatorCondition": "cu"
+        }
+      }
+    },
+    {
+      "id": "obv-sma20-down-short",
+      "label": "OBV crosses down its SMA 20, short",
+      "side": "short",
+      "featured": true,
+      "indicator": {
+        "class": "OBV",
+        "args": [
+          "sma",
+          20
+        ],
+        "input": "candle"
+      },
+      "condition": {
+        "op": "fn",
+        "fn": "obvCondition",
+        "options": {
+          "condition": "cd"
+        }
+      },
+      "bot": {
+        "type": "OBV",
+        "params": {
+          "indicatorCondition": "cd"
+        }
+      }
+    }
+  ]
+}

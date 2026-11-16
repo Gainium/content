@@ -1,0 +1,113 @@
+{
+  "indicator": "choppiness-index",
+  "defaultTf": "4h",
+  "featured": [
+    "chop14-down382",
+    "chop14-down618",
+    "chop14-gt618"
+  ],
+  "settings": [
+    {
+      "id": "chop14-down382",
+      "label": "Choppiness(14) crosses down 38.2",
+      "side": "long",
+      "featured": true,
+      "volatility": true,
+      "indicator": {
+        "class": "CHOP",
+        "args": [
+          14
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossDown",
+        "against": 38.2
+      },
+      "bot": {
+        "type": "CHOP",
+        "params": {
+          "indicatorCondition": "cd",
+          "indicatorValue": 38.2
+        }
+      }
+    },
+    {
+      "id": "chop14-lt382",
+      "label": "Choppiness(14) below 38.2",
+      "side": "long",
+      "volatility": true,
+      "indicator": {
+        "class": "CHOP",
+        "args": [
+          14
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "lt",
+        "against": 38.2
+      },
+      "bot": {
+        "type": "CHOP",
+        "params": {
+          "indicatorCondition": "lt",
+          "indicatorValue": 38.2
+        }
+      }
+    },
+    {
+      "id": "chop14-down618",
+      "label": "Choppiness(14) crosses down 61.8",
+      "side": "long",
+      "featured": true,
+      "volatility": true,
+      "indicator": {
+        "class": "CHOP",
+        "args": [
+          14
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossDown",
+        "against": 61.8
+      },
+      "bot": {
+        "type": "CHOP",
+        "params": {
+          "indicatorCondition": "cd",
+          "indicatorValue": 61.8
+        }
+      }
+    },
+    {
+      "id": "chop14-gt618",
+      "label": "Choppiness(14) above 61.8",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "CHOP",
+        "args": [
+          14
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "gt",
+        "against": 61.8
+      },
+      "bot": {
+        "type": "CHOP",
+        "params": {
+          "indicatorCondition": "gt",
+          "indicatorValue": 61.8
+        }
+      }
+    }
+  ]
+}

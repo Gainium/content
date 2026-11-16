@@ -85,6 +85,162 @@
       }
     },
     {
+      "id": "kama20-down-price",
+      "label": "Price crosses up KAMA 20",
+      "side": "long",
+      "indicator": {
+        "class": "KAMA",
+        "args": [
+          20
+        ],
+        "input": "close"
+      },
+      "output": null,
+      "condition": {
+        "op": "crossDown",
+        "against": "close"
+      },
+      "bot": {
+        "type": "MA",
+        "params": {
+          "maType": "kama",
+          "indicatorLength": 20,
+          "indicatorCondition": "cd",
+          "maCrossingValue": "price"
+        }
+      }
+    },
+    {
+      "id": "kama20-lt-price",
+      "label": "Price above KAMA 20",
+      "side": "long",
+      "indicator": {
+        "class": "KAMA",
+        "args": [
+          20
+        ],
+        "input": "close"
+      },
+      "output": null,
+      "condition": {
+        "op": "lt",
+        "against": "close"
+      },
+      "bot": {
+        "type": "MA",
+        "params": {
+          "maType": "kama",
+          "indicatorLength": 20,
+          "indicatorCondition": "lt",
+          "maCrossingValue": "price"
+        }
+      }
+    },
+    {
+      "id": "alma20-down-price",
+      "label": "Price crosses up ALMA 20",
+      "side": "long",
+      "indicator": {
+        "class": "ALMA",
+        "args": [
+          20
+        ],
+        "input": "close"
+      },
+      "output": null,
+      "condition": {
+        "op": "crossDown",
+        "against": "close"
+      },
+      "bot": {
+        "type": "MA",
+        "params": {
+          "maType": "alma",
+          "indicatorLength": 20,
+          "indicatorCondition": "cd",
+          "maCrossingValue": "price"
+        }
+      }
+    },
+    {
+      "id": "alma20-lt-price",
+      "label": "Price above ALMA 20",
+      "side": "long",
+      "indicator": {
+        "class": "ALMA",
+        "args": [
+          20
+        ],
+        "input": "close"
+      },
+      "output": null,
+      "condition": {
+        "op": "lt",
+        "against": "close"
+      },
+      "bot": {
+        "type": "MA",
+        "params": {
+          "maType": "alma",
+          "indicatorLength": 20,
+          "indicatorCondition": "lt",
+          "maCrossingValue": "price"
+        }
+      }
+    },
+    {
+      "id": "lsma20-down-price",
+      "label": "Price crosses up LSMA 20",
+      "side": "long",
+      "indicator": {
+        "class": "LSMA",
+        "args": [
+          20
+        ],
+        "input": "close"
+      },
+      "output": null,
+      "condition": {
+        "op": "crossDown",
+        "against": "close"
+      },
+      "bot": {
+        "type": "MA",
+        "params": {
+          "maType": "lsma",
+          "indicatorLength": 20,
+          "indicatorCondition": "cd",
+          "maCrossingValue": "price"
+        }
+      }
+    },
+    {
+      "id": "lsma20-lt-price",
+      "label": "Price above LSMA 20",
+      "side": "long",
+      "indicator": {
+        "class": "LSMA",
+        "args": [
+          20
+        ],
+        "input": "close"
+      },
+      "output": null,
+      "condition": {
+        "op": "lt",
+        "against": "close"
+      },
+      "bot": {
+        "type": "MA",
+        "params": {
+          "maType": "lsma",
+          "indicatorLength": 20,
+          "indicatorCondition": "lt",
+          "maCrossingValue": "price"
+        }
+      }
+    },
+    {
       "id": "sma200-lt-price",
       "label": "Price above SMA 200",
       "side": "long",

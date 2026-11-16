@@ -28,7 +28,10 @@
         "HMA",
         "VWMA",
         "RMA",
-        "McGinley Dynamic"
+        "McGinley Dynamic",
+        "KAMA",
+        "ALMA",
+        "LSMA"
       ],
       "options": [
         "sma",
@@ -39,7 +42,10 @@
         "hma",
         "vwma",
         "rma",
-        "mcginley"
+        "mcginley",
+        "kama",
+        "alma",
+        "lsma"
       ],
       "type": "select"
     },
@@ -128,7 +134,10 @@
         "HMA",
         "VWMA",
         "RMA",
-        "McGinley Dynamic"
+        "McGinley Dynamic",
+        "KAMA",
+        "ALMA",
+        "LSMA"
       ],
       "options": [
         "price",
@@ -140,7 +149,10 @@
         "hma",
         "vwma",
         "rma",
-        "mcginley"
+        "mcginley",
+        "kama",
+        "alma",
+        "lsma"
       ],
       "type": "select"
     },

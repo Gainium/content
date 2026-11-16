@@ -6,7 +6,7 @@ description: >-
   In this article, we explain what is the Moving Averages (SMA, EMA, HMA, etc.)
   indicators and how they can be used in bot trading.
 createdAt: '2023-04-05T15:46:39.260Z'
-updatedAt: '2026-10-29T00:00:00.000Z'
+updatedAt: '2026-11-16T00:00:00.000Z'
 publishedAt: '2023-04-14T06:55:36.772Z'
 locale: en
 categories:
@@ -19,10 +19,10 @@ ingestedAt: '2025-06-29T10:57:30.017Z'
 templateVersion: 2
 tldr: >-
   A moving average is the average closing price of the last N candles,
-  redrawn on every candle. Gainium's Moving Averages condition offers nine
-  types (SMA, EMA, WMA, DEMA, TEMA, HMA, VWMA, RMA and McGinley Dynamic) and
-  compares one of them with the current price or with a second average, on
-  any interval.
+  redrawn on every candle. Gainium's Moving Averages condition offers twelve
+  types (SMA, EMA, WMA, DEMA, TEMA, HMA, VWMA, RMA, McGinley Dynamic, KAMA,
+  ALMA and LSMA) and compares one of them with the current price or with a
+  second average, on any interval.
   The default is EMA 20 on 1-hour candles crossing down the current price,
   which fires when price closes back above the EMA. The golden cross, the
   50-day SMA crossing above the 200-day SMA, is the rarest signal on this
@@ -44,6 +44,12 @@ aliases:
   - "HMA"
   - "RMA"
   - "McGinley Dynamic"
+  - "KAMA"
+  - "Kaufman Adaptive Moving Average"
+  - "ALMA"
+  - "Arnaud Legoux Moving Average"
+  - "LSMA"
+  - "Least Squares Moving Average"
   - "VWMA"
 faq:
   - title: Which moving average type reacts fastest?
@@ -90,6 +96,12 @@ sources:
     url: https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/triple-exponential-moving-average-tema
   - title: StockCharts ChartSchool, Hull Moving Average (Alan Hull, 2005)
     url: https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/hull-moving-average-hma
+  - title: StockCharts ChartSchool, Kaufman's Adaptive Moving Average (KAMA), Perry Kaufman, KAMA(10,2,30)
+    url: https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/kaufmans-adaptive-moving-average-kama
+  - title: TradingView Help Center, Arnaud Legoux Moving Average (Arnaud Legoux and Dimitrios Douzis-Loukas)
+    url: https://www.tradingview.com/support/solutions/43000594683-arnaud-legoux-moving-average/
+  - title: TradingView Pine Script reference, ta.alma and ta.linreg
+    url: https://www.tradingview.com/pine-script-reference/v6/
   - title: Binance BTC/USDT 1h and 1d candles, computed with Gainium's indicator engine
 ---
 
@@ -97,7 +109,7 @@ A moving average is the average closing price of the last N candles, recalculate
 
 ## What is a moving average
 
-No one person invented the moving average; the simple and exponential versions are decades older than charting software. The newer types have named authors, listed below. Gainium offers nine types. For a length *n*:
+No one person invented the moving average; the simple and exponential versions are decades older than charting software. The newer types have named authors, listed below. Gainium offers twelve types. For a length *n*:
 
 - **SMA (simple):** the plain average of the last *n* closes. Every candle has the same weight, so the line lags price by about (*n* − 1) / 2 candles.
 - **EMA (exponential):** `EMA = close × α + previous EMA × (1 − α)`, with `α = 2 / (n + 1)`. Recent candles weigh more, so it turns sooner than an SMA of the same length.
@@ -108,8 +120,11 @@ No one person invented the moving average; the simple and exponential versions a
 - **RMA (Wilder's):** an EMA with `α = 1 / n`, the slowest of the group. RSI and ATR use it internally.
 - **VWMA (volume-weighted):** `Σ(close × volume) / Σ volume` over *n* candles. Candles with more volume pull the line harder.
 - **McGinley Dynamic:** `MD = MD[1] + (close − MD[1]) / (n × (close / MD[1])⁴)`, starting from the SMA of the first *n* closes. John R. McGinley introduced it in the early 1990s as an average that sets its own speed: the further price runs from the line, the faster the line follows, and it follows a drop faster than a rise of the same size.
+- **KAMA (Kaufman's adaptive):** `KAMA = KAMA[1] + α × (close − KAMA[1])`, with `α = (ER × (2/3 − 2/31) + 2/31)²`. ER, the efficiency ratio, is the net move over *n* candles divided by the sum of the candle-to-candle moves: 1 for a straight line, near 0 for chop. Perry Kaufman designed it to follow a clean trend almost as fast as a 2-period EMA and to slow to a 30-period EMA in chop. Gainium fixes the fast and slow lengths at 2 and 30 and uses Length for the efficiency ratio. It starts from the close and follows the classic Pine script; TradingView has no built-in KAMA function to check it against.
+- **ALMA (Arnaud Legoux):** a Gaussian-weighted average of the last *n* closes, with the bell's peak 85% of the way toward the newest candle (offset 0.85) and its width set by sigma 6. Arnaud Legoux and Dimitrios Douzis-Loukas built it for a smooth line with little lag. Gainium fixes offset and sigma at TradingView's defaults, and the line matches TradingView's `ta.alma`.
+- **LSMA (least squares):** the end point of the straight line fitted through the last *n* closes by least squares, the same as TradingView's `ta.linreg` with offset 0. It projects the recent slope to the current candle, so in a steady trend it sits on price, and after a turn it overshoots.
 
-How the type changes behaviour: on BTC/USDT 1h at Length 20, RMA gives the fewest crosses of price. SMA gives about 1.3 times as many, EMA about 1.4 times, WMA about 1.7 times, and TEMA and HMA about 2.3 times as many.
+How the type changes behaviour: on BTC/USDT 1h at Length 20, RMA gives the fewest crosses of price. SMA gives about 1.3 times as many, EMA about 1.4 times, WMA about 1.7 times, and TEMA and HMA about 2.3 times as many. Of the newer types, McGinley Dynamic crosses about as often as RMA, KAMA about 1.2 times as often, LSMA about 2.1 times and ALMA about 2.3 times.
 
 How to read it:
 
@@ -124,11 +139,11 @@ How to read it:
 
 | Setting | Default | What it does |
 | --- | --- | --- |
-| Moving average | EMA | The average that is tested: SMA, EMA, WMA, DEMA, TEMA, HMA, VWMA, RMA or McGinley Dynamic. Of the fixed-weight types, HMA and TEMA cross price most often, RMA least. |
+| Moving average | EMA | The average that is tested: SMA, EMA, WMA, DEMA, TEMA, HMA, VWMA, RMA, McGinley Dynamic, KAMA, ALMA or LSMA. HMA, ALMA and TEMA cross price most often, RMA and McGinley Dynamic least. |
 | Length | 20 | Candles in the average, 1 to 1,000. |
 | Interval | 1 hour | Candle size of the average, from 1 minute to 1 week. It does not follow the chart you are looking at. |
 | Condition | Crossing down | How the average is compared with the reference. Crossing down means the average drops below the reference: with Current price, that is price closing back above the average. |
-| Compared to | Current price | The reference: the candle's close, or a second average of any of the nine types. |
+| Compared to | Current price | The reference: the candle's close, or a second average of any of the twelve types. |
 | Comparison length | 20 | Length of the second average, 1 to 1,000. Hidden with Current price. |
 | Comparison interval | 1 hour | Candle size of the second average. It can differ from Interval. Hidden with Current price. |
 | Keep true | 0 | Extra candles the condition stays true after it fires, so it can meet a slower condition in the same group. |
@@ -195,11 +210,11 @@ The condition reads left to right: moving average, length, condition, then the r
 
 The fields and their defaults:
 
-- **Moving average:** EMA. The options are SMA, EMA, WMA, DEMA, TEMA, HMA, VWMA, RMA and McGinley Dynamic.
+- **Moving average:** EMA. The options are SMA, EMA, WMA, DEMA, TEMA, HMA, VWMA, RMA, McGinley Dynamic, KAMA, ALMA and LSMA. KAMA, ALMA and LSMA have no extra fields: KAMA's fast and slow lengths (2 and 30), ALMA's offset and sigma (0.85 and 6) and LSMA's offset (0) are fixed.
 - **Length:** 20, from 1 to 1,000.
 - **Interval:** 1 hour.
 - **Condition:** Crossing down. The options are Crossing down, Crossing up, Greater than and Lower than.
-- **Compared to:** Current price. Or a second average of any of the nine types.
+- **Compared to:** Current price. Or a second average of any of the twelve types.
 - **SMA length** (named after the type you compare with): 20, from 1 to 1,000. Shown only when Compared to is an average.
 - **SMA interval** (named the same way): 1 hour. The second average's own candles.
 - **Keep true:** 0 extra candles.

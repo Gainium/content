@@ -1,0 +1,114 @@
+{
+  "alertConditions": "not applicable",
+  "chart": null,
+  "indicator": {
+    "author": "Gainium",
+    "kind": "native",
+    "openSource": null,
+    "overlay": null,
+    "scriptId": "CMF",
+    "shortTitle": "CMF",
+    "title": "Chaikin Money Flow (CMF)",
+    "version": null
+  },
+  "inputs": [
+    {
+      "default": 20,
+      "defaultText": "20",
+      "group": null,
+      "id": "cmfLength",
+      "kind": "logic",
+      "label": "Length",
+      "max": 1000,
+      "min": 1,
+      "step": 1,
+      "tooltip": "Candles whose money flow and volume are summed.",
+      "type": "number"
+    },
+    {
+      "default": "1h",
+      "defaultText": "1 hour",
+      "group": null,
+      "id": "indicatorInterval",
+      "kind": "logic",
+      "label": "Interval",
+      "optionLabels": [
+        "1 minute",
+        "3 minutes",
+        "5 minutes",
+        "15 minutes",
+        "30 minutes",
+        "1 hour",
+        "2 hours",
+        "4 hours",
+        "8 hours",
+        "1 day",
+        "1 week"
+      ],
+      "options": [
+        "1m",
+        "3m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "4h",
+        "8h",
+        "1d",
+        "1w"
+      ],
+      "type": "interval"
+    },
+    {
+      "default": "cu",
+      "defaultText": "Crossing up",
+      "group": null,
+      "id": "indicatorCondition",
+      "kind": "logic",
+      "label": "Condition",
+      "optionLabels": [
+        "Crossing down",
+        "Crossing up",
+        "Greater than",
+        "Lower than"
+      ],
+      "options": [
+        "cd",
+        "cu",
+        "gt",
+        "lt"
+      ],
+      "type": "select"
+    },
+    {
+      "default": 0,
+      "defaultText": "0",
+      "group": null,
+      "id": "indicatorValue",
+      "kind": "logic",
+      "label": "Value",
+      "max": 1,
+      "min": -1,
+      "step": 0.01,
+      "tooltip": "CMF stays between −1 and +1. Above 0 more volume closed near the highs (buying pressure), below 0 near the lows.",
+      "type": "number"
+    },
+    {
+      "default": 0,
+      "defaultText": "0",
+      "group": null,
+      "id": "keepConditionBars",
+      "kind": "logic",
+      "label": "Keep true",
+      "min": 0,
+      "step": 1,
+      "tooltip": "This condition will remain true for a number of extra bars. Default is 0, which means it will be true only on the bar that triggered the condition.",
+      "type": "number"
+    }
+  ],
+  "notes": [],
+  "plots": [],
+  "schema": "gainium.indicator-settings/1",
+  "source": "gainium-catalog"
+}

@@ -1,0 +1,110 @@
+{
+  "indicator": "chaikin-money-flow",
+  "defaultTf": "4h",
+  "featured": [
+    "cmf20-up0",
+    "cmf20-gt005",
+    "cmf20-down0-short"
+  ],
+  "settings": [
+    {
+      "id": "cmf20-up0",
+      "label": "CMF(20) crosses up 0",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "CMF",
+        "args": [
+          20
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossUp",
+        "against": 0
+      },
+      "bot": {
+        "type": "CMF",
+        "params": {
+          "indicatorCondition": "cu",
+          "indicatorValue": 0
+        }
+      }
+    },
+    {
+      "id": "cmf20-gt005",
+      "label": "CMF(20) above 0.05",
+      "side": "long",
+      "featured": true,
+      "indicator": {
+        "class": "CMF",
+        "args": [
+          20
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "gt",
+        "against": 0.05
+      },
+      "bot": {
+        "type": "CMF",
+        "params": {
+          "indicatorCondition": "gt",
+          "indicatorValue": 0.05
+        }
+      }
+    },
+    {
+      "id": "cmf20-lt-010",
+      "label": "CMF(20) below −0.10",
+      "side": "long",
+      "indicator": {
+        "class": "CMF",
+        "args": [
+          20
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "lt",
+        "against": -0.1
+      },
+      "bot": {
+        "type": "CMF",
+        "params": {
+          "indicatorCondition": "lt",
+          "indicatorValue": -0.1
+        }
+      }
+    },
+    {
+      "id": "cmf20-down0-short",
+      "label": "CMF(20) crosses down 0, short",
+      "side": "short",
+      "featured": true,
+      "indicator": {
+        "class": "CMF",
+        "args": [
+          20
+        ],
+        "input": "candle"
+      },
+      "output": "value",
+      "condition": {
+        "op": "crossDown",
+        "against": 0
+      },
+      "bot": {
+        "type": "CMF",
+        "params": {
+          "indicatorCondition": "cd",
+          "indicatorValue": 0
+        }
+      }
+    }
+  ]
+}

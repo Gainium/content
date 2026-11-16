@@ -6,7 +6,7 @@ description: >-
   Learn how to use the Moving Average Ratio (MAR) in Gainium for flexible bot
   trading with advanced trend detection and customizable entry/exit rules.
 createdAt: '2024-10-05T11:55:03.576Z'
-updatedAt: '2026-10-29T00:00:00.000Z'
+updatedAt: '2026-11-16T00:00:00.000Z'
 publishedAt: '2024-10-05T12:19:52.638Z'
 locale: en
 categories:
@@ -83,7 +83,7 @@ MAR is a Gainium condition, not a classic indicator with a published author. The
 
 - **Relative to** is the base moving average, the denominator: a type (EMA by default) and a length (20).
 - **Reference** is the numerator: the current close by default, or a second moving average with its own type and length.
-- Both averages use closes, except VWMA, which also uses volume. All nine Gainium types are available: SMA, EMA, WMA, DEMA, TEMA, HMA, VWMA, RMA and McGinley Dynamic.
+- Both averages use closes, except VWMA, which also uses volume. All twelve Gainium types are available: SMA, EMA, WMA, DEMA, TEMA, HMA, VWMA, RMA, McGinley Dynamic, KAMA, ALMA and LSMA. KAMA, ALMA and LSMA use fixed secondary settings (KAMA fast 2 and slow 30, ALMA offset 0.85 and sigma 6, LSMA offset 0); their formulas are on the [Moving Averages](https://gainium.io/indicators/moving-averages) page.
 
 How to read it:
 
@@ -100,16 +100,17 @@ The default Value, 0.99, sits near the 11th percentile of the 1-hour range: BTC 
 
 | Setting | Default | What it does |
 | --- | --- | --- |
-| Use percentile | Off | Off: the condition tests the fixed Value. On: Value hides and MAR is compared with its own Percentile over the last Lookback candles. |
+| Percentile | Off | Off: the condition tests the fixed Value. On: Value hides and MAR is compared with its own Threshold rank over the last Lookback candles. |
 | Lookback | 150 | Candles of the line's own history the percentile is taken from. Percentile mode only. |
-| Percentile | 80 | The rank in that history used as the level: 80 is a level that only 20% of readings exceeded. Percentile mode only. |
-| Reference | Current price | The numerator: the candle's close, or a moving average of any of the nine types. |
+| Threshold | 80 | The rank in that history used as the level: 80 is a level that only 20% of readings exceeded. Percentile mode only. |
+| Reference | Current price | The numerator: the candle's close, or a moving average of any of the twelve types. |
 | Comparison MA length | 20 | Length of the Reference average, 1 to 500. Hidden with Current price. |
 | Relative to | EMA | The type of the base average, the denominator. |
 | Base MA length | 20 | Length of the base average, 1 to 500. |
 | Interval | 1 hour | Candle size of both averages, from 1 minute to 1 week. |
-| Smoothing | None | A moving average put on the MAR line. With smoothing on, the condition tests the smoothed line. |
-| Smoothing length | 14 | Candles in the smoothing average, 1 to 1,000. |
+| Smoothing | — | On: a moving average is put on the MAR line, and the condition tests the smoothed line. |
+| Average | none | The smoothing average: SMA, EMA, WMA, DEMA, TEMA, HMA or RMA. Shown when Smoothing is on. |
+| Length | 14 | Candles in the smoothing average, 1 to 1,000. |
 | Compare | Smoothed line vs value | Smoothed line vs value tests the smoothed line against Value. Line vs smoothed line tests the raw line against its own average; Value hides and Between is never true. |
 | Condition | Crossing down | Crossing up and Crossing down fire on the one candle where the line passes Value. Greater than and Lower than hold on every candle on that side. Between holds while the line is inside Value and Upper value. |
 | Value | 0.99 | The ratio level: 0.99 is 1% below the base average, 1.02 is 2% above it. The arrows step by 0.01; type more decimals, such as 0.985, by hand. |
@@ -160,12 +161,12 @@ Use the trend filter to require that price is above the average and pulling away
 
 The fields and their defaults:
 
-- **Use percentile:** off. When on, MAR is compared with its own percentile level over **Lookback** (150 candles) at **Percentile** (80), and Value hides.
-- **Reference:** Current price. Or any of the nine average types; a **Length** field (20, from 1 to 500) appears, named after the type.
+- **Percentile:** off. When on, MAR is compared with its own percentile level over **Lookback** (150 candles) at **Threshold** (80), and Value hides.
+- **Reference:** Current price. Or any of the twelve average types; a **Length** field (20, from 1 to 500) appears, named after the type.
 - **Relative to:** EMA, the base average.
 - **EMA Length:** 20, from 1 to 500. The label follows the type you pick.
 - **Interval:** 1 hour.
-- **Smoothing:** None. An average of the MAR line, with **Smoothing length** 14 and **Compare** (Smoothed line vs value, or Line vs smoothed line). See [indicator smoothing](https://gainium.io/help/indicator-smoothing).
+- **Smoothing:** off. When on, choose the **Average** (SMA, EMA, WMA, DEMA, TEMA, HMA or RMA) and its **Length** (14), and **Compare** (Smoothed line vs value, or Line vs smoothed line). See [indicator smoothing](https://gainium.io/help/indicator-smoothing).
 - **Condition:** Crossing down. The options are Crossing down, Crossing up, Greater than, Lower than and Between.
 - **Value:** 0.99, in steps of 0.01. With Between, an **Upper value** field appears.
 - **Keep true:** 0 extra candles.
@@ -173,7 +174,7 @@ The fields and their defaults:
 
 MAR works as a deal start, DCA, take profit or stop loss condition, and in the Bot Controller.
 
-Example configuration for the second setup: Reference Current price, Relative to EMA, EMA Length 50, Interval 4 hours, Smoothing None, Condition Greater than, Value 1.01, Keep true 0, Use Trend Filter on, lookback 10, Higher or equal to, 2%.
+Example configuration for the second setup: Reference Current price, Relative to EMA, EMA Length 50, Interval 4 hours, Smoothing off, Condition Greater than, Value 1.01, Keep true 0, Use Trend Filter on, lookback 10, Higher or equal to, 2%.
 
 ![Gainium MAR settings card configured with EMA Length 50, Interval 4 hours, Condition Greater than, Value 1.01 and the trend filter on with Higher or equal to 2%](https://content.gainium.io/images/content/indicators/moving-average-ratio__example.webp)
 
