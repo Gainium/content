@@ -1,0 +1,2778 @@
+{
+ "indicator": "on-balance-volume",
+ "defaultTf": "4h",
+ "method": {
+  "horizon": 20,
+  "horizons": [
+   10,
+   20,
+   50,
+   100
+  ],
+  "randomDraws": 500,
+  "minEpisodes": 30,
+  "source": "Binance spot",
+  "pairs": [
+   "BTC/USDT",
+   "ETH/USDT",
+   "SOL/USDT"
+  ],
+  "from": "2020-09-01",
+  "warmupFrom": "2020-06-01",
+  "regime": {
+   "by": "pair close vs its 200-day SMA",
+   "sma": 200
+  },
+  "to": "2026-11-15",
+  "engine": {
+   "indicators": "861ee72c",
+   "analysisMath": "67c9d496"
+  }
+ },
+ "updatedAt": "2026-11-16",
+ "settings": [
+  {
+   "id": "obv-sma20-up",
+   "tf": "1h",
+   "label": "OBV crosses up its SMA 20",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 11104,
+    "episodes": 3073,
+    "draws": 100,
+    "edge": 0.05,
+    "chance": [
+     -0.06,
+     0.07
+    ],
+    "verdict": "none",
+    "path": [
+     0.002,
+     -0.007,
+     -0.008,
+     0.007,
+     0.008,
+     0.007,
+     0.017,
+     0.016,
+     0.024,
+     0.043,
+     0.033,
+     0.039,
+     0.037,
+     0.04,
+     0.032,
+     0.042,
+     0.043,
+     0.041,
+     0.048,
+     0.046
+    ],
+    "band": [
+     [
+      -0.013,
+      0.016
+     ],
+     [
+      -0.022,
+      0.024
+     ],
+     [
+      -0.029,
+      0.027
+     ],
+     [
+      -0.031,
+      0.028
+     ],
+     [
+      -0.032,
+      0.036
+     ],
+     [
+      -0.039,
+      0.033
+     ],
+     [
+      -0.036,
+      0.035
+     ],
+     [
+      -0.04,
+      0.033
+     ],
+     [
+      -0.041,
+      0.041
+     ],
+     [
+      -0.045,
+      0.037
+     ],
+     [
+      -0.046,
+      0.041
+     ],
+     [
+      -0.055,
+      0.039
+     ],
+     [
+      -0.053,
+      0.044
+     ],
+     [
+      -0.053,
+      0.047
+     ],
+     [
+      -0.051,
+      0.055
+     ],
+     [
+      -0.052,
+      0.051
+     ],
+     [
+      -0.063,
+      0.056
+     ],
+     [
+      -0.058,
+      0.063
+     ],
+     [
+      -0.058,
+      0.061
+     ],
+     [
+      -0.06,
+      0.065
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 3901,
+     "episodes": 1009,
+     "draws": 100,
+     "edge": -0.02,
+     "chance": [
+      -0.06,
+      0.08
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 3617,
+     "episodes": 1033,
+     "draws": 100,
+     "edge": 0.09,
+     "chance": [
+      -0.07,
+      0.1
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 3586,
+     "episodes": 1031,
+     "draws": 100,
+     "edge": 0.08,
+     "chance": [
+      -0.11,
+      0.13
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "OBV",
+    "params": {
+     "indicatorCondition": "cu"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 6111,
+     "episodes": 1635,
+     "draws": 100,
+     "edge": 0.11,
+     "chance": [
+      -0.08,
+      0.1
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 8,
+       "start": "2023-11-08",
+       "end": "2023-11-10",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 4722,
+     "episodes": 1398,
+     "draws": 100,
+     "edge": -0.07,
+     "chance": [
+      -0.08,
+      0.08
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "obv-sma20-gt",
+   "tf": "1h",
+   "label": "OBV above its SMA 20",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 80733,
+    "episodes": 1332,
+    "draws": 100,
+    "edge": 0.01,
+    "chance": [
+     -0.06,
+     0.05
+    ],
+    "verdict": "none",
+    "path": [
+     0.003,
+     0.005,
+     0.01,
+     0.016,
+     0.019,
+     0.023,
+     0.025,
+     0.027,
+     0.029,
+     0.031,
+     0.03,
+     0.032,
+     0.031,
+     0.03,
+     0.027,
+     0.025,
+     0.022,
+     0.019,
+     0.017,
+     0.011
+    ],
+    "band": [
+     [
+      -0.003,
+      0.004
+     ],
+     [
+      -0.007,
+      0.008
+     ],
+     [
+      -0.01,
+      0.012
+     ],
+     [
+      -0.014,
+      0.017
+     ],
+     [
+      -0.017,
+      0.019
+     ],
+     [
+      -0.02,
+      0.024
+     ],
+     [
+      -0.024,
+      0.027
+     ],
+     [
+      -0.025,
+      0.028
+     ],
+     [
+      -0.028,
+      0.029
+     ],
+     [
+      -0.032,
+      0.031
+     ],
+     [
+      -0.035,
+      0.032
+     ],
+     [
+      -0.035,
+      0.034
+     ],
+     [
+      -0.037,
+      0.037
+     ],
+     [
+      -0.041,
+      0.039
+     ],
+     [
+      -0.045,
+      0.042
+     ],
+     [
+      -0.048,
+      0.043
+     ],
+     [
+      -0.051,
+      0.044
+     ],
+     [
+      -0.053,
+      0.045
+     ],
+     [
+      -0.059,
+      0.05
+     ],
+     [
+      -0.063,
+      0.051
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 27146,
+     "episodes": 419,
+     "draws": 100,
+     "edge": -0.01,
+     "chance": [
+      -0.06,
+      0.06
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 26873,
+     "episodes": 448,
+     "draws": 100,
+     "edge": 0.03,
+     "chance": [
+      -0.07,
+      0.06
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 26714,
+     "episodes": 465,
+     "draws": 100,
+     "edge": 0.01,
+     "chance": [
+      -0.13,
+      0.12
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "OBV",
+    "params": {
+     "indicatorCondition": "gt"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 44122,
+     "episodes": 731,
+     "draws": 100,
+     "edge": 0.03,
+     "chance": [
+      -0.07,
+      0.06
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 34553,
+     "episodes": 651,
+     "draws": 100,
+     "edge": -0.03,
+     "chance": [
+      -0.07,
+      0.07
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "obv-ema50-up",
+   "tf": "1h",
+   "label": "OBV crosses up its EMA 50",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 7195,
+    "episodes": 2379,
+    "draws": 100,
+    "edge": 0.03,
+    "chance": [
+     -0.08,
+     0.11
+    ],
+    "verdict": "none",
+    "path": [
+     0.019,
+     0.019,
+     0.024,
+     0.021,
+     0.015,
+     0.018,
+     0.008,
+     -0.005,
+     0.002,
+     -0.005,
+     -0.001,
+     -0.005,
+     0.014,
+     0.009,
+     0.008,
+     0.018,
+     0.027,
+     0.037,
+     0.019,
+     0.033
+    ],
+    "band": [
+     [
+      -0.019,
+      0.021
+     ],
+     [
+      -0.027,
+      0.03
+     ],
+     [
+      -0.033,
+      0.038
+     ],
+     [
+      -0.039,
+      0.038
+     ],
+     [
+      -0.037,
+      0.037
+     ],
+     [
+      -0.045,
+      0.047
+     ],
+     [
+      -0.05,
+      0.05
+     ],
+     [
+      -0.053,
+      0.059
+     ],
+     [
+      -0.048,
+      0.06
+     ],
+     [
+      -0.056,
+      0.063
+     ],
+     [
+      -0.06,
+      0.065
+     ],
+     [
+      -0.055,
+      0.08
+     ],
+     [
+      -0.066,
+      0.084
+     ],
+     [
+      -0.073,
+      0.092
+     ],
+     [
+      -0.079,
+      0.09
+     ],
+     [
+      -0.078,
+      0.104
+     ],
+     [
+      -0.095,
+      0.094
+     ],
+     [
+      -0.091,
+      0.106
+     ],
+     [
+      -0.084,
+      0.098
+     ],
+     [
+      -0.085,
+      0.112
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 2549,
+     "episodes": 788,
+     "draws": 100,
+     "edge": -0.03,
+     "chance": [
+      -0.13,
+      0.1
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 2338,
+     "episodes": 812,
+     "draws": 106,
+     "edge": 0.05,
+     "chance": [
+      -0.11,
+      0.16
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 2308,
+     "episodes": 779,
+     "draws": 108,
+     "edge": 0.08,
+     "chance": [
+      -0.19,
+      0.27
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "OBV",
+    "params": {
+     "obvMaType": "ema",
+     "obvMaLength": 50,
+     "indicatorCondition": "cu"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 3979,
+     "episodes": 1294,
+     "draws": 100,
+     "edge": 0.09,
+     "chance": [
+      -0.13,
+      0.13
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 3043,
+     "episodes": 1039,
+     "draws": 100,
+     "edge": -0.06,
+     "chance": [
+      -0.14,
+      0.11
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "obv-sma20-down-short",
+   "tf": "1h",
+   "label": "OBV crosses down its SMA 20, short",
+   "side": "short",
+   "featured": true,
+   "pooled": {
+    "entries": 11105,
+    "episodes": 3041,
+    "draws": 100,
+    "edge": 0.02,
+    "chance": [
+     -0.06,
+     0.06
+    ],
+    "verdict": "none",
+    "path": [
+     0.009,
+     -0.002,
+     -0.009,
+     -0.006,
+     -0.01,
+     0.004,
+     -0.002,
+     -0.009,
+     -0.011,
+     -0.014,
+     -0.017,
+     -0.008,
+     -0.001,
+     0.005,
+     0.005,
+     0.009,
+     0.002,
+     0.005,
+     0.016,
+     0.021
+    ],
+    "band": [
+     [
+      -0.014,
+      0.012
+     ],
+     [
+      -0.018,
+      0.021
+     ],
+     [
+      -0.026,
+      0.022
+     ],
+     [
+      -0.024,
+      0.03
+     ],
+     [
+      -0.029,
+      0.035
+     ],
+     [
+      -0.035,
+      0.037
+     ],
+     [
+      -0.037,
+      0.036
+     ],
+     [
+      -0.039,
+      0.043
+     ],
+     [
+      -0.039,
+      0.047
+     ],
+     [
+      -0.04,
+      0.055
+     ],
+     [
+      -0.042,
+      0.057
+     ],
+     [
+      -0.046,
+      0.055
+     ],
+     [
+      -0.05,
+      0.059
+     ],
+     [
+      -0.046,
+      0.057
+     ],
+     [
+      -0.055,
+      0.063
+     ],
+     [
+      -0.054,
+      0.07
+     ],
+     [
+      -0.058,
+      0.057
+     ],
+     [
+      -0.054,
+      0.059
+     ],
+     [
+      -0.059,
+      0.058
+     ],
+     [
+      -0.063,
+      0.058
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 3901,
+     "episodes": 1009,
+     "draws": 100,
+     "edge": 0.06,
+     "chance": [
+      -0.08,
+      0.07
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 3617,
+     "episodes": 1005,
+     "draws": 100,
+     "edge": 0,
+     "chance": [
+      -0.1,
+      0.09
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 3587,
+     "episodes": 1027,
+     "draws": 100,
+     "edge": 0,
+     "chance": [
+      -0.14,
+      0.11
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "OBV",
+    "params": {
+     "indicatorCondition": "cd"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 6152,
+     "episodes": 1647,
+     "draws": 100,
+     "edge": -0.04,
+     "chance": [
+      -0.08,
+      0.1
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 4681,
+     "episodes": 1352,
+     "draws": 100,
+     "edge": 0.15,
+     "chance": [
+      -0.09,
+      0.08
+     ],
+     "verdict": "edge",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 8,
+       "start": "2022-05-10",
+       "end": "2022-05-12",
+       "without": "edge"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "id": "obv-sma20-up",
+   "tf": "4h",
+   "label": "OBV crosses up its SMA 20",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 2803,
+    "episodes": 748,
+    "draws": 100,
+    "edge": 0.14,
+    "chance": [
+     -0.26,
+     0.22
+    ],
+    "verdict": "none",
+    "path": [
+     -0.001,
+     0.034,
+     0.123,
+     0.153,
+     0.146,
+     0.092,
+     0.051,
+     0.073,
+     0.042,
+     0.012,
+     0.129,
+     0.067,
+     0.106,
+     0.107,
+     0.157,
+     0.16,
+     0.17,
+     0.115,
+     0.143,
+     0.14
+    ],
+    "band": [
+     [
+      -0.052,
+      0.054
+     ],
+     [
+      -0.081,
+      0.074
+     ],
+     [
+      -0.086,
+      0.084
+     ],
+     [
+      -0.103,
+      0.113
+     ],
+     [
+      -0.128,
+      0.12
+     ],
+     [
+      -0.129,
+      0.128
+     ],
+     [
+      -0.148,
+      0.153
+     ],
+     [
+      -0.145,
+      0.161
+     ],
+     [
+      -0.155,
+      0.169
+     ],
+     [
+      -0.158,
+      0.181
+     ],
+     [
+      -0.171,
+      0.187
+     ],
+     [
+      -0.182,
+      0.162
+     ],
+     [
+      -0.184,
+      0.175
+     ],
+     [
+      -0.192,
+      0.193
+     ],
+     [
+      -0.203,
+      0.183
+     ],
+     [
+      -0.229,
+      0.197
+     ],
+     [
+      -0.229,
+      0.223
+     ],
+     [
+      -0.199,
+      0.194
+     ],
+     [
+      -0.24,
+      0.208
+     ],
+     [
+      -0.261,
+      0.215
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 967,
+     "episodes": 243,
+     "draws": 258,
+     "edge": -0.2,
+     "chance": [
+      -0.3,
+      0.28
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 951,
+     "episodes": 248,
+     "draws": 262,
+     "edge": 0.39,
+     "chance": [
+      -0.37,
+      0.32
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 4,
+       "start": "2020-12-31",
+       "end": "2021-01-02",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 885,
+     "episodes": 257,
+     "draws": 282,
+     "edge": 0.27,
+     "chance": [
+      -0.55,
+      0.57
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "OBV",
+    "params": {
+     "indicatorCondition": "cu"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1495,
+     "episodes": 403,
+     "draws": 167,
+     "edge": 0.12,
+     "chance": [
+      -0.37,
+      0.36
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 1232,
+     "episodes": 360,
+     "draws": 202,
+     "edge": 0.21,
+     "chance": [
+      -0.35,
+      0.37
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "obv-sma20-gt",
+   "tf": "4h",
+   "label": "OBV above its SMA 20",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 20455,
+    "episodes": 294,
+    "draws": 100,
+    "edge": 0.17,
+    "chance": [
+     -0.22,
+     0.19
+    ],
+    "verdict": "none",
+    "path": [
+     0.007,
+     0.015,
+     0.025,
+     0.024,
+     0.018,
+     0.01,
+     0.018,
+     0.035,
+     0.052,
+     0.073,
+     0.092,
+     0.089,
+     0.098,
+     0.103,
+     0.112,
+     0.113,
+     0.124,
+     0.139,
+     0.159,
+     0.173
+    ],
+    "band": [
+     [
+      -0.019,
+      0.019
+     ],
+     [
+      -0.031,
+      0.035
+     ],
+     [
+      -0.042,
+      0.05
+     ],
+     [
+      -0.059,
+      0.065
+     ],
+     [
+      -0.07,
+      0.078
+     ],
+     [
+      -0.087,
+      0.086
+     ],
+     [
+      -0.094,
+      0.095
+     ],
+     [
+      -0.107,
+      0.099
+     ],
+     [
+      -0.122,
+      0.107
+     ],
+     [
+      -0.136,
+      0.119
+     ],
+     [
+      -0.147,
+      0.128
+     ],
+     [
+      -0.164,
+      0.131
+     ],
+     [
+      -0.17,
+      0.155
+     ],
+     [
+      -0.177,
+      0.163
+     ],
+     [
+      -0.186,
+      0.166
+     ],
+     [
+      -0.19,
+      0.168
+     ],
+     [
+      -0.206,
+      0.174
+     ],
+     [
+      -0.209,
+      0.181
+     ],
+     [
+      -0.216,
+      0.181
+     ],
+     [
+      -0.218,
+      0.188
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 6875,
+     "episodes": 94,
+     "draws": 100,
+     "edge": 0.13,
+     "chance": [
+      -0.22,
+      0.25
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 6807,
+     "episodes": 99,
+     "draws": 100,
+     "edge": 0.04,
+     "chance": [
+      -0.32,
+      0.24
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 6773,
+     "episodes": 101,
+     "draws": 100,
+     "edge": 0.36,
+     "chance": [
+      -0.46,
+      0.3
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 446,
+       "start": "2020-12-22",
+       "end": "2021-04-12",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "chance"
+       },
+       {
+        "horizon": 50,
+        "state": "edge"
+       },
+       {
+        "horizon": 100,
+        "state": "edge"
+       }
+      ]
+     }
+    }
+   },
+   "bot": {
+    "type": "OBV",
+    "params": {
+     "indicatorCondition": "gt"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 11381,
+     "episodes": 174,
+     "draws": 100,
+     "edge": 0.13,
+     "chance": [
+      -0.23,
+      0.15
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 8536,
+     "episodes": 175,
+     "draws": 100,
+     "edge": 0.03,
+     "chance": [
+      -0.24,
+      0.21
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "obv-ema50-up",
+   "tf": "4h",
+   "label": "OBV crosses up its EMA 50",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 1861,
+    "episodes": 635,
+    "draws": 134,
+    "edge": 0.05,
+    "chance": [
+     -0.32,
+     0.44
+    ],
+    "verdict": "none",
+    "path": [
+     0.008,
+     0.017,
+     0.07,
+     0.093,
+     0.054,
+     0.056,
+     -0.054,
+     0.022,
+     -0.004,
+     -0.006,
+     0.122,
+     0.097,
+     0.138,
+     0.156,
+     0.128,
+     0.158,
+     0.122,
+     0.124,
+     0.082,
+     0.049
+    ],
+    "band": [
+     [
+      -0.066,
+      0.071
+     ],
+     [
+      -0.083,
+      0.097
+     ],
+     [
+      -0.085,
+      0.137
+     ],
+     [
+      -0.116,
+      0.166
+     ],
+     [
+      -0.145,
+      0.178
+     ],
+     [
+      -0.152,
+      0.214
+     ],
+     [
+      -0.163,
+      0.215
+     ],
+     [
+      -0.164,
+      0.254
+     ],
+     [
+      -0.201,
+      0.297
+     ],
+     [
+      -0.23,
+      0.312
+     ],
+     [
+      -0.257,
+      0.348
+     ],
+     [
+      -0.252,
+      0.327
+     ],
+     [
+      -0.293,
+      0.357
+     ],
+     [
+      -0.288,
+      0.343
+     ],
+     [
+      -0.277,
+      0.373
+     ],
+     [
+      -0.307,
+      0.399
+     ],
+     [
+      -0.316,
+      0.411
+     ],
+     [
+      -0.305,
+      0.438
+     ],
+     [
+      -0.33,
+      0.431
+     ],
+     [
+      -0.321,
+      0.444
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 579,
+     "episodes": 209,
+     "draws": 431,
+     "edge": 0.17,
+     "chance": [
+      -0.42,
+      0.44
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 638,
+     "episodes": 211,
+     "draws": 391,
+     "edge": 0.41,
+     "chance": [
+      -0.57,
+      0.56
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 644,
+     "episodes": 215,
+     "draws": 388,
+     "edge": -0.44,
+     "chance": [
+      -0.8,
+      0.76
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "OBV",
+    "params": {
+     "obvMaType": "ema",
+     "obvMaLength": 50,
+     "indicatorCondition": "cu"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 978,
+     "episodes": 330,
+     "draws": 255,
+     "edge": 0.08,
+     "chance": [
+      -0.45,
+      0.54
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 839,
+     "episodes": 304,
+     "draws": 297,
+     "edge": 0.34,
+     "chance": [
+      -0.52,
+      0.44
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "obv-sma20-down-short",
+   "tf": "4h",
+   "label": "OBV crosses down its SMA 20, short",
+   "side": "short",
+   "featured": true,
+   "pooled": {
+    "entries": 2806,
+    "episodes": 738,
+    "draws": 100,
+    "edge": -0.2,
+    "chance": [
+     -0.21,
+     0.3
+    ],
+    "verdict": "none",
+    "path": [
+     0.006,
+     -0.049,
+     -0.061,
+     -0.051,
+     -0.033,
+     -0.09,
+     -0.113,
+     -0.132,
+     -0.131,
+     -0.096,
+     -0.044,
+     -0.079,
+     -0.074,
+     -0.11,
+     -0.092,
+     -0.173,
+     -0.209,
+     -0.197,
+     -0.177,
+     -0.203
+    ],
+    "band": [
+     [
+      -0.059,
+      0.067
+     ],
+     [
+      -0.072,
+      0.072
+     ],
+     [
+      -0.092,
+      0.098
+     ],
+     [
+      -0.1,
+      0.135
+     ],
+     [
+      -0.115,
+      0.147
+     ],
+     [
+      -0.126,
+      0.17
+     ],
+     [
+      -0.126,
+      0.193
+     ],
+     [
+      -0.122,
+      0.2
+     ],
+     [
+      -0.146,
+      0.197
+     ],
+     [
+      -0.154,
+      0.206
+     ],
+     [
+      -0.182,
+      0.215
+     ],
+     [
+      -0.206,
+      0.228
+     ],
+     [
+      -0.187,
+      0.236
+     ],
+     [
+      -0.187,
+      0.239
+     ],
+     [
+      -0.199,
+      0.27
+     ],
+     [
+      -0.232,
+      0.263
+     ],
+     [
+      -0.202,
+      0.288
+     ],
+     [
+      -0.223,
+      0.275
+     ],
+     [
+      -0.211,
+      0.292
+     ],
+     [
+      -0.205,
+      0.303
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 968,
+     "episodes": 245,
+     "draws": 258,
+     "edge": 0.12,
+     "chance": [
+      -0.25,
+      0.3
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 952,
+     "episodes": 241,
+     "draws": 262,
+     "edge": -0.31,
+     "chance": [
+      -0.32,
+      0.38
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 886,
+     "episodes": 252,
+     "draws": 282,
+     "edge": -0.48,
+     "chance": [
+      -0.59,
+      0.6
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "OBV",
+    "params": {
+     "indicatorCondition": "cd"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 1540,
+     "episodes": 416,
+     "draws": 162,
+     "edge": -0.16,
+     "chance": [
+      -0.29,
+      0.31
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 1189,
+     "episodes": 331,
+     "draws": 210,
+     "edge": -0.17,
+     "chance": [
+      -0.33,
+      0.39
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "obv-sma20-up",
+   "tf": "1d",
+   "label": "OBV crosses up its SMA 20",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 449,
+    "episodes": 126,
+    "draws": 500,
+    "edge": -1.34,
+    "chance": [
+     -2.12,
+     2.35
+    ],
+    "verdict": "none",
+    "path": [
+     -0.234,
+     -0.256,
+     -0.226,
+     -0.397,
+     -0.473,
+     -0.518,
+     -0.654,
+     -1.367,
+     -1.32,
+     -1.338,
+     -1.57,
+     -1.651,
+     -1.444,
+     -1.523,
+     -1.411,
+     -1.284,
+     -0.999,
+     -1.182,
+     -0.957,
+     -1.345
+    ],
+    "band": [
+     [
+      -0.373,
+      0.37
+     ],
+     [
+      -0.5,
+      0.484
+     ],
+     [
+      -0.6,
+      0.612
+     ],
+     [
+      -0.757,
+      0.721
+     ],
+     [
+      -0.806,
+      0.864
+     ],
+     [
+      -0.966,
+      1.012
+     ],
+     [
+      -1.094,
+      1.114
+     ],
+     [
+      -1.194,
+      1.166
+     ],
+     [
+      -1.23,
+      1.295
+     ],
+     [
+      -1.398,
+      1.403
+     ],
+     [
+      -1.465,
+      1.639
+     ],
+     [
+      -1.554,
+      1.824
+     ],
+     [
+      -1.59,
+      1.822
+     ],
+     [
+      -1.613,
+      2.015
+     ],
+     [
+      -1.686,
+      2.012
+     ],
+     [
+      -1.705,
+      2.156
+     ],
+     [
+      -1.792,
+      2.19
+     ],
+     [
+      -1.855,
+      2.305
+     ],
+     [
+      -1.9,
+      2.332
+     ],
+     [
+      -2.121,
+      2.35
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 157,
+     "episodes": 40,
+     "draws": 500,
+     "edge": -2.97,
+     "chance": [
+      -1.9,
+      1.75
+     ],
+     "verdict": "worse",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 5,
+       "start": "2022-04-13",
+       "end": "2022-05-01",
+       "without": "worse"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 152,
+     "episodes": 44,
+     "draws": 500,
+     "edge": -1.49,
+     "chance": [
+      -2.66,
+      3.21
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 140,
+     "episodes": 42,
+     "draws": 500,
+     "edge": 0.95,
+     "chance": [
+      -4.93,
+      5.69
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "OBV",
+    "params": {
+     "indicatorCondition": "cu"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 223,
+     "episodes": 78,
+     "draws": 500,
+     "edge": -0.93,
+     "chance": [
+      -2.73,
+      2.29
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 213,
+     "episodes": 57,
+     "draws": 500,
+     "edge": -1.28,
+     "chance": [
+      -2.29,
+      2.1
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "obv-sma20-gt",
+   "tf": "1d",
+   "label": "OBV above its SMA 20",
+   "side": "long",
+   "featured": true,
+   "pooled": {
+    "entries": 3353,
+    "episodes": 52,
+    "draws": 100,
+    "edge": 2.87,
+    "chance": [
+     -2.32,
+     1.91
+    ],
+    "verdict": "fragile",
+    "robustness": {
+     "fragile": true,
+     "strongest": {
+      "deals": 308,
+      "start": "2020-09-02",
+      "end": "2021-12-28",
+      "without": "chance"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "edge"
+      },
+      {
+       "horizon": 50,
+       "state": "edge"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     0.136,
+     0.294,
+     0.429,
+     0.543,
+     0.649,
+     0.744,
+     0.847,
+     0.9,
+     1.081,
+     1.274,
+     1.452,
+     1.643,
+     1.842,
+     1.985,
+     2.203,
+     2.389,
+     2.526,
+     2.634,
+     2.781,
+     2.871
+    ],
+    "band": [
+     [
+      -0.145,
+      0.113
+     ],
+     [
+      -0.285,
+      0.176
+     ],
+     [
+      -0.393,
+      0.295
+     ],
+     [
+      -0.498,
+      0.438
+     ],
+     [
+      -0.655,
+      0.544
+     ],
+     [
+      -0.788,
+      0.676
+     ],
+     [
+      -0.905,
+      0.742
+     ],
+     [
+      -0.964,
+      0.829
+     ],
+     [
+      -1.079,
+      0.88
+     ],
+     [
+      -1.228,
+      1.031
+     ],
+     [
+      -1.404,
+      1.135
+     ],
+     [
+      -1.559,
+      1.271
+     ],
+     [
+      -1.666,
+      1.303
+     ],
+     [
+      -1.749,
+      1.327
+     ],
+     [
+      -1.9,
+      1.415
+     ],
+     [
+      -1.965,
+      1.541
+     ],
+     [
+      -2.05,
+      1.561
+     ],
+     [
+      -2.134,
+      1.642
+     ],
+     [
+      -2.221,
+      1.781
+     ],
+     [
+      -2.319,
+      1.909
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 1055,
+     "episodes": 19,
+     "draws": 236,
+     "edge": 1.62,
+     "chance": [
+      -1.79,
+      1.95
+     ],
+     "verdict": "few"
+    },
+    "ETH": {
+     "entries": 1127,
+     "episodes": 17,
+     "draws": 221,
+     "edge": 1.78,
+     "chance": [
+      -2.69,
+      1.93
+     ],
+     "verdict": "few"
+    },
+    "SOL": {
+     "entries": 1171,
+     "episodes": 16,
+     "draws": 213,
+     "edge": 4.82,
+     "chance": [
+      -3.88,
+      3.41
+     ],
+     "verdict": "few",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 308,
+       "start": "2020-09-02",
+       "end": "2021-12-28",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    }
+   },
+   "bot": {
+    "type": "OBV",
+    "params": {
+     "indicatorCondition": "gt"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 2090,
+     "episodes": 42,
+     "draws": 119,
+     "edge": 3.66,
+     "chance": [
+      -1.88,
+      1.97
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 206,
+       "start": "2021-02-27",
+       "end": "2021-12-28",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 1161,
+     "episodes": 43,
+     "draws": 215,
+     "edge": -0.78,
+     "chance": [
+      -2.2,
+      2.66
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "obv-ema50-up",
+   "tf": "1d",
+   "label": "OBV crosses up its EMA 50",
+   "side": "long",
+   "featured": false,
+   "pooled": {
+    "entries": 283,
+    "episodes": 95,
+    "draws": 500,
+    "edge": -3.16,
+    "chance": [
+     -3.04,
+     3.37
+    ],
+    "verdict": "fragile-worse",
+    "robustness": {
+     "fragile": true,
+     "strongest": {
+      "deals": 14,
+      "start": "2024-12-11",
+      "end": "2025-02-23",
+      "without": "chance"
+     },
+     "otherHorizons": [
+      {
+       "horizon": 10,
+       "state": "worse"
+      },
+      {
+       "horizon": 50,
+       "state": "chance"
+      },
+      {
+       "horizon": 100,
+       "state": "chance"
+      }
+     ]
+    },
+    "path": [
+     -0.4,
+     -0.279,
+     -0.423,
+     -0.589,
+     -1.024,
+     -0.755,
+     -0.938,
+     -1.947,
+     -2.166,
+     -2.277,
+     -2.443,
+     -2.779,
+     -2.621,
+     -2.714,
+     -2.46,
+     -2.754,
+     -2.742,
+     -3.012,
+     -2.579,
+     -3.165
+    ],
+    "band": [
+     [
+      -0.436,
+      0.432
+     ],
+     [
+      -0.598,
+      0.573
+     ],
+     [
+      -0.782,
+      0.762
+     ],
+     [
+      -0.941,
+      0.947
+     ],
+     [
+      -1.154,
+      1.182
+     ],
+     [
+      -1.284,
+      1.262
+     ],
+     [
+      -1.53,
+      1.46
+     ],
+     [
+      -1.584,
+      1.578
+     ],
+     [
+      -1.668,
+      1.744
+     ],
+     [
+      -1.749,
+      2.003
+     ],
+     [
+      -1.926,
+      2.019
+     ],
+     [
+      -2.071,
+      2.192
+     ],
+     [
+      -2.209,
+      2.305
+     ],
+     [
+      -2.246,
+      2.424
+     ],
+     [
+      -2.44,
+      2.568
+     ],
+     [
+      -2.471,
+      2.714
+     ],
+     [
+      -2.544,
+      2.85
+     ],
+     [
+      -2.753,
+      3.146
+     ],
+     [
+      -2.975,
+      3.122
+     ],
+     [
+      -3.039,
+      3.374
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 100,
+     "episodes": 33,
+     "draws": 500,
+     "edge": 0.07,
+     "chance": [
+      -3.09,
+      2.81
+     ],
+     "verdict": "none"
+    },
+    "ETH": {
+     "entries": 96,
+     "episodes": 32,
+     "draws": 500,
+     "edge": -6.81,
+     "chance": [
+      -3.92,
+      4.99
+     ],
+     "verdict": "worse",
+     "robustness": {
+      "fragile": false,
+      "strongest": {
+       "deals": 14,
+       "start": "2024-12-11",
+       "end": "2025-02-23",
+       "without": "worse"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "worse"
+       },
+       {
+        "horizon": 100,
+        "state": "worse"
+       }
+      ]
+     }
+    },
+    "SOL": {
+     "entries": 87,
+     "episodes": 30,
+     "draws": 500,
+     "edge": -2.46,
+     "chance": [
+      -6.27,
+      7.15
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "OBV",
+    "params": {
+     "obvMaType": "ema",
+     "obvMaLength": 50,
+     "indicatorCondition": "cu"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 135,
+     "episodes": 51,
+     "draws": 500,
+     "edge": -5.04,
+     "chance": [
+      -4.45,
+      5.31
+     ],
+     "verdict": "fragile-worse",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 8,
+       "start": "2024-12-11",
+       "end": "2025-01-31",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "worse"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "worse"
+       }
+      ]
+     }
+    },
+    "down": {
+     "entries": 139,
+     "episodes": 49,
+     "draws": 500,
+     "edge": -1.44,
+     "chance": [
+      -3.11,
+      3.11
+     ],
+     "verdict": "none"
+    }
+   }
+  },
+  {
+   "id": "obv-sma20-down-short",
+   "tf": "1d",
+   "label": "OBV crosses down its SMA 20, short",
+   "side": "short",
+   "featured": true,
+   "pooled": {
+    "entries": 452,
+    "episodes": 123,
+    "draws": 500,
+    "edge": 1.52,
+    "chance": [
+     -2.36,
+     2.39
+    ],
+    "verdict": "none",
+    "path": [
+     0.18,
+     0.369,
+     0.653,
+     0.819,
+     1.009,
+     1.072,
+     1.495,
+     1.294,
+     1.183,
+     1.343,
+     1.525,
+     1.573,
+     1.794,
+     1.325,
+     1.393,
+     1.685,
+     1.664,
+     1.586,
+     1.808,
+     1.516
+    ],
+    "band": [
+     [
+      -0.349,
+      0.362
+     ],
+     [
+      -0.51,
+      0.487
+     ],
+     [
+      -0.661,
+      0.606
+     ],
+     [
+      -0.753,
+      0.757
+     ],
+     [
+      -0.821,
+      0.813
+     ],
+     [
+      -0.904,
+      0.968
+     ],
+     [
+      -1.005,
+      0.964
+     ],
+     [
+      -1.13,
+      1.07
+     ],
+     [
+      -1.263,
+      1.206
+     ],
+     [
+      -1.392,
+      1.197
+     ],
+     [
+      -1.419,
+      1.373
+     ],
+     [
+      -1.553,
+      1.499
+     ],
+     [
+      -1.575,
+      1.542
+     ],
+     [
+      -1.659,
+      1.697
+     ],
+     [
+      -1.916,
+      1.813
+     ],
+     [
+      -2.03,
+      1.867
+     ],
+     [
+      -2.105,
+      2.018
+     ],
+     [
+      -2.123,
+      2.022
+     ],
+     [
+      -2.153,
+      2.253
+     ],
+     [
+      -2.363,
+      2.395
+     ]
+    ]
+   },
+   "coins": {
+    "BTC": {
+     "entries": 158,
+     "episodes": 40,
+     "draws": 500,
+     "edge": 2.54,
+     "chance": [
+      -1.91,
+      1.98
+     ],
+     "verdict": "fragile",
+     "robustness": {
+      "fragile": true,
+      "strongest": {
+       "deals": 3,
+       "start": "2022-06-01",
+       "end": "2022-06-07",
+       "without": "chance"
+      },
+      "otherHorizons": [
+       {
+        "horizon": 10,
+        "state": "edge"
+       },
+       {
+        "horizon": 50,
+        "state": "chance"
+       },
+       {
+        "horizon": 100,
+        "state": "chance"
+       }
+      ]
+     }
+    },
+    "ETH": {
+     "entries": 153,
+     "episodes": 39,
+     "draws": 500,
+     "edge": 1.73,
+     "chance": [
+      -3.66,
+      2.65
+     ],
+     "verdict": "none"
+    },
+    "SOL": {
+     "entries": 141,
+     "episodes": 44,
+     "draws": 500,
+     "edge": -0.18,
+     "chance": [
+      -5.39,
+      4.94
+     ],
+     "verdict": "none"
+    }
+   },
+   "bot": {
+    "type": "OBV",
+    "params": {
+     "indicatorCondition": "cd"
+    }
+   },
+   "regimes": {
+    "up": {
+     "entries": 249,
+     "episodes": 79,
+     "draws": 500,
+     "edge": 0.99,
+     "chance": [
+      -2.01,
+      2.07
+     ],
+     "verdict": "none"
+    },
+    "down": {
+     "entries": 190,
+     "episodes": 50,
+     "draws": 500,
+     "edge": 2.69,
+     "chance": [
+      -2.59,
+      2.72
+     ],
+     "verdict": "none"
+    }
+   }
+  }
+ ],
+ "summary": "Mostly no. On BTC, ETH and SOL, price after OBV crossed up through its SMA 20 did the same as random on 1h, 4h and daily, and so did a cross up through its EMA 50 on 1h and 4h. The one result that holds up is on the short side, in downtrends only: on 1h, with the pair below its 200-day SMA, price fell more than after random downtrend candles once OBV crossed down through its SMA 20, at 10, 20, 50 and 100 candles and without its strongest stretch.",
+ "verdicts": [
+  {
+   "use": "Going long on a cross up through the SMA 20",
+   "verdict": "none",
+   "text": "Same as random on 1h, 4h and daily, pooled across the three pairs. In uptrends on 1h it beat random only because of signals on Nov 8–10, 2023."
+  },
+  {
+   "use": "Holding long while OBV is above its SMA 20",
+   "verdict": "fragile",
+   "text": "Same as random on 1h and 4h. On daily it beat random by 2.87%, but the gap rests on one stretch between Sep 2, 2020 and Dec 28, 2021, and without it the result is chance."
+  },
+  {
+   "use": "Going long on a cross up through the EMA 50",
+   "verdict": "fragile-worse",
+   "text": "Same as random on 1h and 4h. On daily it was worse than random by 3.16%, but that rests on 14 entries between Dec 11, 2024 and Feb 23, 2025."
+  },
+  {
+   "use": "Shorting a cross down through the SMA 20",
+   "verdict": "none",
+   "text": "Same as random pooled on 1h, 4h and daily. On 1h in downtrends, below the 200-day SMA, price fell 0.15% more than after random downtrend candles, while in uptrends it was the same as random."
+  }
+ ],
+ "notes": [
+  "On 4h, OBV crossing up through its SMA 20 gave 2,803 entries in 748 separate moves. Twenty candles later they were 0.14% ahead of random entries, inside the luck band of -0.26 to 0.22. Holding while OBV stayed above the SMA 20 landed at 0.17%, also inside the band. On 1h the same cross gave 11,104 entries and also did the same as random.",
+  "The short side changes with the trend. On 1h, when the pair closed below its 200-day SMA, a cross down through the SMA 20 gave 4,681 entries in 1,352 moves. Price fell 0.15% more than after random downtrend candles, above a band of -0.09 to 0.08. It held without its strongest stretch, signals on May 10–12, 2022 during the Terra collapse, and at 10, 20, 50 and 100 candles. In uptrends the same cross was the same as random, at -0.04%.",
+  "On daily, holding long while OBV was above its SMA 20 beat random by 2.87%. That gap comes from 308 entries between Sep 2, 2020 and Dec 28, 2021, and without them it is chance. In uptrends it beat random by 3.66%, again resting on one stretch. In downtrends it was the same as random at -0.78%, and no single pair had enough separate moves to be judged on its own.",
+  "Daily crosses up through the moving average tended to come late. OBV crossing up its EMA 50 did 3.16% worse than random, and on ETH 6.81% worse, a result that held without its strongest stretch and at 10, 20, 50 and 100 candles. On BTC, a cross up through the SMA 20 did 2.97% worse than random and held without its strongest stretch, but not at 50 or 100 candles. In downtrends the EMA 50 cross was the same as random.",
+  "Some results rest on one stretch. On 4h, ETH's cross up through the SMA 20 beat random only because of signals between Dec 31, 2020 and Jan 2, 2021. On daily, BTC's short on a cross down through the SMA 20 beat random by 2.54% on the strength of 3 entries between Jun 1, 2022 and Jun 7, 2022. Treat both as stretch effects.",
+  "For a long DCA bot on these pairs, an OBV cross over its SMA 20 or EMA 50 adds no timing, so the DCA orders and take profit do the work. The one shape worth testing is a filter for short bots on 1h: a cross down through the SMA 20 only while price is below its 200-day SMA. On daily, consider leaving the EMA 50 cross up out of a long bot's start conditions."
+ ],
+ "summaryRefs": [
+  {
+   "tf": "*",
+   "setting": "obv-sma20-up",
+   "scope": "pooled"
+  },
+  {
+   "tf": "1h",
+   "setting": "obv-ema50-up",
+   "scope": "pooled"
+  },
+  {
+   "tf": "4h",
+   "setting": "obv-ema50-up",
+   "scope": "pooled"
+  },
+  {
+   "tf": "1h",
+   "setting": "obv-sma20-down-short",
+   "scope": "down"
+  }
+ ],
+ "verdictRefs": [
+  [
+   {
+    "tf": "*",
+    "setting": "obv-sma20-up",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "obv-sma20-up",
+    "scope": "up"
+   }
+  ],
+  [
+   {
+    "tf": "*",
+    "setting": "obv-sma20-gt",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "*",
+    "setting": "obv-ema50-up",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "*",
+    "setting": "obv-sma20-down-short",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "obv-sma20-down-short",
+    "scope": "down"
+   },
+   {
+    "tf": "1h",
+    "setting": "obv-sma20-down-short",
+    "scope": "up"
+   }
+  ]
+ ],
+ "noteRefs": [
+  [
+   {
+    "tf": "4h",
+    "setting": "obv-sma20-up",
+    "scope": "pooled"
+   },
+   {
+    "tf": "4h",
+    "setting": "obv-sma20-gt",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1h",
+    "setting": "obv-sma20-up",
+    "scope": "pooled"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "obv-sma20-down-short",
+    "scope": "down"
+   },
+   {
+    "tf": "1h",
+    "setting": "obv-sma20-down-short",
+    "scope": "up"
+   }
+  ],
+  [
+   {
+    "tf": "1d",
+    "setting": "obv-sma20-gt",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "obv-sma20-gt",
+    "scope": "up"
+   },
+   {
+    "tf": "1d",
+    "setting": "obv-sma20-gt",
+    "scope": "down"
+   },
+   {
+    "tf": "1d",
+    "setting": "obv-sma20-gt",
+    "scope": "BTC"
+   },
+   {
+    "tf": "1d",
+    "setting": "obv-sma20-gt",
+    "scope": "ETH"
+   },
+   {
+    "tf": "1d",
+    "setting": "obv-sma20-gt",
+    "scope": "SOL"
+   }
+  ],
+  [
+   {
+    "tf": "1d",
+    "setting": "obv-ema50-up",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "obv-ema50-up",
+    "scope": "ETH"
+   },
+   {
+    "tf": "1d",
+    "setting": "obv-ema50-up",
+    "scope": "down"
+   },
+   {
+    "tf": "1d",
+    "setting": "obv-sma20-up",
+    "scope": "BTC"
+   }
+  ],
+  [
+   {
+    "tf": "4h",
+    "setting": "obv-sma20-up",
+    "scope": "ETH"
+   },
+   {
+    "tf": "1d",
+    "setting": "obv-sma20-down-short",
+    "scope": "BTC"
+   }
+  ],
+  [
+   {
+    "tf": "1h",
+    "setting": "obv-sma20-down-short",
+    "scope": "down"
+   },
+   {
+    "tf": "*",
+    "setting": "obv-sma20-up",
+    "scope": "pooled"
+   },
+   {
+    "tf": "*",
+    "setting": "obv-ema50-up",
+    "scope": "pooled"
+   },
+   {
+    "tf": "1d",
+    "setting": "obv-ema50-up",
+    "scope": "pooled"
+   }
+  ]
+ ]
+}
