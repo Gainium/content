@@ -7,7 +7,7 @@ description: >-
   work, understand commission levels based on successful referrals, and discover
   how to split commissions with friends for mutual benefits.
 createdAt: '2023-08-24T15:34:40.183Z'
-updatedAt: '2026-06-27T07:44:20.560Z'
+updatedAt: '2026-11-19T00:00:00.000Z'
 publishedAt: '2023-08-24T16:17:49.261Z'
 locale: en
 categories:
@@ -37,6 +37,8 @@ To get started, visit your [affiliate dashboard](https://app.gainium.io/affiliat
 **Referral Commission:**
 
 The default commission is **30%**. Custom affiliate commissions can be discussed if you own a large community.
+
+Purchases made during a promotional offer, such as a Black Friday sale, don't earn commission, and the referral discount doesn't apply on top of the offer price. Regular-price purchases and renewals afterwards earn commission as usual. See section 3.7 of the [Affiliate Policy](https://gainium.io/legal/affiliate-policy).
 
 ## Getting started with referral links
 - Generate a new link: As an affiliate, you can generate distinct links for various campaigns or platforms. This helps in ensuring that each link you create aligns with the specific audience or strategy you have in mind.
